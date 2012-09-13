@@ -1,0 +1,14 @@
+IF
+  Global("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    Activate("FALDORN")
+END
+
+IF
+  !Global("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    Deactivate("FALDORN")
+END
+

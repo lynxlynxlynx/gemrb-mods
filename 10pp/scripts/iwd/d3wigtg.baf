@@ -1,0 +1,59 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    HideCreature(Myself,TRUE)
+    StartRandomTimer(24,30,30)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  Help(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    FaceObject(LastHelp(Myself))
+    Continue()
+END
+
+IF
+  TimerExpired(24)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,HEAD_TURN)
+    StartRandomTimer(24,30,30)
+END
+
+IF
+  ActionListEmpty()
+  NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    Wait(5)
+END
+

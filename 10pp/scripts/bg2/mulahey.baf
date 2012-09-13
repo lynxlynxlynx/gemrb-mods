@@ -1,0 +1,24 @@
+IF
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("TalkedToMulahey","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TalkedToMulahey","GLOBAL",1)
+    Dialog([PC])
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+END
+

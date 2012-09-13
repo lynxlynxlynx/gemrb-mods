@@ -1,0 +1,45 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("Rune1","AR0411",1)
+  Global("Rune2","AR0411",0)
+  Global("Rune3","AR0411",0)
+  Global("Rune4","AR0411",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39581)  // ~When you touch this rune, it begins to glow.  You feel as if you have done something right.~
+    OpenDoor("Rune04")
+    PlaySound("EFF_M62")
+    SetGlobal("Rune2","AR0411",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  OR(4)
+    Global("Rune1","AR0411",0)
+    Global("Rune2","AR0411",1)
+    Global("Rune3","AR0411",1)
+    Global("Rune4","AR0411",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39582)  // ~When you touch this rune, it begins to glow.  You have a sinking feeling that you have done something wrong.~
+    SetGlobal("Rune1","AR0411",0)
+    SetGlobal("Rune2","AR0411",0)
+    SetGlobal("Rune3","AR0411",0)
+    SetGlobal("Rune4","AR0411",0)
+    CloseDoor("Rune01")
+    CloseDoor("Rune02")
+    CloseDoor("Rune03")
+    CloseDoor("Rune04")
+    ForceSpellPoint([1414.1297],TRAP_FIREBALL)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

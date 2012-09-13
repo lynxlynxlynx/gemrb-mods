@@ -1,0 +1,37 @@
+IF
+  Global("41NickAwaken","MYAREA",1)
+  GlobalTimerExpired("NickAwaken","MYAREA")
+  See([PC],0)
+THEN
+  RESPONSE #100
+    Polymorph(MAGE_MALE_HUMAN)
+    PlaySequence(Myself,AWAKE)
+    JumpToPoint([1120.1375])
+    SetDialogueRange(300)
+    SetGlobal("41NickAwaken","MYAREA",2)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  GlobalLT("41NickAwaken","MYAREA",2)
+  AttackedBy([ANYONE],0)
+THEN
+  RESPONSE #100
+    Polymorph(MAGE_MALE_HUMAN)
+    PlaySequence(Myself,AWAKE)
+    JumpToPoint([1120.1375])
+    SetGlobal("41NickAwaken","MYAREA",2)
+    ChangeCurrentScript("")
+END
+
+IF
+  AttackedBy([ANYONE],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    SetGlobal("TEAM_1","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    Enemy()
+END
+

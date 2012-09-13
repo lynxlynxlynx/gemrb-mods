@@ -1,0 +1,261 @@
+IF
+  See([GOODCUTOFF])
+  Global("PrisonBreak","AR5007",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PrisonBreak","AR5007",1)
+    PlaySound("ALARM1")
+END
+
+IF
+  Global("PrisonBreak","AR5007",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("PrisonBreak","AR5007",1)
+  OpenState("DOOR07",FALSE)  // DOOR07
+  Range("DOOR07",5)  // DOOR07
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR07")
+    Continue()
+END
+
+IF
+  Global("PrisonBreak","AR5007",1)
+  OpenState("DOOR08",FALSE)  // DOOR08
+  Range("DOOR08",5)  // DOOR08
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR08")
+    Continue()
+END
+
+IF
+  Global("PrisonBreak","AR5007",1)
+  OpenState("DOOR09",FALSE)  // DOOR09
+  Range("DOOR09",5)  // DOOR09
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR09")
+    Continue()
+END
+
+IF
+  Global("PrisonBreak","AR5007",1)
+  OpenState("DOOR10",FALSE)  // DOOR10
+  Range("DOOR10",5)  // DOOR10
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR10")
+    Continue()
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",0)
+  See("DOOR10")  // DOOR10
+  OpenState("DOOR10",TRUE)  // DOOR10
+THEN
+  RESPONSE #100
+    MoveToObject("DOOR10")
+    SetGlobal("ClosingDoor","LOCALS",10)
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",0)
+  See("DOOR09")  // DOOR09
+  OpenState("DOOR09",TRUE)  // DOOR09
+THEN
+  RESPONSE #100
+    MoveToObject("DOOR09")
+    SetGlobal("ClosingDoor","LOCALS",9)
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",0)
+  See("DOOR08")  // DOOR08
+  OpenState("DOOR08",TRUE)  // DOOR08
+THEN
+  RESPONSE #100
+    MoveToObject("DOOR08")
+    SetGlobal("ClosingDoor","LOCALS",8)
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",0)
+  See("DOOR07")  // DOOR07
+  OpenState("DOOR07",TRUE)  // DOOR07
+THEN
+  RESPONSE #100
+    MoveToObject("DOOR07")
+    SetGlobal("ClosingDoor","LOCALS",7)
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",10)
+  See("DOOR10")  // DOOR10
+  OpenState("DOOR10",TRUE)  // DOOR10
+THEN
+  RESPONSE #20
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR10")
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR10")
+    DisplayStringHead(Myself,71191)  // ~Is someone there?~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR10")
+    DisplayStringHead(Myself,71192)  // ~These doors never seem to stay closed.~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR10")
+    DisplayStringHead(Myself,71193)  // ~Must be the wind.~
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",9)
+  See("DOOR09")  // DOOR09
+  OpenState("DOOR09",TRUE)  // DOOR09
+THEN
+  RESPONSE #20
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR09")
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR09")
+    DisplayStringHead(Myself,71191)  // ~Is someone there?~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR09")
+    DisplayStringHead(Myself,71192)  // ~These doors never seem to stay closed.~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR09")
+    DisplayStringHead(Myself,71193)  // ~Must be the wind.~
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",8)
+  See("DOOR08")  // DOOR08
+  OpenState("DOOR08",TRUE)  // DOOR08
+THEN
+  RESPONSE #20
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR08")
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR08")
+    DisplayStringHead(Myself,71191)  // ~Is someone there?~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR08")
+    DisplayStringHead(Myself,71192)  // ~These doors never seem to stay closed.~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR08")
+    DisplayStringHead(Myself,71193)  // ~Must be the wind.~
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("ClosingDoor","LOCALS",7)
+  See("DOOR07")  // DOOR07
+  OpenState("DOOR07",TRUE)  // DOOR07
+THEN
+  RESPONSE #20
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR07")
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR07")
+    DisplayStringHead(Myself,71191)  // ~Is someone there?~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR07")
+    DisplayStringHead(Myself,71192)  // ~These doors never seem to stay closed.~
+  RESPONSE #10
+    SetGlobal("ClosingDoor","LOCALS",0)
+    CloseDoor("DOOR07")
+    DisplayStringHead(Myself,71193)  // ~Must be the wind.~
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  See("DOOR06")  // DOOR06
+  OpenState("DOOR06",TRUE)  // DOOR06
+THEN
+  RESPONSE #100
+    SetGlobal("PrisonBreak","AR5007",1)
+    PlaySound("ALARM1")
+    DisplayStringHead(Myself,71194)  // ~Someone's in the prison!~
+    MoveToObject("DOOR06")
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  See("DOOR05")  // DOOR05
+  OpenState("DOOR05",TRUE)  // DOOR05
+THEN
+  RESPONSE #100
+    SetGlobal("PrisonBreak","AR5007",1)
+    DisplayStringHead(Myself,71194)  // ~Someone's in the prison!~
+    PlaySound("ALARM1")
+    MoveToObject("DOOR05")
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("Patrol","LOCALS",0)
+  !Range("Waypoint3",5)  // Waypoint3
+THEN
+  RESPONSE #100
+    MoveToObject("Waypoint3")
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("Patrol","LOCALS",0)
+  Range("Waypoint3",5)  // Waypoint3
+THEN
+  RESPONSE #100
+    SetGlobal("Patrol","LOCALS",1)
+    Face(6)
+    Wait(1)
+    Face(2)
+    Wait(1)
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("Patrol","LOCALS",1)
+  !Range("Waypoint4",5)  // Waypoint4
+THEN
+  RESPONSE #100
+    MoveToObject("Waypoint4")
+END
+
+IF
+  Global("PrisonBreak","AR5007",0)
+  Global("Patrol","LOCALS",1)
+  Range("Waypoint4",5)  // Waypoint4
+THEN
+  RESPONSE #100
+    SetGlobal("Patrol","LOCALS",0)
+    Face(6)
+    Wait(1)
+    Face(10)
+    Wait(1)
+END
+

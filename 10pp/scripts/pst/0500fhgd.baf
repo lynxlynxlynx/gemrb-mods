@@ -1,0 +1,42 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    MoveToPoint([1589.2429])
+    MoveToPoint([1288.2132])
+    MoveToPoint([1285.1694])
+    MoveToPoint([1495.1486])
+    MoveToPoint([2095.1486])
+    MoveToPoint([2649.939])
+    MoveToPoint([2928.939])
+    Face(8)
+    Wait(10)
+    MoveToPoint([2649.939])
+    MoveToPoint([2095.1486])
+    MoveToPoint([1495.1486])
+    MoveToPoint([1285.1694])
+    MoveToPoint([1288.2132])
+    MoveToPoint([1589.2429])
+    MoveToPoint([1879.2433])
+    Face(4)
+    Continue()
+END
+

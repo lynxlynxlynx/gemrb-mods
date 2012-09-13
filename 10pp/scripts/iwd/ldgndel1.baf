@@ -1,0 +1,8 @@
+IF
+  !Global("KELLY_DEAD","GLOBAL",0)
+  Global("8002_ARCHERS_DEAD","GLOBAL",5)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

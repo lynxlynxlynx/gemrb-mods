@@ -1,0 +1,142 @@
+IF
+  !Global("9400_RESET_TEAMS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE4","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE6","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE7","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE8","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE9","MYAREA",0)
+    SetGlobal("9400_RESET_TEAMS","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("9300_NED_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("9300_NED_HOSTILE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("9300_RESET_TEAMS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("9300_RESET_TEAMS","GLOBAL",1)
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+  GlobalTimerExpired("CHECK_TEAM1_TIMER","MYAREA")
+  Global("CHECK_TEAM1_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM1_TIMER","MYAREA",12)
+    SetGlobal("CHECK_TEAM1_RESET","MYAREA",1)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("CHECK_TEAM1_TIMER","MYAREA")
+  !Global("CHECK_TEAM1_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM1_TIMER","MYAREA",12)
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",0)
+    SetGlobal("CHECK_TEAM1_RESET","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",0)
+    Continue()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+  GlobalTimerExpired("CHECK_TEAM2_TIMER","MYAREA")
+  Global("CHECK_TEAM2_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM2_TIMER","MYAREA",12)
+    SetGlobal("CHECK_TEAM2_RESET","MYAREA",1)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("CHECK_TEAM2_TIMER","MYAREA")
+  !Global("CHECK_TEAM2_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM2_TIMER","MYAREA",12)
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",0)
+    SetGlobal("CHECK_TEAM2_RESET","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",0)
+    Continue()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE3","MYAREA",0)
+  GlobalTimerExpired("CHECK_TEAM3_TIMER","MYAREA")
+  Global("CHECK_TEAM3_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM3_TIMER","MYAREA",12)
+    SetGlobal("CHECK_TEAM3_RESET","MYAREA",1)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("CHECK_TEAM3_TIMER","MYAREA")
+  !Global("CHECK_TEAM3_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM3_TIMER","MYAREA",12)
+    SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",0)
+    SetGlobal("CHECK_TEAM3_RESET","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",0)
+    Continue()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE4","MYAREA",0)
+  GlobalTimerExpired("CHECK_TEAM4_TIMER","MYAREA")
+  Global("CHECK_TEAM4_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM4_TIMER","MYAREA",12)
+    SetGlobal("CHECK_TEAM4_RESET","MYAREA",1)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("CHECK_TEAM4_TIMER","MYAREA")
+  !Global("CHECK_TEAM4_RESET","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHECK_TEAM4_TIMER","MYAREA",12)
+    SetGlobal("MAP_GROUP_HOSTILE4","MYAREA",0)
+    SetGlobal("CHECK_TEAM4_RESET","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE4","MYAREA",0)
+    Continue()
+END
+
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,30 @@
+IF
+  Global("Ghoul_Attack","GLOBAL",1)
+  Exists([0.0.TEAM_NONGHOUL])
+THEN
+  RESPONSE #100
+    Attack([0.0.TEAM_NONGHOUL])
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  Global("Ghoul_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

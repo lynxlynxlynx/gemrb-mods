@@ -1,0 +1,38 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WYLFDENE")  // 
+    Wait(3)
+    Face(S)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("HJOLLDER")  // 
+    MultiPlayerSync()
+    MoveToPoint([1026.780])
+    MoveToPoint([763.787])
+    Face(S)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ANNOUNCER")  // 
+    MultiPlayerSync()
+    Wait(1)
+    MoveToPoint([1026.780])
+    MoveToPoint([763.787])
+    Face(S)
+    HideCreature(Myself,TRUE)
+    FadeToColor([0.0],0)
+    Wait(1)
+    StartCutScene("BCWYLSND")
+    DestroySelf()
+END
+

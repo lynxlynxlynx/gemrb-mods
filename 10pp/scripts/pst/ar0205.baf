@@ -1,0 +1,27 @@
+IF
+  InParty("Morte")  // ~Talking Skull~
+  Global("0205_Morte","AR0205",0)
+THEN
+  RESPONSE #100
+    GlobalSet("0205_Morte","AR0205",1)
+    PlaySound("MRT229")
+END
+
+IF
+  !Global("Current_Area","GLOBAL",205)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",205)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0205_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Know_Dustman_Bar","GLOBAL",1)
+    GlobalSet("AR0205_Visited","GLOBAL",1)
+    Continue()
+END
+

@@ -1,0 +1,8 @@
+IF
+  Global("AmGuardLeave","GLOBAL",1)
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

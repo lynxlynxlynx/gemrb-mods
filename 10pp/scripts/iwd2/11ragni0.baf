@@ -1,0 +1,44 @@
+IF
+  Global("SAID_SPECIAL","LOCALS",0)
+  GlobalTimerExpired("GARRADUN_CHANGED_TIMER","MYAREA")
+  See("Doppelganger",0)  // Doppelganger
+THEN
+  RESPONSE #100
+    SetGlobalTimer("GARRADUN_CHANGED_TIMER","MYAREA",1)
+    FloatMessage(Myself,28205)  // ~"What the hells is happening to Garradun?!"~
+    SetGlobal("SAID_SPECIAL","LOCALS",1)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  ActionListEmpty()
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1215",Myself,3)
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+    MarkSpellAndObject("2306",LastMarkedObject,3)
+      // WIZARD_HOLD_PERSON
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

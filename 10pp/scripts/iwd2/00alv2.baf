@@ -1,0 +1,16 @@
+IF
+  Or(2)
+    CheckAreaDiffLevel(1)
+    CheckAreaDiffLevel(3)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

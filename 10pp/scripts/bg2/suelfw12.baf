@@ -1,0 +1,108 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Shout(100)
+    EscapeArea()
+END
+
+IF
+  NumDead("sutroll",2)
+  Dead("suelfw5")  // ~Elven Warrior~
+  Dead("suelfw6")  // ~Elven Warrior~
+  Global("Scene3","AR2800",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("Scene3","AR2800",2)
+    DisplayStringHead(Myself,4201)  // ~Move out! The battle is far from over!~
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  OR(2)
+    !Dead("suelfw5")  // ~Elven Warrior~
+    !Dead("suelfw6")  // ~Elven Warrior~
+  Global("Scene3","AR2800",2)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  Global("Scene3","AR2800",1)
+  See([ENEMY])
+  Global("Fight","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  Global("Scene3","AR2800",1)
+  See([ENEMY])
+  Global("Fight","LOCALS",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],WIZARD_FLAME_ARROW)
+END
+
+IF
+  Global("Scene3","AR2800",1)
+  See([ENEMY])
+  Global("Fight","LOCALS",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  Global("Scene3","AR2800",1)
+  See([ENEMY])
+  Global("Fight","LOCALS",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],WIZARD_BURNING_HANDS)
+END
+
+IF
+  Global("Scene3","AR2800",1)
+  See([ENEMY])
+  Global("Fight","LOCALS",4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(Myself,WIZARD_MELF_METEOR)
+END
+
+IF
+  Global("Scene3","AR2800",2)
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY],45)
+END
+

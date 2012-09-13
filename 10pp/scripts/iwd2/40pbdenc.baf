@@ -1,0 +1,39 @@
+IF
+  Or(3)
+    Opened([PC])
+    Disarmed([PC])
+    Clicked([PC])
+  Global("BeodaewnWarning","MYAREA",0)
+  Global("Beodaewn_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    EndCutSceneMode()
+    SetGlobal("40PlayerSawDen","GLOBAL",1)
+    SetGlobal("BeodaewnWarning","MYAREA",1)
+END
+
+IF
+  Or(3)
+    Opened([PC])
+    Disarmed([PC])
+    Clicked([PC])
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly("Beodaewn",ENEMY)
+    SetGlobal("TEAM_1","MYAREA",1)
+    Continue()
+END
+
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,CLERIC_ANIMAL_RAGE)
+    ForceSpell(LastTrigger,WIZARD_CHAOS)
+    ForceSpell(LastTrigger,WIZARD_FLAYING)
+    ForceSpell(LastTrigger,CLERIC_DOLOROUS_DECAY)
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ChangeCurrentScript("")
+END
+

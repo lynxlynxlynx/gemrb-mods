@@ -1,0 +1,9 @@
+IF
+  HPPercentLT(Myself,50)
+  Global("TalkedToCythan","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TalkedToCythan","GLOBAL",1)
+    StartDialogue("cythan",[PC])
+END
+

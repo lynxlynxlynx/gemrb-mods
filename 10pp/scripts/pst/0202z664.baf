@@ -1,0 +1,38 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Global("Mortuary_Alert_2","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Mortuary_Alert","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

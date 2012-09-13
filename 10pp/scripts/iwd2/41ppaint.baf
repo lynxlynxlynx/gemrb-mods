@@ -1,0 +1,48 @@
+IF
+  Clicked(Player1)
+  Global("SpeakToPainting","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",1)
+END
+
+IF
+  Clicked(Player2)
+  Global("SpeakToPainting","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",2)
+END
+
+IF
+  Clicked(Player3)
+  Global("SpeakToPainting","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",3)
+END
+
+IF
+  Clicked(Player4)
+  Global("SpeakToPainting","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",4)
+END
+
+IF
+  Clicked(Player5)
+  Global("SpeakToPainting","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",5)
+END
+
+IF
+  Clicked(Player6)
+  Global("SpeakToPainting","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",6)
+END
+

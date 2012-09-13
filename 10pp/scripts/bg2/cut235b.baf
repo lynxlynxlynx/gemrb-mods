@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateVisualEffect("SPFLAMES",[2006.1419])
+    SmallWait(7)
+    CreateVisualEffect("ICFIRSDI",[2006.1419])
+    CreateCreature("YAGASPIR",[2006.1419],2)  // ~Yaga-Shura~
+    Wait(1)
+    ActionOverride("yagaspir",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,19 @@
+IF
+  Entered([ANYONE])
+  OpenState("DOOR16",TRUE)  // DOOR16
+THEN
+  RESPONSE #100
+    CloseDoor("DOOR16")
+    PlaySound("AMB_D04A")
+    Wait(6)
+    SetGlobal("ExitCloud","GLOBAL",1)
+END
+
+IF
+  Global("ExitCloud","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ExitCloud","GLOBAL",0)
+    ForceSpellPoint([660.1244],WIZARD_CLOUDKILL)
+END
+

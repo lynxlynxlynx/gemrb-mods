@@ -1,0 +1,43 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_4)
+    Continue()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,6)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68017)  // ~"He's a fighter, he's a fighter..."~
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,7)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68018)  // ~"You see what I mean?"~
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,9)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,14)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68023)  // ~"Break 'em up, then."~
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,15)
+END
+

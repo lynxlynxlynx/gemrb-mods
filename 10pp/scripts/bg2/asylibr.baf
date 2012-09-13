@@ -1,0 +1,13 @@
+IF
+  IsOverMe([ANYONE])
+  Global("LibraryOpen","AR1513",0)
+  Global("deadJoye","AR1513",1)
+  GlobalLT("Coffin1","AR1513",2)
+THEN
+  RESPONSE #100
+    SetGlobal("LibraryOpen","AR1513",1)
+    DisplayString(Myself,31880)  // ~As you approach the library doors, mist seeps from the cracks.  A tortured voice says: 'Help me...' and the doors swing silently open.~
+    OpenDoor("Door07")
+    CreateCreature("ppjoye2",[1513.1952],10)  // ~Dace Apparition~
+END
+

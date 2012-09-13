@@ -1,0 +1,275 @@
+IF
+  CreatureHidden(Myself)
+  Global("LEAVIN","LOCALS",0)
+  !Global("BONUS_GENIE_ACTIVE","GLOBAL",0)
+  Global("IM_GENIE","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayMessage(38780)  // ~You have already summoned the djinni.~
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("LEAVIN","LOCALS",0)
+  See([ENEMY],0)
+  Global("IM_GENIE","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BONUS_GENIE_ACTIVE","GLOBAL",1)
+    SetCreatureAreaFlag(Myself,INVULNERABLE,TRUE)
+    SetCreatureAreaFlag(Myself,HAS_SEEN_PARTY,TRUE)
+    SetCreatureAreaFlag(Myself,NO_TALK,TRUE)
+    FaceObject([PC])
+    SpellHitEffectSprite(Myself,Myself,CLOUDBURST,40)
+    SmallWait(10)
+    SpellHitEffectSprite(Myself,Myself,STATIC_CHARGE,25)
+    SpellHitEffectSprite(Myself,Myself,GEDLEES_ELECTRIC_LOOP,25)
+    SmallWait(5)
+    SpellHitEffectSprite(Myself,Myself,CONE_OF_COLD,50)
+    SmallWait(17)
+    SpellHitEffectSprite(Myself,Myself,CURE_CRITICAL_WOUNDS,25)
+    SmallWait(10)
+    SpellHitEffectSprite(Myself,Myself,WATER_SUMMONING_CIRCLE,25)
+    SmallWait(5)
+    HideCreature(Myself,FALSE)
+    FaceObject(LastSeenBy(Myself))
+    FloatMessage(Myself,38779)  // ~"Summon me again when you are not in the midst of battle."~
+    Wait(1)
+    SetGlobal("LEAVIN","LOCALS",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("BONUS_GENIE_ACTIVE","GLOBAL",0)
+  Global("IM_GENIE","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("IM_GENIE","LOCALS",1)
+    SetGlobal("BONUS_GENIE_ACTIVE","GLOBAL",1)
+    SetCreatureAreaFlag(Myself,INVULNERABLE,TRUE)
+    SetCreatureAreaFlag(Myself,HAS_SEEN_PARTY,TRUE)
+    SetCreatureAreaFlag(Myself,NO_TALK,TRUE)
+    FaceObject([PC])
+    SpellHitEffectSprite(Myself,Myself,CLOUDBURST,40)
+    SmallWait(10)
+    SpellHitEffectSprite(Myself,Myself,STATIC_CHARGE,25)
+    SpellHitEffectSprite(Myself,Myself,GEDLEES_ELECTRIC_LOOP,25)
+    SmallWait(5)
+    SpellHitEffectSprite(Myself,Myself,CONE_OF_COLD,50)
+    SmallWait(17)
+    SpellHitEffectSprite(Myself,Myself,CURE_CRITICAL_WOUNDS,25)
+    SmallWait(10)
+    SpellHitEffectSprite(Myself,Myself,WATER_SUMMONING_CIRCLE,25)
+    SmallWait(5)
+    HideCreature(Myself,FALSE)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  ActionListEmpty()
+  !CreatureHidden(Myself)
+  Global("LEAVIN","LOCALS",0)
+  !Global("IM_GENIE","LOCALS",0)
+  Or(2)
+    NumberOfTimesTalkedTo(0)
+    Global("Bashshar_Service","GLOBAL",3)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Global("Bashshar_Service","GLOBAL",4)
+  !Global("IM_GENIE","LOCALS",0)
+  !CreatureHidden(Myself)
+  CheckPartyAverageLevel(9,LESS_THAN)
+THEN
+  RESPONSE #100
+    CreateCreature("00Arif","WARRIOR",[-1.-1],0)  // ~Arif ab'd Bashshar~
+    ActionOverride(LastMarkedObject,JumpToObject(NearestEnemyOf(Myself)))
+    CreateCreature("00Hadya","ASSASSIN",[-1.-1],0)  // ~Hadya ab'd Bashshar~
+    ActionOverride(LastMarkedObject,JumpToObject("JABIR"))
+    CreateCreature("00Jabir","JABIR",[-1.-1],0)  // ~Jabir ab'd Bashshar~
+    CreateCreature("00Nur","NUR",[-1.-1],0)  // ~Nur ab'd Bashshar~
+    CreateCreature("00RogBas","ROGUE_0",[-1.-1],0)  // ~Rogue~
+    ActionOverride(LastMarkedObject,JumpToObject("ASSASSIN"))
+    CreateCreature("00SolBas","SOLDIER_0",[-1.-1],0)  // ~Mercenary~
+    ActionOverride(LastMarkedObject,JumpToObject("WARRIOR"))
+    SetGlobal("Bashshar_Service","GLOBAL",5)
+END
+
+IF
+  Global("Bashshar_Service","GLOBAL",4)
+  !Global("IM_GENIE","LOCALS",0)
+  !CreatureHidden(Myself)
+  CheckPartyAverageLevel(14,LESS_THAN)
+THEN
+  RESPONSE #100
+    CreateCreature("00Arif","WARRIOR",[-1.-1],0)  // ~Arif ab'd Bashshar~
+    ActionOverride(LastMarkedObject,JumpToObject(NearestEnemyOf(Myself)))
+    CreateCreature("00Hadya","ASSASSIN",[-1.-1],0)  // ~Hadya ab'd Bashshar~
+    ActionOverride(LastMarkedObject,JumpToObject("JABIR"))
+    CreateCreature("00Jabir","JABIR",[-1.-1],0)  // ~Jabir ab'd Bashshar~
+    CreateCreature("00Nur","NUR",[-1.-1],0)  // ~Nur ab'd Bashshar~
+    CreateCreature("00RogBas","ROGUE_0",[-1.-1],0)  // ~Rogue~
+    ActionOverride(LastMarkedObject,JumpToObject("ASSASSIN"))
+    CreateCreature("00RogBas","ROGUE_1",[-1.-1],0)  // ~Rogue~
+    ActionOverride(LastMarkedObject,JumpToObject("ASSASSIN"))
+    CreateCreature("00SolBas","SOLDIER_0",[-1.-1],0)  // ~Mercenary~
+    ActionOverride(LastMarkedObject,JumpToObject("WARRIOR"))
+    CreateCreature("00SolBas","SOLDIER_1",[-1.-1],0)  // ~Mercenary~
+    ActionOverride(LastMarkedObject,JumpToObject("WARRIOR"))
+    SetGlobal("Bashshar_Service","GLOBAL",5)
+END
+
+IF
+  Global("Bashshar_Service","GLOBAL",4)
+  !Global("IM_GENIE","LOCALS",0)
+  !CreatureHidden(Myself)
+  CheckPartyAverageLevel(13,GREATER_THAN)
+THEN
+  RESPONSE #100
+    CreateCreature("00Arif","WARRIOR",[-1.-1],0)  // ~Arif ab'd Bashshar~
+    ActionOverride(LastMarkedObject,JumpToObject(NearestEnemyOf(Myself)))
+    CreateCreature("00Hadya","ASSASSIN",[-1.-1],0)  // ~Hadya ab'd Bashshar~
+    ActionOverride(LastMarkedObject,JumpToObject("JABIR"))
+    CreateCreature("00Jabir","JABIR",[-1.-1],0)  // ~Jabir ab'd Bashshar~
+    CreateCreature("00Nur","NUR",[-1.-1],0)  // ~Nur ab'd Bashshar~
+    CreateCreature("00RogBas","ROGUE_0",[-1.-1],0)  // ~Rogue~
+    ActionOverride(LastMarkedObject,JumpToObject("ASSASSIN"))
+    CreateCreature("00RogBas","ROGUE_1",[-1.-1],0)  // ~Rogue~
+    ActionOverride(LastMarkedObject,JumpToObject("ASSASSIN"))
+    CreateCreature("00RogBas","ROGUE_2",[-1.-1],0)  // ~Rogue~
+    ActionOverride(LastMarkedObject,JumpToObject("ASSASSIN"))
+    CreateCreature("00SolBas","SOLDIER_0",[-1.-1],0)  // ~Mercenary~
+    ActionOverride(LastMarkedObject,JumpToObject("WARRIOR"))
+    CreateCreature("00SolBas","SOLDIER_1",[-1.-1],0)  // ~Mercenary~
+    ActionOverride(LastMarkedObject,JumpToObject("WARRIOR"))
+    CreateCreature("00SolBas","SOLDIER_2",[-1.-1],0)  // ~Mercenary~
+    ActionOverride(LastMarkedObject,JumpToObject("WARRIOR"))
+    SetGlobal("Bashshar_Service","GLOBAL",5)
+END
+
+IF
+  Global("LEAVIN","LOCALS",0)
+  GlobalLT("Bashshar_Service","GLOBAL",3)
+  !Global("IM_GENIE","LOCALS",0)
+  See([ENEMY],0)
+  Or(2)
+    !PCInStore()
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    FloatMessage(Myself,38779)  // ~"Summon me again when you are not in the midst of battle."~
+    SetGlobal("LEAVIN","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("LEAVIN","LOCALS",0)
+  GlobalLT("Bashshar_Service","GLOBAL",3)
+  !Global("IM_GENIE","LOCALS",0)
+  Or(2)
+    !NumberOfTimesTalkedTo(0)
+    !See([PC],0)
+  Or(2)
+    !PCInStore()
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("LEAVIN","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("LEAVIN","LOCALS",0)
+  Global("Bashshar_Service","GLOBAL",5)
+  !Global("IM_GENIE","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LEAVIN","LOCALS",2)
+    Continue()
+END
+
+IF
+  !Global("LEAVIN","LOCALS",0)
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("LEAVIN","LOCALS",1)
+  !CreatureHidden(Myself)
+  !See([PC],0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BONUS_GENIE_ACTIVE","GLOBAL",0)
+    CreateItem("50GenID",1,1,1)  // ~Avarine Decanter~
+    DropInventoryEX(Myself)
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,25)
+    SpellHitEffectSprite(Myself,Myself,ENCHANTMENT,25)
+    SmallWait(15)
+    SpellHitEffectSprite(Myself,Myself,ALTERATION,25)
+    SpellHitEffectSprite(Myself,Myself,CONE_OF_COLD,50)
+    SmallWait(5)
+    HideCreature(Myself,TRUE)
+    SmallWait(20)
+    SpellHitEffectSprite(Myself,Myself,DIVINATION,500)
+    DestroySelf()
+END
+
+IF
+  Global("LEAVIN","LOCALS",1)
+  !CreatureHidden(Myself)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BONUS_GENIE_ACTIVE","GLOBAL",0)
+    GiveItemCreate("50GenID",[PC],1,1,1)  // ~Avarine Decanter~
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,25)
+    SpellHitEffectSprite(Myself,Myself,ENCHANTMENT,25)
+    SmallWait(15)
+    SpellHitEffectSprite(Myself,Myself,ALTERATION,25)
+    SpellHitEffectSprite(Myself,Myself,CONE_OF_COLD,50)
+    SmallWait(5)
+    HideCreature(Myself,TRUE)
+    SmallWait(20)
+    SpellHitEffectSprite(Myself,Myself,DIVINATION,500)
+    DestroySelf()
+END
+
+IF
+  Global("LEAVIN","LOCALS",2)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BONUS_GENIE_ACTIVE","GLOBAL",0)
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,25)
+    SpellHitEffectSprite(Myself,Myself,ENCHANTMENT,25)
+    SmallWait(15)
+    SpellHitEffectSprite(Myself,Myself,ALTERATION,25)
+    SpellHitEffectSprite(Myself,Myself,CONE_OF_COLD,50)
+    SmallWait(5)
+    HideCreature(Myself,TRUE)
+    SmallWait(20)
+    SpellHitEffectSprite(Myself,Myself,DIVINATION,500)
+    DestroySelf()
+END
+

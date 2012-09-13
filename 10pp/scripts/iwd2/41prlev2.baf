@@ -1,0 +1,20 @@
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    PlaySound("AM4100e")
+    ForceSpellPoint([1341.1696],2097)
+    ForceSpellPoint([1341.1696],2097)
+    ForceSpellPoint([1341.1696],2097)
+    ForceSpellPoint([1341.1696],2097)
+    ForceSpellPoint([1341.1696],2097)
+    ForceSpellPoint([1341.1696],2097)
+    ForceSpellPoint([1341.1696],2097)
+    ForceSpellPoint([1341.1696],2097)
+    TriggerActivation("SoldierInfo4",FALSE)
+    DropInventoryEX("SymbolContainer")
+    ActionOverride("SymbolContainer",DestroySelf())
+    Lock(Myself)
+    ChangeCurrentScript("")
+END
+

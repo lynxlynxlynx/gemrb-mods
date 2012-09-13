@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    DeactivateEx("Trans",FALSE)
+    MoveToPoint([1448.869])
+    Wait(1)
+    StartCutScene("1204d0")
+END
+

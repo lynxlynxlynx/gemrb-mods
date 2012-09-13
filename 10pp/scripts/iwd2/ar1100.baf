@@ -1,0 +1,177 @@
+IF
+  Global("1000_GOBLIN_CLEANUP","GLOBAL",0)
+  !Global("Dock_Goblin_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("1000_GOBLIN_CLEANUP","GLOBAL",1)
+END
+
+IF
+  Global("Crane_Wheel","GLOBAL",1)
+  !AnyPCOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("Crane_Wheel","GLOBAL",2)
+    Continue()
+END
+
+IF
+  OpenState("AR1100_Wheel",FALSE)  // AR1100_Wheel
+  !Global("Crane_Wheel","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("AR1100_Wheel")
+    Continue()
+END
+
+IF
+  OpenState("AR1100_Logs1",FALSE)  // AR1100_Logs1
+  Global("Crane_Wheel","GLOBAL",2)
+THEN
+  RESPONSE #100
+    OpenDoor("AR1100_Logs1")
+    OpenDoor("AR1100_Logs2")
+    OpenDoor("AR1100_Logs3")
+    SetGlobal("Crane_Wheel","GLOBAL",3)
+    Continue()
+END
+
+IF
+  Global("BROGAN_LEAVE","GLOBAL",1)
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("BROGAN_LEAVE","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("1000_CLEAN_UP","GLOBAL",0)
+  !Global("Dock_Goblin_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("1000_CLEAN_UP","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TARGOS_HOSTILE","GLOBAL",0)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TARGOS_HOSTILE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_0","MYAREA",0)
+  !Global("TARGOS_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("1200_BATTLE_CLEANUP","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("AR1100_RESET_CUTSCENE","GLOBAL",0)
+  Or(2)
+    EntirePartyOnMap()
+    !InCutsceneMode()
+THEN
+  RESPONSE #100
+    EndCutSceneMode()
+    SetGlobal("AR1100_RESET_CUTSCENE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("RJ_AR1100","GLOBAL",0)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("RJ_AR1100","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("11Know_Potion","GLOBAL",0)
+  ItemIsIdentified("10GenGBo",Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("11Know_Potion","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("11Know_Potion","GLOBAL",0)
+  ItemIsIdentified("10GenGBo",Player2)
+THEN
+  RESPONSE #100
+    SetGlobal("11Know_Potion","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("11Know_Potion","GLOBAL",0)
+  ItemIsIdentified("10GenGBo",Player3)
+THEN
+  RESPONSE #100
+    SetGlobal("11Know_Potion","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("11Know_Potion","GLOBAL",0)
+  ItemIsIdentified("10GenGBo",Player4)
+THEN
+  RESPONSE #100
+    SetGlobal("11Know_Potion","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("11Know_Potion","GLOBAL",0)
+  ItemIsIdentified("10GenGBo",Player5)
+THEN
+  RESPONSE #100
+    SetGlobal("11Know_Potion","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("11Know_Potion","GLOBAL",0)
+  ItemIsIdentified("10GenGBo",Player6)
+THEN
+  RESPONSE #100
+    SetGlobal("11Know_Potion","GLOBAL",1)
+    Continue()
+END
+

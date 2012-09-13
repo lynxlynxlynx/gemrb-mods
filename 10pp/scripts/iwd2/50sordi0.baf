@@ -1,0 +1,28 @@
+IF
+  Global("SORDI_CALL_FOR_BACKUP","MYAREA",0)
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    FloatMessage(Myself,17021)  // ~"A battle - come to my side, men!"~
+    SetGlobal("SORDI_CALL_FOR_BACKUP","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("50Wight_Horn","GLOBAL",2)
+THEN
+  RESPONSE #100
+    UseItem("11Veira2",Myself)  // <Invalid Strref -1>
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

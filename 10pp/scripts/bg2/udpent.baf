@@ -1,0 +1,7 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,FLAME_HEAD)
+END
+

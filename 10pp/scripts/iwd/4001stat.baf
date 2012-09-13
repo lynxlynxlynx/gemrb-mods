@@ -1,0 +1,7 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Throne_Room_Attack","AR4001",1)
+END
+

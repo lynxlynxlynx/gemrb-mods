@@ -1,0 +1,142 @@
+IF
+  OR(2)
+    !PartyHasItem("MISC6P")  // ~Shadow Dragon Wardstone~
+    AttackedBy([ANYONE],DEFAULT)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  Global("sdSummon","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+    SetGlobal("sdSummon","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("RemoveMagic","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRAGON_STONE_SKIN)
+    ForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("StoneSkin","LOCALS",1)
+    SetGlobal("RemoveMagic","LOCALS",1)
+END
+
+IF
+  !Detect([PC])
+  HPLT(Myself,50)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveMagic","LOCALS",0)
+    SetGlobal("WingBuffet","LOCALS",0)
+    SetGlobal("Haste","LOCALS",0)
+    SetGlobal("DRAGONFEAR","LOCALS",0)
+    ForceSpell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DRAGONFEAR","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(NearestEnemyOf(Myself),DRAGON_FEAR)
+    SetGlobal("DRAGONFEAR","LOCALS",1)
+    SetGlobalTimer("SHADOWDRAGONBREATH","GLOBAL",1)
+    ForceSpell(LastSeenBy(Myself),DRAGON_WING_BUFFET)
+END
+
+IF
+  GlobalTimerExpired("SHADOWDRAGONBREATH","GLOBAL")
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),11)
+  Global("WingBuffet","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),DRAGON_WING_BUFFET)
+    Wait(3)
+    SetGlobal("WingBuffet","LOCALS",1)
+  RESPONSE #60
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),10)
+  GlobalTimerExpired("SHADOWDRAGONBREATH","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("WingBuffet","LOCALS",0)
+    ForceSpell(LastSeenBy(Myself),SHADOW_DRAGON_BREATH)
+    SetGlobalTimer("SHADOWDRAGONBREATH","GLOBAL",18)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Offensive","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,PROTECTION_MAGIC_WEAPON_NOEFF)
+    SetGlobal("Offensive","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Offensive","LOCALS",2)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy(Myself))
+    AttackOneRound(LastSeenBy(Myself))
+    SetGlobal("Offensive","LOCALS",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Offensive","LOCALS",3)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHAOS)
+    SetGlobal("Offensive","LOCALS",4)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Offensive","LOCALS",4)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)
+    SetGlobal("Offensive","LOCALS",5)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),35)
+  RESPONSE #10
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !See([ANYONE])
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

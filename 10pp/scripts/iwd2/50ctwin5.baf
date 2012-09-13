@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("07_50ISAIR_01")  // 
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    Wait(1)
+    MoveViewPointUntilDone([2150.823],25)
+    Wait(1)
+    UnhideGUI()
+    SetGlobal("ZOMBIE_ATTACK","MYAREA",1)
+    EndCutSceneMode()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("07_50MADAE_02")  // 
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    DestroySelf()
+END
+

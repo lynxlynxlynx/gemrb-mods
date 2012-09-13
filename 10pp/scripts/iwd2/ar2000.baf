@@ -1,0 +1,206 @@
+IF
+  Global("CHAPTER","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementChapter("")
+    MultiPlayerSync()
+    Continue()
+END
+
+IF
+  !Global("RJ_AR2000","GLOBAL",0)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("RJ_AR2000","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("TorakDialog","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TorakDialog","MYAREA",1)
+    ActionOverride("Torak1",SetDialogueRange(300))
+    ActionOverride("Torak1",Dialogue(Protagonist))
+    AllowAreaResting(TRUE)
+END
+
+IF
+  Global("OpenLogJamDoor","MYAREA",0)
+  OpenState("AR2000_Door2_LeftLog",TRUE)  // AR2000_Door2_LeftLog
+  OpenState("AR2000_Door2_RightLog",TRUE)  // AR2000_Door2_RightLog
+THEN
+  RESPONSE #100
+    SetGlobal("OpenLogJamDoor","MYAREA",1)
+    OpenDoor("AR2000_Door2_BreakMe")
+    PlaySoundPoint("AM2000f",[1729.896])
+    Continue()
+END
+
+IF
+  Global("HideTheToraks","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HideTheToraks","MYAREA",1)
+    HideCreature("Torak2",TRUE)
+    HideCreature("Torak3",TRUE)
+    HideCreature("Torak4",TRUE)
+    Continue()
+END
+
+IF
+  Global("SR_Dereth_Freed","GLOBAL",0)
+  !Global("TEAM_3","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Dereth_Freed","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("SR_Dereth_Freed","GLOBAL",1)
+  Dead("T3_Arch_1")  // 
+  Dead("T3_Arch_2")  // 
+  Dead("T3_Arch_3")  // 
+  Dead("T3_Arch_4")  // 
+  Dead("T3_Arch_5")  // 
+  Dead("T3_Arch_6")  // 
+  Dead("T3_Arch_7")  // 
+  Dead("T3_Arch_8")  // 
+  Dead("T3_Arch_9")  // 
+  Dead("T3_Arch_10")  // 
+  Dead("T3_Arch_11")  // 
+  Dead("T3_Arch_12")  // 
+  Dead("T3_Orc_1")  // 
+  Dead("T3_Orc_2")  // 
+  Dead("T3_Orc_3")  // 
+  Dead("T3_Orc_4")  // 
+  Dead("T3_Orc_5")  // 
+  Dead("T3_Orc_6")  // 
+  Dead("T3_Orc_7")  // 
+  Dead("T3_Orc_6")  // 
+  Dead("T3_Orc_9")  // 
+  Dead("T3_Shaman_1")  // 
+  Dead("T3_Shaman_2")  // 
+  Dead("T3_Firestarter_1")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Dereth_Freed","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("SR_Sabrina_Freed","GLOBAL",0)
+  !Global("TEAM_5","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Sabrina_Freed","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("SR_Sabrina_Freed","GLOBAL",1)
+  Dead("T5_Arch_1")  // 
+  Dead("T5_Arch_2")  // 
+  Dead("T5_Arch_3")  // 
+  Dead("T5_Arch_4")  // 
+  Dead("T5_Arch_5")  // 
+  Dead("T5_Arch_6")  // 
+  Dead("T5_Orc_1")  // 
+  Dead("T5_Orc_2")  // 
+  Dead("T5_Orc_3")  // 
+  Dead("T5_Orc_4")  // 
+  Dead("T5_Orc_5")  // 
+  Dead("T5_Orc_6")  // 
+  Dead("T5_Orc_7")  // 
+  Dead("T5_Orc_8")  // 
+  Dead("T5_Orc_9")  // 
+  Dead("T5_Orc_10")  // 
+  Dead("T5_Orc_11")  // 
+  Dead("T5_Shaman_1")  // 
+  Dead("T5_Shaman_2")  // 
+  Dead("T5_Firestarter_1")  // 
+  Dead("T5_Dynokeg_1")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Sabrina_Freed","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("SR_Myson_Freed","GLOBAL",0)
+  !Global("TEAM_7","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Myson_Freed","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("SR_Myson_Freed","GLOBAL",1)
+  Dead("T7_Orc_1")  // 
+  Dead("T7_Orc_2")  // 
+  Dead("T7_Orc_3")  // 
+  Dead("T7_Orc_4")  // 
+  Dead("T7_Orc_5")  // 
+  Dead("T7_Orc_6")  // 
+  Dead("T7_Orc_7")  // 
+  Dead("T7_Orc_8")  // 
+  Dead("T7_Shaman_1")  // 
+  Dead("T7_Firestarter_1")  // 
+  Dead("T7_Firestarter_2")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Myson_Freed","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("SR_Cleared_House","GLOBAL",0)
+  !Global("TEAM_4","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Cleared_House","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("SR_Cleared_House","GLOBAL",1)
+  Dead("T4_Arch_1")  // 
+  Dead("T4_Arch_2")  // 
+  Dead("T4_Arch_3")  // 
+  Dead("T4_Arch_4")  // 
+  Dead("T4_Arch_5")  // 
+  Dead("T4_Arch_6")  // 
+  Dead("T4_Orc_1")  // 
+  Dead("T4_Orc_2")  // 
+  Dead("T4_Orc_3")  // 
+  Dead("T4_Orc_4")  // 
+  Dead("T4_Orc_5")  // 
+  Dead("T4_Shaman_1")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Cleared_House","GLOBAL",2)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("1200_BATTLE_CLEANUP","GLOBAL",1)
+    Continue()
+END
+

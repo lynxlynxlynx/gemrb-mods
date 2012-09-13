@@ -1,0 +1,9 @@
+IF
+  Global("GOLEM_HOSTILE","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("GOLEM_HOSTILE","MYAREA",1)
+    StartCutScene("ILGOLENM")
+END
+

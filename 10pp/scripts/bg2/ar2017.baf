@@ -1,0 +1,9 @@
+IF
+  Global("geniesgone","GLOBAL",1)
+  Global("SpawnTrple04","AR2017",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnTrple04","AR2017",1)
+    CreateCreature("TRPLE04",[556.399],4)  // ~Customer~
+END
+

@@ -1,0 +1,64 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("pool2","AR2402",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,54826)  // ~Fresh tadpoles swim in the pool.  These tadpoles give strength to adult Kuo-toa.~
+    SetGlobal("pool2","AR2402",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("pool2","AR2402",1)
+  !PartyHasItem("misc9z")  // ~Corrupted Tadpoles~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,54826)  // ~Fresh tadpoles swim in the pool.  These tadpoles give strength to adult Kuo-toa.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("pool2","AR2402",1)
+  PartyHasItem("misc9z")  // ~Corrupted Tadpoles~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,54827)  // ~You may contaminate the pool by adding the tainted tadpoles.~
+    SetGlobal("pool2","AR2402",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("pool2","AR2402",2)
+  PartyHasItem("misc9z")  // ~Corrupted Tadpoles~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,54828)  // ~You add the tainted tadpoles...which destroy the Kuo-toan tadpoles in the pool.~
+    TakePartyItem("misc9z")
+    DestroyItem("misc9z")  // ~Corrupted Tadpoles~
+    SetGlobal("corruptPool","AR2402",1)
+    ActionOverride("udprince",DestroyItem("miscA1"))  // <Invalid Strref -1>
+    CreateVisualEffect("SPDISPMA",[3021.612])
+    CreateVisualEffect("SPDISPMA",[3053.568])
+    CreateVisualEffect("SPDISPMA",[3079.538])
+    CreateVisualEffect("SPDISPMA",[3116.508])
+    CreateVisualEffect("SPDISPMA",[3139.475])
+    CreateVisualEffect("SPDISPMA",[3172.438])
+    CreateVisualEffect("SPDISPMA",[3202.400])
+    CreateVisualEffect("SPDISPMA",[3228.378])
+    PlaySound("EFF_P16")
+    CreateVisualEffectObject("SPSTRENH","udprince")
+    SetGlobal("pool2","AR2402",3)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

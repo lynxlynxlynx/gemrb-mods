@@ -1,0 +1,24 @@
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFrom(LastAttackerOf(Myself),45)
+END
+
+IF
+  Help(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFrom(LastHelp(Myself),45)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+

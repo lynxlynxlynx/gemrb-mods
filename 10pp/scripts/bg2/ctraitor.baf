@@ -1,0 +1,9 @@
+IF
+  OR(2)
+    Dead("unseeingeye")  // unseeingeye
+    Global("UnseeingEye","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

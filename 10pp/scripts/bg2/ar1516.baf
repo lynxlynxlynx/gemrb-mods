@@ -1,0 +1,37 @@
+IF
+  Global("YoshimoTeleport","GLOBAL",1)
+  !Dead("Yoshimo")  // Yoshimo
+  Global("YoshJump","AR1516",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YoshJump","AR1516",1)
+    CreateVisualEffect("SPDIMNDR",[980.1287])
+    Wait(2)
+    ActionOverride("Yoshimo",JumpToPoint([980.1287]))
+END
+
+IF
+  GlobalGT("ppDeadThief","AR1516",5)
+  Global("startcut","AR1516",0)
+THEN
+  RESPONSE #100
+    SetGlobal("startcut","AR1516",1)
+    StartCutSceneMode()
+    StartCutScene("Cut41h")
+END
+
+IF
+  Global("AsylumPlot","GLOBAL",50)
+  Global("madeAlly","AR1516",0)
+THEN
+  RESPONSE #100
+    ActionOverride("ppbodhi4",DestroySelf())
+    ActionOverride("ppsuna",DestroySelf())
+    ActionOverride("ppsaem2",DestroySelf())
+    ActionOverride("ppimoen",DestroySelf())
+    SmallWait(1)
+    SetGlobal("madeAlly","AR1516",1)
+    CreateCreature("ppsaem2",[342.1310],0)  // ~Saemon Havarian~
+    ActionOverride("ppsaem2",StartDialogNoSet([PC]))
+END
+

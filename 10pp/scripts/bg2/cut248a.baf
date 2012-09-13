@@ -1,0 +1,55 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewPoint([1993.991],INSTANT)
+    CreateVisualEffect("SPPOWRRD",[1993.991])
+    PlaySound("EFF_P06")
+    SmallWait(10)
+    CreateVisualEffect("SPMETSW2",[1932.1041])
+    CreateVisualEffect("SPMETSW2",[2055.1041])
+    PlaySound("EFF_M20")
+    SmallWait(8)
+    CreateVisualEffect("SPFIREPI",[1932.1041])
+    CreateVisualEffect("SPFIREPI",[2055.1041])
+    PlaySound("EFF_M21")
+    FadeToColor([20.0],0)
+    RemoveSpell(ENTER_POCKET_PLANE)
+    Wait(1)
+    LeaveAreaLUAPanic("AR6200","",[1290.1220],8)
+    LeaveAreaLUA("AR6200","",[1290.1220],8)
+    ActionOverride(Player2,LeaveAreaLUA("AR6200","",[1227.1254],8))
+    ActionOverride(Player3,LeaveAreaLUA("AR6200","",[1357.1261],8))
+    ActionOverride(Player4,LeaveAreaLUA("AR6200","",[1294.1296],8))
+    ActionOverride(Player5,LeaveAreaLUA("AR6200","",[1155.1258],8))
+    ActionOverride(Player6,LeaveAreaLUA("AR6200","",[1436.1278],8))
+    MultiPlayerSync()
+    Explore()
+    Wait(1)
+    StartMovie("MANAFORG")
+    AmbientActivate("AMB_Stream1",FALSE)
+    AmbientActivate("AMB_Stream2",FALSE)
+    AmbientActivate("AMB_Stream3",FALSE)
+    AmbientActivate("AM6200A",FALSE)
+    AmbientActivate("MMELSPIN",FALSE)
+    AmbientActivate("AM6200B",TRUE)
+    CloseDoor("DOOR01")
+    CloseDoor("DOOR02")
+    CloseDoor("DOOR03")
+    SetGlobal("Chapter","GLOBAL",10)
+    AddJournalEntry(73257,INFO)
+    TextScreen("CHPTXT10")
+    FadeFromColor([20.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ppguy01")  // 
+    DestroySelf()
+END
+

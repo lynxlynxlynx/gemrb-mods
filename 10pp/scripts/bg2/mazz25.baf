@@ -1,0 +1,44 @@
+IF
+  Global("MazzySummoned","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("mazzyx",SPECIFICS)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mazzyx",SPECIFICS)
+    ChangeAIScript("",GENERAL)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",SPECIFICS)
+    Continue()
+END
+

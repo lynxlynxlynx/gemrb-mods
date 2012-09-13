@@ -1,0 +1,10 @@
+IF
+  GlobalLT("AR6010_TRAP_STATE","GLOBAL",1)
+  Entered([ANYTHING])
+THEN
+  RESPONSE #100
+    SetGlobal("AR6010_TRAP_STATE","GLOBAL",1)
+    SetGlobal("PUZZLE_A_DISABLED","GLOBAL",1)
+    DisplayString(Myself,21294)  // ~You hear a loud click, followed by eleven similar sounding clicks echoing throughout the room.~ [DISARMC]
+END
+

@@ -1,0 +1,52 @@
+IF
+  Global("KeldornFamilyGone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("KeldornFamilyGone","GLOBAL",2)
+    ActionOverride("Maria",DestroySelf())
+    ActionOverride("Vesper",DestroySelf())
+    ActionOverride("Leona",DestroySelf())
+    ActionOverride("Peony",DestroySelf())
+END
+
+IF
+  Global("KeldornSpawnEstate","GLOBAL",1)
+  GlobalTimerExpired("KeldornSpawnEstateTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    MoveGlobal("AR1003","Keldorn",[557.470])
+    SetGlobal("KeldornSpawnEstate","GLOBAL",0)
+END
+
+IF
+  Global("MariaGone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MariaGone","GLOBAL",2)
+    ActionOverride("Peony",DestroySelf())
+    ActionOverride("Maria",DestroySelf())
+END
+
+IF
+  Global("LeonaGone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("LeonaGone","GLOBAL",2)
+    ActionOverride("Leona",DestroySelf())
+END
+
+IF
+  Global("VesperGone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("VesperGone","GLOBAL",2)
+    ActionOverride("Vesper",DestroySelf())
+END
+
+IF
+  Global("KeldornLeave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    ActionOverride("Maria",DestroySelf())
+END
+

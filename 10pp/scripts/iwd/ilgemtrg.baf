@@ -1,0 +1,18 @@
+IF
+  Opened([ANYTHING])
+  Global("GEM_TRIGGERED","MYAREA",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("ILGEMEFF")
+END
+
+IF
+  Unlocked([ANYTHING])
+  Global("GEM_TRIGGERED","MYAREA",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("ILGEMEFF")
+END
+

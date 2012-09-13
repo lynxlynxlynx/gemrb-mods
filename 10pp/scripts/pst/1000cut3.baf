@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([0.0.0.0.BAATEZU])  // 
+    Wait(10)
+    Attack([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    EndCutSceneMode()
+END
+

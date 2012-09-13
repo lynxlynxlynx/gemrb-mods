@@ -1,0 +1,36 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("ICRMPARI",Myself)
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #100
+    ForceSpellRES("eyeeglm1",NearestEnemyOf(Myself))  // <Invalid Strref -1>
+  RESPONSE #100
+    ForceSpellRES("eyeeglm2",NearestEnemyOf(Myself))  // <Invalid Strref -1>
+  RESPONSE #100
+    ForceSpellRES("eyeeglm3",NearestEnemyOf(Myself))  // <Invalid Strref -1>
+  RESPONSE #100
+    ForceSpellRES("eyeeglm4",NearestEnemyOf(Myself))  // <Invalid Strref -1>
+  RESPONSE #100
+    ForceSpellRES("eyeeglm5",NearestEnemyOf(Myself))  // <Invalid Strref -1>
+  RESPONSE #100
+    ForceSpellRES("eyeeglm6",NearestEnemyOf(Myself))  // <Invalid Strref -1>
+  RESPONSE #100
+    ForceSpellRES("eyeeglm7",NearestEnemyOf(Myself))  // <Invalid Strref -1>
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+

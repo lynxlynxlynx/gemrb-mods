@@ -1,0 +1,33 @@
+IF
+  Global("SetRageCount","LOCALS",0)
+  Global("RageCount","LOCALS",0)
+THEN
+  RESPONSE #10
+    SetGlobal("SetRageCount","LOCALS",1)
+    SetGlobal("RageCount","LOCALS",2)
+  RESPONSE #50
+    SetGlobal("SetRageCount","LOCALS",1)
+    SetGlobal("RageCount","LOCALS",1)
+  RESPONSE #40
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("SetRageCount","LOCALS",1)
+  Global("RageCount","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  GlobalTimerExpired("Rage","LOCALS")
+  !Global("RageCount","LOCALS",0)
+  Range(NearestEnemyOf(Myself),3,LESS_THAN)
+THEN
+  RESPONSE #100
+    IncrementGlobal("RageCount","LOCALS",-1)
+    SetGlobalTimer("Rage","LOCALS",36)
+    ForceSpell(Myself,INNATE_BARBARIAN_RAGE)
+END
+

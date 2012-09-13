@@ -1,0 +1,60 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("GlobeClick","AR2400",0)
+  Global("FreeOrDeadSlave","AR2400",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GlobeClick","AR2400",1)
+    DisplayString(Myself,57593)  // ~When you examine this strange device, you notice that it seems to be pumping some sort of liquid into the veins of the unconcious surface worlders.  Looking more closely you see that there is a tube where you could put more fluid.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("FreeOrDeadSlave","AR2400",0)
+  !PartyHasItem("miscbk")  // ~Illithid Serum~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57593)  // ~When you examine this strange device, you notice that it seems to be pumping some sort of liquid into the veins of the unconcious surface worlders.  Looking more closely you see that there is a tube where you could put more fluid.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("GlobeClick","AR2400",1)
+  PartyHasItem("miscbk")  // ~Illithid Serum~
+  Global("FreeOrDeadSlave","AR2400",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GlobeClick","AR2400",2)
+    DisplayString(Myself,57631)  // ~If you wanted you could pour the illithid serum that you obtained from the previous room into the tubes of this machine.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("GlobeClick","AR2400",2)
+  PartyHasItem("miscbk")  // ~Illithid Serum~
+  Global("FreeOrDeadSlave","AR2400",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GlobeClick","AR2400",3)
+    SetGlobal("FreeOrDeadSlave","AR2400",1)
+    TakePartyItem("miscbk")
+    DestroyItem("miscbk")  // ~Illithid Serum~
+    DisplayString(Myself,57630)  // ~Your pour the fluid into the machine.  Almost immediately you notice the liquid being pumped into the surface worlder's blood change color.  A few minutes later you notice that the change has occurred in all the machines across the room.~
+    Wait(2)
+    StartCutSceneMode()
+    StartCutScene("cut44ab")
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,20)
+  Global("FreeOrDeadSlave","AR2400",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

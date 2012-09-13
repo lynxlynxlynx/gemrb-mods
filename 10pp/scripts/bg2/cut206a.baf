@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    ActionOverride("Sarevok",ForceSpell(Player1,SAREVOK_SOULSTEAL))
+    Wait(5)
+    ActionOverride("Sarevok",DestroyItem("chwraith"))  // <Invalid Strref -1>
+    ActionOverride("Sarevok",DestroyItem("invulner"))  // <Invalid Strref -1>
+    Wait(2)
+    ActionOverride("Sarevok",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

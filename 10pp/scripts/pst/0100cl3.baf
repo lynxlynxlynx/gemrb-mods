@@ -1,0 +1,41 @@
+IF
+  HPPercentLT(Myself,100)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  Help("Harlot5")  // Harlot5
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(6)
+    Face(2)
+    Wait(1)
+    Continue()
+END
+
+IF
+  Global("Harlot_5_Busy","AR0100",0)
+THEN
+  RESPONSE #100
+    PlaySequenceTimed(ANIM_TALK1,7)
+    FloatMessage(Myself,8184)  // ~"Clipped copper?! Me copper's good as this sod's!"~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(14)
+END
+

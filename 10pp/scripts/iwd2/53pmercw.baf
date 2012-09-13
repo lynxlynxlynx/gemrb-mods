@@ -1,0 +1,13 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    FloatMessage("Myrvek_of_Gracklstug",34866)  // ~"If ye want to trade, talk with us... but keep out of our goods or ye're asking for an axe in the arse."~
+END
+

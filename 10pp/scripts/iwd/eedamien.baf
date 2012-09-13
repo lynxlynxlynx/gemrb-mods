@@ -1,0 +1,34 @@
+IF
+  OnCreation()
+  !Global("DAMIEN_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromNoLeaveArea(LastAttackerOf(Myself),45)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  !Range("GASPAR",15)  // ~Fishmonger~
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToObject("GASPAR")
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+END
+

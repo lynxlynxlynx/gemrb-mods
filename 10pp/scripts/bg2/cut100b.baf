@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    DisplayStringWait("suelle2",55257)  // ~As for you, I imagine you are eager to resume your travels once again.  We wish you well... know we look forward to your return in the future, should you desire to.~ [ELLESI31]
+    FadeToColor([30.0],0)
+    Wait(2)
+    StartMovie("END15FPS")
+    SmallWait(1)
+    MoveToExpansion()
+    MoveViewObject(Player1,-1)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,34 @@
+IF
+  BitCheck("3001_Status","AR3001",BIT2)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    BitSet("3001_Status","AR3001",BIT2)
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+

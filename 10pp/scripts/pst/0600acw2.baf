@@ -1,0 +1,53 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([0.0.ACTOR])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  Range([0.0.0.0.0.0.ACTOR_WATCHER_3],15)
+THEN
+  RESPONSE #100
+    WaitRandom(10,20)
+    FloatMessage(Myself,50781)  // ~"The one on the left is quite good, no?"~
+    Wait(3)
+    FloatMessage([0.0.0.0.0.0.ACTOR_WATCHER_3],50782)  // ~"Eh... I feel the other fellow's the finer actor."~
+    Wait(5)
+    FloatMessage(Myself,50783)  // ~"You would not know acting were it to bite you upon the arse."~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.ACTOR_WATCHER_3],8153)  // ~"Hmmph!"~
+END
+

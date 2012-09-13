@@ -1,0 +1,11 @@
+IF
+  !HasItemSlot(Myself,SLOT_MISC1)
+  !HasItemSlot(Myself,SLOT_MISC0)
+  See(NearestEnemyOf(Myself))
+  Global("GetOuttaDodge","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GetOuttaDodge","LOCALS",0)
+    EscapeArea()
+END
+

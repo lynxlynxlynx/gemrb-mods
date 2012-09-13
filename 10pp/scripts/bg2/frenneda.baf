@@ -1,0 +1,113 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  Global("Frennedan","AR0603",2)
+THEN
+    Unlock("DOOR02")
+    OpenDoor("DOOR02")
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  Global("FrennedanSpeak","LOCALS",0)
+THEN
+    SetInterrupt(FALSE)
+    SetGlobal("FrennedanSpeak","LOCALS",1)
+    Wait(2)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    SetGlobal("Frennedan","AR0603",2)
+    Enemy()
+    Polymorph(DOPPLEGANGER)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("Frennedan","AR0603",1)
+  OR(3)
+    GlobalTimerExpired("FrennedanTimer","GLOBAL")
+    ActuallyInCombat()
+    Allegiance(Myself,ENEMY)
+  See([PC])
+  Allegiance(Myself,NEUTRAL)
+  Global("FrennedanSpeak","LOCALS",0)
+THEN
+    SetInterrupt(FALSE)
+    SetGlobal("FrennedanSpeak","LOCALS",1)
+    Wait(2)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    SetGlobal("Frennedan","AR0603",2)
+    Enemy()
+    Polymorph(DOPPLEGANGER)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    Global("Frennedan","AR0603",0)
+    Global("Frennedan","AR0603",4)
+THEN
+    SetGlobal("Frennedan","AR0603",1)
+    SetGlobalTimer("FrennedanTimer","GLOBAL",240)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  See([PC])
+  Global("Frennedan","AR0603",1)
+THEN
+    MoveToObject([PC])
+END
+
+IF
+  !Range(Player1,8)
+  Global("Frennedan","AR0603",1)
+THEN
+    MoveToObject(Player1)
+END
+
+IF
+  !Range(Player2,8)
+  Global("Frennedan","AR0603",1)
+THEN
+    MoveToObject(Player2)
+END
+
+IF
+  !Range(Player3,8)
+  Global("Frennedan","AR0603",1)
+THEN
+    MoveToObject(Player3)
+END
+
+IF
+  !Range(Player4,8)
+  Global("Frennedan","AR0603",1)
+THEN
+    MoveToObject(Player4)
+END
+
+IF
+  !Range(Player5,8)
+  Global("Frennedan","AR0603",5)
+THEN
+    MoveToObject(Player1)
+END
+
+IF
+  !Range(Player6,8)
+  Global("Frennedan","AR0603",1)
+THEN
+    MoveToObject(Player6)
+END
+
+
+END

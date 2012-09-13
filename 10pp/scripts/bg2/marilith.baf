@@ -1,0 +1,69 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("prep","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("prep","LOCALS",1000)
+    DisplayString(Myself,2469)  // ~Spell Trigger - Protection from Magical Weapons~
+    ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    DisplayString(Myself,40248)  // ~Spell Trigger - True Sight~
+    ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  See(NearestEnemyOf(Myself))
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,STONESKINS)
+  !GlobalTimerNotExpired("onecontin","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("onecontin","LOCALS",1000)
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ReallyForceSpell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),20)
+  !CheckStatGT(LastSeenBy(Myself),50,RESISTMAGIC)
+  RandomNum(4,1)
+  Global("cloud","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("cloud","LOCALS",1)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CLOUDKILL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,STONESKINS)
+  !GlobalTimerNotExpired("stoneskin","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("stoneskin","LOCALS",15)
+    SpellNoDec(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  !See([GOODCUTOFF])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

@@ -1,0 +1,135 @@
+IF
+  !Global("TEAM_11","MYAREA",0)
+  Dead("11_PATROL_LEADER")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_11","MYAREA",1)
+END
+
+IF
+  ActionListEmpty()
+  !IsScriptName("11_PATROL_LEADER",Myself)
+  Dead("11_PATROL_LEADER")  // 
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("11_PATROL_LEADER")
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,1950,2030,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1950.2030])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  IsScriptName("11_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([1950.2030])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  IsScriptName("11_PATROL_LEADER",Myself)
+  !TimerActive(22)
+THEN
+  RESPONSE #100
+    Face(S)
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  IsScriptName("11_PATROL_LEADER",Myself)
+  !TimerActive(22)
+THEN
+  RESPONSE #100
+    StartTimer(22,1)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,2240,1960,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2240.1960])
+    SetGlobal("ML_0","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  IsScriptName("11_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([2240.1960])
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  IsScriptName("11_PATROL_LEADER",Myself)
+  !TimerActive(22)
+THEN
+  RESPONSE #100
+    StartTimer(22,2)
+    SetGlobal("ML_0","LOCALS",5)
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  ActionListEmpty()
+  NearLocation(Myself,2240,1960,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2240.1960])
+    SetGlobal("ML_0","LOCALS",6)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  IsScriptName("11_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([2240.1960])
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  NearSavedLocation(4)
+  IsScriptName("11_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",7)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  !TimerActive(22)
+  !NearSavedLocation(4)
+  IsScriptName("11_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  IsScriptName("11_PATROL_LEADER",Myself)
+  !TimerActive(22)
+THEN
+  RESPONSE #100
+    StartTimer(22,2)
+    SetGlobal("ML_0","LOCALS",0)
+END
+

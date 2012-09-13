@@ -1,0 +1,40 @@
+IF
+  HPPercentLT("BONE_2_1",75)  // BONE_2_1
+THEN
+  RESPONSE #100
+    Spell("BONE_2_1",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+
+IF
+  HPPercentLT("BONE_2_2",75)  // BONE_2_2
+THEN
+  RESPONSE #100
+    Spell("BONE_2_2",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+
+IF
+  HPPercentLT("BONE_2_3",75)  // BONE_2_3
+THEN
+  RESPONSE #100
+    Spell("BONE_2_3",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+
+IF
+  HPPercentLT("BONE_2_4",75)  // BONE_2_4
+THEN
+  RESPONSE #100
+    Spell("BONE_2_4",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+
+IF
+  HPPercentLT("BONE_2_5",75)  // BONE_2_5
+THEN
+  RESPONSE #100
+    Spell("BONE_2_5",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+

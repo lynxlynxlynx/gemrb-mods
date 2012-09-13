@@ -1,0 +1,31 @@
+IF
+  Global("EnteredArea","AR6000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR6000",1)
+    TriggerActivation("Tran6001",FALSE)
+END
+
+IF
+  Global("UsedDraconisHead","AR6000",1)
+  Global("EnteredArea","AR6000",1)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran6001Info",FALSE)
+    TriggerActivation("Tran6001",TRUE)
+    SetGlobal("EnteredArea","AR6000",2)
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  Global("AMReturnOfElminster","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    CreateCreatureObjectEffect("AMELM01","SPFLESHS",Player1)
+    SetGlobal("AMReturnOfElminster","GLOBAL",1)
+    Wait(2)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,9 @@
+IF
+  IsOverMe([PC])
+  Global("LetterApproach","AR1401",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,45273)  // ~As you approach the letter-tiled floor, a voice intones: 'Only the Name of the Master shall keep thee from the Power of the Darkness!'~
+    SetGlobal("LetterApproach","AR1401",1)
+END
+

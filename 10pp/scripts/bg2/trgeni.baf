@@ -1,0 +1,23 @@
+IF
+  Global("AttackedTRGenies","GLOBAL",0)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedTRGenies","GLOBAL",1)
+END
+
+IF
+  Global("AttackedTRGenies","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("geniesgone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

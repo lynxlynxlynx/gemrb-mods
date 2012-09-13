@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FFBiff01")  // 
+    MoveToPoint([852.647])
+    Face(14)
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

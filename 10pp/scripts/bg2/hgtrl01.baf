@@ -1,0 +1,22 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    StartTimer(77,6)
+END
+
+IF
+  HPLT(Myself,12)
+THEN
+  RESPONSE #100
+    StartTimer(77,6)
+    ChangeAnimationNoEffect("HGTRL02")
+END
+
+IF
+  TimerExpired(77)
+THEN
+  RESPONSE #100
+    StartTimer(77,6)
+END
+

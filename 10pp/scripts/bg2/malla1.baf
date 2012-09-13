@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    FadeToColor([20.0],0)
+    SetGlobal("MallaCured","GLOBAL",1)
+    Wait(1)
+    ActionOverride("malla01",DestroySelf())
+    CreateCreatureObject("malla02",Player1,0,0,0)  // ~Malla~
+    Wait(1)
+    ActionOverride("malla02",TakePartyItem("amsoul01"))
+    ActionOverride("malla02",DestroyItem("amsoul01"))  // ~Malla's Soul Stone~
+    Wait(1)
+    ActionOverride("malla02",FaceObject(Player1))
+    FaceObject("malla02")
+    Wait(3)
+    FadeFromColor([20.0],0)
+    AddXP2DA("PLOT14B")
+    Wait(2)
+    ActionOverride("malla02",StartDialogNoSet(Player1))
+END
+

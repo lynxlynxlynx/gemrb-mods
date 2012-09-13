@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Morte")  // 
+    MoveViewObject("Nameless",VERY_FAST)
+    MoveToObjectEx("Nameless",0)
+    GlobalSet("Fortress_Morte","GLOBAL",3)
+    EndCutSceneMode()
+    Dialogue("Nameless")
+END
+

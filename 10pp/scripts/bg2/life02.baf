@@ -1,0 +1,28 @@
+IF
+  Clicked([ANYONE])
+  !PartyHasItem("Misc4e")  // ~Energy Cells~
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14232)  // ~The creature within this tube seems to be alive, albeit barely. The cells that power the tube are lifeless. You'll need to find newer power cells to revive the creature.~
+END
+
+IF
+  Clicked([ANYONE])
+  PartyHasItem("Misc4e")  // ~Energy Cells~
+  Range(LastTrigger,9)
+  !Exists("LIFE02")  // ~Life Support Creature~
+  !GlobalTimerNotExpired("Life02Timer","AR0602")
+THEN
+  RESPONSE #100
+    CreateCreatureImpassable("LIFE02",[750.2733],0)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14230)  // ~You are too far away to catch a glimpse of the tube's contents.~
+END
+

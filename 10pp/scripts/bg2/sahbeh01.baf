@@ -1,0 +1,10 @@
+IF
+  Range([PC],6)
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

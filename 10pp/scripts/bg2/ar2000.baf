@@ -1,0 +1,280 @@
+IF
+  OnCreation()
+  Global("MakeStatue","GLOBAL",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("StatueInfo",FALSE)
+    TriggerActivation("StatueInfo2",FALSE)
+    TriggerActivation("StatueInfo3",FALSE)
+    TriggerActivation("StatueInfo4",FALSE)
+    TriggerActivation("StatueInfo5",FALSE)
+    TriggerActivation("StatueInfo6",FALSE)
+    Continue()
+END
+
+IF
+  Global("MakeStatue","GLOBAL",1)
+  InMyArea(Player1)
+THEN
+  RESPONSE #100
+    Wait(1)
+    ActionOverride("statue01",MakeUnselectable(100))
+    ActionOverride("statue02",MakeUnselectable(100))
+    ActionOverride("statue03",MakeUnselectable(100))
+    ActionOverride("statue04",MakeUnselectable(100))
+    ActionOverride("statue05",MakeUnselectable(100))
+    ActionOverride("statue06",MakeUnselectable(100))
+    Wait(1)
+    ApplySpell("statue01",MAKE_STATUE)
+    ApplySpell("statue02",MAKE_STATUE)
+    ApplySpell("statue03",MAKE_STATUE)
+    ApplySpell("statue04",MAKE_STATUE)
+    ApplySpell("statue05",MAKE_STATUE)
+    ApplySpell("statue06",MAKE_STATUE)
+    SetGlobal("MakeStatue","GLOBAL",2)
+    SetGlobal("MakeInfoTriggersMatch","GLOBAL",1)
+    TriggerActivation("StatueInfo",TRUE)
+    TriggerActivation("StatueInfo2",TRUE)
+    TriggerActivation("StatueInfo3",TRUE)
+    TriggerActivation("StatueInfo4",TRUE)
+    TriggerActivation("StatueInfo5",TRUE)
+    TriggerActivation("StatueInfo6",TRUE)
+END
+
+IF
+  NumInParty(5)
+  Global("MakeInfoTriggersMatch","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MakeInfoTriggersMatch","GLOBAL",2)
+    TriggerActivation("StatueInfo6",FALSE)
+END
+
+IF
+  NumInParty(4)
+  Global("MakeInfoTriggersMatch","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MakeInfoTriggersMatch","GLOBAL",2)
+    TriggerActivation("StatueInfo5",FALSE)
+    TriggerActivation("StatueInfo6",FALSE)
+END
+
+IF
+  NumInParty(3)
+  Global("MakeInfoTriggersMatch","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MakeInfoTriggersMatch","GLOBAL",2)
+    TriggerActivation("StatueInfo4",FALSE)
+    TriggerActivation("StatueInfo5",FALSE)
+    TriggerActivation("StatueInfo6",FALSE)
+END
+
+IF
+  NumInParty(2)
+  Global("MakeInfoTriggersMatch","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MakeInfoTriggersMatch","GLOBAL",2)
+    TriggerActivation("StatueInfo3",FALSE)
+    TriggerActivation("StatueInfo4",FALSE)
+    TriggerActivation("StatueInfo5",FALSE)
+    TriggerActivation("StatueInfo6",FALSE)
+END
+
+IF
+  NumInParty(1)
+  Global("MakeInfoTriggersMatch","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MakeInfoTriggersMatch","GLOBAL",2)
+    TriggerActivation("StatueInfo2",FALSE)
+    TriggerActivation("StatueInfo3",FALSE)
+    TriggerActivation("StatueInfo4",FALSE)
+    TriggerActivation("StatueInfo5",FALSE)
+    TriggerActivation("StatueInfo6",FALSE)
+END
+
+IF
+  OnCreation()
+  Global("Reveal2000","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Reveal2000","AR2000",1)
+    Explore()
+    Continue()
+END
+
+IF
+  Global("tannerplot2","GLOBAL",2)
+  Dead("trskin03")  // ~Rejiek Hidesman~
+  Dead("trskin06")  // ~Darsidian Moor~
+THEN
+  RESPONSE #100
+    SetGlobal("tannerplot2","GLOBAL",3)
+END
+
+IF
+  Global("geniesgone","GLOBAL",1)
+  Global("didthis1","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("didthis1","AR2000",1)
+    ActionOverride("trthf01",DestroySelf())
+END
+
+IF
+  Global("zahraajob","GLOBAL",1)
+  Global("didthis2","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("didthis2","AR2000",1)
+    CreateCreature("trthf01",[3771.75],0)  // ~Itona~
+END
+
+IF
+  InMyArea(Player1)
+  Dead("cefald01")  // ~Faldorn~
+  Global("geniesgone","GLOBAL",1)
+  Global("TannerExposed","GLOBAL",1)
+  Global("JeniaSpawn","AR2000",0)
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    SetGlobal("JeniaSpawn","AR2000",1)
+    CreateCreatureObjectOffScreen("TRSKIN05",Player1,0,0,0)  // ~Jenia~
+    ActionOverride("trskin05",Dialog([PC]))
+END
+
+IF
+  Global("tirisjob","GLOBAL",1)
+  Global("JeniaSpawn","AR2000",1)
+THEN
+  RESPONSE #100
+    SetGlobal("JeniaSpawn","AR2000",2)
+    CreateCreature("TRSKIN06",[80.2872],10)  // ~Darsidian Moor~
+END
+
+IF
+  OpenState("DOOR01",TRUE)  // DOOR01
+  Global("OpenedAR2000Tomb","GLOBAL",0)
+  !Dead("celogan")  // ~High Merchant Logan Coprith~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    SetGlobal("OpenedAR2000Tomb","GLOBAL",1)
+    CreateCreature("CELOGAN",[3198.818],8)  // ~High Merchant Logan Coprith~
+    ActionOverride("celogan",SetNumTimesTalkedTo(1))
+    ActionOverride("celogan",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("DruidStronghold","GLOBAL",1)
+  Global("DruidQuest2","GLOBAL",1)
+  Global("LorenSpawn","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LorenSpawn","AR2000",1)
+    CreateCreature("Drshlo01",[2958.3332],2)  // ~Loren~
+END
+
+IF
+  Exists("Drshlo02")  // ~Loren~
+  Global("ChaosSpawn","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ChaosSpawn","AR2000",1)
+    CreateCreatureObject("Drshch01","Drshlo02",0,0,0)  // ~Chaos~
+END
+
+IF
+  Dead("Drshch01")  // ~Chaos~
+  !Dead("Drshlo01")  // ~Loren~
+  !Dead("Drshlo02")  // ~Loren~
+  InMyArea(Player1)
+  Global("SpiritSpawn","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpiritSpawn","AR2000",1)
+    CreateCreatureObjectEffect("Drshsp01","SPFLESHS",Player1)
+END
+
+IF
+  Global("loganjob1","GLOBAL",1)
+  Global("trevil01Spawn","GLOBAL",0)
+  Alignment(Player1,MASK_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("trevil01Spawn","GLOBAL",1)
+    CreateCreature("TREVIL01",[1087.2524],8)  // ~Lord Khellon Menold~
+END
+
+IF
+  Global("Pala","GLOBAL",0)
+  Global("PalaPlotDoors","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PalaPlotDoors","AR2000",1)
+    TriggerActivation("Tran2002b",FALSE)
+    TriggerActivation("Tran2008b",FALSE)
+END
+
+IF
+  GlobalGT("Pala","GLOBAL",0)
+  Global("PalaCureFound","GLOBAL",0)
+  Global("FentanDoors","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FentanDoors","AR2000",1)
+    TriggerActivation("Tran2002b",TRUE)
+    TriggerActivation("Tran2002",FALSE)
+END
+
+IF
+  GlobalGT("PalaCureFound","GLOBAL",0)
+  Global("FentanDoors","AR2000",1)
+THEN
+  RESPONSE #100
+    SetGlobal("FentanDoors","AR2000",0)
+    TriggerActivation("Tran2002b",FALSE)
+    TriggerActivation("Tran2002",TRUE)
+END
+
+IF
+  Global("Pala","GLOBAL",3)
+  Global("PalaCured","GLOBAL",0)
+  Global("PalaCureFound","GLOBAL",0)
+  !Dead("Pala")  // ~Pala Fentan~
+  Global("TempleDoors","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TempleDoors","AR2000",1)
+    TriggerActivation("Tran2008",FALSE)
+    TriggerActivation("Tran2008b",TRUE)
+END
+
+IF
+  OR(3)
+    GlobalGT("PalaCured","GLOBAL",0)
+    GlobalGT("PalaCureFound","GLOBAL",0)
+    Dead("Pala")  // ~Pala Fentan~
+  Global("TempleDoors","AR2000",1)
+THEN
+  RESPONSE #100
+    SetGlobal("TempleDoors","AR2000",0)
+    TriggerActivation("Tran2008",TRUE)
+    TriggerActivation("Tran2008b",FALSE)
+END
+
+IF
+  Dead("cefald01")  // ~Faldorn~
+  Global("GrovePoisoned","GLOBAL",0)
+  Global("NonEvilPath","AR2000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NonEvilPath","AR2000",1)
+    ActionOverride("trevil01",DestroySelf())
+END
+

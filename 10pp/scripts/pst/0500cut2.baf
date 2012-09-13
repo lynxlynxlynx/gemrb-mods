@@ -1,0 +1,52 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GithSol1")  // 
+    TimedMoveToPoint([3247.778],150)
+    FaceObject(Protagonist)
+    StartCutScene("0500cut3")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GithSol2")  // 
+    TimedMoveToPoint([3277.827],225)
+    FaceObject(Protagonist)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GithSol3")  // 
+    TimedMoveToPoint([3235.804],225)
+    FaceObject(Protagonist)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GithSol4")  // 
+    FaceObject(Protagonist)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GithSol5")  // 
+    FaceObject(Protagonist)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GithAng")  // 
+    GlobalSet("Githzerai_Ambush_Spawn","GLOBAL",0)
+END
+

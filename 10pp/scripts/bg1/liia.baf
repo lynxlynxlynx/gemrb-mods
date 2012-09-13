@@ -1,0 +1,30 @@
+IF
+  Dead("GDOPP7")  // ~Greater Doppleganger~
+  Dead("GDOPP71")  // ~Greater Doppleganger~
+  Dead("GDOPP72")  // ~Greater Doppleganger~
+  Dead("GDOPP73")  // ~Greater Doppleganger~
+  Dead("GDOPP74")  // ~Greater Doppleganger~
+  Dead("GDOPP75")  // ~Greater Doppleganger~
+  Global("SarevokBehavior","GLOBAL",0)
+  Dead("Belt")  // ~Belt~
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  Global("SarevokBehavior","GLOBAL",1)
+  Global("DukeThanks","GLOBAL",0)
+  Dead("Belt")  // ~Belt~
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  See([ENEMY])
+THEN
+  RESPONSE #10
+    Attack([ENEMY])
+END
+

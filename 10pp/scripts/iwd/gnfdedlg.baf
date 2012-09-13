@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    MultiPlayerSync()
+    ClearAllActions()
+    FadeToColor([0.0],0)
+    Wait(1)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    Dialogue([PC])
+END
+

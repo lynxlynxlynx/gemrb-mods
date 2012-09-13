@@ -1,0 +1,45 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+    GlobalSet("1101_Leaving","AR1101",0)
+END
+
+IF
+  Global("1101_Spawn_CutScene","GLOBAL",1)
+  Exists("Corn")  // Corn
+  Exists("RAbishai_1")  // RAbishai_1
+  Exists("RAbishai_2")  // RAbishai_2
+  Exists("RAbishai_3")  // RAbishai_3
+  Exists("Lemure_1")  // Lemure_1
+  Exists("Lemure_2")  // Lemure_2
+  Exists("Lemure_3")  // Lemure_3
+  Exists("Lemure_4")  // Lemure_4
+  Exists("Lemure_5")  // Lemure_5
+  Exists("Lemure_6")  // Lemure_6
+THEN
+  RESPONSE #100
+    GlobalSet("1101_Spawn_CutScene","GLOBAL",0)
+    StartCutSceneMode()
+    StartCutScene("1101cut2")
+END
+
+IF
+  !Global("Current_Area","GLOBAL",1101)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1101)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR1101_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR1101_Visited","GLOBAL",1)
+    Continue()
+END
+

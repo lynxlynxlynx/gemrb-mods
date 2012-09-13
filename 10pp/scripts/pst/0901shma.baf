@@ -1,0 +1,36 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    RunToObject([PC])
+    Attack([PC])
+END
+
+IF
+  Help([0.0.0.0.SOHMIEN])
+  Global("Sohmien_Pack_Four","AR0901",1)
+THEN
+  RESPONSE #100
+    Help()
+    RunToObject(Protagonist)
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  Global("Sohmien_Pack_Four","AR0901",1)
+THEN
+  RESPONSE #100
+    RunToPoint([4257.667])
+    RunToPoint([4193.779])
+    Face(0)
+END
+
+IF
+  Global("Sohmien_Pack_Four","AR0901",0)
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

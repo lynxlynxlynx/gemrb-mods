@@ -1,0 +1,21 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("ICRMPARI",Myself)
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #80
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MELF_ACID_ARROW)
+  RESPONSE #80
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_AGANNAZAR_SCORCHER)
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+END
+

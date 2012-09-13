@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Fhjull")  // 
+    PlaySoundNotRanged("FFT064")
+    Wait(6)
+    EnableFogDither()
+    EnableSpriteDither()
+    Wait(1)
+    EndCutSceneMode()
+    StartMovie("CReturn")
+    TeleportParty("AR0200",[1034.1756],0)
+END
+

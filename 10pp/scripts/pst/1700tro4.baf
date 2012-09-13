@@ -1,0 +1,49 @@
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentLT(Myself,100)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  LOS([PC],8)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #10
+    PlaySequence(ANIM_DAMAGE)
+  RESPONSE #10
+    PlaySequence(ANIM_ATTACK1)
+  RESPONSE #80
+END
+

@@ -1,0 +1,76 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("02_50HANNU_01")  // 
+    FaceObject(Protagonist)
+    MoveViewObject(Myself,INSTANT)
+    SetDialogueRange(300)
+    Wait(1)
+    PlaySound("AM5002c")
+    OpenDoor("AR5002_Door1")
+    HideCreature(Myself,FALSE)
+    Wait(1)
+    Dialogue(Protagonist)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    SmallWaitRandom(5,10)
+    FaceObject("02_50HANNU_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(1)
+    SmallWaitRandom(5,10)
+    FaceObject("02_50HANNU_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(1)
+    SmallWaitRandom(5,10)
+    FaceObject("02_50HANNU_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(1)
+    SmallWaitRandom(5,10)
+    FaceObject("02_50HANNU_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(1)
+    SmallWaitRandom(5,10)
+    FaceObject("02_50HANNU_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(1)
+    SmallWaitRandom(5,10)
+    FaceObject("02_50HANNU_01")
+END
+

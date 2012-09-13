@@ -1,0 +1,27 @@
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,531,891,4)
+THEN
+  RESPONSE #100
+    SetStartPos([531.891])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MAGDAR_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([531.891])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  Global("MAGDAR_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

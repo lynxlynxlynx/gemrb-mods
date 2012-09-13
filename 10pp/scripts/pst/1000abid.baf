@@ -1,0 +1,40 @@
+IF
+  Global("Damsel_Trap","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Attack([PC])
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See([PC])
+  Exists([0.0.0.0.0.0.DAMSEL_IN_DISTRESS])
+THEN
+  RESPONSE #100
+    Attack([0.0.0.0.0.0.DAMSEL_IN_DISTRESS])
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+

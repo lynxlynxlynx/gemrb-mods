@@ -1,0 +1,273 @@
+IF
+  Global("FinalBattle","AR2906",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FinalBattle","AR2906",1)
+    ApplySpell(Myself,APPLY_NON_PERMANENT_DEATH)
+    ApplySpell(Player2,APPLY_NON_PERMANENT_DEATH)
+    ApplySpell(Player3,APPLY_NON_PERMANENT_DEATH)
+    ApplySpell(Player4,APPLY_NON_PERMANENT_DEATH)
+    ApplySpell(Player5,APPLY_NON_PERMANENT_DEATH)
+    ApplySpell(Player6,APPLY_NON_PERMANENT_DEATH)
+END
+
+IF
+  Global("DefeatedJon","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Wait(1)
+    SetGlobal("DefeatedJon","GLOBAL",2)
+    ActionOverride("jondem01",Kill(Myself))
+    ActionOverride("jondem02",Kill(Myself))
+    ActionOverride("jondem03",Kill(Myself))
+    ActionOverride("jondem04",Kill(Myself))
+    ActionOverride("jondem05",Kill(Myself))
+    ActionOverride("helljon2",DisplayStringHead(Myself,311))  // ~Curse you <CHARNAME>! I shall not be defeated by you!~
+    CreateVisualEffectObject("SPDISPMA",Myself)
+    Wait(2)
+    StartCutSceneMode()
+    StartCutScene("cut60a")
+END
+
+IF
+  Global("FinalBattle","AR2906",1)
+  Global("JonSpawn","AR2906",0)
+  NumInParty(1)
+THEN
+  RESPONSE #100
+    SetGlobal("JonSpawn","AR2906",1)
+    CreateVisualEffect("SPFIREPI",[1995.1360])
+    SmallWait(7)
+    CreateCreature("HELLJON",[1995.1360],8)  // ~Jon Irenicus~
+END
+
+IF
+  Global("FinalBattle","AR2906",1)
+  Global("JonSpawn","AR2906",0)
+  NumInParty(2)
+THEN
+  RESPONSE #100
+    SetGlobal("JonSpawn","AR2906",1)
+    CreateVisualEffect("SPFIREPI",[1995.1360])
+    CreateVisualEffect("SPFIREPI",[1995.1447])
+    SmallWait(7)
+    CreateCreature("HELLJON",[1995.1360],8)  // ~Jon Irenicus~
+    CreateCreature("JONDEM01",[1995.1447],8)  // ~Glabrezu~
+END
+
+IF
+  Global("FinalBattle","AR2906",1)
+  Global("JonSpawn","AR2906",0)
+  NumInParty(3)
+THEN
+  RESPONSE #100
+    SetGlobal("JonSpawn","AR2906",1)
+    CreateVisualEffect("SPFIREPI",[1995.1360])
+    CreateVisualEffect("SPFIREPI",[1995.1447])
+    CreateVisualEffect("SPFIREPI",[1887.1402])
+    SmallWait(7)
+    CreateCreature("HELLJON",[1995.1360],8)  // ~Jon Irenicus~
+    CreateCreature("JONDEM01",[1995.1447],8)  // ~Glabrezu~
+    CreateCreature("JONDEM02",[1887.1402],8)  // ~Balor~
+END
+
+IF
+  Global("FinalBattle","AR2906",1)
+  Global("JonSpawn","AR2906",0)
+  NumInParty(4)
+THEN
+  RESPONSE #100
+    SetGlobal("JonSpawn","AR2906",1)
+    CreateVisualEffect("SPFIREPI",[1995.1360])
+    CreateVisualEffect("SPFIREPI",[1995.1447])
+    CreateVisualEffect("SPFIREPI",[1887.1402])
+    CreateVisualEffect("SPFIREPI",[2098.1415])
+    SmallWait(7)
+    CreateCreature("HELLJON",[1995.1360],8)  // ~Jon Irenicus~
+    CreateCreature("JONDEM01",[1995.1447],8)  // ~Glabrezu~
+    CreateCreature("JONDEM02",[1887.1402],8)  // ~Balor~
+    CreateCreature("JONDEM03",[2098.1415],8)  // ~Glabrezu~
+END
+
+IF
+  Global("FinalBattle","AR2906",1)
+  Global("JonSpawn","AR2906",0)
+  NumInParty(5)
+THEN
+  RESPONSE #100
+    SetGlobal("JonSpawn","AR2906",1)
+    CreateVisualEffect("SPFIREPI",[1995.1360])
+    CreateVisualEffect("SPFIREPI",[1995.1447])
+    CreateVisualEffect("SPFIREPI",[1887.1402])
+    CreateVisualEffect("SPFIREPI",[2098.1415])
+    CreateVisualEffect("SPFIREPI",[1748.1375])
+    SmallWait(7)
+    CreateCreature("HELLJON",[1995.1360],8)  // ~Jon Irenicus~
+    CreateCreature("JONDEM01",[1995.1447],8)  // ~Glabrezu~
+    CreateCreature("JONDEM02",[1887.1402],8)  // ~Balor~
+    CreateCreature("JONDEM03",[2098.1415],8)  // ~Glabrezu~
+    CreateCreature("JONDEM04",[1748.1375],8)  // ~Balor~
+END
+
+IF
+  Global("FinalBattle","AR2906",1)
+  Global("JonSpawn","AR2906",0)
+  NumInParty(6)
+THEN
+  RESPONSE #100
+    SetGlobal("JonSpawn","AR2906",1)
+    CreateVisualEffect("SPFIREPI",[1995.1360])
+    CreateVisualEffect("SPFIREPI",[1995.1447])
+    CreateVisualEffect("SPFIREPI",[1887.1402])
+    CreateVisualEffect("SPFIREPI",[2098.1415])
+    CreateVisualEffect("SPFIREPI",[1748.1375])
+    CreateVisualEffect("SPFIREPI",[2175.1377])
+    SmallWait(7)
+    CreateCreature("HELLJON",[1995.1360],8)  // ~Jon Irenicus~
+    CreateCreature("JONDEM01",[1995.1447],8)  // ~Glabrezu~
+    CreateCreature("JONDEM02",[1887.1402],8)  // ~Balor~
+    CreateCreature("JONDEM03",[2098.1415],8)  // ~Glabrezu~
+    CreateCreature("JONDEM04",[1748.1375],8)  // ~Balor~
+    CreateCreature("JONDEM05",[2175.1377],8)  // ~Glabrezu~
+END
+
+IF
+  OpenState("Room1",TRUE)  // Room1
+  OR(2)
+    Global("RoomWrath","GLOBAL",0)
+    Global("RoomWrath","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CloseDoor("Room1")
+END
+
+IF
+  OpenState("Room1",FALSE)  // Room1
+  Global("RoomWrath","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    Wait(1)
+    OpenDoor("Room1")
+    FadeFromColor([20.0],0)
+END
+
+IF
+  OpenState("Room2",TRUE)  // Room2
+  OR(2)
+    Global("RoomGreed","GLOBAL",0)
+    Global("RoomGreed","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CloseDoor("Room2")
+END
+
+IF
+  OpenState("Room2",FALSE)  // Room2
+  Global("RoomGreed","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    Wait(1)
+    OpenDoor("Room2")
+    FadeFromColor([20.0],0)
+END
+
+IF
+  OpenState("Room3",TRUE)  // Room3
+  OR(2)
+    Global("RoomFear","GLOBAL",0)
+    Global("RoomFear","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CloseDoor("Room3")
+END
+
+IF
+  OpenState("Room3",FALSE)  // Room3
+  Global("RoomFear","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    Wait(1)
+    OpenDoor("Room3")
+    FadeFromColor([20.0],0)
+END
+
+IF
+  OpenState("Room4",TRUE)  // Room4
+  OR(2)
+    Global("RoomSelfish","GLOBAL",0)
+    Global("RoomSelfish","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CloseDoor("Room4")
+END
+
+IF
+  OpenState("Room4",FALSE)  // Room4
+  Global("RoomSelfish","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    Wait(1)
+    OpenDoor("Room4")
+    FadeFromColor([20.0],0)
+END
+
+IF
+  OpenState("Room5",TRUE)  // Room5
+  OR(2)
+    Global("RoomPride","GLOBAL",0)
+    Global("RoomPride","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CloseDoor("Room5")
+END
+
+IF
+  OpenState("Room5",FALSE)  // Room5
+  Global("RoomPride","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    Wait(1)
+    OpenDoor("Room5")
+    FadeFromColor([20.0],0)
+END
+
+IF
+  GlobalGT("HellSwap","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Wait(5)
+    SetGlobal("HellSwap","GLOBAL",0)
+END
+
+IF
+  Global("RoomWrath","GLOBAL",2)
+  GlobalTimerNotExpired("WrathMonsters","AR2906")
+THEN
+  RESPONSE #20
+    CreateVisualEffect("SPFLESHS",[552.693])
+    SmallWait(10)
+    CreateCreature("WRmons01",[552.693],0)  // ~Salamander~
+  RESPONSE #20
+    CreateVisualEffect("SPFLESHS",[650.505])
+    SmallWait(10)
+    CreateCreature("WRmons01",[650.505],0)  // ~Salamander~
+  RESPONSE #20
+    CreateVisualEffect("SPFLESHS",[910.449])
+    SmallWait(10)
+    CreateCreature("WRmons01",[910.449],0)  // ~Salamander~
+  RESPONSE #20
+    CreateVisualEffect("SPFLESHS",[1185.488])
+    SmallWait(10)
+    CreateCreature("WRmons01",[1185.488],0)  // ~Salamander~
+  RESPONSE #20
+    CreateVisualEffect("SPFLESHS",[1341.657])
+    SmallWait(10)
+    CreateCreature("WRmons01",[1341.657],0)  // ~Salamander~
+END
+

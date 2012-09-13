@@ -1,0 +1,99 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT_01")  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT_02")  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT2_03")  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT2_04")  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT3_05")  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    WaitRandom(0,1)
+    FaceObject("07_50ISAIR_01")
+END
+

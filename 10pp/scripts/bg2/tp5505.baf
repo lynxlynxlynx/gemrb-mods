@@ -1,0 +1,24 @@
+IF
+  WalkedToTrigger([ANYONE])
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SaveGame(0)
+    SmallWait(5)
+    StartCutSceneMode()
+    MoveViewObject(LastTrigger,INSTANT)
+    FadeToColor([30.0],0)
+    Wait(2)
+    ActionOverride(Player1,LeaveAreaLUAPanicEntry("AR5505","Entry1",[0.0],6))
+    ActionOverride(Player1,LeaveAreaLUAEntry("AR5505","Entry1",[0.0],6))
+    ActionOverride(Player2,LeaveAreaLUAEntry("AR5505","Entry1",[0.0],6))
+    ActionOverride(Player3,LeaveAreaLUAEntry("AR5505","Entry1",[0.0],6))
+    ActionOverride(Player4,LeaveAreaLUAEntry("AR5505","Entry1",[0.0],6))
+    ActionOverride(Player5,LeaveAreaLUAEntry("AR5505","Entry1",[0.0],6))
+    ActionOverride(Player6,LeaveAreaLUAEntry("AR5505","Entry1",[0.0],6))
+    ActionOverride(Player1,Wait(2))
+    ActionOverride(Player1,MultiPlayerSync())
+    ActionOverride(Player1,FadeFromColor([30.0],0))
+    ActionOverride(Player1,EndCutSceneMode())
+END
+

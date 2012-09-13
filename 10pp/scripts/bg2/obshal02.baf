@@ -1,0 +1,40 @@
+IF
+  Detect(NearestEnemyOf(Myself))
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,49851)  // ~A bloodied halfling sits, chewing on a human leg bone still partially covered by dirty leather armor.  It looks up, smiles, and says "More to feast!"~
+    SetGlobal("spoke","LOCALS",1)
+END
+
+IF
+  Range("obshal05",3)  // ~Kayardi~
+  Global("stopwalkin","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("stopwalkin","LOCALS",1)
+END
+
+IF
+  Detect(NearestEnemyOf(Myself))
+  Global("stopwalkin","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    MoveToObject("Obshal05")
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("spoke","LOCALS",1)
+  OR(5)
+    Died(Player2)
+    Died(Player3)
+    Died(Player4)
+    Died(Player5)
+    Died(Player6)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,49865)  // ~More Feast!~
+END
+

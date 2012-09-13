@@ -1,0 +1,18 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !See(NearestEnemyOf(Myself))
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObjectUntilSee(LastAttackerOf(Myself))
+END
+

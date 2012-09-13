@@ -1,0 +1,319 @@
+IF
+  HPPercentLT(Myself,40)
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),10)
+  !GlobalTimerNotExpired("SolarHeal","LOCALS")
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("SolarHeal","LOCALS",30)
+    RunAwayFrom(LastSeenBy(Myself),45)
+    SpellNoDec(Myself,CLERIC_HEAL)
+    SetInterrupt(TRUE)
+END
+
+IF
+  HPPercentLT(Myself,40)
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),10)
+  !GlobalTimerNotExpired("SolarHeal","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SolarHeal","LOCALS",30)
+    SpellNoDec(Myself,CLERIC_HEAL)
+END
+
+IF
+  StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  OR(2)
+    CheckStatGT(Myself,0,WEB)
+    CheckStatGT(Myself,0,ENTANGLE)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_FREE_ACTION)
+END
+
+IF
+  OR(6)
+    StateCheck(NearestEnemyOf(Myself),STATE_INVISIBLE)
+    StateCheck(NearestEnemyOf(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(SecondNearestEnemyOf(Myself),STATE_INVISIBLE)
+    StateCheck(SecondNearestEnemyOf(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(ThirdNearestEnemyOf(Myself),STATE_INVISIBLE)
+    StateCheck(ThirdNearestEnemyOf(Myself),STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("SolarSight","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SolarSight","LOCALS",60)
+    ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  !Detect(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],1)
+  See(SecondNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],2)
+  See(ThirdNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],3)
+  See(FourthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],4)
+  See(FifthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],5)
+  See(SixthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  See(LastAttackerOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Range(NearestEnemyOf(Myself),4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject([GOODCUTOFF])
+END
+
+IF
+  Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+  !See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Gender(LastSeenBy(Myself),SUMMONED)
+  !LevelGT(LastSeenBy(Myself),10)
+  !GlobalTimerNotExpired("SolarDeathSpell","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SolarDeathSpell","LOCALS",30)
+    ForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+END
+
+IF
+  RandomNum(2,1)
+  !StateCheck(LastSeenBy(Myself),STATE_NORMAL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  OR(7)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_DRAWUPONHOLYMIGHT)
+    StateCheck(LastSeenBy(Myself),STATE_BLUR)
+    StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+    CheckStatGT(LastSeenBy(Myself),0,0)
+    CheckStatGT(LastSeenBy(Myself),0,0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  !Range(LastSeenBy(Myself),4)
+  RandomNum(4,1)
+  !StateCheck(LastSeenBy(Myself),STATE_NORMAL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  Global("SolarEarthquake","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SolarEarthquake","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_EARTHQUAKE)
+END
+
+IF
+  OR(3)
+    Class(LastSeenBy(Myself),MAGE_ALL)
+    Class(LastSeenBy(Myself),SORCERER)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  RandomNum(3,1)
+  Global("SolarFeeblemind","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SolarFeeblemind","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_FEEBLEMIND)
+END
+
+IF
+  !Range(LastSeenBy(Myself),15)
+  RandomNum(4,1)
+  NumCreatureLT([EVILCUTOFF],3)
+  !StateCheck(LastSeenBy(Myself),STATE_NORMAL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  Global("SolarFirestorm","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SolarFirestorm","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_FIRE_STORM)
+END
+
+IF
+  Range(LastSeenBy(Myself),15)
+  RandomNum(2,1)
+  !HPPercentLT(Myself,40)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),45)
+  RESPONSE #50
+    SetInterrupt(FALSE)
+    RunAwayFrom(NearestEnemyOf(Myself),45)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Range(LastSeenBy,15)
+  RandomNum(2,1)
+  HPPercentLT(Myself,40)
+THEN
+  RESPONSE #50
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),45)
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    RunAwayFrom(NearestEnemyOf(Myself),45)
+    SetInterrupt(TRUE)
+END
+
+IF
+  RandomNum(4,1)
+  Alignment(LastSeenBy(Myself),MASK_GOOD)
+  Global("SolarWord","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SolarWord","LOCALS",1)
+    ForceSpell(Myself,CLERIC_UNHOLY_WORD)
+END
+
+IF
+  RandomNum(2,2)
+  !Range(LastSeenBy(Myself),8)
+  GlobalLT("SolarStrike","LOCALS",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("SolarStrike","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+  Range(LastSeenBy(Myself),10)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  HPPercentLT(Myself,100)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+END
+
+IF
+  !HPPercentLT(Myself,40)
+THEN
+  RESPONSE #50
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

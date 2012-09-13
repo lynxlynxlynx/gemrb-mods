@@ -1,0 +1,48 @@
+IF
+  Global("SPLIT_RIDER","LOCALS",0)
+  !Dead(Myself)  // 
+  HPPercentLT(Myself,50)
+  Or(2)
+    AttackedBy([GOODCUTOFF],0)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    Polymorph(Worg)
+    SetApparentNameSTRREF(Myself,8771)  // ~Worg~
+    SetRegularNameSTRREF(Myself,8771)  // ~Worg~
+    DropInventory()
+    CreateCreature("00WorgRD","",[-1.-1],0)  // ~Goblin~
+    ActionOverride(LastMarkedObject,FaceObject([ENEMY]))
+    ActionOverride(LastMarkedObject,Kill(Myself))
+    SetGlobal("SPLIT_RIDER","LOCALS",1)
+    SetInterrupt(TRUE)
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    CreateCreature("00WorgBD","",[-1.-1],0)  // ~Worg~
+    Polymorph(Goblin_w_Axe)
+    SetApparentNameSTRREF(Myself,15)  // ~Goblin~
+    SetRegularNameSTRREF(Myself,15)  // ~Goblin~
+    ActionOverride(LastMarkedObject,FaceObject([ENEMY]))
+    ActionOverride(LastMarkedObject,Kill(Myself))
+    SetGlobal("SPLIT_RIDER","LOCALS",1)
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    SetInterrupt(FALSE)
+    Polymorph(Worg)
+    SetApparentNameSTRREF(Myself,8771)  // ~Worg~
+    SetRegularNameSTRREF(Myself,8771)  // ~Worg~
+    DropInventory()
+    CreateCreature("00WorgRA","",[-1.-1],0)  // ~Goblin~
+    MatchHP(LastMarkedObject,MAX_HP)
+    MatchHP(LastMarkedObject,CURRENT_HP)
+    SetHPPercent(LastMarkedObject,50,CURRENT_HP)
+    SetHPPercent(Myself,50,CURRENT_HP)
+    ActionOverride(LastMarkedObject,FaceObject([ENEMY]))
+    SetGlobal("SPLIT_RIDER","LOCALS",1)
+    SetInterrupt(TRUE)
+  RESPONSE #100
+    SetGlobal("SPLIT_RIDER","LOCALS",1)
+    Continue()
+END
+

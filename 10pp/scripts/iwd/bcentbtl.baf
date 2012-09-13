@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ANGAAR")  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    HideGUI()
+    MultiPlayerSync()
+    SetGlobal("BC_CUTSCENE","GLOBAL",14)
+    StartCutScene("BCBTLPRP")
+    Wait(1)
+    ResetJoinRequests()
+    StartCutScene("BCCLGATE")
+END
+

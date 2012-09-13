@@ -1,0 +1,58 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  True()
+THEN
+    SetGlobal("EldothMove","GLOBAL",2)
+    MoveViewPoint([1846.2117],INSTANT)
+    JumpToPoint([2129.2379])
+    MoveToPoint([1846.2117])
+    EndCutSceneMode()
+    ActionOverride("Eldoth",Dialog([PC]))
+END
+
+IF
+  True()
+THEN
+    JumpToPoint([2165.2392])
+    MoveToPoint([1853.2152])
+END
+
+IF
+  True()
+THEN
+    JumpToPoint([2149.2422])
+    MoveToPoint([1883.2139])
+END
+
+IF
+  True()
+THEN
+    JumpToPoint([2211.2425])
+    MoveToPoint([1917.2151])
+END
+
+IF
+  True()
+THEN
+    JumpToPoint([2192.2456])
+    MoveToPoint([1899.2177])
+END
+
+IF
+  True()
+THEN
+    JumpToPoint([2234.2457])
+    MoveToPoint([1930.2201])
+END
+
+
+END

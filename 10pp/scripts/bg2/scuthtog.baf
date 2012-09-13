@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    MoveViewPoint([501.1050],6)
+    ActionOverride("FSSpir1",MoveToPointNoInterrupt([501.1050]))
+    Wait(5)
+    ActionOverride("FSSpir1",StartDialogNoSet(Player1))
+END
+

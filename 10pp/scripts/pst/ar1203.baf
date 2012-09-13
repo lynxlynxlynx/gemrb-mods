@@ -1,0 +1,47 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  Global("1203_Deionarra","GLOBAL",0)
+  Dead("Incar1")  // ~Incarnation~
+  Dead("Incar2")  // ~Incarnation~
+  Dead("Incar3")  // ~Incarnation~
+THEN
+  RESPONSE #100
+    StartSong(CHAR_DEIONARRA,[0.0],Normal)
+    GlobalSet("1203_Deionarra","GLOBAL",1)
+END
+
+IF
+  Global("1203_Deionarra","GLOBAL",1)
+  Exists("DeionS")  // ~Deionarra~
+THEN
+  RESPONSE #100
+    GlobalSet("1203_Deionarra","GLOBAL",2)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",1203)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1203)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR1203_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Explore()
+    GlobalSet("AR1203_Visited","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1203cut1")
+    Continue()
+END
+

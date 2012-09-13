@@ -1,0 +1,82 @@
+IF
+  See("Kimasxi")  // ~Prostitute~
+  !TimerActive(2)
+THEN
+  RESPONSE #100
+    GlobalSet("Masochist_Scene","GLOBAL",1)
+    ChangeAIScript("0605pt4b",DEFAULT)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1801.496])
+    Face(2)
+    Wait(1)
+    OpenDoor("AR605d06")
+    MoveToPoint([1767.593])
+    Face(8)
+    Wait(1)
+    CloseDoor("AR605d06")
+    MoveToPoint([1928.695])
+    MoveToPoint([2143.885])
+    MoveToPoint([2119.1301])
+    Face(14)
+    Wait(1)
+    OpenDoor("AR605d03")
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2184.1328])
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,2)
+THEN
+  RESPONSE #100
+    MoveToPoint([2259.1328])
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,3)
+THEN
+  RESPONSE #100
+    MoveToPoint([2358.1328])
+    Face(10)
+    StartRandomTimer(1,5,10)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_1,3)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2262.1347])
+    Face(6)
+    Wait(1)
+    OpenDoor("AR605d03")
+    MoveToPoint([2119.1301])
+    Face(14)
+    Wait(1)
+    CloseDoor("AR605d03")
+    MoveToPoint([2143.1192])
+    MoveToPoint([2143.885])
+    MoveToPoint([1928.695])
+    MoveToPoint([1767.593])
+    Face(10)
+    Wait(1)
+    OpenDoor("AR605d06")
+    MoveToPoint([1835.387])
+    StartRandomTimer(1,5,10)
+    SetInternal(Myself,INTERNAL_1,0)
+END
+

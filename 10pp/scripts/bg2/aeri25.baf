@@ -1,0 +1,234 @@
+IF
+  Global("AerieSummoned","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("AerieHardened","GLOBAL",0)
+  InParty(Myself)
+  Global("SaradushSacked","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("AerieHardened","GLOBAL",1)
+END
+
+IF
+  GlobalGT("chapter","GLOBAL",7)
+  Global("NewSounds","LOCALS",0)
+  Global("AerieHardened","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetPlayerSound(Myself,70860,BATTLE_CRY1)  // ~ Evil cannot be allowed to fester!~ [AERI2539]
+    SetPlayerSound(Myself,70861,BATTLE_CRY2)  // ~ This is going to hurt you a LOT more than me!~ [AERI2540]
+    SetPlayerSound(Myself,70862,BATTLE_CRY3)  // ~ By all that is decent, I fight!~ [AERI2541]
+    SetGlobal("NewSounds","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("aeriex",SPECIFICS)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("aeriex",SPECIFICS)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",SPECIFICS)
+    Continue()
+END
+
+IF
+  InParty(Myself)
+  Global("AerieRomanceActive","GLOBAL",2)
+  OR(2)
+    Global("JaheiraRomanceActive","GLOBAL",1)
+    Global("JaheiraRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("JaheiraRomanceActive","GLOBAL",3)
+END
+
+IF
+  InParty(Myself)
+  Global("AerieRomanceActive","GLOBAL",2)
+  OR(2)
+    Global("ViconiaRomanceActive","GLOBAL",1)
+    Global("ViconiaRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("ViconiaRomanceActive","GLOBAL",3)
+END
+
+IF
+  OR(2)
+    Global("HaerDalisRomanceActive","GLOBAL",1)
+    Global("HaerDalisRomanceActive","GLOBAL",2)
+  !InPartyAllowDead("HaerDalis")  // HaerDalis
+  Dead("HaerDalis")  // HaerDalis
+THEN
+  RESPONSE #100
+    SetGlobal("HaerDalisRomanceActive","GLOBAL",3)
+END
+
+IF
+  InParty(Myself)
+  Global("ExpLoveTalk","LOCALS",0)
+  Global("AerieRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("ExpLoveTalk","LOCALS",1)
+    RealSetGlobalTimer("AerieRomance","GLOBAL",2500)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AerieRomance","GLOBAL")
+  PartyRested()
+  Global("AerieRomanceActive","GLOBAL",2)
+  See(Player1)
+  CombatCounter(0)
+  OR(7)
+    Global("ExpLoveTalk","LOCALS",1)
+    Global("ExpLoveTalk","LOCALS",3)
+    Global("ExpLoveTalk","LOCALS",7)
+    Global("ExpLoveTalk","LOCALS",11)
+    Global("ExpLoveTalk","LOCALS",13)
+    Global("ExpLoveTalk","LOCALS",15)
+    Global("ExpLoveTalk","LOCALS",17)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("AerieRomance","GLOBAL",30)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AerieRomance","GLOBAL")
+  Global("AerieRomanceActive","GLOBAL",2)
+  !AreaType(DUNGEON)
+  See(Player1)
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+  CombatCounter(0)
+  OR(4)
+    Global("ExpLoveTalk","LOCALS",1)
+    Global("ExpLoveTalk","LOCALS",7)
+    Global("ExpLoveTalk","LOCALS",11)
+    Global("ExpLoveTalk","LOCALS",13)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(34)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AerieRomance","GLOBAL")
+  OR(9)
+    Global("ExpLoveTalk","LOCALS",2)
+    Global("ExpLoveTalk","LOCALS",4)
+    Global("ExpLoveTalk","LOCALS",6)
+    Global("ExpLoveTalk","LOCALS",8)
+    Global("ExpLoveTalk","LOCALS",10)
+    Global("ExpLoveTalk","LOCALS",12)
+    Global("ExpLoveTalk","LOCALS",14)
+    Global("ExpLoveTalk","LOCALS",16)
+    Global("ExpLoveTalk","LOCALS",18)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    RealSetGlobalTimer("AerieRomance","GLOBAL",3200)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AerieRomance","GLOBAL")
+  Global("AerieRomanceActive","GLOBAL",2)
+  See(Player1)
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+  PartyRested()
+  CombatCounter(0)
+  Global("LovedOne","GLOBAL",1)
+  Global("ExpLoveTalk","LOCALS",5)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(34)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AerieRomance","GLOBAL")
+  Global("AerieRomanceActive","GLOBAL",2)
+  See(Player1)
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+  CombatCounter(0)
+  Global("SaradushSacked","GLOBAL",1)
+  Global("ExpLoveTalk","LOCALS",9)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(34)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  Global("AerieRomanceActive","GLOBAL",2)
+  See(Player1)
+  CombatCounter(0)
+  Global("ChallengesDone","GLOBAL",1)
+  Global("ExpLoveTalk","LOCALS",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(34)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AerieRomance","GLOBAL")
+  Global("AerieRomanceActive","GLOBAL",2)
+  See(Player1)
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+  CombatCounter(0)
+  GlobalTimerExpired("AeriePregnantTimer","GLOBAL")
+  Global("ExpLoveTalk","LOCALS",17)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(34)
+    Interact(Player1)
+END
+

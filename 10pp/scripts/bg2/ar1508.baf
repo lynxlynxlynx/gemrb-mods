@@ -1,0 +1,36 @@
+IF
+  OnCreation()
+  Global("EnteredAR1508","AR1508",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredAR1508","AR1508",1)
+    TriggerActivation("Tran1516",FALSE)
+    SetGlobal("AsylumPlot","GLOBAL",50)
+    CreateCreature("ELEARB11",[591.276],0)  // ~Apparition~
+END
+
+IF
+  GlobalTimerExpired("BodhiHunts","GLOBAL")
+  !Global("AsylumPlot","GLOBAL",100)
+  !Exists("ppbodhi4")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    CreateCreatureObject("ppbodhi4",Player1,0,0,0)  // ~Bodhi~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    FadeFromColor([20.0],0)
+    ActionOverride("ppbodhi4",StartDialogNoSet(Player1))
+END
+
+IF
+  Global("Deactivate","AR1508",1)
+  Dead("elmind01")  // ~Mind Flayer~
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","AR1508",2)
+    CreateVisualEffectObject("spfleshs","elearb11")
+    Wait(1)
+    Activate("elearb11")
+END
+

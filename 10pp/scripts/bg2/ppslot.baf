@@ -1,0 +1,107 @@
+IF
+  Clicked([ANYONE])
+  Global("slot","AR1514",0)
+THEN
+  RESPONSE #100
+    SetGlobal("slot","AR1514",1)
+    DisplayString(Myself,48320)  // ~To receive a reward, insert 10 gold~
+END
+
+IF
+  Global("sword1","AR1514",0)
+  Global("badstuff","AR1514",0)
+  Global("slot","AR1514",1)
+  PartyGoldGT(9)
+THEN
+  RESPONSE #50
+    SetGlobal("sword1","AR1514",1)
+    GiveItemCreate("sw1h08",LastTrigger,0,0,0)  // ~Short Sword +1~
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    TakePartyGold(10)
+  RESPONSE #50
+    SetGlobal("badstuff","AR1514",1)
+END
+
+IF
+  Global("potion","AR1514",0)
+  Global("badstuff","AR1514",0)
+  Global("slot","AR1514",1)
+  PartyGoldGT(9)
+THEN
+  RESPONSE #50
+    SetGlobal("potion","AR1514",1)
+    GiveItemCreate("potn08",LastTrigger,0,0,0)  // ~Potion of Healing~
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    TakePartyGold(10)
+  RESPONSE #50
+    SetGlobal("badstuff","AR1514",1)
+END
+
+IF
+  Global("staff","AR1514",0)
+  Global("badstuff","AR1514",0)
+  Global("slot","AR1514",1)
+  PartyGoldGT(9)
+THEN
+  RESPONSE #50
+    SetGlobal("staff","AR1514",1)
+    GiveItemCreate("staf02",LastTrigger,0,0,0)  // ~Quarterstaff +1~
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    TakePartyGold(10)
+  RESPONSE #50
+    SetGlobal("badstuff","AR1514",1)
+END
+
+IF
+  Global("sword2","AR1514",0)
+  Global("badstuff","AR1514",0)
+  Global("slot","AR1514",1)
+  PartyGoldGT(9)
+THEN
+  RESPONSE #50
+    SetGlobal("sword2","AR1514",1)
+    GiveItemCreate("sw1h27",LastTrigger,0,0,0)  // ~Arbane's Sword +2~
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    TakePartyGold(10)
+  RESPONSE #50
+    SetGlobal("badstuff","AR1514",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("slot","AR1514",1)
+  Global("badstuff","AR1514",1)
+  PartyGoldGT(9)
+THEN
+  RESPONSE #10
+    SetGlobal("badstuff","AR1514",0)
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    ReallyForceSpell(LastTrigger,WIZARD_FIREBALL)
+    TakePartyGold(10)
+  RESPONSE #10
+    SetGlobal("badstuff","AR1514",0)
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    ReallyForceSpell(LastTrigger,WIZARD_CHAIN_LIGHTNING)
+    TakePartyGold(10)
+  RESPONSE #10
+    SetGlobal("badstuff","AR1514",0)
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    ReallyForceSpell(LastTrigger,WIZARD_LIGHTNING_BOLT)
+    TakePartyGold(10)
+  RESPONSE #10
+    SetGlobal("badstuff","AR1514",0)
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    ReallyForceSpell(LastTrigger,WIZARD_SLOW)
+    TakePartyGold(10)
+  RESPONSE #10
+    SetGlobal("badstuff","AR1514",0)
+    DisplayString(Myself,48326)  // ~Here is your reward~
+    CreateCreatureObject("kobcom01",LastTrigger,0,0,0)  // ~Kobold Commando~
+    CreateCreatureObject("kobcom01",LastTrigger,0,0,0)  // ~Kobold Commando~
+    CreateCreatureObject("kobcom01",LastTrigger,0,0,0)  // ~Kobold Commando~
+    CreateCreatureObject("kobcom01",LastTrigger,0,0,0)  // ~Kobold Commando~
+    CreateCreatureObject("kobcom01",LastTrigger,0,0,0)  // ~Kobold Commando~
+    CreateCreatureObject("kobcom01",LastTrigger,0,0,0)  // ~Kobold Commando~
+    TakePartyGold(10)
+END
+

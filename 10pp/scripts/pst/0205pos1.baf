@@ -1,0 +1,3 @@
+IF
+  Global("PlayerBehindBar","AR0205",0)
+  !

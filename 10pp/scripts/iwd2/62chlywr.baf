@@ -1,0 +1,47 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Mdarfein")  // 
+    MultiPlayerSync()
+    Face(SE)
+    MoveViewObject(Myself,25)
+    Wait(2)
+    ForceSpell("Saralon_Dfrayn",WIZARD_MORDENKAINENS_FORCE_MISSILES)
+    Wait(3)
+    MultiPlayerSync()
+    ForceSpell("Saralon_Dfrayn",WIZARD_MORDENKAINENS_FORCE_MISSILES)
+    Wait(3)
+    MultiPlayerSync()
+    ForceSpell("Saralon_Dfrayn",WIZARD_MORDENKAINENS_FORCE_MISSILES)
+    Wait(4)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    SetDialogueRange(300)
+    FaceObject(NearestPC)
+    MultiPlayerSync()
+    Dialogue(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Saralon_Dfrayn")  // 
+    MultiPlayerSync()
+    Wait(2)
+    ForceSpell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+    Wait(2)
+    MultiPlayerSync()
+    ForceSpell(Myself,CLERIC_MOONBLADE)
+    Wait(5)
+    DropInventory()
+    HideCreature(Myself,TRUE)
+    MultiPlayerSync()
+    CreateCreature("62SaralD","",[1813.2033],0)  // ~Saralon_Dead~
+    MultiPlayerSync()
+    Wait(6)
+    MultiPlayerSync()
+    DestroySelf()
+END
+

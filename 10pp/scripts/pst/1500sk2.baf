@@ -1,0 +1,75 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeTeam(Myself,TEAM_NONGHOUL)
+END
+
+IF
+  Global("Undead_Alert","AR1500",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Ghoul_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeAIScript("1500bdz",DEFAULT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Undead_Alert","AR1500",1)
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(10,15)
+    MoveToPoint([1276.2438])
+    FloatMessageRnd(Myself,"1500doub")
+    Face(-1)
+    WaitRandom(10,15)
+    MoveToPoint([1454.2438])
+    FloatMessageRnd(Myself,"1500doub")
+    Face(-1)
+    WaitRandom(10,15)
+    MoveToPoint([1454.2340])
+    FloatMessageRnd(Myself,"1500doub")
+    Face(-1)
+    WaitRandom(10,15)
+    MoveToPoint([1544.2244])
+    FloatMessageRnd(Myself,"1500doub")
+END
+

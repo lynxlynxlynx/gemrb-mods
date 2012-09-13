@@ -1,0 +1,126 @@
+IF
+  !GlobalTimerNotExpired("Entrance3003Timer","AR3001")
+  Global("SetDifficulty","AR3001",0)
+  WalkedToTrigger([ANYONE])
+  Global("PortalOpen","AR3001",1)
+  PartyHasItem("PLOT01B")  // ~Vigil Stone~
+  Dead("gorsta01")  // ~Statue~
+  Dead("gorsta02")  // ~Statue~
+  Dead("gorsta03")  // ~Statue~
+  Dead("gorsta04")  // ~Statue~
+  Dead("gorsta05")  // ~Statue~
+  Dead("gorsta06")  // ~Statue~
+  Dead("gorsta07")  // ~Statue~
+  Dead("gorsta08")  // ~Statue~
+  Dead("gorsta09")  // ~Statue~
+  Dead("gorsta10")  // ~Statue~
+  Dead("gorsta11")  // ~Statue~
+  Dead("gorsta12")  // ~Statue~
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+    SetGlobalTimer("Entrance3003Timer","AR3001",10)
+    DisplayString(Myself,62472)  // ~The mirror hums with energy.  The gate to the lower dungeon is now open.~
+    StartCutSceneMode()
+    Wait(2)
+    CreateVisualEffect("ICRMPAR2",[1450.1156])
+    StartCutScene("cut202q")
+END
+
+IF
+  !GlobalTimerNotExpired("Entrance3003Timer","AR3001")
+  Global("SetDifficulty","AR3001",1)
+  WalkedToTrigger([ANYONE])
+  Global("PortalOpen","AR3001",1)
+  PartyHasItem("PLOT01B")  // ~Vigil Stone~
+  Dead("gorsta01")  // ~Statue~
+  Dead("gorsta02")  // ~Statue~
+  Dead("gorsta07")  // ~Statue~
+  Dead("gorsta08")  // ~Statue~
+  Dead("gorsta09")  // ~Statue~
+  Dead("gorsta10")  // ~Statue~
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+    SetGlobalTimer("Entrance3003Timer","AR3001",10)
+    DisplayString(Myself,62472)  // ~The mirror hums with energy.  The gate to the lower dungeon is now open.~
+    StartCutSceneMode()
+    Wait(2)
+    CreateVisualEffect("ICRMPAR2",[1450.1156])
+    StartCutScene("cut202q")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !GlobalTimerNotExpired("Entrance3003Timer","AR3001")
+  Global("PortalOpen","AR3001",0)
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+    SetGlobalTimer("Entrance3003Timer","AR3001",10)
+    DisplayString(Myself,62471)  // ~In the center of the room is a large mirror - the magical gate to the lower levels of the dungeon.  The portal appears inactive.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("SetDifficulty","AR3001",0)
+  !GlobalTimerNotExpired("Entrance3003Timer","AR3001")
+  Global("PortalOpen","AR3001",1)
+  OR(12)
+    !Dead("gorsta01")  // ~Statue~
+    !Dead("gorsta02")  // ~Statue~
+    !Dead("gorsta03")  // ~Statue~
+    !Dead("gorsta04")  // ~Statue~
+    !Dead("gorsta05")  // ~Statue~
+    !Dead("gorsta06")  // ~Statue~
+    !Dead("gorsta07")  // ~Statue~
+    !Dead("gorsta08")  // ~Statue~
+    !Dead("gorsta09")  // ~Statue~
+    !Dead("gorsta10")  // ~Statue~
+    !Dead("gorsta11")  // ~Statue~
+    !Dead("gorsta12")  // ~Statue~
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+    SetGlobalTimer("Entrance3003Timer","AR3001",10)
+    DisplayString(Myself,71709)  // ~Somehow the statues defending the portal are preventing you from entering it.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("SetDifficulty","AR3001",1)
+  !GlobalTimerNotExpired("Entrance3003Timer","AR3001")
+  Global("PortalOpen","AR3001",1)
+  OR(6)
+    !Dead("gorsta01")  // ~Statue~
+    !Dead("gorsta02")  // ~Statue~
+    !Dead("gorsta07")  // ~Statue~
+    !Dead("gorsta08")  // ~Statue~
+    !Dead("gorsta09")  // ~Statue~
+    !Dead("gorsta10")  // ~Statue~
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+    SetGlobalTimer("Entrance3003Timer","AR3001",10)
+    DisplayString(Myself,71709)  // ~Somehow the statues defending the portal are preventing you from entering it.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !PartyHasItem("PLOT01B")  // ~Vigil Stone~
+  !GlobalTimerNotExpired("Entrance3003Timer","AR3001")
+THEN
+  RESPONSE #100
+    DisplayString(Myself,74021)  // ~You try to leave the level, but are pushed back by some invisible force.  It appears that you require something in order to pass.~
+    SetGlobalTimer("Entrance3003Timer","AR3001",10)
+    ClearActions(LastTrigger)
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("Entrance3003Timer","AR3001")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

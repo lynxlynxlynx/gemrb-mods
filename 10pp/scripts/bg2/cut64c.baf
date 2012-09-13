@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Aerie")  // 
+    ReallyForceSpell(Player1,CHICKEN_CHANGE)
+    Wait(3)
+    DisplayStringHead(Myself,3300)  // ~Yes, I suppose your... recent life would leave little to laugh about.  One day... one day this will all be over for you, <CHARNAME>.  And then maybe we can *all* laugh.~
+    Wait(2)
+    ReallyForceSpell(Player1,AERIE_DISPEL_MAGIC)
+    Wait(3)
+    SetGlobal("ChangeChickenBack","LOCALS",1)
+    Interact(Player1)
+    EndCutSceneMode()
+END
+

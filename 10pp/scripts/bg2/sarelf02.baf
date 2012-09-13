@@ -1,0 +1,48 @@
+IF
+  Dead("gromnir")  // ~Gromnir Il-Khan~
+  Global("Escape","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Escape","LOCALS",1)
+    EscapeArea()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("BulliesAttackElves","AR5000",1)
+END
+
+IF
+  Global("elfsanctuary","GLOBAL",3)
+  Global("EnteredTemple","LOCALS",0)
+  !Range("Tran5004",5)  // Tran5004
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    MoveToObject("Tran5004")
+END
+
+IF
+  Global("elfsanctuary","GLOBAL",3)
+  Global("EnteredTemple","LOCALS",0)
+  Range("Tran5004",5)  // Tran5004
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredTemple","LOCALS",1)
+    DialogueInterrupt(TRUE)
+    EscapeAreaMove("AR5004",626,453,2)
+END
+
+IF
+  GlobalGT("BulliesAttackElves","AR5000",0)
+THEN
+  RESPONSE #100
+    EscapeArea()
+  RESPONSE #40
+    DisplayStringHead(Myself,71549)  // ~Help!!~
+    EscapeArea()
+END
+

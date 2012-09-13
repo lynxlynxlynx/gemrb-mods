@@ -1,0 +1,101 @@
+IF
+  Global("GauthBehavior","LOCALS",0)
+  See([PC])
+  HPGT(Myself,55)
+THEN
+  RESPONSE #100
+    ReallyForceSpell([PC],BEHOLDER_CAUSE_SERIOUS_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  Global("GauthBehavior","LOCALS",0)
+  HPGT(Myself,5)
+  See([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpell(SecondNearest([PC]),BEHOLDER_LIGHTNING_BOLT)
+    Wait(2)
+    Continue()
+END
+
+IF
+  Global("GauthBehavior","LOCALS",0)
+  See(LeastDamagedOf(Myself))
+  HPGT(Myself,15)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LeastDamagedOf(Myself),BEHOLDER_PARALYZATION)
+    Continue()
+END
+
+IF
+  Global("GauthBehavior","LOCALS",0)
+  See([PC])
+  !See(LeastDamagedOf(Myself))
+  HPGT(Myself,15)
+THEN
+  RESPONSE #100
+    ReallyForceSpell([PC],BEHOLDER_PARALYZATION)
+    Continue()
+END
+
+IF
+  Global("GauthBehavior","LOCALS",0)
+  See([PC])
+  HPGT(Myself,25)
+THEN
+  RESPONSE #100
+    ReallyForceSpell([PC],0)
+    SetGlobal("GauthBehavior","LOCALS",1)
+    Wait(2)
+END
+
+IF
+  Global("GauthBehavior","LOCALS",1)
+  See([PC])
+  HPGT(Myself,45)
+THEN
+  RESPONSE #100
+    ReallyForceSpell([PC],BEHOLDER_PARALYZATION)
+    Wait(1)
+    Continue()
+END
+
+IF
+  Global("GauthBehavior","LOCALS",1)
+  See([PC])
+  HPGT(Myself,25)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(SecondNearest([PC]),BEHOLDER_SLOW)
+    Wait(1)
+    Continue()
+END
+
+IF
+  Global("GauthBehavior","LOCALS",1)
+  See(LeastDamagedOf(Myself))
+  HPGT(Myself,35)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LeastDamagedOf(Myself),BEHOLDER_HOLD_PERSON)
+    ReallyForceSpell([PC],0)
+    SetGlobal("GauthBehavior","LOCALS",0)
+    Wait(2)
+END
+
+IF
+  Global("GauthBehavior","LOCALS",1)
+  See([PC])
+  !See(LeastDamagedOf(Myself))
+  HPGT(Myself,35)
+THEN
+  RESPONSE #100
+    ReallyForceSpell([PC],BEHOLDER_HOLD_PERSON)
+    ReallyForceSpell([PC],0)
+    SetGlobal("GauthBehavior","LOCALS",0)
+    Wait(2)
+END
+

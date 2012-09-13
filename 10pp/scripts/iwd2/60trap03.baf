@@ -1,0 +1,21 @@
+IF
+  !TimerActive(50)
+  OpenState("AR6051_Crusher",TRUE)  // AR6051_Crusher
+THEN
+  RESPONSE #100
+    CloseDoor("AR6051_Crusher")
+    StartTimer(50,3)
+END
+
+IF
+  !TimerActive(50)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("AR6051_Crusher")
+    ForceSpell(LastTrigger,TRAP_SSETHS_EMBRACE)
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ScreenShake(5,15,15)
+    StartTimer(50,3)
+END
+

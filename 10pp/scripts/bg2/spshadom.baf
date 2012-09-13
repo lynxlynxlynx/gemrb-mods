@@ -1,0 +1,28 @@
+IF
+  IsOverMe([PC])
+  Global("ShadowsSpawn","AR1401",0)
+THEN
+  RESPONSE #50
+    SetGlobal("ShadowsSpawn","AR1401",1)
+END
+
+IF
+  IsOverMe([0.0.SHADOW])
+THEN
+  RESPONSE #50
+    ForceSpell(LastTrigger,TRAP_SHADOW_DEATH)
+END
+
+IF
+  IsOverMe("Mazzy")  // Mazzy
+  AreaCheck("AR1401")
+  Global("ShadowTrigger","GLOBAL",0)
+  OR(2)
+    Global("Clicked","AR1401",0)
+    Global("Clicked","AR1401",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ShadowTrigger","GLOBAL",1)
+    ActionOverride("Mazzy",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,16 @@
+IF
+  IsWeaponRanged(Myself)
+  Range(NearestEnemyOf(Myself),5,LESS_THAN)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

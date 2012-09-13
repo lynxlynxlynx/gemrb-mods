@@ -1,0 +1,149 @@
+IF
+  Global("Purified_Fields","MYAREA",0)
+  HasItem("62GenHW","Container_Waterfall")  // ~Vial of Elven Holy Water~
+THEN
+  RESPONSE #100
+    SetGlobal("Purified_Fields","MYAREA",1)
+    ActionOverride("Container_Waterfall",DestroyItem("62GenHW"))  // ~Vial of Elven Holy Water~
+    StartCutSceneMode()
+    ClearAllActions()
+    ActionOverride("Creature_Waterfall",SpellHitEffectSprite("Creature_Waterfall",Myself,SUNSCORCH,0))
+    Wait(3)
+    FadeToColor([0.0],0)
+    Wait(1)
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    SetRestEncounterChance(0,0)
+    SetExtendedNight(FALSE)
+    ActionOverride(Player1,SetSavedLocation())
+    ActionOverride(Player2,SetSavedLocation())
+    ActionOverride(Player3,SetSavedLocation())
+    ActionOverride(Player4,SetSavedLocation())
+    ActionOverride(Player5,SetSavedLocation())
+    ActionOverride(Player6,SetSavedLocation())
+    ActionOverride(Player1,SetStartPos([-1.0]))
+    ActionOverride(Player2,SetStartPos([-1.0]))
+    ActionOverride(Player3,SetStartPos([-1.0]))
+    ActionOverride(Player4,SetStartPos([-1.0]))
+    ActionOverride(Player5,SetStartPos([-1.0]))
+    ActionOverride(Player6,SetStartPos([-1.0]))
+    DayNight(NOON)
+    ActionOverride(Player1,JumpToSavedLocation())
+    ActionOverride(Player2,JumpToSavedLocation())
+    ActionOverride(Player3,JumpToSavedLocation())
+    ActionOverride(Player4,JumpToSavedLocation())
+    ActionOverride(Player5,JumpToSavedLocation())
+    ActionOverride(Player6,JumpToSavedLocation())
+    Wait(1)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    EndCutSceneMode()
+    AddXPVar("Level_13_Hard",27522)  // ~You have purified the waterfall and the Fields of Slaughter.~
+    SetGlobal("Purify_Fields","GLOBAL",2)
+END
+
+IF
+  Global("Purified_Fields","MYAREA",1)
+  IsActive("Sound_wind_gusts")  // Sound_wind_gusts
+THEN
+  RESPONSE #100
+    Deactivate("Sound_wind_gusts")
+    Continue()
+END
+
+IF
+  Global("Purified_Fields","MYAREA",1)
+  IsActive("Sound_Snow_Drifts")  // Sound_Snow_Drifts
+THEN
+  RESPONSE #100
+    Deactivate("Sound_Snow_Drifts")
+    Continue()
+END
+
+IF
+  Global("Purified_Fields","MYAREA",1)
+  !IsActive("Sound_Happy_birds")  // Sound_Happy_birds
+THEN
+  RESPONSE #100
+    Activate("Sound_Happy_birds")
+    Continue()
+END
+
+IF
+  Global("Purified_Fields","MYAREA",1)
+  !IsActive("Sound_waterfall")  // Sound_waterfall
+THEN
+  RESPONSE #100
+    Activate("Sound_waterfall")
+    Continue()
+END
+
+IF
+  Global("SetOrcTeamsHostile","MYAREA",0)
+  Or(2)
+    !Global("TEAM_2","MYAREA",0)
+    !Global("TEAM_11","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SetOrcTeamsHostile","MYAREA",1)
+    SetGlobal("TEAM_2","MYAREA",1)
+    SetGlobal("TEAM_11","MYAREA",1)
+    Continue()
+END
+
+IF
+  Or(2)
+    Global("TEAM_2","MYAREA",0)
+    Global("TEAM_11","MYAREA",0)
+  OpenState("AR6200_Tusk_Gate",TRUE)  // AR6200_Tusk_Gate
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2","MYAREA",1)
+    SetGlobal("TEAM_11","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Team_02_Fighting","MYAREA",0)
+  !Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Team_02_Fighting","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Team_02_Fighting","MYAREA",1)
+  Dead("Kratuuk")  // 
+  Dead("T2_OrcDreadWarrior")  // 
+  Dead("T2_OrcDreadWarrior5")  // 
+  Dead("T2_OrcDreadWarrior6")  // 
+  Dead("T2_OrcDreadWarrior7")  // 
+  Dead("T2_OrcDreadWarrior8")  // 
+  Dead("T2_OrcDreadWarrior10")  // 
+  Dead("T2_OrcDreadWarrior11")  // 
+  Dead("T2_OrcDreadWarrior12")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Team_02_Fighting","MYAREA",2)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

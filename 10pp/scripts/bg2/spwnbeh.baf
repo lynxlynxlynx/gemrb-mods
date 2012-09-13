@@ -1,0 +1,42 @@
+IF
+  XPLT(Player1,400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("behold01",[-1.-1],0)  // ~Beholder~
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("behold01",[-1.-1],0)  // ~Beholder~
+    CreateCreature("behold01",[-1.-1],0)  // ~Beholder~
+    CreateCreature("behold01",[-1.-1],0)  // ~Beholder~
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+    CreateCreature("behgau01",[-1.-1],0)  // ~Gauth~
+END
+

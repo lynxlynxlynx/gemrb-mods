@@ -1,0 +1,19 @@
+IF
+  Or(11)
+    HitBy([PC],CRUSHING)
+    HitBy([PC],ACID)
+    HitBy([PC],COLD)
+    HitBy([PC],ELECTRICITY)
+    HitBy([PC],FIRE)
+    HitBy([PC],PIERCING)
+    HitBy([PC],POISON)
+    HitBy([PC],MAGIC)
+    HitBy([PC],MISSILE)
+    HitBy([PC],SLASHING)
+    HitBy([PC],STUNNING)
+  OpenState("AR4100_RightSlide",TRUE)  // AR4100_RightSlide
+THEN
+  RESPONSE #100
+    CloseDoor("AR4100_RightSlide")
+END
+

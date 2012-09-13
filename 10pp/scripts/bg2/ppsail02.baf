@@ -1,0 +1,9 @@
+IF
+  HPPercentLT(Myself,25)
+  Global("InitDlg","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("InitDlg","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

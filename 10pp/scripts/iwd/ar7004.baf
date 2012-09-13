@@ -1,0 +1,45 @@
+IF
+  OnCreation()
+  !Global("SLAVE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SLAVE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("SLAVE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+    SetGlobal("SLAVE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+  !Global("JORIL_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("JORIL_BADGE","GLOBAL",0)
+  PartyHasItem("JORIL")  // ~Joril's Badge~
+THEN
+  RESPONSE #100
+    SetGlobal("JORIL_BADGE","GLOBAL",1)
+    AddXPVar("LEVEL_10_AVERAGE",19559)  // ~You have retrieved Joril's badge.~
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

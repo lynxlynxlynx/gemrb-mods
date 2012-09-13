@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    ClearAllActions()
+    MultiPlayerSync()
+    HideGUI()
+    MultiPlayerSync()
+    SetGlobal("BELHIEFET_DEAD","GLOBAL",1)
+    AddexperienceParty(75000)
+    ActionOverride("IRON_GOLEM_1",Kill(Myself))
+    ActionOverride("IRON_GOLEM_2",Kill(Myself))
+    ActionOverride("CORNUGON_1",Kill(Myself))
+    ActionOverride("CORNUGON_2",Kill(Myself))
+    Wait(7)
+    FadeToColor([0.0],0)
+    Wait(1)
+    UnhideGUI()
+    MultiPlayerSync()
+    EndCredits()
+END
+

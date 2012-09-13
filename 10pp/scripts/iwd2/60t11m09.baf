@@ -1,0 +1,64 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("MoveToPoint_15_09","MYAREA",0)
+  NearLocation(Myself,3190,460,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_15_09","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_15_09","MYAREA",1)
+  NearLocation(Myself,2570,1220,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_15_09","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_15_09","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("MoveToPoint_15_09","MYAREA",0)
+    SetGlobal("OkayToGo_15_09_0","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_1","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_2","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_3","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_4","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_5","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_6","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_7","LOCALS",0)
+    SetGlobal("OkayToGo_15_09_8","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_15_09","MYAREA",0)
+  Global("MoveToPoint_15_10","MYAREA",0)
+  Global("OkayToGo_15_09_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_15_09_0","LOCALS",1)
+    MoveToPoint([3190.460])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_15_09","MYAREA",1)
+  Global("MoveToPoint_15_10","MYAREA",1)
+  Global("OkayToGo_15_09_1","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_15_09_1","LOCALS",1)
+    MoveToPoint([2570.1220])
+    Continue()
+END
+

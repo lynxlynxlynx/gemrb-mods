@@ -1,0 +1,99 @@
+IF
+  Global("1601_Spells_Cast","AR1601",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_BALL_LIGHTNING,5)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",1)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_BALL_LIGHTNING,5)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",2)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_SWARM_CURSE,3)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",3)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_ICE_KNIFE,3)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",4)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_ICE_KNIFE,3)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",5)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_MAGIC_MISSILE,1)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",6)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_MAGIC_MISSILE,1)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",7)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_MISSILE_OF_PATIENCE,1)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("1601_Spells_Cast","AR1601",8)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC][0.0.10000.10000],WIZARD_MAGIC_MISSILE,1)
+    Wait(5)
+    IncrementGlobal("1601_Spells_Cast","AR1601",1)
+    BitSet("1601_Status","AR1601",BIT1)
+    ChangeAIScript("",DEFAULT)
+END
+

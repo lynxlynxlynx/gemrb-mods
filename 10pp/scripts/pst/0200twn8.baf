@@ -1,0 +1,41 @@
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    JumpToPoint([20.2270])
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([990.2268])
+    MoveToPoint([1594.2998])
+    MoveToPoint([1926.3837])
+    Face(12)
+    StartTimer(1,10)
+END
+

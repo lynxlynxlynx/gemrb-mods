@@ -1,0 +1,33 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    ActionOverride("gorsuc01",ForceSpell(Player1,PHASE_SPIDER_TELEPORT))
+    Wait(3)
+    MoveViewObject(Player1,5)
+    ActionOverride("gorsuc01",FaceObject(Player1))
+    ActionOverride("gorsuc01",Swing())
+    Wait(1)
+    ActionOverride("gorsuc01",ForceSpell(Player1,SUCCUBUS_KISS))
+    Wait(2)
+    FadeToColor([30.0],0)
+    Wait(2)
+    ActionOverride("gorsuc01",MoveBetweenAreasEffect("AR3015","SPDOOR",[1639.718],14))
+    Wait(1)
+    LeaveAreaLUAPanic("AR3015","",[1732.783],7)
+    LeaveAreaLUA("AR3015","",[1732.783],7)
+    ActionOverride(Player2,LeaveAreaLUA("AR3015","",[1784.759],7))
+    ActionOverride(Player3,LeaveAreaLUA("AR3015","",[1832.728],7))
+    ActionOverride(Player4,LeaveAreaLUA("AR3015","",[1782.839],7))
+    ActionOverride(Player5,LeaveAreaLUA("AR3015","",[1829.809],7))
+    ActionOverride(Player6,LeaveAreaLUA("AR3015","",[1873.783],7))
+    Wait(2)
+    MultiPlayerSync()
+    FadeFromColor([30.0],0)
+    Wait(2)
+    ActionOverride("gorsuc01",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

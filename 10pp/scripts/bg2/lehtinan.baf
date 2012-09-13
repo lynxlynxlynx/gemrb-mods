@@ -1,0 +1,34 @@
+IF
+  Detect([PC])
+  Global("HendakMove","AR0406",6)
+  Global("spoke","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetGlobal("spoke","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("HendakFight","AR0406",1)
+  Dead("Hendak")  // ~Hendak~
+  !Dead("yself)")  // yself)
+  Global("angry","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,3586)  // ~There is nothing to calm my anger now...my business is ruined.  My failure ends with my death.~
+    Enemy()
+    SetGlobal("angry","LOCALS",1)
+END
+
+IF
+  !Dead("yself)")  // yself)
+  Global("HendakFight","AR0406",1)
+  See("Hendak")  // ~Hendak~
+  !Dead("Hendak")  // ~Hendak~
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    Attack("Hendak")
+END
+

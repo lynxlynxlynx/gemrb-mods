@@ -1,0 +1,25 @@
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Global("ENNELIA_BRASTON_TEAM","MYAREA",2)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  AttackedBy([ENEMY],0)
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastMarkedObject,3)
+    AttackReevaluate(LastMarkedObject,45)
+END
+

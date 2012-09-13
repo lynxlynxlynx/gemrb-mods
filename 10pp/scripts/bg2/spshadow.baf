@@ -1,0 +1,7 @@
+IF
+  IsOverMe([0.0.SHADOW])
+THEN
+  RESPONSE #50
+    ForceSpell(LastTrigger,TRAP_SHADOW_DEATH)
+END
+

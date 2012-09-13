@@ -1,0 +1,32 @@
+IF
+  Detect([GOODCUTOFF])
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+  Global("SiegeLocation","AR5000",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",8)
+    SetGlobal("SiegeLocation","AR5000",2)
+    Wait(2)
+    ReallyForceSpellRES("jwsiege",Myself)  // <Invalid Strref -1>
+    SetInterrupt(TRUE)
+END
+
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+  Global("SiegeLocation","AR5000",2)
+THEN
+  RESPONSE #30
+    SetGlobal("SiegeLocation","AR5000",0)
+    PlaySound("AM5000S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",60)
+  RESPONSE #30
+    SetGlobal("SiegeLocation","AR5000",0)
+    PlaySound("AM5000S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",80)
+  RESPONSE #30
+    SetGlobal("SiegeLocation","AR5000",0)
+    PlaySound("AM5000S3")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",100)
+END
+

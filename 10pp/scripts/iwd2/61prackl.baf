@@ -1,0 +1,72 @@
+IF
+  Clicked(Player1)
+  Global("RackVictim","MYAREA",1)
+THEN
+  RESPONSE #100
+    PlaySequence(Player1,AWAKE)
+    ActionOverride(Player1,JumpToPoint([2944.1536]))
+    DisplayString(Player1,34925)  // ~You climb down from the rack.~
+    SetGlobal("RackVictim","MYAREA",0)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked(Player2)
+  Global("RackVictim","MYAREA",2)
+THEN
+  RESPONSE #100
+    PlaySequence(Player2,AWAKE)
+    ActionOverride(Player2,JumpToPoint([2944.1536]))
+    DisplayString(Player2,34925)  // ~You climb down from the rack.~
+    SetGlobal("RackVictim","MYAREA",0)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked(Player3)
+  Global("RackVictim","MYAREA",3)
+THEN
+  RESPONSE #100
+    PlaySequence(Player3,AWAKE)
+    ActionOverride(Player3,JumpToPoint([2944.1536]))
+    DisplayString(Player3,34925)  // ~You climb down from the rack.~
+    SetGlobal("RackVictim","MYAREA",0)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked(Player4)
+  Global("RackVictim","MYAREA",4)
+THEN
+  RESPONSE #100
+    PlaySequence(Player4,AWAKE)
+    ActionOverride(Player4,JumpToPoint([2944.1536]))
+    DisplayString(Player4,34925)  // ~You climb down from the rack.~
+    SetGlobal("RackVictim","MYAREA",0)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked(Player5)
+  Global("RackVictim","MYAREA",5)
+THEN
+  RESPONSE #100
+    PlaySequence(Player5,AWAKE)
+    ActionOverride(Player5,JumpToPoint([2944.1536]))
+    DisplayString(Player5,34925)  // ~You climb down from the rack.~
+    SetGlobal("RackVictim","MYAREA",0)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked(Player6)
+  Global("RackVictim","MYAREA",6)
+THEN
+  RESPONSE #100
+    PlaySequence(Player6,AWAKE)
+    ActionOverride(Player6,JumpToPoint([2944.1536]))
+    DisplayString(Player6,34925)  // ~You climb down from the rack.~
+    SetGlobal("RackVictim","MYAREA",0)
+    TriggerActivation(Myself,FALSE)
+END
+

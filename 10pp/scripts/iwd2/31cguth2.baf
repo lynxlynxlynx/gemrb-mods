@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Sherincal")  // 
+    HideGUI()
+    MultiPlayerSync()
+    FaceObject("05_BugGut")
+    PlaySequence(Myself,CAST)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+    StartCutScene("31cGuth3")
+    DestroySelf()
+END
+

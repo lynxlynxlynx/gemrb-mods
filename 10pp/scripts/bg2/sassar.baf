@@ -1,0 +1,21 @@
+IF
+  Detect([PC])
+  Global("SassarJob","GLOBAL",1)
+  !Global("KnowPassword","GLOBAL",1)
+  !Dead("UnseeingEye")  // UnseeingEye
+  PartyHasItem("Misc5A")  // ~Rift Device Part~
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Detect([PC])
+  Range(LastSeenBy(Myself),10)
+  NumberOfTimesTalkedTo(0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

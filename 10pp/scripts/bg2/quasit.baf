@@ -1,0 +1,109 @@
+IF
+  Global("ReduceDemons","AR3012",1)
+  AreaCheck("AR3012")
+  Exists(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),20)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_INVISIBILITY)
+    RunAwayFrom(LastSeenBy(Myself),30)
+END
+
+IF
+  See([0.0.0.IMP])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.IMP],30)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("Prep","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Prep","LOCALS",1000)
+    ReallyForceSpell(Myself,WIZARD_LUCK)
+    ReallyForceSpell(Myself,WIZARD_SHIELD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !DifficultyLT(NORMAL)
+  HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_SPELL_THRUST)
+  RandomNum(2,1)
+  !GlobalTimerNotExpired("Thrust","LOCALS")
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Thrust","LOCALS",15)
+    Spell(NearestEnemyOf(Myself),WIZARD_SPELL_THRUST)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !HasBounceEffects(LastSeenBy(Myself))
+  !GlobalTimerNotExpired("Barrage","LOCALS")
+  !StateCheck(Myself,STATE_INVISIBLE)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_MELF_ACID_ARROW)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_DEAFNESS)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_LARLOCH_MINOR_DRAIN)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_RAY_OF_ENFEEBLEMENT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),10)
+  StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    AttackOneRound(NearestEnemyOf(Myself))
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),10)
+  StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    AttackOneRound(NearestEnemyOf(Myself))
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+  RESPONSE #50
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),15)
+END
+

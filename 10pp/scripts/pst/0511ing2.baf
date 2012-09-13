@@ -1,0 +1,62 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    BitSet("Foundry_GR_Status","AR0511",BIT2)
+END
+
+IF
+  !BitCheck("Foundry_GR_Status","AR0511",BIT2)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_1)
+    BitSet("Foundry_GR_Status","AR0511",BIT2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #0
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    IncrementGlobal("Lady","GLOBAL",1)
+    Help()
+END
+
+IF
+  !NearLocation(Myself,[556.438],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([556.438])
+    Face(10)
+END
+
+IF
+  !Dead("Sandoz")  // ~Godsman Factor~
+  Global("Foundry_GR_Status","AR0511",1)
+THEN
+  RESPONSE #100
+    WaitRandom(3,15)
+    FloatMessage(Myself,26362)  // ~"We need more guards protecting the foundry."~
+    GlobalSet("Foundry_GR_Status","AR0511",0)
+  RESPONSE #100
+    WaitRandom(3,15)
+    FloatMessage(Myself,26361)  // ~"I guard, therefore, I am."~
+    GlobalSet("Foundry_GR_Status","AR0511",0)
+END
+

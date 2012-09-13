@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([1448.869],VERY_FAST)
+    MoveToPoint([1448.869])
+    FaceObject("Morte")
+    Wait(1)
+    MoveViewObject("Morte",VERY_FAST)
+    PlaySequence(ANIM_CAST)
+    ReallyForceSpellLevel("Morte",CLERIC_RAISE_DEAD,9)
+    Wait(5)
+    StartCutScene("1204m1")
+END
+

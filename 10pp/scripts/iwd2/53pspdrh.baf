@@ -1,0 +1,10 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    HideCreature("07_53SPISWH_01",FALSE)
+    HideCreature("07_53SPISWH_02",FALSE)
+    HideCreature("07_53SPISWH_03",FALSE)
+    HideCreature("07_53SPISWH_04",FALSE)
+END
+

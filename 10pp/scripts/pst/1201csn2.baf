@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    MoveToPoint([4680.1110])
+    FaceObject("NordomF")
+    StartSong(CHAR_NORDOM,[0.0],Normal)
+    PlaySoundNotRanged("Tra034")
+    Wait(3)
+    StartSong(CHAR_NORDOM,[0.0],Normal)
+    StartCutScene("1201CSN3")
+END
+

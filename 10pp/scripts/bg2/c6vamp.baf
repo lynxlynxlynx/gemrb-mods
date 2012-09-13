@@ -1,0 +1,9 @@
+IF
+  Entered([ANYONE])
+  Global("Chapter","GLOBAL",6)
+THEN
+  RESPONSE #100
+    CreateCreatureDoor("vamver01",[-1.-1],0)
+    CreateCreatureDoor("lich01",[-1.-1],0)
+END
+

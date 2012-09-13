@@ -1,0 +1,336 @@
+IF
+  Dead("GorCamb")  // ~Aesgareth~
+  Dead("GorCamb2")  // ~Tiefling~
+  OR(3)
+    !See([0.WEAPON])
+    Global("PostCombatReinit","GLOBAL",3)
+    Global("PostCombatReinit","GLOBAL",2)
+  Global("AesTiefAttack","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AesTiefAttack","GLOBAL",1)
+    DisplayStringHead(Myself,70984)  // ~The cambion's dead!  Let's get the way out of this bloody place from the berks, come on!~
+    Shout(151)
+    Enemy()
+END
+
+IF
+  OR(3)
+    See([0.WEAPON])
+    Global("PostCombatReinit","GLOBAL",1)
+    Global("PostCombatReinit","GLOBAL",2)
+  Global("shutup","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("shutup","LOCALS",1)
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  Global("PostCombatReinit","GLOBAL",4)
+  Global("shutup","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("shutup","LOCALS",0)
+    DialogueInterrupt(TRUE)
+END
+
+IF
+  See([0.WEAPON])
+  See(NearestMyGroupOfType)
+  Global("Preparation1","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_DEFENSIVE_HARMONY)
+    SetGlobal("Preparation1","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType)
+  Global("Preparation","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,CLERIC_REGENERATE)
+    ApplySpell(Myself,CLERIC_DEATH_WARD)
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_DEFENSIVE_HARMONY)
+    SetGlobal("Preparation","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(NPC_BLADE_BARRIER)
+  RandomNum(2,1)
+  Global("BladeBarrier","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,NPC_BLADE_BARRIER)
+    SetGlobal("BladeBarrier","LOCALS",1)
+END
+
+IF
+  See([GOODCUTOFF.0.SKELETON.0.0.SUMMONED])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HaveSpell(CLERIC_SUNRAY)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SUNRAY)
+    Continue()
+END
+
+IF
+  OR(2)
+    See([0.WEAPON])
+    See(NearestEnemyOf(Myself))
+  HitBy([ANYONE],CRUSHING)
+  HaveSpell(CLERIC_IRONSKIN)
+  !CheckStatGT(Myself,0,STONESKINS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_IRONSKIN)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  RandomNum(2,1)
+  HaveSpell(CLERIC_CREEPING_DOOM)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CREEPING_DOOM)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FREE_ACTION)
+  See(NearestMyGroupOfType)
+  StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_FREE_ACTION)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType)
+  HaveSpell(CLERIC_MASS_CURE)
+  HPPercentLT(Myself,80)
+  OR(3)
+    HPPercentLT(LastSeenBy(Myself),80)
+    HPPercentLT(SecondNearestMyGroupOfType,80)
+    HPPercentLT(ThirdNearestMyGroupOfType,80)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_MASS_CURE)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  RandomNum(2,1)
+  HaveSpell(CLERIC_FINGER_OF_DEATH)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FINGER_OF_DEATH)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  RandomNum(2,2)
+  HaveSpell(CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_INSECT_PLAGUE)
+    Continue()
+END
+
+IF
+  See(NearestMyGroupOfType)
+  HPPercentLT(LastSeenBy(Myself),25)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,25)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_HEAL)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  RandomNum(2,1)
+  HaveSpell(CLERIC_AERIAL_SERVANT)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_FOOT)
+  OR(2)
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+  !Range(LastSeenBy(Myself),15)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+    Continue()
+END
+
+IF
+  OR(2)
+    See([0.WEAPON])
+    See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_PHYSICAL_MIRROR)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PHYSICAL_MIRROR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),10)
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  See([0.WEAPON])
+  !Range(NearestEnemyOf(Myself),10)
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate([0.WEAPON],45)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  Range(NearestEnemyOf(Myself),10)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  See([0.WEAPON])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  Range(NearestEnemyOf(Myself),10)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate([0.WEAPON],45)
+END
+
+IF
+  Dead("GorDeckB")  // ~Adamantite Golem~
+  Allegiance(Myself,NEUTRAL)
+  Global("reset","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("reset","LOCALS",1)
+    SetGlobal("Preparation","LOCALS",0)
+END
+
+IF
+  Dead("GorDeck1")  // ~Fighter~
+  Dead("GorDeck2")  // ~Fighter~
+  Dead("GorDeck3")  // ~Fighter~
+  Dead("GorDeck4")  // ~Fighter~
+  Allegiance(Myself,NEUTRAL)
+  Global("reset2","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("reset2","LOCALS",1)
+    SetGlobal("Preparation","LOCALS",0)
+END
+
+IF
+  See(NearestMyGroupOfType)
+  OR(5)
+    HPPercentLT(LastSeenBy(Myself),75)
+    HPPercentLT(SecondNearestMyGroupOfType,75)
+    HPPercentLT(ThirdNearestMyGroupOfType,75)
+    HPPercentLT(FourthNearestMyGroupOfType,75)
+    HPPercentLT(FifthNearestMyGroupOfType,75)
+THEN
+  RESPONSE #50
+    SpellNoDec(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Continue()
+  RESPONSE #50
+    SpellNoDec(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)
+    Continue()
+END
+

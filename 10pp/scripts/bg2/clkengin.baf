@@ -1,0 +1,48 @@
+IF
+  Clicked([ANYONE])
+  Global("UseEngine","GLOBAL",0)
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    SetGlobal("UseEngine","GLOBAL",1)
+    DisplayString(Myself,23165)  // ~The switch panel for this strange machine. The switch appears to be broken off and missing.~
+END
+
+IF
+  Clicked([ANYONE])
+  PartyHasItem("MISC92")  // ~Switch for an Engine~
+  Global("UseEngine","GLOBAL",1)
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    SetGlobal("UseEngine","GLOBAL",2)
+    TakePartyItem("MISC92")
+    DisplayString(Myself,23167)  // ~The engine begins to hum quietly.~
+END
+
+IF
+  Clicked([ANYONE])
+  Global("UseEngine","GLOBAL",1)
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,23166)  // ~The switch for the engine is missing. You cannot turn it on.~
+END
+
+IF
+  Clicked([ANYONE])
+  Global("UseEngine","GLOBAL",2)
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,23168)  // ~The engine is running.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,23565)  // ~You are too far away to operate that device.~
+END
+

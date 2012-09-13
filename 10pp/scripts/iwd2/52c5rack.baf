@@ -1,0 +1,150 @@
+IF
+  !CheckDoorFlags(Myself,DOORLOCKED)
+  GlobalGT("52Morohem_Master","GLOBAL",5)
+THEN
+  RESPONSE #100
+    Lock(Myself)
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00Mace01",Myself,2)
+THEN
+  RESPONSE #100
+    DestroyItem("00Mace01")  // ~Mace~
+    DestroyItem("00Mace01")  // ~Mace~
+    CreateItem("00Mace01",2,0,0)  // ~Mace~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00SwdS01",Myself,2)
+THEN
+  RESPONSE #100
+    DestroyItem("00SwdS01")  // ~Short Sword ~
+    DestroyItem("00SwdS01")  // ~Short Sword ~
+    CreateItem("00SwdS01",2,0,0)  // ~Short Sword ~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00Dart01",Myself,20)
+THEN
+  RESPONSE #100
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    DestroyItem("00Dart01")  // ~Dart~
+    CreateItem("00Dart01",20,0,0)  // ~Dart~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00ax1h01",Myself,2)
+THEN
+  RESPONSE #100
+    DestroyItem("00ax1h01")  // ~Battleaxe~
+    DestroyItem("00ax1h01")  // ~Battleaxe~
+    CreateItem("00ax1h01",2,0,0)  // ~Battleaxe~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00ax1h05",Myself,10)
+THEN
+  RESPONSE #100
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    CreateItem("00ax1h05",10,0,0)  // ~Throwing Axe~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00Flal01",Myself,2)
+THEN
+  RESPONSE #100
+    DestroyItem("00Flal01")  // ~Flail~
+    DestroyItem("00Flal01")  // ~Flail~
+    CreateItem("00Flal01",2,0,0)  // ~Flail~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00Hamm01",Myself,2)
+THEN
+  RESPONSE #100
+    DestroyItem("00Hamm01")  // ~Warhammer~
+    DestroyItem("00Hamm01")  // ~Warhammer~
+    CreateItem("00Hamm01",2,0,0)  // ~Warhammer~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00HamT01",Myself,10)
+THEN
+  RESPONSE #100
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    CreateItem("00HamT01",10,0,0)  // ~Throwing Hammer~
+    Continue()
+END
+
+IF
+  !GlobalGT("52Morohem_Master","GLOBAL",5)
+  Global("WATCHING_PLAYER","MYAREA",0)
+  NumItemsLT("00SwdL01",Myself,2)
+THEN
+  RESPONSE #100
+    DestroyItem("00SwdL01")  // ~Longsword ~
+    DestroyItem("00SwdL01")  // ~Longsword ~
+    CreateItem("00SwdL01",2,0,0)  // ~Longsword ~
+    Continue()
+END
+

@@ -1,0 +1,181 @@
+IF
+  Global("HOW_SEER_MOV","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HOW_SEER_MOV","GLOBAL",1)
+    StartCutSceneMode()
+    MultiPlayerSync()
+    StartMovie("HOWSEER")
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("AREA_INIT","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AREA_INIT","MYAREA",1)
+    SaveGame(0)
+END
+
+IF
+  !Global("9100_RESET_JOIN","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("9100_RESET_JOIN","GLOBAL",0)
+    Continue()
+END
+
+IF
+  GlobalLT("WEREWOLF_ACTIVE","GLOBAL",2)
+  Or(2)
+    GlobalGT("EMMERICH_QUEST","GLOBAL",2)
+    !Global("EMERICH_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("WEREWOLF_ACTIVE","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("WEREWOLF_ACTIVE","GLOBAL",0)
+  GlobalGT("BODY_COUNT","GLOBAL",1)
+  !TimeOfDay(DAY)
+  !TimeOfDay(DAY)
+THEN
+  RESPONSE #100
+    SetGlobal("WEREWOLF_ACTIVE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("WEREWOLF_ACTIVE","GLOBAL",1)
+  Or(2)
+    TimeOfDay(DAY)
+    TimeOfDay(DAY)
+THEN
+  RESPONSE #100
+    SetGlobal("WEREWOLF_ACTIVE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("HOSTTOWER_ENCOUNTER","GLOBAL",1)
+  Global("KIERAN_DEAD","GLOBAL",0)
+  Global("TOWER_CUT_STAGE","MYAREA",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("9100_FORCE_WEREWOLF","GLOBAL",0)
+    StartCutScene("LWWARHOM")
+    StartCutScene("LWVAARCT")
+END
+
+IF
+  !Global("9100_FORCE_WEREWOLF","GLOBAL",0)
+  Global("WEREWOLF_ACTIVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("9100_FORCE_WEREWOLF","GLOBAL",0)
+    StartCutScene("LWWARRES")
+    Continue()
+END
+
+IF
+  !Global("9100_FORCE_WEREWOLF","GLOBAL",0)
+  !Global("WEREWOLF_ACTIVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("9100_FORCE_WEREWOLF","GLOBAL",0)
+    StartCutScene("LWWARHOM")
+    Continue()
+END
+
+IF
+  Global("BOAT_CHANGED","MYAREA",0)
+  Global("HJOLLDER_BANISHED","GLOBAL",1)
+THEN
+  RESPONSE #100
+    OpenDoor("AR9100_BOAT1")
+    SetGlobal("BOAT_CHANGED","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("PARTY_STARTED_FIGHT","MYAREA",0)
+  Global("KIERAN_PROTECTED","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KIERAN_PROTECTED","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("PARTY_STARTED_FIGHT","MYAREA",0)
+  Dead("VAARGLAN")  // ~Robed Man~
+  Dead("ALPHEUS")  // ~Mage~
+  Dead("MERCWAR1")  // ~Mercenary Warrior~
+  Dead("MERCWAR2")  // ~Mercenary Warrior~
+  Dead("MERCTHF")  // ~Mercenary Thief~
+  Dead("PSHAR")  // ~Priestess of Shar~
+THEN
+  RESPONSE #100
+    Unlock("AR9100_Door1_To9101")
+    Unlock("AR9100_Door2_To9103")
+    Unlock("AR9100_Door3_To9104")
+    Unlock("AR9100_Door4_To9105")
+    Unlock("AR9100_Door5_To9106")
+    Unlock("AR9100_Door6_To9108")
+    Unlock("AR9100_Door7_To9109")
+    Unlock("AR9100_Door8_To9110")
+    SetGlobal("PARTY_STARTED_FIGHT","MYAREA",0)
+    Continue()
+END
+
+IF
+  Global("BC_CUTSCENE","GLOBAL",10)
+  OnCreation()
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    SetGlobal("BC_CUTSCENE","GLOBAL",15)
+    Continue()
+END
+
+IF
+  Global("LONELYWOOD_ALARM","GLOBAL",0)
+  !Global("AREA_HOSTILE","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LONELYWOOD_ALARM","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("AREA_HOSTILE","MYAREA",0)
+  !Global("LONELYWOOD_ALARM","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AREA_HOSTILE","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

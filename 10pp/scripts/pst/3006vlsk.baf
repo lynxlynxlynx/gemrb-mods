@@ -1,0 +1,56 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Vlask","GLOBAL",0)
+    StartCutSceneMode()
+    StartCutScene("3006cut1")
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CHROMATIC_ORB)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  InternalGT(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+END
+

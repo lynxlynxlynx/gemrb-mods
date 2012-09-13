@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    SetGlobal("MoveCut","AR3023",0)
+    Wait(1)
+    MoveViewPoint([239.769],6)
+    MoveToPointNoInterrupt([239.769])
+    CreateCreature("FSMUMM3",[132.720],14)  // ~Mummy~
+    ActionOverride("FSMumm",MoveToPoint([174.752]))
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

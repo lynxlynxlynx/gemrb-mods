@@ -1,0 +1,9 @@
+IF
+  WalkedToTrigger([ANYONE])
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut202p")
+END
+

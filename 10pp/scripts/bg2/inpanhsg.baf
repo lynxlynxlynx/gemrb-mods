@@ -1,0 +1,9 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

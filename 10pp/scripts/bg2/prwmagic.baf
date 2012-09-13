@@ -1,0 +1,9 @@
+IF
+  IsOverMe([ANYONE])
+  Global("Warning","AR3005",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Warning","AR3005",1)
+    DisplayString(Myself,64153)  // ~The air tingles with energy and power, making the very hairs on the back of your neck stand up.~
+END
+

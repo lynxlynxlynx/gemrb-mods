@@ -1,0 +1,47 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("SC_Hostile","AR0402",1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("SC_Hostile","AR0402",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Alais_At_Bar","AR0402",0)
+THEN
+  RESPONSE #100
+    Wait(120)
+    MoveToPoint([550.975])
+    Face(6)
+    PlaySequence(ANIM_STANDFIDGET1)
+    GlobalSet("Alais_At_Bar","AR0402",1)
+END
+
+IF
+  Global("Barkis_Ready_Serve_Alais","AR0402",1)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_STANDFIDGET2)
+    Wait(5)
+    MoveToPoint([474.1022])
+    Face(12)
+    GlobalSet("Alais_At_Bar","AR0402",0)
+END
+

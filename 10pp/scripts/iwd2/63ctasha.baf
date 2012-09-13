@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Thayvian_Mage_2")  // 
+    FadeToColor([0.0],0)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Thayvian_Mage_1")  // 
+    Wait(1)
+    DestroySelf()
+END
+

@@ -1,0 +1,8 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_19","MYAREA",0)
+    ChangeCurrentScript("")
+END
+

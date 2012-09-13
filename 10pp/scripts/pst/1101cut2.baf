@@ -1,0 +1,112 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("RAbishai_1")  // 
+    RunToPoint([1441.1115])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    FaceObject("Fhjull")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("RAbishai_2")  // 
+    RunToPoint([1378.1074])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("RAbishai_3")  // 
+    RunToPoint([1379.1258])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(8)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Corn")  // 
+    RunToPoint([1442.1249])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    FaceObject("Fhjull")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure_1")  // 
+    RunToPoint([1217.997])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure_2")  // 
+    RunToPoint([1227.1262])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure_3")  // 
+    RunToPoint([1114.1253])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure_4")  // 
+    RunToPoint([1061.1174])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure_5")  // 
+    RunToPoint([1057.1076])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure_6")  // 
+    RunToPoint([1115.1002])
+    SetAnimState(Myself,ANIM_MIMESTANCE)
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Fhjull")  // 
+    PlaySound("fft079")
+    Wait(2)
+    FloatMessage(Myself,56985)  // ~"You have betrayed me!  I am undone!"~
+    Wait(3)
+    StartCutScene("1101cut3")
+END
+

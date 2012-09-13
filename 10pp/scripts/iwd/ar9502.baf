@@ -1,0 +1,18 @@
+IF
+  Global("CHANGED_MUSIC","MYAREA",1)
+  GlobalTimerExpired("MUSIC_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("CHANGED_MUSIC","MYAREA",2)
+    StartMusic(DAY,QUICK_FADE)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

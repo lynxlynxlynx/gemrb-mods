@@ -1,0 +1,58 @@
+IF
+  Global("IM_NOT_IMPORTANT","LOCALS",0)
+  GlobalGT("Arrow_Quest","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetCriticalPathObject(Myself,FALSE)
+    SetGlobal("IM_NOT_IMPORTANT","LOCALS",1)
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  NearSavedLocation(1)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,30)
+    SetGlobal("ML_0","LOCALS",1)
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  NearSavedLocation(1)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(W)
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  NearSavedLocation(1)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,30)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  NearSavedLocation(1)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(NW)
+    SetGlobal("ML_0","LOCALS",0)
+END
+
+IF
+  !TimerActive(20)
+  !NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(20,5)
+END
+

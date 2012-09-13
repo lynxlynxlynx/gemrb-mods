@@ -1,0 +1,33 @@
+IF
+  Dead("sarjai01")  // ~Saradush Jailer~
+  Global("OpenCell","AR5016",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenCell","AR5016",1)
+    Unlock("DOOR03")
+END
+
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+END
+
+IF
+  OpenState("DOOR04",TRUE)  // DOOR04
+  Global("MateoInit","AR5016",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MateoInit","AR5016",1)
+    StartDialogNoSet([PC])
+END
+

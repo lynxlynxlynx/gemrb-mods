@@ -1,0 +1,26 @@
+IF
+  Global("CHAPTER","GLOBAL",5)
+THEN
+  RESPONSE #100
+    IncrementChapter("")
+    MultiPlayerSync()
+    Continue()
+END
+
+IF
+  Global("SH_LeaveSeveredHand","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("IWD2_FINISHED","GLOBAL",1)
+    SetGlobal("SH_LeaveSeveredHand","GLOBAL",2)
+    EndCredits()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,7 @@
+IF
+  Global("Current_Area","GLOBAL",612)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0612pat1",DEFAULT)
+END
+

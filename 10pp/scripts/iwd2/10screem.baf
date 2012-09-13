@@ -1,0 +1,100 @@
+IF
+  Global("ML_0","LOCALS",0)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,10)
+    SetGlobal("ML_0","LOCALS",1)
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1957,807,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1957.807])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1957.807])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(E)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,10)
+    SetGlobal("ML_0","LOCALS",4)
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  ActionListEmpty()
+  NearLocation(Myself,2058,785,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2058.785])
+    SetGlobal("ML_0","LOCALS",5)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+THEN
+  RESPONSE #100
+    MoveToPoint([2058.785])
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(N)
+    SetGlobal("ML_0","LOCALS",6)
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,10)
+    SetGlobal("ML_0","LOCALS",7)
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",0)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  !TimerActive(19)
+  !NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+

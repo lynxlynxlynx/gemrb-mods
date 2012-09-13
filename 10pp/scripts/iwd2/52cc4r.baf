@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    StartCutSceneMode()
+    ActionOverride("07_52MNKCL_01",DestroySelf())
+    ActionOverride("07_52MNKCL_02",DestroySelf())
+    ActionOverride("07_52MNKCL_03",DestroySelf())
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MoveViewPointUntilDone([585.640],22)
+    ResetJoinRequests()
+    MultiPlayerSync()
+    SetGlobal("FORCE_PARTY_EA","MYAREA",1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

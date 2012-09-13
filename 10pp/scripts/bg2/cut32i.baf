@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobalTimer("KPPlotTime","GLOBAL",FOUR_DAYS)
+    SetGlobal("KeepPlot","GLOBAL",10)
+    CreateCreature("KPSOLD03",[1499.1196],6)  // ~de'Arnise Guard~
+    CreateCreature("KPSOLD04",[1549.1192],6)  // ~de'Arnise Guard~
+    ActionOverride("kpsold03",MoveToObject("kplend01"))
+    ActionOverride("kpsold04",MoveToObject("kplend02"))
+    Wait(6)
+    ActionOverride("kpsold03",MoveToPoint([1499.1196]))
+    ActionOverride("kplend01",MoveToPoint([1499.1196]))
+    ActionOverride("kpsold04",MoveToPoint([1549.1192]))
+    ActionOverride("kplend02",MoveToPoint([1480.1235]))
+    ActionOverride("kpsold03",EscapeArea())
+    ActionOverride("kplend01",EscapeArea())
+    ActionOverride("kpsold04",EscapeArea())
+    ActionOverride("kplend02",EscapeArea())
+    Wait(4)
+    ActionOverride("kpdomo01",StartDialogNoSet(Player1))
+END
+

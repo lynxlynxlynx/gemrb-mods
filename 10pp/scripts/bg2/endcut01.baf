@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Winski")  // 
+    ActionOverride("Sarevok",StartDialogue("sarevo",Player1))
+    EndCutSceneMode()
+    Enemy()
+    ForceSpell("Sarevok",DRYAD_TELEPORT)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+

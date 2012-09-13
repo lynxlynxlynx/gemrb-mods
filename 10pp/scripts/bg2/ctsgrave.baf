@@ -1,0 +1,18 @@
+IF
+  GlobalGT("SarSpirit","AR5006",4)
+  Contains("sarskul",Myself)
+  Contains("sarbone",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("sarskul")  // ~Skull~
+    DestroyItem("sarbone")  // ~Rusted Amulet~
+END
+
+IF
+  Global("SarSpirit","AR5006",7)
+  Contains("MISCAU",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISCAU")  // ~Elven Holy Water~
+END
+

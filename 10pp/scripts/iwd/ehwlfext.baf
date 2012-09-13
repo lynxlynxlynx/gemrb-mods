@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("EHWOLF")  // 
+    ClearAllActions()
+    MultiPlayerSync()
+    MoveToPoint([867.673])
+    Face(SE)
+    HideCreature(Myself,TRUE)
+    SetGlobal("EHWOLF_DEAD","GLOBAL",1)
+    EndCutSceneMode()
+    DestroySelf()
+END
+

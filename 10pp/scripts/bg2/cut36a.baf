@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    CreateCreature("Cor",[606.239],13)  // ~Cor Delryn~
+    MoveViewPoint([565.326],INSTANT)
+    JumpToPoint([565.326])
+    ActionOverride(Player2,JumpToPoint([615.337]))
+    ActionOverride(Player3,JumpToPoint([671.351]))
+    ActionOverride(Player4,JumpToPoint([524.342]))
+    ActionOverride(Player5,JumpToPoint([580.369]))
+    ActionOverride(Player6,JumpToPoint([630.385]))
+    FadeFromColor([20.0],0)
+    Wait(2)
+    ActionOverride("Anomen",StartDialogue("BANOMEN",Player1))
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,11 @@
+IF
+  Global("AsylumPlot","GLOBAL",25)
+  Global("ppDeadThief","AR1516",5)
+THEN
+  RESPONSE #50
+    PlaySound("ISC_15A")
+    ReallyForceSpell(Myself,TRANSFORMATION_DEATH)
+    Wait(2)
+    IncrementGlobal("ppDeadThief","AR1516",1)
+END
+

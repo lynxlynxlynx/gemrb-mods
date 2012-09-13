@@ -1,0 +1,8 @@
+IF
+  Range(Player1,10)
+  Global("BeginChallenge4","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BeginChallenge4","GLOBAL",1)
+END
+

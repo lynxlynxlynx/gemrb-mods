@@ -1,0 +1,50 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("MISLEDSCRIPT","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_CHAOS_VISUALS_ONLY)
+    Wait(4)
+    SetGlobal("MISLEDSCRIPT","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("MISLEDSCRIPT","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+    Wait(5)
+    SetGlobal("MISLEDSCRIPT","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("MISLEDSCRIPT","LOCALS",2)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC_VISUALS_ONLY)
+    Wait(4)
+    SetGlobal("MISLEDSCRIPT","LOCALS",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("MISLEDSCRIPT","LOCALS",3)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_SILENCE_VISUALS_ONLY)
+    Wait(4)
+    SetGlobal("MISLEDSCRIPT","LOCALS",4)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("MISLEDSCRIPT","LOCALS",4)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+    Wait(5)
+    SetGlobal("MISLEDSCRIPT","LOCALS",0)
+END
+

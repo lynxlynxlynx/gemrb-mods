@@ -1,0 +1,89 @@
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Or(2)
+    GlobalGT("SCROLL_11SCRLPS_STATE","MYAREA",2)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("SCROLL_11SCRLPS_STATE","MYAREA",3)
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    Face(N)
+    StartRandomTimer(1,1,3)
+  RESPONSE #100
+    Face(NE)
+    StartRandomTimer(1,1,3)
+  RESPONSE #100
+    Face(E)
+    StartRandomTimer(1,1,3)
+  RESPONSE #100
+    Face(SE)
+    StartRandomTimer(1,1,3)
+  RESPONSE #100
+    Face(S)
+    StartRandomTimer(1,1,3)
+  RESPONSE #100
+    Face(SW)
+    StartRandomTimer(1,1,3)
+  RESPONSE #100
+    Face(W)
+    StartRandomTimer(1,1,3)
+  RESPONSE #100
+    Face(NW)
+    StartRandomTimer(1,1,3)
+END
+
+IF
+  Global("I_FLOATED","LOCALS",0)
+  Global("SCROLL_11SCRLPS_STATE","MYAREA",0)
+  GlobalTimerExpired("SCROLL_11SCRLPS_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SCROLL_11SCRLPS_TIMER","MYAREA",1)
+    SetGlobal("SCROLL_11SCRLPS_STATE","MYAREA",1)
+    SetGlobal("I_FLOATED","LOCALS",1)
+    FloatMessage(Myself,26651)  // ~"What th-?"~
+END
+
+IF
+  Global("I_FLOATED","LOCALS",0)
+  Global("SCROLL_11SCRLPS_STATE","MYAREA",1)
+  GlobalTimerExpired("SCROLL_11SCRLPS_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SCROLL_11SCRLPS_TIMER","MYAREA",1)
+    SetGlobal("SCROLL_11SCRLPS_STATE","MYAREA",2)
+    SetGlobal("I_FLOATED","LOCALS",1)
+    FloatMessage(Myself,26652)  // ~"What we doing here?"~
+END
+
+IF
+  Global("I_FLOATED","LOCALS",0)
+  Global("SCROLL_11SCRLPS_STATE","MYAREA",2)
+  GlobalTimerExpired("SCROLL_11SCRLPS_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("SCROLL_11SCRLPS_STATE","MYAREA",3)
+    SetGlobal("I_FLOATED","LOCALS",1)
+    FloatMessage(Myself,26654)  // ~"Dumb mage!"~
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

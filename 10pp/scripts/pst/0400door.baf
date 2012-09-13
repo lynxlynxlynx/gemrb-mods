@@ -1,0 +1,8 @@
+IF
+  FailedToOpen([PC])
+  GlobalLT("Know_Painted_Door","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

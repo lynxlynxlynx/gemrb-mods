@@ -1,0 +1,32 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Or(2)
+    Help([0.0.SALAMANDER])
+    HelpEX(Myself,RACE)
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp(Myself))
+END
+

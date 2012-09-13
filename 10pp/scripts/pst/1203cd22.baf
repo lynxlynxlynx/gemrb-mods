@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("DeionS")  // 
+    Wait(3)
+    FadeFromBlack()
+    PlaySoundNotRanged("Den008a")
+    Wait(4)
+    PlaySequence(ANIM_DIE)
+    EndCutSceneMode()
+    TeleportParty("AR1204",[2373.1417],6)
+END
+

@@ -1,0 +1,10 @@
+IF
+  !TimerActive(19)
+  !HaveSpell(WIZARD_SUMMON_MONSTER_III)
+  !Range(NearestPC,4,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+    StartTimer(19,5)
+END
+

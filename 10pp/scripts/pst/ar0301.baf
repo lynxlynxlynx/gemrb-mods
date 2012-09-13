@@ -1,0 +1,63 @@
+IF
+  Vacant()
+  !GlobalGT("Screwed_RA","AR0301",3)
+  !Global("Paid_RA","AR0301",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Screwed_RA","AR0301",1)
+    GlobalSet("Paid_RA","AR0301",0)
+    Continue()
+END
+
+IF
+  Vacant()
+  !Global("Paid_DAS","AR0301",1)
+  GlobalGT("Paid_DAS","AR0301",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Screwed_DAS","AR0301",1)
+    GlobalSet("Paid_DAS","AR0301",0)
+    Continue()
+END
+
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("Paid_DAS","AR0301",0)
+    GlobalSet("Paid_RA","AR0301",0)
+END
+
+IF
+  Dead("RWill")  // ~Hive Thug~
+  Global("0301_Respawn_Bad","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("0301_Respawn_Bad","GLOBAL",0)
+END
+
+IF
+  Dead("Krystall")  // ~Hive Thug~
+  Global("0301_Respawn_Good","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("0301_Respawn_Good","GLOBAL",0)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",301)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",301)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0301_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0301_Visited","GLOBAL",1)
+    Continue()
+END
+

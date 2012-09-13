@@ -1,0 +1,23 @@
+IF
+  Global("AmuletStolen","GLOBAL",0)
+  Global("AmuletCreation","AR0904",0)
+  OR(2)
+    TimeGT(17)
+    TimeLT(DAWN_START)
+THEN
+  RESPONSE #100
+    SetGlobal("AmuletCreation","AR0904",1)
+    CreateItem("MISC4Y",0,0,0)  // ~Necklace of Talos~
+END
+
+IF
+  Global("AmuletStolen","GLOBAL",0)
+  Global("AmuletCreation","AR0904",1)
+  TimeLT(18)
+  TimeGT(5)
+THEN
+  RESPONSE #100
+    SetGlobal("AmuletCreation","AR0904",0)
+    DestroyItem("MISC4Y")  // ~Necklace of Talos~
+END
+

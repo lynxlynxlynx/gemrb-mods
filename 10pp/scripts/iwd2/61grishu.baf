@@ -1,0 +1,11 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  Range(NearestPC,25,LESS_THAN)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+    ChangeCurrentScript("")
+END
+

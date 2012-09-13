@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Protagonist)  // 
+    FloatMessage("Mantuok",36901)  // ~"Many-voiced master, this interloper has much to tell you."~
+    Wait(4)
+    FloatMessage([0.0.0.0.Cranium_RAT],36900)  // ~"WE KNOW. GO NOW."~
+    Wait(2)
+    FloatMessage("Mantuok",36899)  // ~"Go? But..."~
+    Wait(3)
+    FloatMessage([0.0.0.0.Cranium_RAT],36898)  // ~"GO. DO NOT TEST OUR PATIENCE"~
+    Wait(3)
+    StartCutScene("1601cut3")
+END
+

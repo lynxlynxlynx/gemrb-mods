@@ -1,0 +1,86 @@
+IF
+  OR(2)
+    SpellCastOnMe([PC],CLERIC_LESSER_RESTORATION)
+    SpellCastOnMe([PC],CLERIC_RESTORATION)
+  Global("Restored","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("Restored","LOCALS",1)
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("tannerplot2","GLOBAL",2)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Change","LOCALS",1)
+    SetName(26453)  // ~Rejiek Hidesman~
+    ApplySpell("trskin03",SKIN_DANCER_SWITCH)
+    Wait(1)
+END
+
+IF
+  Global("tannerplot2","GLOBAL",2)
+THEN
+  RESPONSE #100
+    PlayDeadInterruptible(2000000)
+END
+
+IF
+  Global("tannerplot2","GLOBAL",3)
+  Global("Change","LOCALS",1)
+  PartyHasItem("MISC79")  // ~Raissa's Skin~
+THEN
+  RESPONSE #100
+    PlayDead(0)
+    DialogueInterrupt(FALSE)
+    MoveToObject([PC])
+    TakePartyItem("MISC79")
+    DestroyItem("MISC79")  // ~Raissa's Skin~
+    SetGlobal("Change","LOCALS",2)
+    CreateCreatureObject("TRSKIN3B",Myself,0,0,0)  // ~Rejiek Hidesman~
+    ApplySpell(Myself,SKIN_DANCER_RESTORE)
+    DialogueInterrupt(TRUE)
+END
+
+IF
+  Global("tannerplot2","GLOBAL",3)
+  Global("Change","LOCALS",1)
+  !PartyHasItem("MISC79")  // ~Raissa's Skin~
+THEN
+  RESPONSE #100
+    PlayDead(0)
+    DialogueInterrupt(FALSE)
+    MoveToPoint([3726.2038])
+    PickUpItem("MISC79")
+    DestroyItem("MISC79")  // ~Raissa's Skin~
+    SetGlobal("Change","LOCALS",2)
+    CreateCreatureObject("TRSKIN3B",Myself,0,0,0)  // ~Rejiek Hidesman~
+    ApplySpell(Myself,SKIN_DANCER_RESTORE)
+    DialogueInterrupt(TRUE)
+END
+
+IF
+  Global("tannerplot2","GLOBAL",3)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Change","LOCALS",2)
+    SetHomeLocation([3726.2038])
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(2)
+    GlobalTimerExpired("RaissaTimer","GLOBAL")
+    Global("tannerplot2","GLOBAL",6)
+THEN
+  RESPONSE #100
+    SetGlobal("TrisLeave","GLOBAL",1)
+    DestroySelf()
+END
+

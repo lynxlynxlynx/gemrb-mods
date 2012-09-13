@@ -1,0 +1,14 @@
+IF
+  Global("StartCutscene_63cFB04","MYAREA",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

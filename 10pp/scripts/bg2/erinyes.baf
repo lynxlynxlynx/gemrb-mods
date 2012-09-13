@@ -1,0 +1,169 @@
+IF
+  See([0.0.0.TANARI])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.TANARI],30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentLT(Myself,25)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Difficulty(EASIEST)
+  !GlobalTimerNotExpired("prep","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("prep","LOCALS",60)
+    SpellNoDec(Myself,WIZARD_MANTLE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !Difficulty(EASIEST)
+  Range(LastSeenBy(Myself),30)
+  RandomNum(2,1)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !StateCheck(LastSeenBy(Myself),STATE_PANIC)
+  !StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !GlobalTimerNotExpired("Charm","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Charm","LOCALS",6)
+    SpellNoDec(NearestEnemyOf(Myself),ERINYES_CHARM)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(2)
+    Range(NearestEnemyOf(Myself),10)
+    HPPercentLT(Myself,50)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("Invis","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Invis","LOCALS",12)
+    ReallyForceSpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  OR(2)
+    StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+    StateCheck(Myself,STATE_INVISIBLE)
+  Range(NearestEnemyOf(Myself),12)
+THEN
+  RESPONSE #100
+    SetGlobal("running","LOCALS",1)
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("running","LOCALS",1)
+  !Range(NearestEnemyOf(Myself),12)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_CURE_CRITICAL_WOUNDS)
+    SetGlobal("running","LOCALS",0)
+END
+
+IF
+  See(NearestMyGroupOfType([EVILCUTOFF.0.0.TANARI]))
+  HPPercentLT(LastSeenBy(Myself),50)
+  !HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("Healing","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Healing","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellNoDec(LastSeenBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)
+    SetInterrupt(TRUE)
+END
+
+IF
+  See(SecondNearestMyGroupOfType([EVILCUTOFF.0.0.IMP]))
+  HPPercentLT(LastSeenBy(Myself),50)
+  !HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("Healing","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Healing","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellNoDec(LastSeenBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)
+    SetInterrupt(TRUE)
+END
+
+IF
+  See(ThirdNearestMyGroupOfType([EVILCUTOFF.0.0.IMP]))
+  HPPercentLT(LastSeenBy(Myself),50)
+  !HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("Healing","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Healing","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellNoDec(LastSeenBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)
+    SetInterrupt(TRUE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),20)
+  HPPercentGT(Myself,50)
+  OR(2)
+    StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+    StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),10)
+  !HPPercentGT(Myself,50)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),10)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  !See(NearestEnemyOf(Myself))
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RandomWalkContinuous()
+END
+

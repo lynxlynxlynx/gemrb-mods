@@ -1,0 +1,9 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,70997)  // ~In the corner of the room is a shallow grave which has been defiled.  Within is a human skeleton, though the skull is missing.~
+    SmallWait(7)
+    TriggerActivation(Myself,FALSE)
+END
+

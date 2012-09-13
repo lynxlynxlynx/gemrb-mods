@@ -1,0 +1,395 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #20
+    FloatMessage(Myself,67252)  // ~"You would *dare* steal from Vrischika?!"~
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,67257)  // ~"I shall sever your hands and sell them!"~
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_01","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("ChocoQ",0,0,0)  // ~Chocolate Quasit~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_02","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("CodexI",0,0,0)  // ~Codex of the Inconceivable~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_03","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("DTears",0,0,0)  // ~Deva's Tears~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_04","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("ElixirS",0,0,0)  // ~Elixir of Horrific Separation~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_05","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("FTongue",0,0,0)  // ~Fiend's Tongue~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_06","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("GSalve",0,0,0)  // ~Gorgon Salve~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_08","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("Cube",0,0,0)  // ~Modron Cube~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_09","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("MonJug",0,0,0)  // ~Monster Jug~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_10","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("Lens12",0,0,0)  // ~Beer Goggles~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_11","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("RingAI",0,0,0)  // ~Ring of Almost Invisibility~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_13","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("Doll",0,0,0)  // ~Lady of Pain Rag Doll~
+    Continue()
+END
+
+IF
+  Die()
+  Global("Vris_Buy_14","AR0609",0)
+THEN
+  RESPONSE #100
+    CreateItem("DwfMug",0,0,0)  // ~Frost-Ale Mug~
+    Continue()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    DropInventory()
+END
+
+IF
+  InternalGT(Myself,INTERNAL_1,9)
+  Range([PC],2)
+  HaveSpell(WIZARD_PAIN_MIRROR)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_PAIN_MIRROR)
+    StartTimer(1,2)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_1,9)
+  !Range([PC],5)
+  HaveSpell(WIZARD_FORCE_MISSILES)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_FORCE_MISSILES)
+    StartTimer(1,4)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_1,13)
+  !Range([PC],5)
+  HaveSpell(WIZARD_ICE_KNIFE)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_ICE_KNIFE)
+    StartTimer(1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,1)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_HORROR)
+    Wait(2)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,2)
+  See([PC])
+  !Dead("Standish")  // Standish
+THEN
+  RESPONSE #100
+    Spell("Standish",WIZARD_IMPROVED_STRENGTH)
+    Wait(4)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,3)
+  Dead("Standish")  // Standish
+THEN
+  RESPONSE #100
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,3)
+  See([PC])
+  !Dead("Standish")  // Standish
+THEN
+  RESPONSE #100
+    Spell("Standish",WIZARD_ARMOR)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,4)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,5)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CLOUDKILL)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,6)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CHAIN_LIGHTNING_STORM)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,7)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CONE_OF_COLD)
+    Wait(5)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,8)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CLOUDKILL)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,9)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CONE_OF_COLD)
+    Wait(5)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,10)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BALL_LIGHTNING)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,11)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_ELYSIUMS_TEARS)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,12)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BALL_LIGHTNING)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,13)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_ELYSIUMS_TEARS)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,14)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,15)
+  See([PC])
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  InternalGT(Myself,INTERNAL_1,15)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  InternalGT(Myself,INTERNAL_1,0)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObjectEx([PC][0.0.10000.10000],0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Dead("Standish")  // Standish
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    FaceObject("Standish")
+    FloatMessageRnd(Myself,"0609vris")
+    Wait(2)
+    FloatMessage("Standish",52813)  // ~"Yes, mistress Vrischika."~
+    Wait(1)
+    SetInternal("Standish",INTERNAL_1,0)
+    IncInternal("Standish",INTERNAL_0,1)
+    SetInternal(Myself,INTERNAL_0,0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FaceObject("Standish")
+END
+

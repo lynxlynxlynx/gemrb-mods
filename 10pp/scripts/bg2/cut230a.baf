@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("sarcult2")  // 
+    SetGlobal("MistressTalk","AR5010",1)
+    DisplayStringHead(Myself,71381)  // ~Free me.~
+    Wait(2)
+    ActionOverride("sarmist",DisplayStringHead(Myself,71382))  // ~Feel the freedom of my cold embrace.~
+    Wait(1)
+    MoveToObject("sarmist")
+    ActionOverride("sarmist",SwingOnce())
+    ActionOverride("sarmist",EndCutSceneMode())
+    CreateVisualEffectObject("SPDEATH3",Myself)
+    Kill(Myself)
+END
+

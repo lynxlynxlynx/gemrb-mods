@@ -1,0 +1,32 @@
+IF
+  AreaCheck("AR1100")
+  GlobalGT("ColetteLeave","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Dead("COLETTE")  // COLETTE
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("DaarHostile","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Global("ColetteHostile","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

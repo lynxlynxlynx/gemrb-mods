@@ -1,0 +1,9 @@
+IF
+  Global("JOIN_POSSE","GLOBAL",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("ILENDGME")
+END
+

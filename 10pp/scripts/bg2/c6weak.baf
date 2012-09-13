@@ -1,0 +1,24 @@
+IF
+  Global("VampiresWeakened","AR0808",1)
+  Global("Weakened","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Weakened","LOCALS",1)
+    ApplySpell(Myself,C6VAMPIRE_WEAKNESS)
+END
+
+IF
+  Detect([PC])
+  Global("FightWait","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FightWait","LOCALS",1)
+END
+
+IF
+  Global("FightWait","LOCALS",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

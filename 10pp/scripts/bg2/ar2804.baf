@@ -1,0 +1,9 @@
+IF
+  Global("StopWaterfall","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("StopWaterfall","GLOBAL",3)
+    StartCutSceneMode()
+    StartCutScene("Cut55a")
+END
+

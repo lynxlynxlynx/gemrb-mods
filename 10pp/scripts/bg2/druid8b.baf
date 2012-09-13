@@ -1,0 +1,55 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ARMOR_OF_FAITH)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ARMOR_OF_FAITH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CLOAK_OF_FEAR)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CLOAK_OF_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_1)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CALL_LIGHTNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SHILLELAGH)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SHILLELAGH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

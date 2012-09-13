@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GraceF")  // 
+    Face(6)
+    StartSong(CHAR_GRACE,[0.0],Normal)
+    Dialogue([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+END
+

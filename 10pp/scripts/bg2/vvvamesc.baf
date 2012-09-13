@@ -1,0 +1,9 @@
+IF
+  TimeGT(5)
+  TimeLT(DUSK_END)
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_BAT_FORM_CHANGE)
+END
+

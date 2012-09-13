@@ -1,0 +1,26 @@
+IF
+  HarmlessEntered([PC])
+  !Dead("Fhjull")  // ~Crippled Cornugon~
+  Global("Fiend_Fhjull","AR1101",0)
+  Global("AR1000_Visited","GLOBAL",1)
+  Global("Evil_Fhjull_1","GLOBAL",1)
+  Global("1101_CutScene","AR1101",0)
+THEN
+  RESPONSE #100
+    GlobalSet("1101_CutScene","AR1101",11)
+    StartCutSceneMode()
+    MoveViewPoint([1234.1123],VERY_FAST)
+    ClearAllActions()
+    StartCutScene("1101cut1")
+END
+
+IF
+  HarmlessEntered([PC])
+  Global("Fiend_Fhjull","AR1101",1)
+  Global("Curst_Portal","GLOBAL",1)
+  Global("1101_Leaving","AR1101",0)
+THEN
+  RESPONSE #100
+    GlobalSet("1101_Leaving","AR1101",1)
+END
+

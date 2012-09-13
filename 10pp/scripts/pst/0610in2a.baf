@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    GlobalSet("Spawn_Trigit","GLOBAL",1)
+    MoveViewObject("Nameless",INSTANT)
+    Wait(1)
+    StartCutScene("0610in2b")
+END
+

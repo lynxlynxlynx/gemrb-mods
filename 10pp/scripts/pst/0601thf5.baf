@@ -1,0 +1,60 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.TEAM_8])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  !NearLocation(Myself,[2692.1814],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([2692.1814])
+    Face(2)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+END
+

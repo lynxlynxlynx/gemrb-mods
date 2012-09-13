@@ -1,0 +1,9 @@
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    FloatMessage(Myself,153)  // ~"Wha-?  How'd you get in here?!"~
+    ChangeCurrentScript("")
+END
+

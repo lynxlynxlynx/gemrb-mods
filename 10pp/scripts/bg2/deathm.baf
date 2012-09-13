@@ -1,0 +1,151 @@
+IF
+  GlobalGT("DeathmatchWinner","GLOBAL",0)
+  Global("ClearDMActions","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ClearDMActions","LOCALS",1)
+    ClearActions(Myself)
+END
+
+IF
+  OR(5)
+    InPartySlot(Myself,1)
+    InPartySlot(Myself,2)
+    InPartySlot(Myself,3)
+    InPartySlot(Myself,4)
+    InPartySlot(Myself,5)
+  Global("DeathmatchWinner","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],2)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],3)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],4)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],5)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],6)
+    DisplayStringHead(Myself,3629)  // ~Player 1 is the winner.  Now you die.~
+    Wait(1)
+    Kill(Myself)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(5)
+    InPartySlot(Myself,0)
+    InPartySlot(Myself,2)
+    InPartySlot(Myself,3)
+    InPartySlot(Myself,4)
+    InPartySlot(Myself,5)
+  Global("DeathmatchWinner","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],1)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],3)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],4)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],5)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],6)
+    DisplayStringHead(Myself,3661)  // ~Player 2 is the winner.  Now you die.~
+    Wait(1)
+    Kill(Myself)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(5)
+    InPartySlot(Myself,0)
+    InPartySlot(Myself,1)
+    InPartySlot(Myself,3)
+    InPartySlot(Myself,4)
+    InPartySlot(Myself,5)
+  Global("DeathmatchWinner","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],1)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],2)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],4)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],5)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],6)
+    DisplayStringHead(Myself,3684)  // ~Player 3 is the winner.  Now you die.~
+    Wait(1)
+    Kill(Myself)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(5)
+    InPartySlot(Myself,0)
+    InPartySlot(Myself,1)
+    InPartySlot(Myself,2)
+    InPartySlot(Myself,4)
+    InPartySlot(Myself,5)
+  Global("DeathmatchWinner","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],1)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],2)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],3)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],5)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],6)
+    DisplayStringHead(Myself,3691)  // ~Player 4 is the winner.  Now you die.~
+    Wait(1)
+    Kill(Myself)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(5)
+    InPartySlot(Myself,0)
+    InPartySlot(Myself,1)
+    InPartySlot(Myself,2)
+    InPartySlot(Myself,3)
+    InPartySlot(Myself,5)
+  Global("DeathmatchWinner","GLOBAL",5)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],1)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],2)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],3)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],4)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],6)
+    DisplayStringHead(Myself,3722)  // ~Player 5 is the winner.  Now you die.~
+    Wait(1)
+    Kill(Myself)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(5)
+    InPartySlot(Myself,0)
+    InPartySlot(Myself,1)
+    InPartySlot(Myself,2)
+    InPartySlot(Myself,3)
+    InPartySlot(Myself,4)
+  Global("DeathmatchWinner","GLOBAL",6)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],1)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],2)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],3)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],4)
+    DeathMatchPositionGlobal("AR0060",[-1.-1],5)
+    DisplayStringHead(Myself,3733)  // ~Player 6 is the winner.  Now you die.~
+    Wait(1)
+    Kill(Myself)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !AreaCheck("AR0087")
+  GlobalGT("DeathmatchWinner","GLOBAL",0)
+  GlobalTimerExpired("EndDeathMatch","GLOBAL")
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    LeaveAreaLUA("AR0087","",[415.350],14)
+END
+

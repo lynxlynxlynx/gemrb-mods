@@ -1,0 +1,82 @@
+IF
+  GlobalTimerExpired("MerchantDie","LOCALS")
+  RandomNum(4,1)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    ApplySpellRES("runrun",Myself)  // <Invalid Strref -1>
+    EscapeArea()
+END
+
+IF
+  OnCreation()
+  Global("StartCaravanAttack","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("StartCaravanAttack","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("StartCaravanAttack","GLOBAL",1)
+  Global("MerchantTimersSet","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MerchantTimersSet","LOCALS",1)
+    SetGlobalTimer("MerchantShout","LOCALS",2)
+    SetGlobalTimer("MerchantDie","LOCALS",30)
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  Global("StartCaravanAttack","GLOBAL",1)
+  !GlobalTimerNotExpired("MerchantShout","LOCALS")
+  !Dead("yself)")  // yself)
+  See([ENEMY])
+THEN
+  RESPONSE #200
+    SetGlobalTimer("MerchantShout","LOCALS",2)
+  RESPONSE #50
+    SetGlobalTimer("MerchantShout","LOCALS",2)
+    DisplayStringHead(Myself,72704)  // ~Help us!  Someone!!~
+  RESPONSE #50
+    SetGlobalTimer("MerchantShout","LOCALS",2)
+    DisplayStringHead(Myself,72705)  // ~The army will kill us all!~
+  RESPONSE #50
+    SetGlobalTimer("MerchantShout","LOCALS",2)
+    DisplayStringHead(Myself,73146)  // ~We're under attack!~
+  RESPONSE #50
+    SetGlobalTimer("MerchantShout","LOCALS",2)
+    DisplayStringHead(Myself,73150)  // ~Mercy!~
+END
+
+IF
+  !Class(Myself,FIGHTER)
+  Global("StartCaravanAttack","GLOBAL",1)
+  See([ENEMY])
+  !See([PC])
+THEN
+  RESPONSE #100
+    RunAwayFrom([ENEMY],30)
+END
+
+IF
+  !Class(Myself,FIGHTER)
+  Global("StartCaravanAttack","GLOBAL",1)
+  See([ENEMY])
+  See([PC])
+THEN
+  RESPONSE #100
+    MoveToObjectFollow([PC])
+END
+
+IF
+  Class(Myself,FIGHTER)
+  Global("StartCaravanAttack","GLOBAL",1)
+  See([ENEMY])
+  !Class(LastSeenBy(Myself),INNOCENT)
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY],30)
+END
+

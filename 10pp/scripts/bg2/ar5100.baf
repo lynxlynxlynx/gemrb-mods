@@ -1,0 +1,8 @@
+IF
+  Global("EnteredGnoll","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartMovie("GNOLL")
+    SetGlobal("EnteredGnoll","GLOBAL",1)
+END
+

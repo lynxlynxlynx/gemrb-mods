@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([834.917],VERY_FAST)
+    TimedMoveToPoint([663.1097],75)
+    Face(10)
+    Wait(3)
+    StartCutScene("13wzcut2")
+END
+

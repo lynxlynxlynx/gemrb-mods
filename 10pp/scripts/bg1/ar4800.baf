@@ -1,0 +1,19 @@
+IF
+  Global("Chapter","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartMovie("NASHKELL")
+    Wait(5)
+    IncrementChapter("Chptxt2")
+    AddJournalEntry(15836)
+END
+
+IF
+  Global("NibulSpawn","GLOBAL",0)
+  Global("Chapter","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("NibulSpawn","GLOBAL",1)
+    CreateCreature("NIMBUL",[1249.693])  // ~Nimbul~
+END
+

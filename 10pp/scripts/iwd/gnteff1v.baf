@@ -1,0 +1,32 @@
+IF
+  !BitGlobal("MYAREA:AREA_GROUP_VAR","",1,AND)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_GROUP_VAR","",1,OR)
+    Continue()
+END
+
+IF
+  !BitGlobal("MYAREA:AREA_GROUP_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+

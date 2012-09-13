@@ -1,0 +1,25 @@
+IF
+  Internal(Myself,INTERNAL_1,0)
+  BitCheck("1400_Status","AR1400",BIT6)
+THEN
+  RESPONSE #100
+    ClearActions()
+    FaceObject([PC])
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  BitCheck("1400_Status","AR1400",BIT6)
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Range([PC],2)
+THEN
+  RESPONSE #100
+    Attack([PC])
+END
+

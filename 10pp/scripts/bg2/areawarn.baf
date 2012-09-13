@@ -1,0 +1,19 @@
+IF
+  Global("mgArea1","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,6532)  // ~Scatter!~
+    Shout(111)
+    SetGlobal("areawarning","LOCALS",1)
+    SetGlobal("mgArea1","GLOBAL",0)
+END
+
+IF
+  Global("mgArea1","GLOBAL",1)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("mgArea1","GLOBAL",0)
+END
+

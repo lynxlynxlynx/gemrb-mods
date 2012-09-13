@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WYLFDENE")  // 
+    StartCutSceneMode()
+    FaceObject("HJOLLDER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ANNOUNCER")  // 
+    StartCutSceneMode()
+    SetGlobal("CUTSCENE_BCHJOBAN","GLOBAL",1)
+    HideGUI()
+    MoveViewObject([PC],VERY_FAST)
+    MultiPlayerSync()
+    Wait(1)
+    ClearAllActions()
+    MultiPlayerSync()
+    MoveToPoint([1035.549])
+    FaceObject("HJOLLDER")
+    Wait(1)
+    FloatMessage(Myself,26541)  // ~Come with me, Hjollder.~
+    Wait(1)
+    StartCutScene("BCHJOLVE")
+END
+

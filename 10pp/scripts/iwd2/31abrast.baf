@@ -1,0 +1,8 @@
+IF
+  See("Braston",0)  // Braston
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

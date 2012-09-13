@@ -1,0 +1,7 @@
+IF
+  !Global("FW_WILL_O_WISPS_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

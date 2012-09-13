@@ -1,0 +1,86 @@
+IF
+  Die()
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Force_Spawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Die()
+  GlobalLT("Curst_Murder","GLOBAL",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Murder","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("Spawn_Agril_Tek","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("Tek_DEAD","KAPUTZ",0)
+THEN
+  RESPONSE #100
+    Attack("Tek")
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1112.2265])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1272.2259])
+    Face(14)
+    StartRandomTimer(1,5,10)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1272.1910])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,3)
+THEN
+  RESPONSE #100
+    MoveToPoint([1467.1910])
+    Face(2)
+    StartRandomTimer(1,5,10)
+    SetInternal(Myself,INTERNAL_0,0)
+END
+

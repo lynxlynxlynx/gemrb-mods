@@ -1,0 +1,87 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_41Ingrat_01")  // 
+    Enemy()
+    JumpToPoint([60.716])
+    HideCreature(Myself,FALSE)
+    MoveToPoint([115.700])
+    FloatMessage(Myself,18636)  // ~"For the Legion of the Chimera, ATTACK!"~
+    Wait(1)
+    StartCutScene("51cIngV1")
+    ChangeAnimation("50Dop")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_02")  // 
+    Enemy()
+    WaitRandom(0,2)
+    JumpToPoint([60.716])
+    HideCreature(Myself,FALSE)
+    ReturnToSavedLocation(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_03")  // 
+    Enemy()
+    WaitRandom(0,2)
+    JumpToPoint([60.716])
+    HideCreature(Myself,FALSE)
+    ReturnToSavedLocation(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_04")  // 
+    Enemy()
+    WaitRandom(0,2)
+    JumpToPoint([60.716])
+    HideCreature(Myself,FALSE)
+    ReturnToSavedLocation(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_05")  // 
+    Enemy()
+    WaitRandom(0,2)
+    JumpToPoint([60.716])
+    HideCreature(Myself,FALSE)
+    ReturnToSavedLocation(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_06")  // 
+    Enemy()
+    WaitRandom(0,2)
+    JumpToPoint([60.716])
+    HideCreature(Myself,FALSE)
+    ReturnToSavedLocation(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_07")  // 
+    Enemy()
+    WaitRandom(0,2)
+    JumpToPoint([60.716])
+    HideCreature(Myself,FALSE)
+    ReturnToSavedLocation(2)
+END
+

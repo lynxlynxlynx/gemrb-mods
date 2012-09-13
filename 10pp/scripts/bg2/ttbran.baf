@@ -1,0 +1,102 @@
+IF
+  OnCreation()
+  GlobalLT("TutorialLesson","GLOBAL",23)
+THEN
+  RESPONSE #100
+    Deactivate(Myself)
+END
+
+IF
+  InParty(Myself)
+  Global("RemoveDPlayer","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveDPlayer","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  !InParty(Myself)
+  Global("RemoveDPlayer","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveDPlayer","LOCALS",0)
+END
+
+IF
+  See("ttskel")  // ~Skeleton~
+  !Dead("ttskel")  // ~Skeleton~
+THEN
+  RESPONSE #100
+    MoveToObject(Myself)
+END
+
+IF
+  Global("TutorialLesson","GLOBAL",23)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialog(Player1)
+END
+
+IF
+  SpellCastPriest(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+  Global("TutorialLesson","GLOBAL",24)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TutorialWait","GLOBAL",3)
+    SetGlobal("TutorialLesson","GLOBAL",25)
+END
+
+IF
+  PartyRested()
+  Global("TutorialLesson","GLOBAL",26)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TutorialWait","GLOBAL",3)
+    SetGlobal("TutorialLesson","GLOBAL",27)
+END
+
+IF
+  GlobalTimerExpired("TutorialWait","GLOBAL")
+  Global("TutorialLesson","GLOBAL",28)
+  !Dead("ttskel")  // ~Skeleton~
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  GlobalTimerExpired("TutorialWait","GLOBAL")
+  Range(Player1,15)
+  OR(4)
+    Global("TutorialLesson","GLOBAL",24)
+    Global("TutorialLesson","GLOBAL",25)
+    Global("TutorialLesson","GLOBAL",26)
+    Global("TutorialLesson","GLOBAL",27)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  PartyHasItem("ttwand")  // ~Wand of the Heavens~
+  Global("GotWand","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("Hurt","LOCALS",0)
+  AreaCheck("AR0018")
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

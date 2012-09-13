@@ -1,0 +1,55 @@
+IF
+  OnCreation()
+  !Global("CHAMBER_3_SWITCH_ACTIVE","MYAREA",4)
+  !Sequence("5202P06",AWAKE)  // 5202P06
+THEN
+  RESPONSE #100
+    PlaySequence("5202P06",AWAKE)
+END
+
+IF
+  OnCreation()
+  Global("CHAMBER_3_SWITCH_ACTIVE","MYAREA",4)
+  !Sequence("5202P06",ATTACK)  // 5202P06
+THEN
+  RESPONSE #100
+    PlaySequence("5202P06",ATTACK)
+END
+
+IF
+  !Global("CHAMBER_3_SWITCH_ACTIVE","MYAREA",4)
+  !Sequence("5202P06",AWAKE)  // 5202P06
+THEN
+  RESPONSE #100
+    PlaySequence("5202P06",AWAKE)
+    PlaySound("am5202i")
+    Continue()
+END
+
+IF
+  Global("CHAMBER_3_SWITCH_ACTIVE","MYAREA",4)
+  !Sequence("5202P06",ATTACK)  // 5202P06
+THEN
+  RESPONSE #100
+    PlaySequence("5202P06",ATTACK)
+    PlaySound("am5202j")
+    Continue()
+END
+
+IF
+  Global("CHAMBER_3_SWITCH_ACTIVE","MYAREA",4)
+  InTrap([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpell([PC],INNATE_PROTECTION_FROM_ELECTRICITY)
+    PlaySequence("5202P06",AWAKE)
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+END
+
+IF
+  !Global("CHAMBER_3_SWITCH_ACTIVE","MYAREA",4)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

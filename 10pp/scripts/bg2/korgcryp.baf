@@ -1,0 +1,9 @@
+IF
+  IsOverMe("Korgan")  // Korgan
+  Global("KorganSeesCrypt","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Korgan",StartDialogNoSet(Player1))
+    SetGlobal("KorganSeesCrypt","GLOBAL",1)
+END
+

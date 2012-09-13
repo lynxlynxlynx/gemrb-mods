@@ -1,0 +1,29 @@
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType([0.0.0.MAGE]))
+  See(LastAttackerOf(LastSeenBy(Myself)))
+  Global("spelldone","LOCALS",1)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  Global("RiatavinFight","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  OR(2)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    HitBy([GOODCUTOFF],CRUSHING)
+  Global("RiatavinFight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RiatavinFight","GLOBAL",1)
+    Enemy()
+END
+

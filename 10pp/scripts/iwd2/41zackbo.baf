@@ -1,0 +1,567 @@
+IF
+  HitBy([ANYONE],MAGIC)
+  HaveSpell(CLERIC_MISCAST_MAGIC)
+THEN
+  RESPONSE #100
+    Spell(LastAttackerOf(Myself),CLERIC_MISCAST_MAGIC)
+    Continue()
+END
+
+IF
+  Global("41ZackTask","GLOBAL",11)
+  GlobalTimerExpired("41BelladonnaTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("41ZackTask","GLOBAL",12)
+    Dialogue([PC])
+END
+
+IF
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4001)
+THEN
+  RESPONSE #100
+    SetGlobal("LeaveArea","LOCALS",0)
+    EscapeArea()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  HaveSpell(CLERIC_SANCTUARY)
+  HPPercentLT(Myself,75)
+  IsSpellTargetValid(Myself,CLERIC_SANCTUARY,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SANCTUARY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  HPLostGT(Myself,7)
+  IsSpellTargetValid(Myself,CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  HPLostGT(Myself,37)
+  IsSpellTargetValid(Myself,CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_41ZACKBO_0","LOCALS",-1)
+  RandomNum(2,1)
+  !Global("OBJ_SP_41ZACKBO_0","LOCALS",-1)
+  AttackedBy(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("11151215131214252120220622122427",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_STRENGTH_OF_ONE
+      // CLERIC_HOLY_POWER
+      // WIZARD_MINOR_MIRROR_IMAGE
+      // WIZARD_INVISIBILITY
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_FIRESHIELD_RED
+    MarkSpellAndObject("2405",Myself,7)
+      // WIZARD_IMPROVED_INVISIBILITY
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2405",Myself,7)
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("11151215131214252120220622122427",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_STRENGTH_OF_ONE
+      // CLERIC_HOLY_POWER
+      // WIZARD_MINOR_MIRROR_IMAGE
+      // WIZARD_INVISIBILITY
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_FIRESHIELD_RED
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("OBJ_SP_41ZACKBO_0","LOCALS",-1)
+  !HaveSpell(CLERIC_ARMOR_OF_FAITH)
+  !HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+  !HaveSpell(CLERIC_STRENGTH_OF_ONE)
+  !HaveSpell(CLERIC_HOLY_POWER)
+  !HaveSpell(WIZARD_MINOR_MIRROR_IMAGE)
+  !HaveSpell(WIZARD_INVISIBILITY)
+  !HaveSpell(WIZARD_MIRROR_IMAGE)
+  !HaveSpell(WIZARD_FIRESHIELD_RED)
+  !HaveSpell(WIZARD_IMPROVED_INVISIBILITY)
+THEN
+  RESPONSE #100
+    SetGlobal("OBJ_SP_41ZACKBO_0","LOCALS",-1)
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_HOLD_PERSON)
+  AttackedBy([ENEMY.HUMANOID],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_HOLD_PERSON,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_HOLD_PERSON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_HOLY_SMITE)
+  AttackedBy(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_HOLY_SMITE,0)
+  Alignment(LastMarkedObject,MASK_EVIL)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_HOLY_SMITE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  RandomNum(2,1)
+  !Global("OBJ_SP_41ZACKBO_4","LOCALS",-1)
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    AttackedBy(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy,45)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_41ZACKBO_4","LOCALS",-1)
+  RandomNum(2,1)
+  !Global("OBJ_SP_41ZACKBO_4","LOCALS",-1)
+  AttackedBy(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("14102103211221182211231823122319",LastMarkedObject,7)
+      // CLERIC_GIANT_INSECT
+      // WIZARD_BURNING_HANDS
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_MELFS_ACID_ARROW
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_LANCE_OF_DISRUPTION
+    MarkSpellAndObject("2428",LastMarkedObject,7)
+      // WIZARD_SPIDER_SPAWN
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2428",LastMarkedObject,7)
+      // WIZARD_SPIDER_SPAWN
+    MarkSpellAndObject("14102103211221182211231823122319",LastMarkedObject,7)
+      // CLERIC_GIANT_INSECT
+      // WIZARD_BURNING_HANDS
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_MELFS_ACID_ARROW
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_LANCE_OF_DISRUPTION
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("OBJ_SP_41ZACKBO_4","LOCALS",-1)
+  !HaveSpell(CLERIC_GIANT_INSECT)
+  !HaveSpell(WIZARD_BURNING_HANDS)
+  !HaveSpell(WIZARD_MAGIC_MISSILE)
+  !HaveSpell(WIZARD_CHROMATIC_ORB)
+  !HaveSpell(WIZARD_MELFS_ACID_ARROW)
+  !HaveSpell(WIZARD_ICELANCE)
+  !HaveSpell(WIZARD_SLOW)
+  !HaveSpell(WIZARD_LANCE_OF_DISRUPTION)
+  !HaveSpell(WIZARD_SPIDER_SPAWN)
+THEN
+  RESPONSE #100
+    SetGlobal("OBJ_SP_41ZACKBO_4","LOCALS",-1)
+    Continue()
+END
+
+IF
+  !TimerActive(22)
+  !NearSavedLocation(0)
+  !Allegiance(Myself,ENEMY)
+  Global("LeaveArea","LOCALS",0)
+  !Global("41ZackTask","GLOBAL",9)
+  !Global("41ZackTask","GLOBAL",11)
+  !Global("41ZackTask","GLOBAL",13)
+  CurrentAreaIs(Myself,4100)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(22,5)
+END
+
+IF
+  !TimerActive(22)
+  NearSavedLocation(0)
+  !Allegiance(Myself,ENEMY)
+  Global("LeaveArea","LOCALS",0)
+  !Global("41ZackTask","GLOBAL",9)
+  !Global("41ZackTask","GLOBAL",11)
+  !Global("41ZackTask","GLOBAL",13)
+  CurrentAreaIs(Myself,4100)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(22,5)
+END
+
+IF
+  !TimerActive(24)
+  !Global("LeaveArea","LOCALS",1)
+  Or(2)
+    Global("41ZackTask","GLOBAL",11)
+    Global("41ZackTask","GLOBAL",13)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartTimer(24,5)
+END
+
+IF
+  Global("ML_3","LOCALS",0)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    SetGlobal("ML_3","LOCALS",1)
+END
+
+IF
+  Global("ML_3","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,3030,906,4)
+THEN
+  RESPONSE #100
+    SetStartPos([3030.906])
+    SetGlobal("ML_3","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_3","LOCALS",1)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([3030.906])
+END
+
+IF
+  Global("ML_3","LOCALS",2)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    Unlock("AR4100_DOOR14")
+    SetGlobal("ML_3","LOCALS",3)
+END
+
+IF
+  Global("ML_3","LOCALS",3)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    OpenDoor("AR4100_DOOR14")
+    SetGlobal("ML_3","LOCALS",4)
+END
+
+IF
+  Global("ML_3","LOCALS",4)
+  NearSavedLocation(4)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_3","LOCALS",5)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_3","LOCALS",4)
+  !NearSavedLocation(4)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+
+IF
+  Global("ML_3","LOCALS",5)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_DISPEL_MAGIC)
+    SetGlobal("ML_3","LOCALS",6)
+END
+
+IF
+  Global("ML_3","LOCALS",6)
+  Global("41ZackTask","GLOBAL",9)
+  !Global("LeaveArea","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("41ZACKTASK","GLOBAL",10)
+    SetGlobal("ML_3","LOCALS",-1)
+END
+
+IF
+  Global("ML_4","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,3552,544,4)
+THEN
+  RESPONSE #100
+    SetStartPos([3552.544])
+    SetGlobal("ML_4","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_4","LOCALS",0)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4000)
+THEN
+  RESPONSE #100
+    MoveToPoint([3552.544])
+END
+
+IF
+  Global("ML_4","LOCALS",1)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4000)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ML_5","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,64,2560,4)
+THEN
+  RESPONSE #100
+    SetStartPos([64.2560])
+    SetGlobal("ML_5","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_5","LOCALS",0)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4100)
+THEN
+  RESPONSE #100
+    MoveToPoint([64.2560])
+END
+
+IF
+  Global("ML_5","LOCALS",1)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4100)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ML_6","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,415,2655,4)
+THEN
+  RESPONSE #100
+    SetStartPos([415.2655])
+    SetGlobal("ML_6","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_6","LOCALS",0)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4101)
+THEN
+  RESPONSE #100
+    MoveToPoint([415.2655])
+END
+
+IF
+  Global("ML_6","LOCALS",1)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4101)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ML_7","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,3615,2111,4)
+THEN
+  RESPONSE #100
+    SetStartPos([3615.2111])
+    SetGlobal("ML_7","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_7","LOCALS",0)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4102)
+THEN
+  RESPONSE #100
+    MoveToPoint([3615.2111])
+END
+
+IF
+  Global("ML_7","LOCALS",1)
+  Global("LeaveArea","LOCALS",1)
+  CurrentAreaIs(Myself,4102)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("41TempleQuest","GLOBAL",2)
+  GlobalLT("41ZackTempleInfo","GLOBAL",4)
+  GlobalGT("41NateDestroySourceQuest","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("41ZackTempleInfo","GLOBAL",4)
+END
+
+IF
+  Global("41TempleQuest","GLOBAL",2)
+  GlobalLT("41ZackTempleInfo","GLOBAL",3)
+  Global("41NateSaidPrisoners","GLOBAL",1)
+  Global("41NateSaidIce","GLOBAL",1)
+  Global("41NateSaidPower","GLOBAL",1)
+  Global("41GlacierConstruction","GLOBAL",1)
+  Global("41TempleConstruction","GLOBAL",1)
+  Global("41RitualInfo","GLOBAL",1)
+  Global("41MadaePromise","GLOBAL",1)
+  Global("41MadaeDeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("41ZackTempleInfo","GLOBAL",3)
+END
+
+IF
+  Global("41TempleQuest","GLOBAL",2)
+  GlobalLT("41ZackTempleInfo","GLOBAL",2)
+  Global("41NateSaidPrisoners","GLOBAL",1)
+  Global("41NateSaidIce","GLOBAL",1)
+  Global("41NateSaidPower","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("41ZackTempleInfo","GLOBAL",2)
+END
+
+IF
+  Global("41TempleQuest","GLOBAL",2)
+  GlobalLT("41ZackTempleInfo","GLOBAL",2)
+  Global("41GlacierConstruction","GLOBAL",1)
+  Global("41TempleConstruction","GLOBAL",1)
+  Global("41RitualInfo","GLOBAL",1)
+  Global("41MadaePromise","GLOBAL",1)
+  Global("41MadaeDeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("41ZackTempleInfo","GLOBAL",2)
+END
+
+IF
+  Global("41TempleQuest","GLOBAL",2)
+  GlobalLT("41ZackTempleInfo","GLOBAL",1)
+  Global("AR4101_Visited","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("41ZackTempleInfo","GLOBAL",1)
+END
+

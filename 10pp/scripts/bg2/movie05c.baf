@@ -1,0 +1,59 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("m05demon")  // 
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    Wait(1)
+    CreateVisualEffect("SPMETSWA",[2906.1004])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2896.1049])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2939.1076])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2988.1052])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2962.997])
+    SmallWait(3)
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    CreateVisualEffect("SPMETSWA",[2906.1004])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2896.1049])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2939.1076])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2988.1052])
+    SmallWait(3)
+    CreateVisualEffect("SPMETSWA",[2962.997])
+    Wait(1)
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("m05spir1")  // 
+    MoveToPoint([2962.997])
+    CreateVisualEffectObject("SPROTECT",Myself)
+    Wait(1)
+    ReallyForceSpell("m05demon",WIZARD_DISINTEGRATE2_IGNORE_RESISTANCE)
+    Wait(1)
+    DisplayStringHead(Myself,17387)  // ~The slaves of the exile live no more.~
+    MoveToPoint([2901.1221])
+    SetGlobal("ElvenSpirits","GLOBAL",3)
+    StartCutScene("Movie05d")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("m05spir2")  // 
+    DisplayStringHead(Myself,57804)  // ~Children of the Tree, go in peace!~
+    MoveToPoint([2988.1052])
+    Wait(2)
+    MoveToPoint([2901.1221])
+    DestroySelf()
+END
+

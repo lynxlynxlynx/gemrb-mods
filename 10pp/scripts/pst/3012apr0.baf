@@ -1,0 +1,30 @@
+IF
+  Help([ANYONE])
+  !Help([PC])
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+

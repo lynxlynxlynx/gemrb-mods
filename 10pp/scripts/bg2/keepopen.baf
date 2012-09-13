@@ -1,0 +1,7 @@
+IF
+  OpenState("Bridge01",TRUE)  // Bridge01
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

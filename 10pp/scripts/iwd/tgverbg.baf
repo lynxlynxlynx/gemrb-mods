@@ -1,0 +1,46 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetSavedLocation()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastAttackerOf(Myself),45)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp)
+END
+
+IF
+  Internal(Myself,0,1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

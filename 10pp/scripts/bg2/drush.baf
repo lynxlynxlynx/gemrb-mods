@@ -1,0 +1,9 @@
+IF
+  See([PC])
+  Global("drushinit","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("drushinit","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

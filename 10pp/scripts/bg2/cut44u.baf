@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateVisualEffectObject("SPDIMNDR","Phaere")
+    Wait(1)
+    ActionOverride("Phaere",MoveBetweenAreas("ar2201",[858.1595],0))
+    Wait(2)
+    SetGlobal("spawnImp","AR2204",1)
+    CreateCreatureDoor("udimp",[740.980],0)
+    Wait(3)
+    ActionOverride("udimp",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

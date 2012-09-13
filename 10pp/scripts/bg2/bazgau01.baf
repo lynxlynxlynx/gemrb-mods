@@ -1,0 +1,7 @@
+IF
+  Global("PatsyJob","GLOBAL",3)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

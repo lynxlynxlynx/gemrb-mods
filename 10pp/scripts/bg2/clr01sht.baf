@@ -1,0 +1,48 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(79)
+    Enemy()
+END
+
+IF
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    Shout(79)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],79)
+  Allegiance(Myself,NEUTRAL)
+  !See([PC])
+THEN
+  RESPONSE #100
+    Shout(79)
+    Enemy()
+    ApplySpell(Myself,CLERIC_SANCTUARY)
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Heard([ANYONE],79)
+  Allegiance(Myself,NEUTRAL)
+  See([PC])
+THEN
+  RESPONSE #100
+    Shout(79)
+    Enemy()
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Heard([ANYONE],79)
+THEN
+  RESPONSE #100
+    MoveToObject(LastHeardBy(Myself))
+    Continue()
+END
+

@@ -1,0 +1,7 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Shout(151)
+END
+

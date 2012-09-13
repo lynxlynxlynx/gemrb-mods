@@ -1,0 +1,22 @@
+IF
+  Entered([PC])
+  GlobalGT("Lo_Quest","GLOBAL",2)
+THEN
+  RESPONSE #100
+END
+
+IF
+  Entered([PC])
+  HasItem("PTKEY4","Nameless")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+END
+
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("1800ptn2")
+END
+

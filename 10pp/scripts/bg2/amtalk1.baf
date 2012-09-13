@@ -1,0 +1,36 @@
+IF
+  !GlobalTimerNotExpired("amtalk1","LOCALS")
+  !Global("notalk","LOCALS",1)
+  OnScreen(Myself)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("amtalk1","LOCALS",30)
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71346)  // ~Why all these soldiers?~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71347)  // ~We could use supplies, not more soldiers.~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71348)  // ~Where is Balthazar?  Why is the monastery closed?~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71349)  // ~I hunger so...~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71350)  // ~May the Gods protect us all.~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71351)  // ~Our doom is upon us.~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71353)  // ~Hopefully this will all be over soon.~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71354)  // ~The monks have never forsaken us before...~
+  RESPONSE #15
+    SetGlobalTimer("amtalk1","LOCALS",30)
+    DisplayStringHead(Myself,71355)  // ~We need supplies, and soon.~
+END
+

@@ -1,0 +1,15 @@
+IF
+  Difficulty(4,2)
+  !See([PC])
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

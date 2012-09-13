@@ -1,0 +1,28 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("SEER")  // 
+    StartCutSceneMode()
+    HideGUI()
+    SetGlobal("BC_CUTSCENE","GLOBAL",16)
+    SetGlobal("WYLF_SEER_SHOWDOWN","GLOBAL",1)
+    SetGlobal("SEER_GHOST_STATE","GLOBAL",1)
+    MultiPlayerSync()
+    ClearAllActions()
+    MultiPlayerSync()
+    DestroyItem("TRANS40")  // <Invalid Strref -1>
+    MoveViewPoint([793.538],VERY_FAST)
+    EquipItem("APORT",0)
+    StartCutScene("BCTNTFC1")
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    MultiPlayerSync()
+    Deactivate("MAIN_AMBI_1")
+    Wait(1)
+    SetDialogueRange(75)
+    Wait(2)
+    MultiPlayerSync()
+    Dialogue(Protagonist)
+END
+

@@ -1,0 +1,55 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(2)
+    Face(10)
+    StartCutScene("stlmrt1b")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(2)
+    Face(10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(2)
+    Face(10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(2)
+    Face(10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(2)
+    Face(10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(2)
+    Face(10)
+END
+

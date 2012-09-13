@@ -1,0 +1,7 @@
+IF
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

@@ -1,0 +1,7 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_ICE_KNIFE,3)
+END
+

@@ -1,0 +1,69 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("SpiderAttacked","AR2200",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("SpiderAttacked","AR2200",1)
+END
+
+IF
+  See([PC])
+  See("dadog")  // ~Dog~
+  Name("udspid07",Myself)
+  !Dead("dadog")  // ~Dog~
+THEN
+  RESPONSE #100
+    AttackOneRound("dadog")
+    Wait(1)
+    Kill("dadog")
+END
+
+IF
+  Dead("dadog")  // ~Dog~
+  See("dakobold")  // ~Kobold~
+  !Dead("dakobold")  // ~Kobold~
+  See([PC])
+  Name("udspid08",Myself)
+THEN
+  RESPONSE #100
+    Wait(1)
+    DisplayStringHead("dakobold",57241)  // ~Help meeeeeee!!!!~
+    AttackOneRound("dakobold")
+    Wait(1)
+    Kill("dakobold")
+END
+
+IF
+  Dead("dakobold")  // ~Kobold~
+  See("dadwarf")  // ~Dwarf~
+  !Dead("dadwarf")  // ~Dwarf~
+  See([PC])
+  Name("udspid07",Myself)
+THEN
+  RESPONSE #100
+    Wait(1)
+    DisplayStringHead("dadwarf",57238)  // ~Clangeddin damn ye, drow! I'll not die simpering like a whipped dog!~
+    ActionOverride("dadwarf",AttackReevaluate("udspid07",100))
+    AttackOneRound("dadwarf")
+    AttackOneRound("dadwarf")
+    AttackOneRound("dadwarf")
+    Wait(1)
+    Kill("dadwarf")
+END
+
+IF
+  Dead("dadwarf")  // ~Dwarf~
+  See("daduer3")  // ~Duergar~
+  !Dead("daduer3")  // ~Duergar~
+  See([PC])
+  Name("udspid08",Myself)
+THEN
+  RESPONSE #100
+    Wait(1)
+    DisplayStringHead("daduer3",57239)  // ~Gods how I be hatin' spiders!~
+    AttackOneRound("daduer3")
+    Wait(1)
+    Kill("daduer3")
+END
+

@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ICASARACHT")  // 
+    Wait(1)
+    Dialogue(Protagonist)
+END
+

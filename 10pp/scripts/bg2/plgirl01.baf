@@ -1,0 +1,26 @@
+IF
+  Global("Tyrianna","GLOBAL",0)
+  !See("Franco")  // ~Franco~
+THEN
+  RESPONSE #100
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("PaladinGirlDead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("PaladinGirlDead","GLOBAL",2)
+    DestroySelf()
+END
+
+IF
+  OR(2)
+    Global("PaladinPlot","GLOBAL",30)
+    Global("PaladinPlot","GLOBAL",99)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

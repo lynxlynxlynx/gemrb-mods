@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewObject("BAZDRA01",-1)
+    ScreenShake([5.5],10)
+    ActionOverride("BAZDRA01",ReallyForceSpell(Myself,HEAL_NO_VISUAL))
+    FadeToColor([30.0],0)
+    Wait(2)
+    ActionOverride("BAZDRA01",ChangeAnimation("BazDra02"))
+    ActionOverride("BAZDRA01",ReallyForceSpellRES("SPCTMD02",Myself))  // ~Death Field~
+    Wait(1)
+    FadeFromColor([30.0],0)
+    Wait(2)
+    EndCutSceneMode()
+END
+

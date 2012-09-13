@@ -1,0 +1,86 @@
+IF
+  Global("SiegeLocation","AR5000",1)
+  See("SiegeSight1")  // SiegeSight1
+  Global("SiegeRun","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SiegeRun","LOCALS",1)
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+END
+
+IF
+  Global("SiegeLocation","AR5000",2)
+  See("SiegeSight2")  // SiegeSight2
+  Global("SiegeRun","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SiegeRun","LOCALS",2)
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+END
+
+IF
+  Global("SiegeLocation","AR5000",3)
+  See("SiegeSight3")  // SiegeSight3
+  Global("SiegeRun","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SiegeRun","LOCALS",3)
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+END
+
+IF
+  Global("SiegeLocation","AR5000",4)
+  See("SiegeSight4")  // SiegeSight4
+  Global("SiegeRun","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SiegeRun","LOCALS",4)
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+END
+
+IF
+  Global("SiegeLocation","AR5000",1)
+  See("SiegeSight1")  // SiegeSight1
+  Global("SiegeRun","LOCALS",1)
+THEN
+  RESPONSE #100
+    RunAwayFrom("SiegeSight1",45)
+END
+
+IF
+  Global("SiegeLocation","AR5000",2)
+  See("SiegeSight2")  // SiegeSight2
+  Global("SiegeRun","LOCALS",2)
+THEN
+  RESPONSE #100
+    RunAwayFrom("SiegeSight2",45)
+END
+
+IF
+  Global("SiegeLocation","AR5000",3)
+  See("SiegeSight3")  // SiegeSight3
+  Global("SiegeRun","LOCALS",3)
+THEN
+  RESPONSE #100
+    RunAwayFrom("SiegeSight3",45)
+END
+
+IF
+  Global("SiegeLocation","AR5000",4)
+  See("SiegeSight4")  // SiegeSight4
+  Global("SiegeRun","LOCALS",4)
+THEN
+  RESPONSE #100
+    RunAwayFrom("SiegeSight4",45)
+END
+
+IF
+  Global("SiegeLocation","AR5000",0)
+  GlobalGT("SiegeRun","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1950.946])
+    Face(0)
+    SetGlobal("SiegeRun","LOCALS",0)
+END
+

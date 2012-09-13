@@ -1,0 +1,48 @@
+IF
+  Global("feudplot","GLOBAL",1)
+  Global("createfued","AR2010",0)
+THEN
+  RESPONSE #100
+    SetGlobal("createfued","AR2010",1)
+    CreateCreature("trfued09",[590.328],12)  // ~Lurraxol Guard~
+    CreateCreature("trfued10",[674.361],6)  // ~Alibakkar Guard~
+END
+
+IF
+  Global("feudplot","GLOBAL",2)
+  Global("destroyfeud","AR2010",0)
+THEN
+  RESPONSE #100
+    SetGlobal("destroyfeud","AR2010",1)
+    ActionOverride("trfued09",DestroySelf())
+    ActionOverride("trfued10",DestroySelf())
+END
+
+IF
+  Dead("trfued10")  // ~Alibakkar Guard~
+  Dead("trfued09")  // ~Lurraxol Guard~
+  Global("talked","AR2010",0)
+THEN
+  RESPONSE #100
+    SetGlobal("talked","AR2010",1)
+    CreateCreature("trfued11",[252.725],12)  // ~Militia Wizard~
+END
+
+IF
+  Dead("trfued10")  // ~Alibakkar Guard~
+  Global("talked","AR2010",0)
+THEN
+  RESPONSE #100
+    SetGlobal("talked","AR2010",1)
+    CreateCreature("trfued11",[252.725],12)  // ~Militia Wizard~
+END
+
+IF
+  Dead("trfued09")  // ~Lurraxol Guard~
+  Global("talked","AR2010",0)
+THEN
+  RESPONSE #100
+    SetGlobal("talked","AR2010",1)
+    CreateCreature("trfued11",[252.725],12)  // ~Militia Wizard~
+END
+

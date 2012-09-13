@@ -1,0 +1,294 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !CreatureHidden(Myself)
+  Allegiance(Myself,NEUTRAL)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    PlaySequence(Myself,DIE)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  CreatureHidden(Myself)
+  Allegiance(Myself,NEUTRAL)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,DIE)
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,AWAKE)
+    SetGlobal("WEEDIAN_STATE","GLOBAL",0)
+    StartRandomTimer(5,30,90)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !TimerActive(5)
+  !See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    SetGlobal("WEEDIAN_STATE","GLOBAL",0)
+    SetGlobal("WEEDIAN_COOL_WITH_PC","GLOBAL",0)
+    StartRandomTimer(5,30,90)
+    Continue()
+END
+
+IF
+  !TimerActive(5)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    StartRandomTimer(5,10,30)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Global("WEEDIAN_COOL_WITH_PC","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("WEEDIAN_COOL_WITH_PC","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("WEEDIAN_COOL_WITH_PC","GLOBAL",2)
+  Allegiance(Myself,ENEMY_OF_EVIL)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  Global("WEEDIAN_COOL_WITH_PC","GLOBAL",2)
+  !Allegiance(Myself,ENEMY_OF_EVIL)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,ENEMY_OF_EVIL)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !TimerActive(5)
+THEN
+  RESPONSE #100
+    SetGlobal("WEEDIAN_STATE","GLOBAL",0)
+    StartRandomTimer(5,30,90)
+    Continue()
+  RESPONSE #100
+    SetGlobal("WEEDIAN_STATE","GLOBAL",1)
+    SetGlobal("WEEDIAN_SMOKIN","LOCALS",0)
+    StartRandomTimer(5,10,45)
+    Continue()
+  RESPONSE #20
+    SetGlobal("WEEDIAN_STATE","GLOBAL",2)
+    SetGlobal("WEEDIAN_SMOKIN","LOCALS",0)
+    StartRandomTimer(5,5,20)
+    Continue()
+  RESPONSE #10
+    StartRandomTimer(5,15,30)
+    SetGlobal("WEEDIAN_STATE","GLOBAL",3)
+    Continue()
+  RESPONSE #10
+    StartRandomTimer(5,15,45)
+    SetGlobal("WEEDIAN_STATE","GLOBAL",4)
+    SetGlobal("WEEDIAN_HAD_PARANOIA","LOCALS",0)
+    Continue()
+END
+
+IF
+  !Global("WEEDIAN_STATE","GLOBAL",0)
+  HPLostGT(Myself,0)
+THEN
+  RESPONSE #100
+    SetGlobal("WEEDIAN_STATE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !TimerActive(5)
+  Global("WEEDIAN_STATE","GLOBAL",0)
+  HPLostGT(Myself,0)
+THEN
+  RESPONSE #100
+    StartRandomTimer(5,15,45)
+    Continue()
+END
+
+IF
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !TimerActive(22)
+  Global("WEEDIAN_STATE","GLOBAL",1)
+  TimerActive(5)
+  Or(2)
+    !Allegiance(Myself,ENEMY_OF_EVIL)
+    See([PC],0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartRandomTimer(22,0,3)
+END
+
+IF
+  !TimerActive(23)
+  !NearSavedLocation(4)
+  !Global("WEEDIAN_STATE","GLOBAL",1)
+  !Allegiance(Myself,ENEMY_OF_EVIL)
+  TimerActive(5)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(23,5)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("WEEDIAN_STATE","GLOBAL",3)
+  NearSavedLocation(3)
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    PlayDead(200)
+    PlaySequence([PC],AWAKE)
+    SetGlobal("WEEDIAN_STATE","GLOBAL",0)
+    SetGlobal("WEEDIAN_SMOKIN","LOCALS",0)
+    StartRandomTimer(5,5,15)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("WEEDIAN_STATE","GLOBAL",0)
+  Or(2)
+    NearSavedLocation(3)
+    Allegiance(Myself,ENEMY_OF_EVIL)
+  Or(2)
+    !Global("WEEDIAN_COOL_WITH_PC","GLOBAL",0)
+    !See([PC],0)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,READY)
+    SpellHitEffectSprite(Myself,Myself,CONE_OF_COLD,500)
+    SetGlobal("WEEDIAN_SMOKIN","LOCALS",1)
+    Wait(1)
+    AddHP(Myself,1)
+    Continue()
+END
+
+IF
+  Global("WEEDIAN_STATE","GLOBAL",0)
+  !TimerActive(2)
+  Allegiance(Myself,ENEMY_OF_EVIL)
+  See([PC],0)
+  Range(LastSeenBy(Myself),5,LESS_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    PlaySequence(Myself,READY)
+    SpellHitEffectSprite(LastSeenBy(Myself),LastSeenBy(Myself),CONE_OF_COLD,100)
+    StartRandomTimer(2,5,15)
+    AddHP(LastSeenBy(Myself),1)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("WEEDIAN_COOL_WITH_PC","GLOBAL",0)
+  !Global("WEEDIAN_SMOKIN","LOCALS",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,HEAD_TURN)
+    SetGlobal("WEEDIAN_SMOKIN","LOCALS",0)
+    FaceObject(LastSeenBy(Myself))
+    Wait(3)
+    FaceSavedLocation(Myself)
+  RESPONSE #10
+    PlaySequence(Myself,HEAD_TURN)
+    SetGlobal("WEEDIAN_SMOKIN","LOCALS",0)
+    FloatMessage(Myself,21181)  // ~Rahhhhrrrr-  ::Cough::  ::Cough::~
+    FaceObject(LastSeenBy(Myself))
+    Wait(3)
+    FaceSavedLocation(Myself)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("WEEDIAN_STATE","GLOBAL",4)
+THEN
+  RESPONSE #100
+    Face(N)
+  RESPONSE #100
+    Face(NE)
+  RESPONSE #100
+    Face(NW)
+  RESPONSE #100
+    Face(S)
+  RESPONSE #100
+    Face(SE)
+  RESPONSE #100
+    Face(SW)
+  RESPONSE #100
+    Face(E)
+  RESPONSE #100
+    Face(W)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("WEEDIAN_STATE","GLOBAL",4)
+  Global("WEEDIAN_COOL_WITH_PC","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("WEEDIAN_HAD_PARANOIA","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  !Global("WEEDIAN_HAD_PARANOIA","LOCALS",0)
+  !See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("WEEDIAN_HAD_PARANOIA","LOCALS",0)
+    SetGlobal("WEEDIAN_STATE","GLOBAL",0)
+    StartRandomTimer(5,5,15)
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+  Allegiance(Myself,ENEMY_OF_EVIL)
+  Range(NearestPC,15,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObjectFollow(NearestPC)
+END
+

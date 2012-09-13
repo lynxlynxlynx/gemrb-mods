@@ -1,0 +1,7 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,52077)  // ~You suddenly have a sense of imminent danger.  Something here is not what it seems.~
+END
+

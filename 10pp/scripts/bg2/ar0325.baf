@@ -1,0 +1,17 @@
+IF
+  OR(2)
+    GlobalTimerExpired("HervoCallGuard","GLOBAL")
+    GlobalTimerExpired("HervoCallGuards","GLOBAL")
+  Global("arHervoCalledGuards","AR0325",0)
+THEN
+  RESPONSE #100
+    SetGlobal("arHervoCalledGuards","AR0325",1)
+    CreateCreature("AMNCEN1",[622.298],8)  // ~Amnish Centurion~
+    CreateCreature("AMNLEG1",[580.321],8)  // ~Amnish Legionary~
+    CreateCreature("AMNLEG1",[526.363],8)  // ~Amnish Legionary~
+    CreateCreature("AMNLEG1",[492.396],8)  // ~Amnish Legionary~
+    CreateCreature("AMNLEG1",[588.253],8)  // ~Amnish Legionary~
+    CreateCreature("COWENF1",[553.291],8)  // ~Cowled Enforcer~
+    CreateCreature("COWENF1",[502.332],8)  // ~Cowled Enforcer~
+END
+

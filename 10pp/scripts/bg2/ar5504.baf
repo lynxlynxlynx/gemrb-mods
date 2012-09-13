@@ -1,0 +1,72 @@
+IF
+  OnCreation()
+  Global("MONKSPAWNEDSMUGGLERPLOT","GLOBAL",2)
+  Global("FADEDIN","MYAREA",0)
+  !Global("Enclave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FadeToColor([1.0],0)
+    Wait(2)
+    FadeFromColor([30.0],0)
+    SetGlobal("FADEDIN","MYAREA",1)
+END
+
+IF
+  GlobalLT("CaveEnter","AR5504",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("CaveEnter","AR5504",1)
+END
+
+IF
+  Global("MONKSPAWNEDSMUGGLERPLOT","GLOBAL",0)
+  !Global("Enclave","GLOBAL",2)
+  OR(2)
+    Allegiance("AMCARRAS",ENEMY)  // ~Carras~
+    Dead("AMCARRAS")  // ~Carras~
+THEN
+  RESPONSE #100
+    SetGlobal("MONKSPAWNEDSMUGGLERPLOT","GLOBAL",1)
+END
+
+IF
+  Global("MONKSPAWNEDSMUGGLERPLOT","GLOBAL",0)
+  Global("CaveEnter","AR5504",2)
+  !Dead("amcarras")  // ~Carras~
+  !Allegiance("amcarras",ENEMY)  // ~Carras~
+  !HPPercentLT("amcarras",100)  // ~Carras~
+  !Global("Enclave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    CreateCreature("AMMONK02",[682.1034],0)  // ~Monk~
+    CreateCreature("AMMONK04",[541.1021],0)  // ~Monk~
+    CreateCreature("AMMONK05",[559.951],0)  // ~Monk~
+    CreateCreature("AMMONK06",[659.931],0)  // ~Monk~
+    ActionOverride("AMMONK02",FaceObject("AMCARRAS"))
+    ActionOverride("AMMONK04",FaceObject("AMCARRAS"))
+    ActionOverride("AMMONK05",FaceObject("AMCARRAS"))
+    ActionOverride("AMMONK06",FaceObject("AMCARRAS"))
+    SetGlobal("MONKSPAWNEDSMUGGLERPLOT","GLOBAL",1)
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  Global("SaemonLeave","GLOBAL",0)
+  Global("PlaceBodies","AR5504",0)
+  !Dead("amsaemon")  // ~Saemon Havarian~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    Wait(1)
+    CreateCreature("AMSAEMON",[861.942],2)  // ~Saemon Havarian~
+    CreateCreature("DEDSMUG",[527.817],0)  // ~Smuggler~
+    CreateCreature("DEDSMUG",[900.724],12)  // ~Smuggler~
+    CreateCreature("DEDSMUG",[882.1041],3)  // ~Smuggler~
+    CreateCreature("DEDSMUG",[669.1002],0)  // ~Smuggler~
+    CreateCreature("DEDSMUG",[802.450],6)  // ~Smuggler~
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    SetGlobal("PlaceBodies","AR5504",1)
+END
+

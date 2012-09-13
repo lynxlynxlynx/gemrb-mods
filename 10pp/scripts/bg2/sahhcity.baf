@@ -1,0 +1,17 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("Hostilecity","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Global("Hostilecity","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

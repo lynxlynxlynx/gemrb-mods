@@ -1,0 +1,24 @@
+IF
+  Clicked([ANYTHING])
+  PartyHasItem("PIECE2")  // ~Piece of broken machinery~
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    TakePartyItem("PIECE2")
+    IncrementGlobal("ASTROLAB","GLOBAL",1)
+    AddXPVar("LEVEL_6_AVERAGE",9236)  // ~You combine your piece of machinery with this part of the astrolabe.~
+    Deactivate(Myself)
+END
+
+IF
+  Unlocked([ANYTHING])
+  PartyHasItem("PIECE2")  // ~Piece of broken machinery~
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    TakePartyItem("PIECE2")
+    IncrementGlobal("ASTROLAB","GLOBAL",1)
+    AddXPVar("LEVEL_6_AVERAGE",9236)  // ~You combine your piece of machinery with this part of the astrolabe.~
+    Deactivate(Myself)
+END
+

@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Torak1")  // 
+    MoveToPoint([1392.2328])
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    DestroySelf()
+END
+

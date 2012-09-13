@@ -1,0 +1,20 @@
+IF
+  Global("MinscCharmed","AR0602",1)
+  Global("HelpDryads","GLOBAL",0)
+  !See("Minsc")  // Minsc
+  !Range("Minsc",4)  // Minsc
+THEN
+  RESPONSE #100
+    ActionOverride("Minsc",JumpToPoint([4069.1222]))
+END
+
+IF
+  Global("MinscCharmed","AR0602",1)
+  Global("HelpDryads","GLOBAL",0)
+  See("Minsc")  // Minsc
+  !Range("Minsc",4)  // Minsc
+THEN
+  RESPONSE #100
+    ActionOverride("Minsc",MoveToObject("Ulene"))
+END
+

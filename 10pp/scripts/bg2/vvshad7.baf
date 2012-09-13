@@ -1,0 +1,8 @@
+IF
+  Detect([PC])
+  See("VVBodhi")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

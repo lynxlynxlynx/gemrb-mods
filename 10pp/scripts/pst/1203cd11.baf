@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    ClearAllActions()
+    DisableFogDither()
+    DisableSpriteDither()
+    MoveViewObject("DeionS",VERY_FAST)
+    MoveToObjectEx("DeionS",0)
+    ClearActions()
+    StickySinisterPoof("EF02TPR2","Nameless",1)
+    Wait(1)
+    FadeToBlack()
+    JumpToPoint([1257.818])
+    StartCutScene("1203CD12")
+END
+

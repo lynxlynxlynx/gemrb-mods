@@ -1,0 +1,19 @@
+IF
+  OR(2)
+    Global("DoorSwitch5014","GLOBAL",4)
+    Global("ErrardJob","GLOBAL",2)
+  Global("YouDieNow","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YouDieNow","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  Detect([PC])
+  Global("YouDieNow","LOCALS",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+

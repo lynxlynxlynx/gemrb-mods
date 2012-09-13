@@ -1,0 +1,120 @@
+IF
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !TimerActive(18)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FaceObject("TRAINEE_1_S")
+    Continue()
+  RESPONSE #100
+    FaceObject("TRAINEE_2_S")
+    Continue()
+  RESPONSE #100
+    FaceObject("TRAINEE_3_S")
+    Continue()
+  RESPONSE #100
+    FaceObject("TRAINING_KEG")
+    Continue()
+END
+
+IF
+  !Global("Stop_Weapon","GLOBAL",0)
+  !Dead("TRAINING_KEG")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Stop_Weapon","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("Stop_Weapon","GLOBAL",0)
+  See([GOODCUTOFF.0.0.0.125],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(LastSeenBy(Myself),0)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Global("Stop_Weapon","GLOBAL",0)
+  Dead("TRAINING_KEG")  // 
+  Or(2)
+    See([GOODCUTOFF.0.0.0.125],0)
+    See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.125],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+END
+
+IF
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Dead("TRAINING_KEG")  // 
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16299)  // ~"Use the spear to keep your distance!"~
+    StartRandomTimer(18,13,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16302)  // ~"Keep at it, men!" ~
+    StartRandomTimer(18,13,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16316)  // ~"Thrust, *then* twist with the spear!"~
+    StartRandomTimer(18,13,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16317)  // ~"Remember - that keg is a goblin!  Now, attack!"~
+    StartRandomTimer(18,13,15)
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Dead("TRAINING_KEG")  // 
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16318)  // ~"Look, just *pretend* the keg's there, all right?!"~
+    StartRandomTimer(18,13,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16319)  // ~"Did I *tell* you to stop?!  Stab the air if you have to!"~
+    StartRandomTimer(18,13,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16320)  // ~"Keep at it, men!  Or else!"~
+    StartRandomTimer(18,13,15)
+    Continue()
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(19,5)
+END
+
+IF
+  !TimerActive(19)
+  NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(19,5)
+END
+

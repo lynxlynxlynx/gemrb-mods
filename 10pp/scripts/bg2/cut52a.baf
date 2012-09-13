@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("JARLICH")  // 
+    Wait(1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    MoveToPoint([551.1046])
+    ForceSpell(Player1,LICH_IMPRISON)
+    Wait(1)
+    FadeToColor([20.0],0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(10)
+    LeaveAreaLUAPanic("AR2208","",[257.465],10)
+    LeaveAreaLUA("AR2208","",[257.465],10)
+    ActionOverride(Player2,LeaveAreaLUA("AR2208","",[299.493],1))
+    ActionOverride(Player3,LeaveAreaLUA("AR2208","",[341.525],1))
+    ActionOverride(Player4,LeaveAreaLUA("AR2208","",[233.525],1))
+    ActionOverride(Player5,LeaveAreaLUA("AR2208","",[282.553],1))
+    ActionOverride(Player6,LeaveAreaLUA("AR2208","",[327.587],1))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    EndCutSceneMode()
+END
+

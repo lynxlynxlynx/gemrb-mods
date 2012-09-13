@@ -1,0 +1,412 @@
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_STONE_SKIN)
+  CheckStatLT(Myself,1,STONESKINS)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_STONE_SKIN)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_SPIRIT_ARMOR)
+  CheckStatGT(Myself,1,ARMORCLASS)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPIRIT_ARMOR)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_GHOST_ARMOR)
+  CheckStatGT(Myself,2,ARMORCLASS)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_GHOST_ARMOR)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_IMPROVED_INVISIBILITY)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_INVISIBILITY)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_SHIELD)
+  CheckStatGT(Myself,4,ARMORCLASS)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SHIELD)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_ARMOR)
+  CheckStatGT(Myself,4,ARMORCLASS)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_FINGER_OF_DEATH)
+THEN
+  RESPONSE #100
+    Spell("Valygar",WIZARD_FINGER_OF_DEATH)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_CONE_OF_COLD)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_CONE_OF_COLD)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !Range("Valygar",30)  // Valygar
+  HaveSpell(WIZARD_ICE_STORM)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_ICE_STORM)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !Range("Valygar",40)  // Valygar
+  HaveSpell(WIZARD_CLOUDKILL)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_CLOUDKILL)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !Range("Valygar",30)  // Valygar
+  HaveSpell(WIZARD_FIREBALL)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_FIREBALL)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HPGT(LastSeenBy(Myself),30)
+  HaveSpell(WIZARD_PRISMATIC_SPRAY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PRISMATIC_SPRAY)
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_DEATH_SPELL)
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_EMOTION_HOPELESSNESS)
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_EMOTION_HOPELESSNESS)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HPGT(LastSeenBy(Myself),20)
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_DISINTEGRATE)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_DISINTEGRATE)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_BURNING_HANDS)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_BURNING_HANDS)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_COLOR_SPRAY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_COLOR_SPRAY)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_SLEEP)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SLEEP)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_CHROMATIC_ORB)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_LARLOCH_MINOR_DRAIN)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_BLINDNESS)
+  !StateCheck(LastSeenBy(Myself),STATE_BLIND)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_BLINDNESS)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_AGANNAZAR_SCORCHER)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_MELF_ACID_ARROW)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_MELF_ACID_ARROW)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_RAY_OF_ENFEEBLEMENT)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_RAY_OF_ENFEEBLEMENT)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_STRENGTH)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_STRENGTH)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_FLAME_ARROW)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_POLYMORPH_OTHER)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POLYMORPH_OTHER)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  !HasBounceEffects(LastSeenBy(Myself))
+  HaveSpell(WIZARD_FLESH_TO_STONE)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_FLESH_TO_STONE)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  HaveSpell(WIZARD_IMPROVED_HASTE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_HASTE)
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+THEN
+  RESPONSE #50
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+  RESPONSE #50
+    Continue()
+END
+
+IF
+  See("Valygar")  // Valygar
+  !Dead("Valygar")  // Valygar
+  Range("Valygar",10)  // Valygar
+  !HaveAnySpells()
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  OR(2)
+    Dead("Valygar")  // Valygar
+    !Detect("Valygar")  // Valygar
+  CombatCounter(0)
+  !Allegiance(Myself,ENEMY)
+  Global("EdwinValygarFight","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("EdwinValygarFight","GLOBAL",2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(2)
+    Dead("Valygar")  // Valygar
+    !Detect("Valygar")  // Valygar
+  CombatCounter(0)
+  Global("EdwinValygarFight","GLOBAL",1)
+  !See([PC])
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

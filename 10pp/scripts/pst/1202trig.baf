@@ -1,0 +1,8 @@
+IF
+  TriggerClick()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Magic")
+    Dialogue([PC])
+END
+

@@ -1,0 +1,32 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("XvartsDead","GLOBAL",1)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See("HulriksCow")  // HulriksCow
+  See([PC])
+  !Dead("HulriksCow")  // HulriksCow
+  Delay(6)
+THEN
+  RESPONSE #100
+    AttackReevaluate("HulriksCow",30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Dead("HulriksCow")  // HulriksCow
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

@@ -1,0 +1,56 @@
+IF
+  Global("MEMBD_RETALK","LOCALS",0)
+  !NumberOfTimesTalkedTo(0)
+  ActionListEmpty()
+  !See([ENEMY])
+THEN
+  RESPONSE #100
+    SetGlobal("MEMBD_RETALK","LOCALS",1)
+    SetGlobalTimer("MEMBD_TIMER","LOCALS",90)
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,10,20)
+    Continue()
+END
+
+IF
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,24606)  // ~"Where has my lord and master gone?"~
+    StartRandomTimer(24,10,20)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,24607)  // ~"Sky Pony, return my Wylfdene to me!"~
+    StartRandomTimer(24,10,20)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,24901)  // ~"There is no vengeance great enough!"~
+    StartRandomTimer(24,10,20)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,24902)  // ~"There is no water pure enough to cleanse this stain!"~
+    StartRandomTimer(24,10,20)
+    Continue()
+END
+
+IF
+  Global("MEMBD_RETALK","LOCALS",1)
+  GlobalTimerExpired("MEMBD_TIMER","LOCALS")
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    SetGlobal("MEMBD_RETALK","LOCALS",2)
+    MultiPlayerSync()
+    Dialogue([PC])
+END
+

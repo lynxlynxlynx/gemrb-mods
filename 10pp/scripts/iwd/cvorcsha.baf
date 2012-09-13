@@ -1,0 +1,41 @@
+IF
+  HaveSpell(CLERIC_CURSE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Spell(LastSeenBy(Myself),CLERIC_CURSE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

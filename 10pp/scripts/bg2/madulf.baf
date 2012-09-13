@@ -1,0 +1,69 @@
+IF
+  Global("OgronAttack","GLOBAL",1)
+  AreaCheck("AR1100")
+THEN
+  RESPONSE #100
+    SetGlobal("MadulfIsPresent","GLOBAL",1)
+    ChangeAIScript("",CLASS)
+    MoveBetweenAreas("AR1106",[711.1162],4)
+END
+
+IF
+  OR(2)
+    Global("OgronAttack","GLOBAL",5)
+    Global("MadulfGroupLeaves","AR1100",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ogrealliance","GLOBAL",0)
+  Global("rangerprotector","GLOBAL",6)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Heard([ANYONE],99)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("ogrealliance","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+    Shout(89)
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

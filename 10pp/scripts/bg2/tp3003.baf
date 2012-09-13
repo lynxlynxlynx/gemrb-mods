@@ -1,0 +1,30 @@
+IF
+  WalkedToTrigger([ANYONE])
+  PartyHasItem("PLOT03E")  // ~Portal Key~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut202c")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !PartyHasItem("PLOT03E")  // ~Portal Key~
+  !GlobalTimerNotExpired("Entrance3003Timer","AR3016")
+THEN
+  RESPONSE #100
+    DisplayString(Myself,66564)  // ~You try to enter the portal, but are pushed back by some invisible force.  It appears that you require something in order to pass.~
+    SetGlobalTimer("Entrance3003Timer","AR3016",10)
+    ClearActions(LastTrigger)
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !PartyHasItem("PLOT03E")  // ~Portal Key~
+  GlobalTimerNotExpired("Entrance3003Timer","AR3016")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

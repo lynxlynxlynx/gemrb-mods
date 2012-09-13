@@ -1,0 +1,11 @@
+IF
+  Range([GOODCUTOFF],10)
+  Global("BalthazarEncounter","AR5505",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("BalthazarEncounter","AR5505",1)
+    StartCutSceneMode()
+    StartCutScene("cut242a")
+END
+

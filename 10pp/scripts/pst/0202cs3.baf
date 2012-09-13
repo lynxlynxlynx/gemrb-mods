@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Morte")  // 
+    TimedMoveToPoint([1070.1089],150)
+    Face(14)
+    Dialogue("Nameless")
+    EndCutSceneMode()
+    GlobalSet("Mortuary_Walkthrough","GLOBAL",4)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    TimedMoveToPoint([1032.1127],150)
+    Face(14)
+END
+

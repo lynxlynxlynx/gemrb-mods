@@ -1,0 +1,117 @@
+IF
+  Global("SQUIRRELS_VIS","MYAREA",0)
+  !Global("ARBOR_SQUIRRELS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DO_FADE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("BIRDS_VIS","MYAREA",0)
+  !Global("ARBOR_BIRDS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DO_FADE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("WATER_VIS","MYAREA",0)
+  !Global("ARBOR_WATER","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DO_FADE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SEEDS_VIS","MYAREA",0)
+  !Global("ARBOR_SEEDS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DO_FADE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("DO_FADE","MYAREA",1)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    FadeToColor([0.0],0)
+    Wait(1)
+    Continue()
+END
+
+IF
+  Global("DO_FADE","MYAREA",1)
+  Global("SQUIRRELS_VIS","MYAREA",0)
+  !Global("ARBOR_SQUIRRELS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SQUIRRELS_VIS","MYAREA",1)
+    HideCreature("SQUIRREL00",FALSE)
+    HideCreature("SQUIRREL01",FALSE)
+    HideCreature("SQUIRREL02",FALSE)
+    HideCreature("SQUIRREL03",FALSE)
+    HideCreature("SQUIRREL04",FALSE)
+    HideCreature("SQUIRREL05",FALSE)
+    Continue()
+END
+
+IF
+  Global("DO_FADE","MYAREA",1)
+  Global("BIRDS_VIS","MYAREA",0)
+  !Global("ARBOR_BIRDS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BIRDS_VIS","MYAREA",1)
+    HideCreature("BIRD00",FALSE)
+    HideCreature("BIRD01",FALSE)
+    HideCreature("BIRD02",FALSE)
+    HideCreature("BIRD03",FALSE)
+    HideCreature("BIRD04",FALSE)
+    Continue()
+END
+
+IF
+  Global("DO_FADE","MYAREA",1)
+  Global("WATER_VIS","MYAREA",0)
+  !Global("ARBOR_WATER","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("WATER_VIS","MYAREA",1)
+    OpenDoor("AR5304WATER1")
+    Continue()
+END
+
+IF
+  Global("DO_FADE","MYAREA",1)
+  Global("SEEDS_VIS","MYAREA",0)
+  !Global("ARBOR_SEEDS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SEEDS_VIS","MYAREA",1)
+    OpenDoor("AR5304GARDEN1")
+    Continue()
+END
+
+IF
+  Global("DO_FADE","MYAREA",1)
+THEN
+  RESPONSE #100
+    EndCutSceneMode()
+    FadeFromColor([0.0],0)
+    SetGlobal("DO_FADE","MYAREA",0)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

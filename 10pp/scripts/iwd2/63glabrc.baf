@@ -1,0 +1,257 @@
+IF
+  !Global("63GLABRC_Mark","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(SecondNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(ThirdNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(FourthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(FifthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(SixthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(SeventhNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(EigthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(NinthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("63GLABRC_Mark","LOCALS",0)
+  See(TenthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",1)
+    SetMyTarget(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("SH_No_Demons","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("SH_SGem_Destroyed","GLOBAL",1)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !Global("63GLABRC_Mark","LOCALS",0)
+  GlobalLT("Action","LOCALS",2)
+  Range(MyTarget,2,GREATER_THAN)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,38707)  // ~.:Casts Teleport Without Error:.~
+    JumpToObject(MyTarget)
+    FaceObject(MyTarget)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  See(MyTarget,0)
+  !Global("63GLABRC_Mark","LOCALS",0)
+  GlobalLT("Action","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",0)
+    IncrementGlobal("Action","LOCALS",1)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("63GLABRC_Mark","LOCALS",0)
+  See(MyTarget,0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("221222122212",Myself,7)
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_MIRROR_IMAGE
+    MarkSpellAndObject("210324112420210413252705",LastMarkedObject,7)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_EMOTION_HOPELESSNESS
+      // WIZARD_EMOTION_FEAR
+      // WIZARD_CHARM_PERSON
+      // CLERIC_UNHOLY_BLIGHT
+      // WIZARD_POWER_WORD_STUN
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("210324112420210413252705",LastMarkedObject,7)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_EMOTION_HOPELESSNESS
+      // WIZARD_EMOTION_FEAR
+      // WIZARD_CHARM_PERSON
+      // CLERIC_UNHOLY_BLIGHT
+      // WIZARD_POWER_WORD_STUN
+    MarkSpellAndObject("221222122212",Myself,7)
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_MIRROR_IMAGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",0)
+    SetGlobal("Action","LOCALS",0)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("63GLABRC_Mark","LOCALS",0)
+  See(MyTarget,0)
+THEN
+  RESPONSE #100
+    SetGlobal("63GLABRC_Mark","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2212",Myself,7)
+      // WIZARD_MIRROR_IMAGE
+    MarkSpellAndObject("21032411242013252705",LastMarkedObject,7)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_EMOTION_HOPELESSNESS
+      // WIZARD_EMOTION_FEAR
+      // CLERIC_UNHOLY_BLIGHT
+      // WIZARD_POWER_WORD_STUN
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("21032411242013252705",LastMarkedObject,7)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_EMOTION_HOPELESSNESS
+      // WIZARD_EMOTION_FEAR
+      // CLERIC_UNHOLY_BLIGHT
+      // WIZARD_POWER_WORD_STUN
+    MarkSpellAndObject("2212",Myself,7)
+      // WIZARD_MIRROR_IMAGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

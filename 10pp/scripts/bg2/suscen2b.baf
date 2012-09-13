@@ -1,0 +1,17 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("SUELFW9",[1745.1817],12)  // ~Elven Battle Mage~
+    CreateCreature("SUELFW10",[1810.1836],12)  // ~Elven Battle Mage~
+    CreateCreature("SUELFW11",[1745.1691],12)  // ~Elven Battle Mage~
+    CreateCreature("SURAKW1",[1885.1710],4)  // ~Rakshasa~
+    CreateCreature("SURAKW2",[1915.1785],4)  // ~Rakshasa~
+    CreateCreature("SURAKW3",[1974.1737],4)  // ~Rakshasa~
+    CreateCreature("SURAKW4",[2014.1861],4)  // ~Rakshasa~
+    SetGlobal("Scene2b","AR2800",1)
+    TriggerActivation("Scene2a",FALSE)
+    TriggerActivation("Scene2b",FALSE)
+    TriggerActivation("Scene2c",FALSE)
+END
+

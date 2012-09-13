@@ -1,0 +1,16 @@
+IF
+  Detect([PC])
+  Range(LastSeenBy,10)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy)
+END
+
+IF
+  OpenState("HeadDoor",TRUE)  // HeadDoor
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

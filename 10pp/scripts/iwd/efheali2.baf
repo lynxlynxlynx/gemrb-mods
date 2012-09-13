@@ -1,0 +1,9 @@
+IF
+  HasItem("POTN17",Myself)  // ~Elixir of Health~
+  HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    UseItem("POTN17",Myself)  // ~Elixir of Health~
+    Continue()
+END
+

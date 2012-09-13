@@ -1,0 +1,28 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Jan")  // 
+    MoveToObject([PC])
+    Wait(3)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trax")  // 
+    MoveToPoint([2998.1611])
+    EscapeArea()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Traxg")  // 
+    MoveToPoint([2998.1611])
+    EscapeArea()
+END
+

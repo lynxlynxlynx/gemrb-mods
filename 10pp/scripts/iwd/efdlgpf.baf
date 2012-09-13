@@ -1,0 +1,11 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(Protagonist)
+END
+

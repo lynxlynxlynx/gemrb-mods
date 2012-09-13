@@ -1,0 +1,46 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Isair2")  // 
+    FaceObject(NearestPC)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(1)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(1)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(1)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(1)
+    MultiPlayerSync()
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Madae2")  // 
+    FaceObject(NearestPC)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(1)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(1)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(1)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Orrick")  // 
+    HideCreature(Myself,FALSE)
+    JumpToObject("Isair2")
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestPC)
+END
+

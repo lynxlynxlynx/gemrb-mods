@@ -1,0 +1,60 @@
+IF
+  CreatureHidden(Myself)
+  GlobalGT("IRON_GOLEM_DEAD","GLOBAL",1)
+  GlobalGT("MUMBER_HULK_DEAD","GLOBAL",3)
+  GlobalGT("SIMULACRUM_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    EquipItem("RINGMAL",0)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",512,AND)
+  !CreatureHidden(Myself)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+    ForceSpellPoint([1750.445],WIZARD_MALAVONS_CORROSIVE_FOG)
+    Wait(2)
+    ChangeCurrentScript("")
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    Dialogue([PC])
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

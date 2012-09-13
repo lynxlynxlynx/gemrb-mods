@@ -1,0 +1,43 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Majrash")  // 
+    HideGUI()
+    HideCreature("Maralie_Fiddlebender",TRUE)
+    HideCreature("Oswald_Fiddlebender",TRUE)
+    Wait(1)
+    MultiPlayerSync()
+    ClearAllActions()
+    MoveViewPointUntilDone([670.410],VERY_VERY_FAST)
+    Enemy()
+    ActionOverride("Mirabel",Enemy())
+    ActionOverride("Mirabel",MoveToPoint([750.480]))
+    MoveToPoint([590.600])
+    Wait(3)
+    FloatMessage("Majrash",22995)  // ~"Well, well.  I didn't believe you when you told Master Tan, Mirabel, but here they are."~
+    Wait(8)
+    ActionOverride("Mirabel",FloatMessage("Mirabel",18742))  // ~"Of course, I was, Majrash.  I didn't spend all of my time in the school of divination for nothing."~
+    Wait(10)
+    FloatMessage("Majrash",22976)  // ~"Perhaps they are bringing more 'gifts' to Isair and Madae.  We can put an end to that, can't we?"~
+    Wait(10)
+    ActionOverride("Mirabel",FloatMessage("Mirabel",22977))  // ~"Let us end them, then we can take care of the gnomes and their wretched airship."~
+    Wait(8)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    SpellHitEffectSprite("Mirabel","Mirabel",DIMENSION_DOOR_ORIGIN,0)
+    HideCreature("Mirabel",TRUE)
+    JumpToPoint([520.810])
+    ActionOverride("Mirabel",JumpToPoint([860.620]))
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    SpellHitEffectSprite("Mirabel","Mirabel",DIMENSION_DOOR_DESTINATION,0)
+    HideCreature("Mirabel",FALSE)
+    Wait(2)
+    SetGlobal("5303_Cutscene_Done","MYAREA",1)
+    EndCutSceneMode()
+    UnhideGUI()
+    MultiPlayerSync()
+END
+

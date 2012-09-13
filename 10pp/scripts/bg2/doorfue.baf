@@ -1,0 +1,13 @@
+IF
+  Opened("DOOR05")  // DOOR05
+  !Exists("DOPDUR1")  // DOPDUR1
+THEN
+  RESPONSE #100
+    CloseDoor("DOOR01")
+    DisplayString(Myself,23494)  // ~You are filled with a sudden sense of dread as the room fills with the sound of shifting stone. A door has sealed itself shut somewhere nearby. ~
+    OpenDoor("DOOR04")
+    DisplayString(Myself,23493)  // ~The halls resonate with the sound of grinding stone. A door has opened somewhere nearby.~
+    CreateCreature("DOPDUR1",[929.1127],0)  // DOPDUR1
+    PlaySound("AMB_D04A")
+END
+

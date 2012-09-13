@@ -1,0 +1,25 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",705)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",705)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0705_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0705_Visited","GLOBAL",1)
+    Continue()
+END
+

@@ -1,0 +1,165 @@
+IF
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("00aMvR")
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1488,2025,20)
+THEN
+  RESPONSE #100
+    SetStartPos([1488.2025])
+    SetGlobal("ML_0","LOCALS",1)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",1)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToPoint([1488.2025])
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,2907,1704,20)
+THEN
+  RESPONSE #100
+    SetStartPos([2907.1704])
+    SetGlobal("ML_0","LOCALS",1)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",2)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToPoint([2907.1704])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1541,1177,20)
+THEN
+  RESPONSE #100
+    SetStartPos([1541.1177])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToPoint([1541.1177])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("MLS_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("MLS_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1488,2025,20)
+THEN
+  RESPONSE #100
+    SetStartPos([1488.2025])
+    SetGlobal("ML_0","LOCALS",3)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("MLS_0","LOCALS",1)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToPoint([1488.2025])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("MLS_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,2907,1704,20)
+THEN
+  RESPONSE #100
+    SetStartPos([2907.1704])
+    SetGlobal("ML_0","LOCALS",3)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("MLS_0","LOCALS",2)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToPoint([2907.1704])
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  NearSavedLocation(20)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",0)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  !NearSavedLocation(20)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+

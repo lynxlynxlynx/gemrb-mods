@@ -1,0 +1,91 @@
+IF
+  Clicked([PC])
+  IsAnimationID(LastTrigger,"""""Mummy, Histachii""""")
+  Range(LastTrigger,5,LESS_THAN)
+  OpenState("AR6103_Bridge",TRUE)  // AR6103_Bridge
+  CreatureHidden("Thorasskus")  // Thorasskus
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    EndCutSceneMode()
+    FloatMessage("FakeShelfHint",35442)  // ~As you reach for one of the candles on this shelf you realize that they're not real, and in fact are part of the shelf itself.  There's a subtle click as the shelf lowers slightly before returning to its original position, and you hear the sound of something falling in the distance.~
+    TriggerActivation("InfoBridge",FALSE)
+    TriggerActivation("GetOut",FALSE)
+    ActionOverride("SticksToSnakes1",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes2",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes3",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes4",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes5",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes6",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes7",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes8",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes9",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes10",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes11",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("SticksToSnakes12",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    ActionOverride("Skulls",DestroyItem("41GRPILE"))  // <Invalid Strref -1>
+    GiveItemCreate("00Club01","SticksToSnakes1",0,0,0)  // ~Club~
+    GiveItemCreate("00Misc29","SticksToSnakes1",0,0,0)  // ~Female Body~
+    GiveItemCreate("00Staf01","SticksToSnakes2",0,0,0)  // ~Quarterstaff~
+    GiveItemCreate("00Arow01","SticksToSnakes3",0,0,0)  // ~Arrows~
+    GiveItemCreate("00Misc27","SticksToSnakes3",0,0,0)  // ~Child's Body~
+    GiveItemCreate("00Club01","SticksToSnakes4",0,0,0)  // ~Club~
+    GiveItemCreate("00Misc30","SticksToSnakes4",0,0,0)  // ~Male Body~
+    GiveItemCreate("00Sper01","SticksToSnakes5",0,0,0)  // ~Spear~
+    GiveItemCreate("00Misc30","SticksToSnakes5",0,0,0)  // ~Male Body~
+    GiveItemCreate("00Sper01","SticksToSnakes6",0,0,0)  // ~Spear~
+    GiveItemCreate("00Staf01","SticksToSnakes7",0,0,0)  // ~Quarterstaff~
+    GiveItemCreate("00Misc29","SticksToSnakes7",0,0,0)  // ~Female Body~
+    GiveItemCreate("00Staf01","SticksToSnakes8",0,0,0)  // ~Quarterstaff~
+    GiveItemCreate("00Arow01","SticksToSnakes9",0,0,0)  // ~Arrows~
+    GiveItemCreate("00Sper01","SticksToSnakes10",0,0,0)  // ~Spear~
+    GiveItemCreate("00Club01","SticksToSnakes11",0,0,0)  // ~Club~
+    GiveItemCreate("00Misc30","SticksToSnakes11",0,0,0)  // ~Male Body~
+    GiveItemCreate("00Arow01","SticksToSnakes12",0,0,0)  // ~Arrows~
+    GiveItemCreate("00Misc07","Skulls",0,0,0)  // ~Skull~
+    GiveItemCreate("00Misc07","Skulls",0,0,0)  // ~Skull~
+    GiveItemCreate("00Misc07","Skulls",0,0,0)  // ~Skull~
+    GiveItemCreate("00Misc07","Skulls",0,0,0)  // ~Skull~
+    GiveItemCreate("00Misc07","Skulls",0,0,0)  // ~Skull~
+    HideCreature("Thorasskus",FALSE)
+    HideCreature("03_Efreeti_01",FALSE)
+    HideCreature("03_Efreeti_02",FALSE)
+    HideCreature("03_Efreeti_03",FALSE)
+    HideCreature("03_Efreeti_04",FALSE)
+    HideCreature("03_Efreeti_05",FALSE)
+    HideCreature("03_Efreeti_06",FALSE)
+    HideCreature("03_Efreeti_07",FALSE)
+    HideCreature("03_Efreeti_08",FALSE)
+    HideCreature("03_Efreeti_09",FALSE)
+    HideCreature("03_Efreeti_10",FALSE)
+    CloseDoor("AR6103_Bridge")
+    SetGlobal("61NumEfreetiKilled","GLOBAL",0)
+END
+
+IF
+  Clicked([PC])
+  !IsAnimationID(LastTrigger,"""""Mummy, Histachii""""")
+  Range(LastTrigger,5,LESS_THAN)
+  OpenState("AR6103_Bridge",TRUE)  // AR6103_Bridge
+  CreatureHidden("Thorasskus")  // Thorasskus
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    EndCutSceneMode()
+    DisplayString(LastTrigger,39368)  // ~As you reach for one of the candles on this shelf you realize that they're not real, and in fact are part of the shelf itself.~
+END
+
+IF
+  Clicked([PC])
+  Range(LastTrigger,5,LESS_THAN)
+  OpenState("AR6103_Bridge",TRUE)  // AR6103_Bridge
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    EndCutSceneMode()
+    FloatMessage("FakeShelfHint",35442)  // ~As you reach for one of the candles on this shelf you realize that they're not real, and in fact are part of the shelf itself.  There's a subtle click as the shelf lowers slightly before returning to its original position, and you hear the sound of something falling in the distance.~
+    TriggerActivation("InfoBridge",FALSE)
+    CloseDoor("AR6103_Bridge")
+    ChangeCurrentScript("")
+END
+

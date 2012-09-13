@@ -1,0 +1,9 @@
+IF
+  Global("AttackedIycanth","AR6003",1)
+  Allegiance(Myself,NEUTRAL)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

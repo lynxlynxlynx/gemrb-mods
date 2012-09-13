@@ -1,0 +1,22 @@
+IF
+  !CreatureHidden(Myself)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("64FLEEDD_HIDE","MYAREA",3600)
+    ReallyForceSpell(Myself,WIZARD_DIMENSION_DOOR)
+    HideCreature(Myself,TRUE)
+    SetHPPercent(Myself,100,MAX_HP)
+END
+
+IF
+  CreatureHidden(Myself)
+  Allegiance(Myself,ENEMY)
+  GlobalTimerExpired("64FLEEDD_HIDE","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1","MYAREA",0)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    HideCreature(Myself,FALSE)
+END
+

@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("QuiSai")  // 
+    FadeToBlack()
+    Wait(5)
+    ForceAIScript("","QuiSai",DEFAULT)
+    ForceAIScript("0601qs0","QuiSai",GENERAL)
+    JumpToPoint([1944.1575])
+    FadeFromBlack()
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StickySinisterPoof("EF02TPR2","Trans",-1)
+    Wait(1)
+    Activate("Trans")
+    StartCutScene("1204tr1")
+END
+

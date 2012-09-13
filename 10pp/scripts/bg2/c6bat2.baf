@@ -1,0 +1,26 @@
+IF
+  Global("C6BodhiFight","AR0809",1)
+  Global("BatChange","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BatChange","LOCALS",1)
+    CreateVisualEffectObject("SPCLOUD3",Myself)
+    SetInterrupt(TRUE)
+    ReallyForceSpell(Myself,VAMPIRE_FORM_CHANGE)
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BatChange","LOCALS",1)
+    Wait(1)
+    CreateVisualEffectObject("SPCLOUD3",Myself)
+    SetInterrupt(TRUE)
+    ReallyForceSpell(Myself,VAMPIRE_FORM_CHANGE)
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BatChange","LOCALS",1)
+    Wait(2)
+    CreateVisualEffectObject("SPCLOUD3",Myself)
+    SetInterrupt(TRUE)
+    ReallyForceSpell(Myself,VAMPIRE_FORM_CHANGE)
+END
+

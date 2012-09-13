@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Gorion")  // 
+    VerbalConstant(Myself,62)
+    MoveToPoint([3103.1410])
+    VerbalConstant(Myself,BATTLE_CRY)
+    Face(10)
+    CreateCreature("SAREV1",[3537.1252])  // ~Armored Figure~
+    CreateCreature("TAMOKO",[3478.1220])  // ~Tamoko~
+    CreateCreature("OGRE",[3397.1202])  // ~Ogre~
+    ActionOverride("Ogre",ChangeAIScript("None",RACE))
+    CreateCreature("OGRE02",[3474.1328])  // ~Ogre~
+    ClearAllActions()
+    StartCutScene("Ch1cut03")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewObject(Player1,INSTANT)
+    MoveViewPoint([3204.1353],VERY_FAST)
+    MoveToPoint([2700.1479])
+    MoveToPoint([3090.1486])
+END
+

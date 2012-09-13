@@ -1,0 +1,9 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("SPIDWR01",[2513.2582],0)  // ~Wraith Spider~
+    CreateCreature("SPIDSW01",[2443.2592],0)  // ~Sword Spider~
+    CreateCreature("SPIDPH01",[2375.2606],0)  // ~Phase Spider~
+END
+

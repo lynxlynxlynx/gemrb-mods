@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    StopJoinRequests()
+    SetGlobal("DID_GATE_CUTSCENE","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    Wait(1)
+    StartCutScene("BCJMPALL")
+    MoveViewObject(Myself,INSTANT)
+    JumpToPoint([649.410])
+    Face(W)
+    MultiPlayerSync()
+    CloseDoor("AR9200_GATE1")
+    Wait(1)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    SetDialogueRange(75)
+    Wait(1)
+    MultiPlayerSync()
+    Dialogue(Protagonist)
+END
+

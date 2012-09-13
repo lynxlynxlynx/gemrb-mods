@@ -1,0 +1,48 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    Wait(6)
+    MoveToPoint([945.858])
+    StartCutScene("1501cs3")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hargrim")  // 
+    Wait(6)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("StaleMa")  // 
+    Wait(6)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+    Wait(1)
+    FaceObject("Nameless")
+END
+

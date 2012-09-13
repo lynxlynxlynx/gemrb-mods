@@ -1,0 +1,22 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("GalvenaHostile","GLOBAL",1)
+END
+
+IF
+  Global("GalvenaHostile","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("CaptainSleep","GLOBAL",1)
+THEN
+  RESPONSE #100
+    PlayDead(999)
+END
+

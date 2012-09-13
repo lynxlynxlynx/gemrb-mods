@@ -1,0 +1,437 @@
+IF
+  Global("ar6051_Kill_Ashra","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("Inhatri",Kill(Myself))
+    ActionOverride("Coiled_Cabal1",Kill(Myself))
+    ActionOverride("Coiled_Cabal2",Kill(Myself))
+    ActionOverride("Coiled_Cabal3",Kill(Myself))
+    ActionOverride("Coiled_Cabal4",Kill(Myself))
+    ActionOverride("Coiled_Cabal5",Kill(Myself))
+    ActionOverride("Coiled_Cabal6",Kill(Myself))
+    ActionOverride("Coiled_Cabal7",Kill(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",DAMAGE)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",5)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,DAMAGE)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",6)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",7)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",8)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",9)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",DAMAGE)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",10)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  GlobalLT("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",11)
+THEN
+  RESPONSE #100
+    SetGlobal("Ashra_Demo","LOCALS",0)
+    SetGlobal("Ashra_Demo_State","LOCALS",2)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    IncrementGlobal("Ashra_Demo_State","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",DAMAGE)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    FloatMessage("Ashra",25621)  // ~"Observe, students.  Note my form and the form of Kashzrael.  Learn the fundamental differences between the Old Hand and Snake Blade styles."~
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",5)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",6)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    FloatMessage("Ashra",25619)  // ~"See how Kashzrael turns to the side when I dip my blade?  It is exactly as I intended.  He leaves himself open here and *here*!"~
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",7)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",8)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",DAMAGE)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",9)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",10)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",11)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",12)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    FloatMessage("Ashra",25620)  // ~"Lower your arm or the next swipe at your gut will penetrate it!"~
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",13)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",14)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",DAMAGE)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",16)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",17)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",18)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",19)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",DAMAGE)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",20)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    FloatMessage("Ashra",25620)  // ~"Lower your arm or the next swipe at your gut will penetrate it!"~
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",21)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",22)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",23)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",24)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",25)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",ATTACK)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",26)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",27)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",28)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ashra_Demo","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    PlaySequence("Viper_Fang3",DAMAGE)
+    Wait(1)
+END
+
+IF
+  Global("Ashra_Demo_State","LOCALS",2)
+  Global("Ashra_Demo","LOCALS",29)
+THEN
+  RESPONSE #100
+    SetGlobal("Ashra_Demo","LOCALS",0)
+    SetGlobal("Ashra_Demo_State","LOCALS",0)
+    Wait(1)
+END
+

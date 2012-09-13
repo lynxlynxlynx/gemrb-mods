@@ -1,0 +1,45 @@
+IF
+  Global("Deactivation0015","AR0015",0)
+THEN
+  RESPONSE #100
+    FadeToColor([1.0],0)
+    SetGlobal("Chapter","GLOBAL",1)
+    SetGlobal("Deactivation0015","AR0015",1)
+    ActionOverride(Player1,DestroyAllEquipment())
+    TriggerActivation("TRAN0016a",FALSE)
+    TriggerActivation("TRAN0016b",FALSE)
+    TriggerActivation("TRAN0018",FALSE)
+    TriggerActivation("INFO0016a",TRUE)
+    TriggerActivation("INFO0016b",TRUE)
+    TriggerActivation("INFO0018",TRUE)
+    StartCutSceneMode()
+    StartCutScene("CutTutor")
+END
+
+IF
+  Global("TutorialLesson","GLOBAL",44)
+THEN
+  RESPONSE #100
+    SetGlobal("TutorialLesson","GLOBAL",45)
+    FadeToColor([20.0],0)
+    ActionOverride(Player1,ReallyForceSpell(Myself,RESTORE_FULL_HEALTH))
+    ActionOverride(Player1,DestroyAllEquipment())
+    ActionOverride("ttimoen",LeaveParty())
+    ActionOverride("ttjaheir",LeaveParty())
+    ActionOverride("ttminsc",LeaveParty())
+    ActionOverride("ttxan",LeaveParty())
+    ActionOverride("ttbran",LeaveParty())
+    ActionOverride(Player1,LeaveAreaLUAPanic("AR0602","",[3741.2801],2))
+    ActionOverride(Player1,LeaveAreaLUA("AR0602","",[3741.2801],2))
+    MultiPlayerSync()
+END
+
+IF
+  Global("TUTFAM01","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,Face(0))
+    DisplayStringHead(Player1,62026)  // ~You may not cast the find familiar spell in the tutorial.~
+    SetGlobal("TUTFAM01","GLOBAL",0)
+END
+

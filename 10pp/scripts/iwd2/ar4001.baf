@@ -1,0 +1,115 @@
+IF
+  Global("4001Visited","MYAREA",0)
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("4001Visited","MYAREA",1)
+    EndCutSceneMode()
+    MultiPlayerSync()
+    StartMovie("MIDDLE")
+END
+
+IF
+  Global("4001Visited","MYAREA",0)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+END
+
+IF
+  Global("4001Visited","MYAREA",0)
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+END
+
+IF
+  Global("4001Visited","MYAREA",1)
+THEN
+  RESPONSE #100
+    IncrementChapter("")
+    SetHPPercent(Player1,100,MAX_HP)
+    SetHPPercent(Player2,100,MAX_HP)
+    SetHPPercent(Player3,100,MAX_HP)
+    SetHPPercent(Player4,100,MAX_HP)
+    SetHPPercent(Player5,100,MAX_HP)
+    SetHPPercent(Player6,100,MAX_HP)
+    SetGlobal("4001Visited","MYAREA",2)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  AreaRestDisabled()
+  Global("40BeetleAttackOver","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AllowAreaResting(TRUE)
+END
+
+IF
+  Global("40BeetleAttackOver","GLOBAL",0)
+  Global("40BeetleSpawnRequests","GLOBAL",0)
+  GlobalGT("40BeetleDied","GLOBAL",0)
+  Global("40BeetleKills","GLOBAL",30)
+THEN
+  RESPONSE #100
+    AddJournalEntry(18863)
+    AddXPVar("Level_7_Average",18866)  // ~You stopped the boring beetles from attacking Oswald's airship.~
+    SetGlobal("40BeetleAttackOver","GLOBAL",1)
+END
+
+IF
+  GlobalGT("40BeetleSpawnRequests","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreature("40betBor","40betBor",[540.100],2)  // ~Boring Beetle~
+    ActionOverride("40betBor",WaitRandom(1,10))
+    IncrementGlobal("40BeetleSpawnRequests","GLOBAL",-1)
+END
+
+IF
+  GlobalGT("40SpiderSpawnRequests","GLOBAL",0)
+  OpenState("AR4001_Door1",TRUE)  // AR4001_Door1
+THEN
+  RESPONSE #100
+    CreateCreature("40spiPhS","40spiPhS",[297.297],10)  // ~Phase Spider~
+    IncrementGlobal("40SpiderSpawnRequests","GLOBAL",-1)
+END
+
+IF
+  GlobalGT("40SpiderSpawnRequests","GLOBAL",0)
+  OpenState("AR4001_Door1",FALSE)  // AR4001_Door1
+THEN
+  RESPONSE #100
+    CreateCreature("40spiPhS","40spiPhS",[415.159],2)  // ~Phase Spider~
+    IncrementGlobal("40SpiderSpawnRequests","GLOBAL",-1)
+END
+
+IF
+  GlobalGT("40BeetleDied","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("40BeetleKills","GLOBAL",1)
+    IncrementGlobal("40BeetleDied","GLOBAL",-1)
+    IncrementGlobal("40CurrentBeetleCount","GLOBAL",-1)
+END
+
+IF
+  !Global("RJ_AR4001","GLOBAL",0)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("RJ_AR4001","GLOBAL",0)
+    Continue()
+END
+

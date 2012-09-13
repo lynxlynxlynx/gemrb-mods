@@ -1,0 +1,44 @@
+IF
+  OnCreation()
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",512,AND)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",512,OR)
+    ForceSpellPoint([1540.480],WIZARD_DIMENSION_DOOR)
+    Wait(5)
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("BEORN_QUEST","GLOBAL",4)
+  Global("8004_HULKS_DEAD","GLOBAL",15)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+

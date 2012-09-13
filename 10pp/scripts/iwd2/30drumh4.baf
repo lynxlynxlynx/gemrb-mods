@@ -1,0 +1,35 @@
+IF
+  OpenState("AR3001_Drum4",TRUE)  // AR3001_Drum4
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !Global("DRUM_4_CHECK_SUMMON","MYAREA",0)
+  !Dead(Myself)  // 
+  !Global("SPAWN_LOCK","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_4_CHECK_SUMMON","MYAREA",0)
+    SetGlobal("TEAM_12","MYAREA",1)
+END
+
+IF
+  !Global("DRUM_4_CHECK_SUMMON","MYAREA",0)
+  !Dead(Myself)  // 
+  Global("SPAWN_LOCK","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_4_CHECK_SUMMON","MYAREA",0)
+    SetGlobal("AR3001_DRUM_SUMMON","GLOBAL",1)
+    SetGlobal("TEAM_12","MYAREA",1)
+END
+
+IF
+  !IsCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+END
+

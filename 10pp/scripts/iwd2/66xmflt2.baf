@@ -1,0 +1,36 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(18)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,27596)  // ~"I don't have a place left on my body to bruise."~
+    StartRandomTimer(18,3,5)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27598)  // ~"I think I lost all feeling in my face..."~
+    StartRandomTimer(18,3,5)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27599)  // ~"Show me your hate!"~
+    StartRandomTimer(18,3,5)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27602)  // ~"Through my hate, I've found organized chaos.  Blessed is the hateful heart."~
+    StartRandomTimer(18,3,5)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27603)  // ~"My pain ignites my hate.  My hate is focused on my enemy.  My focus is to destroy my enemies."~
+    StartRandomTimer(18,3,5)
+    Continue()
+  RESPONSE #250
+    StartRandomTimer(18,3,5)
+    Continue()
+END
+

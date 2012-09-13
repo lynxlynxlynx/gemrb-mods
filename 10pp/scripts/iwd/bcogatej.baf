@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ANGAAR")  // 
+    JumpToPoint([649.410])
+    MultiPlayerSync()
+    CloseDoor("AR9200_GATE1")
+    SetStartPos([0.0])
+    SetSavedLocation()
+    CloseDoor("AR9200_GATE1")
+END
+

@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    ExploreMapChunk([2661.3052],0,400)
+    MoveViewPoint([2661.3052],INSTANT)
+    Wait(1)
+    Activate("echo1")
+    SetAnimState("echo1",ANIM_GETUP)
+    Activate("echo2")
+    SetAnimState("echo2",ANIM_GETUP)
+    Wait(4)
+    MoveViewObject("Nameless",INSTANT)
+    EnableFogDither()
+    EnableSpriteDither()
+    GlobalSet("Trigit_Attack","GLOBAL",1)
+    GlobalSet("to0700_Active","AR0610",0)
+    EnablePortalTravel("NWExit",1)
+    EndCutSceneMode()
+END
+

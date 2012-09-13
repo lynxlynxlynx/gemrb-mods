@@ -1,0 +1,33 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("1601_Many_A_Talker","GLOBAL",0)
+    GlobalSet("1601_Many_B_Talker","GLOBAL",0)
+    GlobalSet("1601_Many_C_Talker","GLOBAL",0)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    BitSet("1601_Status","AR1601",5)
+    MoveToPoint([859.1174])
+    DestroySelf()
+END
+
+IF
+  !BitCheck("1601_Status","AR1601",BIT7)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+    BitSet("1601_Status","AR1601",BIT7)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeAIScript("1601kill",GENERAL)
+END
+

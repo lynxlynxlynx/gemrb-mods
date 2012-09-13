@@ -1,0 +1,17 @@
+IF
+  Global("AranJob","GLOBAL",3)
+  Global("FindLassal","AR0803",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FindLassal","AR0803",1)
+    CreateCreature("BODFGT01",[1182.472],2)  // ~Grimwarder~
+    CreateCreature("BODFGT01",[1520.479],2)  // ~Grimwarder~
+    CreateCreature("BODFGT02",[1351.351],2)  // ~Grimward Archer~
+    CreateCreature("BODFGT02",[1356.575],2)  // ~Grimward Archer~
+    CreateCreature("GHOGR01",[641.776],2)  // ~Greater Ghoul~
+    CreateCreature("GHOGR01",[982.749],2)  // ~Greater Ghoul~
+    CreateCreature("VAMFLF01",[1236.340],2)  // ~Fledgling Vampire~
+    CreateCreature("VAMFLF01",[1231.479],2)  // ~Fledgling Vampire~
+    CreateCreature("VAMFLM01",[1489.502],2)  // ~Fledgling Vampire~
+END
+

@@ -1,0 +1,10 @@
+IF
+  !CreatureHidden(Myself)
+  Allegiance(Myself,ENEMY)
+  LOS([PC],25)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,INNATE_UMBER_HULK_GAZE)
+    ChangeCurrentScript("")
+END
+

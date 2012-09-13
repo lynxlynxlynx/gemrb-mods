@@ -1,0 +1,58 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("EldothMove","GLOBAL",2)
+    MoveViewPoint([1846.2117],INSTANT)
+    JumpToPoint([2129.2379])
+    MoveToPoint([1846.2117])
+    EndCutSceneMode()
+    ActionOverride("Eldoth",Dialogue([PC]))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    JumpToPoint([2165.2392])
+    MoveToPoint([1853.2152])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    JumpToPoint([2149.2422])
+    MoveToPoint([1883.2139])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    JumpToPoint([2211.2425])
+    MoveToPoint([1917.2151])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    JumpToPoint([2192.2456])
+    MoveToPoint([1899.2177])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    JumpToPoint([2234.2457])
+    MoveToPoint([1930.2201])
+END
+

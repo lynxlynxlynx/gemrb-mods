@@ -1,0 +1,57 @@
+IF
+  HPPercentLT(Myself,25)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Range(LastAttackerOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),4)
+  Range(NearestEnemyOf(Myself),10)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),45)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),10)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  ActionListEmpty()
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  ActionListEmpty()
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

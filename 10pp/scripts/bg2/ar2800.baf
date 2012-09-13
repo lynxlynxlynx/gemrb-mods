@@ -1,0 +1,90 @@
+IF
+  OnCreation()
+  Global("TurnOffTrigger","AR2800",0)
+THEN
+  RESPONSE #100
+    FadeToColor([1.0],0)
+    StartMovie("FLYTHR03")
+    SmallWait(1)
+    IncrementChapter("")
+    TextScreen("SCRTXT08")
+    SmallWait(1)
+    FadeFromColor([20.0],0)
+    StartCutSceneMode()
+    SetGlobal("TurnOffTrigger","AR2800",1)
+    TriggerActivation("Tran2805",FALSE)
+    Explore()
+    AddJournalEntry(23513,INFO)
+    Wait(1)
+    ActionOverride("suelhan",StartDialogNoSet(Player1))
+END
+
+IF
+  GlobalGT("ElvenSpirits","GLOBAL",0)
+  Global("ChangeAmbientSound","AR2800",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ChangeAmbientSound","AR2800",1)
+    SoundActivate("Mainambiencedaynofight",TRUE)
+    SoundActivate("Mainambiencenightnofight",TRUE)
+    SoundActivate("Mainambiencedayfight",FALSE)
+    SoundActivate("Mainambiencenightfight",FALSE)
+END
+
+IF
+  Global("StopWaterfall","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("StopWaterfall","GLOBAL",4)
+    TriggerActivation("Tran2804",FALSE)
+    TriggerActivation("Tran2805",TRUE)
+END
+
+IF
+  Global("ElvenSpirits","GLOBAL",3)
+  Global("DeactivateScenes","AR2800",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("DeactivateScenes","AR2800",1)
+    TriggerActivation("Scene1a",FALSE)
+    TriggerActivation("Scene1b",FALSE)
+    TriggerActivation("Scene1c",FALSE)
+    TriggerActivation("Scene2a",FALSE)
+    TriggerActivation("Scene2b",FALSE)
+    TriggerActivation("Scene2c",FALSE)
+    TriggerActivation("Scene3a",FALSE)
+    TriggerActivation("Scene3b",FALSE)
+    TriggerActivation("Scene3c",FALSE)
+    TriggerActivation("Scene3d",FALSE)
+    TriggerActivation("Scene4a",FALSE)
+    TriggerActivation("Scene4b",FALSE)
+    CreateCreature("M05SPIR1",[2139.1768],6)  // ~Elven Spirit~
+    CreateCreature("M05SPIR1",[2878.2797],6)  // ~Elven Spirit~
+    CreateCreature("GOLSAN01",[2227.1526],0)  // ~Sand Golem~
+    CreateCreature("ELAIRL01",[2747.2691],0)  // ~Lesser Air Elemental~
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("ElvenAvatar","GLOBAL",1)
+  Global("DeactivateRest","AR2800",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DeactivateRest","AR2800",1)
+    SetRestEncounterProbabilityDay(0)
+    SetRestEncounterProbabilityNight(0)
+END
+
+IF
+  Global("ElvenAvatar","GLOBAL",1)
+  !Dead("suelf10")  // ~Reirra~
+  Global("SpawnSuelf10","AR2800",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnSuelf10","AR2800",1)
+    ActionOverride("suelf10",DestroySelf())
+    Wait(2)
+    CreateCreatureDoor("suelf10",[4071.2061],8)
+END
+

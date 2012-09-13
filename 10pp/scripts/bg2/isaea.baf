@@ -1,0 +1,21 @@
+IF
+  GlobalTimerExpired("IsaeaArrestTimer","GLOBAL")
+  Global("IsaeaNalia","GLOBAL",1)
+  Global("NaliaArrested","GLOBAL",0)
+  InParty("Nalia")  // Nalia
+THEN
+  RESPONSE #100
+    StartDialogNoSet("Nalia")
+END
+
+IF
+  Global("RoenalConvict","GLOBAL",0)
+  GlobalTimerExpired("IsaeaArrestTimer","GLOBAL")
+  Global("IsaeaNalia","GLOBAL",1)
+  Global("NaliaArrested","GLOBAL",1)
+  !InParty("Nalia")  // Nalia
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

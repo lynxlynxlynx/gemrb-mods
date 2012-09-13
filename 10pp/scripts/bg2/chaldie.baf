@@ -1,0 +1,27 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("ICRMPARI",Myself)
+    CreateVisualEffectObject("SPDISPMA",Myself)
+    DestroySelf()
+END
+
+IF
+  Race(Myself,SWORD)
+  Dead("chalrv01")  // ~The Ravager~
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+  !See([GOODCUTOFF])
+  Allegiance(Myself,ENEMY)
+  Range(Player1,50)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+

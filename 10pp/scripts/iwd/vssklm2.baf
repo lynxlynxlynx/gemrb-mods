@@ -1,0 +1,156 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  Help(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp(Myself))
+END
+
+IF
+  HelpEX(Myself,RACE)
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp(Myself))
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,752,215,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([752.215])
+    MoveToPoint([752.215])
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    Face(N)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",2)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",5)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",3)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,790,187,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",4)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([790.187])
+    MoveToPoint([790.187])
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",4)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",5)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",5)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",5)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    Face(N)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",6)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",6)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,752,215,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",7)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",6)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([752.215])
+    MoveToPoint([752.215])
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",7)
+  !NearSavedLocation(2)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",7)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+    Continue()
+END
+

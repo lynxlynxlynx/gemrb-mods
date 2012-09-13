@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(8)
+    Wait(30)
+    MoveToPoint([1524.1214])
+    MoveToPoint([1431.1072])
+    Face(6)
+    Wait(10)
+    MoveToPoint([1146.1107])
+    Wait(20)
+    MoveToPoint([1246.1214])
+    MoveToPoint([1524.1214])
+    MoveToPoint([1839.1650])
+    DestroySelf()
+END
+

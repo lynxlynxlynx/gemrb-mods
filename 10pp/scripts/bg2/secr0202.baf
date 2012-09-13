@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    SetGlobal("OpenSecretDoor","AR0202",1)
+END
+

@@ -1,0 +1,76 @@
+IF
+  Global("CHAPTER","GLOBAL",3)
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    EndCutSceneMode()
+    IncrementChapter("")
+END
+
+IF
+  Global("CHAPTER","GLOBAL",3)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+END
+
+IF
+  Global("CHAPTER","GLOBAL",3)
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+END
+
+IF
+  Global("AR5200_CHAPTER_SAVED","MYAREA",1)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    SetGlobal("AR5200_CHAPTER_SAVED","MYAREA",2)
+    SaveGame(16206)  // ~Chapter Four~
+END
+
+IF
+  Global("AR5200_CHAPTER_SAVED","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AR5200_CHAPTER_SAVED","MYAREA",1)
+    StartCutScene("52cView0")
+END
+
+IF
+  Global("52EXILE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    HideCreature("03_52SALISX_01",FALSE)
+    HideCreature("03_52MNKMLX_02",FALSE)
+    HideCreature("03_52MNKMLX_03",FALSE)
+    HideCreature("03_52MNKMLX_04",FALSE)
+    HideCreature("03_52MNKMLX_05",FALSE)
+    HideCreature("03_52MNKMLX_06",FALSE)
+    HideCreature("03_52MNKFLX_07",FALSE)
+    HideCreature("03_52MNKFLX_08",FALSE)
+    SetGlobal("52EXILE","GLOBAL",2)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  !Global("RJ_AR5200","GLOBAL",0)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("RJ_AR5200","GLOBAL",0)
+    Continue()
+END
+

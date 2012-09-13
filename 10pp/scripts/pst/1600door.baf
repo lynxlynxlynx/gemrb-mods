@@ -1,0 +1,15 @@
+IF
+  Global("1600_Guards_Angry","AR1600",0)
+  Unlocked([PC])
+THEN
+  RESPONSE #100
+    GlobalSet("1600_Guards_Angry","AR1600",1)
+END
+
+IF
+  FailedToOpen([PC])
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

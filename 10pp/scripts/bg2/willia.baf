@@ -1,0 +1,35 @@
+IF
+  Die()
+  Global("WilliamDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("WilliamDead","GLOBAL",1)
+END
+
+IF
+  Global("WilliamDead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  See("Keldorn")  // Keldorn
+  InParty("Keldorn")  // Keldorn
+  Global("LadyMaria","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("WilliamAttacked","GLOBAL",1)
+    ActionOverride("Keldorn",Dialog([PC]))
+END
+
+IF
+  Global("AnomenTrial","GLOBAL",0)
+  See("Keldorn")  // Keldorn
+  InParty("Keldorn")  // Keldorn
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+

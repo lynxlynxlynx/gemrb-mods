@@ -1,0 +1,7 @@
+IF
+  Global("ImoenSummoned","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

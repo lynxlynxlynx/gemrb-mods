@@ -1,0 +1,86 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+  GlobalTimerExpired("WOLF_BREATH","LOCALS")
+  Range(NearestEnemyOf(Myself),10)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BREATH","LOCALS",70)
+    ForceSpell(Myself,INNATE_WINTER_WOLF_BREATH)
+    Wait(2)
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",1)
+    Continue()
+END
+
+IF
+  See([0.0.GIANT])
+  !Global("GIANT_ATTACK_FEED_WOLF","MYAREA",0)
+  GlobalTimerExpired("WOLF_BREATH","LOCALS")
+  RandomNum(5,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BREATH","LOCALS",70)
+    ForceSpell(LastSeenBy(Myself),INNATE_WINTER_WOLF_BREATH)
+    Wait(2)
+END
+
+IF
+  !Global("GIANT_ATTACK_FEED_WOLF","MYAREA",0)
+  See([0.0.GIANT])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  Global("GIANT_ATTACK_FEED_WOLF","MYAREA",0)
+  AttackedBy([0.0.GIANT],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("GIANT_ATTACK_FEED_WOLF","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+  !Global("GIANT_ATTACK_FEED_WOLF","MYAREA",0)
+  !See([0.0.GIANT])
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",1)
+END
+
+IF
+  GlobalTimerExpired("WOLF_BITE","LOCALS")
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BITE","LOCALS",1)
+    PlaySequence(Myself,ATTACK_SLASH)
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BITE","LOCALS",2)
+    PlaySequence(Myself,ATTACK_JAB)
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BITE","LOCALS",3)
+    PlaySequence(Myself,ATTACK_SLASH)
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BITE","LOCALS",4)
+    PlaySequence(Myself,ATTACK_JAB)
+END
+

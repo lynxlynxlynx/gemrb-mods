@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride("PLGIRL01",EscapeArea())
+    Wait(2)
+    FadeToColor([20.0],0)
+    Wait(1)
+    CreateCreature("PLGIRL01",[234.360],13)  // ~Tyrianna~
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(4)
+    ActionOverride("PLGIRL01",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,83 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_1)
+END
+
+IF
+  Global("Execution_Chaos","AR0900",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([0.0.0.0.0.0.GUARD_1])
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  NearLocation(Myself,[913.2810],0)
+  Global("Curst_Execution_One","GLOBAL",7)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52845)  // ~"Yes!"~
+    Wait(2)
+    GlobalSet("Curst_Execution_One","GLOBAL",8)
+END
+
+IF
+  NearLocation(Myself,[913.2810],0)
+  Global("Curst_Execution_One","GLOBAL",11)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52841)  // ~"Guilty!"~
+    Wait(2)
+    GlobalSet("Curst_Execution_One","GLOBAL",12)
+END
+
+IF
+  NearLocation(Myself,[913.2841],0)
+  Global("Curst_Execution_One","GLOBAL",8)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52844)  // ~"Hmm hmm."~
+    Wait(2)
+    GlobalSet("Curst_Execution_One","GLOBAL",9)
+END
+
+IF
+  NearLocation(Myself,[913.2841],0)
+  Global("Curst_Execution_One","GLOBAL",12)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52840)  // ~"Death!"~
+    Wait(2)
+    GlobalSet("Curst_Execution_One","GLOBAL",13)
+END
+
+IF
+  NearLocation(Myself,[913.2872],0)
+  Global("Curst_Execution_One","GLOBAL",9)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52843)  // ~::grumble::~
+    Wait(2)
+    GlobalSet("Curst_Execution_One","GLOBAL",10)
+END
+
+IF
+  NearLocation(Myself,[913.2872],0)
+  Global("Curst_Execution_One","GLOBAL",13)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52851)  // ~"Punish him!"~
+    Wait(2)
+    GlobalSet("Curst_Execution_One","GLOBAL",14)
+END
+

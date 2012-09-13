@@ -1,0 +1,122 @@
+IF
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !TimerActive(18)
+  IsScriptName("Drill_Sergeant_E",Myself)
+THEN
+  RESPONSE #100
+    FaceObject("RECRUIT_1_E")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_2_E")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_3_E")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_4_E")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_5_E")
+    Continue()
+END
+
+IF
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !TimerActive(18)
+  IsScriptName("Drill_Sergeant_West",Myself)
+THEN
+  RESPONSE #100
+    FaceObject("RECRUIT_1_W")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_2_W")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_3_W")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_4_W")
+    Continue()
+  RESPONSE #100
+    FaceObject("RECRUIT_5_W")
+    Continue()
+END
+
+IF
+  Global("FL_0","LOCALS",0)
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16364)  // ~"Today... you are warriors."~
+    StartRandomTimer(18,9,11)
+    IncrementGlobal("FL_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("FL_0","LOCALS",1)
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16365)  // ~"And as men, you will be called upon to defend your homes."~
+    StartRandomTimer(18,9,11)
+    IncrementGlobal("FL_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("FL_0","LOCALS",2)
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16366)  // ~"And defend all of Targos against the horde."~
+    StartRandomTimer(18,9,11)
+    IncrementGlobal("FL_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("FL_0","LOCALS",3)
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16367)  // ~"Many of you will be facing battle for the first time."~
+    StartRandomTimer(18,9,11)
+    IncrementGlobal("FL_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("FL_0","LOCALS",4)
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16368)  // ~"Keep your spear in your hand, and courage in your heart."~
+    StartRandomTimer(18,9,11)
+    IncrementGlobal("FL_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("FL_0","LOCALS",5)
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16369)  // ~"The walls of Targos shall not fall!"~
+    StartRandomTimer(18,9,11)
+    SetGlobal("FL_0","LOCALS",0)
+    Continue()
+END
+

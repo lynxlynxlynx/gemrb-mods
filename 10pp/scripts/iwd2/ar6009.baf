@@ -1,0 +1,42 @@
+IF
+  Global("6001_Fight","GLOBAL",2)
+  Global("ar6100_Visited","GLOBAL",1)
+  Global("60Sheemish_Dead","GLOBAL",0)
+  Global("60Seek_Sheemish_Quest","GLOBAL",1)
+  Global("60Conlan_Dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Sheemish",DestroySelf())
+    Continue()
+END
+
+IF
+  Global("6001_Fight","GLOBAL",1)
+  !Global("6009_RestingDisabled","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("6009_RestingDisabled","MYAREA",1)
+    AllowAreaResting(FALSE)
+    DisplayMessage(35287)  // ~You hear the sounds of battle - you don't think you will be able to rest until the forces in Kuldahar are defeated. ~
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalGT("6001_Fight","GLOBAL",1)
+  !Global("6009_RestingDisabled","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("6009_RestingDisabled","MYAREA",2)
+    AllowAreaResting(TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

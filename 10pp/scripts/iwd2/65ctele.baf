@@ -1,0 +1,81 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("TeleportPad")  // 
+    Explore()
+    HideGUI()
+    MultiPlayerSync()
+    MoveViewPoint([643.685],FASTEST)
+    Wait(3)
+    FadeToColor([0.0],0)
+    Wait(1)
+    StartCutScene("65c6503")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MultiPlayerSync()
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    MultiPlayerSync()
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    MultiPlayerSync()
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    MultiPlayerSync()
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    MultiPlayerSync()
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    MultiPlayerSync()
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,TRUE)
+END
+

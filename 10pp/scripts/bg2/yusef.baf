@@ -1,0 +1,10 @@
+IF
+  HP(Myself,1)
+  See([PC])
+  Global("YusefDisappears","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YusefDisappears","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

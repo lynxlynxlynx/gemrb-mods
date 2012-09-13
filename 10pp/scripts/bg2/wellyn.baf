@@ -1,0 +1,11 @@
+IF
+  Global("HasBearInit","LOCALS",0)
+  PartyHasItem("misc5l")  // ~Littleman The Stuffed Bear~
+  See([PC])
+  Range([PC],8)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+    SetGlobal("HasBearInit","LOCALS",1)
+END
+

@@ -1,0 +1,19 @@
+IF
+  GlobalGT("Chapter","GLOBAL",2)
+  Exists("Montaron")  // Montaron
+  !InParty("Montaron")  // Montaron
+THEN
+  RESPONSE #100
+    ActionOverride("Montaron",DestroySelf())
+    Continue()
+END
+
+IF
+  GlobalGT("Chapter","GLOBAL",2)
+  Exists("Xzar")  // ~Xzar~
+  !InParty("Xzar")  // ~Xzar~
+THEN
+  RESPONSE #100
+    ActionOverride("Xzar",DestroySelf())
+END
+

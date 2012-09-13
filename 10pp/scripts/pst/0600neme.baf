@@ -1,0 +1,47 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27434)  // ~"Nemelle became angered, and they fled in terror at the sound of her voice."~
+    GlobalSet("Attack_Nemelle","AR0600",1)
+    Dialogue("Nameless")
+END
+
+IF
+  Global("Nemelle","GLOBAL",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([3570.2450])
+    Face(12)
+    SavePlace()
+    ChangeAIScript("0600nem2",DEFAULT)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    Face(12)
+    Wait(5)
+    Face(14)
+    Wait(5)
+    Face(0)
+    Wait(5)
+    Face(14)
+END
+

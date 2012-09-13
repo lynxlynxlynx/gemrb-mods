@@ -1,0 +1,31 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Mourns_Quest","AR0400",2)
+THEN
+  RESPONSE #100
+    Face(6)
+    WaitRandom(6,12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(6)
+    WaitRandom(6,12)
+    FloatMessage(Myself,9613)  // ~*Sigh*...~
+END
+

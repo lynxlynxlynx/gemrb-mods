@@ -1,0 +1,9 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DisplayedString","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DisplayedString","LOCALS",1)
+    DisplayString(Myself,71735)  // ~Kill the intruders! For Sendai!~
+END
+

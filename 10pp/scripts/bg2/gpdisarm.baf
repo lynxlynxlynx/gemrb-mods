@@ -1,0 +1,20 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),2)
+  Global("disarm","LOCALS",0)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    ReallyForceSpell(LastSeenBy(Myself),DISARM_ENEMY)
+    SetGlobal("disarm","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),2)
+  Global("disarm","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToObject(LastSeenBy(Myself))
+END
+

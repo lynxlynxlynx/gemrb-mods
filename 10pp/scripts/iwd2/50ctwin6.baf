@@ -1,0 +1,80 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT_01")  // 
+    SpellHitEffectSprite("07_50Isair_01",Myself,SLAY_LIVING,20)
+    PlaySequence(Myself,DIE)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,RAISE_DEAD,20)
+    Wait(1)
+    Kill(Myself)
+    CreateCreature("50Zom","ZOMBIE_1",[-1.-1],0)  // ~Possessed Corpse~
+    ActionOverride(LastMarkedObject,FaceObject(NearestEnemyOf(Myself)))
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT_02")  // 
+    SpellHitEffectSprite("07_50Isair_01",Myself,SLAY_LIVING,20)
+    PlaySequence(Myself,DIE)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,RAISE_DEAD,20)
+    Wait(1)
+    Kill(Myself)
+    CreateCreature("50Zom","ZOMBIE_2",[-1.-1],0)  // ~Possessed Corpse~
+    ActionOverride(LastMarkedObject,FaceObject(NearestEnemyOf(Myself)))
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT2_03")  // 
+    SpellHitEffectSprite("07_50Isair_01",Myself,SLAY_LIVING,20)
+    PlaySequence(Myself,DIE)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,RAISE_DEAD,20)
+    Wait(1)
+    Kill(Myself)
+    CreateCreature("50Zom","ZOMBIE_3",[-1.-1],0)  // ~Possessed Corpse~
+    ActionOverride(LastMarkedObject,FaceObject(NearestEnemyOf(Myself)))
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT2_04")  // 
+    SpellHitEffectSprite("07_50Isair_01",Myself,SLAY_LIVING,20)
+    PlaySequence(Myself,DIE)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,RAISE_DEAD,20)
+    Wait(1)
+    Kill(Myself)
+    CreateCreature("50Zom","ZOMBIE_4",[-1.-1],0)  // ~Possessed Corpse~
+    ActionOverride(LastMarkedObject,FaceObject(NearestEnemyOf(Myself)))
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT3_05")  // 
+    SpellHitEffectSprite("07_50Isair_01",Myself,SLAY_LIVING,20)
+    PlaySequence(Myself,DIE)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,RAISE_DEAD,20)
+    Wait(1)
+    Kill(Myself)
+    CreateCreature("50Zom","ZOMBIE_5",[-1.-1],0)  // ~Possessed Corpse~
+    ActionOverride(LastMarkedObject,FaceObject(NearestEnemyOf(Myself)))
+    DestroySelf()
+END
+

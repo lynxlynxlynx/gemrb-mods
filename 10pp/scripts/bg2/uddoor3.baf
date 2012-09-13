@@ -1,0 +1,37 @@
+IF
+  Global("thrallDoorOpen2","AR2400",0)
+  IsOverMe([0.0.MIND_FLAYER])
+  GlobalGT("udMind","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("thrallDoorOpen2","AR2400",1)
+    Unlock("Door22")
+    OpenDoor("Door22")
+    ActionOverride(LastTrigger,Enemy())
+    ActionOverride(LastTrigger,AttackReevaluate([PC],100))
+    EraseJournalEntry(10837)  // ~Captured by Mind Flayers!An odd door blocks my progress through the illithid city.  Other than the dreaded mind-flayers themselves, I suspect only a being of great power could force this door open.~
+END
+
+IF
+  Global("thrallDoorOpen2","AR2400",0)
+  Global("Slayer10","GLOBAL",2)
+  IsOverMe(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("thrallDoorOpen2","AR2400",1)
+    Unlock("Door22")
+    OpenDoor("Door22")
+    EraseJournalEntry(10837)  // ~Captured by Mind Flayers!An odd door blocks my progress through the illithid city.  Other than the dreaded mind-flayers themselves, I suspect only a being of great power could force this door open.~
+END
+
+IF
+  IsOverMe([ANYONE])
+  Global("thrallDoorMes2","AR2400",0)
+  GlobalGT("udMind","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("thrallDoorMes2","AR2400",1)
+    AddJournalEntry(10837,QUEST)
+    DisplayString(Myself,53480)  // ~Only a powerful mind or godly strength will force this door open.~
+END
+

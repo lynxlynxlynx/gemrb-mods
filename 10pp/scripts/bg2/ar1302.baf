@@ -1,0 +1,11 @@
+IF
+  Global("BridgeOpen","GLOBAL",1)
+  Global("Kpsold08Spawn","AR1302",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Kpsold08Spawn","AR1302",1)
+    CreateCreature("Kpsold08",[1760.1183],2)  // ~de'Arnise Guard~
+    CreateCreature("Kpsold09",[1819.1168],2)  // ~de'Arnise Guard~
+    CreateCreature("Kptrol03",[1658.1271],9)  // ~Troll~
+END
+

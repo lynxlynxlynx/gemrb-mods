@@ -1,0 +1,17 @@
+IF
+  StealFailed([ANYONE])
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    CreateCreatureObjectEffect("uddrow27","SPDIMNDR",Myself)
+    CreateCreatureObjectEffect("uddrow28","SPDIMNDR",Myself)
+    CreateCreatureObjectEffect("uddrow29","SPDIMNDR",Myself)
+    CreateCreatureObjectEffect("uddrow30","SPDIMNDR",Myself)
+    CreateCreatureObjectEffect("uddrow31","SPDIMNDR",Myself)
+    Wait(3)
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+    SetInterrupt(TRUE)
+    StartDialogue("stolen2",LastTrigger)
+END
+

@@ -1,0 +1,268 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,1580,1725,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1580.1725])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1580.1725])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(N)
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,1600,1760,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1600.1760])
+    SetGlobal("ML_0","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([1600.1760])
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(E)
+    SetGlobal("ML_0","LOCALS",5)
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,3)
+    SetGlobal("ML_0","LOCALS",6)
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  ActionListEmpty()
+  NearLocation(Myself,1770,1830,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1770.1830])
+    SetGlobal("ML_0","LOCALS",7)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+THEN
+  RESPONSE #100
+    MoveToPoint([1770.1830])
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(N)
+    SetGlobal("ML_0","LOCALS",8)
+END
+
+IF
+  Global("ML_0","LOCALS",8)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",9)
+END
+
+IF
+  Global("ML_0","LOCALS",9)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,33601)  // ~"...subject's musculature continues to degenerate..."~
+    SetGlobal("ML_0","LOCALS",10)
+  RESPONSE #100
+    FloatMessage(Myself,33598)  // ~"...no improvement..."~
+    SetGlobal("ML_0","LOCALS",10)
+END
+
+IF
+  Global("ML_0","LOCALS",10)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",11)
+END
+
+IF
+  Global("ML_0","LOCALS",11)
+  ActionListEmpty()
+  NearLocation(Myself,1920,1840,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1920.1840])
+    SetGlobal("ML_0","LOCALS",12)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",11)
+THEN
+  RESPONSE #100
+    MoveToPoint([1920.1840])
+END
+
+IF
+  Global("ML_0","LOCALS",12)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(NE)
+    SetGlobal("ML_0","LOCALS",13)
+END
+
+IF
+  Global("ML_0","LOCALS",13)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",14)
+END
+
+IF
+  Global("ML_0","LOCALS",14)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,33602)  // ~"...subject's carapace remains weak..."~
+    SetGlobal("ML_0","LOCALS",15)
+  RESPONSE #100
+    FloatMessage(Myself,33598)  // ~"...no improvement..."~
+    SetGlobal("ML_0","LOCALS",15)
+END
+
+IF
+  Global("ML_0","LOCALS",15)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",16)
+END
+
+IF
+  Global("ML_0","LOCALS",16)
+  ActionListEmpty()
+  NearLocation(Myself,1965,2025,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1965.2025])
+    SetGlobal("ML_0","LOCALS",17)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",16)
+THEN
+  RESPONSE #100
+    MoveToPoint([1965.2025])
+END
+
+IF
+  Global("ML_0","LOCALS",17)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(NE)
+    SetGlobal("ML_0","LOCALS",18)
+END
+
+IF
+  Global("ML_0","LOCALS",18)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",19)
+END
+
+IF
+  Global("ML_0","LOCALS",19)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,33603)  // ~"...subject's metabolism remains slothful..."~
+    SetGlobal("ML_0","LOCALS",20)
+  RESPONSE #100
+    FloatMessage(Myself,33598)  // ~"...no improvement..."~
+    SetGlobal("ML_0","LOCALS",20)
+END
+
+IF
+  Global("ML_0","LOCALS",20)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",21)
+END
+
+IF
+  Global("ML_0","LOCALS",21)
+  ActionListEmpty()
+  NearLocation(Myself,1550,1770,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1550.1770])
+    SetGlobal("ML_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",21)
+THEN
+  RESPONSE #100
+    MoveToPoint([1550.1770])
+END
+

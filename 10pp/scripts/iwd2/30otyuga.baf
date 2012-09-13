@@ -1,0 +1,134 @@
+IF
+  !Global("PREFER_PC","LOCALS",0)
+  !See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("PREFER_PC","LOCALS",0)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("PREFER_PC","LOCALS",0)
+  !Global("OTYUGH_ESCAPE","MYAREA",0)
+  Or(4)
+    See([ENEMY.0.OGRE],0)
+    See([ENEMY.0.BUGBEAR],0)
+    See([ENEMY.0.ORC],0)
+    See([ENEMY.0.GOBLIN],0)
+THEN
+  RESPONSE #100
+    Shout(77)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Global("OTYUGH_ESCAPE","MYAREA",0)
+  Global("PREFER_PC","LOCALS",0)
+  Global("ANIMALS_DEAD","MYAREA",0)
+  Or(13)
+    See([0.0.DOG],0)
+    See([0.0.CHICKEN],0)
+    See("Cow_01",0)  // Cow_01
+    See("Cow_02",0)  // Cow_02
+    See("Cow_03",0)  // Cow_03
+    See("Cow_04",0)  // Cow_04
+    See("Cow_05",0)  // Cow_05
+    See("Chicken_01",0)  // Chicken_01
+    See("Chicken_02",0)  // Chicken_02
+    See("Chicken_03",0)  // Chicken_03
+    See("Chicken_04",0)  // Chicken_04
+    See("Dog_01",0)  // Dog_01
+    See("Dog_02",0)  // Dog_02
+THEN
+  RESPONSE #100
+    Shout(77)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Global("OTYUGH_ESCAPE","MYAREA",0)
+  Global("PREFER_PC","LOCALS",0)
+  See([ENEMY.0.TROLL],0)
+THEN
+  RESPONSE #100
+    Shout(77)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Global("OTYUGH_ESCAPE","MYAREA",0)
+  Global("PREFER_PC","LOCALS",0)
+  Heard([ANYONE],66)
+  See(LastHeardBy(Myself),0)
+  !TargetUnreachable(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  !Global("OTYUGH_ESCAPE","MYAREA",0)
+  Global("PREFER_PC","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("OTYUGH_ESCAPE","MYAREA",0)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",1)
+    RunAwayFrom(LastAttackerOf(Myself),105)
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",1)
+    RandomWalk()
+END
+
+IF
+  Global("OTYUGH_ESCAPE","MYAREA",0)
+  ActionListEmpty()
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    WaitRandom(1,3)
+  RESPONSE #100
+    WaitRandom(1,3)
+  RESPONSE #100
+    RandomWalk()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("OTYUGH_ESCAPE","MYAREA",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !Global("PREFER_PC","LOCALS",0)
+THEN
+  RESPONSE #100
+    Shout(77)
+    Continue()
+END
+

@@ -1,0 +1,7 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSummonerOf(Myself),UNPAUSE_CASTER)
+END
+

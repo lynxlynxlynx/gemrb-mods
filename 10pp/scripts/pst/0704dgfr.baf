@@ -1,0 +1,23 @@
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,34915)  // ~::Giggle::~
+END
+

@@ -1,0 +1,8 @@
+IF
+  Global("CreateFallout","MYAREA",0)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([1920.640],WIZARD_CACOFIEND)
+    SetGlobal("CreateFallout","MYAREA",1)
+END
+

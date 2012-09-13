@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("LeavingSahuagin","AR2300",2)
+    ActionOverride("sahkng01",MoveToPoint([4135.2997]))
+    ActionOverride("sahkng01",EscapeArea())
+    Wait(4)
+    ActionOverride("sahpr1",JumpToPoint([4313.3140]))
+    Wait(1)
+    ActionOverride("sahpr1",MoveToObject(Player1))
+    ActionOverride("sahpr1",Dialog([PC]))
+END
+

@@ -1,0 +1,12 @@
+IF
+  Global("WATER_OPENED","GLOBAL",0)
+  !Global("RESTORE5201","GLOBAL",0)
+THEN
+  RESPONSE #100
+    FadeToColor([0.0],0)
+    Wait(1)
+    OpenDoor(Myself)
+    FadeFromColor([0.0],0)
+    SetGlobal("WATER_OPENED","GLOBAL",1)
+END
+

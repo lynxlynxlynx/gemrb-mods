@@ -1,0 +1,52 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentLT(Myself,20)
+  Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    Shout(83)
+    RunAwayFrom(NearestEnemyOf(Myself),45)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    Shout(80)
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See([PC.0.0.MAGE])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(SecondNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(ThirdNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(FourthNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(FifthNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(SixthNearestEnemyOf(Myself),15)
+END
+

@@ -1,0 +1,20 @@
+IF
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+THEN
+  RESPONSE #15
+    FloatMessage(Myself,16333)  // ~"Damn cold out here."~
+    StartRandomTimer(18,20,30)
+  RESPONSE #15
+    FloatMessage(Myself,16334)  // ~"That Northern wind's got some bite on it."~
+    StartRandomTimer(18,20,30)
+  RESPONSE #15
+    FloatMessage(Myself,16335)  // ~"Ulbrec's not paying me enough gold for this..."~
+    StartRandomTimer(18,20,30)
+  RESPONSE #15
+    FloatMessage(Myself,16336)  // ~"If those goblins show, it won't be too soon."~
+    StartRandomTimer(18,20,30)
+  RESPONSE #340
+    StartRandomTimer(18,20,30)
+END
+

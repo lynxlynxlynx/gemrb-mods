@@ -1,0 +1,8 @@
+IF
+  Global("AR2001_Attack","AR2001",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("AR2001_Attack","AR2001",1)
+END
+

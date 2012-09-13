@@ -1,0 +1,54 @@
+IF
+  OnCreation()
+  Global("FoundPauden","AR1900",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("PaudenArrive","GLOBAL",20)
+END
+
+IF
+  GlobalTimerExpired("PaudenArrive","GLOBAL")
+  !Dead("cefald01")  // ~Faldorn~
+  Global("FoundPauden","AR1900",0)
+  InMyArea(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("FoundPauden","AR1900",1)
+    CreateCreatureObjectOffScreen("cedruid1",Player1,0,0,0)  // ~Pauden~
+END
+
+IF
+  Global("DruidQuest1","GLOBAL",1)
+  Global("DruidStronghold","GLOBAL",1)
+  Global("Nilthspawn","AR1900",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Nilthspawn","AR1900",1)
+    CreateCreature("Drshnl01",[2320.2648],8)  // ~Nilthiri~
+    CreateCreature("Troll01",[2135.2509],6)  // ~Troll~
+    CreateCreature("Troll01",[2528.2511],10)  // ~Troll~
+    CreateCreature("Troll01",[2283.2541],16)  // ~Troll~
+END
+
+IF
+  CombatCounter(0)
+  Dead("Drshnl02")  // ~Nilthiri~
+  InMyArea(Player1)
+  Global("DruidStronghold","GLOBAL",1)
+  Global("DruidQuest1","GLOBAL",1)
+  !Exists("Drshsp01")  // ~Spirit of the Grove~
+THEN
+  RESPONSE #100
+    CreateCreatureObjectEffect("Drshsp01","SPFLESHS",Player1)
+    ActionOverride("Drshsp01",Wait(1))
+END
+
+IF
+  Global("Grae","GLOBAL",1)
+  Global("SpawnGrae","AR1900",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnGrae","AR1900",1)
+    CreateCreature("GRAE",[1342.2218],0)  // ~Grae~
+END
+

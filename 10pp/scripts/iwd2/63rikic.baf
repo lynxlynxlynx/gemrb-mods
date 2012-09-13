@@ -1,0 +1,8 @@
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

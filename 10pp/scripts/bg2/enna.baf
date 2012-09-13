@@ -1,0 +1,21 @@
+IF
+  Global("AttackedChickens","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(3)
+    Dead("gemfar02")  // ~Erlin Hendrick~
+    HPPercentLT("gemfar02",100)  // ~Erlin Hendrick~
+    HPPercentLT(Myself,100)
+  GlobalGT("AttackedChickens","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("SHOUT",RACE)
+    Shout(99)
+    Enemy()
+END
+

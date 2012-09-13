@@ -1,0 +1,41 @@
+IF
+  Global("PaladinPlot","GLOBAL",1)
+  Dead("plshfg01")  // ~Ettin~
+  Dead("plshfg02")  // ~Ettin~
+  Dead("plshom01")  // ~Ogre Mage~
+  CombatCounter(0)
+  Dead("elotte")  // ~Squire Elotte~
+  OR(2)
+    Dead("plshkn01")  // ~Knight of the Order~
+    Dead("plshkn02")  // ~Knight of the Order~
+  !See(Player1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  Global("PaladinPlot","GLOBAL",1)
+  Global("TalkedElotte","GLOBAL",0)
+  Dead("plshfg01")  // ~Ettin~
+  Dead("plshfg02")  // ~Ettin~
+  Dead("plshom01")  // ~Ogre Mage~
+  CombatCounter(0)
+  Dead("elotte")  // ~Squire Elotte~
+  OR(2)
+    Dead("plshkn01")  // ~Knight of the Order~
+    Dead("plshkn02")  // ~Knight of the Order~
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+    SetGlobal("TalkedElotte","GLOBAL",1)
+END
+
+IF
+  GlobalGT("PaladinPlot","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

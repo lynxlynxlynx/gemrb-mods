@@ -1,0 +1,59 @@
+IF
+  OpenState("Door02",TRUE)  // Door02
+  Global("aware","AR2201",0)
+  Allegiance(Myself,NEUTRAL)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,54728)  // ~Protect the eggs!~
+    SetGlobalTimer("eggGuardDoesWarn","GLOBAL",9)
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  GlobalGT("PhaereJob","GLOBAL",9)
+  Allegiance(Myself,NEUTRAL)
+  Global("aware","AR2201",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,54728)  // ~Protect the eggs!~
+    ActionOverride("uddrow21",Enemy())
+    ActionOverride("uddrow20",Enemy())
+    SetGlobalTimer("eggGuardDoesWarn","GLOBAL",9)
+    Enemy()
+END
+
+IF
+  GlobalTimerExpired("eggGuardDoesWarn","GLOBAL")
+  Global("aware","AR2201",0)
+THEN
+  RESPONSE #100
+    SetGlobal("aware","AR2201",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  GlobalLT("PhaereJob","GLOBAL",10)
+  OR(2)
+    Global("DrowCityHostile","GLOBAL",0)
+    Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  OR(2)
+    Global("aware","AR2201",1)
+    Global("DrowCityHostile","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("aware","AR2201",1)
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+    Enemy()
+END
+

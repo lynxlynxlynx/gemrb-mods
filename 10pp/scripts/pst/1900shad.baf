@@ -1,0 +1,23 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

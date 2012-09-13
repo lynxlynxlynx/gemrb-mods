@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("VAARGLAN")  // 
+    StartCutSceneMode()
+    StopJoinRequests()
+    OpenDoor("AR9100_DOOR1_TO9101")
+    ClearAllActions()
+    MultiPlayerSync()
+    SetGlobal("TOWER_CUT_STAGE","MYAREA",1)
+    HideCreature("VAARGLAN",FALSE)
+    MoveToPoint([2512.1431])
+    FaceObject([PC])
+    SetDialogueRange(75)
+    Wait(1)
+    Dialogue(Protagonist)
+END
+

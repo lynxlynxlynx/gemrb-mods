@@ -1,0 +1,59 @@
+IF
+  HPPercentLT(Myself,50)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.DUSTMAN])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,5133)  // ~"Ommmmm."~
+    Wait(10)
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,5133)  // ~"Ommmmm."~
+    Wait(10)
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,6339)  // ~"The True Death Awaits."~
+    Wait(10)
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,6338)  // ~"We all seek solace in its embrace."~
+    Wait(10)
+END
+

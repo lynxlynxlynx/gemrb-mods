@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("gorcar")  // 
+    Face(14)
+    PlaySound("am3017c")
+    CreateVisualEffectObject("SPDUSTY2","GorCar")
+    CloseDoor("Glass01")
+    PlaySound("EFF_P13")
+    AddXP2DA("PLOT6B")
+    TakePartyItem("PLOT04d")
+    DestroyItem("PLOT04d")  // ~Crystal Mallet~
+    DestroyItem("invulner")  // <Invalid Strref -1>
+    SetGlobal("GorCarFreed","AR3017",1)
+    SmallWait(5)
+    DisplayStringHead(Myself,2912)  // ~Eek!~ [AERIE58]
+    PlayDead(15)
+    JumpToPoint([3319.2106])
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

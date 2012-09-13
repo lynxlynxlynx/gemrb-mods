@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("jarlaxle")  // 
+    CreateVisualEffectObject("SPPORTAL",Player1)
+    Wait(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(2)
+    FadeToColor([20.0],0)
+    Wait(2)
+    LeaveAreaLUAPanic("AR2200","",[3761.2914],10)
+    LeaveAreaLUA("AR2200","",[3761.2914],10)
+    ActionOverride(Player2,LeaveAreaLUA("AR2200","",[3710.2946],1))
+    ActionOverride(Player3,LeaveAreaLUA("AR2200","",[3799.2969],1))
+    ActionOverride(Player4,LeaveAreaLUA("AR2200","",[3752.3001],1))
+    ActionOverride(Player5,LeaveAreaLUA("AR2200","",[3845.3007],1))
+    ActionOverride(Player6,LeaveAreaLUA("AR2200","",[3795.3038],1))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    EndCutSceneMode()
+END
+

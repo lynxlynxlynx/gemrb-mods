@@ -1,0 +1,49 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(LastAttackerOf(LastHelp),50,FALSE)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+END
+

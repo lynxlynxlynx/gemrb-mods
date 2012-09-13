@@ -1,0 +1,25 @@
+IF
+  !TimerActive(21)
+  Global("30OGRGAR_NODES","GLOBAL",5)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,478)  // ~"Gark hate you!"~
+    StartRandomTimer(21,5,8)
+    Continue()
+  RESPONSE #50
+    StartRandomTimer(21,5,8)
+    Continue()
+END
+
+IF
+  !TimerActive(21)
+  See(NearestEnemyOf(Myself),0)
+  Global("SEE_PC_FLOAT","LOCALS",0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,479)  // ~"You no Trugnuk!  Die puny one!"~
+    StartTimer(21,5)
+    SetGlobal("SEE_PC_FLOAT","LOCALS",1)
+    Continue()
+END
+

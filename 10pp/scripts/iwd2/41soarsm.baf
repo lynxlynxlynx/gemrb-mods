@@ -1,0 +1,36 @@
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,64,2560,4)
+THEN
+  RESPONSE #100
+    SetStartPos([64.2560])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("SoarsmanEscapeArea","MYAREA",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([64.2560])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  Global("SoarsmanEscapeArea","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("FOMORIANSJOINLEGION","GLOBAL",1)
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("SoarsmanEscapeArea","MYAREA",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

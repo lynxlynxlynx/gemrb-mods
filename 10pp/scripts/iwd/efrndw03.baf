@@ -1,0 +1,16 @@
+IF
+  ActionListEmpty()
+  !NearSavedLocation(36)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+    WaitRandom(3,10)
+END
+

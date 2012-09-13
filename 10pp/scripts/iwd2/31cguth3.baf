@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_BugGut")  // 
+    Wait(1)
+    SmallWait(7)
+    FloatMessage(Myself,11813)  // ~"I will destroy Targos.  Then my army will destroy you, Sherincal.  And your legion..."~
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(2)
+    MoveToPoint([1000.890])
+    MultiPlayerSync()
+    SetVisualRange(0)
+    Wait(1)
+    JumpToPoint([1441.878])
+    MultiPlayerSync()
+    SetStartPos([1441.878])
+    MultiPlayerSync()
+    SetSavedLocationPoint(1441,878,NW)
+    MultiPlayerSync()
+    Face(NW)
+    MultiPlayerSync()
+    SetSavedLocation()
+    MultiPlayerSync()
+    MoveViewPointUntilDone([478.1197],20)
+    MultiPlayerSync()
+    UnhideGUI()
+    EndCutSceneMode()
+END
+

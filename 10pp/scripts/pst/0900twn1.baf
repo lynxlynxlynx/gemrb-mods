@@ -1,0 +1,87 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_1)
+    Continue()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Townie_Dead","AR0900",1)
+END
+
+IF
+  Global("Rampage","AR0900",0)
+THEN
+  RESPONSE #100
+END
+
+IF
+  See([0.0.0.0.GEHRELETH])
+THEN
+  RESPONSE #10
+    FloatMessageRnd(Myself,"0900twn1")
+    RunAwayFromEx([0.0.0.0.GEHRELETH],50,FALSE)
+  RESPONSE #90
+    RunAwayFromEx([0.0.0.0.GEHRELETH],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  Help([0.0.0.0.0.0.PERSON_1])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([0.0.0.0.GEHRELETH],DEFAULT)
+THEN
+  RESPONSE #10
+    FloatMessageRnd(Myself,"0900twn1")
+    RunAwayFromEx([0.0.0.0.GEHRELETH],50,FALSE)
+  RESPONSE #90
+    RunAwayFromEx([0.0.0.0.GEHRELETH],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  GlobalGT("Gehreleth_Dead","AR0900",1)
+  !NearSavedLocation(0)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    SetInternal(Myself,INTERNAL_0,1)
+    Continue()
+END
+
+IF
+  GlobalGT("Gehreleth_Dead","AR0900",1)
+THEN
+  RESPONSE #10
+    FaceObject([PC])
+    FloatMessageRnd(Myself,"0900twn2")
+  RESPONSE #90
+    FaceObject([PC])
+END
+

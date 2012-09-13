@@ -1,0 +1,74 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Garrick")  // 
+    MoveViewPoint([3226.2396],VERY_FAST)
+    MoveToPoint([2941.2433])
+    MoveToPoint([3226.2396])
+    MoveViewPoint([3522.2108],VERY_FAST)
+    MoveToPoint([3455.2207])
+    SetGlobal("TalkedToGarrick","GLOBAL",1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveToPoint([2941.2437])
+    MoveToPoint([3226.2396])
+    MoveToPoint([3476.2226])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    MoveToPoint([2941.2440])
+    MoveToPoint([3226.2396])
+    MoveToPoint([3464.2253])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    MoveToPoint([2941.2443])
+    MoveToPoint([3226.2396])
+    MoveToPoint([3495.2255])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    MoveToPoint([2941.2446])
+    MoveToPoint([3226.2396])
+    MoveToPoint([3492.2282])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    MoveToPoint([2941.2449])
+    MoveToPoint([3226.2396])
+    MoveToPoint([3481.2299])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    MoveToPoint([2941.2452])
+    MoveToPoint([3226.2396])
+    MoveToPoint([3452.2321])
+END
+

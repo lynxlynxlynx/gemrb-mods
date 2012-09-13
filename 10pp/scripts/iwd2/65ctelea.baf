@@ -1,0 +1,87 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Cutscene")  // 
+    MultiPlayerSync()
+    MoveViewPoint([643.600],FASTEST)
+    Wait(4)
+    OpenDoor("AR6503_Door1")
+    OpenDoor("AR6503_Door2")
+    OpenDoor("AR6503_Door3")
+    OpenDoor("AR6503_Door4")
+    Unlock("AR6503_Door5")
+    OpenDoor("AR6503_Door5")
+    OpenDoor("AR6503_Door6")
+    ActionOverride("TyrannarBrutaiMar",MoveToPoint([714.502]))
+    Wait(3)
+    ActionOverride("TyrannarBrutaiMar",SetDialogueRange(300))
+    ActionOverride("TyrannarBrutaiMar",Dialogue([PC]))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,FALSE)
+    FaceObject("TyrannarBrutaiMar")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,FALSE)
+    FaceObject("TyrannarBrutaiMar")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,FALSE)
+    FaceObject("TyrannarBrutaiMar")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,FALSE)
+    FaceObject("TyrannarBrutaiMar")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,FALSE)
+    FaceObject("TyrannarBrutaiMar")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(2)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    HideCreature(Myself,FALSE)
+    FaceObject("TyrannarBrutaiMar")
+END
+

@@ -1,0 +1,128 @@
+IF
+  Global("Slaver_Gone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Die()
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Force_Spawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Die()
+  GlobalLT("Curst_Murder","GLOBAL",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Murder","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,TEAM_1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  See([ENEMY])
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx([ENEMY],50,FALSE)
+END
+
+IF
+  Help([0.0.0.0.0.0.TEAM_1])
+THEN
+  RESPONSE #100
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+    RunAwayFromEx([ENEMY],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",4)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,9634)  // ~"Help!"~
+    Face(4)
+    Wait(1)
+    Face(6)
+    Wait(1)
+    Face(8)
+    Wait(1)
+    Face(6)
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",5)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",8)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,9634)  // ~"Help!"~
+    Face(14)
+    Wait(1)
+    Face(0)
+    Wait(1)
+    Face(14)
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",9)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",12)
+THEN
+  RESPONSE #100
+    Face(10)
+    Wait(1)
+    Face(0)
+    Wait(1)
+    Face(14)
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",13)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",17)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,9518)  // ~"Help! Please, someone help me!"~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",18)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",19)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Slavers","AR0900",20)
+    Face(2)
+    Kill(Myself)
+END
+

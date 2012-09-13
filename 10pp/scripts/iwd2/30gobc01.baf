@@ -1,0 +1,99 @@
+IF
+  Global("PREFER_PC","LOCALS",0)
+  Dead(MyTarget)  // 
+  Heard([ANYONE],88)
+  !TargetUnreachable(LastHeardBy)
+THEN
+  RESPONSE #100
+    SetMyTarget(LastHeardBy)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    See(MyTarget,0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("1102",NearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("11112306",LastMarkedObject,7)
+      // CLERIC_BANE
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("2306",[PC.0.0.0.0.0.0.0.0.238],SPELLCAST_RANDOM)
+      // WIZARD_HOLD_PERSON
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1102",NearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("11112306",LastMarkedObject,7)
+      // CLERIC_BANE
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("2306",[PC.0.0.0.0.0.0.0.0.238],SPELLCAST_RANDOM)
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("11112306",LastMarkedObject,7)
+      // CLERIC_BANE
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("2306",[PC.0.0.0.0.0.0.0.0.238],SPELLCAST_RANDOM)
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("1102",NearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2306",[PC.0.0.0.0.0.0.0.0.238],SPELLCAST_RANDOM)
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("1102",NearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("11112306",LastMarkedObject,7)
+      // CLERIC_BANE
+      // WIZARD_HOLD_PERSON
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

@@ -1,0 +1,7 @@
+IF
+  See(Player6,0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+END
+

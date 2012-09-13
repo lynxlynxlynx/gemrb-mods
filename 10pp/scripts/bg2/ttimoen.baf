@@ -1,0 +1,87 @@
+IF
+  InParty(Myself)
+  Global("RemoveDPlayer","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveDPlayer","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  !InParty(Myself)
+  Global("RemoveDPlayer","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveDPlayer","LOCALS",0)
+END
+
+IF
+  Global("TutorialLesson","GLOBAL",29)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  PartyHasItem("TTGEM01")  // ~Pearl~
+  Global("TutorialLesson","GLOBAL",30)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TutorialWait","GLOBAL",2)
+    SetGlobal("TutorialLesson","GLOBAL",31)
+END
+
+IF
+  PartyHasItem("TTGEM02")  // ~Aquamarine Gem~
+  Global("TutorialLesson","GLOBAL",34)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TutorialWait","GLOBAL",2)
+    SetGlobal("TutorialLesson","GLOBAL",35)
+END
+
+IF
+  GlobalTimerExpired("TutorialWait","GLOBAL")
+  OR(7)
+    Global("TutorialLesson","GLOBAL",30)
+    Global("TutorialLesson","GLOBAL",31)
+    Global("TutorialLesson","GLOBAL",32)
+    Global("TutorialLesson","GLOBAL",33)
+    Global("TutorialLesson","GLOBAL",34)
+    Global("TutorialLesson","GLOBAL",35)
+    Global("TutorialLesson","GLOBAL",36)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  AreaCheck("AR0018")
+  Global("Basement","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  PartyHasItem("ttpot")  // ~Potion of Extra Healing~
+  Global("GotPotion","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("Hurt","LOCALS",0)
+  AreaCheck("AR0018")
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

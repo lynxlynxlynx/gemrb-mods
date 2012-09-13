@@ -1,0 +1,16 @@
+IF
+  !NearSavedLocation(10)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+
+IF
+  CreatureHidden(Myself)
+  NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+

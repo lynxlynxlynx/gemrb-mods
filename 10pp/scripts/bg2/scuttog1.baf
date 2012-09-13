@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    SetGlobal("MoveCut","AR3023",0)
+    Wait(1)
+    MoveViewPoint([501.1050],6)
+    MoveToPointNoInterrupt([501.1050])
+    CreateVisualEffect("SPFLESHS",[462.1086])
+    CreateCreature("FSGHOS",[462.1086],10)  // ~Ghost~
+    ActionOverride("FSGhos",MoveToPoint([518.1055]))
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

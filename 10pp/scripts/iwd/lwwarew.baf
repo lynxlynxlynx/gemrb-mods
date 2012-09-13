@@ -1,0 +1,168 @@
+IF
+  Global("WEREWOLF_ACTIVE","GLOBAL",2)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("DID_SPECIAL","LOCALS",1)
+  NearLocation(Myself,3812,1448,5)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    MultiPlayerSync()
+    DestroySelf()
+END
+
+IF
+  Global("DID_SPECIAL","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([3812.1448])
+END
+
+IF
+  Global("DID_SPECIAL","LOCALS",2)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("DID_SPECIAL","LOCALS",0)
+  HPLT(Myself,3)
+  GlobalLT("BODY_COUNT","GLOBAL",3)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    ClearSpriteEffects(Myself)
+    SetGlobal("DID_SPECIAL","LOCALS",1)
+    ReallyForceSpell(Myself,INNATE_SHAPESHIFTS_WEREWOLF)
+    Wait(2)
+END
+
+IF
+  Global("DID_SPECIAL","LOCALS",0)
+  HPLT(Myself,3)
+  GlobalGT("BODY_COUNT","GLOBAL",2)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    SetGlobal("DID_SPECIAL","LOCALS",2)
+    SetGlobal("EMMERICH_DEAD","GLOBAL",1)
+    SetGlobal("EMERICH_DIED_WOLF","GLOBAL",1)
+    ClearSpriteEffects(Myself)
+    ReallyForceSpell(Myself,INNATE_WEREWOLF_DEATH)
+    Wait(3)
+END
+
+IF
+  !Global("FOLLOW_PC","LOCALS",0)
+  Global("WEREWOLF_ACTIVE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("FOLLOW_PC","LOCALS",0)
+  Global("WEREWOLF_ACTIVE","GLOBAL",1)
+  Or(2)
+    See([PC])
+    AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",1)
+    Continue()
+END
+
+IF
+  !CreatureHidden(Myself)
+  Global("WEREWOLF_ACTIVE","GLOBAL",0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("WEREWOLF_ACTIVE","GLOBAL",1)
+  Global("PARTY_STARTED_FIGHT","MYAREA",0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("WEREWOLF_ACTIVE","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  Global("WEREWOLF_ENCOUNTER","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("WEREWOLF_ENCOUNTER","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("WEREWOLF_ENCOUNTER","GLOBAL",0)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("WEREWOLF_ENCOUNTER","GLOBAL",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !Global("FOLLOW_PC","LOCALS",0)
+  ActionListEmpty()
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(156)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+    WaitRandom(3,8)
+END
+

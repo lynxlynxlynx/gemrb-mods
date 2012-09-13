@@ -1,0 +1,50 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+  ActionListEmpty()
+  !TargetUnreachable([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+

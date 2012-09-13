@@ -1,0 +1,15 @@
+IF
+  Die()
+  NumDeadLT("udfire",11)
+THEN
+  RESPONSE #100
+    CreateCreature("udfire",[2738.2993],0)  // ~Fire Elemental~
+END
+
+IF
+  See([ANYONE])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

@@ -1,0 +1,7 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_MAGIC_MISSILE,1)
+END
+

@@ -1,0 +1,17 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  See("suavatar")  // ~Avatar of Rillifane~
+  Global("Spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Spoke","LOCALS",1)
+    DisplayStringHead(Myself,57748)  // ~Oh dear...~
+END
+

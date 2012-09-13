@@ -1,0 +1,12 @@
+IF
+  Global("CerndPlot","GLOBAL",1)
+  Global("SpawnNanny","AR0710",0)
+  GlobalGT("CerndBeggar","GLOBAL",0)
+  InParty("Cernd")  // Cernd
+  !Dead("Cernd")  // Cernd
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnNanny","AR0710",1)
+    CreateCreature("CENANNY",[430.328],0)  // ~Nanny~
+END
+

@@ -1,0 +1,130 @@
+IF
+  See([0.0.0.IMP])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN52",Myself)  // ~Potion of Extra Healing~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN52",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  HPPercentLT(Myself,25)
+  Detect(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  Global("FirstCharm","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FirstCharm","LOCALS",1)
+    SetGlobalTimer("Charm","LOCALS",6)
+    PlaySound("SIRIN05")
+    SpellNoDec(NearestEnemyOf(Myself),SUCCUBUS_CHARM_MALE)
+  RESPONSE #100
+    SetGlobal("FirstCharm","LOCALS",1)
+    SetGlobalTimer("Charm","LOCALS",6)
+    PlaySound("SIRIN05")
+    SpellNoDec(SecondNearestEnemyOf(Myself),SUCCUBUS_CHARM_MALE)
+  RESPONSE #100
+    SetGlobal("FirstCharm","LOCALS",1)
+    SetGlobalTimer("Charm","LOCALS",6)
+    PlaySound("SIRIN05")
+    SpellNoDec(ThirdNearestEnemyOf(Myself),SUCCUBUS_CHARM_MALE)
+  RESPONSE #100
+    SetGlobal("FirstCharm","LOCALS",1)
+    SetGlobalTimer("Charm","LOCALS",6)
+    PlaySound("SIRIN05")
+    SpellNoDec(FourthNearestEnemyOf(Myself),SUCCUBUS_CHARM_MALE)
+  RESPONSE #100
+    SetGlobal("FirstCharm","LOCALS",1)
+    SetGlobalTimer("Charm","LOCALS",6)
+    PlaySound("SIRIN05")
+    SpellNoDec(FifthNearestEnemyOf(Myself),SUCCUBUS_CHARM_MALE)
+  RESPONSE #100
+    SetGlobal("FirstCharm","LOCALS",1)
+    SetGlobalTimer("Charm","LOCALS",6)
+    PlaySound("SIRIN05")
+    SpellNoDec(SixthNearestEnemyOf(Myself),SUCCUBUS_CHARM_MALE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentGT(LastSeenBy(Myself),50)
+  RandomNum(2,1)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  GlobalTimerExpired("Charm","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Charm","LOCALS",6)
+    PlaySound("SIRIN05")
+    SpellNoDec(NearestEnemyOf(Myself),SUCCUBUS_CHARM_MALE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_HASTED)
+  RandomNum(2,1)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN14",Myself)  // ~Oil of Speed~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN14",Myself)  // ~Oil of Speed~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),10)
+  !HPPercentLT(Myself,75)
+  HasItem("DART04",Myself)  // ~Dart of Wounding~
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  !HPPercentLT(Myself,25)
+  HasItem("DART04",Myself)  // ~Dart of Wounding~
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),10)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  !HPPercentLT(Myself,25)
+  See(NearestEnemyOf(Myself))
+  OR(2)
+    !HasItem("DART04",Myself)  // ~Dart of Wounding~
+    Range(LastSeenBy(Myself),10)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+

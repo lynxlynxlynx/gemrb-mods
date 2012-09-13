@@ -1,0 +1,8 @@
+IF
+  PartyHasItem("HAMM04")  // ~War Hammer +1,+4 vs. Giantkin~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

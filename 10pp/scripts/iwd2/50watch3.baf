@@ -1,0 +1,103 @@
+IF
+  !Global("TEAM_9","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("TEAM_9","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("TEAM_9","MYAREA",0)
+  !Global("Rock_Row_3_Moved","MYAREA",0)
+  OpenState("AR5004_1A",TRUE)  // AR5004_1A
+  OpenState("AR5004_2A",TRUE)  // AR5004_2A
+  OpenState("AR5004_3A",TRUE)  // AR5004_3A
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Global("TEAM_9","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("TEAM_9","MYAREA",0)
+  !Global("Rock_Row_3_Moved","MYAREA",0)
+  OpenState("AR5004_1B",TRUE)  // AR5004_1B
+  OpenState("AR5004_2B",TRUE)  // AR5004_2B
+  OpenState("AR5004_3B",TRUE)  // AR5004_3B
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Global("TEAM_9","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("TEAM_9","MYAREA",0)
+  !Global("Rock_Row_3_Moved","MYAREA",0)
+  OpenState("AR5004_1C",TRUE)  // AR5004_1C
+  OpenState("AR5004_2C",TRUE)  // AR5004_2C
+  OpenState("AR5004_3C",TRUE)  // AR5004_3C
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Global("TEAM_9","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("TEAM_9","MYAREA",0)
+  !Global("Rock_Row_3_Moved","MYAREA",0)
+  OpenState("AR5004_1D",TRUE)  // AR5004_1D
+  OpenState("AR5004_2D",TRUE)  // AR5004_2D
+  OpenState("AR5004_3D",TRUE)  // AR5004_3D
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetInterrupt(TRUE)
+END
+

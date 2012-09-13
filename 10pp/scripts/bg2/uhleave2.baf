@@ -1,0 +1,7 @@
+IF
+  Global("VillageSaved","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

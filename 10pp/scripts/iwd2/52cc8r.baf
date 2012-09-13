@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    StartCutSceneMode()
+    ActionOverride("06_52MNKBR_1",DestroySelf())
+    ActionOverride("06_52MNKBR_2",DestroySelf())
+    ClearActions("10_52Proxi_00")
+    ClearActions("10_52Proxi_01")
+    ClearActions("10_52Proxi_02")
+    ClearActions("10_52Proxi_03")
+    ClearActions("10_52Proxi_04")
+    ClearActions("10_52Proxi_05")
+    ClearActions("10_52Proxi_06")
+    ClearActions("10_52Proxi_07")
+    ClearActions("10_52Proxi_08")
+    ClearActions("10_52Proxi_09")
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MoveViewPointUntilDone([585.640],15)
+    ResetJoinRequests()
+    MultiPlayerSync()
+    SetGlobal("FORCE_PARTY_EA","MYAREA",1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

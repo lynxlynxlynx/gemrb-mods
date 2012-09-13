@@ -1,0 +1,17 @@
+IF
+  OpenState(Myself,FALSE)
+  !Global("TEAM_1","MYAREA",0)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+END
+
+IF
+  Global("53Refused_Entrance","GLOBAL",1)
+  Global("TEAM_1","MYAREA",0)
+  Opened([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+

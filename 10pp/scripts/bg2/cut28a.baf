@@ -1,0 +1,37 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    StorePartyLocations()
+    FadeToColor([30.0],0)
+    Wait(1)
+    Rest()
+    ActionOverride(Player2,Rest())
+    ActionOverride(Player3,Rest())
+    ActionOverride(Player4,Rest())
+    ActionOverride(Player5,Rest())
+    ActionOverride(Player6,Rest())
+    Wait(1)
+    LeaveAreaLUAPanic("AR0011","",[799.1579],0)
+    LeaveAreaLUA("AR0011","",[799.1579],8)
+    ActionOverride(Player2,LeaveAreaLUA("AR0011","",[715.1619],2))
+    ActionOverride(Player3,LeaveAreaLUA("AR0011","",[733.1691],14))
+    ActionOverride(Player4,LeaveAreaLUA("AR0011","",[801.1736],0))
+    ActionOverride(Player5,LeaveAreaLUA("AR0011","",[700.1730],4))
+    ActionOverride(Player6,LeaveAreaLUA("AR0011","",[651.1636],2))
+    MultiPlayerSync()
+    MoveViewPoint([649.2036],INSTANT)
+    ApplySpell(Player2,SURE_SLEEP)
+    ApplySpell(Player3,SURE_SLEEP)
+    ApplySpell(Player4,SURE_SLEEP)
+    ApplySpell(Player5,SURE_SLEEP)
+    ApplySpell(Player6,SURE_SLEEP)
+    Explore()
+    SmallWait(5)
+    FadeFromColor([30.0],0)
+    MoveViewPoint([799.1579],6)
+    Wait(3)
+    ActionOverride("Dream1",Dialog(Player1))
+END
+

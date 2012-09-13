@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("JumBandits","GLOBAL",2)
+    CreateCreature("firban01",[337.411],0)  // ~Bandit~
+    CreateCreature("firban02",[574.248],0)  // ~Plath Rededge~
+    CreateCreature("firban03",[597.355],0)  // ~Bandit~
+    CreateCreature("firban05",[138.384],0)  // ~Orc~
+    CreateCreature("firban04",[426.437],0)  // ~Orc~
+    StartCutScene("cut21c")
+END
+

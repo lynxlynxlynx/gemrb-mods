@@ -1,0 +1,100 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("FanOn","AR3016",0)
+  Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,62683)  // ~You turn the wheel and the fan starts with a rush of air. The air begins to form into vaguely humanoid shapes.~
+    AddXP2DA("PLOT05C")
+    SetGlobal("FanOn","AR3016",1)
+    AmbientActivate("AM3016T",TRUE)
+    TriggerActivation("AirProx1",TRUE)
+    TriggerActivation("AirProx2",TRUE)
+    PlaySound("am3016d0")
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("PLOT03a")  // ~Air Scepter~
+  OR(2)
+    Global("FanOn","AR3016",1)
+    Global("FanOn","AR3016",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,62684)  // ~The wheel cannot be turned further without the Scepter of Air.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("PLOT03a")  // ~Air Scepter~
+  Global("FanOn","AR3016",1)
+  OR(3)
+    OpenState("DOOR02",FALSE)  // DOOR02
+    OpenState("DOOR03",FALSE)  // DOOR03
+    OpenState("DOOR04",FALSE)  // DOOR04
+THEN
+  RESPONSE #100
+    SetGlobal("FanOn","AR3016",2)
+    SetGlobal("GlobesOn","AR3016",2)
+    DisplayString(Myself,66658)  // ~You insert the Scepter of Air and turn the wheel further. The airflow from the fan increases dramatically.~
+    PlaySound("am3016d2")
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("PLOT03a")  // ~Air Scepter~
+  Global("FanOn","AR3016",1)
+  OpenState("DOOR02",TRUE)  // DOOR02
+  OpenState("DOOR03",TRUE)  // DOOR03
+  OpenState("DOOR04",TRUE)  // DOOR04
+  OpenState("DOOR05",FALSE)  // DOOR05
+THEN
+  RESPONSE #100
+    SetGlobal("FanOn","AR3016",2)
+    SetGlobal("GlobesOn","AR3016",2)
+    DisplayString(Myself,66663)  // ~You insert the Scepter and turn the wheel further. The poison mist is blown out of the Slime Room!~
+    PlaySound("am3016d2")
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("PLOT03a")  // ~Air Scepter~
+  Global("FanOn","AR3016",1)
+  OpenState("DOOR02",TRUE)  // DOOR02
+  OpenState("DOOR03",TRUE)  // DOOR03
+  OpenState("DOOR04",TRUE)  // DOOR04
+  OpenState("DOOR05",TRUE)  // DOOR05
+THEN
+  RESPONSE #100
+    SetGlobal("FanOn","AR3016",2)
+    SetGlobal("GlobesOn","AR3016",2)
+    SetGlobal("PoisonIce","AR3016",1)
+    DisplayString(Myself,66667)  // ~The poison mist is blown out of the Slime Room and into the Ice Chamber!~
+    PlaySound("am3016d2")
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("PLOT03a")  // ~Air Scepter~
+  Global("FanOn","AR3016",2)
+THEN
+  RESPONSE #100
+    SetGlobal("FanOn","AR3016",1)
+    DisplayString(Myself,66668)  // ~You reset the wheel to its previous setting.~
+    PlaySound("am3016d1")
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

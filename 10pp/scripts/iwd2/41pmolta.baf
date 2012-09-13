@@ -1,0 +1,3429 @@
+IF
+  Global("KillMirrorTrap","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+    ChangeCurrentScript("")
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Global("FindTarget","MYAREA",0)
+  Entered([0.HUMANOID])
+  Or(14)
+    InParty(LastTrigger)
+    IsScriptName("02_Assassin_01",LastTrigger)
+    IsScriptName("02_Bishop_02",LastTrigger)
+    IsScriptName("02_Mystic_03",LastTrigger)
+    IsScriptName("02_Warrior_04",LastTrigger)
+    IsScriptName("02_Henchman_05",LastTrigger)
+    IsScriptName("02_Henchman_06",LastTrigger)
+    IsScriptName("02_Henchman_07",LastTrigger)
+    IsScriptName("02_Henchman_08",LastTrigger)
+    IsScriptName("02_Henchman_09",LastTrigger)
+    IsScriptName("02_Henchman_10",LastTrigger)
+    IsScriptName("02_Henchman_11",LastTrigger)
+    IsScriptName("02_Henchman_12",LastTrigger)
+    IsScriptName("02_Henchman_13",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetMyTarget([ANYONE])
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",0)
+  GlobalTimerExpired("MirrorTrapTimer","MYAREA")
+  IsOverMe([0.HUMANOID])
+  Or(14)
+    InParty(LastTrigger)
+    IsScriptName("02_Assassin_01",LastTrigger)
+    IsScriptName("02_Bishop_02",LastTrigger)
+    IsScriptName("02_Mystic_03",LastTrigger)
+    IsScriptName("02_Warrior_04",LastTrigger)
+    IsScriptName("02_Henchman_05",LastTrigger)
+    IsScriptName("02_Henchman_06",LastTrigger)
+    IsScriptName("02_Henchman_07",LastTrigger)
+    IsScriptName("02_Henchman_08",LastTrigger)
+    IsScriptName("02_Henchman_09",LastTrigger)
+    IsScriptName("02_Henchman_10",LastTrigger)
+    IsScriptName("02_Henchman_11",LastTrigger)
+    IsScriptName("02_Henchman_12",LastTrigger)
+    IsScriptName("02_Henchman_13",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetMyTarget([ANYONE])
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",1)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("MirrorTrapTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MirrorTrapTimer","MYAREA",10)
+    Continue()
+END
+
+IF
+  GlobalLT("FindTarget","MYAREA",1)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsPlayerNumber(LastTrigger,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsPlayerNumber(LastTrigger,2)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsPlayerNumber(LastTrigger,3)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",4)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsPlayerNumber(LastTrigger,4)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",8)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsPlayerNumber(LastTrigger,5)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",16)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsPlayerNumber(LastTrigger,6)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",32)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Assassin_01",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",64)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Bishop_02",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",128)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Mystic_03",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",256)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Warrior_04",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",512)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_05",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",1024)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_06",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",2048)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_07",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",4096)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_08",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",8192)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_09",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",16384)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_10",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",32768)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_11",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",65536)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_12",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",131072)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTrigger","MYAREA",0)
+  IsScriptName("02_Henchman_13",LastTrigger)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTrigger","MYAREA",262144)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTarget","MYAREA",0)
+  NumInParty(1)
+  Or(2)
+    RandomNum(3,1)
+    Global("MirrorTrapPlayerCount","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    SetGlobal("MirrorTrapTarget","MYAREA",1)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTarget","MYAREA",0)
+  NumInParty(2)
+  Or(2)
+    RandomNum(3,1)
+    Global("MirrorTrapPlayerCount","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    SetGlobal("MirrorTrapTarget","MYAREA",1)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player2)
+    SetGlobal("MirrorTrapTarget","MYAREA",2)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTarget","MYAREA",0)
+  NumInParty(3)
+  Or(2)
+    RandomNum(3,1)
+    Global("MirrorTrapPlayerCount","MYAREA",3)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    SetGlobal("MirrorTrapTarget","MYAREA",1)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player2)
+    SetGlobal("MirrorTrapTarget","MYAREA",2)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player3)
+    SetGlobal("MirrorTrapTarget","MYAREA",4)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTarget","MYAREA",0)
+  NumInParty(4)
+  Or(2)
+    RandomNum(3,1)
+    Global("MirrorTrapPlayerCount","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    SetGlobal("MirrorTrapTarget","MYAREA",1)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player2)
+    SetGlobal("MirrorTrapTarget","MYAREA",2)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player3)
+    SetGlobal("MirrorTrapTarget","MYAREA",4)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player4)
+    SetGlobal("MirrorTrapTarget","MYAREA",8)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTarget","MYAREA",0)
+  NumInParty(5)
+  Or(2)
+    RandomNum(3,1)
+    Global("MirrorTrapPlayerCount","MYAREA",5)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    SetGlobal("MirrorTrapTarget","MYAREA",1)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player2)
+    SetGlobal("MirrorTrapTarget","MYAREA",2)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player3)
+    SetGlobal("MirrorTrapTarget","MYAREA",4)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player4)
+    SetGlobal("MirrorTrapTarget","MYAREA",8)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player5)
+    SetGlobal("MirrorTrapTarget","MYAREA",16)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTarget","MYAREA",0)
+  NumInParty(6)
+  Or(2)
+    RandomNum(3,1)
+    Global("MirrorTrapPlayerCount","MYAREA",6)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    SetGlobal("MirrorTrapTarget","MYAREA",1)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player2)
+    SetGlobal("MirrorTrapTarget","MYAREA",2)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player3)
+    SetGlobal("MirrorTrapTarget","MYAREA",4)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player4)
+    SetGlobal("MirrorTrapTarget","MYAREA",8)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player5)
+    SetGlobal("MirrorTrapTarget","MYAREA",16)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+  RESPONSE #100
+    SetMyTarget(Player6)
+    SetGlobal("MirrorTrapTarget","MYAREA",32)
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Global("MirrorTrapTarget","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Assassin_01")
+    SetGlobal("MirrorTrapTarget","MYAREA",64)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Bishop_02")
+    SetGlobal("MirrorTrapTarget","MYAREA",128)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Mystic_03")
+    SetGlobal("MirrorTrapTarget","MYAREA",256)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Warrior_04")
+    SetGlobal("MirrorTrapTarget","MYAREA",512)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_05")
+    SetGlobal("MirrorTrapTarget","MYAREA",1024)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_06")
+    SetGlobal("MirrorTrapTarget","MYAREA",2048)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_07")
+    SetGlobal("MirrorTrapTarget","MYAREA",4096)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_08")
+    SetGlobal("MirrorTrapTarget","MYAREA",8192)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_09")
+    SetGlobal("MirrorTrapTarget","MYAREA",16384)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_10")
+    SetGlobal("MirrorTrapTarget","MYAREA",32768)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_11")
+    SetGlobal("MirrorTrapTarget","MYAREA",65536)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_12")
+    SetGlobal("MirrorTrapTarget","MYAREA",131072)
+    Continue()
+  RESPONSE #100
+    SetMyTarget("02_Henchman_13")
+    SetGlobal("MirrorTrapTarget","MYAREA",262144)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+  Exists(MyTarget)
+  !Dead(MyTarget)  // 
+  IsCreatureAreaFlag(MyTarget,INVULNERABLE)
+THEN
+  RESPONSE #100
+    SetGlobal("FindTarget","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+END
+
+IF
+  GlobalLT("FindTarget","MYAREA",2)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,277,1460,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",1)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,315,1475,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",2)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,354,1496,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",3)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,392,1510,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",4)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,439,1533,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",5)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,472,1546,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",6)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,534,1575,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",7)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,566,1588,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",8)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,597,1603,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",9)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,630,1617,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",10)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,666,1631,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",11)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,708,1650,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",12)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+  NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    SetGlobal("MirrorTrapSpotId","MYAREA",13)
+    SetGlobal("FindTarget","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",2)
+THEN
+  RESPONSE #100
+    Debug("***SpotNotFound***")
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  GlobalLT("FindTarget","MYAREA",3)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("FindTarget","MYAREA",3)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    DisplayString(MyTarget,29741)  // ~You have been released from this mirror. ~
+    IncrementGlobal("MirrorTrapPlayerCount","MYAREA",-1)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",3)
+  InParty(LastTrigger)
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,29740)  // ~You have been pulled inside this mirror by an unseen force.~
+    IncrementGlobal("MirrorTrapPlayerCount","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",3)
+THEN
+  RESPONSE #100
+    SetGlobal("FindTarget","MYAREA",4)
+    Continue()
+END
+
+IF
+  GlobalLT("FindTarget","MYAREA",4)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player4)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player5)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player6)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",64)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Assassin_01")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",64)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",64)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",64)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",128)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Bishop_02")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",128)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",128)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",128)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",256)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Mystic_03")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",256)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",256)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",256)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",512)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Warrior_04")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",512)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",512)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",512)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1024)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_05")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1024)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1024)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",1024)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2048)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_06")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2048)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2048)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",2048)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4096)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_07")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4096)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4096)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",4096)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8192)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_08")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8192)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8192)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",8192)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16384)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_09")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16384)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16384)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",16384)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32768)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_10")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32768)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32768)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",32768)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",65536)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_11")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",65536)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",65536)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",65536)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",131072)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_12")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",131072)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",131072)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",131072)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",262144)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_13")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",262144)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ActionOverride(MyTarget,JumpToPoint([420.1660]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",262144)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2083)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  Global("FindTarget","MYAREA",4)
+  Global("MirrorTrapTarget","MYAREA",262144)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,FALSE)
+    ApplySpell(MyTarget,2082)
+    SetGlobal("FindTarget","MYAREA",5)
+END
+
+IF
+  GlobalLT("FindTarget","MYAREA",5)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+THEN
+  RESPONSE #100
+    SetMyTarget([ANYONE])
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player1)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player2)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player3)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",8)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player4)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",16)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player5)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",32)
+THEN
+  RESPONSE #100
+    SetMyTarget(Player6)
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",64)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Assassin_01")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",128)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Bishop_02")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",256)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Mystic_03")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",512)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Warrior_04")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",1024)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_05")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",2048)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_06")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",4096)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_07")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",8192)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_08")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",16384)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_09")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",32768)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_10")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",65536)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_11")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",131072)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_12")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapTrigger","MYAREA",262144)
+THEN
+  RESPONSE #100
+    SetMyTarget("02_Henchman_13")
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  !Exists(MyTarget)
+THEN
+  RESPONSE #100
+    Debug("***TriggerNotFound***")
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",1)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([277.1460]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",1)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",1)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",2)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([315.1475]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",2)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",2)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",3)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([354.1496]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",3)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",3)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",4)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([392.1510]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",4)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",4)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",5)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([439.1533]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",5)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",5)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",6)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([472.1546]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",6)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",6)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",7)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([534.1575]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",7)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",7)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",8)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([566.1588]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",8)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",8)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",9)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([597.1603]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",9)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",9)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",10)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([630.1617]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",10)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",10)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",11)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([666.1631]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",11)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",11)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",12)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([708.1650]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",12)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",12)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",13)
+  !NearLocation(MyTarget,277,1460,1)
+  !NearLocation(MyTarget,315,1475,1)
+  !NearLocation(MyTarget,354,1496,1)
+  !NearLocation(MyTarget,392,1510,1)
+  !NearLocation(MyTarget,439,1533,1)
+  !NearLocation(MyTarget,472,1546,1)
+  !NearLocation(MyTarget,534,1575,1)
+  !NearLocation(MyTarget,566,1588,1)
+  !NearLocation(MyTarget,597,1603,1)
+  !NearLocation(MyTarget,630,1617,1)
+  !NearLocation(MyTarget,666,1631,1)
+  !NearLocation(MyTarget,708,1650,1)
+  !NearLocation(MyTarget,743,1666,1)
+THEN
+  RESPONSE #100
+    ClearActions(MyTarget)
+    ClearSpriteEffects(MyTarget)
+    ActionOverride(MyTarget,Face(SW))
+    ActionOverride(MyTarget,JumpToPoint([743.1666]))
+    Continue()
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",13)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2099)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+
+IF
+  Global("FindTarget","MYAREA",5)
+  Global("MirrorTrapSpotId","MYAREA",13)
+  Or(13)
+    NearLocation(MyTarget,277,1460,1)
+    NearLocation(MyTarget,315,1475,1)
+    NearLocation(MyTarget,354,1496,1)
+    NearLocation(MyTarget,392,1510,1)
+    NearLocation(MyTarget,439,1533,1)
+    NearLocation(MyTarget,472,1546,1)
+    NearLocation(MyTarget,534,1575,1)
+    NearLocation(MyTarget,566,1588,1)
+    NearLocation(MyTarget,597,1603,1)
+    NearLocation(MyTarget,630,1617,1)
+    NearLocation(MyTarget,666,1631,1)
+    NearLocation(MyTarget,708,1650,1)
+    NearLocation(MyTarget,743,1666,1)
+  !InParty(MyTarget)
+THEN
+  RESPONSE #100
+    ApplySpell(MyTarget,2084)
+    SetCreatureAreaFlag(MyTarget,INVULNERABLE,TRUE)
+    SetGlobal("MirrorTrapTrigger","MYAREA",0)
+    SetGlobal("MirrorTrapTarget","MYAREA",0)
+    SetGlobal("FindTarget","MYAREA",0)
+END
+

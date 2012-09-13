@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ravel")  // 
+    SetInternal(Myself,INTERNAL_0,1)
+    PlaySequence(ANIM_ATTACK1)
+    StickySinisterPoof("S113SMOK",Myself,1)
+    PolymorphEx(Ravel Puzzlewell,0)
+    FaceObject("Nameless")
+    Wait(3)
+    SetAnimState(Myself,ANIM_MIMETALK2)
+    Dialogue([PC])
+    SetInternal(Myself,INTERNAL_0,0)
+    EndCutSceneMode()
+END
+

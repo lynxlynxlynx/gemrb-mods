@@ -1,0 +1,7 @@
+IF
+  Dead("gphil01")  // ~Philosopher~
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

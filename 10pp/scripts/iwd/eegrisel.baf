@@ -1,0 +1,60 @@
+IF
+  OnCreation()
+  !Global("BARKEEP_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,15,25)
+    Continue()
+END
+
+IF
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16402)  // ~"Those one-eyed brutes best stay clear of my tavern."~
+    StartRandomTimer(24,15,25)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromNoLeaveArea(LastAttackerOf(Myself),45)
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(60)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+    WaitRandom(5,10)
+END
+

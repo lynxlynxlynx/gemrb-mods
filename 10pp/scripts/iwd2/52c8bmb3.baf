@@ -1,0 +1,102 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",8)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !TimerActive(5)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  Global("IS_BOMBING","LOCALS",0)
+  GlobalLT("BOMBERS_BOMBING","MYAREA",3)
+  See(NearestPC,0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("BOMBERS_BOMBING","MYAREA",1)
+    SetGlobal("IS_BOMBING","LOCALS",1)
+    StartRandomTimer(5,6,6)
+    StartCutScene("52c8Bomb")
+END
+
+IF
+  Range(NearestPC,2,LESS_THAN)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  ActionListEmpty()
+  Or(2)
+    IsHeartOfFuryModeOn()
+    !See(NearestPC,0)
+THEN
+  RESPONSE #100
+    Continue()
+  RESPONSE #100
+    MoveToObject(NearestPC)
+  RESPONSE #100
+    JumpToPoint([1080.300])
+  RESPONSE #100
+    JumpToPoint([991.392])
+  RESPONSE #100
+    JumpToPoint([825.488])
+  RESPONSE #100
+    JumpToPoint([1298.401])
+  RESPONSE #100
+    JumpToPoint([1055.596])
+  RESPONSE #100
+    JumpToPoint([1220.687])
+  RESPONSE #100
+    JumpToPoint([1339.593])
+  RESPONSE #100
+    JumpToPoint([1450.505])
+  RESPONSE #100
+    JumpToPoint([1000.491])
+  RESPONSE #100
+    JumpToPoint([1180.615])
+  RESPONSE #100
+    JumpToPoint([1330.511])
+END
+
+IF
+  Or(2)
+    ActionListEmpty()
+    !See(NearestPC,0)
+THEN
+  RESPONSE #100
+    Continue()
+  RESPONSE #100
+    JumpToObject(NearestPC)
+  RESPONSE #100
+    JumpToPoint([1080.300])
+  RESPONSE #100
+    JumpToPoint([991.392])
+  RESPONSE #100
+    JumpToPoint([825.488])
+  RESPONSE #100
+    JumpToPoint([1298.401])
+  RESPONSE #100
+    JumpToPoint([1055.596])
+  RESPONSE #100
+    JumpToPoint([1220.687])
+  RESPONSE #100
+    JumpToPoint([1339.593])
+  RESPONSE #100
+    JumpToPoint([1450.505])
+  RESPONSE #100
+    JumpToPoint([1000.491])
+  RESPONSE #100
+    JumpToPoint([1180.615])
+  RESPONSE #100
+    JumpToPoint([1330.511])
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

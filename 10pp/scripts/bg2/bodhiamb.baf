@@ -1,0 +1,39 @@
+IF
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("JaheiraVampire","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate0801","AR0800",3)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Global("AerieVampire","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate0801","AR0800",3)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Global("AnomenVampire","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate0801","AR0800",3)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Global("ViconiaVampire","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate0801","AR0800",3)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+

@@ -1,0 +1,22 @@
+IF
+  Dead("SenLich")  // ~Odamaron~
+  WalkedToTrigger([ANYONE])
+  Global("SendaiCutScene2","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    DisplayStringHead(Player1,72839)  // ~Elsewhere...~
+    SetGlobal("SendaiCutScene2","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut237a")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut237d")
+END
+

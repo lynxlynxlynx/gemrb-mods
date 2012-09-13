@@ -1,0 +1,19 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Global("YUANTI_INFERNO","GLOBAL",0)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("YUANTI_INFERNO","GLOBAL",1)
+    Enemy()
+    Continue()
+END
+

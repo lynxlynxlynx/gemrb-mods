@@ -1,0 +1,86 @@
+IF
+  Global("SpeakToPainting","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",0)
+    Dialogue(Player1)
+END
+
+IF
+  Global("SpeakToPainting","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",0)
+    Dialogue(Player2)
+END
+
+IF
+  Global("SpeakToPainting","MYAREA",3)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",0)
+    Dialogue(Player3)
+END
+
+IF
+  Global("SpeakToPainting","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",0)
+    Dialogue(Player4)
+END
+
+IF
+  Global("SpeakToPainting","MYAREA",5)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",0)
+    Dialogue(Player5)
+END
+
+IF
+  Global("SpeakToPainting","MYAREA",6)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakToPainting","MYAREA",0)
+    Dialogue(Player6)
+END
+
+IF
+  Global("RightAnswer","LOCALS",1)
+THEN
+  RESPONSE #100
+    SpellHitEffectPoint(Myself,[3072.1408],DISINTEGRATE,0)
+    SpellHitEffectPoint(Myself,[3167.1439],DISINTEGRATE,0)
+    SpellHitEffectPoint(Myself,[3232.1472],DISINTEGRATE,0)
+    SetGlobal("RightAnswer","LOCALS",0)
+END
+
+IF
+  Global("RightAnswer","LOCALS",2)
+THEN
+  RESPONSE #100
+    SpellHitEffectPoint(Myself,[3072.1408],CLOUDBURST,0)
+    SpellHitEffectPoint(Myself,[3167.1439],CLOUDBURST,0)
+    SpellHitEffectPoint(Myself,[3232.1472],CLOUDBURST,0)
+    SetGlobal("RightAnswer","LOCALS",0)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("41PlayerSawPainting","GLOBAL",1)
+    ActionOverride(LastMarkedObject,FaceObject(Myself))
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  !IsCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+END
+

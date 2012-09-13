@@ -1,0 +1,7 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+

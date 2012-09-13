@@ -1,0 +1,48 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Spirit_Quest","GLOBAL",3)
+    GlobalSet("0208_Respawn","GLOBAL",0)
+    GlobalSet("0209_Respawn","GLOBAL",0)
+END
+
+IF
+  !Allegiance(Myself,NEUTRAL)
+  Global("0209_Attack","AR0209",0)
+THEN
+  RESPONSE #100
+    GlobalSet("0209_Attack","AR0209",1)
+END
+
+IF
+  Global("0209_Attack","AR0209",1)
+  !HaveAnySpells()
+THEN
+  RESPONSE #100
+    Attack([PC][0.0.10000.10000])
+END
+
+IF
+  HaveAnySpells()
+  Global("0209_Attack","AR0209",1)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SHROUD_OF_SHADOWS)
+    Wait(5)
+    SpellPoint([896.576],WIZARD_HORROR)
+    Wait(10)
+    Spell([PC][0.0.10000.10000],WIZARD_ICE_KNIFE)
+    Wait(10)
+    Spell([PC][0.0.10000.10000],WIZARD_ADDERS_KISS)
+    Wait(10)
+    Spell([PC][0.0.10000.10000],WIZARD_VAMPIRIC_TOUCH)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

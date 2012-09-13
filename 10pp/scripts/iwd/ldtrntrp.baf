@@ -1,0 +1,18 @@
+IF
+  Global("TARNEL_TRAP_SET","GLOBAL",1)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TARNEL_TRAP_TIMER","MYAREA",5)
+    SetGlobal("TARNEL_TRAP_SET","GLOBAL",2)
+END
+
+IF
+  Global("TARNEL_TRAP_SET","GLOBAL",1)
+  Opened([PC])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TARNEL_TRAP_TIMER","MYAREA",5)
+    SetGlobal("TARNEL_TRAP_SET","GLOBAL",2)
+END
+

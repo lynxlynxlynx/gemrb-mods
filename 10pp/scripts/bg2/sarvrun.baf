@@ -1,0 +1,8 @@
+IF
+  Global("VampPros25","GLOBAL",1)
+  AreaCheck("AR5003")
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

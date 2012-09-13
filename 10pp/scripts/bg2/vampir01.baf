@@ -1,0 +1,32 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_GAS_FORM_CHANGE)
+END
+
+IF
+  HPLT(Myself,10)
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_BAT_FORM_CHANGE)
+END
+
+IF
+  TimeGT(5)
+  TimeLT(DUSK_END)
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_BAT_FORM_CHANGE)
+END
+
+IF
+  See([PC])
+  Delay(12)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ForceSpell([PC],VAMPIRE_DOMINATION)
+END
+

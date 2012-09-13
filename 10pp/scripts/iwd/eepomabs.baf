@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    Enemy()
+    ForceSpell(Myself,INNATE_POMABS_IMAGES)
+    Wait(2)
+END
+

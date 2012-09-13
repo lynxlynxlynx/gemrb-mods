@@ -1,0 +1,16 @@
+IF
+  !Global("SAID_COLD","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("SAID_COLD","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("SAID_COLD","MYAREA",1)
+    DisplayString(LastTrigger,9333)  // ~You suddenly feel very, very cold.~
+END
+

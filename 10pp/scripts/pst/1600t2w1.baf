@@ -1,0 +1,41 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Help()
+    Attack([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.TEAM_2])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([593.1898])
+    Face(14)
+    MoveToPoint([566.2054])
+    Face(0)
+    MoveToPoint([644.2012])
+    Face(12)
+    MoveToPoint([756.2011])
+    Face(8)
+    MoveToPoint([755.1915])
+    MoveToPoint([566.2054])
+    Face(6)
+END
+

@@ -1,0 +1,29 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("HelpAlatos","GLOBAL",1)
+END
+
+IF
+  Heard("Helshara",1)  // Helshara
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("Delorna",1)  // Delorna
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("Helshara",2)  // Helshara
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    Dialogue([PC])
+END
+

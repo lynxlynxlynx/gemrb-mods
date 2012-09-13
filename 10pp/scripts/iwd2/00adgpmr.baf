@@ -1,0 +1,11 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(75)
+    Dialogue(LastMarkedObject)
+END
+

@@ -1,0 +1,21 @@
+IF
+  Global("Current_Area","GLOBAL",1500)
+THEN
+  RESPONSE #100
+    ChangeAIScript("1500gini",DEFAULT)
+END
+
+IF
+  Global("Current_Area","GLOBAL",1700)
+THEN
+  RESPONSE #100
+    ChangeAIScript("1700gini",DEFAULT)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeAIScript("1405lgul",DEFAULT)
+END
+

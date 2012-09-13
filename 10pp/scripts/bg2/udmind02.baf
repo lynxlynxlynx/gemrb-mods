@@ -1,0 +1,49 @@
+IF
+  GlobalLT("udMind","GLOBAL",17)
+  OR(2)
+    AttackedBy([ANYONE],DEFAULT)
+    OpenState("Door19",TRUE)  // Door19
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,53013)  // ~The Mind Flayers turn their mind powers against you...you have no hope of survival.~
+    Kill(Player1)
+    Kill(Player2)
+    Kill(Player3)
+    Kill(Player4)
+    Kill(Player5)
+    Kill(Player6)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  GlobalGT("udMind","GLOBAL",16)
+  !Dead("udsimyaz")  // ~Simyaz~
+  Global("whine1","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("udAttack1","GLOBAL",1)
+    SetGlobal("whine1","LOCALS",1)
+    ActionOverride("udsimyaz",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("udMind","GLOBAL",17)
+  Global("casting","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("casting","LOCALS",1)
+    SetInterrupt(FALSE)
+    ForceSpell(Myself,DO_NOTHING)
+    SetInterrupt(TRUE)
+END
+
+IF
+  GlobalGT("udMind","GLOBAL",17)
+  GlobalLT("udMind","GLOBAL",20)
+THEN
+  RESPONSE #100
+    OpenDoor("Door20")
+    MoveToPointNoInterrupt([1611.1436])
+    EscapeArea()
+END
+

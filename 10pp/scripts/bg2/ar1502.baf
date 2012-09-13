@@ -1,0 +1,25 @@
+IF
+  GlobalTimerExpired("BodhiHunts","GLOBAL")
+  !Global("AsylumPlot","GLOBAL",100)
+  !Exists("ppbodhi4")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    CreateCreatureObject("ppbodhi4",Player1,0,0,0)  // ~Bodhi~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    FadeFromColor([20.0],0)
+    ActionOverride("ppbodhi4",StartDialogNoSet(Player1))
+END
+
+IF
+  NumDeadGT("elemep04",1)
+  NumDeadGT("elemep05",1)
+  Dead("elefel01")  // ~Lesser Fire Elemental~
+  Global("ArbiterSpawn","AR1502",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ArbiterSpawn","AR1502",1)
+    CreateCreature("ELEARB08",[1192.435],2)  // ~Apparition~
+END
+

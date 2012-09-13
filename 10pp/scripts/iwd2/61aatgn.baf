@@ -1,0 +1,17 @@
+IF
+  See(NearestEnemyOf(Myself),0)
+  !IsAnimationID(LastMarkedObject,"""""Mummy, Histachii""""")
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  AttackedBy([ANYONE],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

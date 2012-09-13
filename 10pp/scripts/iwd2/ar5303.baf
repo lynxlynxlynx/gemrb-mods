@@ -1,0 +1,19 @@
+IF
+  Global("Played_Cutscene","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Played_Cutscene","MYAREA",1)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("53cMaj0")
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

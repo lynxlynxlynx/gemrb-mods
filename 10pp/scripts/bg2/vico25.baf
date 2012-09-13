@@ -1,0 +1,180 @@
+IF
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  OR(2)
+    Global("AerieRomanceActive","GLOBAL",2)
+    Global("JaheiraRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("ViconiaRomanceActive","GLOBAL",3)
+END
+
+IF
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  Global("ExpLoveTalk","LOCALS",0)
+  GlobalGT("Chapter","GLOBAL",7)
+  Global("BeginRomanceTimer","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BeginRomanceTimer","LOCALS",1)
+    SetGlobal("ExpLoveTalk","LOCALS",1)
+    RealSetGlobalTimer("ExpViconiaRomance","GLOBAL",2400)
+END
+
+IF
+  Global("LovedOne","GLOBAL",3)
+  GlobalLT("ExpLoveTalk","LOCALS",4)
+  GlobalGT("ExpLoveTalk","LOCALS",0)
+  InParty(Myself)
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  See(Player1)
+  !See([ENEMY])
+  !Range([NEUTRAL],20)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("ExpLoveTalk","LOCALS",4)
+    Interact(Player1)
+END
+
+IF
+  GlobalGT("WraithPunish","GLOBAL",0)
+  !Global("LovedOne","GLOBAL",3)
+  InParty(Myself)
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  GlobalGT("ExpLoveTalk","LOCALS",0)
+  GlobalLT("ExpLoveTalk","LOCALS",4)
+THEN
+  RESPONSE #100
+    SetGlobal("ExpLoveTalk","LOCALS",4)
+END
+
+IF
+  Global("SaradushSacked","GLOBAL",1)
+  InParty(Myself)
+  GlobalLT("ExpLoveTalk","LOCALS",10)
+  GlobalGT("ExpLoveTalk","LOCALS",0)
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  See(Player1)
+  !See([ENEMY])
+  !Range([NEUTRAL],20)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("ExpLoveTalk","LOCALS",10)
+    PlaySong(40)
+    Interact(Player1)
+END
+
+IF
+  Global("ChallengesDone","GLOBAL",1)
+  GlobalLT("ExpLoveTalk","LOCALS",16)
+  GlobalGT("ExpLoveTalk","LOCALS",0)
+  InParty(Myself)
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  See(Player1)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("ExpLoveTalk","LOCALS",16)
+    PlaySong(40)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("ExpViconiaRomance","GLOBAL")
+  PartyRested()
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  !AreaType(DUNGEON)
+  See(Player1)
+  CombatCounter(0)
+  OR(3)
+    Global("ExpLoveTalk","LOCALS",1)
+    Global("ExpLoveTalk","LOCALS",7)
+    Global("ExpLoveTalk","LOCALS",11)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("ExpViconiaRomance","GLOBAL",30)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("ExpViconiaRomance","GLOBAL")
+  Global("ViconiaRomanceActive","GLOBAL",2)
+  !AreaType(DUNGEON)
+  See(Player1)
+  CombatCounter(0)
+  !See([ENEMY])
+  !Range([NEUTRAL],20)
+  OR(3)
+    Global("ExpLoveTalk","LOCALS",1)
+    Global("ExpLoveTalk","LOCALS",7)
+    Global("ExpLoveTalk","LOCALS",11)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(40)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("ExpViconiaRomance","GLOBAL")
+  OR(6)
+    Global("ExpLoveTalk","LOCALS",2)
+    Global("ExpLoveTalk","LOCALS",4)
+    Global("ExpLoveTalk","LOCALS",6)
+    Global("ExpLoveTalk","LOCALS",10)
+    Global("ExpLoveTalk","LOCALS",12)
+    Global("ExpLoveTalk","LOCALS",16)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    RealSetGlobalTimer("ExpViconiaRomance","GLOBAL",2400)
+END
+
+IF
+  Global("ViconiaSummoned","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("vicx",SPECIFICS)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("vicx",SPECIFICS)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",SPECIFICS)
+    Continue()
+END
+

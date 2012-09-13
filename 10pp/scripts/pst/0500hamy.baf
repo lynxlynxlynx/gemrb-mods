@@ -1,0 +1,50 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1964.2524])
+    MoveToPoint([1964.2348])
+    Face(10)
+    WaitRandom(10,15)
+    MoveToPoint([1640.2348])
+    MoveToPoint([1342.2046])
+    MoveToPoint([1342.1796])
+    MoveToPoint([1506.1630])
+    MoveToPoint([1650.1630])
+    Face(14)
+    WaitRandom(10,15)
+    MoveToPoint([1506.1630])
+    MoveToPoint([1342.1796])
+    MoveToPoint([1342.2046])
+    MoveToPoint([1640.2348])
+    Face(10)
+    WaitRandom(10,15)
+    MoveToPoint([1964.2348])
+    MoveToPoint([1964.2524])
+    Face(4)
+    WaitRandom(10,15)
+    Continue()
+END
+

@@ -1,0 +1,17 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    StartRandomTimer(1,30,45)
+  RESPONSE #100
+    StartRandomTimer(1,30,45)
+  RESPONSE #100
+    StartRandomTimer(1,30,45)
+END
+

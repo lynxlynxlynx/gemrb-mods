@@ -1,0 +1,71 @@
+IF
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  OR(2)
+    Dead("Edwin")  // Edwin
+    !Detect("Edwin")  // Edwin
+  CombatCounter(0)
+  !Allegiance(Myself,ENEMY)
+  Global("EdwinKeldornFight","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("EdwinKeldornFight","GLOBAL",2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(2)
+    Dead("Edwin")  // Edwin
+    !Detect("Edwin")  // Edwin
+  CombatCounter(0)
+  Global("EdwinKeldornFight","GLOBAL",1)
+  !See([PC])
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Detect("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+  !See("Edwin")  // Edwin
+  Range("Edwin",40)  // Edwin
+  HaveSpell(INQUIS_TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,INQUIS_TRUE_SIGHT)
+    Continue()
+END
+
+IF
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+  OR(6)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_CHANT)
+    StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+    StateCheck(LastSeenBy(Myself),STATE_BLUR)
+    HasImmunityEffects(LastSeenBy(Myself))
+  HaveSpell(INQUIS_DISPEL_MAGIC)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),INQUIS_DISPEL_MAGIC)
+    Continue()
+END
+

@@ -1,0 +1,63 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !NearLocation(Myself,[1465.1765],142)
+THEN
+  RESPONSE #100
+    MoveToPoint([1465.1765])
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #25
+    Face(-1)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9624)  // ~*Hic*~
+    Wait(3)
+  RESPONSE #25
+    Face(-1)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9625)  // ~"Hee-hee-heeeeee..."~
+    Wait(3)
+  RESPONSE #25
+    Face(-1)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9626)  // ~"Whyse thishh streeeth ahl blurreee...?"~
+    Wait(3)
+  RESPONSE #25
+    Face(-1)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9627)  // ~"Whoa... th'grownds gehtttin' ahl shakeee..." ~
+    Wait(3)
+  RESPONSE #25
+    Face(-1)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9628)  // ~*Hic* ~
+    Wait(3)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

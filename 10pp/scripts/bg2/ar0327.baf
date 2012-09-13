@@ -1,0 +1,24 @@
+IF
+  Global("EnteredArea","AR0327",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR0327",1)
+    MoveGlobalsTo("AR0305","AR0327",[0.0])
+END
+
+IF
+  Global("BodhiJob","GLOBAL",3)
+  Global("PalernSpawn","AR0328",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PalernSpawn","AR0328",1)
+    CreateCreature("PALERN",[567.256],0)  // ~Palern Flynn~
+    CreateCreature("FLYFGT01",[570.653],0)  // ~Shadow Thief~
+    CreateCreature("FLYFGT02",[235.474],0)  // ~Shadow Thief~
+    CreateCreature("FLYFGT02",[659.335],0)  // ~Shadow Thief~
+    CreateCreature("FLYFGT02",[436.323],0)  // ~Shadow Thief~
+    CreateCreature("FLYFGT03",[542.717],6)  // ~Shadow Thief~
+    CreateCreature("FLYFGT03",[627.286],0)  // ~Shadow Thief~
+    CreateCreature("FLYFGT04",[519.285],0)  // ~Shadow Thief~
+END
+

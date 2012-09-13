@@ -1,0 +1,140 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_03")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_04")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_05")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_Elite_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_Elite_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_Shaman_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_Shaman_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_Archer_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_Archer_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Goblin_Archer_03")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Ogre_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("06_Ogre_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,HEAD_TURN)
+END
+

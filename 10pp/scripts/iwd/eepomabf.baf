@@ -1,0 +1,144 @@
+IF
+  Or(2)
+    !Global("KILL_FAKE_POMAB","GLOBAL",0)
+    !Global("POMAB_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("KILL_FAKE_POMAB","GLOBAL",-1)
+    IncrementGlobal("FAKE_POMAB_DEAD","GLOBAL",1)
+    DestroySelf()
+END
+
+IF
+  HPGT(Myself,3000)
+THEN
+  RESPONSE #100
+    SetHP(Myself,3000)
+    Continue()
+END
+
+IF
+  GlobalLT("FAKE_POMAB_DEAD","GLOBAL",5)
+  HPLT(Myself,3000)
+THEN
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([211.509])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([631.575])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([499.334])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([565.758])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([364.436])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([416.672])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([556.433])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([221.612])
+  RESPONSE #100
+    SetHP(Myself,3000)
+    JumpToPoint([797.488])
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    IncrementGlobal("SHOTS_FIRED","LOCALS",1)
+    UseItem("WANDFAK",NearestEnemyOf(Myself))  // ~Wand of Lightning~
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,10,25)
+    Continue()
+END
+
+IF
+  Global("FAKE_POMAB_FLOAT","MYAREA",0)
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17693)  // ~"I am over here."~
+    StartRandomTimer(24,10,25)
+    Continue()
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17694)  // ~"Only one of us is real... but which one?"~
+    StartRandomTimer(24,10,25)
+    Continue()
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17695)  // ~"No, not him.  I am the real Pomab."~
+    StartRandomTimer(24,10,25)
+    Continue()
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17696)  // ~"You cannot win.  I am invincible!"~
+    StartRandomTimer(24,10,25)
+    Continue()
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17703)  // ~"The power of Cryshal-Tirith is magnificent, is it not?"~
+    StartRandomTimer(24,10,25)
+    Continue()
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17699)  // ~"My sentries shall cut you down."~
+    StartRandomTimer(24,10,25)
+    Continue()
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17700)  // ~"Ha ha ha!  Admit it... you are beaten."~
+    StartRandomTimer(24,10,25)
+    Continue()
+  RESPONSE #100
+    SetGlobal("FAKE_POMAB_FLOAT","MYAREA",1)
+    FloatMessage(Myself,17701)  // ~"What is the matter?  Your eyes playing tricks on you?"~
+    StartRandomTimer(24,10,25)
+    Continue()
+END
+
+IF
+  GlobalLT("FAKE_POMAB_DEAD","GLOBAL",5)
+THEN
+  RESPONSE #50
+    MoveToPoint([211.509])
+  RESPONSE #50
+    MoveToPoint([631.575])
+  RESPONSE #50
+    MoveToPoint([499.334])
+  RESPONSE #50
+    MoveToPoint([565.758])
+  RESPONSE #50
+    MoveToPoint([364.436])
+  RESPONSE #50
+    MoveToPoint([416.672])
+  RESPONSE #50
+    MoveToPoint([556.433])
+  RESPONSE #50
+    MoveToPoint([221.612])
+  RESPONSE #50
+    MoveToPoint([797.488])
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),5)
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),5)
+END
+

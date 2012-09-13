@@ -1,0 +1,22 @@
+IF
+  Clicked([ANYONE])
+  Global("Movie01","AR0311",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Movie01","AR0311",2)
+    ActionOverride(Player1,MoveToPoint([536.500]))
+    ActionOverride(Player2,MoveToPoint([536.500]))
+    ActionOverride(Player3,MoveToPoint([536.500]))
+    ActionOverride(Player4,MoveToPoint([536.500]))
+    ActionOverride(Player5,MoveToPoint([536.500]))
+    ActionOverride(Player6,MoveToPoint([536.500]))
+    Wait(1)
+    FadeToColor([20.0],0)
+    Wait(1)
+    TextScreen("SCENE02")
+    SmallWait(7)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("Movie01a")
+END
+

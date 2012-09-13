@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("Monologue","AR0523",1)
+    FadeToColor([20.0],0)
+    ActionOverride("bdact06",JumpToPoint([1319.467]))
+    CreateCreature("bdact09",[918.687],0)  // ~Karenina~
+    CreateCreature("bdact10",[931.707],0)  // ~Marcus~
+    Wait(3)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    ActionOverride("bdact10",StartDialogNoSet(Player1))
+END
+

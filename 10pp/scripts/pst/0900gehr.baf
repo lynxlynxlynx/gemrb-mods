@@ -1,0 +1,46 @@
+IF
+  Die()
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Force_Spawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Die()
+  GlobalLT("Curst_Murder","GLOBAL",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Murder","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Gehreleth_Dead","AR0900",1)
+END
+
+IF
+  Global("Rampage","AR0900",0)
+THEN
+  RESPONSE #100
+END
+
+IF
+  Range([PC],5)
+THEN
+  RESPONSE #100
+    Attack([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RunToObject([0.0.0.0.0.0.PERSON_1])
+    Attack([0.0.0.0.0.0.PERSON_1])
+END
+

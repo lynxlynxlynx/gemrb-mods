@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewObject("cutspy",VERY_FAST)
+    ActionOverride(Player2,MoveToPoint([764.743]))
+    ActionOverride(Player3,MoveToPoint([840.766]))
+    ActionOverride(Player4,MoveToPoint([835.723]))
+    ActionOverride(Player5,MoveToPoint([841.721]))
+    ActionOverride(Player6,MoveToPoint([836.685]))
+    MoveToPoint([729.781])
+    ActionOverride(Player2,Face(4))
+    ActionOverride(Player3,Face(4))
+    ActionOverride(Player4,Face(4))
+    ActionOverride(Player5,Face(4))
+    ActionOverride(Player6,Face(4))
+    Face(6)
+    Wait(2)
+    ActionOverride("mel01",StartDialogNoSet(Player1))
+END
+

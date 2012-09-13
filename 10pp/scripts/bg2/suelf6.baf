@@ -1,0 +1,9 @@
+IF
+  !See([ENEMY])
+  See([PC])
+  Global("Spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutScene("50cLimh0")
+    FloatMessage(Myself,33750)  // ~"AIEEE!!!"~
+    SetGlobal("5002_HANNU_ESCAPE","GLOBAL",1)
+    MoveToPoint([123.463])
+    EscapeArea()
+END
+

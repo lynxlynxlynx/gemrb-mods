@@ -1,0 +1,20 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",4)
+  Global("ElminsterSpawn","GLOBAL",0)
+  !Exists("ELMIN3")  // ~Elminster~
+THEN
+  RESPONSE #100
+    CreateCreature("ELMIN3",[3233.2533])  // ~Elminster~
+    SetGlobal("ElminsterSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("EnteredArmInn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartMovie("FRARMINN")
+    SetGlobal("EnteredArmInn","GLOBAL",1)
+END
+

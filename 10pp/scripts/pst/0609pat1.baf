@@ -1,0 +1,52 @@
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunToPoint([250.556])
+    GlobalSet("Respawn_0609","GLOBAL",0)
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunToPoint([250.556])
+    GlobalSet("Respawn_0609","GLOBAL",0)
+    DestroySelf()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunToPoint([250.556])
+    GlobalSet("Respawn_0609","GLOBAL",0)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([290.383])
+    Face(12)
+    Wait(5)
+    MoveToPoint([484.175])
+    Wait(10)
+    MoveToPoint([434.229])
+    Face(6)
+    Wait(10)
+    Face(14)
+    Wait(5)
+    MoveToPoint([250.556])
+    GlobalSet("Respawn_0609","GLOBAL",0)
+    DestroySelf()
+END
+

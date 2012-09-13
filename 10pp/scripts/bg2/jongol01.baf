@@ -1,0 +1,51 @@
+IF
+  Detect("ishthf01")  // ~Assassin ~
+  !Dead("ishthf01")  // ~Assassin ~
+THEN
+  RESPONSE #100
+    AttackReevaluate("ishthf01",15)
+END
+
+IF
+  Detect("ishthf02")  // ~Assassin ~
+  !Dead("ishthf02")  // ~Assassin ~
+THEN
+  RESPONSE #100
+    AttackReevaluate("ishthf02",15)
+END
+
+IF
+  !Dead("ishthf01")  // ~Assassin ~
+THEN
+  RESPONSE #100
+    MoveToObject("ishthf01")
+END
+
+IF
+  !Dead("ishthf02")  // ~Assassin ~
+THEN
+  RESPONSE #100
+    MoveToObject("ishthf02")
+END
+
+IF
+  Dead("ishthf01")  // ~Assassin ~
+  Dead("ishthf02")  // ~Assassin ~
+  Global("move","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    ClearAllActions()
+    SetGlobal("move","LOCALS",1)
+    MoveToObject("DOOR08")
+END
+
+IF
+  Global("move","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("move","LOCALS",2)
+    OpenDoor("DOOR08")
+    MoveToPointNoInterrupt([405.1853])
+END
+

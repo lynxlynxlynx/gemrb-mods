@@ -1,0 +1,64 @@
+IF
+  HasItem("POTN08",Myself)  // ~Potion of Healing~
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("POTN08",Myself)  // ~Potion of Healing~
+    Continue()
+END
+
+IF
+  HasItem("EXTHEAL",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("EXTHEAL",Myself)  // ~Potion of Extra Healing~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastSeenBy(Myself),4)
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  HelpEX(Myself,RACE)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(LastHelp(Myself)))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(36)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+    Wait(5)
+END
+

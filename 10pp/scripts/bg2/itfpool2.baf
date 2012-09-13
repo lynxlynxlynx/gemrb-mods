@@ -1,0 +1,33 @@
+IF
+  WalkedToTrigger([ANYONE])
+  !GlobalTimerNotExpired("Pool2Timer","AR6200")
+  Global("Pool2Active","AR6200",0)
+  !Dead("finsol03")  // ~Cryonax~
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+    SetGlobalTimer("Pool2Timer","AR6200",10)
+    DisplayStringNoName(LastTrigger,71790)  // ~You will not be able to stop the stream's flow with the guardian protecting it.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !GlobalTimerNotExpired("Pool2Timer","AR6200")
+  Global("Pool2Active","AR6200",0)
+  Dead("finsol03")  // ~Cryonax~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    SetGlobalTimer("Pool2Timer","AR6200",10)
+    StartCutScene("cut233c")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("Pool2Timer","AR6200")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

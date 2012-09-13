@@ -1,0 +1,25 @@
+IF
+  TimeGT(20)
+  Exists("Alora")  // Alora
+THEN
+  RESPONSE #100
+    Activate("Alora")
+END
+
+IF
+  TimeLT(4)
+  Exists("Alora")  // Alora
+THEN
+  RESPONSE #100
+    Activate("Alora")
+END
+
+IF
+  TimeGT(4)
+  TimeLT(20)
+  Exists("Alora")  // Alora
+THEN
+  RESPONSE #100
+    Deactivate("Alora")
+END
+

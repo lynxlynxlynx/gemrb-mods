@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Annah")  // 
+    FaceObject("Nameless")
+    FloatMessage(Myself,52905)  // ~"This is the place. I found yeh lyin' right where we stand."~
+    Wait(5)
+    PlaySound("AM_Face")
+    ExploreMapChunk([890.430],0,100)
+    SinisterPoof("A0405FAC",[855.375],-1)
+    SmallWait(22)
+    SinisterPoof("alley_s",[855.375],-1)
+    Wait(2)
+    StartCutScene("0405cut7")
+END
+

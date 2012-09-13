@@ -1,0 +1,680 @@
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_1")  // SKEL_1
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_2")  // SKEL_2
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_3")  // SKEL_3
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_4")  // SKEL_4
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_5")  // SKEL_5
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_6")  // SKEL_6
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_7")  // SKEL_7
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_8")  // SKEL_8
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_9")  // SKEL_9
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_10")  // SKEL_10
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_11")  // SKEL_11
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_12")  // SKEL_12
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_13")  // SKEL_13
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_14")  // SKEL_14
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("SKEL_15")  // SKEL_15
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_1")  // SKEL_1
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_2")  // SKEL_2
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_3")  // SKEL_3
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_4")  // SKEL_4
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_5")  // SKEL_5
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_6")  // SKEL_6
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_7")  // SKEL_7
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_8")  // SKEL_8
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_9")  // SKEL_9
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_10")  // SKEL_10
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_11")  // SKEL_11
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_12")  // SKEL_12
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_13")  // SKEL_13
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_14")  // SKEL_14
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("SKEL_15")  // SKEL_15
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_1")  // SKEL_1
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_2")  // SKEL_2
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_3")  // SKEL_3
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_4")  // SKEL_4
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_5")  // SKEL_5
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_6")  // SKEL_6
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_7")  // SKEL_7
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_8")  // SKEL_8
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_9")  // SKEL_9
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_10")  // SKEL_10
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_11")  // SKEL_11
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_12")  // SKEL_12
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_13")  // SKEL_13
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_14")  // SKEL_14
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("SKEL_15")  // SKEL_15
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+  GlobalGT("HJOLLDER_QUEST","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_BLADE_BARRIER)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_BLADE_BARRIER)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SLAY_LIVING)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SLAY_LIVING)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SPIRITUAL_WRATH)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_WRATH)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_BLOOD_RAGE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_BLOOD_RAGE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(120)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+    WaitRandom(3,10)
+END
+

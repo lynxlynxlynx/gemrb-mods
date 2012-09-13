@@ -1,0 +1,32 @@
+IF
+  Global("WATCHING_PLAYER","MYAREA",0)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+    SpellHitEffectSprite(Myself,Myself,ELECTRICITY,10)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",0)
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("Played_Effect","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Played_Effect","LOCALS",1)
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+    SpellHitEffectSprite(Myself,Myself,ELECTRICITY,10)
+    Wait(1)
+    Enemy()
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+END
+

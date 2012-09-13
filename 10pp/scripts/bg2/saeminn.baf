@@ -1,0 +1,10 @@
+IF
+  IsOverMe("ppsaem")  // ~Saemon Havarian~
+  Range([PC],10)
+  Global("saemInn","AR1600",0)
+THEN
+  RESPONSE #100
+    SetGlobal("saemInn","AR1600",1)
+    ActionOverride("ppsaem",StartDialogNoSet(Player1))
+END
+

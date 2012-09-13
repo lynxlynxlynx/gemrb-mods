@@ -1,0 +1,263 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,16)
+  Global("BhaalDoor","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,300)  // ~Five eyes surround this hellish door, as if part of the very stone itself. The eyes follow you as you move, and a palpable aura of evil emanates from them. They guard this door and if you wish to pass through, you must find some way of bypassing their guard.~
+    SetGlobal("BhaalDoor","GLOBAL",1)
+    SaveGame(2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,16)
+  !PartyHasItem("miscb5")  // ~Tears of Bhaal~
+  !PartyHasItem("miscb6")  // ~Tears of Bhaal~
+  !PartyHasItem("miscb7")  // ~Tears of Bhaal~
+  !PartyHasItem("miscb8")  // ~Tears of Bhaal~
+  !PartyHasItem("miscb9")  // ~Tears of Bhaal~
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,301)  // ~With the tools you currently have, there is no way to close the eyes or open the door. The answer must be found elsewhere.~
+END
+
+IF
+  Clicked([ANYONE])
+  !InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,6459)  // ~Only <CHARNAME> may use the Tear of Bhaal.~
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb5")  // ~Tears of Bhaal~
+  GlobalLT("Player1Fear","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[1850.433])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,6473)  // ~You have become immune to +1 weapons and less.~
+    TakePartyItem("miscb5")
+    CloseDoor("Eye01")
+    SetGlobal("TearEye1","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_FEAR_GOOD)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb5")  // ~Tears of Bhaal~
+  Global("Player1Fear","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[1850.433])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,6470)  // ~You have been granted +2 to your constitution.~
+    TakePartyItem("miscb5")
+    CloseDoor("Eye01")
+    SetGlobal("TearEye1","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_FEAR_EVIL)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb6")  // ~Tears of Bhaal~
+  GlobalLT("Player1Selfish","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[1868.306])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,6477)  // ~You have been granted +10% magic resistance.~
+    TakePartyItem("miscb6")
+    CloseDoor("Eye02")
+    SetGlobal("TearEye2","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_SELFISH_GOOD)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb6")  // ~Tears of Bhaal~
+  Global("Player1Selfish","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[1868.306])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,6474)  // ~You have been granted +2 to your armor class.~
+    TakePartyItem("miscb6")
+    CloseDoor("Eye02")
+    SetGlobal("TearEye2","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_SELFISH_EVIL)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb7")  // ~Tears of Bhaal~
+  GlobalLT("Player1Greed","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[2015.182])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,61968)  // ~You have been granted +2 to all of your saving throws.~
+    TakePartyItem("miscb7")
+    CloseDoor("Eye03")
+    SetGlobal("TearEye3","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_GREED_GOOD)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb7")  // ~Tears of Bhaal~
+  Global("Player1Greed","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[2015.182])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,6478)  // ~You have been granted +15 to your hit points.~
+    TakePartyItem("miscb7")
+    CloseDoor("Eye03")
+    SetGlobal("TearEye3","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_GREED_EVIL)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb8")  // ~Tears of Bhaal~
+  GlobalLT("Player1Pride","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[2161.323])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,61970)  // ~You have been granted +20% resistance to fire, cold and electricity.~
+    TakePartyItem("miscb8")
+    CloseDoor("Eye04")
+    SetGlobal("TearEye4","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_PRIDE_GOOD)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb8")  // ~Tears of Bhaal~
+  Global("Player1Pride","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[2161.323])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,61969)  // ~You have been granted +200000 XP.~
+    TakePartyItem("miscb8")
+    CloseDoor("Eye04")
+    SetGlobal("TearEye4","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_PRIDE_EVIL)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb9")  // ~Tears of Bhaal~
+  GlobalLT("Player1Wrath","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[2174.451])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,61972)  // ~You have been granted +1 to your wisdom and charisma.~
+    TakePartyItem("miscb9")
+    CloseDoor("Eye05")
+    SetGlobal("TearEye5","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_WRATH_GOOD)
+END
+
+IF
+  Clicked([ANYONE])
+  InPartySlot(LastTrigger,0)
+  Range(LastTrigger,16)
+  PartyHasItem("miscb9")  // ~Tears of Bhaal~
+  Global("Player1Wrath","GLOBAL",2)
+  Global("BhaalDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ScreenShake([4.4],5)
+    CreateVisualEffect("spnpoisi",[2174.451])
+    PlaySound("EFF_M18a")
+    Wait(1)
+    DisplayString(Myself,302)  // ~You take a Tear of Bhaal from your pack and place it in an eye. The eye closes and guards the door no longer.~
+    DisplayString(Myself,61971)  // ~You have been granted +2 to your strength.~
+    TakePartyItem("miscb9")
+    CloseDoor("Eye05")
+    SetGlobal("TearEye5","GLOBAL",1)
+    IncrementGlobal("TearDoor","GLOBAL",1)
+    ApplySpell(Player1,HELL_WRATH_EVIL)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,16)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

@@ -1,0 +1,10 @@
+IF
+  OR(2)
+    Entered([PC])
+    IsOverMe([PC])
+  Global("HallBattle2","AR6101",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HallBattle2","AR6101",1)
+END
+

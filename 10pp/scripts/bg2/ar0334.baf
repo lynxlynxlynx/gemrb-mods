@@ -1,0 +1,108 @@
+IF
+  Global("ForgeItem","GLOBAL",1)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("scaleb")
+    GiveItemCreate("leat19",Player1,0,0,0)  // ~Shadow Dragon Scale ~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",2)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("scaler")
+    GiveItemCreate("plat18",Player1,0,0,0)  // ~Red Dragon Scale~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",3)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("misc12")
+    GiveItemCreate("plat06",Player1,0,0,0)  // ~Ankheg Plate Mail~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",4)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("scrlag")
+    TakePartyItem("hamm07")
+    TakePartyItem("brac06")
+    TakePartyItem("belt08")
+    GiveItemCreate("hamm09",Player1,0,0,0)  // ~Crom Faeyr~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",5)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("sw1h54a")
+    TakePartyItem("sw1h54b")
+    TakePartyItem("sw1h54c")
+    GiveItemCreate("sw1h54",Player1,0,0,0)  // ~The Equalizer~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",6)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("bow19a")
+    TakePartyItem("bow19b")
+    GiveItemCreate("bow19",Player1,0,0,0)  // ~Short Bow of Gesen~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",7)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("halb09a")
+    TakePartyItem("halb09b")
+    GiveItemCreate("halb09",Player1,0,0,0)  // ~Halberd +4: Wave~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",8)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("misc8u")
+    TakePartyItem("sw2h15a")
+    GiveItemCreate("sw2h15",Player1,0,0,0)  // ~Silver Sword~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("ForgeItem","GLOBAL",9)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    TakePartyItem("misc5k")
+    TakePartyItem("blun12")
+    GiveItemCreate("blun25",Player1,0,0,0)  // ~Mace of Disruption +2~
+    ActionOverride("wsmith01",StartDialogNoSet([PC]))
+END
+

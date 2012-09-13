@@ -1,0 +1,34 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,TW_CAMP_2)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  Help([0.0.0.0.0.0.TW_CAMP_2])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+

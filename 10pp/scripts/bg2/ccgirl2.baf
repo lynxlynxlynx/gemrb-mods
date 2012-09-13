@@ -1,0 +1,10 @@
+IF
+  CombatCounter(0)
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

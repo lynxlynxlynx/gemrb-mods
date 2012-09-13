@@ -1,0 +1,82 @@
+IF
+  !UnselectableVariable(0)
+  Global("Xzarfight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  UnselectableVariable(0)
+  See("Khalid")  // ~Khalid~
+  Global("Xzarfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MakeUnselectable(5000)
+END
+
+IF
+  UnselectableVariable(0)
+  See("Jaheira")  // Jaheira
+  Global("Xzarfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MakeUnselectable(5000)
+END
+
+IF
+  !UnselectableVariable(0)
+  Dead("Khalid")  // ~Khalid~
+  Dead("Jaheira")  // Jaheira
+  Global("Xzarfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Xzarfight","GLOBAL",0)
+    MakeUnselectable(0)
+END
+
+IF
+  !UnselectableVariable(0)
+  !See("Khalid")  // ~Khalid~
+  !See("Jaheira")  // Jaheira
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  Global("Xzarfight","GLOBAL",1)
+  See("Khalid")  // ~Khalid~
+THEN
+  RESPONSE #100
+    Attack("Khalid")
+END
+
+IF
+  Global("Xzarfight","GLOBAL",1)
+  See("Jaheira")  // Jaheira
+THEN
+  RESPONSE #100
+    Attack("Jaheira")
+END
+
+IF
+  GlobalTimerExpired("Montaron","GLOBAL")
+  Global("FindNashkell","GLOBAL",0)
+  Global("Chapter","GLOBAL",1)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  GlobalTimerExpired("Montaron","GLOBAL")
+  Global("FindNashkell","GLOBAL",1)
+  Global("Chapter","GLOBAL",1)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

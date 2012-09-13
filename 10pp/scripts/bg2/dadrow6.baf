@@ -1,0 +1,58 @@
+IF
+  Global("AmbientStartRun","AR2200",1)
+THEN
+  RESPONSE #100
+    SetGlobal("AmbientStartRun","AR2200",2)
+    ActionOverride("dadrow7",MoveToPoint([2958.2261]))
+    MoveToPoint([2804.2168])
+END
+
+IF
+  See([PC])
+  Range(LastSeenBy(Myself),13)
+  NumberOfTimesTalkedTo(0)
+  Global("AmbientStartRun","AR2200",2)
+THEN
+  RESPONSE #100
+    SetGlobal("AmbientStartRun","AR2200",3)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("AmbientStartRun","AR2200",10)
+  See("daelf")  // ~Elven Mage~
+THEN
+  RESPONSE #100
+    ActionOverride("dadrow7",AttackOneRound("daelf"))
+    Kill("daelf")
+    Wait(1)
+    ActionOverride("dadrow7",EscapeArea())
+    EscapeArea()
+END
+
+IF
+  Global("AmbientStartRun","AR2200",15)
+THEN
+  RESPONSE #100
+    ActionOverride("dadrow7",MoveToPoint([2438.2152]))
+    MoveToPoint([2482.2166])
+    Wait(1)
+    ActionOverride("dadrow7",EscapeArea())
+    EscapeArea()
+END
+
+IF
+  OR(2)
+    Global("AmbientStartRun","AR2200",20)
+    Global("AmbientStartRun","AR2200",10)
+  !See("daelf")  // ~Elven Mage~
+THEN
+  RESPONSE #100
+    ActionOverride("dadrow7",MoveToPoint([2879.1884]))
+    MoveToPoint([2932.1891])
+    Wait(1)
+    CreateCreature("daelf2",[3184.1691],0)  // ~Elven Mage~
+    ActionOverride("dadrow7",EscapeArea())
+    EscapeArea()
+END
+

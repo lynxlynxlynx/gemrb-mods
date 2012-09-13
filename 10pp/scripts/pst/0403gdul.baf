@@ -1,0 +1,144 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Dueling_Gangers","AR0403",5)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[471.1052],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,DUELER_1)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[512.1052],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,DUELER_2)
+END
+
+IF
+  Help([0.0.0.0.0.0.DUELER_1])
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  Help([0.0.0.0.0.0.DUELER_2])
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  Global("Dueling_Gangers","AR0403",1)
+  Specifics(Myself,DUELER_1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Wait(1)
+    FloatMessage(Myself,33539)  // ~"This'll teach you not to go around painting people in their sleep!"~
+    Wait(4)
+    KillFloatMessage(Myself)
+    GlobalSet("Dueling_Gangers","AR0403",2)
+    Continue()
+END
+
+IF
+  Global("Dueling_Gangers","AR0403",2)
+  Specifics(Myself,DUELER_2)
+THEN
+  RESPONSE #100
+    Enemy()
+    Wait(1)
+    FloatMessage(Myself,32685)  // ~"Me? How do I know YOU didn't do it, you four-legged dung heap!"~
+    GlobalSet("Dueling_Gangers","AR0403",3)
+    Continue()
+END
+
+IF
+  LOS([PC],25)
+  Global("Dueling_Gangers","AR0403",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("Dueling_Gangers","AR0403",1)
+    Continue()
+END
+
+IF
+  NullDialog([PC])
+THEN
+  RESPONSE #100
+    GlobalSet("Dueling_Gangers","AR0403",4)
+    Continue()
+END
+
+IF
+  Global("Dueling_Gangers","AR0403",3)
+  LOS([PC],5)
+THEN
+  RESPONSE #100
+    GlobalSet("Dueling_Gangers","AR0403",4)
+    Continue()
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Dueling_Gangers","AR0403",4)
+    Continue()
+END
+
+IF
+  GlobalGT("Dueling_Gangers","AR0403",3)
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  Global("Dueling_Gangers","AR0403",4)
+  !See([PC])
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    GlobalSet("Dueling_Gangers","AR0403",3)
+END
+
+IF
+  GlobalGT("Dueling_Gangers","AR0403",0)
+  GlobalLT("Dueling_Gangers","AR0403",4)
+  Specifics(Myself,DUELER_1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([0.0.0.0.0.0.DUELER_2])
+END
+
+IF
+  GlobalGT("Dueling_Gangers","AR0403",0)
+  GlobalLT("Dueling_Gangers","AR0403",4)
+  Specifics(Myself,DUELER_2)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([0.0.0.0.0.0.DUELER_1])
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

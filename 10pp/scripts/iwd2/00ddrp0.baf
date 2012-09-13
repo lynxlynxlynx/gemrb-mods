@@ -1,0 +1,117 @@
+IF
+  !TimerActive(15)
+  NumCreatureGT([GOODCUTOFF.0.UNDEAD],1)
+  See([GOODCUTOFF.0.UNDEAD],0)
+THEN
+  RESPONSE #100
+    StartTimer(15,70)
+    Spell(LastMarkedObject,INNATE_TURN_UNDEAD)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !TimerActive(73)
+  RandomNumLT(99,20)
+  Or(2)
+    See([0.0.DROW],0)
+    See(NearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  !CheckSpellState(LastSeenBy(Myself),HELD)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+    PlaySequence(Myself,SHOOT)
+    SetInterrupt(FALSE)
+    Wait(1)
+    ReallyForceSpell(LastMarkedObject,INNATE_DRIDER_WEB)
+    StartTimer(73,6)
+    SetInterrupt(TRUE)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  HPPercentLT(Myself,51)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("12141103",Myself,SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+  Or(2)
+    See([0.0.DROW],0)
+    See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Or(2)
+    See([0.0.DROW],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("13031211",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_DISPEL_MAGIC
+      // CLERIC_SILENCE_15_RADIUS
+    MarkSpellAndObject("130423061608",LastMarkedObject,7)
+      // CLERIC_GLYPH_OF_WARDING
+      // WIZARD_HOLD_PERSON
+      // CLERIC_SOLS_SEARING_ORB
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("130423061608",LastMarkedObject,7)
+      // CLERIC_GLYPH_OF_WARDING
+      // WIZARD_HOLD_PERSON
+      // CLERIC_SOLS_SEARING_ORB
+    MarkSpellAndObject("13031211",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_DISPEL_MAGIC
+      // CLERIC_SILENCE_15_RADIUS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  Or(2)
+    See([0.0.DROW],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

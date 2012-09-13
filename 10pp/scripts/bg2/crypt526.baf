@@ -1,0 +1,62 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("UsedCrypt","AR0526",0)
+THEN
+  RESPONSE #100
+    SetGlobal("UsedCrypt","AR0526",1)
+    DisplayStringHead(Myself,35858)  // ~You feel very uneasy as you approach the sarcophagus. The lid looks heavy but you could remove it if you wish to.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("UsedCrypt","AR0526",1)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,37154)  // ~You push the heavy lid aside and the foul stench of rot nearly over comes. Strangely, nothing lies within but the gilded torso of a skeleton. Power surges and a creature appears.~
+    SetGlobal("UsedCrypt","AR0526",2)
+    CreateVisualEffect("SPRAISED",[426.701])
+    Wait(4)
+    CreateCreature("HLLICH",[426.701],10)  // ~Elemental Lich~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("UsedCrypt","AR0526",2)
+  !Dead("HLLICH")  // ~Elemental Lich~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,37449)  // ~The skeletal torso doesn't move when you pull on it. You may not remove it until the guardian is dead.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("UsedCrypt","AR0526",2)
+  Dead("HLLICH")  // ~Elemental Lich~
+THEN
+  RESPONSE #100
+    SetGlobal("UsedCrypt","AR0526",3)
+    DisplayStringHead(Myself,37450)  // ~When you touch the torso, a horrible feeling of weakness and despair brings you to your knees. With care, you use a cloth to place the torso in your pack.~
+    GiveItemCreate("miscay",LastTrigger,0,0,0)  // ~Golden Torso~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("UsedCrypt","AR0526",3)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,35864)  // ~The sarcophagus is now empty.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

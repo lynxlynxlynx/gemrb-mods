@@ -1,0 +1,11 @@
+IF
+  Entered([ANYONE])
+  Global("Chapter","GLOBAL",6)
+  GlobalGT("ShadowWork","GLOBAL",0)
+  Global("C6messSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("C6messSpawn","GLOBAL",1)
+    CreateCreature("C6MESS",[393.637],14)  // ~Shadow Thief~
+END
+

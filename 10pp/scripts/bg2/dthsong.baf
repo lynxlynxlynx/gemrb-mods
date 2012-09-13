@@ -1,0 +1,11 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(NearestEnemyOf(Myself),STATE_PANIC)
+  HaveSpell(HARPER_DEATH_SONG)
+THEN
+  RESPONSE #30
+    Spell(NearestEnemyOf(Myself),HARPER_DEATH_SONG)
+  RESPONSE #70
+    Continue()
+END
+

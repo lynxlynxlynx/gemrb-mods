@@ -1,0 +1,121 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("RemoveMagic","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRAGON_STONE_SKIN)
+    ForceSpell(Myself,WIZARD_HASTE)
+    ForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("StoneSkin","LOCALS",1)
+    SetGlobal("RemoveMagic","LOCALS",1)
+END
+
+IF
+  !Detect([PC])
+  HPLT(Myself,50)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveMagic","LOCALS",0)
+    SetGlobal("WingBuffet","LOCALS",0)
+    SetGlobal("Haste","LOCALS",0)
+    SetGlobal("DRAGONFEAR","LOCALS",0)
+    ForceSpell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DRAGONFEAR","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(NearestEnemyOf(Myself),DRAGON_FEAR)
+    SetGlobal("DRAGONFEAR","LOCALS",1)
+    SetGlobalTimer("BLACKDRAGONBREATH","GLOBAL",1)
+    SetGlobalTimer("bdFlapping","GLOBAL",1)
+    ForceSpell(LastSeenBy(Myself),DRAGON_WING_BUFFET)
+END
+
+IF
+  GlobalTimerExpired("BLACKDRAGONBREATH","GLOBAL")
+  GlobalTimerExpired("bdFlapping","GLOBAL")
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),11)
+  Global("WingBuffet","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),DRAGON_WING_BUFFET)
+    SetGlobalTimer("BLACKDRAGONBREATH","GLOBAL",2)
+    Wait(1)
+    SetGlobal("WingBuffet","LOCALS",1)
+  RESPONSE #30
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),10)
+  Range(LastSeenBy(Myself),17)
+  GlobalTimerExpired("BLACKDRAGONBREATH","GLOBAL")
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),BLACK_DRAGON_BREATH)
+    SetGlobal("WingBuffet","LOCALS",0)
+    SetGlobalTimer("BLACKDRAGONBREATH","GLOBAL",18)
+END
+
+IF
+  Global("WingBuffet","LOCALS",1)
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),10)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(Myself),60)
+    SetGlobal("WingBuffet","LOCALS",0)
+    SetGlobalTimer("BLACKDRAGONBREATH","GLOBAL",18)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Range(NearestEnemyOf(Myself),15)
+  Global("dbPlant","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("bdFlapping","GLOBAL",80)
+    ForceSpell(Myself,BLACK_DRAGON_PLANT)
+    SetGlobal("dbPlant","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("dbOffense1","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),BLACK_DRAGON_INSECT)
+    SetGlobal("dbOffense1","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),35)
+  RESPONSE #30
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

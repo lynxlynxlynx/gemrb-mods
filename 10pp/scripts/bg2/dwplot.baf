@@ -1,0 +1,27 @@
+IF
+  Die()
+  Global("udDemonHasDoneTheKill","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+END
+
+IF
+  Global("ADrowTimerHasExpired","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  GlobalLT("udDrowPlot","GLOBAL",30)
+  OR(2)
+    Global("DrowCityHostile","GLOBAL",1)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+    Enemy()
+    Continue()
+END
+

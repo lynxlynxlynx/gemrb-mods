@@ -1,0 +1,16 @@
+IF
+  GlobalTimerExpired("WOLF_BREATH","LOCALS")
+  !CreatureHidden(Myself)
+  Range(NearestEnemyOf(Myself),10,LESS_THAN)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BREATH","LOCALS",70)
+    ForceSpell(LastSeenBy(Myself),INNATE_WINTER_WOLF_BREATH)
+    Wait(2)
+  RESPONSE #100
+    SetGlobalTimer("WOLF_BREATH","LOCALS",5)
+    Continue()
+  RESPONSE #200
+    Continue()
+END
+

@@ -1,0 +1,62 @@
+IF
+  !TimerActive(18)
+  Global("52Aruma_Gone","GLOBAL",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,20710)  // ~"Something must be done about Aruma."~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,20711)  // ~"I do not trust Dolon."~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,20712)  // ~"For the first time, we require the help of outsiders..."~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #150
+    StartRandomTimer(18,5,10)
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  GlobalGT("52Aruma_Gone","GLOBAL",0)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,20719)  // ~"Our scouts are en route to the Severed Hand."~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,20720)  // ~"We will find out what's happened to the archimandrite shortly."~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,20727)  // ~"I wonder what has become of Aruma and Dolon..."~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #150
+    StartRandomTimer(18,5,10)
+    Continue()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  See([PC],0)
+THEN
+  RESPONSE #100
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(19,5)
+END
+

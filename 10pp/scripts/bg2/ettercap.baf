@@ -1,0 +1,20 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #60
+    SelectWeaponAbility(SLOT_WEAPON0,0)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+  RESPONSE #40
+    SelectWeaponAbility(SLOT_WEAPON1,0)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  ActionListEmpty()
+THEN
+  RESPONSE #40
+    SelectWeaponAbility(SLOT_WEAPON0,0)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

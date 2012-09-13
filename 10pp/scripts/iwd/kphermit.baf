@@ -1,0 +1,27 @@
+IF
+  !NumberOfTimesTalkedTo(0)
+  !LOS([PC],20)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Global("AR2000_INIT","GLOBAL",0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

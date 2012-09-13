@@ -1,0 +1,70 @@
+IF
+  Global("AR1005_GOBLINS_CLEAR","GLOBAL",0)
+  Dead([ENEMY.0.GOBLIN][0.0.10000.10000])  // 
+  Dead("Goblin_1")  // 
+  Dead("Goblin_2")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("AR1005_GOBLINS_CLEAR","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Dock_Goblin_Quest","GLOBAL",0)
+  !Global("AR1000_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1002_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1004_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1005_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1007_GOBLINS_CLEAR","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddXPVar("Level_2_Very_Hard",26671)  // ~You have cleared the Targos Docks of goblins. ~
+    SetGlobal("Dock_Goblin_Quest","GLOBAL",1)
+    AddJournalEntry(27866)
+    Continue()
+END
+
+IF
+  AreaRestDisabled()
+  !Global("AR1005_GOBLINS_CLEAR","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AllowAreaResting(TRUE)
+    Continue()
+END
+
+IF
+  Global("TARGOS_HOSTILE","GLOBAL",0)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TARGOS_HOSTILE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_0","MYAREA",0)
+  !Global("TARGOS_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

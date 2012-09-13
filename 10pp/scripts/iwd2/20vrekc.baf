@@ -1,0 +1,30 @@
+IF
+  Global("SwordTaken","LOCALS",0)
+  !HasItem("00swdL09","Container_1")  // ~Moonblade of Selune~
+THEN
+  RESPONSE #100
+    SetGlobal("SwordTaken","LOCALS",1)
+    Enemy()
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  !Allegiance(Myself,ENEMY)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

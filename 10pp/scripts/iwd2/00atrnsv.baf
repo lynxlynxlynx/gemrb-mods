@@ -1,0 +1,9 @@
+IF
+  !TimerActive(19)
+  !IsFacingSavedRotation(Myself)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(19,5)
+END
+

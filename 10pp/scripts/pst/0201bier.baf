@@ -1,0 +1,11 @@
+IF
+  TriggerClick()
+  Global("Deio_Wake_Up","GLOBAL",0)
+  NearLocation([PC][1070.1040.400.-1],[1070.1040],15)
+THEN
+  RESPONSE #25
+    Activate("DeionS")
+    GlobalSet("Deio_Wake_Up","GLOBAL",1)
+    BitClear("0201_Status","AR0201",3)
+END
+

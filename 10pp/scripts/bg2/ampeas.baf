@@ -1,0 +1,65 @@
+IF
+  OR(2)
+    Global("Enclave","GLOBAL",2)
+    Dead("balth")  // ~Balthazar~
+  !Name("ambar01",Myself)
+  !Name("amwenc01",Myself)
+  !Name("amsmith",Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See([ENEMY])
+  !Class(LastSeenBy(Myself),KOBOLD)
+  Class(Myself,INNOCENT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(Myself),30)
+END
+
+IF
+  See([GOODCUTOFF])
+  ReputationLT(LastSeenBy(Myself),6)
+  Range(LastSeenBy(Myself),30)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(Myself),30)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),150)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastAttackerOf(Myself),150)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  OR(2)
+    !Detect(NearestEnemyOf(Myself))
+    !Range(NearestEnemyOf(Myself),50)
+  !See([ENEMY])
+  !HPPercentLT(Myself,100)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+

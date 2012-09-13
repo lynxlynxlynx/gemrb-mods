@@ -1,0 +1,278 @@
+IF
+  OnCreation()
+  Global("HideFalseDoors","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HideFalseDoors","AR1202",1)
+    TriggerActivation("FD09",FALSE)
+    TriggerActivation("FD05",FALSE)
+    TriggerActivation("FD25",FALSE)
+    TriggerActivation("FD26",FALSE)
+    TriggerActivation("FD27",FALSE)
+    TriggerActivation("FD18",FALSE)
+END
+
+IF
+  OpenState("DOOR09",FALSE)  // DOOR09
+  Global("Door9Trigger","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Door9Trigger","AR1202",1)
+    TriggerActivation("FD09",FALSE)
+END
+
+IF
+  OpenState("DOOR05",FALSE)  // DOOR05
+  Global("Door5Trigger","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Door5Trigger","AR1202",1)
+    TriggerActivation("FD05",FALSE)
+END
+
+IF
+  OpenState("DOOR25",FALSE)  // DOOR25
+  Global("Door25Trigger","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Door25Trigger","AR1202",1)
+    TriggerActivation("FD25",FALSE)
+END
+
+IF
+  OpenState("DOOR26",FALSE)  // DOOR26
+  Global("Door26Trigger","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Door26Trigger","AR1202",1)
+    TriggerActivation("FD26",FALSE)
+END
+
+IF
+  OpenState("DOOR27",FALSE)  // DOOR27
+  Global("Door27Trigger","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Door27Trigger","AR1202",1)
+    TriggerActivation("FD27",FALSE)
+END
+
+IF
+  OpenState("DOOR18",FALSE)  // DOOR18
+  Global("Door18Trigger","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Door18Trigger","AR1202",1)
+    TriggerActivation("FD18",FALSE)
+END
+
+IF
+  Global("DragonWell","AR1202",2)
+  Global("DeactivateAirElemental","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DeactivateAirElemental","AR1202",1)
+    Wait(3)
+    TriggerActivation("Elementaltrigger",FALSE)
+END
+
+IF
+  Global("PlayerToldOfSamia","GLOBAL",1)
+  Global("CreateLens","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CreateLens","AR1202",1)
+    ActionOverride("samia",CreateItem("c6lens",0,0,0))  // ~Lens Piece~
+END
+
+IF
+  Dead("samia")  // ~Samia~
+  Global("FinishedLensPlot","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FinishedLensPlot","AR1202",1)
+    IncrementGlobal("LensPlot","GLOBAL",1)
+END
+
+IF
+  Gender(Player1,FEMALE)
+  Global("Kidnap","GLOBAL",3)
+  Global("ddPlacedChild","AR1202",0)
+THEN
+  RESPONSE #100
+    CreateCreature("garkid02",[2381.696],2)  // ~Taar~
+    ActionOverride("garkid02",SetNumTimesTalkedTo(1))
+    SetGlobal("ddPlacedChild","AR1202",1)
+END
+
+IF
+  Gender(Player1,MALE)
+  Global("Kidnap","GLOBAL",3)
+  Global("ddPlacedChild","AR1202",0)
+THEN
+  RESPONSE #100
+    CreateCreature("garkid01",[2381.696],2)  // ~Iltha~
+    ActionOverride("garkid01",SetNumTimesTalkedTo(1))
+    SetGlobal("ddPlacedChild","AR1202",1)
+END
+
+IF
+  GlobalGT("ElementalSpawn","GLOBAL",0)
+  GlobalLT("ElementalSpawn","GLOBAL",4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ElementalSpawn","GLOBAL",1)
+    CreateCreature("ELAIR01",[1271.1290],14)  // ~Air Elemental~
+    Wait(18)
+END
+
+IF
+  PartyHasItem("KEY14")  // ~Piece of Burial Mask~
+  PartyHasItem("KEY15")  // ~Piece of Burial Mask~
+  PartyHasItem("KEY16")  // ~Piece of Burial Mask~
+  PartyHasItem("KEY17")  // ~Piece of Burial Mask~
+  PartyHasItem("KEY18")  // ~Piece of Burial Mask~
+  PartyHasItem("KEY19")  // ~Piece of Burial Mask~
+  Global("FormedMask","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FormedMask","AR1202",1)
+    DisplayString(Myself,33520)  // ~You are able to reconstruct the burial mask, having found all six of the pieces.~
+    TakePartyItem("KEY14")
+    TakePartyItem("KEY15")
+    TakePartyItem("KEY16")
+    TakePartyItem("KEY17")
+    TakePartyItem("KEY18")
+    TakePartyItem("KEY19")
+    AddexperienceParty(24550)
+    AddJournalEntry(43045,QUEST)
+    GiveItemCreate("KEY20",Player1,0,0,0)  // ~Mask of King Strohm III~
+END
+
+IF
+  Dead("DDGUARD7")  // ~Guardian~
+  Global("TombDoor","AR1202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TombDoor","AR1202",1)
+    EraseJournalEntry(43045)  // ~King Strohm's MaskWe have discovered all of the six pieces of King Strohm's burial mask, finally.  All the pieces were brought to me and I have re-assembled the mask, myself.  Finding out exactly what to *do* with it may be another matter.~
+    Unlock("Door14")
+END
+
+IF
+  OR(2)
+    PartyHasItem("SW1H32")  // ~Dragonslayer~
+    PartyHasItem("SHLD21")  // ~Dragon Scale Shield +2~
+  Global("SpawnSamia","AR1202",0)
+  !Dead("Samia")  // ~Samia~
+  Global("SamiaPreempted","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnSamia","AR1202",1)
+    ActionOverride("Samia",JumpToPoint([3437.418]))
+END
+
+IF
+  OR(2)
+    PartyHasItem("SW1H32")  // ~Dragonslayer~
+    PartyHasItem("SHLD21")  // ~Dragon Scale Shield +2~
+  Global("SpawnSamiaFriends","AR1202",0)
+  !Dead("Samia")  // ~Samia~
+  Global("SamiaPreempted","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnSamiaFriends","AR1202",1)
+    CreateCreature("Akae",[3481.433],10)  // ~Akae~
+    CreateCreature("Kaol",[3359.438],11)  // ~Kaol~
+    CreateCreature("Chak",[3405.485],10)  // ~Chak~
+    CreateCreature("Legdor",[3360.543],13)  // ~Legdoril~
+    CreateCreature("Deshar",[3305.492],9)  // ~Ferric Ironblade~
+END
+
+IF
+  Global("Firmag01Move","GLOBAL",1)
+  Global("SpawnFirmag01","AR1202",0)
+  !Dead("firmag01")  // ~Conster~
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnFirmag01","AR1202",1)
+    CreateCreature("FIRMAG01",[2044.683],2)  // ~Conster~
+    ActionOverride("firmag01",ChangeAIScript("shoutdlg",OVERRIDE))
+    ActionOverride("firmag01",Enemy())
+END
+
+IF
+  Global("HobSpawn1","AR1202",1)
+THEN
+  RESPONSE #100
+    SetGlobal("HobSpawn1","AR1202",2)
+    OpenDoor("Door36")
+    CreateCreature("HOBWAR01",[2512.2549],4)  // ~Hobgoblin Warrior~
+    CreateCreature("HOBWAR01",[2476.2541],0)  // ~Hobgoblin Warrior~
+    CreateCreature("HOBCAP01",[2528.2475],4)  // ~Hobgoblin Captain~
+    ActionOverride("HobgoblinLeader",MoveToPointNoInterrupt([2685.2393]))
+    ActionOverride("HOBWAR01",MoveToPointNoInterrupt([2644.2404]))
+    ActionOverride("HOBWAR01",MoveToPointNoInterrupt([2620.2393]))
+    Wait(1)
+    CreateCreature("HOBARC01",[2465.2535],4)  // ~Hobgoblin Archer~
+    CreateCreature("HOBARC02",[2486.2557],4)  // ~Hobgoblin Archer~
+    CreateCreature("HOBWIZ01",[2503.2490],4)  // ~Hobgoblin Wizard~
+    CreateCreature("HOBSHA01",[2529.2514],4)  // ~Hobgoblin Shaman~
+    ActionOverride("HOBARC01",MoveToPointNoInterrupt([2607.2452]))
+    ActionOverride("HOBARC02",MoveToPointNoInterrupt([2536.2363]))
+    ActionOverride("HOBWIZ01",MoveToPointNoInterrupt([2558.2416]))
+    ActionOverride("HOBSHA01",MoveToPointNoInterrupt([2631.2415]))
+END
+
+IF
+  Global("LensNumber","GLOBAL",0)
+  NumItemsParty("c6lens",1)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",1)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+
+IF
+  Global("LensNumber","GLOBAL",1)
+  NumItemsParty("c6lens",2)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",2)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+
+IF
+  Global("LensNumber","GLOBAL",2)
+  NumItemsParty("c6lens",3)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",3)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+
+IF
+  Dead("firkraag")  // firkraag
+  Global("PaladinPlot","GLOBAL",60)
+  Global("PaladinJournal","AR1200",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PaladinJournal","AR1200",1)
+    AddJournalEntry(61437,QUEST)
+END
+

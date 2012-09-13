@@ -1,0 +1,17 @@
+IF
+  !TimerActive(1)
+  RandomNum(19,0)
+  Range([PC],20)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

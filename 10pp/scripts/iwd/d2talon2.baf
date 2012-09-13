@@ -1,0 +1,70 @@
+IF
+  HaveSpell(CLERIC_PRAYER)
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Spell(Myself,CLERIC_PRAYER)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_HOLD_PERSON)
+  See([PC])
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Help()
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_RADIUS)
+  See("EGENIA")  // ~Priest of Ilmater~
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    Help()
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_RADIUS)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_HOLD_PERSON)
+  See([PC.0.0.PALADIN])
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Help()
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

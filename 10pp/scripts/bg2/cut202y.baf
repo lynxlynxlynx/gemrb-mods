@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(2)
+    LeaveAreaLUAPanic("AR3000","",[987.2005],14)
+    LeaveAreaLUA("AR3000","",[987.2005],14)
+    ActionOverride(Player2,LeaveAreaLUA("AR3000","",[939.2012],14))
+    ActionOverride(Player3,LeaveAreaLUA("AR3000","",[956.1961],14))
+    ActionOverride(Player4,LeaveAreaLUA("AR3000","",[915.1964],14))
+    ActionOverride(Player5,LeaveAreaLUA("AR3000","",[914.1911],14))
+    ActionOverride(Player6,LeaveAreaLUA("AR3000","",[875.1913],14))
+    Wait(2)
+    MultiPlayerSync()
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+END
+

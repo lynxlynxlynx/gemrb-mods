@@ -1,0 +1,11 @@
+IF
+  Global("Move","LOCALS",0)
+THEN
+  RESPONSE #100
+    Unlock("DOOR05")
+    OpenDoor("DOOR05")
+    TriggerActivation("Coffin1",TRUE)
+    SetGlobal("Move","LOCALS",1)
+    EscapeArea()
+END
+

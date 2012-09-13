@@ -1,0 +1,16 @@
+IF
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,INNATE_INVISIBILITY_NO_FEEDBACK)
+    Wait(1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

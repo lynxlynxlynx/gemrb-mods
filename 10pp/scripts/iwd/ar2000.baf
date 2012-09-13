@@ -1,0 +1,24 @@
+IF
+  Global("AR2000_INIT","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AR2000_INIT","GLOBAL",1)
+    SaveGame(0)
+END
+
+IF
+  Global("CHICKEN_ALL_DEAD","MYAREA",0)
+  !Exists([0.0.CHICKEN][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetGlobal("CHICKEN_ALL_DEAD","MYAREA",1)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,30 @@
+IF
+  WalkedToTrigger([ANYONE])
+  PartyHasItem("PLOT01B")  // ~Vigil Stone~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut202y")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !PartyHasItem("PLOT01B")  // ~Vigil Stone~
+  !GlobalTimerNotExpired("Entrance3000Timer","AR3017")
+THEN
+  RESPONSE #100
+    DisplayString(Myself,64106)  // ~You try to leave the temple, but are pushed back by some invisible force.  It appears that you require something in order to pass.~
+    SetGlobalTimer("Entrance3000Timer","AR3017",10)
+    ClearActions(LastTrigger)
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !PartyHasItem("PLOT01B")  // ~Vigil Stone~
+  GlobalTimerNotExpired("Entrance3000Timer","AR3017")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

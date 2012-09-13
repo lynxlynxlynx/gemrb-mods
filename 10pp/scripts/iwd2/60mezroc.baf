@@ -1,0 +1,56 @@
+IF
+  AttackedBy([ANYONE],0)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Continue()
+END
+
+IF
+  Range(NearestEnemyOf(Myself),2,GREATER_THAN)
+  !OutOfAmmo()
+THEN
+  RESPONSE #100
+    EquipRanged()
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !TimerActive(22)
+  !NearSavedLocation(4)
+  !Allegiance(Myself,ENEMY)
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(22,10)
+END
+
+IF
+  !TimerActive(23)
+  !IsFacingSavedRotation(Myself)
+  !Allegiance(Myself,ENEMY)
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(23,10)
+END
+

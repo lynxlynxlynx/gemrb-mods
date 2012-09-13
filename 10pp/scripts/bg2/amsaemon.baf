@@ -1,0 +1,82 @@
+IF
+  AreaCheck("AR5500")
+  Global("Enclave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    ActionOverride("AMMERC01",DestroySelf())
+    ActionOverride("AMMERC02",DestroySelf())
+    DestroySelf()
+END
+
+IF
+  Global("SaemonLeave","GLOBAL",1)
+  Global("Enclave","GLOBAL",2)
+  AreaCheck("AR5504")
+THEN
+  RESPONSE #100
+    SetGlobal("SaemonLeave","GLOBAL",2)
+    DestroySelf()
+END
+
+IF
+  AreaCheck("AR5504")
+  Global("Enclave","GLOBAL",2)
+  Global("PlaceBodies","AR5504",1)
+  OR(2)
+    See([PC])
+    See(Player1)
+  Global("TalkInCave","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TalkInCave","LOCALS",1)
+    SetGlobal("Attacked","LOCALS",0)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  OR(2)
+    HPPercentLT(Myself,100)
+    AttackedBy([ANYONE],DEFAULT)
+  AreaCheck("AR5500")
+  Allegiance(Myself,NEUTRAL)
+  Global("Attacked","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    SetGlobal("SaemonPlot","GLOBAL",1)
+    ActionOverride("AMMERC01",Enemy())
+    ActionOverride("AMMERC02",Enemy())
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(2)
+    HPPercentLT(Myself,100)
+    AttackedBy([ANYONE],DEFAULT)
+  AreaCheck("AR5500")
+  Allegiance(Myself,NEUTRAL)
+  Global("Attacked","LOCALS",0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    SetGlobal("SaemonPlot","GLOBAL",1)
+    ActionOverride("AMMERC01",Enemy())
+    ActionOverride("AMMERC02",Enemy())
+    EscapeArea()
+END
+
+IF
+  OR(2)
+    HPPercentLT(Myself,100)
+    AttackedBy([ANYONE],DEFAULT)
+  !AreaCheck("AR5500")
+  Allegiance(Myself,NEUTRAL)
+  Global("Attacked","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

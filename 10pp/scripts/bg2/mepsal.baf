@@ -1,0 +1,27 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("saltmephitcombat","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_SALT_CRYSTAL)
+    IncrementGlobal("saltmephitcombat","LOCALS",1)
+END
+
+IF
+  Delay(10)
+  See(NearestEnemyOf(Myself))
+  GlobalLT("saltmephitcombat","LOCALS",3)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_SALT_CRYSTAL)
+    IncrementGlobal("saltmephitcombat","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

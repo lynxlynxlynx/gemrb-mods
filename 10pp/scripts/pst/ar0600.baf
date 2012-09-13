@@ -1,0 +1,790 @@
+IF
+  TimeGT(DUSK_START)
+  Global("Spawn_Shadows","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Shadows","GLOBAL",1)
+    Continue()
+END
+
+IF
+  TimeLT(DAWN_START)
+  Global("Spawn_Shadows","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Shadows","GLOBAL",1)
+    Continue()
+END
+
+IF
+  TimeGT(5)
+  TimeLT(DUSK_END)
+  Global("Spawn_Shadows","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Shadows","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",600)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",600)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0600_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0600_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !TimerActive(11)
+  BitCheck("0600_Status","AR0600",BIT10)
+THEN
+  RESPONSE #100
+    BitClear("0600_Status","AR0600",BIT10)
+    Continue()
+END
+
+IF
+  Global("Call_MK","GLOBAL",1)
+  !BitCheck("0600_Status","AR0600",BIT10)
+  Exists([0.0.0.0.0.0.PERSON_36][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_37][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_38][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_39][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_40][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    BitSet("0600_Status","AR0600",BIT10)
+    GlobalSet("Call_MK","GLOBAL",0)
+    StartTimer(11,30)
+    Continue()
+END
+
+IF
+  BitCheck("0600_Status","AR0600",BIT12)
+THEN
+  RESPONSE #100
+    Wait(1)
+    CloseDoor("ar0600d4")
+    BitClear("0600_Status","AR0600",BIT12)
+END
+
+IF
+  !Dead("Dilignc")  // ~Clerk's Ward Citizen~
+  GlobalTimerExpired("0600_Dilg","AR0600")
+  BitCheck("0600_Status","AR0600",BIT4)
+  BitCheck("0600_Status","AR0600",BIT3)
+THEN
+  RESPONSE #100
+    OpenDoor("ar0600d4")
+    CreateCreature("Dilignc",[815.2863])  // ~Clerk's Ward Citizen~
+    CreateCreature("HBDYGrd",[815.2863])  // ~Harmonium Officer~
+    BitClear("0600_Status","AR0600",BIT4)
+    Wait(1)
+    CloseDoor("ar0600d4")
+    Continue()
+END
+
+IF
+  !Dead("Dilignc")  // ~Clerk's Ward Citizen~
+  GlobalTimerExpired("0600_Dilg","AR0600")
+  BitCheck("0600_Status","AR0600",BIT4)
+  !BitCheck("0600_Status","AR0600",BIT3)
+THEN
+  RESPONSE #100
+    CreateCreature("Dilignc",[28.1175])  // ~Clerk's Ward Citizen~
+    CreateCreature("HBDYGrd",[28.1175])  // ~Harmonium Officer~
+    BitClear("0600_Status","AR0600",BIT4)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("Rail_Break_1","AR0600")
+  Global("0600_Type_Creature","AR0600",1)
+  !Global("Rail_Break_1","AR0600",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushM1",[900.676])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("Rail_Break_1","AR0600")
+  Global("0600_Type_Creature","AR0600",2)
+  !Global("Rail_Break_1","AR0600",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushM2",[900.676])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("Rail_Break_1","AR0600")
+  Global("0600_Type_Creature","AR0600",3)
+  !Global("Rail_Break_1","AR0600",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushF1",[900.676])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("Rail_Break_1","AR0600")
+  Global("0600_Type_Creature","AR0600",4)
+  !Global("Rail_Break_1","AR0600",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushF2",[900.676])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("Rail_Break_1","AR0600")
+  Global("0600_Type_Creature","AR0600",5)
+  !Global("Rail_Break_1","AR0600",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushB1",[900.676])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("Rail_Break_1","AR0600")
+  Global("0600_Type_Creature","AR0600",6)
+  !Global("Rail_Break_1","AR0600",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushB2",[900.676])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(3)
+  TimeOfDay(DAY)
+  Global("0600_Rail_1","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,30)
+    GlobalSet("0600_Type_Creature","AR0600",1)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushM1",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,30)
+    GlobalSet("0600_Type_Creature","AR0600",2)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushM2",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,30)
+    GlobalSet("0600_Type_Creature","AR0600",3)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushF1",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,30)
+    GlobalSet("0600_Type_Creature","AR0600",4)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushF2",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,30)
+    GlobalSet("0600_Type_Creature","AR0600",5)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushB1",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,30)
+    GlobalSet("0600_Type_Creature","AR0600",6)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushB2",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(3)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_1","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,60)
+    GlobalSet("0600_Type_Creature","AR0600",1)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushM1",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,60)
+    GlobalSet("0600_Type_Creature","AR0600",2)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushM2",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,60)
+    GlobalSet("0600_Type_Creature","AR0600",3)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushF1",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,60)
+    GlobalSet("0600_Type_Creature","AR0600",4)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushF2",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,60)
+    GlobalSet("0600_Type_Creature","AR0600",5)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushB1",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_1","AR0600",1)
+    StartTimer(3,60)
+    GlobalSet("0600_Type_Creature","AR0600",6)
+    GlobalSet("Rail_Break_1","AR0600",0)
+    CreateCreature("CWRushB2",[266.1067])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(4)
+  TimeOfDay(DAY)
+  Global("0600_Rail_2","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,30)
+    CreateCreature("CWRushM1",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,30)
+    CreateCreature("CWRushM2",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,30)
+    CreateCreature("CWRushF1",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,30)
+    CreateCreature("CWRushF2",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,30)
+    CreateCreature("CWRushB1",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,30)
+    CreateCreature("CWRushB2",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(4)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_2","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,60)
+    CreateCreature("CWRushM1",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,60)
+    CreateCreature("CWRushM2",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,60)
+    CreateCreature("CWRushF1",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,60)
+    CreateCreature("CWRushF2",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,60)
+    CreateCreature("CWRushB1",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_2","AR0600",1)
+    StartTimer(4,60)
+    CreateCreature("CWRushB2",[3064.780])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(5)
+  TimeOfDay(DAY)
+  Global("0600_Rail_3","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,30)
+    CreateCreature("CWRushM1",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,30)
+    CreateCreature("CWRushM2",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,30)
+    CreateCreature("CWRushF1",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,30)
+    CreateCreature("CWRushF2",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,30)
+    CreateCreature("CWRushB1",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,30)
+    CreateCreature("CWRushB2",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(5)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_3","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,60)
+    CreateCreature("CWRushM1",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,60)
+    CreateCreature("CWRushM2",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,60)
+    CreateCreature("CWRushF1",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,60)
+    CreateCreature("CWRushF2",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,60)
+    CreateCreature("CWRushB1",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_3","AR0600",1)
+    StartTimer(5,60)
+    CreateCreature("CWRushB2",[3068.3014])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(6)
+  TimeOfDay(DAY)
+  Global("0600_Rail_4","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,30)
+    CreateCreature("CWRushM1",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,30)
+    CreateCreature("CWRushM2",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,30)
+    CreateCreature("CWRushF1",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,30)
+    CreateCreature("CWRushF2",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,30)
+    CreateCreature("CWRushB1",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,30)
+    CreateCreature("CWRushB2",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(6)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_4","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,60)
+    CreateCreature("CWRushM1",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,60)
+    CreateCreature("CWRushM2",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,60)
+    CreateCreature("CWRushF1",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,60)
+    CreateCreature("CWRushF2",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,60)
+    CreateCreature("CWRushB1",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_4","AR0600",1)
+    StartTimer(6,30)
+    CreateCreature("CWRushB2",[3114.2281])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(7)
+  TimeOfDay(DAY)
+  Global("0600_Rail_5","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,30)
+    CreateCreature("CWRushM1",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,30)
+    CreateCreature("CWRushM2",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,30)
+    CreateCreature("CWRushF1",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,30)
+    CreateCreature("CWRushF2",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,30)
+    CreateCreature("CWRushB1",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,30)
+    CreateCreature("CWRushB2",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(7)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_5","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,60)
+    CreateCreature("CWRushM1",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,60)
+    CreateCreature("CWRushM2",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,60)
+    CreateCreature("CWRushF1",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,60)
+    CreateCreature("CWRushF2",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,60)
+    CreateCreature("CWRushB1",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_5","AR0600",1)
+    StartTimer(7,60)
+    CreateCreature("CWRushB2",[105.1302])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(8)
+  TimeOfDay(DAY)
+  Global("0600_Rail_6","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,30)
+    CreateCreature("CWRushM1",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,30)
+    CreateCreature("CWRushM2",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,30)
+    CreateCreature("CWRushF1",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,30)
+    CreateCreature("CWRushF2",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,30)
+    CreateCreature("CWRushB1",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,30)
+    CreateCreature("CWRushB2",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(8)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_6","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,60)
+    CreateCreature("CWRushM1",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,60)
+    CreateCreature("CWRushM2",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,60)
+    CreateCreature("CWRushF1",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,60)
+    CreateCreature("CWRushF2",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,60)
+    CreateCreature("CWRushB1",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_6","AR0600",1)
+    StartTimer(8,60)
+    CreateCreature("CWRushB2",[2014.2525])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(9)
+  TimeOfDay(DAY)
+  Global("0600_Rail_7","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,30)
+    CreateCreature("CWRushM1",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,30)
+    CreateCreature("CWRushM2",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,30)
+    CreateCreature("CWRushF1",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,30)
+    CreateCreature("CWRushF2",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,30)
+    CreateCreature("CWRushB1",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,30)
+    CreateCreature("CWRushB2",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(9)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_7","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,60)
+    CreateCreature("CWRushM1",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,60)
+    CreateCreature("CWRushM2",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,60)
+    CreateCreature("CWRushF1",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,60)
+    CreateCreature("CWRushF2",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,60)
+    CreateCreature("CWRushB1",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_7","AR0600",1)
+    StartTimer(9,60)
+    CreateCreature("CWRushB2",[1583.1508])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(10)
+  TimeOfDay(DAY)
+  Global("0600_Rail_8","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,30)
+    CreateCreature("CWRushM1",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,30)
+    CreateCreature("CWRushM2",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,30)
+    CreateCreature("CWRushF1",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,30)
+    CreateCreature("CWRushF2",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,30)
+    CreateCreature("CWRushB1",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,30)
+    CreateCreature("CWRushB2",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+
+IF
+  !TimerActive(10)
+  TimeOfDay(NIGHT)
+  Global("0600_Rail_8","AR0600",0)
+THEN
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,60)
+    CreateCreature("CWRushM1",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,60)
+    CreateCreature("CWRushM2",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,60)
+    CreateCreature("CWRushF1",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #2
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,60)
+    CreateCreature("CWRushF2",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,60)
+    CreateCreature("CWRushB1",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+  RESPONSE #1
+    GlobalSet("0600_Rail_8","AR0600",1)
+    StartTimer(10,60)
+    CreateCreature("CWRushB2",[1580.1461])  // ~Clerk's Ward Citizen~
+    Continue()
+END
+

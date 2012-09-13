@@ -1,0 +1,29 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Wait(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeAIScript("0704ber1",DEFAULT)
+END
+

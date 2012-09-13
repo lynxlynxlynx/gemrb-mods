@@ -1,0 +1,11 @@
+IF
+  Detect([PC])
+  Global("SpeakOnSight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpeakOnSight","LOCALS",1)
+    Face(0)
+    Wait(1)
+    DisplayStringHead(Myself,71546)  // ~Intruders trying to flee the city!  How did they get past the magical barrier!?~
+END
+

@@ -1,0 +1,12 @@
+IF
+  Global("MOVED_TO_NEW_LOC","LOCALS",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetStartPos([3365.1015])
+    SetSavedLocationPoint(3365,1015,NW)
+    JumpToPoint([3365.1015])
+    Face(NW)
+    SetGlobal("MOVED_TO_NEW_LOC","LOCALS",1)
+END
+

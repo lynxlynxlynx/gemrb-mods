@@ -1,0 +1,19 @@
+IF
+  Global("Tirdirplaydead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Tirdirplaydead","GLOBAL",1)
+    PlayDead(3)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("Tirdirplaydead","GLOBAL",1)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Tirdirplaydead","GLOBAL",2)
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

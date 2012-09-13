@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    AmbientActivate("AMB_Arm1",TRUE)
+    StaticSequence("AMB_Arm1",1)
+    AmbientActivate("AMB_Arm1",TRUE)
+    StaticSequence("AMB_Arm1",1)
+    AmbientActivate("AMB_Arm3",TRUE)
+    StaticSequence("AMB_Arm3",3)
+    AmbientActivate("AMB_Arm4",TRUE)
+    StaticSequence("AMB_Arm4",3)
+    CreateCreature("CUTSPY",[3380.2149],14)  // <Invalid Strref -1>
+    CreateCreature("GORGITC1",[3479.2100],2)  // ~Githyanki~
+    CreateCreature("GORGITC2",[3562.2125],2)  // ~Githyanki~
+    CreateCreature("GORGITC3",[3521.2022],2)  // ~Githyanki~
+    CreateCreature("GORGITC4",[3431.2001],2)  // ~Githyanki~
+    CreateCreature("GORMINC1",[3321.2221],10)  // ~Mind Flayer~
+    CreateCreature("GORMINC2",[3397.2277],10)  // ~Mind Flayer~
+    CreateCreature("GORMINC3",[3223.2237],10)  // ~Mind Flayer~
+    CreateCreature("GORMINC4",[3252.2335],10)  // ~Mind Flayer~
+    StartCutScene("cut207b")
+END
+

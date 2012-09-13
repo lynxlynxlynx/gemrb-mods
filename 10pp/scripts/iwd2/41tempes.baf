@@ -1,0 +1,155 @@
+IF
+  Global("41TempestDieRequest","MYAREA",1)
+  See(Player1,0)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([1050.800]))
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",1)
+  See(Player2,0)
+THEN
+  RESPONSE #100
+    ActionOverride(Player2,JumpToPoint([1050.800]))
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",1)
+  See(Player3,0)
+THEN
+  RESPONSE #100
+    ActionOverride(Player3,JumpToPoint([1050.800]))
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",1)
+  See(Player4,0)
+THEN
+  RESPONSE #100
+    ActionOverride(Player4,JumpToPoint([1050.800]))
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",1)
+  See(Player5,0)
+THEN
+  RESPONSE #100
+    ActionOverride(Player5,JumpToPoint([1050.800]))
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",1)
+  See(Player6,0)
+THEN
+  RESPONSE #100
+    ActionOverride(Player6,JumpToPoint([1050.800]))
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",1)
+THEN
+  RESPONSE #100
+    Wait(1)
+    SetDialog("")
+    CloseDoor("AR4102_Door9")
+    CloseDoor("AR4102_Door10")
+    Lock("AR4102_Door10")
+    ReallyForceSpell(Protagonist,WIZARD_CHAIN_LIGHTNING)
+    ReallyForceSpell(Myself,CLERIC_WHIRLWIND)
+    TriggerActivation("Altar",FALSE)
+    HideCreature(Myself,TRUE)
+    SetGlobal("CagedFury_dead","GLOBAL",1)
+    StartTimer(100,30)
+    SetGlobal("41TempestDieRequest","MYAREA",2)
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",2)
+  OpenState("AR4102_Door9",FALSE)  // AR4102_Door9
+THEN
+  RESPONSE #100
+    TriggerActivation("ShadowTrap",TRUE)
+    Lock("AR4102_Door9")
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",2)
+  OpenState("AR4102_Door9",TRUE)  // AR4102_Door9
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Door9")
+    Continue()
+END
+
+IF
+  Global("41TempestDieRequest","MYAREA",2)
+  !TimerActive(100)
+THEN
+  RESPONSE #100
+    SetGlobal("41TempestDieRequest","MYAREA",0)
+    SetGlobal("TEAM_6","MYAREA",1)
+    HideCreature("06_Postulant_01",FALSE)
+    HideCreature("06_Frosttouch_02",FALSE)
+    HideCreature("06_Stormsister_03",FALSE)
+    HideCreature("06_Wolf_04",FALSE)
+    HideCreature("06_Bear_05",FALSE)
+    HideCreature("06_Barbarian_Warrior_06",FALSE)
+    Unlock("AR4102_Door9")
+    Unlock("AR4102_Door10")
+    OpenDoor("AR4102_Door9")
+    OpenDoor("AR4102_Door10")
+    TriggerActivation("ShadowTrap",FALSE)
+    DestroySelf()
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("41ZackTask","GLOBAL",7)
+  !TimerActive(100)
+  Or(6)
+    See(Player1,0)
+    See(Player2,0)
+    See(Player3,0)
+    See(Player4,0)
+    See(Player5,0)
+    See(Player6,0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(75)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Global("AlreadyTalked","LOCALS",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(75)
+    SetGlobal("AlreadyTalked","LOCALS",1)
+    SetGlobal("41PlayerSawBottomAltar","GLOBAL",1)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Global("AlreadyTalked","LOCALS",1)
+  !Global("41ZackTask","GLOBAL",7)
+  !See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("AlreadyTalked","LOCALS",0)
+    Continue()
+END
+

@@ -1,0 +1,9 @@
+IF
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,29192)  // ~"Death to Kuldahar and all who defy the will of the Cold Goddess!"~
+    SetGlobal("41SaidPainting1","GLOBAL",1)
+    ChangeCurrentScript("")
+END
+

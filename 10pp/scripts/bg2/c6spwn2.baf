@@ -1,0 +1,12 @@
+IF
+  Entered([ANYONE])
+  Global("Chapter","GLOBAL",6)
+  Global("SquireSpawn","AR0903",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SquireSpawn","AR0903",1)
+    CreateCreature("C6SQUIRE",[1725.1485],14)  // ~Squire Cathras~
+    ActionOverride("c6squire",OpenDoor("DOOR07"))
+    ActionOverride("c6squire",MoveToPoint([1784.1536]))
+END
+

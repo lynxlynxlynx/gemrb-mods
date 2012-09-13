@@ -1,0 +1,70 @@
+IF
+  !Global("Acid_Room_Armed","MYAREA",0)
+  Or(2)
+    CheckDoorFlags("AR6051_Acid_Art",DOOROPEN)  // AR6051_Acid_Art
+    CheckDoorFlags("AR6051_Acid_Switch",DOOROPEN)  // AR6051_Acid_Switch
+THEN
+  RESPONSE #100
+    CloseDoor("AR6051_Acid_Art")
+    CloseDoor("AR6051_Acid_Switch")
+END
+
+IF
+  Global("Acid_Room_Armed","MYAREA",0)
+  Global("Acid_Room_Active","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Acid_Room_Active","MYAREA",0)
+    CloseDoor("AR6051_Acid_Art")
+    CloseDoor("AR6051_Acid_Switch")
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+    Wait(7)
+END
+
+IF
+  Global("Acid_Room_Armed","MYAREA",0)
+  GlobalGT("Acid_Room_Active","MYAREA",1)
+THEN
+  RESPONSE #100
+    OpenDoor("AR6051_Acid_Art")
+    OpenDoor("AR6051_Acid_Switch")
+    ForceSpellPoint([2350.1960],TRAP_ACID_BATH)
+    ForceSpellPoint([2430.1866],TRAP_ACID_BATH)
+    ForceSpellPoint([2430.2004],TRAP_ACID_BATH)
+    ForceSpellPoint([2469.1931],TRAP_ACID_BATH)
+    ForceSpellPoint([2504.2026],TRAP_ACID_BATH)
+    ForceSpellPoint([2506.1769],TRAP_ACID_BATH)
+    ForceSpellPoint([2544.1842],TRAP_ACID_BATH)
+    ForceSpellPoint([2549.1935],TRAP_ACID_BATH)
+    ForceSpellPoint([2578.2049],TRAP_ACID_BATH)
+    ForceSpellPoint([2583.1741],TRAP_ACID_BATH)
+    ForceSpellPoint([2630.1860],TRAP_ACID_BATH)
+    ForceSpellPoint([2641.1946],TRAP_ACID_BATH)
+    ForceSpellPoint([2654.1775],TRAP_ACID_BATH)
+    ForceSpellPoint([2721.1872],TRAP_ACID_BATH)
+    ForceSpellPoint([2760.1802],TRAP_ACID_BATH)
+    ForceSpellPoint([2760.1802],TRAP_ACID_BATH)
+    Wait(7)
+    IncrementGlobal("Acid_Room_Active","MYAREA",-1)
+END
+
+IF
+  Global("Acid_Room_Armed","MYAREA",0)
+  Global("Acid_Room_Active","MYAREA",0)
+  IsOverMe([ANYONE])
+THEN
+  RESPONSE #100
+    Wait(3)
+    SetGlobal("Acid_Room_Active","MYAREA",11)
+END
+

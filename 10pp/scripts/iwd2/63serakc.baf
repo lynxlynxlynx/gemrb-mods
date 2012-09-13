@@ -1,0 +1,203 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !Global("Marked","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",0)
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player1[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player2[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player3[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player4[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player5[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player6[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player1[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER_ALL)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player2[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER_ALL)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player3[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER_ALL)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player4[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER_ALL)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player5[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER_ALL)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  Global("Marked","LOCALS",0)
+  GlobalGT("MarkedCounter","LOCALS",5)
+  See(Player6[0.0.10000.10000],0)
+  Class(LastSeenBy(Myself),FIGHTER_ALL)
+THEN
+  RESPONSE #100
+    SetGlobal("Marked","LOCALS",1)
+    IncrementGlobal("MarkedCounter","LOCALS",1)
+    MarkObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(LastMarkedObject,0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

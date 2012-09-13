@@ -1,0 +1,87 @@
+IF
+  GlobalLT("AmaSetup","GLOBAL",3)
+  GlobalGT("AmaWaukeen","GLOBAL",1)
+  Global("AmaAttacked","GLOBAL",0)
+  OR(4)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    HitBy([GOODCUTOFF],CRUSHING)
+    HPPercentLT(Myself,100)
+    Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("AmaAttacked","GLOBAL",1)
+    DisplayStringHead(Myself,62080)  // ~What?!  How did you...?  Bah!  The trap will go forth, regardless... for Mae'Var!!~
+    CreateCreature("shthoff1",[731.764],14)  // ~Sir Greshal~
+    ActionOverride("shthoff1",Enemy())
+    CreateCreature("spmugg",[629.989],3)  // ~Mugger~
+    CreateCreature("spmugg",[649.804],3)  // ~Mugger~
+    CreateCreature("spmugg",[989.707],3)  // ~Mugger~
+    CreateCreature("spmugg",[1094.901],3)  // ~Mugger~
+    Enemy()
+    EraseJournalEntry(55522)  // ~Thieves' Guild Stronghold: A meeting with Ama.I have been contacted by a woman that says she is the Shadowmaster of eastern Esmeltaran. She produced a signet ring to prove her identity. She wishes me to act as a decoy in ambushing a politician that has grown too meddlesome for his own good. She will set up a meeting with him and I, on the pretense of introducing him to a prominent guild leader. I am to meet her in Waukeen's Promenade when it is dark. That is where the ambush will be.~
+END
+
+IF
+  Die()
+  GlobalLT("AmaSetup","GLOBAL",3)
+  GlobalGT("AmaWaukeen","GLOBAL",1)
+  Global("AmaAttacked","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AmaAttacked","GLOBAL",1)
+    CreateCreature("shthoff1",[731.764],14)  // ~Sir Greshal~
+    ActionOverride("shthoff1",Enemy())
+    ActionOverride("shthoff1",DisplayStringHead(Myself,62080))  // ~What?!  How did you...?  Bah!  The trap will go forth, regardless... for Mae'Var!!~
+    CreateCreature("spmugg",[629.989],3)  // ~Mugger~
+    CreateCreature("spmugg",[649.804],3)  // ~Mugger~
+    CreateCreature("spmugg",[989.707],3)  // ~Mugger~
+    CreateCreature("spmugg",[1094.901],3)  // ~Mugger~
+    EraseJournalEntry(55522)  // ~Thieves' Guild Stronghold: A meeting with Ama.I have been contacted by a woman that says she is the Shadowmaster of eastern Esmeltaran. She produced a signet ring to prove her identity. She wishes me to act as a decoy in ambushing a politician that has grown too meddlesome for his own good. She will set up a meeting with him and I, on the pretense of introducing him to a prominent guild leader. I am to meet her in Waukeen's Promenade when it is dark. That is where the ambush will be.~
+END
+
+IF
+  Global("AmaSetup","GLOBAL",1)
+  See(Player1)
+  Global("StartAmbush","LOCALS",0)
+  !Global("AmaAttacked","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("StartAmbush","LOCALS",1)
+    SetGlobalTimer("AmaAmbush1","GLOBAL",5)
+END
+
+IF
+  Global("AmaSetup","GLOBAL",1)
+  GlobalTimerExpired("AmaAmbush1","GLOBAL")
+  See(Player1)
+  Global("StartAmbush","LOCALS",1)
+  !Global("AmaAttacked","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("StartAmbush","LOCALS",2)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("AmaSetup","GLOBAL",2)
+  See(Player1)
+  Global("StartAmbush","LOCALS",2)
+  !Global("AmaAttacked","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("StartAmbush","LOCALS",3)
+    SetGlobalTimer("AmaAmbush2","GLOBAL",5)
+END
+
+IF
+  Global("AmaSetup","GLOBAL",2)
+  GlobalTimerExpired("AmaAmbush2","GLOBAL")
+  See(Player1)
+  Global("StartAmbush","LOCALS",3)
+  !Global("AmaAttacked","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("StartAmbush","LOCALS",4)
+    StartDialogNoSet(Player1)
+END
+

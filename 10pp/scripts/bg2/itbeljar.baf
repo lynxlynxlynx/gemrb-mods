@@ -1,0 +1,38 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+  Global("GorCarFreed","AR3017",0)
+  !PartyHasItem("PLOT04d")  // ~Crystal Mallet~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,67564)  // ~Nothing you do to the glass seems to affect it.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+  PartyHasItem("PLOT04d")  // ~Crystal Mallet~
+  !Exists("gorbel")  // ~Bell Jar~
+THEN
+  RESPONSE #100
+    CreateCreature("GORBEL",[3269.2159],0)  // ~Bell Jar~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+  Global("GorCarFreed","AR3017",1)
+  !Exists("gorlum")  // ~Machine of Lum~
+THEN
+  RESPONSE #100
+    CreateCreature("GORLUM",[3269.2159],0)  // ~Machine of Lum~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

@@ -1,0 +1,63 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("5000_SORDI_TEAM_ANGRY","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !Global("5000_SORDI_TEAM_ANGRY","GLOBAL",0)
+  GlobalTimerExpired("SORDI_TEAM_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("5000_SORDI_TEAM_ANGRY","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("5000_SORDI_TEAM_ANGRY","GLOBAL",0)
+  !See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  GlobalLT("50Wight_Horn","GLOBAL",2)
+THEN
+  RESPONSE #15
+    FloatMessage(Myself,17018)  // ~"Blast... where, *where* has it gone?!"~
+    StartRandomTimer(18,15,20)
+  RESPONSE #15
+    FloatMessage(Myself,17019)  // ~"Where... what... what am I *looking* for?"~
+    StartRandomTimer(18,15,20)
+  RESPONSE #15
+    FloatMessage(Myself,17020)  // ~"My hands... like... bone.  It's madness!"~
+    StartRandomTimer(18,15,20)
+  RESPONSE #255
+    StartRandomTimer(18,15,20)
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(4)
+  Global("5000_SORDI_TEAM_ANGRY","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(19,5)
+END
+
+IF
+  !Global("5000_SORDI_TEAM_ANGRY","GLOBAL",0)
+  !Range(NearestPC,4,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+END
+

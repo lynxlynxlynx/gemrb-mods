@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Damsel")  // 
+    Enemy()
+    RunToPoint([2136.1167])
+    RunToPoint([2179.890])
+    EscapeArea()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    EndCutSceneMode()
+END
+

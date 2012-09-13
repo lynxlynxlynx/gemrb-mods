@@ -1,0 +1,72 @@
+IF
+  NearLocation(Myself,[266.1067],3)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral1",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[900.676],3)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600rl1b",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[3064.780],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral2",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[3068.3014],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral3",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[3114.2281],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral4",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[105.1302],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral5",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[2014.2525],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral6",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[1583.1508],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral7",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[1580.1461],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600rala",GENERAL)
+    ChangeAIScript("0600ral8",DEFAULT)
+END
+

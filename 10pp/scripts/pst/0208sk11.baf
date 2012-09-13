@@ -1,0 +1,20 @@
+IF
+  !NearLocation(Myself,[1808.1491],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1808.1491])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(3)
+    PlaySequenceTimed(ANIM_STANCEFIDGET1,6)
+    Wait(4)
+    Face(10)
+    Wait(5)
+    Face(14)
+END
+

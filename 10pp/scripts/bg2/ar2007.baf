@@ -1,0 +1,18 @@
+IF
+  Global("SpawnLogan","GLOBAL",1)
+  Global("logangonefued","AR2007",0)
+THEN
+  RESPONSE #100
+    SetGlobal("logangonefued","AR2007",1)
+    Deactivate("celogan")
+END
+
+IF
+  Global("SpawnLogan","GLOBAL",2)
+  Global("logangonefued","AR2007",1)
+THEN
+  RESPONSE #100
+    SetGlobal("logangonefued","AR2007",2)
+    Activate("celogan")
+END
+

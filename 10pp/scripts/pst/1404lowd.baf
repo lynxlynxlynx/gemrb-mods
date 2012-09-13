@@ -1,0 +1,7 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetAnimState(Myself,ANIM_DIE)
+END
+

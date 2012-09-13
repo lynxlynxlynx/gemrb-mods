@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(5,15)
+    MoveToPoint([1635.2565])
+    Face(10)
+    WaitRandom(5,10)
+    MoveToPoint([1470.2368])
+    Face(14)
+END
+

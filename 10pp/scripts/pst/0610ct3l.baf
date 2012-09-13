@@ -1,0 +1,55 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("RavelCut")  // 
+    Enemy()
+    Spell("RavelCut",WIZARD_BLACK_BARBED_SHIELD)
+    Wait(2)
+    Spell("TransCut",WIZARD_BLACK_BARBED_CURSE)
+    Wait(4)
+    Spell("TransCut",WIZARD_BLACKSPHERE)
+    Wait(5)
+    Spell("TransCut",WIZARD_BLACK_BARBED_CURSE)
+    Wait(18)
+    PlaySoundNotRanged("RAV061")
+    Spell("TransCut",WIZARD_BLACKSPHERE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("TransCut")  // 
+    StartSong(CHAR_TRANSCENDENT,[0.0],Normal)
+    ChangeEnemyAlly(Myself,FAMILIAR)
+    Wait(3)
+    Spell("RavelCut",WIZARD_FORCE_MISSILES)
+    Wait(1)
+    Spell("RavelCut",WIZARD_FORCE_MISSILES)
+    Wait(1)
+    Spell("RavelCut",WIZARD_FORCE_MISSILES)
+    Wait(5)
+    Spell("RavelCut",WIZARD_ELYSIUMS_TEARS)
+    Wait(23)
+    PlaySequence(ANIM_SPELL3)
+    ApplySpell("RavelCut",WIZARD_CONFLAGRATION)
+    Wait(4)
+    Spell("RavelCut",WIZARD_FIRE_AND_ICE)
+    Wait(13)
+    Kill("RavelCut")
+    PlaySoundNotRanged("TRA075E")
+    Wait(3)
+    MoveViewPoint([481.3537],FAST)
+    Wait(2)
+    TimedMoveToPoint([490.3552],60)
+    Face(0)
+    Wait(2)
+    EnableFogDither()
+    EnableSpriteDither()
+    SmallWait(1)
+    GlobalSet("Ravel_Curst_Portal","GLOBAL",2)
+    EndCutSceneMode()
+    TeleportParty("AR0700",[2590.1977],6)
+END
+

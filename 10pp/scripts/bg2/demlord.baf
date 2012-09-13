@@ -1,0 +1,227 @@
+IF
+  Detect([PC])
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("spoke","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Dead("Ardulace")  // Ardulace
+  Global("spoke","LOCALS",1)
+  Detect(Player1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("spoke","LOCALS",2)
+    SetGlobal("udDrowPlot","GLOBAL",40)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("udDrowPlot","GLOBAL",44)
+  Dead("Phaere")  // Phaere
+  See(Player1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("udDrowPlot","GLOBAL",45)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("DemonHatesAll","GLOBAL",0)
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  AreaCheck("AR2201")
+  Global("DemonWalks","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Wait(3)
+    CreateVisualEffectObject("SPPORTAL",Myself)
+    SetGlobal("DemonWalks","GLOBAL",2)
+    MoveBetweenAreasEffect("AR2200","SPPORTAL",[4092.2503],0)
+END
+
+IF
+  AreaCheck("AR2200")
+  Global("DemonWalks","GLOBAL",2)
+  See([PC])
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([3848.2617])
+    MoveToPointNoInterrupt([3823.2847])
+    MoveToPointNoInterrupt([3711.2939])
+    MoveToPointNoInterrupt([3469.2961])
+    Wait(1)
+    MoveToPointNoInterrupt([3316.2769])
+    MoveToPointNoInterrupt([3329.2594])
+    MoveToPointNoInterrupt([2974.2309])
+    Wait(1)
+    MoveToPointNoInterrupt([2799.2161])
+    SetGlobal("DemonWalks","GLOBAL",3)
+END
+
+IF
+  AreaCheck("AR2200")
+  Global("DemonWalks","GLOBAL",3)
+  See([PC])
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPPORTAL",Myself)
+    Wait(3)
+    JumpToPoint([2376.2166])
+    CreateVisualEffect("SPPORTAL",[2376.2166])
+    Wait(4)
+    MoveToPointNoInterrupt([1843.2659])
+    Wait(1)
+    MoveToPointNoInterrupt([1576.2712])
+    Wait(1)
+    MoveToPointNoInterrupt([1472.2973])
+    Wait(1)
+    SetGlobal("DemonWalks","GLOBAL",4)
+END
+
+IF
+  AreaCheck("AR2200")
+  Global("DemonWalks","GLOBAL",4)
+  See([PC])
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPPORTAL",Myself)
+    Wait(3)
+    JumpToPoint([1303.3073])
+    CreateVisualEffect("SPPORTAL",[1303.3073])
+    Wait(4)
+    MoveToPointNoInterrupt([1290.3234])
+    Wait(2)
+    MoveToPointNoInterrupt([902.3765])
+    SetGlobal("DemonWalks","GLOBAL",5)
+END
+
+IF
+  AreaCheck("AR2200")
+  Global("DemonWalks","GLOBAL",5)
+  See([PC])
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPPORTAL",Myself)
+    DestroySelf()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([ANYONE])
+  Delay(12)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_TRUE_SIGHT)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("udWail","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_WAIL_OF_THE_BANSHEE)
+    SetGlobal("udWail","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("charm","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("charm","LOCALS",1)
+    Spell(NearestEnemyOf(Myself),WIZARD_CHARM_PERSON)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  Delay(12)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ANYONE])
+  Global("symbol","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("symbol","LOCALS",1)
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_NPC_SYMBOL_STUN)
+END
+
+IF
+  See([ANYONE])
+  !StateCheck(LastSeenBy,STATE_HELPLESS)
+  GlobalLT("TANARIPARALYZE","LOCALS",3)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy,TANARI_PARALYZE)
+    IncrementGlobal("TANARIPARALYZE","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ANYONE])
+  StateCheck(LastSeenBy,STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy)
+    AttackOneRound(LastSeenBy)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([0.0.0.MAGE])
+  Global("Prep","LOCALS",1)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy,WIZARD_DISPEL_MAGIC)
+    SetGlobal("Prep","LOCALS",2)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself))
+  Global("Prep","LOCALS",2)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_CONFUSION)
+    SetGlobal("Prep","LOCALS",3)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ANYONE])
+  !StateCheck(LastSeenBy,STATE_HELPLESS)
+  GlobalLT("TANARIPARALYZE","LOCALS",7)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy,TANARI_PARALYZE)
+    IncrementGlobal("TANARIPARALYZE","LOCALS",1)
+END
+
+IF
+  See([ANYONE])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #70
+    AttackReevaluate([ANYONE],30)
+  RESPONSE #30
+    ForceSpell(Myself,WIZARD_SUN_FIRE)
+END
+

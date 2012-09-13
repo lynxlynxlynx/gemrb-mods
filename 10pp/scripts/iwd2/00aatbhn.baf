@@ -1,0 +1,10 @@
+IF
+  Or(2)
+    See([PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_HOLIES],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastMarkedObject,3)
+    AttackReevaluate(LastMarkedObject,45)
+END
+

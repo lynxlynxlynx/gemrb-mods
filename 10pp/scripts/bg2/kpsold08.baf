@@ -1,0 +1,18 @@
+IF
+  See([PC])
+  See("kptrol03")  // ~Troll~
+  !Dead("kptrol03")  // ~Troll~
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  See([PC])
+  Dead("kptrol03")  // ~Troll~
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

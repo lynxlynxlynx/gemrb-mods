@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,62377)  // ~Strange runes of warding are inscribed on the floor and walls around the doorway - though whether the purpose is to keep people out or keep something in is unclear.   A warning above the door proclaims "Caged within these holy walls, the Imprisoned One forever lies beneath."~
+END
+

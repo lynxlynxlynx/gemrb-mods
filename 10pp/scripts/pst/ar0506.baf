@@ -1,0 +1,24 @@
+IF
+  !Global("Current_Area","GLOBAL",506)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",506)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0506_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0506_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Release_Dimtree","GLOBAL",5)
+THEN
+  RESPONSE #100
+    GlobalSet("Free_Hamrys","GLOBAL",1)
+END
+

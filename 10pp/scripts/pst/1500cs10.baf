@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Soego2")  // 
+    CreateItem("SkullSo",0,0,0)  // ~Soego's Skull~
+    DropInventory()
+    GlobalSet("DN_Soego_Killed","GLOBAL",1)
+    Wait(1)
+    MoveToObjectEx("Hargrim",0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hargrim")  // 
+    Spell("Soego2",CLERIC_CALL_LIGHTNING)
+    StartCutScene("1500cs11")
+END
+

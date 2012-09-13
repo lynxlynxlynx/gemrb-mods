@@ -1,0 +1,152 @@
+IF
+  Global("BARBARIAN_CAMP_HOSTILE","GLOBAL",0)
+  Global("BC_BATTLE_OVER","GLOBAL",0)
+  Global("GOBLIN_RACE_KILLED","MYAREA",0)
+  !Exists([0.0.GOBLIN][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetGlobal("GOBLIN_RACE_KILLED","MYAREA",1)
+END
+
+IF
+  Global("BARBARIAN_CAMP_HOSTILE","GLOBAL",0)
+  Global("BC_BATTLE_OVER","GLOBAL",0)
+  Global("SKELETON_RACE_KILLED","MYAREA",0)
+  !Exists([0.0.SKELETON][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetGlobal("SKELETON_RACE_KILLED","MYAREA",1)
+END
+
+IF
+  !Global("BARBARIAN_CAMP_HOSTILE","GLOBAL",0)
+  Exists("WYLFDENE")  // ~Wylfdene~
+THEN
+  RESPONSE #100
+    HideCreature("WYLFDENE",TRUE)
+    ActionOverride("WYLFDENE",DestroySelf())
+    Continue()
+END
+
+IF
+  !Global("BARBARIAN_CAMP_HOSTILE","GLOBAL",0)
+  Exists("HJOLLDER")  // ~Hjollder~
+THEN
+  RESPONSE #100
+    HideCreature("HJOLLDER",TRUE)
+    ActionOverride("HJOLLDER",DestroySelf())
+    Continue()
+END
+
+IF
+  !Global("BARBARIAN_CAMP_HOSTILE","GLOBAL",0)
+  Exists("ANNOUNCER")  // ANNOUNCER
+THEN
+  RESPONSE #100
+    HideCreature("ANNOUNCER",TRUE)
+    ActionOverride("ANNOUNCER",DestroySelf())
+    Continue()
+END
+
+IF
+  Global("BARBARIANS_REMOVED","MYAREA",0)
+  !Global("WARRIORS_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature("WARRIOR_1",TRUE)
+    HideCreature("WARRIOR_2",TRUE)
+    HideCreature("WARRIOR_3",TRUE)
+    HideCreature("WARRIOR_4",TRUE)
+    HideCreature("WARRIOR_5",TRUE)
+    HideCreature("WARRIOR_6",TRUE)
+    SetGlobal("BARBARIANS_REMOVED","MYAREA",1)
+    ActionOverride("WARRIOR_1",DestroySelf())
+    ActionOverride("WARRIOR_2",DestroySelf())
+    ActionOverride("WARRIOR_3",DestroySelf())
+    ActionOverride("WARRIOR_4",DestroySelf())
+    ActionOverride("WARRIOR_5",DestroySelf())
+    ActionOverride("WARRIOR_6",DestroySelf())
+    Continue()
+END
+
+IF
+  Global("BC_CUTSCENE","GLOBAL",11)
+  Global("ANNOUNCER_SPOKE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BC_CUTSCENE","GLOBAL",0)
+    SetGlobal("ANNOUNCER_SPOKE","GLOBAL",1)
+    StartCutSceneMode()
+    MultiPlayerSync()
+    StartCutScene("BCANNTLK")
+END
+
+IF
+  Global("BC_CUTSCENE","GLOBAL",11)
+  !Global("ANNOUNCER_SPOKE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BC_CUTSCENE","GLOBAL",0)
+    StartCutSceneMode()
+    MultiPlayerSync()
+    StartCutScene("BCWYLTLK")
+END
+
+IF
+  Global("GOBLIN_RACE_KILLED","MYAREA",0)
+  !Global("BC_GOBLIN_LOST","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature("GOB_1",TRUE)
+    HideCreature("GOB_2",TRUE)
+    HideCreature("GOB_3",TRUE)
+    HideCreature("GOB_4",TRUE)
+    HideCreature("GOB_5",TRUE)
+    HideCreature("GOB_6",TRUE)
+    HideCreature("WARRIOR_2",TRUE)
+    HideCreature("WARRIOR_5",TRUE)
+    SetGlobal("GOBLIN_RACE_KILLED","MYAREA",1)
+    ActionOverride("GOB_1",DestroySelf())
+    ActionOverride("GOB_2",DestroySelf())
+    ActionOverride("GOB_3",DestroySelf())
+    ActionOverride("GOB_4",DestroySelf())
+    ActionOverride("GOB_5",DestroySelf())
+    ActionOverride("GOB_6",DestroySelf())
+    ActionOverride("WARRIOR_2",DestroySelf())
+    ActionOverride("WARRIOR_5",DestroySelf())
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("SKELETON_RACE_KILLED","MYAREA",0)
+  !Global("BC_SKELETON_LOST","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature("SKEL_1",TRUE)
+    HideCreature("SKEL_2",TRUE)
+    HideCreature("SKEL_3",TRUE)
+    HideCreature("SKEL_4",TRUE)
+    HideCreature("SKEL_5",TRUE)
+    HideCreature("SKEL_6",TRUE)
+    HideCreature("WARRIOR_3",TRUE)
+    HideCreature("WARRIOR_6",TRUE)
+    SetGlobal("SKELETON_RACE_KILLED","MYAREA",1)
+    ActionOverride("SKEL_1",DestroySelf())
+    ActionOverride("SKEL_2",DestroySelf())
+    ActionOverride("SKEL_3",DestroySelf())
+    ActionOverride("SKEL_4",DestroySelf())
+    ActionOverride("SKEL_5",DestroySelf())
+    ActionOverride("SKEL_6",DestroySelf())
+    ActionOverride("WARRIOR_3",DestroySelf())
+    ActionOverride("WARRIOR_6",DestroySelf())
+    ChangeCurrentScript("")
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

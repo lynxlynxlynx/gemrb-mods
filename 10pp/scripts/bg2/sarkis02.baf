@@ -1,0 +1,29 @@
+IF
+  OR(2)
+    Dead("sarkis01")  // ~Kiser Jhaeri~
+    Global("Sarkis01Fight","GLOBAL",1)
+  Global("DontLeaveSarkis02","GLOBAL",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("INFORMPLOTCUTACTIVE","GLOBAL",0)
+  Global("Deactivate","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","LOCALS",1)
+    Deactivate(Myself)
+END
+
+IF
+  Global("INFORMPLOTCUTACTIVE","GLOBAL",2)
+  Global("Reactivate","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Reactivate","LOCALS",1)
+    Activate(Myself)
+END
+

@@ -1,0 +1,17 @@
+IF
+  See([PC])
+  ReputationLT(LastSeenBy(Myself),5)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToPoint([961.541])
+    MoveToPoint([3988.2516])
+END
+

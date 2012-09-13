@@ -1,0 +1,10 @@
+IF
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  Global("Display","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,52333)  // ~Beware!  More enemies approach!~
+END
+

@@ -1,0 +1,56 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(2)
+    Wait(1)
+    FloatMessage(Myself,9735)  // ~"Wouldja all turn away from a woman in need?"~
+    Wait(2)
+    Face(6)
+    Wait(1)
+    FloatMessage(Myself,9635)  // ~"Help, someone, help!"~
+    Wait(2)
+    RunToPoint([2111.2149])
+    Face(4)
+    Wait(1)
+    FloatMessage(Myself,9734)  // ~"Are none of you *men?!*"~
+    Wait(2)
+    RunToPoint([2187.2310])
+    Face(2)
+    Wait(1)
+    FloatMessage(Myself,9634)  // ~"Help!"~
+    Wait(2)
+    RunToPoint([2272.2331])
+    Face(0)
+    Wait(1)
+    FloatMessage(Myself,9734)  // ~"Are none of you *men?!*"~
+    Wait(2)
+    RunToPoint([2187.2310])
+    Face(2)
+    Wait(1)
+    FloatMessage(Myself,9635)  // ~"Help, someone, help!"~
+    Wait(2)
+    RunToPoint([2111.2149])
+    Face(4)
+    Wait(1)
+    FloatMessage(Myself,9634)  // ~"Help!"~
+    Wait(2)
+    RunToPoint([2169.2091])
+END
+

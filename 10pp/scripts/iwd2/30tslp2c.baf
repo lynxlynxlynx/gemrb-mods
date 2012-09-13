@@ -1,0 +1,86 @@
+IF
+  Global("SLEEP_TEAM_2_AWAKE","MYAREA",2)
+  Global("TEAM_SLEEP_FLOAT","LOCALS",0)
+  !Sequence(Myself,SLEEP)
+  Or(3)
+    !Global("TEAM_3","MYAREA",0)
+    See(NearestEnemyOf(Myself),0)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_SLEEP_FLOAT","LOCALS",1)
+    FaceObject(NearestEnemyOf(Myself))
+    FloatMessage(Myself,601)  // ~"Wake up!  Kill the intruders!"~
+    Shout(66)
+    Wait(1)
+END
+
+IF
+  Global("TEAM_3","MYAREA",0)
+  Or(2)
+    AttackedBy([GOODCUTOFF],0)
+    PickLockFailed([GOODCUTOFF])
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_3","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("TEAM_3","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Or(2)
+    Global("TEAM_3","MYAREA",0)
+    Global("SLEEP_TEAM_2_AWAKE","MYAREA",0)
+  !Sequence(Myself,SLEEP)
+  See(NearestEnemyOf(Myself),0)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_2_AWAKE","MYAREA",1)
+    SetGlobal("TEAM_3","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SLEEP_TEAM_2_AWAKE","MYAREA",0)
+  AttackedBy([ENEMY],0)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_2_AWAKE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SLEEP_TEAM_2_AWAKE","MYAREA",0)
+  Sequence(Myself,SLEEP)
+  Or(2)
+    Heard([ANYONE],66)
+    Heard([ANYONE],77)
+  See(LastHeardBy(Myself),0)
+  !Sequence(LastHeardBy(Myself),SLEEP)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_2_AWAKE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SLEEP_TEAM_2_AWAKE","MYAREA",0)
+  !Global("TEAM_3","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_2_AWAKE","MYAREA",1)
+    Continue()
+END
+

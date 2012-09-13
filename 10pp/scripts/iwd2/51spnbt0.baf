@@ -1,0 +1,17 @@
+IF
+  GlobalGT("5101_05_BEETLE_SPAWN","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("5101_05_BEETLE_SPAWN","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    IncrementGlobal("TOTAL_05_BEETLE_SPAWN","MYAREA",1)
+    ChangeCurrentScript("")
+END
+

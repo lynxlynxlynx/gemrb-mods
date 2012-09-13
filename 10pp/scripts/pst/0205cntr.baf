@@ -1,0 +1,60 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("ServantsKilled","AR0205",1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    ChangeAIScript("0205MADe",OVERRIDE)
+END
+
+IF
+  AttackedBy([PC],RANGED)
+THEN
+  RESPONSE #100
+    GlobalSet("DisturbanceLevel","AR0205",1)
+    ChangeAIScript("0205MADe",OVERRIDE)
+END
+
+IF
+  HitBy([PC],MAGIC)
+THEN
+  RESPONSE #100
+    GlobalSet("DisturbanceLevel","AR0205",1)
+    ChangeAIScript("0205MADe",OVERRIDE)
+END
+
+IF
+  Global("DisturbanceLevel","AR0205",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0205MADe",OVERRIDE)
+END
+
+IF
+  Exists([PC][1268.374.1537.587])
+THEN
+  RESPONSE #100
+    Attack([PC][1268.374.1537.587])
+END
+
+IF
+  Exists([PC][1349.587.1510.686])
+THEN
+  RESPONSE #100
+    Attack([PC][1349.587.1510.686])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    ChangeAIScript("",AREA)
+END
+

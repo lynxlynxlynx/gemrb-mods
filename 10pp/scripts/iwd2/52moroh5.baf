@@ -1,0 +1,344 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",5)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("52Moroh6")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Dead(Player1)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC5r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Dead(Player2)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC5r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Dead(Player3)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC5r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Dead(Player4)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC5r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Dead(Player5)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC5r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Dead(Player6)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC5r")
+END
+
+IF
+  Global("CHAMBER_5_NO_FIRE","MYAREA",0)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  Global("52Morohem_Master","GLOBAL",5)
+  CheckDoorFlags("AR5202_SWITCH6",DOORLOCKED)  // AR5202_SWITCH6
+  CheckDoorFlags("AR5202_SWITCH7",DOORLOCKED)  // AR5202_SWITCH7
+  CheckDoorFlags("AR5202_SWITCH8",DOORLOCKED)  // AR5202_SWITCH8
+  CheckDoorFlags("AR5202_SWITCH9",DOORLOCKED)  // AR5202_SWITCH9
+  OpenState("AR5202_SWITCH6",TRUE)  // AR5202_SWITCH6
+  OpenState("AR5202_SWITCH7",TRUE)  // AR5202_SWITCH7
+  OpenState("AR5202_SWITCH8",TRUE)  // AR5202_SWITCH8
+  OpenState("AR5202_SWITCH9",TRUE)  // AR5202_SWITCH9
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CHAMBER_5_TIMER","MYAREA",6)
+    SetGlobal("CHAMBER_5_NO_FIRE","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("CHAMBER_5_NO_FIRE","MYAREA",2)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  Global("52Morohem_Master","GLOBAL",5)
+  GlobalTimerExpired("CHAMBER_5_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    Unlock("AR5202_SWITCH6")
+    CloseDoor("AR5202_SWITCH6")
+    Unlock("AR5202_SWITCH7")
+    CloseDoor("AR5202_SWITCH7")
+    Unlock("AR5202_SWITCH8")
+    CloseDoor("AR5202_SWITCH8")
+    Unlock("AR5202_SWITCH9")
+    CloseDoor("AR5202_SWITCH9")
+    SetGlobal("CHAMBER_5_NO_FIRE","MYAREA",0)
+END
+
+IF
+  Global("C_5_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Dead("04_52MNKSA_1")  // 
+  Dead("04_52MNKSA_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_5_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player1)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player1,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",6)
+    Unlock("AR5202_Door6")
+    OpenDoor("AR5202_Door6")
+    AddXPVar("Level_10_Average",34474)  // ~You have mastered the Chamber of Sand, fifth of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player1,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_5_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Dead("04_52MNKSA_1")  // 
+  Dead("04_52MNKSA_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_5_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player2)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player2,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",6)
+    Unlock("AR5202_Door6")
+    OpenDoor("AR5202_Door6")
+    AddXPVar("Level_10_Average",34474)  // ~You have mastered the Chamber of Sand, fifth of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player2,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_5_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Dead("04_52MNKSA_1")  // 
+  Dead("04_52MNKSA_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_5_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player3)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player3,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",6)
+    Unlock("AR5202_Door6")
+    OpenDoor("AR5202_Door6")
+    AddXPVar("Level_10_Average",34474)  // ~You have mastered the Chamber of Sand, fifth of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player3,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_5_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Dead("04_52MNKSA_1")  // 
+  Dead("04_52MNKSA_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_5_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player4)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player4,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",6)
+    Unlock("AR5202_Door6")
+    OpenDoor("AR5202_Door6")
+    AddXPVar("Level_10_Average",34474)  // ~You have mastered the Chamber of Sand, fifth of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player4,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_5_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Dead("04_52MNKSA_1")  // 
+  Dead("04_52MNKSA_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_5_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player5)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player5,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",6)
+    Unlock("AR5202_Door6")
+    OpenDoor("AR5202_Door6")
+    AddXPVar("Level_10_Average",34474)  // ~You have mastered the Chamber of Sand, fifth of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player5,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_5_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Dead("04_52MNKSA_1")  // 
+  Dead("04_52MNKSA_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_5_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player6)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player6,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",6)
+    Unlock("AR5202_Door6")
+    OpenDoor("AR5202_Door6")
+    AddXPVar("Level_10_Average",34474)  // ~You have mastered the Chamber of Sand, fifth of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player6,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

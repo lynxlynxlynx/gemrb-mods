@@ -1,0 +1,10 @@
+IF
+  Entered([ANYONE])
+  Global("Chapter","GLOBAL",6)
+THEN
+  RESPONSE #100
+    CreateCreatureDoor("Behold01",[-1.-1],0)
+    CreateCreatureDoor("Behgau01",[-1.-1],0)
+    CreateCreatureDoor("Behgau01",[-1.-1],0)
+END
+

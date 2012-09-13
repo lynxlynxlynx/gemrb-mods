@@ -1,0 +1,422 @@
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  HPLostGT(Myself,37)
+  IsSpellTargetValid(Myself,CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50Hadbru_01",0)  // 05_50Hadbru_01
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50Hadbru_01",0)  // 05_50Hadbru_01
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50Hadbru_01",0)  // 05_50Hadbru_01
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARWA_02",0)  // 05_50BARWA_02
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARWA_02",0)  // 05_50BARWA_02
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARWA_02",0)  // 05_50BARWA_02
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARWA_03",0)  // 05_50BARWA_03
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARWA_03",0)  // 05_50BARWA_03
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARWA_03",0)  // 05_50BARWA_03
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARWA_07",0)  // 05_50BARWA_07
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARWA_07",0)  // 05_50BARWA_07
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARWA_07",0)  // 05_50BARWA_07
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARWA_08",0)  // 05_50BARWA_08
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARWA_08",0)  // 05_50BARWA_08
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARWA_08",0)  // 05_50BARWA_08
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARW2_04",0)  // 05_50BARW2_04
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARW2_04",0)  // 05_50BARW2_04
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARW2_04",0)  // 05_50BARW2_04
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARW2_05",0)  // 05_50BARW2_05
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARW2_05",0)  // 05_50BARW2_05
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARW2_05",0)  // 05_50BARW2_05
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARW2_06",0)  // 05_50BARW2_06
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARW2_06",0)  // 05_50BARW2_06
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARW2_06",0)  // 05_50BARW2_06
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See("05_50BARW2_10",0)  // 05_50BARW2_10
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("05_50BARW2_10",0)  // 05_50BARW2_10
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("05_50BARW2_10",0)  // 05_50BARW2_10
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("SLiving",Myself)  // ~Slay Living~
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16101515",Myself,3)
+      // CLERIC_CIRCLE_OF_BLADES
+      // CLERIC_SLAY_LIVING
+    MarkSpellAndObject("1612",LastMarkedObject,3)
+      // CLERIC_SPIRITUAL_WRATH
+    MarkSpellAndObject("1415",Myself,3)
+      // CLERIC_BLOOD_RAGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

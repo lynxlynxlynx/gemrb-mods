@@ -1,0 +1,38 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Shout(1)
+END
+
+IF
+  Heard("Banditcr",1)  // Banditcr
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("Raiken",1)  // ~Raiken~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("Raiken",2)  // ~Raiken~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Heard("Bandit2",1)  // ~Bandit~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

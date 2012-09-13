@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("udsimyaz")  // 
+    FadeToColor([20.0],0)
+    JumpToPoint([1931.2004])
+    ActionOverride("udgith02",JumpToPoint([1963.2057]))
+    ActionOverride("udgith03",JumpToPoint([1987.2101]))
+    ActionOverride("udgith04",JumpToPoint([2057.2140]))
+    ActionOverride("udgith05",JumpToPoint([1872.2016]))
+    SetGlobalTimer("udMindTimer","GLOBAL",30)
+    Wait(4)
+    FadeFromColor([20.0],0)
+    EndCutSceneMode()
+END
+

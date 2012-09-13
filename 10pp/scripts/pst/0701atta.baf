@@ -1,0 +1,29 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+  !Help([0.0.0.BAD])
+  !Help([0.0.0.DEAD])
+  !Help([0.HATMONIUM])
+  !Help("Jasilya")  // ~Jasilya~
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+

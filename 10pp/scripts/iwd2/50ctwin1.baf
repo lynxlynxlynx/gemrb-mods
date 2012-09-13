@@ -1,0 +1,75 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("07_50Isair_01")  // 
+    HideGUI()
+    FaceObject("04_50HNT_01")
+    ForceSpell("04_50HNT_01",INNATE_ISAIR_CUT_SCENE)
+    SpellWait(INNATE_ISAIR_CUT_SCENE)
+    StartCutScene("50cTwin6")
+    Wait(2)
+    StartCutScene("50cTwin5")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT2_03")  // 
+    FaceObject("04_50HNT_01")
+    Wait(1)
+    FloatMessage(Myself,18307)  // ~"Who are they?"~
+    Attack("07_50Isair_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT_01")  // 
+    FloatMessage(Myself,18308)  // ~"Protect the village!"~
+    Attack("07_50MADAE_02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT_02")  // 
+    FaceObject("04_50HNT_01")
+    WaitRandom(0,1)
+    SmallWait(5)
+    Attack("07_50Isair_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT3_05")  // 
+    FaceObject("04_50HNT_01")
+    WaitRandom(0,1)
+    SmallWait(5)
+    Attack("07_50Isair_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("04_50HNT2_04")  // 
+    FaceObject("04_50HNT_01")
+    WaitRandom(1,2)
+    SmallWait(5)
+    Attack("07_50MADAE_02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("07_50Madae_02")  // 
+    FaceObject("04_50HNT_01")
+END
+

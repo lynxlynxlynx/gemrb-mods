@@ -1,0 +1,11 @@
+IF
+  !See([ENEMY])
+  See([PC])
+  Dead("suelf1")  // ~Elf~
+  Global("Spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Spoke","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

@@ -1,0 +1,35 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("SorrelSpawn","GLOBAL",0)
+  !Exists("SORREL")  // SORREL
+THEN
+  RESPONSE #100
+    CreateCreature("SORREL",[4098.1843],0)  // SORREL
+    SetGlobal("SorrelSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("BillSpawn","GLOBAL",0)
+  !Exists("BILL")  // BILL
+THEN
+  RESPONSE #100
+    CreateCreature("BILL",[1962.2834],0)  // BILL
+    SetGlobal("BillSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("Capture200","GLOBAL",0)
+  Global("DukeThanks","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Capture200","GLOBAL",1)
+    CreateCreature("FFHUNT",[2189.1318],0)  // FFHUNT
+    CreateCreature("FFHUNT",[2189.1318],0)  // FFHUNT
+END
+

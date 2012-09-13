@@ -1,0 +1,47 @@
+IF
+  !Global("TEAM_0","MYAREA",1)
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    NoAction()
+END
+
+IF
+  !Global("TEAM_0","MYAREA",0)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Enemy()
+END
+
+IF
+  !TimerActive(18)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,8579)  // ~"The snows birth goblins... splintered forests of dead trees... a circle of teeth... "~
+    StartRandomTimer(18,13,15)
+  RESPONSE #25
+    FloatMessage(Myself,8580)  // ~"Screaming rivers silenced by wood and ice... a stone, a stone that beats like a heart..."~
+    StartRandomTimer(18,13,15)
+  RESPONSE #25
+    FloatMessage(Myself,8581)  // ~"A raven eclipsed in red... a half-woman of wings and blood who hates her halves..."~
+    StartRandomTimer(18,13,15)
+  RESPONSE #25
+    FloatMessage(Myself,8582)  // ~"Scaled forests of heat and green... a hand curled into itself... and the shadow... the shadow of the three-headed beast..."~
+    StartRandomTimer(18,13,15)
+  RESPONSE #300
+    StartRandomTimer(18,13,15)
+END
+

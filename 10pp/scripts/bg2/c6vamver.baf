@@ -1,0 +1,10 @@
+IF
+  Entered([ANYONE])
+  Global("Chapter","GLOBAL",6)
+  Global("SpawnVamverC6","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreatureDoor("Vamver01",[-1.-1],0)
+    SetGlobal("SpawnVamverC6","GLOBAL",1)
+END
+

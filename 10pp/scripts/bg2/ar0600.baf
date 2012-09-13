@@ -1,0 +1,20 @@
+IF
+  OnCreation()
+  Global("Entered0600","AR0600",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Entered0600","AR0600",1)
+    Explore()
+    DisplayString(Myself,3334)  // ~Upon stepping through the tent door, the world seems to shift. When it settles, you find yourself standing at one end of a bizarre walkway as the wind blows over you. A massive tower rises on the other side of the bridge. The tent door is nowhere to be found. You shall have to go forward.~
+END
+
+IF
+  Dead("KalahIllusion")  // KalahIllusion
+  Global("teleka","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut86a")
+END
+

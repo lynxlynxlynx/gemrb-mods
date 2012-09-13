@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Scar")  // 
+    MoveToPoint([1517.1300])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveToPoint([1500.1300])
+    LeaveAreaLUAPanic("AR0608","",[428.181],12)
+    ActionOverride("Scar",DestroySelf())
+    LeaveAreaLUA("AR0608","",[428.181],12)
+    ActionOverride(Player2,LeaveAreaLUA("AR0608","",[428.181],12))
+    ActionOverride(Player3,LeaveAreaLUA("AR0608","",[428.181],12))
+    ActionOverride(Player4,LeaveAreaLUA("AR0608","",[428.181],12))
+    ActionOverride(Player5,LeaveAreaLUA("AR0608","",[428.181],12))
+    ActionOverride(Player6,LeaveAreaLUA("AR0608","",[428.181],12))
+    SetMasterArea("AR1100")
+    MultiPlayerSync()
+    CreateCreature("Scar",[387.213],0)  // Scar
+    MultiPlayerSync()
+    ActionOverride("SCAR",SetNumTimesTalkedTo(1))
+    StartCutScene("Scarcut2")
+END
+

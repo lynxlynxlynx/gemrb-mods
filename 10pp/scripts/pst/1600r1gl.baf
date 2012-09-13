@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToObjectEx([0.0.0.0.0.0.TEAM_1_LEADER],0)
+    IncrementGlobal("Team_1_Together","AR1600",1)
+    ChangeAIScript("1600r1f",DEFAULT)
+END
+

@@ -1,0 +1,45 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("ViconiaFight","AR1000",1)
+    Shout(100)
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(100)
+    Enemy()
+END
+
+IF
+  Global("ViconiaFight","AR1000",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  OR(4)
+    Dead("Viconia")  // Viconia
+    Dead("Victowna")  // Victowna
+    Dead("Vicg")  // Vicg
+    Global("ViconiaDeath","AR1000",1)
+THEN
+  RESPONSE #30
+    Wait(3)
+    EscapeArea()
+  RESPONSE #30
+    Wait(4)
+    EscapeArea()
+  RESPONSE #30
+    Wait(1)
+    EscapeArea()
+END
+

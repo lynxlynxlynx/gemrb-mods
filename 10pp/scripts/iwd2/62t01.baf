@@ -1,0 +1,7 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    ForceSpellPoint([475.359],WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+

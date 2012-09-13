@@ -1,0 +1,17 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunToObject("Nameless")
+    RunningAttack(NearestEnemyOf(Myself))
+END
+

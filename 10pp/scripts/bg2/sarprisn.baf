@@ -1,0 +1,116 @@
+IF
+  Detect([GOODCUTOFF])
+  Global("Seen","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Seen","LOCALS",1)
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR01",4)  // DOOR01
+  OpenState("DOOR01",FALSE)  // DOOR01
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR03",4)  // DOOR03
+  OpenState("DOOR03",FALSE)  // DOOR03
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR03")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR04",4)  // DOOR04
+  OpenState("DOOR04",FALSE)  // DOOR04
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR04")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR05",4)  // DOOR05
+  OpenState("DOOR05",FALSE)  // DOOR05
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR05")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR07",4)  // DOOR07
+  OpenState("DOOR07",FALSE)  // DOOR07
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR07")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR08",4)  // DOOR08
+  OpenState("DOOR08",FALSE)  // DOOR08
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR08")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR09",4)  // DOOR09
+  OpenState("DOOR09",FALSE)  // DOOR09
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR09")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR10",4)  // DOOR10
+  OpenState("DOOR10",FALSE)  // DOOR10
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR10")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR11",4)  // DOOR11
+  OpenState("DOOR11",FALSE)  // DOOR11
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR11")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR12",4)  // DOOR12
+  OpenState("DOOR12",FALSE)  // DOOR12
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR12")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR14",4)  // DOOR14
+  OpenState("DOOR14",FALSE)  // DOOR14
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR14")
+END
+
+IF
+  Global("Seen","LOCALS",1)
+  Range("DOOR15",4)  // DOOR15
+  OpenState("DOOR15",FALSE)  // DOOR15
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR15")
+END
+

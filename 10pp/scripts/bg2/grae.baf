@@ -1,0 +1,9 @@
+IF
+  HPLT(Myself,10)
+  NumberOfTimesTalkedTo(1)
+THEN
+  RESPONSE #100
+    DestroyItem("minhp1")  // <Invalid Strref -1>
+    StartDialogNoSet([PC])
+END
+

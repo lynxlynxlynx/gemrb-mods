@@ -1,0 +1,56 @@
+IF
+  HitBy([PC.0.0.0.0.FEMALE],CRUSHING)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Sharhit","GLOBAL",1)
+    Dialog([PC])
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("Sharhit","GLOBAL",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("BeatSharteel","GLOBAL",2)
+    Dialog([PC])
+END
+
+IF
+  HPPercentLT(StrongestOfMale,50)
+  Global("Sharhit","GLOBAL",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("BeatSharteel","GLOBAL",1)
+    Dialog([PC])
+END
+
+IF
+  AttackedBy(StrongestOfMale,DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(StrongestOfMale,30)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  HPPercentGT(Myself,74)
+  HPPercentGT(StrongestOf,49)
+  See(StrongestOfMale)
+THEN
+  RESPONSE #100
+    ActionOverride(StrongestOfMale,Attack("Sharteel"))
+    AttackReevaluate(StrongestOfMale,30)
+END
+

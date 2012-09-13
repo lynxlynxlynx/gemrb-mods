@@ -1,0 +1,187 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("ElfForm","LOCALS",0)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(Myself,Myself,ALTERATION,0)
+    Polymorph(CLERIC_FEMALE_ELF)
+    SetGlobal("ElfForm","LOCALS",1)
+END
+
+IF
+  HaveSpell(CLERIC_TORTOISE_SHELL)
+  IsSpellTargetValid(Myself,CLERIC_TORTOISE_SHELL,0)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_TORTOISE_SHELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ReturnToSavedLocation(5)
+END
+
+IF
+  HaveSpell(CLERIC_HOLD_ANIMAL)
+  See(NearestEnemyOf(Myself),0)
+  General(LastMarkedObject,ANIMAL)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_HOLD_ANIMAL,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_HOLD_ANIMAL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  CheckSpellState(Myself,HELD)
+  HaveSpell(CLERIC_FREE_ACTION)
+  IsSpellTargetValid(Myself,CLERIC_FREE_ACTION,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_FREE_ACTION)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_WALL_OF_MOONLIGHT)
+  See(NearestEnemyOf(Myself),0)
+  Or(2)
+    Alignment(LastMarkedObject,MASK_EVIL)
+    General(LastMarkedObject,UNDEAD)
+  IsSpellTargetValid(Myself,CLERIC_WALL_OF_MOONLIGHT,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_WALL_OF_MOONLIGHT)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_40ODEA_0","LOCALS",-1)
+  See(FarthestEnemyOf(Myself),0)
+  !Global("OBJ_SP_40ODEA_0","LOCALS",-1)
+  RandomNum(2,1)
+  Range(LastMarkedObject,9,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1216132013031105",LastMarkedObject,7)
+      // CLERIC_ALICORN_LANCE
+      // CLERIC_SPIKE_GROWTH
+      // CLERIC_DISPEL_MAGIC
+      // CLERIC_ENTANGLE
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("1216132013031105",LastMarkedObject,7)
+      // CLERIC_ALICORN_LANCE
+      // CLERIC_SPIKE_GROWTH
+      // CLERIC_DISPEL_MAGIC
+      // CLERIC_ENTANGLE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("OBJ_SP_40ODEA_0","LOCALS",-1)
+  !HaveSpell(CLERIC_ALICORN_LANCE)
+  !HaveSpell(CLERIC_SPIKE_GROWTH)
+  !HaveSpell(CLERIC_DISPEL_MAGIC)
+  !HaveSpell(CLERIC_CALL_LIGHTNING)
+  !HaveSpell(CLERIC_ENTANGLE)
+THEN
+  RESPONSE #100
+    SetGlobal("OBJ_SP_40ODEA_0","LOCALS",-1)
+    Continue()
+END
+
+IF
+  HasItem("BClaw",Myself)  // ~Beast Claw~
+  !Global("OBJ_SP_40ODEA_1","LOCALS",-1)
+  RandomNum(2,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_40ODEA_1","LOCALS",-1)
+  !Global("OBJ_SP_40ODEA_1","LOCALS",-1)
+  RandomNum(2,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1217",Myself,7)
+      // CLERIC_BEAST_CLAW
+    MarkSpellAndObject("1117141014221402",LastMarkedObject,7)
+      // CLERIC_FROST_FINGERS
+      // CLERIC_GIANT_INSECT
+      // CLERIC_THORN_SPRAY
+      // CLERIC_SUMMON_NATURES_ALLY_4
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1117141014221402",LastMarkedObject,7)
+      // CLERIC_FROST_FINGERS
+      // CLERIC_GIANT_INSECT
+      // CLERIC_THORN_SPRAY
+      // CLERIC_SUMMON_NATURES_ALLY_4
+    MarkSpellAndObject("1217",Myself,7)
+      // CLERIC_BEAST_CLAW
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("OBJ_SP_40ODEA_1","LOCALS",-1)
+  !HaveSpell(CLERIC_BEAST_CLAW)
+  !HaveSpell(CLERIC_FROST_FINGERS)
+  !HaveSpell(CLERIC_GIANT_INSECT)
+  !HaveSpell(CLERIC_THORN_SPRAY)
+  !HaveSpell(CLERIC_SUMMON_NATURES_ALLY_4)
+THEN
+  RESPONSE #100
+    SetGlobal("OBJ_SP_40ODEA_1","LOCALS",-1)
+    Continue()
+END
+

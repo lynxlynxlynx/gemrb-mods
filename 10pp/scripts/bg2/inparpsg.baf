@@ -1,0 +1,10 @@
+IF
+  !GlobalTimerNotExpired("InitiateTimer","LOCALS")
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("InitiateTimer","LOCALS",10)
+    StartDialogNoSet([PC])
+END
+

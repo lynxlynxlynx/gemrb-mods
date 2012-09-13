@@ -1,0 +1,41 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_HORROR)
+    Spell([PC],WIZARD_CHROMATIC_ORB)
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Spell([PC],WIZARD_HORROR)
+    Spell([PC],WIZARD_CHROMATIC_ORB)
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([444.431])
+    Face(0)
+    FloatMessage(Myself,48368)  // ~"I think this spell goes something like this."~
+    Wait(1)
+    PlaySequence(ANIM_CAST)
+    MoveToPoint([339.431])
+    Face(0)
+    FloatMessage(Myself,48369)  // ~"Maybe the spell goes like this."~
+    Wait(1)
+    PlaySequence(ANIM_CAST)
+END
+

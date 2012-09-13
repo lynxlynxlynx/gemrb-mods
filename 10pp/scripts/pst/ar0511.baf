@@ -1,0 +1,17 @@
+IF
+  !Global("Current_Area","GLOBAL",1400)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1400)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR1400_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR1400_Visited","GLOBAL",1)
+    Continue()
+END
+

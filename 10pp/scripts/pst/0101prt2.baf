@@ -1,0 +1,17 @@
+IF
+  Entered("Nordom")  // ~Modron~
+THEN
+  RESPONSE #100
+    VerbalConstant("Nordom",NORDOM_PORTAL)
+    Continue()
+END
+
+IF
+  Entered([PC])
+  Global("Mausoleum_Quest","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("to0101b",1)
+    EnablePortalTravel("to0101b",1)
+END
+

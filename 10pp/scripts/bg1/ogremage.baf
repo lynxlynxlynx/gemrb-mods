@@ -1,0 +1,97 @@
+IF
+  See([PC.0.0.MAGE])
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell([PC.0.0.MAGE],WIZARD_LIGHTNING_BOLT)
+    Continue()
+END
+
+IF
+  See([PC])
+  HaveSpell(WIZARD_SLEEP)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell([PC],WIZARD_SLEEP)
+    Continue()
+END
+
+IF
+  See([PC])
+  HaveSpell(WIZARD_DIRE_CHARM)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell([PC],WIZARD_DIRE_CHARM)
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Continue()
+END
+
+IF
+  See([PC.0.0.MAGE])
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell([PC.0.0.MAGE],WIZARD_LIGHTNING_BOLT)
+    Continue()
+END
+
+IF
+  See([PC])
+  HaveSpell(WIZARD_DIRE_CHARM)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell([PC],WIZARD_DIRE_CHARM)
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Continue()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    AttackReevaluate([PC],45)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SLEEP)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell(NearestEnemyOf(Myself),WIZARD_SLEEP)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DIRE_CHARM)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Spell(NearestEnemyOf(Myself),WIZARD_DIRE_CHARM)
+    Spell(Myself,WIZARD_INVISIBILITY)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

@@ -1,0 +1,110 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartTimer(24,5)
+    Continue()
+END
+
+IF
+  GlobalLT("SIREN_QUEST","GLOBAL",3)
+  !TimerActive(24)
+  Global("FLOAT_0_LINE_INDEX","LOCALS",0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,3802)  // ~"Hmmnnn..."~
+    IncrementGlobal("FLOAT_0_LINE_INDEX","LOCALS",1)
+    StartTimer(24,5)
+    Continue()
+  RESPONSE #0
+    IncrementGlobal("FLOAT_0_LINE_INDEX","LOCALS",1)
+    StartTimer(24,5)
+    Continue()
+END
+
+IF
+  GlobalLT("SIREN_QUEST","GLOBAL",3)
+  !TimerActive(24)
+  Global("FLOAT_0_LINE_INDEX","LOCALS",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,3804)  // ~"How does that damn song go?"~
+    IncrementGlobal("FLOAT_0_LINE_INDEX","LOCALS",1)
+    StartTimer(24,5)
+    Continue()
+  RESPONSE #0
+    IncrementGlobal("FLOAT_0_LINE_INDEX","LOCALS",1)
+    StartTimer(24,5)
+    Continue()
+END
+
+IF
+  GlobalLT("SIREN_QUEST","GLOBAL",3)
+  !TimerActive(24)
+  Global("FLOAT_0_LINE_INDEX","LOCALS",2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,3803)  // ~"'Hrnnn... srrrnnnn... srrrrnnn...'"~
+    SetGlobal("FLOAT_0_LINE_INDEX","LOCALS",0)
+    StartTimer(24,5)
+    Continue()
+  RESPONSE #0
+    SetGlobal("FLOAT_0_LINE_INDEX","LOCALS",0)
+    StartTimer(24,5)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  Help(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Help([PC])
+THEN
+  RESPONSE #100
+    FaceObject(LastHelp(Myself))
+    Continue()
+END
+
+IF
+  HelpEX(Myself,RACE)
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp(Myself))
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

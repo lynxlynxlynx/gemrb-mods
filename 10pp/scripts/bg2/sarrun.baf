@@ -1,0 +1,15 @@
+IF
+  Heard("Sarevok",2)  // ~Sarevok~
+THEN
+  RESPONSE #100
+    Shout(50)
+    EscapeArea()
+END
+
+IF
+  Heard([ANYONE],50)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

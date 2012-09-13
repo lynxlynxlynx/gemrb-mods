@@ -1,0 +1,36 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    LeaveAreaLUAPanic("AR0700","",[2753.868],4)
+    LeaveAreaLUA("AR0700","",[2753.868],4)
+    ActionOverride(Player2,LeaveAreaLUA("AR0700","",[2805.882],4))
+    ActionOverride(Player3,LeaveAreaLUA("AR0700","",[2791.820],4))
+    ActionOverride(Player4,LeaveAreaLUA("AR0700","",[2764.788],2))
+    ActionOverride(Player5,LeaveAreaLUA("AR0700","",[2781.716],0))
+    ActionOverride(Player6,LeaveAreaLUA("AR0700","",[2763.668],0))
+    Wait(1)
+    Explore()
+    MultiPlayerSync()
+    SetGlobal("EnteredWaukeen","AR0700",1)
+    TextScreen("SCENE01")
+    ActionOverride("Imoen",SetDialogue("None"))
+    ActionOverride("Imoen",LeaveParty())
+    ActionOverride("Imoen",GivePartyAllEquipment())
+    ActionOverride("Imoen",DestroySelf())
+    CreateCreature("CSIMOEN",[2732.831],2)  // ~Imoen~
+    CreateCreature("CSIREN",[2557.935],0)  // ~Mage~
+    CreateCreature("CSTHIEF1",[2740.1009],6)  // ~Assassin ~
+    CreateCreature("CSTHIEF2",[2678.1043],6)  // ~Assassin ~
+    CreateCreature("CSTHIEF3",[2579.1075],8)  // ~Assassin ~
+    CreateCreature("CSTHIEF4",[2488.1078],10)  // ~Assassin ~
+    CreateCreature("CSGAYL",[2671.1101],6)  // ~Assassin ~
+    CreateCreature("AMNG1",[2736.1260],0)  // ~Amnish Soldier~
+    SmallWait(1)
+    MoveViewPoint([2576.908],INSTANT)
+    DayNight(DAWN_END)
+    FadeFromColor([40.0],0)
+    StartCutScene("Cut01a")
+END
+

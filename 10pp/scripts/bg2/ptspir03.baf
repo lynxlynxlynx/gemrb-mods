@@ -1,0 +1,43 @@
+IF
+  Detect([PC])
+  Global("SarSpirit","AR5006",4)
+  Contains("sarskul","ShallowGrave")  // ShallowGrave
+  Contains("sarbone","ShallowGrave")  // ShallowGrave
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    ActionOverride(LastSeenBy(Myself),FaceObject("SpiritAppear3"))
+    SetGlobal("SarSpirit","AR5006",5)
+    MoveViewObject(Myself,INSTANT)
+    CreateVisualEffectObject("SPDEATH3",Myself)
+    Wait(1)
+    SmallWait(10)
+    CreateCreatureObject("SARSPIR",Myself,0,0,0)  // ~Prison Spirit~
+    Wait(1)
+    EndCutSceneMode()
+END
+
+IF
+  Detect([PC])
+  Global("SarSpirit","AR5006",6)
+  CombatCounter(0)
+  OR(2)
+    PartyHasItem("MISCAU")  // ~Elven Holy Water~
+    Contains("MISCAU","ShallowGrave")  // ShallowGrave
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    TakePartyItemNum("MISCAU",1)
+    ActionOverride(LastSeenBy(Myself),FaceObject("SpiritAppear3"))
+    SetGlobal("SarSpirit","AR5006",7)
+    MoveViewObject(Myself,INSTANT)
+    CreateVisualEffectObject("SPDEATH3",Myself)
+    Wait(1)
+    SmallWait(10)
+    CreateCreatureObject("SARSPIR",Myself,0,0,0)  // ~Prison Spirit~
+    Wait(1)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,9 @@
+IF
+  Global("KamirWard","GLOBAL",3)
+  See([PC])
+THEN
+  RESPONSE #100
+    Wait(3)
+    Dialog([PC])
+END
+

@@ -1,0 +1,14 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Or(3)
+    !Global("30Ilquog_Dead","GLOBAL",0)
+    !Global("30Tequog_Dead","GLOBAL",0)
+    !Global("30Yquog_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+

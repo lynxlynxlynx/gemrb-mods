@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Phaere")  // 
+    SetGlobal("udDrowPlot","GLOBAL",20)
+    MoveToObject("Ardulace")
+    Wait(1)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    StartDialogNoSet(Player1)
+    EndCutSceneMode()
+END
+

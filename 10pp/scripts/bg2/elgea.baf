@@ -1,0 +1,23 @@
+IF
+  Global("ElgeaGone","GLOBAL",1)
+  Global("ElgeaRescued","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ElgeaRescued","LOCALS",1)
+    CreateCreatureObject("AMNCEN1",Myself,0,0,0)  // ~Amnish Centurion~
+    CreateCreatureObject("AMNLEG1",Myself,0,0,0)  // ~Amnish Legionary~
+    CreateCreatureObject("AMNLEG1",Myself,0,0,0)  // ~Amnish Legionary~
+    CreateCreatureObject("AMNLEG1",Myself,0,0,0)  // ~Amnish Legionary~
+    CreateCreatureObject("AMNLEG1",Myself,0,0,0)  // ~Amnish Legionary~
+    CreateCreatureObject("COWENF1",Myself,0,0,0)  // ~Cowled Enforcer~
+    CreateCreatureObject("COWENF1",Myself,0,0,0)  // ~Cowled Enforcer~
+    DestroySelf()
+END
+
+IF
+  Global("ElgeaFree","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

@@ -1,0 +1,59 @@
+IF
+  HaveSpell(CLERIC_ENTROPY_SHIELD)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_ENTROPY_SHIELD)
+    RemoveSpell(CLERIC_ENTROPY_SHIELD)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_FLAME_STRIKE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_FLAME_STRIKE)
+    RemoveSpell(CLERIC_FLAME_STRIKE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_EARTHQUAKE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_EARTHQUAKE)
+    RemoveSpell(CLERIC_EARTHQUAKE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_BLOOD_RAGE)
+  Or(11)
+    See(NearestEnemyOf(Myself))
+    See([PC.0.0.MAGE_THIEF])
+    See([PC.0.0.FIGHTER_MAGE_THIEF])
+    See([PC.0.0.FIGHTER_MAGE_CLERIC])
+    See([PC.0.0.FIGHTER_MAGE])
+    See([PC.0.0.FIGHTER_CLERIC])
+    See([PC.0.0.CLERIC_THIEF])
+    See([PC.0.0.CLERIC_RANGER])
+    See([PC.0.0.CLERIC])
+    See([PC.0.0.CLERIC_MAGE])
+    See([PC.0.0.MAGE])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_BLOOD_RAGE)
+    RemoveSpell(CLERIC_BLOOD_RAGE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+

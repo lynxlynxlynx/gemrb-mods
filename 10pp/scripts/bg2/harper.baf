@@ -1,0 +1,29 @@
+IF
+  OR(3)
+    HPPercentLT(Myself,100)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    Allegiance(Myself,ENEMY)
+  Global("AttackFirstHarpers","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackFirstHarpers","GLOBAL",1)
+END
+
+IF
+  Global("AttackFirstHarpers","GLOBAL",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Die()
+  Global("HarperDies","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HarperDies","LOCALS",1)
+    SetGlobal("AttackFirstHarpers","GLOBAL",1)
+    ReputationInc(-1)
+END
+

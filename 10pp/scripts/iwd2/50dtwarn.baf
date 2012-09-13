@@ -1,0 +1,66 @@
+IF
+  GlobalGT("AR5010_DT_VIS","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ATTACK_MODE","LOCALS",0)
+  !CreatureHidden(Myself)
+  Or(2)
+    AttackedBy([GOODCUTOFF],0)
+    Range(NearestEnemyOf(Myself),4,LESS_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACK_MODE","LOCALS",1)
+    Continue()
+END
+
+IF
+  !Global("ATTACK_MODE","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Global("ATTACK_MODE","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACK_MODE","LOCALS",0)
+    Continue()
+END
+
+IF
+  !CreatureHidden(Myself)
+  NearLocation(Myself,690,650,3)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([690.650])
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("50SUOMA_HELP","GLOBAL",5)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("AR5010_DT_VIS","GLOBAL",1)
+    SetCreatureAreaFlag(Myself,HAS_SEEN_PARTY,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+    SpellHitEffectSprite(Myself,Myself,DARKTREE_ATTACK,0)
+    Wait(1)
+    PlaySequence(Myself,AWAKE)
+    HideCreature(Myself,FALSE)
+END
+

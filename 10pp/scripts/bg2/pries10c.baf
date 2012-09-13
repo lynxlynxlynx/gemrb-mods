@@ -1,0 +1,106 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_MAGIC_RESISTANCE)
+    ReallyForceSpell(Myself,CLERIC_CLOAK_OF_FEAR)
+    SetGlobal("prep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DISPEL_MAGIC)
+  Global("magedispel","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("magedispel","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_2)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_1)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMATE_DEAD)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMATE_DEAD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLY_SMITE)
+  Alignment(Myself,MASK_GOOD)
+  Global("blightsmite","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLY_SMITE)
+    SetGlobal("blightsmite","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_UNHOLY_BLIGHT)
+  Alignment(Myself,MASK_EVIL)
+  Global("blightsmite","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_UNHOLY_BLIGHT)
+    SetGlobal("blightsmite","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CHARM_PERSON)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CHARM_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MENTAL_DOMINATION)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SLAY_LIVING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_SLAY_LIVING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_RIGHTEOUS_MAGIC)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

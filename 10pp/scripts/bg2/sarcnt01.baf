@@ -1,0 +1,8 @@
+IF
+  AreaCheck("AR5000")
+  Global("INFORMPLOTCUTACTIVE","GLOBAL",2)
+THEN
+  RESPONSE #100
+    EscapeAreaMove("AR5010",703,560,0)
+END
+

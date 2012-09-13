@@ -1,0 +1,27 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)
+END
+
+IF
+  See([PC])
+  HaveSpell(SIRINE_DIRE_CHARM)
+THEN
+  RESPONSE #50
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+  RESPONSE #50
+    Spell([PC],SIRINE_DIRE_CHARM)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

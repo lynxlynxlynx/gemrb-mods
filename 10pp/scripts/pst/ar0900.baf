@@ -1,0 +1,298 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0900_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartMovie("Carceri")
+    GlobalSet("AR0900_Visited","GLOBAL",1)
+    Addpartyexperience(75000)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",900)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",900)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Dead("Ebb")  // ~Ebb Creakknees~
+  Global("Spawn_Ebb","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Ebb","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("Kester_DEAD","KAPUTZ",1)
+  Global("Spawn_Distiller","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Distiller","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Dead("Agril")  // ~Agril-Shanak~
+  Global("Spawn_Agril_Tek","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Agril_Tek","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Dead("Tek")  // ~Cornugon~
+  Global("Spawn_Agril_Tek","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Agril_Tek","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Dead("Hermit")  // ~Hermit~
+  Global("Spawn_Hermit","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Hermit","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Dead("Caretaker")  // Caretaker
+  Global("Spawn_Caretaker","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Caretaker","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Dead("Berrog")  // ~Berrog~
+  Global("Spawn_Berrog_Burgher","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Berrog_Burgher","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Dead("Burgher")  // ~Tovus Giljaf~
+  Global("Spawn_Berrog_Burgher","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Berrog_Burgher","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Dead("Jasilya")  // ~Jasilya~
+  Global("Spawn_Jasilya","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Jasilya","GLOBAL",0)
+    GlobalSet("Spawn_Curst_Girl","GLOBAL",1)
+    Continue()
+END
+
+IF
+  GlobalGT("Thug_Dead","AR0900",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Counter","GLOBAL",1)
+    GlobalSet("Benny","GLOBAL",1)
+    Wait(2)
+    GlobalSet("Thug_Dead","AR0900",0)
+    Continue()
+END
+
+IF
+  Dead("Jujog")  // ~Curst Townsman~
+  GlobalGT("Looter_Dead","AR0900",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Counter","GLOBAL",1)
+    Wait(2)
+    GlobalSet("Looter_Dead","AR0900",0)
+    Continue()
+END
+
+IF
+  InParty("Ignus")  // ~Smoldering Corpse~
+  Global("Curst_Execution_One","GLOBAL",14)
+THEN
+  RESPONSE #100
+    FloatMessage("Ignus",52839)  // ~"Burrrrnnn..."~
+    Wait(3)
+    GlobalSet("Curst_Execution_One","GLOBAL",15)
+    Continue()
+END
+
+IF
+  Global("Curst_Execution_One","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Execution_One","GLOBAL",15)
+    Continue()
+END
+
+IF
+  Global("Gehreleth_Dead","AR0900",2)
+  GlobalLT("Townie_Dead","AR0900",8)
+THEN
+  RESPONSE #100
+    Addpartyexperience(225000)
+    IncrementGlobal("Curst_Counter","GLOBAL",1)
+    GlobalSet("Gehreleth_Dead","AR0900",3)
+    Continue()
+END
+
+IF
+  !TimerActive(1)
+  Global("Sohmien_Spawn","GLOBAL",0)
+  GlobalLT("Curst_Counter","GLOBAL",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Sohmien_Spawn","GLOBAL",1)
+    StartTimer(1,15)
+END
+
+IF
+  !TimerActive(1)
+  Global("Sohmien_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Sohmien_Spawn","GLOBAL",1)
+    StartTimer(1,20)
+END
+
+IF
+  !TimerActive(1)
+  Global("Sohmien_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",3)
+THEN
+  RESPONSE #100
+    GlobalSet("Sohmien_Spawn","GLOBAL",1)
+    StartTimer(1,30)
+END
+
+IF
+  !TimerActive(1)
+  Global("Sohmien_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    GlobalSet("Sohmien_Spawn","GLOBAL",1)
+    StartTimer(1,50)
+END
+
+IF
+  !TimerActive(1)
+  Global("Sohmien_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",5)
+THEN
+  RESPONSE #100
+    GlobalSet("Sohmien_Spawn","GLOBAL",1)
+    StartTimer(1,80)
+END
+
+IF
+  !TimerActive(1)
+  Global("Sohmien_Spawn","GLOBAL",0)
+  GlobalGT("Curst_Counter","GLOBAL",5)
+THEN
+  RESPONSE #100
+    GlobalSet("Sohmien_Spawn","GLOBAL",1)
+    StartTimer(1,120)
+END
+
+IF
+  !TimerActive(1)
+  Global("Curst_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",0)
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Spawn","GLOBAL",1)
+    StartTimer(1,20)
+END
+
+IF
+  !TimerActive(1)
+  Global("Curst_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",1)
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Spawn","GLOBAL",1)
+    StartTimer(1,30)
+END
+
+IF
+  !TimerActive(1)
+  Global("Curst_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",2)
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Spawn","GLOBAL",1)
+    StartTimer(1,40)
+END
+
+IF
+  !TimerActive(1)
+  Global("Curst_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",3)
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Spawn","GLOBAL",1)
+    StartTimer(1,50)
+END
+
+IF
+  !TimerActive(1)
+  Global("Curst_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",4)
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Spawn","GLOBAL",1)
+    StartTimer(1,60)
+END
+
+IF
+  !TimerActive(1)
+  Global("Curst_Spawn","GLOBAL",0)
+  Global("Curst_Counter","GLOBAL",5)
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Spawn","GLOBAL",1)
+    StartTimer(1,80)
+END
+
+IF
+  !TimerActive(1)
+  Global("Curst_Spawn","GLOBAL",0)
+  GlobalGT("Curst_Counter","GLOBAL",5)
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Spawn","GLOBAL",1)
+    StartTimer(1,120)
+END
+

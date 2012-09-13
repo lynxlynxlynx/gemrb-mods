@@ -1,0 +1,78 @@
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,2870,850,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2870.850])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  !Global("TEAM_2","MYAREA",0)
+  OpenState("AR4100_RightSlide",FALSE)  // AR4100_RightSlide
+  !StateCheck(Myself,STATE_NORMAL)
+THEN
+  RESPONSE #100
+    MoveToPoint([2870.850])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !Global("TEAM_2","MYAREA",0)
+  OpenState("AR4100_RightSlide",FALSE)  // AR4100_RightSlide
+  !StateCheck(Myself,STATE_NORMAL)
+THEN
+  RESPONSE #100
+    FaceObject("RIGHTLEVER")
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !Global("TEAM_2","MYAREA",0)
+  OpenState("AR4100_RightSlide",FALSE)  // AR4100_RightSlide
+  !StateCheck(Myself,STATE_NORMAL)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,ATTACK)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  !Global("TEAM_2","MYAREA",0)
+  OpenState("AR4100_RightSlide",FALSE)  // AR4100_RightSlide
+  !StateCheck(Myself,STATE_NORMAL)
+THEN
+  RESPONSE #100
+    OpenDoor("AR4100_RIGHTSLIDE")
+    SetGlobal("ML_0","LOCALS",4)
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  NearSavedLocation(4)
+  !Global("TEAM_2","MYAREA",0)
+  OpenState("AR4100_RightSlide",FALSE)  // AR4100_RightSlide
+  !StateCheck(Myself,STATE_NORMAL)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",0)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  !NearSavedLocation(4)
+  !Global("TEAM_2","MYAREA",0)
+  OpenState("AR4100_RightSlide",FALSE)  // AR4100_RightSlide
+  !StateCheck(Myself,STATE_NORMAL)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+

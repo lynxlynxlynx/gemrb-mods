@@ -1,0 +1,7 @@
+IF
+  GlobalGT("HendakReleased","AR0406",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride("mazzy",DropInventory())
+    Wait(2)
+    ActionOverride("gorf",JumpToPoint([447.1773]))
+    ActionOverride("gorf",Face(4))
+    Wait(1)
+    ActionOverride("mazzy",JumpToPoint([447.1773]))
+    ActionOverride("mazzy",Face(12))
+    Wait(2)
+    GiveItemCreate("sw1h07","mazzy",0,0,0)  // ~Short Sword ~
+    GiveItemCreate("shld12","mazzy",0,0,0)  // ~Small Shield~
+    Wait(1)
+    ActionOverride("mazzy",EquipMostDamagingMelee())
+    MoveViewPoint([597.1770],INSTANT)
+    ActionOverride("gorf",Enemy())
+    FadeFromColor([20.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,77 @@
+IF
+  Global("CleanseVampire","AR1401",2)
+  Global("AerieVampire","GLOBAL",3)
+  Name("Aerie",Myself)
+  AreaCheck("AR1401")
+THEN
+  RESPONSE #100
+    SetGlobal("AerieVampire","GLOBAL",4)
+    DialogueInterrupt(TRUE)
+    ChangeAIScript("Aerie",OVERRIDE)
+END
+
+IF
+  Global("CleanseVampire","AR1401",2)
+  Global("AnomenVampire","GLOBAL",3)
+  Name("Anomen",Myself)
+  AreaCheck("AR1401")
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenVampire","GLOBAL",4)
+    DialogueInterrupt(TRUE)
+    ChangeAIScript("Anomen",OVERRIDE)
+END
+
+IF
+  Global("CleanseVampire","AR1401",2)
+  Global("JaheiraVampire","GLOBAL",3)
+  Name("Jaheira",Myself)
+  AreaCheck("AR1401")
+THEN
+  RESPONSE #100
+    SetGlobal("JaheiraVampire","GLOBAL",4)
+    DialogueInterrupt(TRUE)
+    ChangeAIScript("Jaheira",OVERRIDE)
+END
+
+IF
+  Global("CleanseVampire","AR1401",2)
+  Global("ViconiaVampire","GLOBAL",3)
+  Name("Viconia",Myself)
+  AreaCheck("AR1401")
+THEN
+  RESPONSE #100
+    SetGlobal("ViconiaVampire","GLOBAL",4)
+    DialogueInterrupt(TRUE)
+    ChangeAIScript("Viconia",OVERRIDE)
+END
+
+IF
+  OR(4)
+    Global("AerieVampire","GLOBAL",1)
+    Global("AnomenVampire","GLOBAL",1)
+    Global("JaheiraVampire","GLOBAL",1)
+    Global("ViconiaVampire","GLOBAL",1)
+  Global("RomanceVampire","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RomanceVampire","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OR(4)
+    Global("AerieVampire","GLOBAL",1)
+    Global("AnomenVampire","GLOBAL",1)
+    Global("JaheiraVampire","GLOBAL",1)
+    Global("ViconiaVampire","GLOBAL",1)
+  Global("RomanceVampire","GLOBAL",1)
+  Global("RomanceVampireTeleport","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RomanceVampireTeleport","GLOBAL",1)
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    Wait(2)
+    DestroySelf()
+END
+

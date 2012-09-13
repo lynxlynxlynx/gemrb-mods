@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateCreature("SAHCPT01",[119.636],0)  // ~Captain Alyittyl~
+    ActionOverride("sahcpt01",MoveToPoint([385.835]))
+    ActionOverride("sahcpt01",StartDialogNoSet([PC]))
+END
+

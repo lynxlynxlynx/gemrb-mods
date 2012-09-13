@@ -1,0 +1,75 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSCowl7")  // 
+    ForceSpell("CSIren",0)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSCowl6")  // 
+    ForceSpell(Myself,0)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSCowl8")  // 
+    ForceSpell(Myself,0)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSCowl9")  // 
+    ForceSpell(Myself,DRYAD_TELEPORT)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSCowl4")  // 
+    ForceSpell("CSImoen",DRYAD_TELEPORT)
+    Wait(1)
+    AddXPObject(Player1,34500)
+    AddXPObject(Player2,34500)
+    AddXPObject(Player3,34500)
+    AddXPObject(Player4,34500)
+    AddXPObject(Player5,34500)
+    AddXPObject(Player6,34500)
+    ActionOverride("AmnG1",MoveToPoint([2606.1140]))
+    ActionOverride("AmnG1",Face(0))
+    ActionOverride("Bystand1",Wait(3))
+    ActionOverride("Bystand1",Dialog([PC]))
+    SetGlobal("CutScene01","AR0700",5)
+    SetGlobalTimer("CutScene01Timer","AR0700",1)
+    SetGlobalTimer("Bystander","GLOBAL",ONE_DAY)
+    BanterBlockTime(600)
+    EndCutSceneMode()
+    ActionOverride("CSIren",DestroySelf())
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSImoen")  // 
+    Wait(3)
+    DestroySelf()
+END
+

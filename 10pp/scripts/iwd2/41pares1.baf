@@ -1,0 +1,383 @@
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  !Global("GameRoomMode","MYAREA",0)
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30913)  // ~"Mode activated."~
+    Continue()
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",FALSE)  // AR4102_Switch1
+  !Global("GameRoomMode","MYAREA",0)
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30914)  // ~"Mode deactivated."~
+    Continue()
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",1)
+  Global("PrismDeactivated","MYAREA",1)
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30920)  // ~"Prism damage detected... repairing... repairs complete."~
+    CloseDoor("AR4102_Switch1")
+    SetGlobal("PrismDeactivated","MYAREA",0)
+    DisplayString(LastTrigger,30531)  // ~The prism has been enabled.~
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",1)
+  Global("PrismDeactivated","MYAREA",0)
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30919)  // ~"All devices functioning normally."~
+    CloseDoor("AR4102_Switch1")
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Trigger(0)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",2)
+  Global("Oria_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Switch1")
+    FloatMessage("GameMaster",34279)  // ~"Mode currently under development."~
+    ActionOverride("GameMaster",Wait(5))
+    FloatMessage("GameMaster",30914)  // ~"Mode deactivated."~
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Trigger(0)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",2)
+  Global("EtherealRealmActive","MYAREA",0)
+  Global("Oria_dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    PlaySound("AM6400c")
+    SpellHitEffectSprite(Player1,Player1,PORTAL,0)
+    SpellHitEffectSprite(Player2,Player2,PORTAL,0)
+    SpellHitEffectSprite(Player3,Player3,PORTAL,0)
+    SpellHitEffectSprite(Player4,Player4,PORTAL,0)
+    SpellHitEffectSprite(Player5,Player5,PORTAL,0)
+    SpellHitEffectSprite(Player6,Player6,PORTAL,0)
+    SetCreatureAreaFlag("OriaEssence",INVULNERABLE,FALSE)
+    ApplySpell("OriaEssence",2082)
+    ApplySpell(Player1,2084)
+    ApplySpell(Player2,2084)
+    ApplySpell(Player3,2084)
+    ApplySpell(Player4,2084)
+    ApplySpell(Player5,2084)
+    ApplySpell(Player6,2084)
+    ActionOverride("OriaEssence",EquipItem("00CWRDE1",0))
+    XEquipItem("00CWRDE1","OriaEssence",SLOT_WEAPON0,FALSE)
+    ActionOverride("OriaEssence",EquipItem("00AX1H79",1))
+    XEquipItem("00AX1H79","OriaEssence",SLOT_WEAPON0,TRUE)
+    SetDoorFlag("AR4102_Switch2",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch3",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch4",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch5",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch6",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch7",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch8",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch9",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch10",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch11",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch12",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch13",HIDDEN,TRUE)
+    TriggerActivation("To4101a",FALSE)
+    TriggerActivation("To4101b",FALSE)
+    SetGlobal("EtherealRealmActive","MYAREA",1)
+    DisplayMessage(34781)  // ~You feel yourselves become less corporeal, suddenly realizing you've just traveled into a section of the ethereal realm that's been confined to this level of the temple.~
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Trigger(0)
+  OpenState("AR4102_Switch1",FALSE)  // AR4102_Switch1
+  Global("EtherealRealmActive","MYAREA",1)
+THEN
+  RESPONSE #100
+    PlaySound("AM6400c")
+    SpellHitEffectSprite(Player1,Player1,PORTAL,0)
+    SpellHitEffectSprite(Player2,Player2,PORTAL,0)
+    SpellHitEffectSprite(Player3,Player3,PORTAL,0)
+    SpellHitEffectSprite(Player4,Player4,PORTAL,0)
+    SpellHitEffectSprite(Player5,Player5,PORTAL,0)
+    SpellHitEffectSprite(Player6,Player6,PORTAL,0)
+    ApplySpell("OriaEssence",2084)
+    SetCreatureAreaFlag("OriaEssence",INVULNERABLE,TRUE)
+    ApplySpell(Player1,2082)
+    ApplySpell(Player2,2082)
+    ApplySpell(Player3,2082)
+    ApplySpell(Player4,2082)
+    ApplySpell(Player5,2082)
+    ApplySpell(Player6,2082)
+    ActionOverride("OriaEssence",EquipItem("00AX1H79",0))
+    XEquipItem("00AX1H79","OriaEssence",SLOT_WEAPON0,FALSE)
+    ActionOverride("OriaEssence",EquipItem("00CWRDE1",1))
+    XEquipItem("00CWRDE1","OriaEssence",SLOT_WEAPON0,TRUE)
+    SetDoorFlag("AR4102_Switch2",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch3",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch4",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch5",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch6",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch7",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch8",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch9",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch10",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch11",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch12",HIDDEN,FALSE)
+    SetDoorFlag("AR4102_Switch13",HIDDEN,FALSE)
+    TriggerActivation("To4101a",TRUE)
+    TriggerActivation("To4101b",TRUE)
+    SetGlobal("EtherealRealmActive","MYAREA",0)
+    DisplayMessage(34782)  // ~Your surroundings gain familiarity as you feel yourselves slowly drift back into the Prime Material plane.~
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",FALSE)  // AR4102_Switch1
+  Global("BattleSquareActive","MYAREA",1)
+  Global("BattleSquareAbort","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquareAbort","MYAREA",1)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+  Global("Oria_dead","GLOBAL",1)
+  Global("OriaEssence_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Switch1")
+    FloatMessage(Myself,34279)  // ~"Mode currently under development."~
+    Wait(5)
+    FloatMessage(Myself,30914)  // ~"Mode deactivated."~
+END
+
+IF
+  Clicked(Player1)
+  IsPlayerNumber(LastTrigger,1)
+  Exists(Player1)
+  !StateCheck(Player1,STATE_DEAD)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquarePlayer","MYAREA",1)
+    SetGlobal("BattleSquareActive","MYAREA",-1)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+  Global("Oria_dead","GLOBAL",1)
+  Global("OriaEssence_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Switch1")
+    FloatMessage(Myself,34279)  // ~"Mode currently under development."~
+    Wait(5)
+    FloatMessage(Myself,30914)  // ~"Mode deactivated."~
+END
+
+IF
+  Clicked(Player2)
+  IsPlayerNumber(LastTrigger,2)
+  Exists(Player2)
+  !StateCheck(Player2,STATE_DEAD)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquarePlayer","MYAREA",2)
+    SetGlobal("BattleSquareActive","MYAREA",-1)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+  Global("Oria_dead","GLOBAL",1)
+  Global("OriaEssence_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Switch1")
+    FloatMessage(Myself,34279)  // ~"Mode currently under development."~
+    Wait(5)
+    FloatMessage(Myself,30914)  // ~"Mode deactivated."~
+END
+
+IF
+  Clicked(Player3)
+  IsPlayerNumber(LastTrigger,3)
+  Exists(Player3)
+  !StateCheck(Player3,STATE_DEAD)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquarePlayer","MYAREA",3)
+    SetGlobal("BattleSquareActive","MYAREA",-1)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+  Global("Oria_dead","GLOBAL",1)
+  Global("OriaEssence_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Switch1")
+    FloatMessage(Myself,34279)  // ~"Mode currently under development."~
+    Wait(5)
+    FloatMessage(Myself,30914)  // ~"Mode deactivated."~
+END
+
+IF
+  Clicked(Player4)
+  IsPlayerNumber(LastTrigger,4)
+  Exists(Player4)
+  !StateCheck(Player4,STATE_DEAD)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquarePlayer","MYAREA",4)
+    SetGlobal("BattleSquareActive","MYAREA",-1)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+  Global("Oria_dead","GLOBAL",1)
+  Global("OriaEssence_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Switch1")
+    FloatMessage(Myself,34279)  // ~"Mode currently under development."~
+    Wait(5)
+    FloatMessage(Myself,30914)  // ~"Mode deactivated."~
+END
+
+IF
+  Clicked(Player5)
+  IsPlayerNumber(LastTrigger,5)
+  Exists(Player5)
+  !StateCheck(Player5,STATE_DEAD)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquarePlayer","MYAREA",5)
+    SetGlobal("BattleSquareActive","MYAREA",-1)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+  Global("Oria_dead","GLOBAL",1)
+  Global("OriaEssence_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR4102_Switch1")
+    FloatMessage(Myself,34279)  // ~"Mode currently under development."~
+    Wait(5)
+    FloatMessage(Myself,30914)  // ~"Mode deactivated."~
+END
+
+IF
+  Clicked(Player6)
+  IsPlayerNumber(LastTrigger,6)
+  Exists(Player6)
+  !StateCheck(Player6,STATE_DEAD)
+  OpenState("AR4102_Switch1",TRUE)  // AR4102_Switch1
+  Global("GameRoomMode","MYAREA",3)
+  Global("BattleSquareActive","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquarePlayer","MYAREA",6)
+    SetGlobal("BattleSquareActive","MYAREA",-1)
+END
+
+IF
+  Global("BattleSquareActive","MYAREA",-1)
+THEN
+  RESPONSE #100
+    TriggerActivation("To4101a",FALSE)
+    TriggerActivation("To4101b",FALSE)
+    ClearAllActions()
+    MultiPlayerSync()
+    AllowAreaResting(FALSE)
+    CloseDoor("AR4102_Door11")
+    SetDoorFlag("AR4102_Door11",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch2",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch3",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch4",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch5",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch6",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch7",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch8",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch9",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch10",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch11",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch12",HIDDEN,TRUE)
+    SetDoorFlag("AR4102_Switch13",HIDDEN,TRUE)
+    TriggerActivation("GameGrid0",TRUE)
+    TriggerActivation("GameGrid1",TRUE)
+    TriggerActivation("GameGrid2",TRUE)
+    TriggerActivation("GameGrid3",TRUE)
+    TriggerActivation("GameGrid4",TRUE)
+    TriggerActivation("GameGrid5",TRUE)
+    TriggerActivation("GameGrid6",TRUE)
+    TriggerActivation("GameGrid7",TRUE)
+    TriggerActivation("GameGrid8",TRUE)
+    SetGlobal("BattleSquareSelected","MYAREA",-1)
+    SetGlobal("BattleSquarePlayerScore","MYAREA",0)
+    SetGlobal("BattleSquareArenaScore","MYAREA",0)
+    SetGlobal("BattleSquareArenaCount","MYAREA",0)
+    SetGlobal("BattleSquarePlayerCount","MYAREA",0)
+    SetGlobal("BattleSquareState","MYAREA",1)
+    SetGlobal("BattleSquareActive","MYAREA",1)
+END
+
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

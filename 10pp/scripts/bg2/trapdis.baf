@@ -1,0 +1,18 @@
+IF
+  Clicked([ANYONE])
+  PartyHasItem("MISC2L")  // ~Bone Wardstone~
+THEN
+  RESPONSE #100
+    TriggerActivation("deathtrap1",FALSE)
+    TriggerActivation("deathtrap2",FALSE)
+    TriggerActivation("deathtrap3",FALSE)
+    DisplayString(Myself,23496)  // ~When you insert the bone wardstone into the machine's key slot, you feel the machine hum for a few moments and then quiet down.  You are sure that something has been turned off.~
+END
+
+IF
+  Clicked([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,23495)  // ~This machine seems to be the power source for something in the room to the north.  It looks as if some sort of wardstone is necessary to operate the device.~
+END
+

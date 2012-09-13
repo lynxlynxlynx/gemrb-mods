@@ -1,0 +1,23 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,TROCO1)
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+END
+

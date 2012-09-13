@@ -1,0 +1,8 @@
+IF
+  Dead("prisonk1")  // ~Prison Keeper~
+  Global("JanFree","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("JanFree","GLOBAL",1)
+END
+

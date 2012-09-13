@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    CreateCreature("Barl",[635.732],13)  // ~Barl~
+    Wait(1)
+    JumpToPoint([863.795])
+    MoveViewPoint([863.795],INSTANT)
+    ActionOverride(Player2,JumpToPoint([827.820]))
+    ActionOverride(Player3,JumpToPoint([786.859]))
+    ActionOverride(Player4,JumpToPoint([908.823]))
+    ActionOverride(Player5,JumpToPoint([877.857]))
+    ActionOverride(Player6,JumpToPoint([828.885]))
+    Wait(1)
+    ActionOverride("TemSup",JumpToPoint([677.700]))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    ActionOverride("BARL",StartDialogNoSet(Player1))
+END
+

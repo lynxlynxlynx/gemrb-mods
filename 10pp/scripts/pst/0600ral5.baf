@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([269.1494])
+    MoveToPoint([269.1838])
+    MoveToPoint([530.2100])
+    MoveToPoint([530.2552])
+    MoveToPoint([402.2552])
+    Face(6)
+    Wait(5)
+    FloatMessage(Myself,2963)  // ~"Hmm.  How... curious."~
+    Wait(5)
+    MoveToPoint([518.2667])
+    MoveToPoint([518.2786])
+    MoveToPoint([847.3117])
+    MoveToPoint([2055.3117])
+    MoveToPoint([2475.3544])
+    MoveToPoint([2933.3081])
+    MoveToPoint([3086.3063])
+    GlobalSet("0600_Rail_5","AR0600",0)
+    DestroySelf()
+END
+

@@ -1,0 +1,10 @@
+IF
+  !GlobalTimerNotExpired("Shout","LOCALS")
+  Global("SarlesSpawn","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Shout","LOCALS",180)
+    StartDialogNoSet([PC])
+END
+

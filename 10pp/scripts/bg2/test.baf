@@ -1,0 +1,7 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,StartDialogue("player1",Player1))
+END
+

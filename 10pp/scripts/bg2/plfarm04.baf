@@ -1,0 +1,10 @@
+IF
+  Dead("plmetw01")  // ~Sorcerous Amin ~
+  Global("BaronDead","LOCALS",0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("BaronDead","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+

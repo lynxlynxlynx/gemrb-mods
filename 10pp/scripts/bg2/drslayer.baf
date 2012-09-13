@@ -1,0 +1,10 @@
+IF
+  Allegiance(Myself,ENEMY)
+  !Global("Slayer10","GLOBAL",2)
+  Global("Decision","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Decision","LOCALS",1)
+    DestroyItem("IMOENHP1")  // ~Imoen's Belt~
+END
+

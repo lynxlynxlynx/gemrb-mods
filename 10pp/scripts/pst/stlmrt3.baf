@@ -1,0 +1,67 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("HeyLookOverHere")  // 
+    Wait(4)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    Wait(4)
+    Face(14)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Morte")  // 
+    FloatMessage(Myself,50474)  // ~Hey! Let go! Let go! Help! HELP!"~
+    PlaySequence(ANIM_DAMAGE)
+    PlaySequence(ANIM_DIE)
+    LeaveParty()
+    DropInventory()
+    JumpToPoint([2105.3054])
+    DeactivateEx(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("wererat1")  // 
+    Enemy()
+    PlaySequence(ANIM_ATTACK)
+    Wait(2)
+    MoveViewPoint([1132.2305],VERY_FAST)
+    GlobalSet("Morte_Stolen","GLOBAL",1)
+    GlobalSet("Wererat_Spawn","GLOBAL",0)
+    Wait(1)
+    RunToPoint([769.2189])
+    RunToPoint([1132.2305])
+    RunToPoint([1456.2332])
+    MoveViewObject("Nameless",INSTANT)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("wererat2")  // 
+    MoveToObjectEx("Morte",0)
+    FaceObject("Morte")
+    Enemy()
+    PlaySequence(ANIM_ATTACK)
+    Wait(1)
+    RunToPoint([1132.2305])
+    RunToPoint([1456.2332])
+    DestroySelf()
+END
+

@@ -1,0 +1,43 @@
+IF
+  GlobalGT("Jolmi","GLOBAL",2)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx(LastAttackerOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  See("Nameless")  // ~Nameless One~
+THEN
+  RESPONSE #100
+    FaceObject("Nameless")
+    Continue()
+END
+
+IF
+  See("Nameless")  // ~Nameless One~
+  NumTimesTalkedTo(0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,50477)  // ~"Sir! Sir! Might I have a word with you?"~
+    StartRandomTimer(1,5,10)
+END
+

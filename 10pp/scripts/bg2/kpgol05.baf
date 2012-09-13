@@ -1,0 +1,9 @@
+IF
+  PartyHasItem("HAMM04")  // ~War Hammer +1,+4 vs. Giantkin~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38758)  // ~As you pick up the weapon, two of the golems come to life and attack.~
+    Enemy()
+END
+

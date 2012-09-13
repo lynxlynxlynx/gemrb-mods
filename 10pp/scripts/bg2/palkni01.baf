@@ -1,0 +1,17 @@
+IF
+  OR(2)
+    OnCreation()
+    Die()
+THEN
+  RESPONSE #100
+    SaveObjectLocation("GLOBAL","LOCpalkni01","palkni01")
+END
+
+IF
+  Global("PaladinsStartBattle","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

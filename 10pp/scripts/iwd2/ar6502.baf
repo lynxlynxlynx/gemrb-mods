@@ -1,0 +1,35 @@
+IF
+  Global("6502_SeeParty","GLOBAL",1)
+  GlobalGT("6502_SeeParty_Time","GLOBAL",9)
+THEN
+  RESPONSE #100
+    SetGlobal("6502_SeeParty","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  !Global("ShowCutscene","AR6503",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ShowCutscene","AR6503",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  Global("SoundOff","MYAREA",0)
+  !Global("TEAM_3","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SoundOff","MYAREA",1)
+    Deactivate("voices_loop")
+    Continue()
+END
+

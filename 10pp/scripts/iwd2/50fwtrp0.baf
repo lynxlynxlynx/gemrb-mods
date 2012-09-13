@@ -1,0 +1,43 @@
+IF
+  !Global("AR5003_DARK_TREE_CLEAR","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,TRAPRESET,FALSE)
+    SetDoorFlag(Myself,HIDDEN,FALSE)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  CheckDoorFlags(Myself,HIDDEN)
+  Global("ACTIVE_DARK_TREE","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,HIDDEN,FALSE)
+    Continue()
+END
+
+IF
+  !CheckDoorFlags(Myself,HIDDEN)
+  !Global("ACTIVE_DARK_TREE","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,HIDDEN,TRUE)
+    Continue()
+END
+
+IF
+  Global("ACTIVE_DARK_TREE","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,INNATE_DARKTREE_ATTACK)
+    SetGlobal("ACTIVE_DARK_TREE","MYAREA",-1)
+END
+
+IF
+  !Global("ACTIVE_DARK_TREE","MYAREA",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

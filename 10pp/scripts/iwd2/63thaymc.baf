@@ -1,0 +1,216 @@
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("22282305271022032408",Myself,SPELLCAST_IGNORE_SEE)
+      // WIZARD_DEATH_ARMOR
+      // WIZARD_HASTE
+      // WIZARD_SEVEN_EYES
+      // WIZARD_SEE_INVISIBILITY
+      // WIZARD_STONESKIN
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  Or(6)
+    HasItem("SGrasp",Myself)  // ~Shocking Grasp~
+    HasItem("SGrasp1",Myself)  // ~Shocking Grasp~
+    HasItem("SGrasp2",Myself)  // ~Shocking Grasp~
+    HasItem("SGrasp3",Myself)  // ~Shocking Grasp~
+    HasItem("SGrasp4",Myself)  // ~Shocking Grasp~
+    HasItem("SGrasp5",Myself)  // ~Shocking Grasp~
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("21122103231823122428242225012603",LastMarkedObject,7)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_BURNING_HANDS
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_SPIDER_SPAWN
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_ANIMATE_DEAD
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("21152426",Myself,7)
+      // WIZARD_SHOCKING_GRASP
+      // WIZARD_FIRESHIELD_BLUE
+    MarkSpellAndObject("27052803",LastMarkedObject,7)
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_VIII
+    MarkSpellAndObject("2908",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_METEOR_SWARM
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_CLERIC_DRUID],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("21152426",Myself,7)
+      // WIZARD_SHOCKING_GRASP
+      // WIZARD_FIRESHIELD_BLUE
+    MarkSpellAndObject("27052803",LastMarkedObject,7)
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_VIII
+    MarkSpellAndObject("2908",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_METEOR_SWARM
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_CLERIC_DRUID],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("21122103231823122428242225012603",LastMarkedObject,7)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_BURNING_HANDS
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_SPIDER_SPAWN
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_ANIMATE_DEAD
+      // WIZARD_CHAIN_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("27052803",LastMarkedObject,7)
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_VIII
+    MarkSpellAndObject("2908",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_METEOR_SWARM
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_CLERIC_DRUID],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("21122103231823122428242225012603",LastMarkedObject,7)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_BURNING_HANDS
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_SPIDER_SPAWN
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_ANIMATE_DEAD
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("21152426",Myself,7)
+      // WIZARD_SHOCKING_GRASP
+      // WIZARD_FIRESHIELD_BLUE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2908",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_METEOR_SWARM
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_CLERIC_DRUID],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("21122103231823122428242225012603",LastMarkedObject,7)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_BURNING_HANDS
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_SPIDER_SPAWN
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_ANIMATE_DEAD
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("21152426",Myself,7)
+      // WIZARD_SHOCKING_GRASP
+      // WIZARD_FIRESHIELD_BLUE
+    MarkSpellAndObject("27052803",LastMarkedObject,7)
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_VIII
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_CLERIC_DRUID],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("21122103231823122428242225012603",LastMarkedObject,7)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_BURNING_HANDS
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_SPIDER_SPAWN
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_ANIMATE_DEAD
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("21152426",Myself,7)
+      // WIZARD_SHOCKING_GRASP
+      // WIZARD_FIRESHIELD_BLUE
+    MarkSpellAndObject("27052803",LastMarkedObject,7)
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_VIII
+    MarkSpellAndObject("2908",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_METEOR_SWARM
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_CLERIC_DRUID],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("21122103231823122428242225012603",LastMarkedObject,7)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_BURNING_HANDS
+      // WIZARD_ICELANCE
+      // WIZARD_SLOW
+      // WIZARD_SPIDER_SPAWN
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_ANIMATE_DEAD
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("21152426",Myself,7)
+      // WIZARD_SHOCKING_GRASP
+      // WIZARD_FIRESHIELD_BLUE
+    MarkSpellAndObject("27052803",LastMarkedObject,7)
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_VIII
+    MarkSpellAndObject("2908",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_METEOR_SWARM
+    MarkSpellAndObject("26172302",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // WIZARD_POWER_WORD_SILENCE
+      // WIZARD_DISPEL_MAGIC
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

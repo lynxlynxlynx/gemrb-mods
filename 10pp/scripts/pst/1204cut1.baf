@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([1403.809],VERY_FAST)
+    Wait(1)
+    MoveToPoint([916.530])
+    MoveToPoint([1130.630])
+    MoveToPoint([1436.738])
+    Face(4)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    MoveToPoint([916.551])
+    MoveToPoint([1205.732])
+    Face(14)
+    Wait(9)
+    PlaySoundNotRanged("Tra063a")
+    Wait(2)
+    PlaySoundNotRanged("Tra063b")
+    Wait(1)
+    PlaySoundNotRanged("Tra063c")
+    Wait(4)
+    FaceObject("Nameless")
+    PlaySoundNotRanged("Tra063d")
+    Wait(3)
+    Dialogue([PC])
+    EndCutSceneMode()
+END
+

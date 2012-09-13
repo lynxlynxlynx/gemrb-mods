@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Fhjull")  // 
+    Wait(1)
+    PlaySound("FFT063")
+    Wait(2)
+    PlaySound("FFT062")
+    Wait(4)
+    MoveViewObject("Nameless",INSTANT)
+    EnableFogDither()
+    EnableSpriteDither()
+    EndCutSceneMode()
+END
+

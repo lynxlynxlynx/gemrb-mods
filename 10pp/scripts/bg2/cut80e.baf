@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    MoveViewPoint([1021.808],INSTANT)
+    JumpToPoint([1021.808])
+    ActionOverride(Player2,JumpToPoint([876.622]))
+    ActionOverride(Player3,JumpToPoint([926.623]))
+    ActionOverride(Player4,JumpToPoint([928.565]))
+    ActionOverride(Player5,JumpToPoint([880.562]))
+    ActionOverride(Player6,JumpToPoint([902.517]))
+    CreateCreature("CLTIVA01",[978.745],14)  // ~Ti'Vael~
+    Face(6)
+    ActionOverride(Player2,Face(0))
+    ActionOverride(Player3,Face(0))
+    ActionOverride(Player4,Face(0))
+    ActionOverride(Player5,Face(0))
+    ActionOverride(Player6,Face(0))
+    FadeFromColor([20.0],0)
+    Wait(1)
+    ActionOverride("cltiva01",SetNumTimesTalkedTo(1))
+    ActionOverride("cltiva01",Dialog(Player1))
+END
+

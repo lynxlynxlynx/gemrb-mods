@@ -1,0 +1,10 @@
+IF
+  Range("Remorhaz_Zack",5,GREATER_THAN)  // Remorhaz_Zack
+THEN
+  RESPONSE #100
+    Debug("Unlock")
+    Unlock("AR4100_Door11")
+    ChangeCurrentScript("")
+    TriggerActivation(Myself,FALSE)
+END
+

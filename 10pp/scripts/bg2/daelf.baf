@@ -1,0 +1,15 @@
+IF
+  OR(2)
+    Detect([PC])
+    Range([PC],30)
+  Global("AmbientStartRun","AR2200",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([2804.2168])
+    DisplayStringHead(Myself,56821)  // ~Gods help me!  Get out of my way!~
+    SetGlobal("AmbientStartRun","AR2200",1)
+    MoveToPoint([2853.1923])
+    MoveToPoint([3071.1750])
+    DestroySelf()
+END
+

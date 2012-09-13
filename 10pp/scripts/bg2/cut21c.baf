@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("firban01")  // 
+    ForceSpell("garkid01",DRYAD_TELEPORT)
+    ForceSpell("garkid02",DRYAD_TELEPORT)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("firban02")  // 
+    Wait(5)
+    StartDialogNoSet(Player1)
+END
+

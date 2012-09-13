@@ -1,0 +1,7 @@
+IF
+  Dead("MephitPortal4")  // MephitPortal4
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+

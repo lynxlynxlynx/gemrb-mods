@@ -1,0 +1,24 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Face(14)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Wait(2)
+    Enemy()
+    Attack([PC])
+END
+

@@ -1,0 +1,43 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("MasterOfLocks")  // 
+    HideGUI()
+    MultiPlayerSync()
+    SetDialogueRange(300)
+    MoveViewObject(Myself,25)
+    Unlock("AR4100_Door10")
+    Wait(3)
+    PlaySequence(Myself,ATTACK_JAB)
+    Wait(1)
+    OpenDoor("AR4100_Door10")
+    MoveToObject("StormsisterVictim")
+    ActionOverride(Protagonist,JumpToPoint([1880.2557]))
+    FaceObject("StormsisterVictim")
+    PlaySequence(Myself,ATTACK_JAB)
+    SmallWait(10)
+    PlaySequence("StormsisterVictim",DAMAGE)
+    SmallWait(5)
+    Kill("StormsisterVictim")
+    Wait(2)
+    Face(SW)
+    Wait(1)
+    Face(SE)
+    Wait(1)
+    FloatMessage(Myself,41016)  // ~DAMN!  Am I good or *what?!*~
+    MultiPlayerSync()
+    SetNumTimesTalkedTo(1)
+    MultiPlayerSync()
+    Wait(1)
+    StartCutScene("41cMOLo3")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Protagonist)  // 
+    JumpToPoint([1850.2375])
+END
+

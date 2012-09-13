@@ -1,0 +1,8 @@
+IF
+  Detect([PC])
+  See([0.0.GNOLL])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

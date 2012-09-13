@@ -1,0 +1,14 @@
+IF
+  Or(3)
+    Entered([PC])
+    Disarmed([PC])
+    DisarmFailed([PC])
+THEN
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    OpenDoor("AR6103_RockDoor1")
+    OpenDoor("AR6103_RockDoor2")
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

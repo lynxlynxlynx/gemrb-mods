@@ -1,0 +1,31 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(LastTrigger)  // 
+    MultiPlayerSync()
+    MoveViewPoint([425.1120],INSTANT)
+    Wait(1)
+    MultiPlayerSync()
+    PlaySound("AM5200e")
+    OpenDoor("AR5200_Boards")
+    HideCreature(Myself,TRUE)
+    VerbalConstant(Myself,FALLING)
+    Wait(3)
+    SetHP(Myself,1)
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    JumpToPoint([400.1295])
+    Face(SW)
+    HideCreature(Myself,FALSE)
+    PlaySequence(Myself,SLEEP)
+    Wait(2)
+    MultiPlayerSync()
+    MoveViewPoint([400.1295],INSTANT)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    DisplayMessage(22953)  // ~You fell from the bridge into the chasm below but have managed to climb back up.~
+    EndCutSceneMode()
+END
+

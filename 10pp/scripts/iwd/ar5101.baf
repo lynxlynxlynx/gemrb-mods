@@ -1,0 +1,16 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+    SetVisualRange(30)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

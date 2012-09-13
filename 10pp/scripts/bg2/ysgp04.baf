@@ -1,0 +1,87 @@
+IF
+  See([GOODCUTOFF])
+  Global("GaveShout","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GaveShout","LOCALS",1)
+    DisplayStringHead(Myself,71148)  // ~Oh no!  We've been discovered, my Bhaalspawn friends!  Fight!  Fiiighhht!!~
+    SetGlobalTimer("ysgpend","GLOBAL",15)
+    SetGlobal("ysgpbegin","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  GlobalTimerExpired("ysgpend","GLOBAL")
+  Global("runrun","LOCALS",0)
+  !Dead("yself)")  // yself)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #50
+    DisplayStringHead(Myself,71149)  // ~Run!  Run!  They're too much!!~
+    AddexperienceParty(7500)
+    SetGlobal("runrun","LOCALS",1)
+    EscapeArea()
+  RESPONSE #100
+    DisplayStringHead(Myself,71150)  // ~Let's get out of here!!  Run, my furry brothers!  RUN!!~
+    AddexperienceParty(7500)
+    SetGlobal("runrun","LOCALS",1)
+    EscapeArea()
+END
+
+IF
+  Global("ysgpbegin","GLOBAL",1)
+  HPPercentGT(Myself,50)
+  !Range(NearestEnemyOf(Myself),10)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #50
+    SpellNoDec(NearestEnemyOf(Myself),MAJOR_POLYMORPH)
+    Continue()
+  RESPONSE #30
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_SLOW)
+    Continue()
+  RESPONSE #20
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_SPHERE_OF_CHAOS)
+    Continue()
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CONFUSION)
+    Continue()
+END
+
+IF
+  Global("ysgpbegin","GLOBAL",1)
+  RandomNum(2,1)
+  !Range(NearestEnemyOf(Myself),10)
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType)
+  HPPercentGT(Myself,50)
+  OR(3)
+    HPPercentLT(LastSeenBy(Myself),80)
+    HPPercentLT(SecondNearestMyGroupOfType,80)
+    HPPercentLT(ThirdNearestMyGroupOfType,80)
+THEN
+  RESPONSE #100
+    SpellNoDec(LastSeenBy(Myself),CLERIC_MASS_CURE)
+    Continue()
+END
+
+IF
+  Global("ysgpbegin","GLOBAL",1)
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),10)
+  HPPercentGT(Myself,50)
+THEN
+  RESPONSE #100
+    ClearActions(Myself)
+    RunAwayFrom(LastSeenBy(Myself),15)
+    Continue()
+END
+
+IF
+  Global("ysgpbegin","GLOBAL",1)
+  !HPPercentGT(Myself,50)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,RABBIT_POWER)
+END
+

@@ -1,0 +1,9 @@
+IF
+  HarmlessEntered([PC])
+  Global("KidMorte_Talk","AR0508",0)
+  Global("Morte_Stolen","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

@@ -1,0 +1,24 @@
+IF
+  HasItem("EXTHEAL",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("EXTHEAL",Myself)  // ~Potion of Extra Healing~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+

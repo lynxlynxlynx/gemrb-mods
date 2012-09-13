@@ -1,0 +1,47 @@
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Thief","AR0304",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(1,2)
+    MoveToPoint([430.351])
+    Face(6)
+    WaitRandom(1,2)
+    MoveToPoint([376.432])
+    Face(2)
+END
+

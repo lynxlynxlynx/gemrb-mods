@@ -1,0 +1,37 @@
+IF
+  Global("Gaernat_Team_Attacked","MYAREA",0)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("Gaernat_Team_Attacked","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("TEAM_1","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !IsTeamBitOn(TEAM_1_BIT)
+THEN
+  RESPONSE #100
+    SetTeamBit(TEAM_1_BIT,TRUE)
+    Continue()
+END
+
+IF
+  !Global("TEAM_1","MYAREA",1)
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1","MYAREA",1)
+    Continue()
+END
+

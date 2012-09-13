@@ -1,0 +1,21 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("PrepDispel","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("PrepDispel","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("PrepDispel","LOCALS",1)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("PrepDispel","LOCALS",2)
+END
+

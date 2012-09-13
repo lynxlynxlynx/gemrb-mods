@@ -1,0 +1,33 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help("Scavengers")  // Scavengers
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([2876.2384])
+    MoveToPoint([3953.2309])
+    MoveToPoint([3575.2165])
+    MoveToPoint([2876.2384])
+    MoveToPoint([2507.1628])
+    MoveToPoint([1910.1484])
+    MoveToPoint([1610.875])
+    MoveToPoint([1910.1484])
+    MoveToPoint([2507.1628])
+    Face(14)
+END
+

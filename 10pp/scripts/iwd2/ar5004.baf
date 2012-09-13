@@ -1,0 +1,303 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  OpenState("AR5004_1A",TRUE)  // AR5004_1A
+  Sequence("ROCK_1A",ATTACK)  // ROCK_1A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1A",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_1A",FALSE)  // AR5004_1A
+  !Sequence("ROCK_1A",ATTACK)  // ROCK_1A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1A",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_1B",TRUE)  // AR5004_1B
+  Sequence("ROCK_1B",ATTACK)  // ROCK_1B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1B",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_1B",FALSE)  // AR5004_1B
+  !Sequence("ROCK_1B",ATTACK)  // ROCK_1B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1B",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_1C",TRUE)  // AR5004_1C
+  Sequence("ROCK_1C",ATTACK)  // ROCK_1C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1C",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_1C",FALSE)  // AR5004_1C
+  !Sequence("ROCK_1C",ATTACK)  // ROCK_1C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1C",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_1D",TRUE)  // AR5004_1D
+  Sequence("ROCK_1D",ATTACK)  // ROCK_1D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1D",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_1D",FALSE)  // AR5004_1D
+  !Sequence("ROCK_1D",ATTACK)  // ROCK_1D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_1D",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2A",TRUE)  // AR5004_2A
+  Sequence("ROCK_2A",ATTACK)  // ROCK_2A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2A",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2A",FALSE)  // AR5004_2A
+  !Sequence("ROCK_2A",ATTACK)  // ROCK_2A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2A",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2B",TRUE)  // AR5004_2B
+  Sequence("ROCK_2B",ATTACK)  // ROCK_2B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2B",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2B",FALSE)  // AR5004_2B
+  !Sequence("ROCK_2B",ATTACK)  // ROCK_2B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2B",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2C",TRUE)  // AR5004_2C
+  Sequence("ROCK_2C",ATTACK)  // ROCK_2C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2C",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2C",FALSE)  // AR5004_2C
+  !Sequence("ROCK_2C",ATTACK)  // ROCK_2C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2C",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2D",TRUE)  // AR5004_2D
+  Sequence("ROCK_2D",ATTACK)  // ROCK_2D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2D",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_2D",FALSE)  // AR5004_2D
+  !Sequence("ROCK_2D",ATTACK)  // ROCK_2D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_2D",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3A",TRUE)  // AR5004_3A
+  Sequence("ROCK_3A",ATTACK)  // ROCK_3A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3A",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3A",FALSE)  // AR5004_3A
+  !Sequence("ROCK_3A",ATTACK)  // ROCK_3A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3A",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3B",TRUE)  // AR5004_3B
+  Sequence("ROCK_3B",ATTACK)  // ROCK_3B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3B",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3B",FALSE)  // AR5004_3B
+  !Sequence("ROCK_3B",ATTACK)  // ROCK_3B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3B",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3C",TRUE)  // AR5004_3C
+  Sequence("ROCK_3C",ATTACK)  // ROCK_3C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3C",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3C",FALSE)  // AR5004_3C
+  !Sequence("ROCK_3C",ATTACK)  // ROCK_3C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3C",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3D",TRUE)  // AR5004_3D
+  Sequence("ROCK_3D",ATTACK)  // ROCK_3D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3D",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_3D",FALSE)  // AR5004_3D
+  !Sequence("ROCK_3D",ATTACK)  // ROCK_3D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_3D",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4A",TRUE)  // AR5004_4A
+  Sequence("ROCK_4A",ATTACK)  // ROCK_4A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4A",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4A",FALSE)  // AR5004_4A
+  !Sequence("ROCK_4A",ATTACK)  // ROCK_4A
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4A",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4B",TRUE)  // AR5004_4B
+  Sequence("ROCK_4B",ATTACK)  // ROCK_4B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4B",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4B",FALSE)  // AR5004_4B
+  !Sequence("ROCK_4B",ATTACK)  // ROCK_4B
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4B",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4C",TRUE)  // AR5004_4C
+  Sequence("ROCK_4C",ATTACK)  // ROCK_4C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4C",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4C",FALSE)  // AR5004_4C
+  !Sequence("ROCK_4C",ATTACK)  // ROCK_4C
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4C",ATTACK)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4D",TRUE)  // AR5004_4D
+  Sequence("ROCK_4D",ATTACK)  // ROCK_4D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4D",AWAKE)
+    Continue()
+END
+
+IF
+  OpenState("AR5004_4D",FALSE)  // AR5004_4D
+  !Sequence("ROCK_4D",ATTACK)  // ROCK_4D
+THEN
+  RESPONSE #100
+    PlaySequence("ROCK_4D",ATTACK)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

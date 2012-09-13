@@ -1,0 +1,66 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,ILLUSION_DEATH)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  Dead("telwrai")  // ~Demon Wraith~
+  Global("slavefreed","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("slavefreed","LOCALS",1)
+    DisplayStringHead(Myself,70565)  // ~Thank you for releasing us!  Thank you!!~
+    AddexperienceParty(5000)
+    ForceSpell(Myself,TRAP_SHADOW_DEATH)
+END
+
+IF
+  Global("SetDifficultyTelWrai","GLOBAL",0)
+  Global("StartMP","GLOBAL",0)
+  OR(3)
+    NumInPartyLT(5)
+    GlobalGT("XPGiven","GLOBAL",500000)
+    LevelPartyLT(14)
+THEN
+  RESPONSE #100
+    SetGlobal("SetDifficultyTelWrai","GLOBAL",1)
+    ApplySpell(Myself,WIZARD_SLOW)
+    ApplySpell(Myself,WIZARD_LOWER_RESISTANCE)
+    ApplySpell(Myself,WIZARD_LOWER_RESISTANCE)
+END
+
+IF
+  See([GOODCUTOFF])
+  Range(LastSeenBy(Myself),20)
+  Allegiance(Myself,ENEMY)
+  Global("SetTalkTimer","LOCALS",0)
+THEN
+  RESPONSE #30
+    SetGlobal("SetTalkTimer","LOCALS",1)
+    SetGlobalTimer("SlaveTalk","LOCALS",3)
+    Continue()
+  RESPONSE #70
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("SlaveTalk","LOCALS")
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #30
+    DisplayStringHead(Myself,70563)  // ~Run, fools!~
+    SetGlobalTimer("SlaveTalk","LOCALS",3)
+    Continue()
+  RESPONSE #30
+    DisplayStringHead(Myself,70564)  // ~We cannot control ourselves!~
+    SetGlobalTimer("SlaveTalk","LOCALS",3)
+    Continue()
+  RESPONSE #40
+    SetGlobalTimer("SlaveTalk","LOCALS",3)
+    Continue()
+END
+

@@ -1,0 +1,9 @@
+IF
+  CreatureHidden(Myself)
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+

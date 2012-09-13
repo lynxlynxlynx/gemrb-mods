@@ -1,0 +1,79 @@
+IF
+  Global("41EmbracingRitual","GLOBAL",3)
+  IsOverMe(Player1)
+THEN
+  RESPONSE #100
+    ApplySpell(Player1,WIZARD_ICE_STORM)
+    ApplySpell(Player1,WIZARD_ICE_STORM)
+    ApplySpell(Player1,WIZARD_ICE_STORM)
+    ApplySpell(Player1,WIZARD_ICE_STORM)
+    Continue()
+END
+
+IF
+  Global("41EmbracingRitual","GLOBAL",3)
+  IsOverMe(Player2)
+THEN
+  RESPONSE #100
+    ApplySpell(Player2,WIZARD_ICE_STORM)
+    ApplySpell(Player2,WIZARD_ICE_STORM)
+    ApplySpell(Player2,WIZARD_ICE_STORM)
+    ApplySpell(Player2,WIZARD_ICE_STORM)
+    Continue()
+END
+
+IF
+  Global("41EmbracingRitual","GLOBAL",3)
+  IsOverMe(Player3)
+THEN
+  RESPONSE #100
+    ApplySpell(Player3,WIZARD_ICE_STORM)
+    ApplySpell(Player3,WIZARD_ICE_STORM)
+    ApplySpell(Player3,WIZARD_ICE_STORM)
+    ApplySpell(Player3,WIZARD_ICE_STORM)
+    Continue()
+END
+
+IF
+  Global("41EmbracingRitual","GLOBAL",3)
+  IsOverMe(Player4)
+THEN
+  RESPONSE #100
+    ApplySpell(Player4,WIZARD_ICE_STORM)
+    ApplySpell(Player4,WIZARD_ICE_STORM)
+    ApplySpell(Player4,WIZARD_ICE_STORM)
+    ApplySpell(Player4,WIZARD_ICE_STORM)
+    Continue()
+END
+
+IF
+  Global("41EmbracingRitual","GLOBAL",3)
+  IsOverMe(Player5)
+THEN
+  RESPONSE #100
+    ApplySpell(Player5,WIZARD_ICE_STORM)
+    ApplySpell(Player5,WIZARD_ICE_STORM)
+    ApplySpell(Player5,WIZARD_ICE_STORM)
+    ApplySpell(Player5,WIZARD_ICE_STORM)
+    Continue()
+END
+
+IF
+  Global("41EmbracingRitual","GLOBAL",3)
+  IsOverMe(Player6)
+THEN
+  RESPONSE #100
+    ApplySpell(Player6,WIZARD_ICE_STORM)
+    ApplySpell(Player6,WIZARD_ICE_STORM)
+    ApplySpell(Player6,WIZARD_ICE_STORM)
+    ApplySpell(Player6,WIZARD_ICE_STORM)
+    Continue()
+END
+
+IF
+  Global("41EmbracingRitual","GLOBAL",3)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

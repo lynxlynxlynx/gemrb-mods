@@ -1,0 +1,17 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],CLERIC_CALL_LIGHTNING,5)
+END
+
+IF
+  False()
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_FORCE_MISSILES,25)
+    ReallyForceSpellLevel([PC],WIZARD_FORCE_MISSILES,25)
+    ReallyForceSpellLevel([PC],WIZARD_FORCE_MISSILES,25)
+END
+

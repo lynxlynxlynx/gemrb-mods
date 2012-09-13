@@ -1,0 +1,45 @@
+IF
+  Global("INFORMPLOTCUTACTIVE","GLOBAL",2)
+  Global("SPAWNEDKISER","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SPAWNEDKISER","MYAREA",1)
+    CreateCreature("sarkis01",[715.469],2)  // ~Kiser Jhaeri~
+END
+
+IF
+  Global("Sarkis01Fight","GLOBAL",1)
+  NumDead("sarkis02",0)
+  Global("SpawnGuards","AR5008",0)
+THEN
+  RESPONSE #100
+    CreateCreature("SARKIS03",[894.380],0)  // ~Fighter~
+    CreateCreature("SARKIS03",[920.404],0)  // ~Fighter~
+    SetGlobal("SpawnGuards","AR5008",1)
+END
+
+IF
+  Global("Sarkis01Fight","GLOBAL",1)
+  NumDead("sarkis02",1)
+  Global("SpawnGuards","AR5008",0)
+THEN
+  RESPONSE #100
+    CreateCreature("SARKIS03",[894.380],0)  // ~Fighter~
+    SetGlobal("SpawnGuards","AR5008",1)
+END
+
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5008S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5008S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+END
+

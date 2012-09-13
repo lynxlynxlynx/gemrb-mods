@@ -1,0 +1,15 @@
+IF
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  Trigger(1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

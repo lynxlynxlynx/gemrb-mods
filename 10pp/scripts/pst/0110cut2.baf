@@ -1,0 +1,50 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Pharod")  // 
+    JumpToPoint([2041.998])
+    Face(6)
+    Wait(60)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    JumpToPoint([2007.980])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    JumpToPoint([1954.986])
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    JumpToPoint([2045.1036])
+    Face(8)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Annah")  // 
+    FadeFromBlack()
+    MoveViewPoint([1995.1011],FAST)
+    Wait(2)
+    TimedMoveToPoint([1995.1011],450)
+    Face(10)
+    StartCutScene("0110cut3")
+END
+

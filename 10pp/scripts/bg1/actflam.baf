@@ -1,0 +1,16 @@
+IF
+  Delay(10)
+  Entered([ANYONE])
+  ReputationLT(LastTrigger,4)
+  !StateCheck(LastTrigger,STATE_INVISIBLE)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    Wait(3)
+    CreateCreature("FLAMPUN",[-1.-1])  // ~Flaming Fist Enforcer~
+    CreateCreature("FLAMPUN2",[-1.-1])  // ~Flaming Fist Enforcer~
+    CreateCreature("FLAMPUN2",[-1.-1])  // ~Flaming Fist Enforcer~
+    CreateCreature("FLAMSCO",[-1.-1])  // ~Flaming Fist Scout~
+    CreateCreature("FLAMWIZ",[-1.-1])  // ~Flaming Fist Battle Wizard~
+END
+

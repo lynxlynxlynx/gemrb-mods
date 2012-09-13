@@ -1,0 +1,31 @@
+IF
+  Heard([ANYONE],111)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  !StateCheck([ANYONE],STATE_CHARMED)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+

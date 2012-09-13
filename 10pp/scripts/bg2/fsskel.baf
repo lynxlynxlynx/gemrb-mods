@@ -1,0 +1,11 @@
+IF
+  Global("FSSkelRaised","AR3023",1)
+THEN
+  RESPONSE #100
+    SetGlobal("FSSkelRaised","AR3023",2)
+    PlayDeadInterruptible(1)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(1)
+    ActionOverride("FSSpir1",StartDialogNoSet(Player1))
+END
+

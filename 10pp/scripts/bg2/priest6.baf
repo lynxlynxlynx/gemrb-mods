@@ -1,0 +1,58 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ARMOR_OF_FAITH)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ARMOR_OF_FAITH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMATE_DEAD)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMATE_DEAD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+  !StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

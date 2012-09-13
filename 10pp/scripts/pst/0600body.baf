@@ -1,0 +1,66 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeTeam(Myself,TEAM_1)
+END
+
+IF
+  Help([0.0.TEAM_1])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Exists("Dilignc")  // ~Clerk's Ward Citizen~
+  !Range("Dilignc",5)  // ~Clerk's Ward Citizen~
+THEN
+  RESPONSE #100
+    MoveToObjectEx("Dilignc",0)
+END
+
+IF
+  Exists("Dilignc")  // ~Clerk's Ward Citizen~
+  Range("Dilignc",5)  // ~Clerk's Ward Citizen~
+THEN
+  RESPONSE #100
+    FaceObject("Dilignc")
+END
+
+IF
+  BitCheck("0600_Status","AR0600",BIT3)
+  BitCheck("0600_Status","AR0600",BIT4)
+THEN
+  RESPONSE #100
+    MoveToPoint([860.2854])
+    BitSet("0600_Status","AR0600",BIT12)
+    DestroySelf()
+END
+
+IF
+  BitCheck("0600_Status","AR0600",BIT4)
+  !BitCheck("0600_Status","AR0600",BIT3)
+THEN
+  RESPONSE #100
+    MoveToPoint([118.1175])
+    DestroySelf()
+END
+

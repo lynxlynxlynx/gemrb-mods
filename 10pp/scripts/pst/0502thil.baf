@@ -1,0 +1,95 @@
+IF
+  GlobalGT("G_Test2","GLOBAL",8)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("Foundry_Death_Cutscene","AR0502",1)
+  WasInDialog()
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Death_Cutscene","AR0502",2)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Range([0.0.WORKER],5)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FaceObject([0.0.WORKER])
+    FloatMessageRnd(Myself,"0502thil")
+    StartTimer(1,10)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Global("0502_Thildon","AR0502",0)
+THEN
+  RESPONSE #100
+    WaitRandom(5,10)
+    MoveToPoint([1527.1564])
+    Face(12)
+    WaitRandom(5,10)
+    GlobalSet("0502_Thildon","AR0502",1)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Global("0502_Thildon","AR0502",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1687.1732])
+    GlobalSet("0502_Thildon","AR0502",2)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Global("0502_Thildon","AR0502",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([1687.2031])
+    GlobalSet("0502_Thildon","AR0502",3)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Global("0502_Thildon","AR0502",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([1518.2200])
+    Face(0)
+    WaitRandom(5,10)
+    GlobalSet("0502_Thildon","AR0502",4)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Global("0502_Thildon","AR0502",4)
+THEN
+  RESPONSE #100
+    MoveToPoint([1022.2200])
+    GlobalSet("0502_Thildon","AR0502",5)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Global("0502_Thildon","AR0502",5)
+THEN
+  RESPONSE #100
+    MoveToPoint([586.1755])
+    GlobalSet("0502_Thildon","AR0502",6)
+END
+
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+  Global("0502_Thildon","AR0502",6)
+THEN
+  RESPONSE #100
+    MoveToPoint([586.1564])
+    Face(14)
+    GlobalSet("0502_Thildon","AR0502",0)
+END
+

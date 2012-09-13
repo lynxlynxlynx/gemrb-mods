@@ -1,0 +1,8 @@
+IF
+  Global("EnteredAR1305","AR1305",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredAR1305","AR1305",1)
+    Explore()
+END
+

@@ -1,0 +1,41 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("3014_Spawn","GLOBAL",0)
+END
+
+IF
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],100,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(5,10)
+    Face(4)
+    WaitRandom(5,10)
+    Face(6)
+END
+

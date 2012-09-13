@@ -1,0 +1,72 @@
+IF
+  !IsHeartOfFuryModeOn()
+  HPPercentLT(Myself,40)
+THEN
+  RESPONSE #100
+    MoraleSet(Myself,0)
+    Panic()
+END
+
+IF
+  Dead("DRUM_6")  // 
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !IsHeartOfFuryModeOn()
+  Dead("DRUM_6")  // 
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("I_PLAY_DRUMS","LOCALS",0)
+  Or(4)
+    !Global("TEAM_8","MYAREA",0)
+    Global("DRUM_6_STATE","MYAREA",1)
+    See(NearestEnemyOf(Myself),0)
+    AttackedBy([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_6_STATE","MYAREA",2)
+    SetGlobal("I_PLAY_DRUMS","LOCALS",1)
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+END
+
+IF
+  !Global("I_PLAY_DRUMS","LOCALS",0)
+  ActionListEmpty()
+  Global("PLAYING_DRUM","LOCALS",0)
+  !Dead("DRUM_6")  // 
+  Range("DRUM_6",5,LESS_THAN)  // DRUM_6
+THEN
+  RESPONSE #100
+    SetGlobal("PLAYING_DRUM","LOCALS",1)
+    StartCutScene("30cDrum6")
+  RESPONSE #10
+    SetGlobal("PLAYING_DRUM","LOCALS",1)
+    FloatMessage(Myself,472)  // ~"Hit drums!  Kill foes!"~
+    StartCutScene("30cDrum6")
+END
+
+IF
+  !Global("I_PLAY_DRUMS","LOCALS",0)
+  Or(2)
+    !Global("PLAYING_DRUM","LOCALS",0)
+    Range("DRUM_6",5,LESS_THAN)  // DRUM_6
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !Global("I_PLAY_DRUMS","LOCALS",0)
+  !Dead("DRUM_6")  // 
+THEN
+  RESPONSE #100
+    MoveToObject("DRUM_6")
+END
+

@@ -1,0 +1,60 @@
+IF
+  GlobalTimerExpired("BodhiHunts","GLOBAL")
+  !Global("AsylumPlot","GLOBAL",100)
+  !Exists("ppbodhi4")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    CreateCreatureObject("ppbodhi4",Player1,0,0,0)  // ~Bodhi~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    FadeFromColor([20.0],0)
+    ActionOverride("ppbodhi4",StartDialogNoSet(Player1))
+END
+
+IF
+  Global("deadJoye","AR1513",1)
+  Global("libraryactivate","GLOBAL",0)
+  GlobalLT("Coffin1","AR1513",2)
+THEN
+  RESPONSE #100
+    SetGlobal("libraryactivate","GLOBAL",1)
+    TriggerActivation("Library",TRUE)
+    CloseDoor("Door07")
+END
+
+IF
+  GlobalTimerExpired("SplitOpen","GLOBAL")
+  Global("opened","AR1513",0)
+THEN
+  RESPONSE #100
+    SetGlobal("opened","AR1513",1)
+    Unlock("Split1")
+    Unlock("Split2")
+    Unlock("Split3")
+    OpenDoor("Split1")
+    OpenDoor("Split2")
+    OpenDoor("Split3")
+END
+
+IF
+  Global("AltarDestroyed","AR1513",2)
+THEN
+  RESPONSE #100
+    SetGlobal("AltarDestroyed","AR1513",3)
+    Wait(2)
+    DisplayStringHead(Player1,53758)  // ~With the Kobold Avatar slain, you are easily able to take a piece of the crystal. All is silent except for a faint, mournful wail, barely discernable.~
+    GiveItemCreate("MISC8Z",Player1,0,0,0)  // ~Kurtulmak's Crystal Shard~
+END
+
+IF
+  Global("JoyeMove","GLOBAL",2)
+  Global("SpawnJoye2","AR1513",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnJoye2","AR1513",1)
+    Wait(2)
+    CreateCreature("ppjoye2",[1783.1853],4)  // ~Dace Apparition~
+    ActionOverride("ppjoye2",StartDialogNoSet([PC]))
+END
+

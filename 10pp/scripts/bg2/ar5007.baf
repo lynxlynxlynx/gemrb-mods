@@ -1,0 +1,64 @@
+IF
+  OnCreation()
+  Global("MelissanJob","GLOBAL",0)
+  Global("SpawnMel","AR5007",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    SetGlobal("SpawnMel","AR5007",1)
+    CreateCreatureObjectEffect("MEL01","SPDIMNDR",Player1)
+    ActionOverride("mel01",DialogueInterrupt(TRUE))
+    ActionOverride("mel01",FaceObject(Player1))
+    Wait(3)
+    ActionOverride("mel01",StartDialogNoSet(Player1))
+END
+
+IF
+  Global("Entered5007","AR5007",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Entered5007","AR5007",1)
+    AddXP2DA("Plot10B")
+    Continue()
+END
+
+IF
+  Global("SpawnGuards1","AR5007",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnGuards1","AR5007",1)
+    CreateCreature("SARGRD04",[886.1364],10)  // ~Fighter~
+    CreateCreature("SARGRD06",[790.1282],10)  // ~Mage~
+    CreateCreature("SARGRD07",[786.1218],14)  // ~Fighter~
+    CreateCreature("SARGRD05",[1380.1587],10)  // ~Thief~
+    CreateCreature("SARGRD08",[1571.1377],6)  // ~Fighter~
+    CreateCreature("SARGRD04",[1054.977],2)  // ~Fighter~
+END
+
+IF
+  Global("EnteredArea5013","GLOBAL",0)
+  Global("MapNote","AR5007",0)
+  OpenState("DOOR11",TRUE)  // DOOR11
+THEN
+  RESPONSE #100
+    SetGlobal("MapNote","AR5007",1)
+    AddMapNote([333.582],48375)  // ~Entrance to the Sewers~
+    DisplayStringNoName("DOOR11",73880)  // ~The rank stench of a sewer assails your nostrils as you open the door.~
+END
+
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+END
+

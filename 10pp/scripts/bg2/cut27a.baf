@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  True()
+THEN
+    MoveViewPoint([2222.1164],STANDARD)
+    MoveToPointNoInterrupt([2222.1164])
+    Face(0)
+    Wait(2)
+    StartCutScene("Cut27b")
+END
+
+IF
+  True()
+THEN
+    MoveToPointNoInterrupt([2189.1204])
+    Face(0)
+END
+
+IF
+  True()
+THEN
+    MoveToPointNoInterrupt([2196.1127])
+    Face(0)
+END
+
+IF
+  True()
+THEN
+    MoveToPointNoInterrupt([2150.1150])
+    Face(0)
+END
+
+IF
+  True()
+THEN
+    MoveToPointNoInterrupt([2163.1082])
+    Face(0)
+END
+
+IF
+  True()
+THEN
+    MoveToPointNoInterrupt([2122.1094])
+    Face(0)
+END
+
+
+END

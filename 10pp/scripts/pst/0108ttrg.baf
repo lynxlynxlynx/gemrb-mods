@@ -1,0 +1,7 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetInternal([0.0.0.0.0.0.TROCO1][0.0.10000.10000],INTERNAL_0,1)
+END
+

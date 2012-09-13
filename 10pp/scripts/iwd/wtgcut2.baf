@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    SetGlobal("KERISH_TALK","GLOBAL",1)
+    MoveViewPoint([3404.1064],INSTANT)
+    StartCutScene("WTKERJMP")
+    Wait(1)
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+

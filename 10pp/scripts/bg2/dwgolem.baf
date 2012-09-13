@@ -1,0 +1,42 @@
+IF
+  Global("hostileGolems","AR2201",0)
+  Allegiance(Myself,ENEMY)
+  Global("gDoThisOnce","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("gDoThisOnce","LOCALS",1)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Range("EGGS",20)  // EGGS
+THEN
+  RESPONSE #100
+    MoveToObject("EGGS")
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Global("hostileGolems","AR2201",0)
+THEN
+  RESPONSE #100
+    SetGlobal("hostileGolems","AR2201",1)
+END
+
+IF
+  Global("hostileGolems","AR2201",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("DrowCityHostile","GLOBAL",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

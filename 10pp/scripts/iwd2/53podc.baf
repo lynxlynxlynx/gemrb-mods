@@ -1,0 +1,739 @@
+IF
+  Global("TEAM_9","MYAREA",0)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_9","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Start_Drider_Spawn_Timer","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("Start_Drider_Spawn_Timer","LOCALS",1)
+    StartRandomTimer(42,2,10)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !LOS([GOODCUTOFF],14)
+THEN
+  RESPONSE #100
+    SetGlobal("Start_Drider_Spawn_Timer","LOCALS",0)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("Start_Drider_Spawn_Timer","LOCALS",0)
+  LOS([GOODCUTOFF],14)
+THEN
+  RESPONSE #100
+    SetGlobal("Start_Drider_Spawn_Timer","LOCALS",1)
+    StartTimer(42,10)
+END
+
+IF
+  IsScriptName("Pod1",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web1")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRW2","",[2300.1330],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web1")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRW2","",[2300.1330],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web1")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRW2","",[2300.1330],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod2",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web2")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRP2","",[2540.1340],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web2")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRP2","",[2540.1340],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web2")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRP2","",[2540.1340],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod3",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web3")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRP2","",[2420.1160],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web3")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRP2","",[2420.1160],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web3")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRP2","",[2420.1160],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod4",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web4")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRP2","",[2480.1110],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web4")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRP2","",[2480.1110],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web4")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRP2","",[2480.1110],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod5",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web5")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRF2","",[2900.1210],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web5")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRF2","",[2900.1210],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web5")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRF2","",[2900.1210],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod6",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web6")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRW2","",[3230.1380],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web6")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRW2","",[3230.1380],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web6")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRW2","",[3230.1380],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod7",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web7")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRF2","",[2630.910],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web7")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRF2","",[2630.910],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web7")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRF2","",[2630.910],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod8",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web8")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRP2","",[2670.1000],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web8")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRP2","",[2670.1000],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web8")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRP2","",[2670.1000],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod9",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web9")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRW2","",[2780.720],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web9")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRW2","",[2780.720],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web9")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRW2","",[2780.720],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod10",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web10")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRW2","",[3050.1000],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web10")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRW2","",[3050.1000],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web10")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRW2","",[3050.1000],0)  // ~Viciscamera Drider Wizard~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod11",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web11")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRP2","",[2980.650],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web11")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRP2","",[2980.650],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web11")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRP2","",[2980.650],0)  // ~Viciscamera Drider Priestess~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod12",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web12")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRF2","",[3200.820],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web12")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRF2","",[3200.820],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web12")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRF2","",[3200.820],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod13",Myself)
+  Global("Start_Drider_Spawn_Timer","LOCALS",1)
+  !TimerActive(42)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web13")
+    PlaySound("AM5301c1")
+    CreateCreature("53VIDRF2","",[3400.900],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web13")
+    PlaySound("AM5301c2")
+    CreateCreature("53VIDRF2","",[3400.900],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    OpenDoor("AR5301_Web13")
+    PlaySound("AM5301c3")
+    CreateCreature("53VIDRF2","",[3400.900],0)  // ~Viciscamera Drider Fighter~
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod1",Myself)
+  Global("Chunk_01","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod1")  // Pod1
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_01","MYAREA",1)
+    OpenDoor("AR5301_Web1")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod1")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_01","MYAREA",1)
+    OpenDoor("AR5301_Web1")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod1")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_01","MYAREA",1)
+    OpenDoor("AR5301_Web1")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod1")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod2",Myself)
+  Global("Chunk_02","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod2")  // Pod2
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_02","MYAREA",1)
+    OpenDoor("AR5301_Web2")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod2")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_02","MYAREA",1)
+    OpenDoor("AR5301_Web2")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod2")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_02","MYAREA",1)
+    OpenDoor("AR5301_Web2")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod2")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod3",Myself)
+  Global("Chunk_03","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod3")  // Pod3
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_03","MYAREA",1)
+    OpenDoor("AR5301_Web3")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod3")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_03","MYAREA",1)
+    OpenDoor("AR5301_Web3")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod3")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_03","MYAREA",1)
+    OpenDoor("AR5301_Web3")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod3")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod4",Myself)
+  Global("Chunk_04","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod4")  // Pod4
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_04","MYAREA",1)
+    OpenDoor("AR5301_Web4")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod4")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_04","MYAREA",1)
+    OpenDoor("AR5301_Web4")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod4")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_04","MYAREA",1)
+    OpenDoor("AR5301_Web4")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod4")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod5",Myself)
+  Global("Chunk_05","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod5")  // Pod5
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_05","MYAREA",1)
+    OpenDoor("AR5301_Web5")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod5")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_05","MYAREA",1)
+    OpenDoor("AR5301_Web5")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod5")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_05","MYAREA",1)
+    OpenDoor("AR5301_Web5")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod5")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod6",Myself)
+  Global("Chunk_06","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod6")  // Pod6
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_06","MYAREA",1)
+    OpenDoor("AR5301_Web6")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod6")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_06","MYAREA",1)
+    OpenDoor("AR5301_Web6")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod6")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_06","MYAREA",1)
+    OpenDoor("AR5301_Web6")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod6")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod7",Myself)
+  Global("Chunk_07","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod7")  // Pod7
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_07","MYAREA",1)
+    OpenDoor("AR5301_Web7")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod7")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_07","MYAREA",1)
+    OpenDoor("AR5301_Web7")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod7")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_07","MYAREA",1)
+    OpenDoor("AR5301_Web7")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod7")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod8",Myself)
+  Global("Chunk_08","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod8")  // Pod8
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_08","MYAREA",1)
+    OpenDoor("AR5301_Web8")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod8")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_08","MYAREA",1)
+    OpenDoor("AR5301_Web8")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod8")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_08","MYAREA",1)
+    OpenDoor("AR5301_Web8")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod8")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod9",Myself)
+  Global("Chunk_09","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod9")  // Pod9
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_09","MYAREA",1)
+    OpenDoor("AR5301_Web9")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod9")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_09","MYAREA",1)
+    OpenDoor("AR5301_Web9")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod9")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_09","MYAREA",1)
+    OpenDoor("AR5301_Web9")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod9")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod10",Myself)
+  Global("Chunk_10","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod10")  // Pod10
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_10","MYAREA",1)
+    OpenDoor("AR5301_Web10")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod10")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_10","MYAREA",1)
+    OpenDoor("AR5301_Web10")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod10")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_10","MYAREA",1)
+    OpenDoor("AR5301_Web10")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod10")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod11",Myself)
+  Global("Chunk_11","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod11")  // Pod11
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_11","MYAREA",1)
+    OpenDoor("AR5301_Web11")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod11")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_11","MYAREA",1)
+    OpenDoor("AR5301_Web11")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod11")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_11","MYAREA",1)
+    OpenDoor("AR5301_Web11")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod11")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod12",Myself)
+  Global("Chunk_12","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod12")  // Pod12
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_12","MYAREA",1)
+    OpenDoor("AR5301_Web12")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod12")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_12","MYAREA",1)
+    OpenDoor("AR5301_Web12")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod12")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_12","MYAREA",1)
+    OpenDoor("AR5301_Web12")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod12")
+    DestroySelf()
+END
+
+IF
+  IsScriptName("Pod13",Myself)
+  Global("Chunk_13","MYAREA",0)
+  Dead("Viciscamera")  // 
+  Exists("Pod13")  // Pod13
+THEN
+  RESPONSE #100
+    SetGlobal("Chunk_13","MYAREA",1)
+    OpenDoor("AR5301_Web13")
+    PlaySound("AM5301c1")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod13")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_13","MYAREA",1)
+    OpenDoor("AR5301_Web13")
+    PlaySound("AM5301c2")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod13")
+    DestroySelf()
+  RESPONSE #100
+    SetGlobal("Chunk_13","MYAREA",1)
+    OpenDoor("AR5301_Web13")
+    PlaySound("AM5301c3")
+    AddExperiencePartyCR(7)
+    ChunkCreature("Pod13")
+    DestroySelf()
+END
+

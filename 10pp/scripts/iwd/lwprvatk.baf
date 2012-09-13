@@ -1,0 +1,62 @@
+IF
+  Global("EQUIPED_BEST","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("EQUIPED_BEST","LOCALS",1)
+    EquipMostDamagingMelee()
+    Continue()
+END
+
+IF
+  StateCheck(Myself,STATE_INVISIBLE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    BackStab(LastSeenBy(Myself))
+END
+
+IF
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !LOS([PC],25)
+THEN
+  RESPONSE #100
+    ForceHide(Myself)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

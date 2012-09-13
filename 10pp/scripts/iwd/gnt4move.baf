@@ -1,0 +1,12 @@
+IF
+  ActionListEmpty()
+  !Global("MAP_GROUP_HOSTILE4","MYAREA",0)
+  Allegiance(Myself,ENEMY)
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+  RESPONSE #100
+    NoAction()
+END
+

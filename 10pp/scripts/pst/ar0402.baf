@@ -1,0 +1,46 @@
+IF
+  !Global("Current_Area","GLOBAL",402)
+THEN
+  RESPONSE #100
+    GlobalSet("SC_Mercy_3_At_Table","AR0402",0)
+    GlobalSet("Current_Area","GLOBAL",402)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0402_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0402_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Know_Adahn","GLOBAL",0)
+  GlobalGT("Adahn","GLOBAL",10)
+  !BitCheck("0402_Status","AR0402",BIT1)
+THEN
+  RESPONSE #100
+    BitSet("0402_Status","AR0402",BIT1)
+    CreateCreature("Adahn",[1650.1468])  // ~Hive Townsperson~
+    ForceFacing("Adahn",4)
+END
+
+IF
+  NearLocation([PC][968.981.400.-1],[968.981],15)
+  GlobalLT("Dakkon","GLOBAL",2)
+THEN
+  RESPONSE #100
+    StartSong(CHAR_DAKKON,[0.0],Normal)
+END
+
+IF
+  NearLocation([PC][1243.1154.400.-1],[1243.1154],15)
+  GlobalGT("Dakkon","GLOBAL",1)
+  GlobalLT("Ignus","GLOBAL",2)
+THEN
+  RESPONSE #100
+    StartSong(CHAR_IGNUS,[0.0],Normal)
+END
+

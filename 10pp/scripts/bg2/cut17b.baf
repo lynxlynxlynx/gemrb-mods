@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateCreatureObject("BOUNHA","Raelis",0,0,0)  // ~Bounty Hunter~
+    CreateCreatureObject("BOUNHA02","HaerDalis",0,0,0)  // ~Bounty Hunter~
+    CreateCreatureObject("BOUNHA03","FFActor1",0,0,0)  // ~Bounty Hunter~
+    CreateCreatureObject("BOUNHA04","FFActor2",0,0,0)  // ~Bounty Hunter~
+    Wait(1)
+    ActionOverride("Bounha",StartDialogNoSet(Player1))
+END
+

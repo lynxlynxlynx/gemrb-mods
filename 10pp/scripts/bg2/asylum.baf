@@ -1,0 +1,42 @@
+IF
+  Global("SpellTrigger","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpellTrigger","LOCALS",1)
+END
+
+IF
+  GlobalGT("AsylumPlot","GLOBAL",19)
+  GlobalLT("AsylumPlot","GLOBAL",40)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  GlobalLT("AsylumPlot","GLOBAL",50)
+  Global("HostileIn","AR1515",0)
+  OR(2)
+    AttackedBy([PC],DEFAULT)
+    Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("HostileIn","AR1515",1)
+    SetGlobal("AsylumPlot","GLOBAL",19)
+END
+
+IF
+  ActuallyInCombat()
+  Global("HostileIn","AR1515",0)
+  GlobalLT("AsylumPlot","GLOBAL",20)
+  Exists("ppireni1")  // ~Coordinator~
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("ppireni1","SPDIMNDR")
+    Wait(2)
+    ActionOverride("ppireni1",DestroySelf())
+    Wait(1)
+    SetGlobal("AsylumPlot","GLOBAL",19)
+    SetGlobal("ppattackedJon","GLOBAL",1)
+END
+

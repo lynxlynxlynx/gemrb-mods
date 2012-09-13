@@ -1,0 +1,95 @@
+IF
+  Die()
+  GlobalLT("Know_Nameless_Legacy","GLOBAL",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Game_Over","GLOBAL",3)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  GlobalLT("Know_Nameless_Legacy","GLOBAL",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Game_Over","GLOBAL",3)
+END
+
+IF
+  Die()
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[626.805])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[626.805])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[626.805])  // ~Harmonium Officer~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[626.805])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[626.805])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[626.805])  // ~Harmonium Officer~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(10,15)
+    MoveToPoint([495.204])
+    Face(8)
+    WaitRandom(10,15)
+    MoveToPoint([394.378])
+    Face(14)
+    Wait(2)
+    FloatMessage(Myself,28845)  // ~*Sigh*~
+    WaitRandom(8,13)
+    MoveToPoint([196.312])
+    MoveToPoint([196.245])
+    Face(8)
+    WaitRandom(10,15)
+    MoveToPoint([196.312])
+    MoveToPoint([394.378])
+    Face(14)
+    Wait(2)
+    FloatMessage(Myself,28845)  // ~*Sigh*~
+    WaitRandom(8,13)
+    MoveToPoint([495.204])
+    Face(8)
+    WaitRandom(10,15)
+    MoveToPoint([351.210])
+    Face(0)
+END
+

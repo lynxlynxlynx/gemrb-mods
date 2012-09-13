@@ -1,0 +1,64 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Saablic_Tan")  // 
+    Wait(10)
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveToPoint([594.2273])
+    Face(NW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    MoveToPoint([623.2326])
+    Face(NW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    MoveToPoint([557.2319])
+    Face(NW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    MoveToPoint([574.2268])
+    Face(NW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    MoveToPoint([509.2256])
+    Face(NW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    MoveToPoint([522.2409])
+    Face(NW)
+END
+

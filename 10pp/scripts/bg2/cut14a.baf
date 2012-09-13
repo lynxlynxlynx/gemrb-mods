@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewPoint([268.331],VERY_FAST)
+    MoveToPoint([268.331])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Jan")  // 
+    SetGlobal("JanLissaPlot","GLOBAL",6)
+    MoveToPoint([258.331])
+    ActionOverride("Majan",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    MultiPlayerSync()
+    MoveToPoint([3487.533])
+    FadeToColor([0.0],0)
+    Face(NE)
+    Wait(2)
+    FadeFromColor([0.0],0)
+    MoveToPoint([3284.614])
+    Face(NW)
+    SmallWait(8)
+    GiveItem("MIRROR",LastTalkedToBy(Myself))  // ~Mirror of Black Ice~
+    MultiPlayerSync()
+    Dialogue(LastTalkedToBy(Myself))
+END
+

@@ -1,0 +1,16 @@
+IF
+  Specifics(Myself,SQUAD_GUARD_2)
+  Global("Guards_Arrived","AR0500",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0500grd4",DEFAULT)
+END
+
+IF
+  Specifics(Myself,SQUAD_GUARD_3)
+  Global("Guards_Arrived","AR0500",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0500grd5",DEFAULT)
+END
+

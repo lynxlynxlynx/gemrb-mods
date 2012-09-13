@@ -1,0 +1,10 @@
+IF
+  HarmlessEntered(Player1)
+  Global("0700_Cutscene_1","AR0700",0)
+  Global("Caretaker","GLOBAL",3)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    GlobalSet("0700_Spawn_Cutscene_1","GLOBAL",1)
+END
+

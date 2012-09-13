@@ -1,0 +1,18 @@
+IF
+  Global("YellHelp","LOCALS",0)
+  Range([PC],15)
+THEN
+  RESPONSE #100
+    SetGlobal("AsylumPlot","GLOBAL",80)
+    StartDialogNoSet([PC])
+    SetGlobal("YellHelp","LOCALS",1)
+END
+
+IF
+  Global("YellHelp","LOCALS",0)
+  !Range([PC],15)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+

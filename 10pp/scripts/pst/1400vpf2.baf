@@ -1,0 +1,29 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Attack([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.TEAM_2])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ProtectObject([0.0.0.0.0.0.PERSON_23][0.0.10000.10000],30)
+END
+

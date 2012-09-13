@@ -1,0 +1,51 @@
+IF
+  XPLT(Player1,400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("drow01",[-1.-1],0)  // ~Drow Warrior~
+    CreateCreature("drow03",[-1.-1],0)  // ~Drow Wizard~
+    CreateCreature("drow02",[-1.-1],0)  // ~Drow Warrior~
+    CreateCreature("drow04",[-1.-1],0)  // ~Drow Priestess~
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("drow02",[-1.-1],0)  // ~Drow Warrior~
+    CreateCreature("drow02",[-1.-1],0)  // ~Drow Warrior~
+    CreateCreature("drow01",[-1.-1],0)  // ~Drow Warrior~
+    CreateCreature("drow05",[-1.-1],0)  // ~Drow~
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("drow01",[-1.-1],0)  // ~Drow Warrior~
+    CreateCreature("drow04",[-1.-1],0)  // ~Drow Priestess~
+    CreateCreature("drow06",[-1.-1],0)  // ~Drow~
+    CreateCreature("drow04",[-1.-1],0)  // ~Drow Priestess~
+    CreateCreature("drow05",[-1.-1],0)  // ~Drow~
+    CreateCreature("drow07",[-1.-1],0)  // ~Drow Priestess~
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("drow04",[-1.-1],0)  // ~Drow Priestess~
+    CreateCreature("drow05",[-1.-1],0)  // ~Drow~
+    CreateCreature("drow06",[-1.-1],0)  // ~Drow~
+    CreateCreature("drow05",[-1.-1],0)  // ~Drow~
+    CreateCreature("drow04",[-1.-1],0)  // ~Drow Priestess~
+    CreateCreature("drow06",[-1.-1],0)  // ~Drow~
+    CreateCreature("drow07",[-1.-1],0)  // ~Drow Priestess~
+END
+

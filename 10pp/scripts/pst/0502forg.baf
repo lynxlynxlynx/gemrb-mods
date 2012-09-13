@@ -1,0 +1,7 @@
+IF
+  TriggerClick()
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

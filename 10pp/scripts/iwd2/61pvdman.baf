@@ -1,0 +1,13 @@
+IF
+  Global("61NheeroFindQuest","GLOBAL",2)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage("Mandal",35014)  // ~You found the remains of Mandal Graye, Nheero Fhutma's traveling companion.~
+    AddJournalEntry(34990)
+    AddXPVar("LEVEL_12_AVERAGE",35014)  // ~You found the remains of Mandal Graye, Nheero Fhutma's traveling companion.~
+    SetGlobal("61NheeroFindQuest","GLOBAL",3)
+    ChangeCurrentScript("")
+    TriggerActivation(Myself,FALSE)
+END
+

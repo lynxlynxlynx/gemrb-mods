@@ -1,0 +1,14 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("NumOfCreatures","AR3025",-1)
+END
+
+IF
+  GlobalTimerExpired("HordeTimer","AR3025")
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+

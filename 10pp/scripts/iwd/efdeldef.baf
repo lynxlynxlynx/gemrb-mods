@@ -1,0 +1,16 @@
+IF
+  Difficulty(4,2)
+  Global("GEM_DEAD","GLOBAL",0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

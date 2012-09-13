@@ -1,0 +1,127 @@
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+  Global("Prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    DisplayString(Myself,39968)  // ~Spell Trigger - Fired~
+    ApplySpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)
+    ApplySpell(Myself,WIZARD_MISLEAD)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+  Global("Fight","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+END
+
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+  StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  Global("OnlyDoOnce","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_TRUE_SIGHT)
+    SetGlobal("OnlyDoOnce","LOCALS",1)
+END
+
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+  Global("Fight","LOCALS",1)
+  CheckStatLT(Myself,1,STONESKINS)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+  Global("Fight","LOCALS",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_NPC_SYMBOL_FEAR)
+END
+
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+  Global("Fight","LOCALS",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_SUN_FIRE)
+END
+
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+  Global("Fight","LOCALS",4)
+  Global("Prep","LOCALS",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(Myself,WIZARD_SHADOW_DOOR)
+    SetGlobal("Prep","LOCALS",2)
+END
+
+IF
+  OR(2)
+    See([PC])
+    See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+THEN
+  RESPONSE #80
+    AttackReevaluate(LastSeenBy(Myself),15)
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  See([NEUTRAL])
+  Global("Scene2","AR2800",2)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+  See([PC])
+  Global("Scene2","AR2800",2)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

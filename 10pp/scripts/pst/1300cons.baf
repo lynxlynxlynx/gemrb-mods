@@ -1,0 +1,43 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    FaceObject(Protagonist)
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  NearLocation(Myself,[686.498],0)
+THEN
+  RESPONSE #100
+    Help()
+    Dialogue([PC])
+    Enemy()
+    Attack([PC])
+END
+

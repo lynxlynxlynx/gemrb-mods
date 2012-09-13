@@ -1,0 +1,18 @@
+IF
+  Entered([PC])
+  Dead("Davaeorn")  // Davaeorn
+  Global("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    RevealAreaOnMap("AR0900")
+    IncrementChapter("Chptxt5")
+    AddJournalEntry(15839)
+END
+
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+

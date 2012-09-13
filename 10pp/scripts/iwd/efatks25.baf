@@ -1,0 +1,26 @@
+IF
+  IsWeaponRanged(Myself)
+THEN
+  RESPONSE #25
+    ChangeCurrentScript("EFATKCR")
+  RESPONSE #25
+    ChangeCurrentScript("EFATKHR")
+  RESPONSE #25
+    ChangeCurrentScript("EFATKTR")
+  RESPONSE #225
+    ChangeCurrentScript("EFATKRNG")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #25
+    ChangeCurrentScript("EFATKCM")
+  RESPONSE #25
+    ChangeCurrentScript("EFATKHM")
+  RESPONSE #25
+    ChangeCurrentScript("EFATKTM")
+  RESPONSE #225
+    ChangeCurrentScript("EFATKMEL")
+END
+

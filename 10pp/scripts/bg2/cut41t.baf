@@ -1,0 +1,28 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("DestroyExtras","AR2300",1)
+    FadeToColor([20.0],0)
+    Wait(2)
+    JumpToPoint([298.829])
+    ActionOverride(Player2,JumpToPoint([266.867]))
+    ActionOverride(Player3,JumpToPoint([225.901]))
+    ActionOverride(Player4,JumpToPoint([343.851]))
+    ActionOverride(Player5,JumpToPoint([307.882]))
+    ActionOverride(Player6,JumpToPoint([268.921]))
+    ActionOverride("sahpr1",JumpToPoint([429.887]))
+    ActionOverride("sahcpt02",JumpToPoint([368.941]))
+    Face(6)
+    ActionOverride(Player2,Face(6))
+    ActionOverride(Player3,Face(6))
+    ActionOverride(Player4,Face(6))
+    ActionOverride(Player5,Face(6))
+    ActionOverride(Player6,Face(6))
+    MoveViewPoint([429.887],INSTANT)
+    FadeFromColor([20.0],0)
+    Wait(3)
+    ActionOverride("sahpr1",StartDialogNoSet([PC]))
+END
+

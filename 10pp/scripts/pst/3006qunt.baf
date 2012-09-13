@@ -1,0 +1,44 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_1,0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Internal(Myself,INTERNAL_1,1)
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  StealFailed([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+    SetInternal(Myself,INTERNAL_1,2)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,1)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,66556)  // ~"Take me for a fool, heh?  Out of my store!"~
+    StartRandomTimer(1,20,40)
+  RESPONSE #100
+    FloatMessage(Myself,66555)  // ~"Out!  Out!  OUT!!"~
+    StartRandomTimer(1,20,40)
+END
+

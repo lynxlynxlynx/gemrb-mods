@@ -1,0 +1,8 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(Myself,Myself,ALTERATION,0)
+    ChangeCurrentScript("")
+END
+

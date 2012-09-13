@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16216)  // ~ _You can look at your inventory page by right-clicking on your character portrait. The game always unpauses when you go to the inventory page, however, so be careful during combat!~ [TEXTPOP]
+END
+

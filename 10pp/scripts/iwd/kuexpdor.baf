@@ -1,0 +1,9 @@
+IF
+  Global("EXPANSION_DOOR","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("EXPANSION_DOOR","GLOBAL",2)
+    Unlock(Myself)
+    Continue()
+END
+

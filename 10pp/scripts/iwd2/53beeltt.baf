@@ -1,0 +1,30 @@
+IF
+  !CreatureHidden(Myself)
+  Global("Hide_Myself","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Hide_Myself","LOCALS",1)
+    HideCreature(Myself,TRUE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("Viciscamera_Dead","GLOBAL",1)
+  Or(2)
+    GlobalGT("Viciscamera_Quest","GLOBAL",1)
+    !Global("TEAM_1","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Hide_Myself","LOCALS",2)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  Global("Hide_Myself","LOCALS",2)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

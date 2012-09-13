@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ardulace")  // 
+    ActionOverride("udMove01",MoveToPointNoInterrupt([575.1185]))
+    ActionOverride("udMove02",MoveToPointNoInterrupt([571.1233]))
+    MoveViewPoint([575.1185],100)
+    Wait(7)
+    SetGlobal("udDrowPlot","GLOBAL",18)
+    StartDialogNoSet(Player1)
+END
+

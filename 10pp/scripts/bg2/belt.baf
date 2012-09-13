@@ -1,0 +1,49 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    CreateCreature("WINSKI",[693.578],0)  // WINSKI
+    ActionOverride("WINSKI",ForceSpell(Player1,SAREVOK_STRIKE))
+    Wait(2)
+    Kill(Player1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Range([PC],15)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogue("belt",[PC])
+END
+
+IF
+  Dead("GDOPP7")  // GDOPP7
+  Dead("GDOPP71")  // GDOPP71
+  Dead("GDOPP72")  // GDOPP72
+  Dead("GDOPP73")  // GDOPP73
+  Dead("GDOPP74")  // GDOPP74
+  Dead("GDOPP75")  // GDOPP75
+  Global("SarevokBehavior","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  Global("SarevokBehavior","GLOBAL",1)
+  Global("DukeThanks","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Wait(6)
+    Dialog([PC])
+END
+
+IF
+  See([ENEMY])
+THEN
+  RESPONSE #10
+    Attack([ENEMY])
+END
+

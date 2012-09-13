@@ -1,0 +1,10 @@
+IF
+  !TimerActive(1)
+  See([0.0.0.0.PERSON_4])
+THEN
+  RESPONSE #100
+    Wait(3)
+    Wait(3)
+    StartTimer(1,45)
+END
+

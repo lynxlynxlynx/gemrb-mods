@@ -1,0 +1,17 @@
+IF
+  Detect([PC])
+  Range(LastSeenBy(Myself),20)
+  Global("AR0602GolemFight","AR0602",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AR0602GolemFight","AR0602",1)
+    Continue()
+END
+
+IF
+  Global("AR0602GolemFight","AR0602",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

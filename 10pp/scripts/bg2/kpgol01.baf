@@ -1,0 +1,9 @@
+IF
+  PartyHasItem("AX1H13")  // ~Battle Axe +3, Frostreaver~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38758)  // ~As you pick up the weapon, two of the golems come to life and attack.~
+    Enemy()
+END
+

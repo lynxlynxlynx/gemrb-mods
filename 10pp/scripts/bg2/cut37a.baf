@@ -1,0 +1,46 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(2)
+    CreateCreatureObjectCopy("statue01",Player1Fill,0,0,0)
+    CreateCreatureObjectCopy("statue02",Player2Fill,0,0,0)
+    CreateCreatureObjectCopy("statue03",Player3Fill,0,0,0)
+    CreateCreatureObjectCopy("statue04",Player4Fill,0,0,0)
+    CreateCreatureObjectCopy("statue05",Player5Fill,0,0,0)
+    CreateCreatureObjectCopy("statue06",Player6Fill,0,0,0)
+    MoveViewPoint([314.626],INSTANT)
+    JumpToPoint([285.610])
+    ActionOverride(Player2,JumpToPoint([265.643]))
+    ActionOverride(Player3,JumpToPoint([344.593]))
+    ActionOverride(Player4,JumpToPoint([233.675]))
+    ActionOverride(Player5,JumpToPoint([370.578]))
+    ActionOverride(Player6,JumpToPoint([403.556]))
+    ActionOverride("statue01",MoveBetweenAreas("AR2000",[1732.1302],0))
+    ActionOverride("statue02",MoveBetweenAreas("AR2000",[1851.1293],14))
+    ActionOverride("statue03",MoveBetweenAreas("AR2000",[1888.1211],12))
+    ActionOverride("statue04",MoveBetweenAreas("AR2000",[1812.1145],8))
+    ActionOverride("statue05",MoveBetweenAreas("AR2000",[1689.1160],4))
+    ActionOverride("statue06",MoveBetweenAreas("AR2000",[1644.1240],2))
+    Face(6)
+    ActionOverride(Player2,Face(6))
+    ActionOverride(Player3,Face(6))
+    ActionOverride(Player4,Face(6))
+    ActionOverride(Player5,Face(6))
+    ActionOverride(Player6,Face(6))
+    CreateCreature("TRCUT01",[331.729],6)  // ~Noblewoman~
+    CreateCreature("TRCUT02",[399.697],6)  // ~Nobleman~
+    CreateCreature("TRCUT03",[442.664],6)  // ~Peasant~
+    CreateCreature("TRCUT04",[506.616],6)  // ~Peasant~
+    CreateCreature("TRCUT05",[252.725],6)  // ~Lady Lilith Lurraxol~
+    CreateCreature("TRCUT06",[432.593],6)  // ~Lord Skarmaen Alibakkar~
+    CreateCreature("TRCUT07",[266.599],14)  // ~High Merchant Logan Coprith~
+    OpenDoor("DOOR01")
+    OpenDoor("DOOR02")
+    FadeFromColor([20.0],0)
+    Wait(2)
+    ActionOverride("trcut07",StartDialogNoSet(Player1))
+END
+

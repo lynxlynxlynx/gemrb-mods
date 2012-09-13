@@ -1,0 +1,13 @@
+IF
+  StealFailed([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Wait(3)
+    CreateCreature("AMNISE",[335.396])  // ~Amnish Soldier~
+    CreateCreature("AMNISE2",[335.396])  // ~Amnish Soldier~
+    CreateCreature("AMNISE2",[335.396])  // ~Amnish Soldier~
+    CreateCreature("AMNISE2",[335.396])  // ~Amnish Soldier~
+    CreateCreature("AMNISE2",[335.396])  // ~Amnish Soldier~
+END
+

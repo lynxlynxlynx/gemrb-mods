@@ -1,0 +1,67 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DEATH_WARD)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_DEATH_WARD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SLAY_LIVING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_SLAY_LIVING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HARM)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HARM)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SLAY_LIVING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_SLAY_LIVING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+  !StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentLT(Myself,20)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

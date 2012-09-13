@@ -1,0 +1,25 @@
+IF
+  Global("Torches","GLOBAL",6)
+THEN
+  RESPONSE #100
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    CreateCreatureObject("GORTOR6",Myself,0,0,0)  // ~Torch~
+    ActionOverride("gortor6",StartDialogNoSet(LastTrigger("Torch6")))
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

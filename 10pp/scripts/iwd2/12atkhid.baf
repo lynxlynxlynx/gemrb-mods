@@ -1,0 +1,34 @@
+IF
+  Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  !Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

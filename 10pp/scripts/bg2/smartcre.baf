@@ -1,0 +1,173 @@
+IF
+  Heard([ANYONE],111)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],1)
+  See(SecondNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],2)
+  See(ThirdNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],3)
+  See(FourthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],4)
+  See(FifthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  NumCreatureGT([GOODCUTOFF],5)
+  See(SixthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  See(LastAttackerOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Range(NearestEnemyOf(Myself),4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject([GOODCUTOFF])
+END
+
+IF
+  OR(2)
+    !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+    !See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  HPPercentGT(Myself,25)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  !HPPercentGT(Myself,25)
+  !HPPercentLT(Myself,5)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),45)
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  HPPercentLT(Myself,5)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

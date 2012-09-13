@@ -1,0 +1,75 @@
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedCandleKeep","GLOBAL",1)
+    ForceSpell(LastAttackerOf(Myself),DIETY_KILL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  Global("AttackedCandleKeep","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Chapter","GLOBAL",0)
+  GlobalTimerExpired("Tethtoril","GLOBAL")
+  Global("TalkedToGorion","GLOBAL",0)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  Global("Chapter","GLOBAL",0)
+  GlobalTimerExpired("Tethtoril","GLOBAL")
+  Global("TalkedToGorion","GLOBAL",0)
+  NumberOfTimesTalkedTo(1)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  Global("Chapter","GLOBAL",0)
+  GlobalTimerExpired("Tethtoril","GLOBAL")
+  Global("TalkedToGorion","GLOBAL",0)
+  NumberOfTimesTalkedTo(2)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  Global("Chapter","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([2439.819])
+    MoveToPoint([1854.789])
+    MoveToPoint([1269.1188])
+    MoveToPoint([1314.1620])
+    MoveToPoint([2106.2142])
+    MoveToPoint([2781.2214])
+    MoveToPoint([3306.1833])
+    MoveToPoint([3186.1332])
+END
+

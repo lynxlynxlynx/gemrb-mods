@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(3)
+    RestorePartyLocations()
+    MultiPlayerSync()
+    FadeFromColor([30.0],0)
+    SetGlobalTimer("ValenAppearTimer","GLOBAL",600)
+    EndCutSceneMode()
+END
+

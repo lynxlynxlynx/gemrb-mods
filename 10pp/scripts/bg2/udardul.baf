@@ -1,0 +1,55 @@
+IF
+  GlobalGT("udDrowPlot","GLOBAL",29)
+  Global("udDemonHasDoneTheKill","GLOBAL",0)
+  Allegiance("UDDROW50",NEUTRAL)  // ~Drow Wizard~
+  CombatCounterGT(100)
+THEN
+  RESPONSE #100
+    ActionOverride("UDDROW50",Enemy())
+    Continue()
+END
+
+IF
+  OR(3)
+    Allegiance(Myself,ENEMY)
+    Heard([ANYONE],151)
+    AttackedBy([ANYONE],DEFAULT)
+  GlobalGT("udDrowPlot","GLOBAL",29)
+  GlobalLT("udDrowPlot","GLOBAL",32)
+  Global("doneRitual","AR2201",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+    SetGlobal("udDrowPlot","GLOBAL",32)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  !GlobalTimerExpired("udDemonSummon","GLOBAL")
+  GlobalGT("udDrowPlot","GLOBAL",30)
+  GlobalLT("udDrowPlot","GLOBAL",32)
+  Global("doneRitual","AR2201",0)
+THEN
+  RESPONSE #100
+    DestroyItem("MISCA7")  // ~Kuo-Toan's Blood~
+    DestroyItem("MISCA8")  // ~Eyestalk of an Elder Orb~
+    DestroyItem("MISCBV")  // ~Elder Brain Blood~
+    ForceSpell(Myself,DO_NOTHING)
+    PlaySound("ARE_M15")
+    Wait(4)
+END
+
+IF
+  See([PC])
+  Global("PlayerLooksLikeDrow","GLOBAL",1)
+  OR(3)
+    Global("udDrowPlot","GLOBAL",33)
+    Global("udDrowPlot","GLOBAL",36)
+    Global("udDrowPlot","GLOBAL",35)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayerLooksLikeDrow","GLOBAL",0)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

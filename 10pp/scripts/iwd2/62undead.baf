@@ -1,0 +1,10 @@
+IF
+  Global("Purified_Fields","MYAREA",1)
+THEN
+  RESPONSE #100
+    DropInventory()
+    Kill(Myself)
+    SpellHitEffectSprite(Myself,Myself,RIGHTEOUS_WRATH_OF_THE_FAITHFUL_GROUND,0)
+    ChunkCreature(Myself)
+END
+

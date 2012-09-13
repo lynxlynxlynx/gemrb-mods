@@ -1,0 +1,25 @@
+IF
+  Global("NaliaMessage","GLOBAL",0)
+  !Detect("Nalia")  // Nalia
+  InParty("Nalia")  // Nalia
+THEN
+  RESPONSE #100
+    MoveToObject("Nalia")
+END
+
+IF
+  Global("NaliaMessage","GLOBAL",0)
+  Detect("Nalia")  // Nalia
+  InParty("Nalia")  // Nalia
+THEN
+  RESPONSE #100
+    Dialog("Nalia")
+END
+
+IF
+  !InParty("Nalia")  // Nalia
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

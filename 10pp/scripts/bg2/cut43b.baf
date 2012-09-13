@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("cltcut03")  // 
+    MoveToObject("cltcut02")
+    ActionOverride("cltcut02",PlayDead(0))
+    ActionOverride("cltcut02",DestroySelf())
+    ActionOverride("cltcut01",EscapeArea())
+    Wait(1)
+    EndCutSceneMode()
+    MoveToPointNoInterrupt([2427.1685])
+    MoveToPointNoInterrupt([1456.2140])
+    DestroySelf()
+END
+

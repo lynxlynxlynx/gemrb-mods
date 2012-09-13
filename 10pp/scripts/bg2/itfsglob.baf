@@ -1,0 +1,18 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+  !Exists("fsglobe")  // fsglobe
+THEN
+  RESPONSE #100
+    CreateCreatureObject("FSGLOB",Myself,0,0,0)  // ~Globe Machine~
+    ActionOverride("fsglobe",StartDialogNoSet(LastTrigger("GlobeMachine")))
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

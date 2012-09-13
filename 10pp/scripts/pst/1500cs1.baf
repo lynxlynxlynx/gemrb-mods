@@ -1,0 +1,48 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    TimedMoveToPoint([2390.3105],180)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    TimedMoveToPoint([2430.3145],180)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    TimedMoveToPoint([2350.3105],180)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    TimedMoveToPoint([2430.3185],180)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    GlobalSet("From_1700","GLOBAL",0)
+    MoveViewPoint([2556.3041],INSTANT)
+    MoveToPoint([2270.3252])
+    OpenDoor("ar1500d1")
+    MoveToObjectEx("Hargrim",0)
+    Wait(5)
+    SetDoorLocked("ar1500d1",TRUE)
+    SetDoorLocked("ar1500d2",TRUE)
+    StartCutScene("1500cs13")
+END
+

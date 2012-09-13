@@ -1,0 +1,46 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,ACTOR_WATCHER_3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([0.0.ACTOR])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

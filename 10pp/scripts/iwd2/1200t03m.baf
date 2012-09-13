@@ -1,0 +1,151 @@
+IF
+  ActionListEmpty()
+  Dead("03_Vgotan")  // 
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("00aMvW")
+END
+
+IF
+  !IsScriptName("03_Vgotan",Myself)
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("03_Vgotan")
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  IsScriptName("03_Vgotan",Myself)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartRandomTimer(19,15,25)
+    SetGlobal("ML_0","LOCALS",1)
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1882,2120,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1882.2120])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  IsScriptName("03_Vgotan",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([1882.2120])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  IsScriptName("03_Vgotan",Myself)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartRandomTimer(19,5,10)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,2392,2212,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2392.2212])
+    SetGlobal("ML_0","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  IsScriptName("03_Vgotan",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([2392.2212])
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  IsScriptName("03_Vgotan",Myself)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartRandomTimer(19,5,10)
+    SetGlobal("ML_0","LOCALS",5)
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  ActionListEmpty()
+  NearLocation(Myself,2837,2024,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2837.2024])
+    SetGlobal("ML_0","LOCALS",6)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  IsScriptName("03_Vgotan",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([2837.2024])
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  IsScriptName("03_Vgotan",Myself)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartRandomTimer(19,5,10)
+    SetGlobal("ML_0","LOCALS",7)
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  ActionListEmpty()
+  NearLocation(Myself,2392,2212,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2392.2212])
+    SetGlobal("ML_0","LOCALS",8)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  IsScriptName("03_Vgotan",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([2392.2212])
+END
+
+IF
+  Global("ML_0","LOCALS",8)
+  IsScriptName("03_Vgotan",Myself)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartRandomTimer(19,5,10)
+    SetGlobal("ML_0","LOCALS",9)
+END
+
+IF
+  Global("ML_0","LOCALS",9)
+  IsScriptName("03_Vgotan",Myself)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("00AMVW")
+    SetGlobal("ML_0","LOCALS",0)
+END
+

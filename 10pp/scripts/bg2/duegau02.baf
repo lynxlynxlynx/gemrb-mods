@@ -1,0 +1,28 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Shout(99)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  Heard([ANYONE],99)
+THEN
+  RESPONSE #100
+    Shout(99)
+    Enemy()
+END
+
+IF
+  See([PC])
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Wait(1)
+    MoveToPoint([1554.448])
+    FaceObject([GOODCUTOFF])
+END
+

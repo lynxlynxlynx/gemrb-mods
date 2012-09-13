@@ -1,0 +1,9 @@
+IF
+  Global("SuccubusLeave","GLOBAL",1)
+  Global("EscapeArea","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EscapeArea","LOCALS",1)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+

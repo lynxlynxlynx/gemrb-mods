@@ -1,0 +1,10 @@
+IF
+  SpellCastOnMe([ANYONE],CLERIC_HEAL)
+  Global("HealedMage","AR2100",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("HealedMage","AR2100",1)
+    StartDialogNoSet([PC])
+END
+

@@ -1,0 +1,72 @@
+IF
+  Alignment(Protagonist,LAWFUL_GOOD)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,CHAOTIC_EVIL)
+    ChangeAIScript("1204trnn",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,LAWFUL_NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,CHAOTIC_NEUTRAL)
+    ChangeAIScript("1204trnn",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,LAWFUL_EVIL)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,CHAOTIC_GOOD)
+    ChangeAIScript("1204trng",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,NEUTRAL_GOOD)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,NEUTRAL_EVIL)
+    ChangeAIScript("1204trnn",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,NEUTRAL)
+    ChangeAIScript("1204trnn",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,NEUTRAL_EVIL)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,NEUTRAL_GOOD)
+    ChangeAIScript("1204trng",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,CHAOTIC_GOOD)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,LAWFUL_EVIL)
+    ChangeAIScript("1204trnn",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,CHAOTIC_NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,LAWFUL_NEUTRAL)
+    ChangeAIScript("1204trnn",GENERAL)
+END
+
+IF
+  Alignment(Protagonist,CHAOTIC_EVIL)
+THEN
+  RESPONSE #100
+    ChangeAlignment(Myself,LAWFUL_GOOD)
+    ChangeAIScript("1204trng",GENERAL)
+END
+

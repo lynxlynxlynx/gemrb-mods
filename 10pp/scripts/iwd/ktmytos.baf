@@ -1,0 +1,116 @@
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",1,OR)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_PROTECTION_FROM_EVIL)
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    MoveToPoint([1677.603])
+    Face(SW)
+    Spell(Myself,CLERIC_BLESS)
+    Wait(2)
+    Spell(Myself,CLERIC_PROTECTION_FROM_EVIL)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_HOLD_PERSON)
+  Or(2)
+    See(NearestEnemyOf(Myself))
+    See([PC.0.0.FIGHTER])
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_RADIUS)
+  See([PC.0.0.MAGE])
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_RADIUS)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_STATIC_CHARGE)
+  See(NearestEnemyOf(Myself))
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    Help()
+    Spell(LastSeenBy(Myself),CLERIC_STATIC_CHARGE)
+    Wait(2)
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  Help(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    FaceObject(LastHelp(Myself))
+    Continue()
+END
+
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",1,OR)
+    Enemy()
+    Continue()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(24)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

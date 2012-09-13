@@ -1,0 +1,39 @@
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !TimerActive(1)
+  !BitCheck("3001_Status","AR3001",BIT1)
+  See([0.0.0.0.0.0.PERSON_6])
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    StartRandomTimer(1,10,30)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK2)
+    StartRandomTimer(1,10,30)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK3)
+    StartRandomTimer(1,10,30)
+END
+
+IF
+  !TimerActive(1)
+  !BitCheck("3001_Status","AR3001",BIT1)
+  See([0.0.0.0.0.0.PERSON_7])
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    StartRandomTimer(1,10,30)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK2)
+    StartRandomTimer(1,10,30)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK3)
+    StartRandomTimer(1,10,30)
+END
+

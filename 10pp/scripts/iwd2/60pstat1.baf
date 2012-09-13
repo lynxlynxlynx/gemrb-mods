@@ -1,0 +1,50 @@
+IF
+  Global("StatueXP","MYAREA",0)
+  GlobalGT("Kuldahar_6002_UndeadKilled","GLOBAL",0)
+  Or(12)
+    Kit(Player1,CLERIC_ILMATER)
+    Kit(Player2,CLERIC_ILMATER)
+    Kit(Player3,CLERIC_ILMATER)
+    Kit(Player4,CLERIC_ILMATER)
+    Kit(Player5,CLERIC_ILMATER)
+    Kit(Player6,CLERIC_ILMATER)
+    Kit(Player1,PALADIN_ILMATER)
+    Kit(Player2,PALADIN_ILMATER)
+    Kit(Player3,PALADIN_ILMATER)
+    Kit(Player4,PALADIN_ILMATER)
+    Kit(Player5,PALADIN_ILMATER)
+    Kit(Player6,PALADIN_ILMATER)
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("StatueXP","MYAREA",1)
+    FloatMessage(Myself,28903)  // ~Now that the undead in the Glen have been laid to rest, this statue of Ilmater, its hands bound and folded in prayer, watches silently over the graveyard.~
+    DisplayMessage(28903)  // ~Now that the undead in the Glen have been laid to rest, this statue of Ilmater, its hands bound and folded in prayer, watches silently over the graveyard.~
+    SetGlobal("XP","LOCALS",1)
+    AddXPVar("Level_12_Easy",28901)  // ~You have sanctified the Ilmater graveyard for your god. ~
+END
+
+IF
+  !Global("StatueXP","MYAREA",0)
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,28903)  // ~Now that the undead in the Glen have been laid to rest, this statue of Ilmater, its hands bound and folded in prayer, watches silently over the graveyard.~
+    DisplayMessage(28903)  // ~Now that the undead in the Glen have been laid to rest, this statue of Ilmater, its hands bound and folded in prayer, watches silently over the graveyard.~
+END
+
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,28902)  // ~Hands bound and folded in prayer, this statue of the god of suffering, Ilmater, is covered in filth and blood.  It looks as if it has been intentionally desecrated.  Only a priest of Ilmater could cleanse it again - once the Glen has been cleansed of undead. ~
+    DisplayMessage(28902)  // ~Hands bound and folded in prayer, this statue of the god of suffering, Ilmater, is covered in filth and blood.  It looks as if it has been intentionally desecrated.  Only a priest of Ilmater could cleanse it again - once the Glen has been cleansed of undead. ~
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

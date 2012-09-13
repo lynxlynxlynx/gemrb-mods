@@ -1,0 +1,141 @@
+IF
+  Global("INITIALIZED_61ASPAWN","LOCALS",0)
+  IsScriptName("Abomination",Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    ChangeStat(Myself,107,1,SET)
+    SetCreatureAreaFlag(Myself,HAS_SEEN_PARTY,TRUE)
+    SetGlobal("Attack","LOCALS",1)
+    SetGlobal("INITIALIZED_61ASPAWN","LOCALS",1)
+END
+
+IF
+  Global("INITIALIZED_61ASPAWN","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("INITIALIZED_61ASPAWN","LOCALS",1)
+END
+
+IF
+  Global("Attack","LOCALS",1)
+  NumInParty(1)
+THEN
+  RESPONSE #100
+    JumpToObject(Player1)
+    SetGlobal("Attack","LOCALS",2)
+END
+
+IF
+  Global("Attack","LOCALS",1)
+  NumInParty(2)
+THEN
+  RESPONSE #100
+    JumpToObject(Player1)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player2)
+    SetGlobal("Attack","LOCALS",2)
+END
+
+IF
+  Global("Attack","LOCALS",1)
+  NumInParty(3)
+THEN
+  RESPONSE #100
+    JumpToObject(Player1)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player2)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player3)
+    SetGlobal("Attack","LOCALS",2)
+END
+
+IF
+  Global("Attack","LOCALS",1)
+  NumInParty(4)
+THEN
+  RESPONSE #100
+    JumpToObject(Player1)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player2)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player3)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player4)
+    SetGlobal("Attack","LOCALS",2)
+END
+
+IF
+  Global("Attack","LOCALS",1)
+  NumInParty(5)
+THEN
+  RESPONSE #100
+    JumpToObject(Player1)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player2)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player3)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player4)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player5)
+    SetGlobal("Attack","LOCALS",2)
+END
+
+IF
+  Global("Attack","LOCALS",1)
+  NumInParty(6)
+THEN
+  RESPONSE #100
+    JumpToObject(Player1)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player2)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player3)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player4)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player5)
+    SetGlobal("Attack","LOCALS",2)
+  RESPONSE #100
+    JumpToObject(Player6)
+    SetGlobal("Attack","LOCALS",2)
+END
+
+IF
+  Global("Attack","LOCALS",2)
+  Or(2)
+    !See([GOODCUTOFF],0)
+    !Range(NearestPC,25,LESS_THAN)
+THEN
+  RESPONSE #100
+    ChangeStat(Myself,107,0,SET)
+    SetCreatureAreaFlag(Myself,HAS_SEEN_PARTY,FALSE)
+    Enemy()
+    HideCreature(Myself,FALSE)
+    MoveToObject(NearestPC)
+    SetGlobal("Attack","LOCALS",0)
+END
+
+IF
+  Global("Attack","LOCALS",2)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

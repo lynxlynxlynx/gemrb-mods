@@ -1,0 +1,474 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    MoveToPoint([918.652])
+    Face(8)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",1)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",1)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",1)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",1)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",1)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1038.777])
+    Face(10)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage(Myself,33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage(Myself,33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage(Myself,33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage(Myself,33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage(Myself,33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",2)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1038.919])
+    Face(12)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage(Myself,33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",3)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage(Myself,33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",3)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage(Myself,33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",3)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage(Myself,33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",3)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage(Myself,33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",3)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1038.1095])
+    Face(2)
+    Wait(5)
+    MoveToPoint([914.1216])
+    Face(14)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage(Myself,33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",4)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage(Myself,33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",4)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage(Myself,33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",4)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage(Myself,33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",4)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage(Myself,33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",4)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([914.1535])
+    Face(2)
+    Wait(5)
+    MoveToPoint([1124.1751])
+    Face(12)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([914.1535])
+    Face(2)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage(Myself,33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",7)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage(Myself,33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",7)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage(Myself,33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",7)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage(Myself,33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",7)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage(Myself,33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",7)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([914.1216])
+    Face(14)
+    Wait(5)
+    MoveToPoint([1038.1095])
+    Face(2)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage(Myself,33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",8)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage(Myself,33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",8)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage(Myself,33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",8)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage(Myself,33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",8)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage(Myself,33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",8)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1038.919])
+    Face(12)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage(Myself,33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",9)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage(Myself,33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",9)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage(Myself,33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",9)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage(Myself,33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",9)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage(Myself,33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",9)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1038.777])
+    Face(10)
+    Wait(5)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,32687)  // ~"Get any copper off that berk?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33481)  // ~"Eye! 'Nuff for me new blade, ya!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",10)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33482)  // ~"Heard ya ran into a Shiv the other night."~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33483)  // ~"Yea, I cut 'em good n' proper, I did!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",10)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33484)  // ~"Rotten's got 'imself a good name, eh?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33485)  // ~"Yea, he smells as rotten as a Collector, he does! Har! Har! Har!"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",10)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33486)  // ~"Ya still rompin' about with that Tiefling gal?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33487)  // ~"Eh, mind yer business now, ya 'ere?"~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",10)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,33488)  // ~"Not enough clueless berks comin' about these days."~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_16],33489)  // ~"Yea. I've been thinkin' we might hafta start headin' outta the Alley for jink."~
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",10)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([918.652])
+    MoveToPoint([932.605])
+    Face(8)
+    Wait(5)
+    MoveToPoint([684.652])
+    Face(12)
+    Wait(5)
+    GlobalSet("0301_RA_Patrol","AR0301",0)
+END
+

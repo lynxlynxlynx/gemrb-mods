@@ -1,0 +1,174 @@
+IF
+  GlobalGT("Marrow","GLOBAL",2)
+  Die()
+THEN
+  RESPONSE #100
+    CreateItem("Finger",0,0,0)  // ~Finger-Bone~
+    DropInventory()
+END
+
+IF
+  Allegiance([PC],ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+END
+
+IF
+  Global("Talka","AR0101",1)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,9632)  // ~::Mumbles::~
+    GlobalSet("Talka","AR0101",0)
+  RESPONSE #25
+    FloatMessage(Myself,9633)  // ~::Grumbles::~
+    GlobalSet("Talka","AR0101",0)
+  RESPONSE #25
+    FloatMessage(Myself,9637)  // ~"Yoo ded-er?"~
+    GlobalSet("Talka","AR0101",0)
+  RESPONSE #25
+    FloatMessage(Myself,9638)  // ~"H-hungreeee."~
+    GlobalSet("Talka","AR0101",0)
+END
+
+IF
+  Global("Marrow_Follow","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObjectEx("Nameless",0)
+END
+
+IF
+  Global("Functiona","AR0101",0)
+THEN
+  RESPONSE #100
+    Face(8)
+    Wait(3)
+    Face(6)
+    Wait(3)
+    Face(8)
+    Wait(1)
+    GlobalSet("Talka","AR0101",1)
+    GlobalSet("Functiona","AR0101",1)
+END
+
+IF
+  Global("Functiona","AR0101",1)
+THEN
+  RESPONSE #100
+    Wait(1)
+    Face(10)
+    Wait(3)
+    MoveToPoint([1855.1324])
+    Face(8)
+    Wait(3)
+    Face(6)
+    Wait(3)
+    Face(8)
+    Wait(1)
+    GlobalSet("Talka","AR0101",1)
+    GlobalSet("Functiona","AR0101",2)
+END
+
+IF
+  Global("Functiona","AR0101",2)
+THEN
+  RESPONSE #100
+    Wait(1)
+    Face(10)
+    Wait(3)
+    MoveToPoint([1855.1349])
+    MoveToPoint([1782.1421])
+    Face(4)
+    Wait(3)
+    Face(6)
+    Wait(3)
+    Face(4)
+    Wait(1)
+    GlobalSet("Talka","AR0101",1)
+    GlobalSet("Functiona","AR0101",3)
+END
+
+IF
+  Global("Functiona","AR0101",3)
+THEN
+  RESPONSE #100
+    Wait(1)
+    Face(2)
+    Wait(3)
+    Face(4)
+    Wait(3)
+    MoveToPoint([1736.1421])
+    Face(6)
+    Wait(3)
+    Face(4)
+    Wait(3)
+    Face(2)
+    Wait(3)
+    Face(4)
+    Wait(1)
+    GlobalSet("Talka","AR0101",1)
+    GlobalSet("Functiona","AR0101",4)
+END
+
+IF
+  Global("Functiona","AR0101",4)
+THEN
+  RESPONSE #100
+    Wait(3)
+    MoveToPoint([1782.1421])
+    MoveToPoint([1893.1531])
+    Face(0)
+    Wait(3)
+    Face(14)
+    Wait(3)
+    Face(0)
+    Wait(1)
+    GlobalSet("Talka","AR0101",1)
+    GlobalSet("Functiona","AR0101",5)
+END
+
+IF
+  Global("Functiona","AR0101",5)
+THEN
+  RESPONSE #100
+    Wait(1)
+    Face(2)
+    Wait(3)
+    Face(0)
+    Wait(3)
+    MoveToPoint([1952.1472])
+    Face(12)
+    Wait(1)
+    GlobalSet("Talka","AR0101",1)
+    GlobalSet("Functiona","AR0101",6)
+END
+
+IF
+  Global("Functiona","AR0101",6)
+THEN
+  RESPONSE #100
+    Wait(3)
+    MoveToPoint([1952.1447])
+    Face(10)
+    Wait(1)
+    GlobalSet("Talka","AR0101",1)
+    GlobalSet("Functiona","AR0101",7)
+END
+
+IF
+  Global("Functiona","AR0101",7)
+THEN
+  RESPONSE #100
+    Wait(3)
+    GlobalSet("Functiona","AR0101",0)
+END
+

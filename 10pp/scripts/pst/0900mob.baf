@@ -1,0 +1,158 @@
+IF
+  Global("Lynch_Mob","GLOBAL",3)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Global("Lynch_Mob","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Die()
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Force_Spawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Die()
+  GlobalLT("Curst_Murder","GLOBAL",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Murder","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Global("Lynch_Mob","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([0.0.0.0.0.0.GANGER_1])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Lynch_Mob","GLOBAL",0)
+  Global("Lynch_Float","GLOBAL",0)
+  Range([PC],20)
+  NearLocation(Myself,[1302.969],0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,66802)  // ~"Who got us into this mess?"~
+    GlobalSet("Lynch_Float","GLOBAL",3)
+END
+
+IF
+  Global("Lynch_Float","GLOBAL",3)
+  NearLocation(Myself,[1249.939],0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,66552)  // ~"The bureaucrats! The bureaucrats!"~
+    GlobalSet("Lynch_Float","GLOBAL",4)
+END
+
+IF
+  Global("Lynch_Float","GLOBAL",4)
+  NearLocation(Myself,[1302.969],0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,66797)  // ~"What are we goin' to do with 'em all?"~
+    GlobalSet("Lynch_Float","GLOBAL",5)
+END
+
+IF
+  Global("Lynch_Float","GLOBAL",5)
+  NearLocation(Myself,[1329.964],0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,66796)  // ~"KILL! KILL! KILL!"~
+    GlobalSet("Lynch_Float","GLOBAL",6)
+END
+
+IF
+  Global("Lynch_Float","GLOBAL",6)
+  NearLocation(Myself,[1302.969],0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,66803)  // ~"Let's start with this one!"~
+    GlobalSet("Lynch_Float","GLOBAL",7)
+END
+
+IF
+  Global("Lynch_Float","GLOBAL",7)
+  NearLocation(Myself,[1269.964],0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,66796)  // ~"KILL! KILL! KILL!"~
+    GlobalSet("Lynch_Float","GLOBAL",8)
+END
+
+IF
+  Global("Lynch_Float","GLOBAL",7)
+  NearLocation(Myself,[1344.939],0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,66796)  // ~"KILL! KILL! KILL!"~
+    GlobalSet("Lynch_Float","GLOBAL",8)
+END
+
+IF
+  Global("Lynch_Float","GLOBAL",8)
+  Global("Lynch_Mob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    Enemy()
+    GlobalSet("Lynch_Mob","GLOBAL",2)
+END
+
+IF
+  Global("Lynch_Mob","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Enemy()
+    PlaySequence(ANIM_ATTACK)
+    GlobalSet("Lynch_Mob","GLOBAL",3)
+END
+

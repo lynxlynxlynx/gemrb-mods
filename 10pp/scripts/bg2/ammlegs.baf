@@ -1,0 +1,21 @@
+IF
+  !Global("Enclave","GLOBAL",2)
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+    CreateCreatureOffScreen("ammgrd01",0)  // ~Monk~
+    CreateCreatureOffScreen("ammgrd02",0)  // ~Monk~
+    CreateCreatureOffScreen("ammgrd03",0)  // ~Monk~
+    CreateCreatureOffScreen("ammgrd03",0)  // ~Monk~
+END
+

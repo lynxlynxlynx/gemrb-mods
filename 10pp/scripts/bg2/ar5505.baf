@@ -1,0 +1,19 @@
+IF
+  Dead("balth")  // ~Balthazar~
+  Global("HadBhaal25Dream5","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("HadBhaal25Dream5","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut243a")
+END
+
+IF
+  Global("AddXP","AR5505",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AddXP","AR5505",1)
+    AddXP2DA("Plot23A")
+END
+

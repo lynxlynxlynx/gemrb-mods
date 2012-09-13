@@ -1,0 +1,123 @@
+IF
+  Global("Collector_Couple","AR0109",1)
+THEN
+  RESPONSE #100
+    FaceObject([0.0.0.0.0.0.COLLECTOR])
+END
+
+IF
+  Global("Collector_Couple","AR0109",2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,32234)  // ~"Oh go on collector.  Back to the catacombs with you."~
+    Wait(3)
+    GlobalSet("Collector_Couple","AR0109",0)
+    Continue()
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1157.1117])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1715.1117])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([1715.1479])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([1475.1718])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",4)
+THEN
+  RESPONSE #100
+    MoveToPoint([1475.2162])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",5)
+THEN
+  RESPONSE #100
+    MoveToPoint([3332.2157])
+    Face(4)
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",7)
+THEN
+  RESPONSE #100
+    MoveToPoint([2963.1779])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",8)
+THEN
+  RESPONSE #100
+    MoveToPoint([2902.1383])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",9)
+THEN
+  RESPONSE #100
+    MoveToPoint([2663.1088])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",10)
+THEN
+  RESPONSE #100
+    MoveToPoint([2213.1091])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",11)
+THEN
+  RESPONSE #100
+    MoveToPoint([2029.1263])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",12)
+THEN
+  RESPONSE #100
+    MoveToPoint([1804.4263])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",13)
+THEN
+  RESPONSE #100
+    MoveToPoint([1715.1117])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",14)
+THEN
+  RESPONSE #100
+    MoveToPoint([1157.1117])
+END
+
+IF
+  Global("Tiefling_Couple","AR0109",15)
+THEN
+  RESPONSE #100
+    MoveToPoint([627.589])
+END
+

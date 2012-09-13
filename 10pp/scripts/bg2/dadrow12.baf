@@ -1,0 +1,9 @@
+IF
+  Global("OverSeerMoney","AR2200",4)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    MoveToObjectNoInterrupt([PC])
+    StartDialogNoSet([PC])
+END
+

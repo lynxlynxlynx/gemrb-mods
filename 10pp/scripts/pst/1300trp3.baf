@@ -1,0 +1,7 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],TRAP_SPINNING_BLADES,3)
+END
+

@@ -1,0 +1,7 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,KAISHAS_CHANGE)
+END
+

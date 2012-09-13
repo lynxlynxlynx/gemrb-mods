@@ -1,0 +1,39 @@
+IF
+  Global("Kratuuk_Enemy","GLOBAL",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Or(2)
+    Global("62_Orc_Elf_Combat","GLOBAL",1)
+    Global("Scouts_Join","GLOBAL",1)
+  Or(2)
+    See([ENEMY.MONSTER.ELF],0)
+    See([ENEMY.UNDEAD.ELF],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("Scouts_Join","GLOBAL",1)
+  !Allegiance(Myself,ENEMY)
+  Range(NearestPC,4,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+END
+

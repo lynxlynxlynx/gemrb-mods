@@ -1,0 +1,9 @@
+IF
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    UseItem("00CIHEL1",LastMarkedObject)  // <Invalid Strref -1>
+    ChangeCurrentScript("")
+END
+

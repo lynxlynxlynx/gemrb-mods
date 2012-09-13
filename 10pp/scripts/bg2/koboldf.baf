@@ -1,0 +1,22 @@
+IF
+  Help([0.0.KOBOLD])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp(Myself)))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Class(NearestEnemyOf(Myself),MAGE)
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

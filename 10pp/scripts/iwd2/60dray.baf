@@ -1,0 +1,122 @@
+IF
+  Global("Started_Cutscene","LOCALS",0)
+  Global("Start_Cutscene","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Started_Cutscene","LOCALS",1)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("60cHlyAv")
+END
+
+IF
+  Global("All_Dead","MYAREA",0)
+  !Global("Start_Cutscene","MYAREA",0)
+  Dead("60Atala")  // 
+  Dead("60Inhein")  // 
+  Dead("60Jaiger")  // 
+  Dead("60Kaerva")  // 
+  Dead("60Kairn")  // 
+  Dead("60Khree")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("All_Dead","MYAREA",1)
+    AddXPVar("LEVEL_13_VERY_HARD",34763)  // ~You have sent the Lost Followers to their second death and ended their evil forever. ~
+    TriggerActivation("TO6000",TRUE)
+    TriggerActivation("TO6003",TRUE)
+END
+
+IF
+  Global("All_Dead","MYAREA",1)
+  Global("Reward1","MYAREA",0)
+  Class(Player1,PALADIN)
+THEN
+  RESPONSE #100
+    SetGlobal("Reward1","MYAREA",1)
+    ChangeStat(Player1,MAXHITPOINTS,5,ADD)
+    ChangeStat(Player1,STR,1,ADD)
+    ChangeStat(Player1,WIS,1,ADD)
+END
+
+IF
+  Global("All_Dead","MYAREA",1)
+  Global("Reward2","MYAREA",0)
+  Class(Player2,PALADIN)
+THEN
+  RESPONSE #100
+    SetGlobal("Reward2","MYAREA",1)
+    ChangeStat(Player2,MAXHITPOINTS,5,ADD)
+    ChangeStat(Player2,STR,1,ADD)
+    ChangeStat(Player2,WIS,1,ADD)
+END
+
+IF
+  Global("All_Dead","MYAREA",1)
+  Global("Reward3","MYAREA",0)
+  Class(Player3,PALADIN)
+THEN
+  RESPONSE #100
+    SetGlobal("Reward3","MYAREA",1)
+    ChangeStat(Player3,MAXHITPOINTS,5,ADD)
+    ChangeStat(Player3,STR,1,ADD)
+    ChangeStat(Player3,WIS,1,ADD)
+END
+
+IF
+  Global("All_Dead","MYAREA",1)
+  Global("Reward4","MYAREA",0)
+  Class(Player4,PALADIN)
+THEN
+  RESPONSE #100
+    SetGlobal("Reward4","MYAREA",1)
+    ChangeStat(Player4,MAXHITPOINTS,5,ADD)
+    ChangeStat(Player4,STR,1,ADD)
+    ChangeStat(Player4,WIS,1,ADD)
+END
+
+IF
+  Global("All_Dead","MYAREA",1)
+  Global("Reward5","MYAREA",0)
+  Class(Player5,PALADIN)
+THEN
+  RESPONSE #100
+    SetGlobal("Reward5","MYAREA",1)
+    ChangeStat(Player5,MAXHITPOINTS,5,ADD)
+    ChangeStat(Player5,STR,1,ADD)
+    ChangeStat(Player5,WIS,1,ADD)
+END
+
+IF
+  Global("All_Dead","MYAREA",1)
+  Global("Reward6","MYAREA",0)
+  Class(Player6,PALADIN)
+THEN
+  RESPONSE #100
+    SetGlobal("Reward6","MYAREA",1)
+    ChangeStat(Player6,MAXHITPOINTS,5,ADD)
+    ChangeStat(Player6,STR,1,ADD)
+    ChangeStat(Player6,WIS,1,ADD)
+END
+
+IF
+  Global("All_Dead","MYAREA",1)
+  Or(6)
+    Global("Reward1","MYAREA",1)
+    Global("Reward2","MYAREA",1)
+    Global("Reward3","MYAREA",1)
+    Global("Reward4","MYAREA",1)
+    Global("Reward5","MYAREA",1)
+    Global("Reward6","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Reward1","MYAREA",2)
+    SetGlobal("Reward2","MYAREA",2)
+    SetGlobal("Reward3","MYAREA",2)
+    SetGlobal("Reward4","MYAREA",2)
+    SetGlobal("Reward5","MYAREA",2)
+    SetGlobal("Reward6","MYAREA",2)
+    DisplayMessage(34764)  // ~The paladins in your party feel a warmth spread through their bones, granting them strength and vitality. ~
+    DestroySelf()
+END
+

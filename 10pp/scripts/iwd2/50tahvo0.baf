@@ -1,0 +1,16 @@
+IF
+  !TimerActive(18)
+THEN
+  RESPONSE #15
+    FloatMessage(Myself,17037)  // ~"Those lazy hunters had best not be standing about outside the village again."~
+    StartRandomTimer(18,15,20)
+  RESPONSE #15
+    FloatMessage(Myself,17038)  // ~"Once those hides tan, we can trade them for grain and more nails."~
+    StartRandomTimer(18,15,20)
+  RESPONSE #15
+    FloatMessage(Myself,17039)  // ~"There aren't many arrows left - I should make more."~
+    StartRandomTimer(18,15,20)
+  RESPONSE #255
+    StartRandomTimer(18,15,20)
+END
+

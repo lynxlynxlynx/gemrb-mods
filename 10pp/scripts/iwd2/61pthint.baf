@@ -1,0 +1,17 @@
+IF
+  BitGlobal("FountainTally","MYAREA",4,AND)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  GlobalTimerExpired("TunnelHintTimer","MYAREA")
+  IsOverMe([PC])
+THEN
+  RESPONSE #100
+    FloatMessage("TunnelFloat",32698)  // ~You feel a slight breeze coming from the southeast corner of this room.~
+    SetGlobalTimer("TunnelHintTimer","MYAREA",10)
+END
+

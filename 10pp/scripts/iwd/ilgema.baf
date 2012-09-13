@@ -1,0 +1,66 @@
+IF
+  !Global("GEM_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See([PC.0.0.MAGE_ALL])
+  Global("GEM_ANTIMAGE","MYAREA",0)
+  Global("CAST_LISTA","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_LISTA","LOCALS",1)
+    SetGlobal("GEM_ANTIMAGE","MYAREA",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_FEEBLEMIND)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("CAST_LISTA","LOCALS",1)
+    SetGlobal("GEM_ANTIMAGE","MYAREA",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_EMOTION_FEAR)
+    Wait(2)
+END
+
+IF
+  See([PC.0.0.CLERIC_ALL])
+  Global("GEM_ANTICLERIC","MYAREA",0)
+  Global("CAST_LISTA","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_LISTA","LOCALS",1)
+    SetGlobal("GEM_ANTICLERIC","MYAREA",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_FLESH_TO_STONE)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("CAST_LISTA","LOCALS",1)
+    SetGlobal("GEM_ANTICLERIC","MYAREA",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_HORROR)
+    Wait(2)
+END
+
+IF
+  See([PC.0.0.FIGHTER_ALL])
+  Global("GEM_ANTIFIGHTER","MYAREA",0)
+  Global("CAST_LISTA","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_LISTA","LOCALS",1)
+    SetGlobal("GEM_ANTIFIGHTER","MYAREA",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("CAST_LISTA","LOCALS",1)
+    SetGlobal("GEM_ANTIFIGHTER","MYAREA",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHAOS)
+    Wait(2)
+END
+
+IF
+  !Global("CAST_LISTA","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_LISTA","LOCALS",0)
+    Continue()
+END
+

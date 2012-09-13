@@ -1,0 +1,8 @@
+IF
+  See([0.0.0.HUNTER_CREATURE])
+  Range(LastSeenBy(Myself),10)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(Myself),45)
+END
+

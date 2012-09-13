@@ -1,0 +1,109 @@
+IF
+  HaveSpell(CLERIC_ARMOR_OF_FAITH)
+  Allegiance(Myself,ENEMY)
+  IsSpellTargetValid(Myself,CLERIC_ARMOR_OF_FAITH,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ARMOR_OF_FAITH)
+    Debug("SPELLHEALWAIT_CLERIC_ARMOR_OF_FAITH")
+    SpellWait(CLERIC_ARMOR_OF_FAITH)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget([ANYONE])
+  HPPercentLT("03_52Zama_06",25)  // 03_52Zama_06
+  See("03_52Zama_06",0)  // 03_52Zama_06
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("12141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("12141103",Myself,SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("03_52Barud_01",25)  // 03_52Barud_01
+  See("03_52Barud_01",0)  // 03_52Barud_01
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("12141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("03_52Harhor_02",25)  // 03_52Harhor_02
+  See("03_52Harhor_02",0)  // 03_52Harhor_02
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("12141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    SpellWait(MARKED_SPELL)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",Myself)  // ~Potion of Healing~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(CLERIC_SILENCE_15_RADIUS)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_SILENCE_15_RADIUS,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_SILENCE_15_RADIUS)
+    SpellWait(CLERIC_SILENCE_15_RADIUS)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget([ANYONE])
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("23061322",LastMarkedObject,0)
+      // WIZARD_HOLD_PERSON
+      // CLERIC_MOLD_TOUCH
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+  !Dead(SpellTarget)  // 
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    SpellWait(MARKED_SPELL)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

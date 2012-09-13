@@ -1,0 +1,76 @@
+IF
+  Delay(10)
+  Range([PC],20)
+  ReputationLT([PC],4)
+  !StateCheck([PC],STATE_INVISIBLE)
+  !StateCheck([PC],STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("RepTrap","GLOBAL")
+  !GlobalTimerNotExpired("MostNobleOrder","GLOBAL")
+  Global("MostNobleOrder","GLOBAL",0)
+  LevelGT(Player1,13)
+THEN
+  RESPONSE #75
+    SetGlobal("MostNobleOrder","GLOBAL",1)
+    SetGlobalTimer("RepTrap","GLOBAL",1200)
+    Wait(3)
+    DisplayString(Myself,8205)  // ~Guards approach. Obviously word of your misdeeds have reached the authorities.~
+    CreateCreatureObject("JOLUS",Myself,0,0,0)  // ~Sir Jolus~
+    CreateCreatureObject("WILLIAM",Myself,0,0,0)  // ~Sir Branet Al-Thon~
+    CreateCreatureObject("ALEX",Myself,0,0,0)  // ~Sir Beverus~
+    CreateCreatureObject("RYAN",Myself,0,0,0)  // ~Sir Paritin~
+    CreateCreatureObject("ALHEL",Myself,0,0,0)  // ~Alhelor~
+    CreateCreatureObject("KENDAK",Myself,0,0,0)  // ~Sir Laren~
+    Wait(40)
+  RESPONSE #25
+    DisplayString(Myself,8205)  // ~Guards approach. Obviously word of your misdeeds have reached the authorities.~
+    Wait(2)
+END
+
+IF
+  Delay(10)
+  Range([PC],20)
+  ReputationLT([PC],4)
+  !StateCheck([PC],STATE_INVISIBLE)
+  !StateCheck([PC],STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("RepTrap","GLOBAL")
+THEN
+  RESPONSE #40
+    SetGlobalTimer("RepTrap","GLOBAL",600)
+    Wait(3)
+    DisplayString(Myself,8205)  // ~Guards approach. Obviously word of your misdeeds have reached the authorities.~
+    CreateCreatureObject("SLCENT",Myself,0,0,0)  // ~Amnish Centurion~
+    Wait(40)
+  RESPONSE #60
+    DisplayString(Myself,8205)  // ~Guards approach. Obviously word of your misdeeds have reached the authorities.~
+    Wait(2)
+END
+
+IF
+  Delay(10)
+  Range([PC],20)
+  !StateCheck([PC],STATE_INVISIBLE)
+  !StateCheck([PC],STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("RepTrap","GLOBAL")
+  !GlobalTimerNotExpired("MostNobleOrder","GLOBAL")
+  Global("MostNobleOrder","GLOBAL",0)
+  OR(2)
+    Global("FollowGarren","GLOBAL",1)
+    Global("FollowedGarren","GLOBAL",1)
+THEN
+  RESPONSE #75
+    SetGlobal("MostNobleOrder","GLOBAL",1)
+    SetGlobalTimer("RepTrap","GLOBAL",1200)
+    Wait(3)
+    DisplayString(Myself,8205)  // ~Guards approach. Obviously word of your misdeeds have reached the authorities.~
+    CreateCreatureObject("JOLUS",Myself,0,0,0)  // ~Sir Jolus~
+    CreateCreatureObject("WILLIAM",Myself,0,0,0)  // ~Sir Branet Al-Thon~
+    CreateCreatureObject("ALEX",Myself,0,0,0)  // ~Sir Beverus~
+    CreateCreatureObject("RYAN",Myself,0,0,0)  // ~Sir Paritin~
+    CreateCreatureObject("ALHEL",Myself,0,0,0)  // ~Alhelor~
+    CreateCreatureObject("KENDAK",Myself,0,0,0)  // ~Sir Laren~
+    Wait(40)
+  RESPONSE #25
+    DisplayString(Myself,8205)  // ~Guards approach. Obviously word of your misdeeds have reached the authorities.~
+    Wait(2)
+END
+

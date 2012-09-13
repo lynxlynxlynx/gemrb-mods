@@ -1,0 +1,15 @@
+IF
+  Global("30gobPon_Betrayer","GLOBAL",0)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

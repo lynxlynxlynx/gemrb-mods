@@ -1,0 +1,46 @@
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Wait(15)
+    EscapeArea()
+END
+
+IF
+  Internal("Red_Abishai",INTERNAL_1,3)  // Red_Abishai
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  Help([0.0.0.0.THOKOLA])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(NearestEnemyOf(LastHelp),50,FALSE)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

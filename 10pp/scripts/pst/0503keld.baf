@@ -1,0 +1,36 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    FloatMessage(Myself,37337)  // ~"Remember that life's suffering is but another test."~
+    PlaySequence(ANIM_TALK1)
+    Wait(10)
+    FloatMessage(Myself,37338)  // ~"The cosmos is our classroom."~
+    PlaySequence(ANIM_TALK1)
+    Wait(10)
+    FloatMessage(Myself,37339)  // ~"The spark of divinity is within us all."~
+    PlaySequence(ANIM_TALK1)
+    Wait(10)
+    FloatMessage(Myself,37340)  // ~"Speak well to your fellows - they may be gods someday."~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+END
+

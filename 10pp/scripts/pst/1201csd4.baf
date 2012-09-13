@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("DakkonF")  // 
+    Wait(1)
+    Face(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    MoveToPoint([4350.1211])
+    PlaySoundNotRanged("TRA035")
+    PlaySequence(ANIM_MISC2)
+    StartSong(CHAR_DAKKON,[0.0],Normal)
+    Wait(4)
+    PlaySoundNotRanged("TRA005")
+    PlaySequence(ANIM_TALK2)
+    Wait(2)
+    StartCutScene("1201csD5")
+END
+

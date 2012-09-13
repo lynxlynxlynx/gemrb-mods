@@ -1,0 +1,84 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    JumpToPoint([709.354])
+    Wait(2)
+    Face(S)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    JumpToPoint([747.378])
+    Wait(2)
+    Face(W)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    JumpToPoint([662.369])
+    Wait(2)
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    JumpToPoint([656.392])
+    Wait(2)
+    Face(NE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    JumpToPoint([677.413])
+    Wait(2)
+    Face(N)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    JumpToPoint([754.413])
+    Wait(2)
+    Face(NW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StopJoinRequests()
+    MultiPlayerSync()
+    HideGUI()
+    MultiPlayerSync()
+    SetGlobal("THURLOW_MURDER","GLOBAL",1)
+    OpenDoor("AR9107_DOOR3")
+    MoveViewPoint([719.384],INSTANT)
+    Wait(3)
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    Wait(1)
+    StartCutScene("LWPRVFCE")
+    HideCreature(Myself,FALSE)
+    SetDialogueRange(75)
+    Wait(2)
+    Dialogue(Protagonist)
+END
+

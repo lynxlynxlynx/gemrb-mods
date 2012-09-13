@@ -1,0 +1,133 @@
+IF
+  Global("52EXILE","GLOBAL",2)
+THEN
+  RESPONSE #100
+    ActionOverride("03_52SALISX_01",DestroySelf())
+    ActionOverride("03_52MNKMLX_02",DestroySelf())
+    ActionOverride("03_52MNKMLX_03",DestroySelf())
+    ActionOverride("03_52MNKMLX_04",DestroySelf())
+    ActionOverride("03_52MNKMLX_05",DestroySelf())
+    ActionOverride("03_52MNKMLX_06",DestroySelf())
+    ActionOverride("03_52MNKFLX_07",DestroySelf())
+    ActionOverride("03_52MNKFLX_08",DestroySelf())
+    SetGlobal("52EXILE","GLOBAL",3)
+    Continue()
+END
+
+IF
+  Global("52EXILE","GLOBAL",1)
+  !Global("TEAM_1","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("52EXILE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("52Alarm","GLOBAL",0)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("52Alarm","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_0","MYAREA",0)
+  !Global("52Alarm","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("AR5201_BLACKRAVEN_DEAD","GLOBAL",0)
+  Dead("01_52Salisa_01")  // 
+  Dead("01_52MNKML_02")  // 
+  Dead("01_52MNKML_03")  // 
+  Dead("01_52MNKML_04")  // 
+  Dead("01_52MNKML_05")  // 
+  Dead("01_52MNKML_06")  // 
+  Dead("01_52MNKFL_07")  // 
+  Dead("01_52MNKFL_08")  // 
+  Dead("01_52MNKM_09")  // 
+  Dead("01_52Bered_10")  // 
+  Dead("02_52Svalti_01")  // 
+  Dead("02_52MNKM_02")  // 
+  Dead("02_52MNKM_03")  // 
+  Dead("02_52MNKF_15")  // 
+  Dead("02_52MNKM_04")  // 
+  Dead("02_52MNKM_05")  // 
+  Dead("02_52MNKM_06")  // 
+  Dead("02_52MNKM_07")  // 
+  Dead("02_52MNKM_08")  // 
+  Dead("02_52MNKM_09")  // 
+  Dead("02_52MNKF_10")  // 
+  Dead("02_52MNKF_11")  // 
+  Dead("02_52MNKF_12")  // 
+  Dead("02_52MNKF_13")  // 
+  Dead("02_52MNKM_14")  // 
+  Dead("04_52Nonin_01")  // 
+  Dead("04_52MNKM_02")  // 
+  Dead("04_52MNKM_03")  // 
+  Dead("04_52MNKM_04")  // 
+  Dead("04_52MNKM_05")  // 
+  Dead("04_52MNKM_06")  // 
+  Dead("04_52MNKM_07")  // 
+  Dead("04_52MNKF_11")  // 
+  Dead("04_52MNKF_12")  // 
+  Dead("04_52MNKF_13")  // 
+  Dead("04_52MNKM_08")  // 
+  Dead("04_52MNKM_09")  // 
+  Dead("04_52MNKM_10")  // 
+  Dead("04_52MNKF_14")  // 
+  Dead("05_52Sersa_01")  // 
+  Dead("05_52MNKM_02")  // 
+  Dead("05_52MNKM_03")  // 
+  Dead("06_52Aruma_01")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("AR5201_BLACKRAVEN_DEAD","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("BLACKRAVEN_MONKS_DEAD","GLOBAL",0)
+  !Global("AR5201_BLACKRAVEN_DEAD","GLOBAL",0)
+  !Global("AR5202_BLACKRAVEN_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayMessage(27960)  // ~You have slain the last of the Black Raven Monastery monks.~
+    SetGlobal("BLACKRAVEN_MONKS_DEAD","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("BLACKRAVEN_MONKS_DEAD","GLOBAL",1)
+  Global("51Barud_Dead","GLOBAL",0)
+  Global("51Barud_Monks","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddJournalEntry(28813)
+    SetGlobal("BLACKRAVEN_MONKS_DEAD","GLOBAL",2)
+    Continue()
+END
+
+IF
+  AreaRestDisabled()
+  !Global("BLACKRAVEN_MONKS_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AllowAreaResting(TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

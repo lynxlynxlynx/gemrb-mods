@@ -1,0 +1,81 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    IncrementGlobal("Kill_SDThug","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  !NearLocation(Myself,[3813.1715],216)
+THEN
+  RESPONSE #100
+    MoveToPoint([3813.1715])
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #25
+    Face(-1)
+    Wait(2)
+    Face(-1)
+    Wait(1)
+    FloatMessage(Myself,9620)  // ~"Aooooooooooooooooo"~
+    Wait(2)
+  RESPONSE #25
+    Face(-1)
+    Wait(2)
+    Face(-1)
+    Wait(1)
+    FloatMessage(Myself,9621)  // ~"Aw-oooooooooooo"~
+    Wait(2)
+  RESPONSE #25
+    Face(-1)
+    Wait(2)
+    Face(-1)
+    Wait(1)
+    FloatMessage(Myself,9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+  RESPONSE #25
+    Face(-1)
+    Wait(2)
+    Face(-1)
+    Wait(1)
+    FloatMessage(Myself,9623)  // ~"Arowooooooo"~
+    Wait(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

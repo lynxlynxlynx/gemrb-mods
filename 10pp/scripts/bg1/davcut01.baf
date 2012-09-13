@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    RevealAreaOnMap("AR0900")
+    IncrementChapter("Chptxt5")
+    AddJournalEntry(15839)
+END
+

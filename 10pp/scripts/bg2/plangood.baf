@@ -1,0 +1,74 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPUNHOLY",Myself)
+    DestroySelf()
+END
+
+IF
+  HPPercentLT(Myself,25)
+  Global("DevaHeal","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpellRES("devaheal",Myself)  // ~Heal~
+    SetGlobal("DevaHeal","LOCALS",1)
+END
+
+IF
+  HaveSpell(CLERIC_LESSER_RESTORATION)
+  See([PC])
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)
+END
+
+IF
+  HaveSpell(CLERIC_NEUTRALIZE_POISON)
+  See([PC])
+  StateCheck(LastSeenBy(Myself),STATE_POISONED)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)
+END
+
+IF
+  HaveSpell(CLERIC_REMOVE_FEAR)
+  See([PC])
+  StateCheck(LastSeenBy(Myself),STATE_PANIC)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_DISEASE)
+  See([PC])
+  StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)
+END
+
+IF
+  HPPercentLT(MostDamagedOf(Myself),25)
+  See([PC])
+  !StateCheck(MostDamagedOf(Myself),STATE_INVISIBLE)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(MostDamagedOf(Myself),CLERIC_HEAL)
+END
+
+IF
+  HaveSpell(CLERIC_DISPEL_MAGIC)
+  See([PC])
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+    StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+END
+

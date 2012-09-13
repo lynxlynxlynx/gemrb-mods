@@ -1,0 +1,15 @@
+IF
+  Global("NobleDopple","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DOPPLEGANGER_CHANGE8)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Face(4)
+END
+

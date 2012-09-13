@@ -1,0 +1,24 @@
+IF
+  CreatureHidden(Myself)
+  Or(2)
+    !Global("51Barud_Dead","GLOBAL",0)
+    !Global("51Harhor_Dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

@@ -1,0 +1,32 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AnnahF")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    EnableFogDither()
+    EnableSpriteDither()
+    ExploreMapChunk([4493.1095],0,600)
+    MoveViewPoint([950.2088],INSTANT)
+    FadeFromBlack()
+    Wait(3)
+    SinisterPoof("EF02TPR2",[950.2088],1)
+    EndCutSceneMode()
+    JumpToPoint([950.2088])
+END
+

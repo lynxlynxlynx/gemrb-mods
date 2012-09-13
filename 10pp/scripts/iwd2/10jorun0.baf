@@ -1,0 +1,52 @@
+IF
+  !TimerActive(18)
+  Global("Dock_Goblin_Quest","GLOBAL",0)
+THEN
+  RESPONSE #15
+    FloatMessage(Myself,1670)  // ~"Damn fool goblins, thinkin' to torch me boat..."~
+    StartTimer(18,5)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1671)  // ~"Not so tough now, are ye?!  ARE YE?!"~
+    StartTimer(18,5)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1672)  // ~"Get back up again, I'll give ye some more!"~
+    StartTimer(18,5)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1673)  // ~"Me hammer's still cryin' fer goblin blood..."~
+    StartTimer(18,5)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1674)  // ~"Easy as goblin pie."~
+    StartTimer(18,5)
+    Continue()
+  RESPONSE #425
+    SetGlobal("JORUN_FLOAT","LOCALS",1)
+    Continue()
+END
+
+IF
+  !Global("JORUN_FLOAT","LOCALS",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    SetGlobal("JORUN_FLOAT","LOCALS",0)
+    Face(W)
+  RESPONSE #100
+    SetGlobal("JORUN_FLOAT","LOCALS",0)
+    Face(NW)
+  RESPONSE #100
+    SetGlobal("JORUN_FLOAT","LOCALS",0)
+    Face(SE)
+END
+
+IF
+  !Global("JORUN_FLOAT","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("JORUN_FLOAT","LOCALS",0)
+    Continue()
+END
+

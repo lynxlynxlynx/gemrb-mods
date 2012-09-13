@@ -1,0 +1,28 @@
+IF
+  Clicked([ANYONE])
+  Global("CheckOutEggs","AR6003",0)
+THEN
+  RESPONSE #100
+    DisplayStringNoName(Myself,73212)  // ~These eggs are man made and seem to be incubators of some sort. It may not be wise to touch them.~
+    SetGlobal("CheckOutEggs","AR6003",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("CheckOutEggs","AR6003",1)
+  GlobalLT("NumberOfEggs","AR6003",10)
+THEN
+  RESPONSE #100
+    DisplayStringNoName(Myself,73213)  // ~When you touch the eggs, they open just long enough to spit out one of the floating eyes. The eye attacks. ~
+    CreateCreatureObject("EYEBHL01",Myself,12,0,0)  // ~Eye of the Beholder~
+    IncrementGlobal("NumberOfEggs","AR6003",1)
+  RESPONSE #100
+    DisplayStringNoName(Myself,73213)  // ~When you touch the eggs, they open just long enough to spit out one of the floating eyes. The eye attacks. ~
+    CreateCreatureObject("EYEDED01",Myself,12,0,0)  // ~Eye of the Dead~
+    IncrementGlobal("NumberOfEggs","AR6003",1)
+  RESPONSE #100
+    DisplayStringNoName(Myself,73213)  // ~When you touch the eggs, they open just long enough to spit out one of the floating eyes. The eye attacks. ~
+    CreateCreatureObject("EYEGOR01",Myself,12,0,0)  // ~Gorgon Eye~
+    IncrementGlobal("NumberOfEggs","AR6003",1)
+END
+

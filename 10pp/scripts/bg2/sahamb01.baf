@@ -1,0 +1,25 @@
+IF
+  OR(2)
+    GlobalGT("villynatyjob","GLOBAL",0)
+    Dead("sahpr2")  // ~Prince Villynaty~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  See([PC])
+  Range([PC],5)
+THEN
+  RESPONSE #100
+    Attack(LastSeenBy(Myself))
+END
+
+IF
+  Detect([PC])
+  See([0.0.0.0.30])
+THEN
+  RESPONSE #100
+    Attack(LastSeenBy(Myself))
+END
+

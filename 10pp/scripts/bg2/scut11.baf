@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    SetGlobal("EnterRoomJ","AR3023",1)
+    ActionOverride("FSGibb",MoveToPoint([917.216]))
+    ActionOverride("FSGibb",DestroySelf())
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

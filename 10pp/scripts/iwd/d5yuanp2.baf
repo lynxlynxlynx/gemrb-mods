@@ -1,0 +1,74 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !Global("YXUN_ATTACK","MYAREA",0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,AND)
+  !Global("YXUN_ATTACK","MYAREA",0)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+    Wait(2)
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(LastSeenBy(Myself),CLERIC_STATIC_CHARGE)
+    Wait(2)
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(Myself,CLERIC_STRENGTH_OF_ONE)
+    Wait(2)
+END
+
+IF
+  !Global("YXUN_ATTACK","MYAREA",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !Global("YXUN_ATTACK","MYAREA",0)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  !Global("YXUN_ATTACK","MYAREA",0)
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  !Global("YXUN_ATTACK","MYAREA",0)
+  ActionListEmpty()
+  !TargetUnreachable([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

@@ -1,0 +1,43 @@
+IF
+  Global("AttackedThieves","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedThieves","GLOBAL",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("AttackedThieves","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedThieves","GLOBAL",1)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedThieves","GLOBAL",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  Delay(1)
+  Global("ArkanisComes","GLOBAL",0)
+  Global("AttackedThieves","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ArkanisComes","GLOBAL",1)
+    CreateCreatureObject("STDEATH",Player1,0,0,0)  // ~Arkanis Gath~
+END
+

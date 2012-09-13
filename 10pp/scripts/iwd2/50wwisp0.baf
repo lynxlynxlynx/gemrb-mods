@@ -1,0 +1,67 @@
+IF
+  !TimerActive(5)
+  !CreatureHidden(Myself)
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    XEquipItem("00CIWSP2",Myself,SLOT_AMULET,FALSE)
+    HideCreature(Myself,TRUE)
+    StartRandomTimer(5,3,7)
+    JumpToPoint([609.365])
+  RESPONSE #100
+    XEquipItem("00CIWSP2",Myself,SLOT_AMULET,FALSE)
+    HideCreature(Myself,TRUE)
+    StartRandomTimer(5,3,7)
+    JumpToPoint([416.561])
+  RESPONSE #100
+    XEquipItem("00CIWSP2",Myself,SLOT_AMULET,FALSE)
+    HideCreature(Myself,TRUE)
+    StartRandomTimer(5,3,7)
+    JumpToPoint([811.557])
+  RESPONSE #100
+    XEquipItem("00CIWSP2",Myself,SLOT_AMULET,FALSE)
+    HideCreature(Myself,TRUE)
+    StartRandomTimer(5,3,7)
+    JumpToPoint([591.692])
+END
+
+IF
+  CreatureHidden(Myself)
+  !TimerActive(5)
+  !Range(NearestPC,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    XEquipItem("00CIWSP2",Myself,SLOT_AMULET,TRUE)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  !TimerActive(5)
+  Range([PC],5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    JumpToObject(NearestPC)
+  RESPONSE #50
+    XEquipItem("00CIWSP2",Myself,SLOT_AMULET,TRUE)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackReevaluate(LastMarkedObject,180)
+END
+
+IF
+  CreatureHidden(Myself)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

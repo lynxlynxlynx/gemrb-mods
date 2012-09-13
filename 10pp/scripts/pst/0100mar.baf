@@ -1,0 +1,56 @@
+IF
+  Global("FedEx","GLOBAL",0)
+  Global("AR0500_Visited","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  Global("FedEx","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48370)  // ~"Psst!  Hey you!"~
+    Wait(3)
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48387)  // ~"Come 'ere!"~
+    Wait(3)
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48388)  // ~"Want to earn some jink?"~
+    Wait(3)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

@@ -1,0 +1,16 @@
+IF
+  Global("PortalOpen","AR3001",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("PortalOpen","AR3001",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

@@ -1,0 +1,78 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  True()
+THEN
+    MoveToPoint([1430.1161])
+    Wait(2)
+    ActionOverride("c6elf1",DestroySelf())
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1431.1161])
+    Wait(3)
+    FadeToColor([20.0],0)
+    Wait(3)
+    JumpToPoint([791.1145])
+    MoveViewPoint([791.1145],INSTANT)
+    ActionOverride(Player2,JumpToPoint([745.1141]))
+    ActionOverride(Player3,JumpToPoint([696.1144]))
+    ActionOverride(Player4,JumpToPoint([793.1192]))
+    ActionOverride(Player5,JumpToPoint([743.1181]))
+    ActionOverride(Player6,JumpToPoint([697.1194]))
+    ActionOverride("c6elf1",DestroySelf())
+    Face(7)
+    ActionOverride(Player2,Face(7))
+    ActionOverride(Player3,Face(7))
+    ActionOverride(Player4,Face(7))
+    ActionOverride(Player5,Face(7))
+    ActionOverride(Player6,Face(7))
+    SetGlobal("DestroyElves","GLOBAL",1)
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1431.1191])
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1401.1161])
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1401.1191])
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1371.1161])
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1371.1191])
+END
+
+
+END

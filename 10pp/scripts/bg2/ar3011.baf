@@ -1,0 +1,25 @@
+IF
+  Global("OpenDungeonDoor1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenDungeonDoor1","GLOBAL",1)
+END
+
+IF
+  PartyHasItem("PLOT02A")  // ~Scepter of Radiance~
+  PartyHasItem("PLOT02C")  // ~Scepter Gem~
+  PartyHasItem("PLOT02D")  // ~Scepter Gem~
+  PartyHasItem("PLOT02E")  // ~Scepter Gem~
+  Global("GorCambScepterComplete","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GorCambScepterComplete","GLOBAL",1)
+    DisplayStringHead(Player1,70786)  // ~The scepter of radiance suddenly glows brightly...it is obviously back in one piece and ready to be used.~
+    GiveItemCreate("PLOT02B",Player1,0,0,0)  // ~Scepter of Radiance~
+    TakePartyItem("PLOT02A")
+    TakePartyItem("PLOT02C")
+    TakePartyItem("PLOT02D")
+    TakePartyItem("PLOT02E")
+    AddXP2DA("PLOT3B")
+END
+

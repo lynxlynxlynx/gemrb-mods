@@ -1,0 +1,12 @@
+IF
+  Disarmed([PC])
+THEN
+  RESPONSE #100
+    PlaySoundPoint("AM6103h",[645.1640])
+    OpenDoor("AR6103_CircleDoor")
+    TriggerActivation("SlimeTrigger",FALSE)
+    TriggerActivation("InfoSlimeDoor",FALSE)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

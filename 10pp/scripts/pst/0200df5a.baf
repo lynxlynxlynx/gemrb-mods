@@ -1,0 +1,44 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+END
+
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.DUSTMAN])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(45)
+    MoveToPoint([2072.3138])
+    MoveToPoint([2392.2820])
+    MoveToPoint([2392.1886])
+    MoveToPoint([2866.1410])
+    MoveToPoint([2892.1280])
+    Face(0)
+    ChangeAIScript("0200df5b",GENERAL)
+END
+

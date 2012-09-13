@@ -1,0 +1,22 @@
+IF
+  Heard("Charleston",1)  // Charleston
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("DiggersPossessed","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

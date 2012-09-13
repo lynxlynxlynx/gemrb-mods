@@ -1,0 +1,82 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,TW_CAMP_6)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Help()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See([PC])
+  Global("Buried_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([0.0.0.0.0.0.TW_CAMP_6])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  !LOS([0.0.0.0.0.0.TW_CAMP_6],50)
+THEN
+  RESPONSE #100
+    RunToSavedLocation()
+END
+
+IF
+  Range("Nameless",20)  // ~Nameless One~
+  Global("Bish_Talked","AR0108",0)
+THEN
+  RESPONSE #100
+    RunToObject(Protagonist)
+    Dialogue([PC])
+END
+
+IF
+  WasInDialog()
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

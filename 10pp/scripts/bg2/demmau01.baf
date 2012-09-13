@@ -1,0 +1,62 @@
+IF
+  See([0.0.0.IMP])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.IMP],30)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  RandomNum(2,1)
+  Global("Invisible","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Invisible","LOCALS",1)
+    ReallyForceSpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_BLUR)
+  Global("Invisible","LOCALS",1)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_BLUR)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  !StateCheck(LastSeenBy(Myself),STATE_PANIC)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CLOAK_OF_FEAR)
+  !StateCheck(LastSeenBy(Myself),STATE_PANIC)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CLOAK_OF_FEAR)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+    Continue()
+END
+

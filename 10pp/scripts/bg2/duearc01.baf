@@ -1,0 +1,87 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Shout(99)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  Heard([ANYONE],99)
+THEN
+  RESPONSE #100
+    Shout(99)
+    Enemy()
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf(Myself),15)
+END
+
+IF
+  HitBy([ANYONE],PIERCING)
+THEN
+  RESPONSE #100
+    Shout(99)
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf(Myself),15)
+END
+
+IF
+  HitBy([ANYONE],SLASHING)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #80
+    Shout(80)
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+  RESPONSE #20
+    RunAwayFrom(NearestEnemyOf(Myself),75)
+END
+
+IF
+  See([PC.0.0.MAGE])
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(SecondNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(ThirdNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(FourthNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(FifthNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(SixthNearestEnemyOf(Myself),15)
+END
+

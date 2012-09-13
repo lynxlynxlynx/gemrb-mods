@@ -1,0 +1,26 @@
+IF
+  !NearSavedLocation(15)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  !TimerActive(1)
+  Internal(Myself,0,0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartTimer(1,3)
+    SetInternal(Myself,0,1)
+END
+
+IF
+  !TimerActive(1)
+  Internal(Myself,0,1)
+THEN
+  RESPONSE #100
+    WaitRandom(20,40)
+    SetInternal(Myself,0,0)
+END
+

@@ -1,0 +1,25 @@
+IF
+  CreatureHidden(Myself)
+  !Global("POQUELIN_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    EquipItem("SUMAN",0)
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !HasItem("SUMAN",Myself)  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    GiveItemCreate("SUMAN",Myself,1,1,1)  // <Invalid Strref -1>
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

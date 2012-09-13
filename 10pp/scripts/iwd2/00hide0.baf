@@ -1,0 +1,15 @@
+IF
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

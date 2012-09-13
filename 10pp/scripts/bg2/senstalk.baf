@@ -1,0 +1,7 @@
+IF
+  Dead("Sendai")  // ~Sendai~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

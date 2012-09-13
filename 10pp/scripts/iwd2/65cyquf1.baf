@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Yquog")  // 
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    ActionOverride("Young_Barghest_Whelp_1",DestroySelf())
+    ActionOverride("Young_Barghest_Whelp_2",DestroySelf())
+    ActionOverride("Young_Barghest_Whelp_3",DestroySelf())
+    ActionOverride("Young_Barghest_Whelp_4",DestroySelf())
+    ActionOverride("Goblin_Whelp_1",DestroySelf())
+    ActionOverride("Goblin_Whelp_2",DestroySelf())
+    ActionOverride("Goblin_Whelp_3",DestroySelf())
+    ActionOverride("Goblin_Whelp_4",DestroySelf())
+    HideCreature("Yquog",TRUE)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MoveViewObject(NearestPC,15)
+    EndCutSceneMode()
+    ActionOverride("Yquog",DestroySelf())
+    MultiPlayerSync()
+END
+

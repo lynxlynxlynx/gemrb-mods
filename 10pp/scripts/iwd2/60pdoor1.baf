@@ -1,0 +1,8 @@
+IF
+  CheckDoorFlags(Myself,DOORLOCKED)
+  Global("60met_Jermsy","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+END
+

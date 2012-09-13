@@ -1,0 +1,16 @@
+IF
+  OR(2)
+    IsOverMe([ANYONE])
+    Entered([ANYONE])
+  Global("ArnSpawn4","AR0329",0)
+THEN
+  RESPONSE #100
+    CreateCreature("ELAIR01",[3651.2194],2)  // ~Air Elemental~
+    CreateCreature("ARNWAR02",[4508.1964],2)  // ~Shadow Thief~
+    CreateCreature("ARNWAR09",[4395.2038],11)  // ~Shadow Thief~
+    CreateCreature("ARNWAR10",[4749.1902],2)  // ~Priest of Mask~
+    CreateCreature("ARNWAR03",[4427.2144],11)  // ~Shadow Thief~
+    CreateCreature("ARNWAR01",[4828.2188],7)  // ~Shadow Thief~
+    SetGlobal("ArnSpawn4","AR0329",1)
+END
+

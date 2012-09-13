@@ -1,0 +1,98 @@
+IF
+  Global("EnteredAR1304","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredAR1304","GLOBAL",1)
+    MoveGlobalsTo("AR1300","AR1304",[0.0])
+    MoveGlobalsTo("AR1301","AR1304",[0.0])
+    MoveGlobalsTo("AR1302","AR1304",[0.0])
+    MoveGlobalsTo("AR1303","AR1304",[0.0])
+    Explore()
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  Global("RoenallSpawn","AR1304",0)
+THEN
+  RESPONSE #100
+    ActionOverride("kpcapt02",JumpToPoint([1916.1865]))
+    SetGlobal("RoenallSpawn","AR1304",1)
+    OpenDoor("Bridge01")
+    CreateCreature("KPSOLD03",[3716.2770],14)  // ~de'Arnise Guard~
+    CreateCreature("KPSOLD03",[3648.2856],14)  // ~de'Arnise Guard~
+    CreateCreature("KPSOLD04",[3675.2781],14)  // ~de'Arnise Guard~
+    CreateCreature("KPSOLD04",[3630.2702],14)  // ~de'Arnise Guard~
+    CreateCreature("KPSOLD04",[3636.2900],14)  // ~de'Arnise Guard~
+    CreateCreature("KPROEN01",[3862.2948],6)  // ~Lord Roenall~
+    CreateCreature("KPROEN02",[3815.3035],6)  // ~Roenall Guard~
+    CreateCreature("KPROEN02",[3845.3035],6)  // ~Roenall Guard~
+    CreateCreature("KPROEN03",[3894.2960],6)  // ~Roenall Guard~
+    CreateCreature("KPROEN04",[3981.2883],6)  // ~Roenall Soldier~
+    CreateCreature("KPROEN05",[3992.2983],6)  // ~Roenall Soldier~
+    CreateCreature("KPROEN05",[3905.3072],6)  // ~Roenall Soldier~
+END
+
+IF
+  GlobalTimerExpired("KPPlotTime","GLOBAL")
+  Global("KeepPlot","GLOBAL",11)
+  Global("RoenalControl","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("Cut32l")
+END
+
+IF
+  Dead("kproen01")  // ~Lord Roenall~
+  Global("KeepPlot","GLOBAL",11)
+  Global("RoenalControl","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("Cut32m")
+END
+
+IF
+  OR(2)
+    Global("RoenalControl","GLOBAL",1)
+    Global("NaliaKeepControl","GLOBAL",1)
+  OpenState("Bridge01",TRUE)  // Bridge01
+THEN
+  RESPONSE #100
+    SetGlobal("LostKeep","AR1304",1)
+    TriggerActivation("Tran1306a",FALSE)
+    CloseDoor("Bridge01")
+END
+
+IF
+  GlobalTimerExpired("KeepImportant2","GLOBAL")
+  Global("KeepPlot","GLOBAL",7)
+  Global("RoenalControl","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RoenalControl","GLOBAL",1)
+    EraseJournalEntry(3030)  // ~Ruling the de'Arnise Keep and LandsNalia has asked me to caretake her family's lands so that the Roenalls do not have the opportunity to take it from her whether she likes it or not.  Her father's major domo will assist me, running the day-to-day activities of the keep and collecting the taxes for me when I visit.  The major domo estimates that after the keep's maintenance is paid and money for the new garrison is deducted, I should make about 500 gp per week... which I can collect whenever I like.  I can also raise taxes, but I must be careful of angering the people.I will also be needed to return every now and again in order to make decisions that the major domo cannot make, himself.  The whole thing seems simple enough, really.~
+    EraseJournalEntry(3031)  // ~Ruling the de'Arnise Keep and LandsA runner has come to me, stating that I must return to the de'Arnise keep as soon as possible... no more than a week... as Lord Farthington Roenal, the head of the family that wished to take Nalia's family's keep, desires to see me.~
+    EraseJournalEntry(3032)  // ~Ruling the de'Arnise Keep and LandsApparently, there has been a major flood in the lands around the de'Arnise keep.  A runner has been sent to ask me to return as soon as possible, within a week or less, in order to restore order there.~
+    EraseJournalEntry(3033)  // ~Ruling the de'Arnise Keep and LandsIt appears the Roenalls have finally decided to take extreme action to claim the de'Arnise lands and remove me from the castle.  A runner reports that Roenall armed forces have been spotted approaching the keep... I will need to return there as soon as possible.~
+    AddJournalEntry(3039,QUEST_DONE)
+    CreateCreature("KPGATE02",[3306.2412],14)  // ~Guard~
+END
+
+IF
+  GlobalTimerExpired("KeepImportant3","GLOBAL")
+  Global("KeepPlot","GLOBAL",8)
+  Global("RoenalControl","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RoenalControl","GLOBAL",1)
+    EraseJournalEntry(3030)  // ~Ruling the de'Arnise Keep and LandsNalia has asked me to caretake her family's lands so that the Roenalls do not have the opportunity to take it from her whether she likes it or not.  Her father's major domo will assist me, running the day-to-day activities of the keep and collecting the taxes for me when I visit.  The major domo estimates that after the keep's maintenance is paid and money for the new garrison is deducted, I should make about 500 gp per week... which I can collect whenever I like.  I can also raise taxes, but I must be careful of angering the people.I will also be needed to return every now and again in order to make decisions that the major domo cannot make, himself.  The whole thing seems simple enough, really.~
+    EraseJournalEntry(3031)  // ~Ruling the de'Arnise Keep and LandsA runner has come to me, stating that I must return to the de'Arnise keep as soon as possible... no more than a week... as Lord Farthington Roenal, the head of the family that wished to take Nalia's family's keep, desires to see me.~
+    EraseJournalEntry(3032)  // ~Ruling the de'Arnise Keep and LandsApparently, there has been a major flood in the lands around the de'Arnise keep.  A runner has been sent to ask me to return as soon as possible, within a week or less, in order to restore order there.~
+    EraseJournalEntry(3033)  // ~Ruling the de'Arnise Keep and LandsIt appears the Roenalls have finally decided to take extreme action to claim the de'Arnise lands and remove me from the castle.  A runner reports that Roenall armed forces have been spotted approaching the keep... I will need to return there as soon as possible.~
+    AddJournalEntry(3039,QUEST_DONE)
+    CreateCreature("KPGATE02",[3306.2412],14)  // ~Guard~
+END
+

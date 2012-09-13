@@ -1,0 +1,8 @@
+IF
+  Global("KrylaMove","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogue("Kryla",[PC])
+END
+

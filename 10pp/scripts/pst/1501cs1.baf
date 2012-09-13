@@ -1,0 +1,40 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hargrim")  // 
+    Wait(3)
+    JumpToPoint([920.940])
+    ForceAIScript("Hargrim",[ANYONE],DEFAULT)
+    ForceFacing("Hargrim",12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("StaleMa")  // 
+    Wait(3)
+    JumpToPoint([1040.880])
+    ForceAIScript("StaleMa",[ANYONE],DEFAULT)
+    ForceFacing("StaleMa",0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    FadeToBlack()
+    Wait(3)
+    SetCorpseEnabled("AR1501_K",0)
+    SetCorpseEnabled("AR1501_N",0)
+    MoveViewPoint([1040.965],VERY_FAST)
+    JumpToPoint([1040.965])
+    Face(6)
+    Wait(1)
+    FadeFromBlack()
+    Wait(2)
+    StartCutScene("1501cs2")
+END
+

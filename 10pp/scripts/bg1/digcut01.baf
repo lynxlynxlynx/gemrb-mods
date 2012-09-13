@@ -1,0 +1,74 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    LeaveAreaLUAPanic("AR4101","TRCHRSTN",[131.323],10)
+    ActionOverride("Charleston",Shout(1))
+    Wait(1)
+    StartCutSceneMode()
+    ActionOverride("Charleston",OpenDoor("Digdoor"))
+    TriggerActivation("Door4101a",TRUE)
+    ActionOverride("Charleston",DestroySelf())
+    Wait(1)
+    LeaveAreaLUA("AR4101","TRCHRSTN",[131.323],10)
+    SetMasterArea("AR4100")
+    MultiPlayerSync()
+    CreateCreature("CHARLE",[196.358])  // ~Charleston Nib~
+    SetGlobal("TalkedToCharleston","GLOBAL",1)
+    ActionOverride("Charleston",SetNumTimesTalkedTo(1))
+    CreateCreature("DIGGER",[1098.501])  // ~Digger~
+    CreateCreature("DIGGER",[1224.522])  // ~Digger~
+    CreateCreature("DIGGER",[1314.542])  // ~Digger~
+    CreateCreature("DIGGER",[1272.630])  // ~Digger~
+    CreateCreature("DIGGER",[1149.646])  // ~Digger~
+    CreateCreature("DIGGER",[1283.540])  // ~Digger~
+    MultiPlayerSync()
+    StartCutScene("Digcut02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(1)
+    LeaveAreaLUA("AR4101","TRCHRSTN",[125.323],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(1)
+    LeaveAreaLUA("AR4101","TRCHRSTN",[125.323],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(1)
+    LeaveAreaLUA("AR4101","TRCHRSTN",[125.323],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(1)
+    LeaveAreaLUA("AR4101","TRCHRSTN",[125.323],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(1)
+    LeaveAreaLUA("AR4101","TRCHRSTN",[125.323],10)
+END
+

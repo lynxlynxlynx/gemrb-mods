@@ -1,0 +1,15 @@
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5008S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5008S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+END
+

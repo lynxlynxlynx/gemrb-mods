@@ -1,0 +1,61 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_BLUR)
+  Global("Prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_BLUR)
+    ApplySpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+  HaveSpell(WIZARD_DISPEL_MAGIC)
+  HaveSpell(WIZARD_SPELL_THRUST)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)
+    Spell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),10)
+  HaveSpell(WIZARD_STINKING_CLOUD)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_STINKING_CLOUD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHROMATIC_ORB)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_BLINDNESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_BLINDNESS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_LARLOCH_MINOR_DRAIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

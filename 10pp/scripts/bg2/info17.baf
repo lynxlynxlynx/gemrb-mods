@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16262)  // ~ _To assist you in recording important information, many details will automatically be entered in your Journal. To access the Journal, click the appropriate icon on the left side of the screen. Entries are catalogued according to the story chapter in which you encountered them.~
+END
+

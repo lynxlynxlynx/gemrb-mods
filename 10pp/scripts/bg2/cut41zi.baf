@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    CreateCreature("ppdesh2",[2291.2587],0)  // ~Desharik~
+    CreateCreature("ppright",[1931.2673],14)  // ~Dunbar~
+    CreateCreature("pppirate",[1965.2637],14)  // ~Pirate~
+    CreateCreature("pppirate",[1987.2595],14)  // ~Pirate~
+    CreateCreature("pppirate",[2011.2638],14)  // ~Pirate~
+    MoveViewPoint([2186.2643],INSTANT)
+    JumpToPoint([2035.2796])
+    ActionOverride(Player2,JumpToPoint([2072.2775]))
+    ActionOverride(Player3,JumpToPoint([2107.2744]))
+    ActionOverride(Player4,JumpToPoint([2067.2816]))
+    ActionOverride(Player5,JumpToPoint([2115.2794]))
+    ActionOverride(Player6,JumpToPoint([2160.2752]))
+    ActionOverride("ppsaem3",JumpToPoint([2014.2755]))
+    Face(6)
+    ActionOverride(Player2,Face(8))
+    ActionOverride(Player3,Face(8))
+    ActionOverride(Player4,Face(8))
+    ActionOverride(Player5,Face(8))
+    ActionOverride(Player6,Face(8))
+    ActionOverride("ppsaem3",Face(8))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    SetGlobal("AsylumPlot","GLOBAL",75)
+    ActionOverride("ppdesh2",StartDialogNoSet([PC]))
+    EndCutSceneMode()
+END
+

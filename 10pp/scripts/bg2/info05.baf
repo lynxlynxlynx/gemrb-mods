@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16218)  // ~ _You can pause the game at any time by hitting the space bar or left-clicking on the clock face. Unpausing occurs the same way, although looking at the inventory page will also unpause the game. Pausing is most useful during combat where it gives you the time to carefully orchestrate your party's attack.~ [TEXTPOP]
+END
+

@@ -1,0 +1,23 @@
+IF
+  OR(2)
+    AttackedBy([ANYONE],DEFAULT)
+    Allegiance(Myself,ENEMY)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Change","LOCALS",1)
+    CreateCreatureDoor("trrak02",[244.384],8)
+    CreateCreatureDoor("trrak03",[451.256],8)
+    SetName(38894)  // ~Ihtafeer~
+    Polymorph(RAKSHASA)
+    Shout(89)
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

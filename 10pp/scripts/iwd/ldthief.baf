@@ -1,0 +1,68 @@
+IF
+  CreatureHidden(Myself)
+  !Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+THEN
+  RESPONSE #100
+    ForceHide(Myself)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",1)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+END
+

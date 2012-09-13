@@ -1,0 +1,14 @@
+IF
+  Opened([ANYTHING])
+THEN
+  RESPONSE #100
+    SetGlobal("HIGH_TORT_FLOAT","MYAREA",1)
+END
+
+IF
+  Unlocked([ANYTHING])
+THEN
+  RESPONSE #100
+    SetGlobal("HIGH_TORT_FLOAT","MYAREA",1)
+END
+

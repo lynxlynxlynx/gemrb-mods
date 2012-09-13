@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16220)  // ~ _While in temples, talk to the priests as you would an innkeeper. They offer an array of useful services, and you will often be able to heal your party, purchase specialty items, or identify treasures acquired during your travels.~ [TEXTPOP]
+END
+

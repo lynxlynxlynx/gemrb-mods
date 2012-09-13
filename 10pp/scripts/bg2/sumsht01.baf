@@ -1,0 +1,75 @@
+IF
+  Allegiance(Myself,ALLY)
+  HitBy([EVILCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    Shout(69)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ALLY)
+  See([ANYONE])
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    Shout(69)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],69)
+  Allegiance(Myself,ALLY)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    Shout(89)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ANYONE])
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    Shout(89)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,NEUTRAL)
+  !Class(Myself,INNOCENT)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Heard([ANYONE],89)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(LastHeardBy(Myself))
+    Continue()
+END
+

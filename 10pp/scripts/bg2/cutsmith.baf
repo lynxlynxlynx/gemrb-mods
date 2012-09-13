@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewObject("botsmith",5)
+    Wait(1)
+    CreateVisualEffectObject("spcrtwpn","botsmith")
+    Wait(1)
+    CreateVisualEffectObject("spgflsh1","botsmith")
+    Wait(2)
+    CreateVisualEffectObject("spgflsh1","botsmith")
+    Wait(3)
+    SetGlobal("ImpForgeStuff","GLOBAL",1)
+    EndCutSceneMode()
+END
+

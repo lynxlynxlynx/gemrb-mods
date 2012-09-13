@@ -1,0 +1,16 @@
+IF
+  Opened([ANYONE])
+THEN
+  RESPONSE #100
+    CreateVisualEffect("ICMAGICH",[639.1560])
+    CreateVisualEffect("SPPORTAL",[411.1437])
+    CreateVisualEffect("SPPORTAL",[615.1361])
+    CreateVisualEffect("SPPORTAL",[884.1531])
+    CreateVisualEffect("SPPORTAL",[765.1763])
+    Wait(1)
+    CreateCreature("ELFIRG01",[411.1437],0)  // ~Greater Fire Elemental~
+    CreateCreature("ELFIRG01",[615.1361],0)  // ~Greater Fire Elemental~
+    CreateCreature("GOLBUR01",[884.1531],0)  // ~Burning Man~
+    CreateCreature("GOLBUR01",[765.1763],0)  // ~Burning Man~
+END
+

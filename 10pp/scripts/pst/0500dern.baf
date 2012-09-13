@@ -1,0 +1,35 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    FloatMessage(Myself,37341)  // ~"What am I bid for this fine servant?"~
+    PlaySequence(ANIM_TALK1)
+    Wait(10)
+    FloatMessage(Myself,36910)  // ~"Help these people pay their debt to society. Bid!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+END
+

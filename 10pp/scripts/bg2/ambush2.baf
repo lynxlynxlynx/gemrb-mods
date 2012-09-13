@@ -1,0 +1,31 @@
+IF
+  IsOverMe([ANYONE])
+  !Dead("arnwar07")  // ~Dedral~
+  Global("SpawnThieves","AR0329",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnThieves","AR0329",1)
+    CreateCreature("ARNWAR01",[2499.1110],2)  // ~Shadow Thief~
+    CreateCreature("ARNWAR01",[2014.1599],11)  // ~Shadow Thief~
+    CreateCreature("ARNWAR02",[2470.1349],4)  // ~Shadow Thief~
+    CreateCreature("ARNWAR02",[2011.1328],15)  // ~Shadow Thief~
+    CreateCreature("ARNWAR03",[1872.1455],13)  // ~Shadow Thief~
+    CreateCreature("ARNWAR07",[2276.1099],0)  // ~Dedral~
+    ActionOverride("ARNWAR07",StartDialogNoSet(Player1))
+END
+
+IF
+  IsOverMe([ANYONE])
+  Dead("arnwar07")  // ~Dedral~
+  Global("SpawnThieves","AR0329",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnThieves","AR0329",1)
+    CreateCreature("ARNWAR01",[2499.1110],2)  // ~Shadow Thief~
+    CreateCreature("ARNWAR01",[2014.1599],11)  // ~Shadow Thief~
+    CreateCreature("ARNWAR02",[2470.1349],4)  // ~Shadow Thief~
+    CreateCreature("ARNWAR02",[2011.1328],15)  // ~Shadow Thief~
+    CreateCreature("ARNWAR03",[1872.1455],13)  // ~Shadow Thief~
+    CreateCreature("ARNWAR03",[2276.1099],0)  // ~Shadow Thief~
+END
+

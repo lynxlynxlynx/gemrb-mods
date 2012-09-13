@@ -1,0 +1,44 @@
+IF
+  !HasItem("REG1HP2",Myself)  // <Invalid Strref -1>
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    GiveItemCreate("REG1HP2",Myself,1,0,0)  // <Invalid Strref -1>
+    EquipItem("REG1HP2",0)
+    Continue()
+END
+
+IF
+  !HasItem("TROLLDE",Myself)  // <Invalid Strref -1>
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    GiveItemCreate("TROLLDE",Myself,1,0,0)  // <Invalid Strref -1>
+    Continue()
+END
+
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32768,AND)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    SetHP(Myself,25)
+    PlaySequence(Myself,AWAKE)
+    EquipItem("REG1HP2",0)
+    EquipItem("TROLLDE",1)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",32768,XOR)
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",32768,AND)
+  !Dead("YSELF)")  // YSELF)
+  HPLT(Myself,10)
+THEN
+  RESPONSE #100
+    EquipItem("TROLLDE",0)
+    EquipItem("REG1HP2",1)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",32768,OR)
+    SetHP(Myself,1)
+    PlayDead(600)
+END
+

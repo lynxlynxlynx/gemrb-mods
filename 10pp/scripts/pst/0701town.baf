@@ -1,0 +1,14 @@
+IF
+  !NearSavedLocation(6)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

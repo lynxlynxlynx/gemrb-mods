@@ -1,0 +1,32 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(18)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,27564)  // ~"I was told there would be no math."~
+    StartRandomTimer(18,16,24)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27565)  // ~"Sshh!  Sprawg is thinking...  this may take a while."~
+    StartRandomTimer(18,16,24)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27566)  // ~"'Join the Legion of the Chimera,' they said.  'See the world,' they said."~
+    StartRandomTimer(18,16,24)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27567)  // ~"...huh!?  Wha...?  TRUE!  No, I mean FALSE!  What was the question?"~
+    StartRandomTimer(18,16,24)
+    Continue()
+  RESPONSE #200
+    StartRandomTimer(18,16,24)
+    Continue()
+END
+

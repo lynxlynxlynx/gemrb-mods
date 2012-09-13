@@ -1,0 +1,107 @@
+IF
+  Detect([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Detect([PC])
+  OpenState("Mirror",FALSE)  // Mirror
+  NumberOfTimesTalkedTo(1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  See([PC])
+  Global("Fireball","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ForceSpell([PC],WIZARD_DISPEL_MAGIC)
+    Wait(2)
+    ForceSpell([PC],RED_FIREBALL)
+    SetGlobal("Fireball","GLOBAL",1)
+END
+
+IF
+  Global("DeathFight","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell([PC],POWERWORD_STUN)
+    Wait(2)
+    AttackOneRound(NearestEnemyOf(Myself))
+    SetGlobal("DeathFight","GLOBAL",1)
+END
+
+IF
+  Global("DeathFight","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),POWERWORD_KILL)
+    SetGlobal("DeathFight","GLOBAL",2)
+    Wait(2)
+END
+
+IF
+  Global("DeathFight","GLOBAL",2)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+    Wait(2)
+    ForceSpell([PC],RED_FIREBALL)
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    Wait(1)
+    SetGlobal("DeathFight","GLOBAL",3)
+END
+
+IF
+  Global("DeathFight","GLOBAL",3)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell([PC],0)
+    Wait(2)
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    SetGlobal("DeathFight","GLOBAL",4)
+END
+
+IF
+  Global("DeathFight","GLOBAL",4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell([PC],FEAR)
+    Wait(2)
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    SetGlobal("DeathFight","GLOBAL",5)
+END
+
+IF
+  Global("DeathFight","GLOBAL",5)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell([PC],PAIN)
+    Wait(2)
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    SetGlobal("DeathFight","GLOBAL",6)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

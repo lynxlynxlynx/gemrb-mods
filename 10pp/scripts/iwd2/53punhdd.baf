@@ -1,0 +1,9 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    HideCreature("03_53DRACAH_01",FALSE)
+    HideCreature("03_53DRACAH_02",FALSE)
+    HideCreature("03_53DRACAH_03",FALSE)
+END
+

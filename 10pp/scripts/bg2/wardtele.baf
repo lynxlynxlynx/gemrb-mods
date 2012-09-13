@@ -1,0 +1,23 @@
+IF
+  Contains("MISC2F",Myself)
+  OpenState("DOOR18",FALSE)  // DOOR18
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR18")
+    OpenDoor("DOOR19")
+    TriggerActivation("Teleport1",TRUE)
+    TriggerActivation("Teleport2",TRUE)
+END
+
+IF
+  !Contains("MISC2F","Container21")  // Container21
+  !Contains("MISC2F","Container22")  // Container22
+  OpenState("DOOR18",TRUE)  // DOOR18
+THEN
+  RESPONSE #100
+    CloseDoor("DOOR18")
+    CloseDoor("DOOR19")
+    TriggerActivation("Teleport1",FALSE)
+    TriggerActivation("Teleport2",FALSE)
+END
+

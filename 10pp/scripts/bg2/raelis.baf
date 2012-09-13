@@ -1,0 +1,111 @@
+IF
+  Global("HaerDalisGemQuest","GLOBAL",20)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("FightingTheTroupe","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("FightingTheTroupe","GLOBAL",1)
+    DialogueInterrupt(FALSE)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("FightingTheTroupe","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FightingTheTroupe","GLOBAL",1)
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HasItem("imoenhp1",Myself)  // ~Imoen's Belt~
+THEN
+  RESPONSE #100
+    DestroyItem("imoenhp1")  // ~Imoen's Belt~
+    EraseJournalEntry(4659)  // ~Free Haer'Dalis from imprisonment by Mekrath.I have accepted a commission from Raelis Shai, the leader of a troupe of players who work in the playhouse underneath the Five Flagons.  One of her actors, named Haer'Dalis, has been kidnapped by a wizard named Mekrath, whose laboratory is accessible through the sewers.  I am to retrieve Haer'Dalis from the wizard, as well as locate a jewel that belongs to him.~
+    EraseJournalEntry(4660)  // ~Retrieve Mekrath's stolen mirror from his imp.The wizard, Mekrath, has given me a task to retrieve a mirror that was stolen by an imp...the imp has likely escaped into the sewers and may have summoned something with the device, although Mekrath gave no specifics on exactly what that might be.~
+    EraseJournalEntry(4661)  // ~Free Haer'Dalis from imprisonment by Mekrath.I freed Raelis' actor, Haer'Dalis, from his entrancement and he has returned to the playhouse on his own.  I must now find his gem and bring it to Raelis, and she will reward me for it.~
+    EraseJournalEntry(4662)  // ~Free Haer'Dalis from imprisonment by Mekrath.Raelis' actor, Haer'Dalis, has joined my group and bade me to find his gem within Mekrath's house. I must return it, and him, to the playhouse under the Five Flagons.~
+    EraseJournalEntry(4679)  // ~Retrieve Haer'Dalis' gem.I have freed a man named Haer'Dalis, who was bound magically as a slave to the wizard, Mekrath.  He bade me before he left to find a gem of his still in Mekrath's house.  Once I have it, I am to bring it to one named Raelis at the playhouse beneath the Five Flagons Inn in the Bridge District for a reward.~
+    EraseJournalEntry(4680)  // ~Retrieve Haer'Dalis' gem.I have freed a man named Haer'Dalis...an actor magically enslaved to the wizard Mekrath...who has joined my group and bade me to find a gem of his still in Mekrath's house.  Once it is located, I should seek out Raelis Shai at his playhouse beneath the Five Flagons Inn in the Bridge District for a reward.~
+    EraseJournalEntry(46842)  // ~Raelis Shai asks for aid.It seems the playhouse beneath the Five Flagons is in need of some adventurers.  A woman by the name of Raelis Shai has asked for any interested to go backstage and speak to her about the matter.~
+    EraseJournalEntry(46843)  // ~Free Haer'Dalis from imprisonment by Mekrath.Mekrath has released Haer'Dalis to my care, telling me that the man is in the north store-room in the wizard's tower.  He is likely confused, so I should go and speak to him immediately.~
+    EraseJournalEntry(46844)  // ~Retrieve Mekrath's stolen mirror from his imp.I have completed Mekrath's task and the wizard has 'rewarded' me with a slave of his.  He says that the man is in the north storeroom in his tower...I suppose I should go and see who this person is, at least, if nothing else.~
+    EraseJournalEntry(46845)  // ~Retrieve Haer'Dalis' gem.Haer'Dalis assures me that I have the gem he was looking for, and urges me to go to the playhouse beneath the Five Flagons Inn in the Bridge District to speak to the mistress there, Raelis Shai.~
+END
+
+IF
+  InParty("HaerDalis")  // HaerDalis
+  See("HaerDalis")  // HaerDalis
+  Range("HaerDalis",20)  // HaerDalis
+  !Global("HaerDalisMove","GLOBAL",1)
+  !Global("HaerDalisFree","GLOBAL",2)
+  !Global("PlanarPrison","GLOBAL",1)
+  !Dead("HaerDalis")  // HaerDalis
+  Global("SeesHaerDalis","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SeesHaerDalis","LOCALS",1)
+    StartDialogNoSet("HaerDalis")
+END
+
+IF
+  AreaCheck("AR0510")
+  !InParty("HaerDalis")  // HaerDalis
+  !Dead("HaerDalis")  // HaerDalis
+  Global("HaerDalisMove","GLOBAL",1)
+  Global("SeesTheParty","LOCALS",0)
+  See([PC])
+  Range([PC],20)
+THEN
+  RESPONSE #100
+    SetGlobal("SeesTheParty","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("PlanarPrison","GLOBAL",1)
+  Global("Saved","LOCALS",0)
+  See([PC])
+  Range([PC],15)
+  AreaCheck("AR0516")
+THEN
+  RESPONSE #100
+    SetGlobal("Saved","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("RaelisLeaving","GLOBAL",1)
+  Global("Left","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Left","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HasItem("potn52",Myself)  // ~Potion of Extra Healing~
+THEN
+  RESPONSE #100
+    UseItem("potn52",Myself)  // ~Potion of Extra Healing~
+END
+

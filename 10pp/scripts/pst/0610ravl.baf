@@ -1,0 +1,297 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_1,1)
+    Continue()
+END
+
+IF
+  Die()
+  Global("Ravel_Curst_Portal","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Game_Over","GLOBAL",3)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("0610cut2")
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !TimerActive(1)
+  HaveSpell(WIZARD_BLACK_BARBED_SHIELD)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_BLACK_BARBED_SHIELD)
+    StartTimer(1,20)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,1)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BLACK_BARBED_CURSE)
+    Wait(2)
+    Spell([PC],WIZARD_BLACK_BARBED_CURSE)
+    Wait(2)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,2)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_BLACKSPHERE,7)
+    Wait(4)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,3)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_VAMPIRIC_TOUCH)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,4)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BLACK_BARBED_CURSE)
+    Wait(2)
+    Spell([PC],WIZARD_BLACK_BARBED_CURSE)
+    Wait(2)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,5)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_CLOAK_OF_WARDING)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,6)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_VAMPIRIC_TOUCH)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,7)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_BLACKSPHERE,7)
+    Wait(4)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,8)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BLACK_BARBED_CURSE)
+    Wait(2)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,9)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_VAMPIRIC_TOUCH)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,10)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BLINDNESS)
+    Wait(2)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,11)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_BLACKSPHERE,7)
+    Wait(4)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,12)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NotStateCheck([PC],CGAMESPRITE_STATE_BLIND)
+  Internal(Myself,INTERNAL_1,13)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BLINDNESS)
+    Wait(2)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,14)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_VAMPIRIC_TOUCH)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,15)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NotStateCheck([PC],CGAMESPRITE_STATE_BLIND)
+  Internal(Myself,INTERNAL_1,16)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BLINDNESS)
+    Wait(2)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,17)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_VAMPIRIC_TOUCH)
+    Wait(3)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,18)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_1,19)
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_BLACKSPHERE,7)
+    Wait(4)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Range([PC],30)
+THEN
+  RESPONSE #100
+    StartSong(CHAR_RAVEL,[0.0],Normal)
+    Continue()
+END
+
+IF
+  !NearLocation(Myself,[2435.1790],15)
+THEN
+  RESPONSE #100
+    MoveToPoint([2435.1790])
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #10
+    MoveToPoint([2252.1781])
+    WaitRandom(1,3)
+  RESPONSE #10
+    MoveToPoint([2406.1952])
+    WaitRandom(1,3)
+  RESPONSE #10
+    MoveToPoint([2416.1691])
+    WaitRandom(1,3)
+  RESPONSE #10
+    MoveToPoint([2265.1575])
+    WaitRandom(1,3)
+  RESPONSE #10
+    MoveToPoint([2642.1687])
+    WaitRandom(1,3)
+  RESPONSE #10
+    MoveToPoint([2605.1500])
+    WaitRandom(1,3)
+  RESPONSE #80
+    Face(-1)
+    WaitRandom(1,3)
+END
+

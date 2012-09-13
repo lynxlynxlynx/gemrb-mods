@@ -1,0 +1,9 @@
+IF
+  See([PC])
+  Global("Display","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,4406)  // ~I no want fight! I want home! I smash fish! I smash YOU!! RRRGG!~
+END
+

@@ -1,0 +1,51 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Nestor_Quest","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([204.254])
+    Wait(1)
+    SinisterPoof("ef01tprt",[204.254],1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(2)
+    MoveToPoint([204.318])
+    Face(2)
+    Wait(1)
+    Face(10)
+    Wait(1)
+    MoveToPoint([204.281])
+    Face(8)
+    Wait(1)
+    Face(2)
+    Wait(1)
+    MoveToPoint([249.325])
+    Face(14)
+    Wait(1)
+    Face(12)
+    Wait(1)
+    Face(0)
+    Wait(1)
+    MoveToPoint([204.281])
+    Face(8)
+END
+

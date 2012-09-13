@@ -1,0 +1,52 @@
+IF
+  OnCreation()
+  GlobalLT("TutorialLesson","GLOBAL",38)
+THEN
+  RESPONSE #100
+    Deactivate(Myself)
+END
+
+IF
+  InParty(Myself)
+  Global("RemoveDPlayer","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveDPlayer","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  !InParty(Myself)
+  Global("RemoveDPlayer","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveDPlayer","LOCALS",0)
+END
+
+IF
+  Global("TutorialLesson","GLOBAL",38)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialog(Player1)
+END
+
+IF
+  PartyHasItem("ttleat")  // ~Leather Armor +2~
+  Global("GotArmor","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("Hurt","LOCALS",0)
+  AreaCheck("AR0018")
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

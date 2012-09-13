@@ -1,0 +1,41 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+
+IF
+  See([0.0.GOBLIN])
+THEN
+  RESPONSE #100
+    MoveToObject(LastSeenBy(Myself))
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",2,AND)
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",2,AND)
+  ActionListEmpty()
+  !TargetUnreachable([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+

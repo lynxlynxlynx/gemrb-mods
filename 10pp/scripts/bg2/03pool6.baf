@@ -1,0 +1,45 @@
+IF
+  WalkedToTrigger([ANYONE])
+  Global("Spelunking","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Spelunking","GLOBAL",1)
+    SetGlobalTimer("Pool6Timer","AR6003",5)
+    DisplayStringNoName(Myself,72209)  // ~Though the water is murky and the steam from the hot spring nearly made you miss it, you notice an underwater tunnel beneath the surface of the water. You could dive through and explore it if you wish.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    MoveViewObject(LastTrigger,INSTANT)
+    SetGlobal("Spelunking","GLOBAL",0)
+    DisplayStringNoName(Myself,72212)  // ~You dive through the tunnel and swim as fast as you can to the other end.~
+    Wait(2)
+    FadeToColor([30.0],0)
+    Wait(2)
+    ActionOverride(Player1,LeaveAreaLUAPanicEntry("AR6003","Entry3",[0.0],12))
+    ActionOverride(Player1,LeaveAreaLUAEntry("AR6003","Entry3",[0.0],12))
+    ActionOverride(Player2,LeaveAreaLUAEntry("AR6003","Entry3",[0.0],12))
+    ActionOverride(Player3,LeaveAreaLUAEntry("AR6003","Entry3",[0.0],12))
+    ActionOverride(Player4,LeaveAreaLUAEntry("AR6003","Entry3",[0.0],12))
+    ActionOverride(Player5,LeaveAreaLUAEntry("AR6003","Entry3",[0.0],12))
+    ActionOverride(Player6,LeaveAreaLUAEntry("AR6003","Entry3",[0.0],12))
+    ActionOverride(Player1,Wait(2))
+    ActionOverride(Player1,MultiPlayerSync())
+    ActionOverride(Player1,MoveViewObject(Myself,INSTANT))
+    ActionOverride(Player1,FadeFromColor([30.0],0))
+    ActionOverride(Player1,EndCutSceneMode())
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("Pool6Timer","AR6003")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

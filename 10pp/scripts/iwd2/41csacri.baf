@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    MarkObject("Nathaniel")
+    CutSceneId(LastMarkedObject)  // 
+    MultiPlayerSync()
+    HideGUI()
+    MoveViewObject(LastMarkedObject,INSTANT)
+    SetGlobal("41Test","MYAREA",1)
+    StartTimer(60,10)
+    Wait(60)
+    UnhideGUI()
+    EndCutSceneMode()
+END
+

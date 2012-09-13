@@ -1,0 +1,105 @@
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_RADIUS)
+  See([PC],0)
+  IsSpellTargetValid([PC],CLERIC_SILENCE_15_RADIUS,0)
+THEN
+  RESPONSE #100
+    Spell([PC],CLERIC_SILENCE_15_RADIUS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1221",LastMarkedObject,3)
+      // CLERIC_RAINSTORM
+    MarkSpellAndObject("1201",Myself,3)
+      // CLERIC_AID
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("11141111",LastMarkedObject,7)
+      // CLERIC_DOOM
+      // CLERIC_BANE
+    MarkSpellAndObject("1102",NearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("11141111",LastMarkedObject,7)
+      // CLERIC_DOOM
+      // CLERIC_BANE
+    MarkSpellAndObject("1102",NearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1102",NearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("11141111",LastMarkedObject,7)
+      // CLERIC_DOOM
+      // CLERIC_BANE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

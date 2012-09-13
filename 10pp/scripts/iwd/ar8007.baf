@@ -1,0 +1,27 @@
+IF
+  Global("MARKETH_BADGE","GLOBAL",0)
+  PartyHasItem("MARKETH")  // ~Marketh's Badge~
+THEN
+  RESPONSE #100
+    SetGlobal("MARKETH_BADGE","GLOBAL",1)
+    AddXPVar("LEVEL_11_AVERAGE",19561)  // ~You have retrieved Marketh's badge.~
+    Continue()
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+  !Global("MARKETH_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

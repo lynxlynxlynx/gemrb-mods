@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    StartSong(CHAR_IGNUS,[0.0],Normal)
+    PlaySoundNotRanged("Tra037")
+    PlaySequence(ANIM_MISC2)
+    SmallWait(5)
+    StartSong(CHAR_IGNUS,[0.0],Normal)
+    PlaySoundNotRanged("Tra038C")
+    SmallWait(5)
+    PlaySequence(ANIM_TALK2)
+    StartSong(CHAR_IGNUS,[0.0],Normal)
+    Wait(1)
+    PlaySoundNotRanged("Tra039")
+    PlaySequence(ANIM_MISC1)
+    SmallWait(20)
+    StartCutScene("1201CI34")
+END
+

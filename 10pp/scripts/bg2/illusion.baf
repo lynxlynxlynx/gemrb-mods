@@ -1,0 +1,19 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57749)  // ~Illusion Dispelled~
+    ReallyForceSpellDead(Myself,ILLUSION_DEATH)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("Illusionary","LOCALS",0)
+THEN
+  RESPONSE #100
+    SelectWeaponAbility(SLOT_WEAPON1,0)
+    SetGlobal("Illusionary","LOCALS",1)
+END
+

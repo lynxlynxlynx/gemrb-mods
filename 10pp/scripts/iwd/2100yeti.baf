@@ -1,0 +1,21 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),45)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    AttackReevaluate([PC][0.0.10000.10000],45)
+END
+

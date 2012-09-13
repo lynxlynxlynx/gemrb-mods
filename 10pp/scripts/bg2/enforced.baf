@@ -1,0 +1,16 @@
+IF
+  Global("EnforcerAppear","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnforcerAppear","LOCALS",1)
+    SetGlobalTimer("EnforcerTimer","LOCALS",600)
+END
+
+IF
+  GlobalTimerExpired("EnforcerTimer","LOCALS")
+  Global("EnforcerAppear","LOCALS",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

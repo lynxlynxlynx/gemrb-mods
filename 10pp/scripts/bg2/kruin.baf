@@ -1,0 +1,16 @@
+IF
+  Global("KruinTalked","GLOBAL",0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  Global("KruinTalked","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

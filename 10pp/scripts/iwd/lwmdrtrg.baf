@@ -1,0 +1,15 @@
+IF
+  GlobalGT("KNOW_MIRROR_DOOR","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Deactivate(Myself)
+END
+
+IF
+  Global("KNOW_MIRROR_DOOR","GLOBAL",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("KNOW_MIRROR_DOOR","GLOBAL",1)
+END
+

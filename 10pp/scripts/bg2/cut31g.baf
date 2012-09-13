@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateCreature("bdprst01",[226.1262],0)  // ~Shvanana~
+    ActionOverride("bdprst01",MoveToObject(Player1))
+    ActionOverride("bdprst01",StartDialogNoSet(Player1))
+END
+

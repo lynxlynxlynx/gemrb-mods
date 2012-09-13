@@ -1,0 +1,420 @@
+IF
+  HPLT(Myself,20)
+  Global("Death","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Death","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Face(0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("Prepare2","LOCALS")
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Prepare2","LOCALS",1000)
+    DisplayString(Myself,73139)  // ~Contingency - Fired~
+    SetGlobalTimer("ElectrifiedFloorTimer","AR6005",6)
+    SetGlobalTimer("TailSlap","AR6005",12)
+    ApplySpell(Myself,DRAGON_STONE_SKIN)
+    ReallyForceSpell(Myself,BEHOLDER_SPELL_TURNING)
+    ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("SpellTrigger1","LOCALS")
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SpellTrigger1","LOCALS",1000)
+    DisplayString(Myself,39968)  // ~Spell Trigger - Fired~
+    ReallyForceSpell(Myself,WIZARD_IMPROVED_HASTE)
+    ReallyForceSpell(Myself,HEAL_NO_VISUAL)
+    ReallyForceSpellRES("dgright",Myself)  // ~Righteous Magic~
+    ReallyForceSpellRES("dgfaith",Myself)  // ~Armor of Faith~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("DRAGONFEAR","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DRAGONFEAR","LOCALS",100)
+    PlaySound("ABAZIG02")
+    ReallyForceSpell(NearestEnemyOf(Myself),DRAGON_FEAR)
+    ReallyForceSpell(NearestEnemyOf(Myself),DRAGON_LOWER_ELECTRICAL)
+    ForceSpell(LastSeenBy(Myself),DRAGON_WING_BUFFET)
+END
+
+IF
+  OR(3)
+    SpellCast([GOODCUTOFF],WIZARD_CLOUDKILL)
+    SpellCast([GOODCUTOFF],WIZARD_INCENDIARY_CLOUD)
+    SpellCast([GOODCUTOFF],WIZARD_DEATH_FOG)
+  !GlobalTimerNotExpired("WINGBUFFET","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WINGBUFFET","LOCALS",8)
+    ForceSpell(NearestEnemyOf(Myself),DRAGON_WING_BUFFET)
+    Wait(1)
+    ApplySpell(Myself,0)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !CheckStatGT(Myself,0,STONESKINS)
+  !GlobalTimerNotExpired("DragonStoneSkin","LOCALS")
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DragonStoneSkin","LOCALS",30)
+    ForceSpell(Myself,DRAGON_STONE_SKIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,50,RESISTMAGIC)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("RegainMagic","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("RegainMagic","LOCALS",15)
+    ApplySpellRES("SPCL904",Myself)  // ~Resist Magic~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !HasBounceEffects(Myself)
+  OR(3)
+    See(NearestEnemyOfType([PC.0.0.BARD_ALL]))
+    See(NearestEnemyOfType([PC.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([PC.0.0.SORCERER]))
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  RandomNum(2,1)
+  !GlobalTimerNotExpired("SpellTurn","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SpellTurn","LOCALS",15)
+    ForceSpell(Myself,BEHOLDER_SPELL_TURNING)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  See(LastAttackerOf(Myself))
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Range(NearestEnemyOf(Myself),4)
+  See(NearestEnemyOf(Myself))
+  !Gender(LastSeenBy(Myself),SUMMONED)
+  !Dead("astSeenBy())")  // astSeenBy())
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.BARD_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !Dead("astSeenBy())")  // astSeenBy())
+  Range(LastSeenBy(Myself),20)
+  HPPercentGT(Myself,80)
+  CheckStatGT(Myself,0,STONESKINS)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject([GOODCUTOFF])
+END
+
+IF
+  OR(2)
+    !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+    !See([GOODCUTOFF])
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    SpellNoDec(Myself,CLERIC_HEAL)
+END
+
+IF
+  OR(2)
+    !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+    !See([GOODCUTOFF])
+  !HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  GlobalTimerExpired("TailSlap","AR6005")
+  Range(LastSeenBy(Myself),20)
+  !StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TailSlap","AR6005",30)
+    SwingOnce()
+    DisplayString(Myself,74022)  // ~Tail Slap~
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_EARTHQUAKE)
+END
+
+IF
+  GlobalTimerExpired("ElectrifiedFloorTimer","AR6005")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("ElectrifiedFloorTimer","AR6005",21)
+    DisplayString(Myself,72905)  // ~Abazigal Shockwave~
+    PlaySound("am6005e")
+    ReallyForceSpell(Myself,ABAZIGAL_SHOCKWAVE)
+END
+
+IF
+  !GlobalTimerNotExpired("WINGBUFFET","LOCALS")
+  Range(LastSeenBy(Myself),10)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WINGBUFFET","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),DRAGON_WING_BUFFET)
+    Wait(1)
+END
+
+IF
+  !GlobalTimerNotExpired("WINGBUFFET","LOCALS")
+  Range(NearestEnemyOf(Myself),10)
+  Range(SecondNearestEnemyOf(Myself),10)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WINGBUFFET","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),DRAGON_WING_BUFFET)
+    Wait(1)
+END
+
+IF
+  Range(LastSeenBy(Myself),30)
+  !Range(LastSeenBy(Myself),4)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !GlobalTimerNotExpired("BLUEDRAGONBREATH","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("BLUEDRAGONBREATH","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),BLUE_DRAGON_BREATH)
+    ReallyForceSpell(LastSeenBy(Myself),0)
+END
+
+IF
+  OR(6)
+    Gender(LastSeenBy(Myself),ILLUSIONARY)
+    SpellCast([PC],WIZARD_PROJECT_IMAGE)
+    SpellCast([PC],WIZARD_SIMULACRUM)
+    SpellCast([PC],WIZARD_MISLEAD)
+    StateCheck(LastSeenBy(Myself),STATE_BLUR)
+    StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+  !GlobalTimerNotExpired("TrueSight","LOCALS")
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TrueSight","LOCALS",30)
+    ForceSpell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("dbMalison","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("dbMalison","LOCALS",1000)
+    ForceSpell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)
+END
+
+IF
+  OR(6)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),DRUID_ALL)
+    Class(LastSeenBy(Myself),CLERIC_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+    Class(LastSeenBy(Myself),MAGE_ALL)
+    Class(LastSeenBy(Myself),SORCERER)
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  RandomNum(3,1)
+  !HasBounceEffects(LastSeenBy(Myself))
+  !GlobalTimerNotExpired("dbSilence","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("dbSilence","LOCALS",15)
+    ForceSpell(LastSeenBy(Myself),DRAGON_SILENCE)
+END
+
+IF
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("dbDispel","LOCALS")
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_DRAWUPONHOLYMIGHT)
+    CheckStatGT(LastSeenBy(Myself),0,0)
+    CheckStatGT(LastSeenBy(Myself),0,0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("dbDispel","LOCALS",30)
+    ForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  OR(3)
+    Class(LastSeenBy(Myself),BARD_ALL)
+    Class(LastSeenBy(Myself),MAGE_ALL)
+    Class(LastSeenBy(Myself),SORCERER)
+  RandomNum(3,1)
+  OR(2)
+    HasBounceEffects(LastSeenBy(Myself))
+    HasImmunityEffects(LastSeenBy(Myself))
+  !GlobalTimerNotExpired("dbSecret","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("dbSecret","LOCALS",30)
+    ForceSpell(LastSeenBy(Myself),WIZARD_SECRET_WORD)
+  RESPONSE #50
+    SetGlobalTimer("dbSecret","LOCALS",30)
+    ForceSpell(LastSeenBy(Myself),WIZARD_BREACH)
+  RESPONSE #25
+    SetGlobalTimer("dbSecret","LOCALS",30)
+    ForceSpell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)
+END
+
+IF
+  !CheckStatGT(LastSeenBy(Myself),50,RESISTMAGIC)
+  !GlobalTimerNotExpired("Barrage","LOCALS")
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",6)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHAOS)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",6)
+    ForceSpell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",6)
+    ForceSpell(LastSeenBy(Myself),WIZARD_SLOW)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_POWER_WORD_BLIND)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_PRISMATIC_SPRAY)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),WIZARD_FEEBLEMIND)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+

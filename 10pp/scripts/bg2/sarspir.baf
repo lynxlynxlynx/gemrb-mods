@@ -1,0 +1,12 @@
+IF
+  Detect([PC])
+  OR(4)
+    Global("SarSpirit","AR5006",1)
+    Global("SarSpirit","AR5006",3)
+    Global("SarSpirit","AR5006",5)
+    Global("SarSpirit","AR5006",7)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

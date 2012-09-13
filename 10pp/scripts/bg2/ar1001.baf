@@ -1,0 +1,72 @@
+IF
+  Global("AnomenIsEnemy","GLOBAL",1)
+  Global("AnomenThugs","AR1001",0)
+THEN
+  RESPONSE #100
+    CreateCreature("anothug",[893.345],3)  // ~Guard~
+    CreateCreature("anothug",[696.580],6)  // ~Guard~
+    CreateCreature("anothug",[608.633],8)  // ~Guard~
+    CreateCreature("anothug",[735.231],2)  // ~Guard~
+    SetGlobal("AnomenThugs","AR1001",1)
+END
+
+IF
+  Global("AnomenIsEnemy","GLOBAL",1)
+  !InParty("Anomen")  // Anomen
+  Dead("Anomen")  // Anomen
+  Global("AnomenXP","AR1001",0)
+THEN
+  RESPONSE #100
+    AddexperienceParty(4000)
+    SetGlobal("AnomenXP","AR1001",1)
+END
+
+IF
+  !GlobalTimerExpired("AnomenCorTimer","GLOBAL")
+  Global("AnomenCor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenCor","GLOBAL",2)
+    StartCutSceneMode()
+    StartCutScene("cut36a")
+END
+
+IF
+  GlobalTimerExpired("AnomenCorTimer","GLOBAL")
+  Global("AnomenCor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenCor","GLOBAL",3)
+    ActionOverride("Cor",DestroySelf())
+    ActionOverride("Anomen",DestroySelf())
+    CreateCreature("AMIA",[674.226],0)  // ~Servant~
+END
+
+IF
+  Global("AnomenCor","GLOBAL",2)
+  Dead("Cor")  // ~Cor Delryn~
+  !Dead("Anomen")  // Anomen
+  !StateCheck("Anomen",STATE_SLEEPING)  // Anomen
+  !StateCheck("Anomen",STATE_STUNNED)  // Anomen
+  !StateCheck("Anomen",STATE_HELPLESS)  // Anomen
+  !StateCheck("Anomen",STATE_PANIC)  // Anomen
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenCor","GLOBAL",3)
+    ActionOverride("Anomen",StartDialogue("BANOMEN",Player1))
+END
+
+IF
+  Global("AnomenCor","GLOBAL",2)
+  Dead("Anomen")  // Anomen
+  !Dead("Cor")  // ~Cor Delryn~
+  !StateCheck("Cor",STATE_SLEEPING)  // ~Cor Delryn~
+  !StateCheck("Cor",STATE_STUNNED)  // ~Cor Delryn~
+  !StateCheck("Cor",STATE_HELPLESS)  // ~Cor Delryn~
+  !StateCheck("Cor",STATE_PANIC)  // ~Cor Delryn~
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenCor","GLOBAL",3)
+    ActionOverride("Cor",StartDialogue("COR",Player1))
+END
+

@@ -1,0 +1,14 @@
+IF
+  See("trgrd01")  // ~Militia Soldier~
+THEN
+  RESPONSE #100
+    AttackReevaluate("trgrd01",45)
+END
+
+IF
+  See("trgrd02")  // ~Militia Wizard~
+THEN
+  RESPONSE #100
+    AttackReevaluate("trgrd02",45)
+END
+

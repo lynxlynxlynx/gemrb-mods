@@ -1,0 +1,7 @@
+IF
+  See([0.0.GOBLIN])
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+

@@ -1,0 +1,100 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(5)
+    SmallWait(6)
+    CreateVisualEffectObject("SPFIREPI","cucow3")
+    Wait(12)
+    CreateVisualEffectObject("SPROTECT","cujon2")
+    PlaySound("EFF_M23C")
+    Wait(1)
+    CreateVisualEffectObject("SPROTECT","cujon2")
+    PlaySound("EFF_M23C")
+    Wait(1)
+    CreateVisualEffectObject("SPROTECT","cujon2")
+    PlaySound("EFF_M23C")
+    Wait(1)
+    CreateVisualEffectObject("SPHEALIN","cujon2")
+    Wait(2)
+    CreateVisualEffectObject("SPFLSRIN","cucow1")
+    Wait(1)
+    CreateVisualEffectObject("SPDISPMA","cucow1")
+    PlaySound("EFF_M02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("cujon2")  // 
+    Wait(1)
+    ForceSpell("cucow3",WIZARD_DISINTEGRATE_IGNORE_RESISTANCE)
+    Wait(1)
+    DisplayStringHead(Myself,53483)  // ~I cannot be controlled.~ [DPJON148]
+    ForceSpell("cucow2",WIZARD_FINGER_OF_DEATH_IGNORE_RESISTANCE)
+    Wait(1)
+    DisplayStringHead(Myself,53489)  // ~Understand this as you die, ever pathetic, ever fools! ~ [DPJON149]
+    ForceSpell("cucow1",WIZARD_FLESH_TO_STONE_IGNORE_RESISTANCE)
+    Wait(2)
+    ForceSpell("cucow1",LONG_VISUAL)
+    Wait(2)
+    MoveViewPoint([1110.530],VERY_FAST)
+    MoveToPointNoInterrupt([1117.746])
+    MoveToPointNoInterrupt([1280.559])
+    MoveToPointNoInterrupt([1158.489])
+    Face(2)
+    OpenDoor("DOOR05")
+    ActionOverride("cuimoen2",Face(12))
+    DisplayStringWait(Myself,18647)  // ~Hello, little one.  You and I have a great deal to do.~ [DPJON150]
+    DisplayStringWait("cuimoen2",18648)  // ~Wh- what are you planning?~ [CSIMO10]
+    DisplayStringWait(Myself,18649)  // ~Not to worry, nothing worse than what I shall do to your friend.~ [DPJON151]
+    Wait(2)
+    MultiPlayerSync()
+    FadeToColor([30.0],0)
+    Wait(2)
+    IncrementChapter("")
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+    RestorePartyLocations()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("cucow1")  // 
+    Wait(3)
+    ForceSpell(Myself,WIZARD_IMPROVED_MANTLE)
+    Wait(2)
+    ForceSpell("cujon2",FLASHY_2)
+    Wait(1)
+    ForceSpell("cujon2",LONG_VISUAL)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("cucow2")  // 
+    Wait(2)
+    SmallWait(7)
+    ForceSpell("cujon2",WIZARD_SPELL_SHIELD)
+    Wait(1)
+    ForceSpell("cujon2",FLASHY_1)
+    Wait(1)
+    ForceSpell("cujon2",FLASHY_4)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("cucow3")  // 
+    Wait(1)
+    SmallWait(4)
+    ForceSpell("cujon2",WIZARD_SPELL_SHIELD)
+    ForceSpell("cujon2",WIZARD_POWER_WORD_SILENCE_VISUALS_ONLY)
+END
+

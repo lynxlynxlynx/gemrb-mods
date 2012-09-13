@@ -1,0 +1,57 @@
+IF
+  Dead("garren")  // ~Garren Windspear~
+  Exists("garren")  // ~Garren Windspear~
+THEN
+  RESPONSE #100
+    ActionOverride("garren",DestroySelf())
+END
+
+IF
+  Dead("firban02")  // ~Plath Rededge~
+  Dead("firban03")  // ~Bandit~
+  Dead("firban04")  // ~Orc~
+  Dead("firban05")  // ~Orc~
+  Global("DidThis2","AR1204",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DidThis2","AR1204",1)
+    StartCutSceneMode()
+    Wait(5)
+    Activate("garren")
+    Wait(2)
+    StartCutScene("cut21e")
+    ActionOverride("garjum",DestroySelf())
+END
+
+IF
+  Global("DomainMadeKid","AR1204",0)
+  Gender(Player1,FEMALE)
+  OR(2)
+    Global("FollowGarren","GLOBAL",1)
+    Global("FollowedGarren","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("DomainMadeKid","AR1204",1)
+    CreateCreature("Garkid02",[450.420],0)  // ~Taar~
+END
+
+IF
+  Global("DomainMadeKid","AR1204",0)
+  Gender(Player1,MALE)
+  OR(2)
+    Global("FollowGarren","GLOBAL",1)
+    Global("FollowedGarren","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("DomainMadeKid","AR1204",1)
+    CreateCreature("Garkid01",[450.420],0)  // ~Iltha~
+END
+
+IF
+  Global("SpawnJum","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CreateCreature("garjum",[502.431],4)  // ~Jum~
+    SetGlobal("SpawnJum","GLOBAL",2)
+END
+

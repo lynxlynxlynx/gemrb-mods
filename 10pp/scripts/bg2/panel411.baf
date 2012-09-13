@@ -1,0 +1,46 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("ControlPanel","AR0411",0)
+  !PartyHasItem("KEY03")  // ~Planar Key~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39440)  // ~This door has a control panel on it which appears to be missing a vital piece.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("ControlPanel","AR0411",0)
+  PartyHasItem("KEY03")  // ~Planar Key~
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DisplayString(Myself,39441)  // ~You insert the lever and proceed to pull it.~
+    TakePartyItem("KEY03")
+    DestroyItem("KEY03")  // ~Planar Key~
+    ScreenShake([2941.2458],5)
+    FadeToColor([30.0],0)
+    Unlock("DoorSoldier3")
+    OpenDoor("DoorSoldier3")
+    OpenDoor("Door0400")
+    Wait(2)
+    FadeFromColor([30.0],0)
+    DisplayString(Myself,39442)  // ~The lights went out for a few moments, then the ship rumbled.~
+    AddexperienceParty(17500)
+    CreateCreature("CONPANEL",[2956.2704],0)  // ~Control Panel~
+    CloseDoor("DoorPool1")
+    SetGlobal("ControlPanel","AR0411",1)
+    TriggerActivation("Tran0400",FALSE)
+    TriggerActivation("ControlPanel",FALSE)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,60904)  // ~You must move closer to examine the door panel.~
+END
+

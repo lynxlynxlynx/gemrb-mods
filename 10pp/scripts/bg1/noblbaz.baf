@@ -1,0 +1,16 @@
+IF
+  Global("DukeThanks","GLOBAL",1)
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetDialog("noblbas")
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetDialog("noblbaz")
+END
+

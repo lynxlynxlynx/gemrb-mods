@@ -1,0 +1,30 @@
+IF
+  Global("HARSHOM_START_CUTSCENE","MYAREA",0)
+  Or(2)
+    See([GOODCUTOFF],0)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("51cHDlg")
+    SetGlobal("HARSHOM_START_CUTSCENE","MYAREA",1)
+END
+
+IF
+  !IsCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+    Continue()
+END
+
+IF
+  !IsCreatureAreaFlag(Myself,NO_TALK)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,NO_TALK,TRUE)
+    Continue()
+END
+

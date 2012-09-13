@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride("senill01",MoveToPointNoInterrupt([322.617]))
+    Wait(1)
+    FadeToColor([30.0],0)
+    Wait(1)
+    ActionOverride("senill01",DestroySelf())
+    ActionOverride("cutspy",DestroySelf())
+    Wait(1)
+    RestorePartyLocations()
+    Wait(1)
+    MultiPlayerSync()
+    Unlock("Door01")
+    OpenDoor("Door01")
+    Unlock("Door02")
+    OpenDoor("Door02")
+    FadeFromColor([30.0],0)
+    AddXP2DA("Plot18B")
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,70 @@
+IF
+  AttackedBy([GOODCUTOFF],0)
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    SetGlobal("SR_Emma_Revenge","GLOBAL",4)
+    SpellCastEffect(Myself,"","","",SPARKLES_SWIRL_GREEN,1,ATTACK)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,20459)  // ~.:Casts Word of Recall:.~
+    DestroySelf()
+END
+
+IF
+  Or(3)
+    HasItem("CLDamag",Myself)  // ~Inflict Light Wounds~
+    HasItem("CMDamag",Myself)  // ~Inflict Moderate Wounds~
+    HasItem("FBlade",Myself)  // ~Flame Blade~
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("110213112306",LastMarkedObject,15)
+      // CLERIC_COMMAND
+      // CLERIC_RIGID_THINKING
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("111212181206",Myself,15)
+      // CLERIC_CAUSE_LIGHT_WOUNDS
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_FLAME_BLADE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("111212181206",Myself,15)
+      // CLERIC_CAUSE_LIGHT_WOUNDS
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_FLAME_BLADE
+    MarkSpellAndObject("110213112306",LastMarkedObject,15)
+      // CLERIC_COMMAND
+      // CLERIC_RIGID_THINKING
+      // WIZARD_HOLD_PERSON
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    ForceSpell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

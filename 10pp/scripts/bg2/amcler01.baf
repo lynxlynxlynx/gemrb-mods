@@ -1,0 +1,89 @@
+IF
+  Global("Enclave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Detect([PC])
+  Global("AMTemplePlotFight","AR5500",0)
+  Global("PriestMonkCutScene","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PriestMonkCutScene","AR5500",1)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("amprmk")
+END
+
+IF
+  Global("AMTemplePlotFight","AR5500",1)
+  OR(2)
+    Global("badmonkgone","AR5500",1)
+    !See("ammonk01")  // ~Monk~
+THEN
+  RESPONSE #100
+    DialogueInterrupt(TRUE)
+    SetGlobal("AMTemplePlotFight","AR5500",2)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("AMTemplePlotFight","AR5500",1)
+  Global("Fight","LOCALS",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("Fight","LOCALS",1)
+END
+
+IF
+  Global("SpawnAMmag01","AR5500",1)
+  See("ammonk01")  // ~Monk~
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeAIScript("pries10a",GENERAL)
+    Enemy()
+END
+
+IF
+  Global("Fight","LOCALS",1)
+  Global("SpawnAMmag01","AR5500",0)
+  See("ammonk01")  // ~Monk~
+  Global("prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_RIGHTEOUS_MAGIC)
+    SetGlobal("prep","LOCALS",1)
+END
+
+IF
+  Global("Fight","LOCALS",1)
+  Global("SpawnAMmag01","AR5500",0)
+  See("ammonk01")  // ~Monk~
+  HPPercentLT(Myself,60)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  Global("Fight","LOCALS",1)
+  Global("SpawnAMmag01","AR5500",0)
+  See("ammonk01")  // ~Monk~
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    AttackReevaluate("ammonk01",15)
+END
+

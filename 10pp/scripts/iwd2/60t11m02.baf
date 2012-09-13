@@ -1,0 +1,104 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",0)
+  NearLocation(Myself,3170,1840,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_11_02","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",1)
+  NearLocation(Myself,2760,2380,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_11_02","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",2)
+  NearLocation(Myself,1880,2030,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_11_02","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",3)
+  NearLocation(Myself,2760,2380,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_11_02","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetGlobal("MoveToPoint_11_02","MYAREA",0)
+    SetGlobal("OkayToGo_11_02_0","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_1","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_2","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_3","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_4","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_5","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_6","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_7","LOCALS",0)
+    SetGlobal("OkayToGo_11_02_8","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",0)
+  Global("MoveToPoint_11_01","MYAREA",0)
+  Global("OkayToGo_11_02_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_11_02_0","LOCALS",1)
+    MoveToPoint([3170.1840])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",1)
+  Global("MoveToPoint_11_01","MYAREA",1)
+  Global("OkayToGo_11_02_1","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_11_02_1","LOCALS",1)
+    MoveToPoint([2760.2380])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",2)
+  Global("MoveToPoint_11_01","MYAREA",2)
+  Global("OkayToGo_11_02_2","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_11_02_2","LOCALS",1)
+    MoveToPoint([1880.2030])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_11_02","MYAREA",3)
+  Global("MoveToPoint_11_01","MYAREA",3)
+  Global("OkayToGo_11_02_3","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_11_02_3","LOCALS",1)
+    MoveToPoint([2760.2380])
+    Continue()
+END
+

@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16214)  // ~Welcome to Candlekeep, your home!  To select your character, left-click on the green circle around their feet or on the character portrait to the right. You can now move by left or right-clicking on the ground. Left-click for non-formation movement and all actions. Right-click for formation movement and to cancel actions such as spells.  You should now move clockwise around Candlekeep.  As you move around the keep you will find green robed monks.  Talk to these monks and they will give you lessons on how to play the game. To talk with the monks left click on them while your character is selected.  Your character should walk over and talk with the monk.Also, many different messages will be given to you through the text window on the bottom of the screen.  To expand and contract this window, simply use the two small buttons to the right of it. ~ [TEXTPOP]
+END
+

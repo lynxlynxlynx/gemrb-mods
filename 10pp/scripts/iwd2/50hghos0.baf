@@ -1,0 +1,23 @@
+IF
+  Global("50Kyosti","GLOBAL",1)
+THEN
+  RESPONSE #100
+    UseItem("11Veira2",Myself)  // <Invalid Strref -1>
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  !TimerActive(21)
+  Global("50HGhost","Global",0)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,17885)  // ~"Heed my warning... leave the Fell Wood!"~
+    StartRandomTimer(21,10,15)
+  RESPONSE #25
+    FloatMessage(Myself,17886)  // ~"The Fell Wood is no place for the living..."~
+    StartRandomTimer(21,10,15)
+  RESPONSE #150
+    StartRandomTimer(21,10,15)
+END
+

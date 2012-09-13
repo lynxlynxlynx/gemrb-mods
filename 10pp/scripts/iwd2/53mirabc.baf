@@ -1,0 +1,73 @@
+IF
+  !Global("5303_Cutscene_Done","MYAREA",1)
+THEN
+  RESPONSE #100
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("242724062408",Myself,7)
+      // WIZARD_FIRESHIELD_RED
+      // WIZARD_MINOR_GLOBE_OF_INVULNERABILITY
+      // WIZARD_STONESKIN
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("21032511222521122316212225102308",LastMarkedObject,3)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_SHROUD_OF_FLAME
+      // WIZARD_POWER_WORD_SLEEP
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_DIRE_CHARM
+      // WIZARD_ICE_DAGGER
+      // WIZARD_FEEBLEMIND
+      // WIZARD_LIGHTNING_BOLT
+    MarkSpellAndObject("21012205221723062226",LastMarkedObject,3)
+      // WIZARD_GREASE
+      // WIZARD_HORROR
+      // WIZARD_AGANNAZAR_SCORCHER
+      // WIZARD_HOLD_PERSON
+      // WIZARD_RAY_OF_ENFEEBLEMENT
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

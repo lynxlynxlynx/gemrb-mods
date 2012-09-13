@@ -1,0 +1,10 @@
+IF
+  See(NearestEnemyOf(Myself))
+  See([NEUTRAL])
+THEN
+  RESPONSE #50
+    AttackReevaluate(LastSeenBy(Myself),30)
+  RESPONSE #50
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

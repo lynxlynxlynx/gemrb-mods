@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Bodhi")  // 
+    FadeToColor([20.0],0)
+    JumpToPoint([789.971])
+    SetGlobal("BodhiMove","LOCALS",1)
+    ActionOverride(Player1,JumpToPoint([818.983]))
+    ActionOverride(Player2,JumpToPoint([784.1000]))
+    ActionOverride(Player3,JumpToPoint([801.1019]))
+    ActionOverride(Player4,JumpToPoint([851.988]))
+    ActionOverride(Player5,JumpToPoint([900.952]))
+    ActionOverride(Player6,JumpToPoint([900.915]))
+    MoveViewPoint([789.971],INSTANT)
+    Wait(2)
+    FadeFromColor([20.0],0)
+    StartDialogNoSet(Player1)
+END
+

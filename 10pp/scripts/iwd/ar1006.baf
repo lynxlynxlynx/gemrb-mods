@@ -1,0 +1,13 @@
+IF
+  Global("CHAPTER_BREAK_0","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementChapter("CHPTXT1")
+    MultiPlayerSync()
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("EHHROTHT")
+    SetGlobal("CHAPTER_BREAK_0","GLOBAL",1)
+END
+

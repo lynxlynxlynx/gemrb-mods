@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride("drslayer",Attack("drpc"))
+    Wait(5)
+    ActionOverride("drslayer",Kill("drpc"))
+    FadeToColor([30.0],0)
+    Wait(2)
+    RestorePartyLocations()
+    MultiPlayerSync()
+    RevealAreaOnMap("AR2700")
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+    RestParty()
+END
+

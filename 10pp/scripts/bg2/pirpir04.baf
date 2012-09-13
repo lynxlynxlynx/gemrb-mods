@@ -1,0 +1,7 @@
+IF
+  Global("Drunk","LOCALS",1)
+THEN
+  RESPONSE #100
+    PlayDead(999)
+END
+

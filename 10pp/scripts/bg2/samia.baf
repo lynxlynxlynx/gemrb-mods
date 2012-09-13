@@ -1,0 +1,13 @@
+IF
+  See([PC])
+  OR(2)
+    PartyHasItem("sw1h32")  // ~Dragonslayer~
+    PartyHasItem("shld21")  // ~Dragon Scale Shield +2~
+  Global("SamiaHostile","GLOBAL",0)
+  Global("SpawnSamia","AR1202",1)
+THEN
+  RESPONSE #100
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

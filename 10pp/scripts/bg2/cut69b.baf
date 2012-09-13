@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dpjon02")  // 
+    MoveViewPoint([1496.1124],FAST)
+    CreateVisualEffect("spplanar",[1496.1124])
+    Wait(2)
+    CreateCreatureCopyPoint("dpplay01",Player1,[1496.1124])
+    Wait(3)
+    CreateVisualEffect("spplanar",[1424.1177])
+    Wait(2)
+    CreateCreature("dpdem01",[1424.1177],0)  // ~Demon~
+    Wait(2)
+    DisplayStringHead("dpplay01",5384)  // ~It's hopeless.~
+    ActionOverride("dpdem01",ForceSpell("dpplay01",FLASHY_DEATH_1))
+    Wait(2)
+    DisplayStringHead("dpdem01",5383)  // ~Hahahahahaha!!!!!~
+    Wait(2)
+    CreateVisualEffect("spplanar",[1424.1177])
+    Wait(2)
+    ActionOverride("dpdem01",DestroySelf())
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

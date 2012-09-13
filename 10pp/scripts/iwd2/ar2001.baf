@@ -1,0 +1,263 @@
+IF
+  Global("TorakDialog","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TorakDialog","MYAREA",1)
+    ActionOverride("Torak1",SetDialogueRange(300))
+    ActionOverride("Torak1",Dialogue(Protagonist))
+END
+
+IF
+  Global("Team_01_Fighting","MYAREA",0)
+  !Global("TEAM_1","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Team_01_Fighting","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Team_01_Fighting","MYAREA",1)
+  Dead("T1_Orc_1")  // 
+  Dead("T1_Orc_2")  // 
+  Dead("T1_Orc_3")  // 
+  Dead("T1_Orc_4")  // 
+  Dead("T1_Orc_5")  // 
+  Dead("T1_Orc_6")  // 
+  Dead("T1_Orc_7")  // 
+  Dead("T1_Orc_8")  // 
+  Dead("T1_Orc_9")  // 
+  Dead("T1_Orc_10")  // 
+  Dead("T1_Orc_11")  // 
+  Dead("T1_Orc_12")  // 
+  Dead("T1_Orc_13")  // 
+  Dead("T1_Orc_14")  // 
+  Dead("T1_Orc_15")  // 
+  Dead("T1_Orc_16")  // 
+  Dead("T1_Orc_17")  // 
+  Dead("T1_Orc_18")  // 
+  Dead("T1_Orc_19")  // 
+  Dead("T1_Archer_1")  // 
+  Dead("T1_Archer_2")  // 
+  Dead("T1_Archer_3")  // 
+  Dead("T1_Archer_4")  // 
+  Dead("T1_Archer_5")  // 
+  Dead("T1_Archer_6")  // 
+  Dead("T1_Archer_7")  // 
+  Dead("T1_Archer_8")  // 
+  Dead("T1_Archer_9")  // 
+  Dead("T1_Archer_9")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Team_01_Fighting","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("Team_02_Fighting","MYAREA",0)
+  !Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Team_02_Fighting","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Team_02_Fighting","MYAREA",1)
+  Dead("T2_Orc_1")  // 
+  Dead("T2_Orc_2")  // 
+  Dead("T2_Orc_3")  // 
+  Dead("T2_Orc_4")  // 
+  Dead("T2_Orc_5")  // 
+  Dead("T2_Orc_6")  // 
+  Dead("T2_Orc_7")  // 
+  Dead("T2_Orc_8")  // 
+  Dead("T2_Orc_9")  // 
+  Dead("T2_Orc_10")  // 
+  Dead("T2_Orc_11")  // 
+  Dead("T2_Orc_12")  // 
+  Dead("T2_Orc_13")  // 
+  Dead("T2_Orc_14")  // 
+  Dead("T2_Orc_15")  // 
+  Dead("T2_Archer_1")  // 
+  Dead("T2_Archer_2")  // 
+  Dead("T2_Archer_3")  // 
+  Dead("T2_Archer_4")  // 
+  Dead("T2_Archer_5")  // 
+  Dead("T2_Archer_6")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Team_02_Fighting","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("Team_03_Fighting","MYAREA",0)
+  !Global("TEAM_3","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Team_03_Fighting","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Team_03_Fighting","MYAREA",1)
+  Dead("T3_Orc_1")  // 
+  Dead("T3_Orc_2")  // 
+  Dead("T3_Orc_3")  // 
+  Dead("T3_Orc_4")  // 
+  Dead("T3_Orc_5")  // 
+  Dead("T3_Orc_6")  // 
+  Dead("T3_Orc_7")  // 
+  Dead("T3_Orc_8")  // 
+  Dead("T3_Archer_1")  // 
+  Dead("T3_Archer_2")  // 
+  Dead("T3_Archer_3")  // 
+  Dead("T3_Archer_4")  // 
+  Dead("T3_Archer_5")  // 
+  Dead("T3_Archer_6")  // 
+  Dead("T3_Archer_7")  // 
+  Dead("T3_Archer_8")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Team_03_Fighting","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("Team_04_Fighting","MYAREA",0)
+  !Global("TEAM_4","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Team_04_Fighting","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Team_04_Fighting","MYAREA",1)
+  Dead("T4_Orc_1")  // 
+  Dead("T4_Orc_2")  // 
+  Dead("T4_Orc_3")  // 
+  Dead("T4_Orc_4")  // 
+  Dead("T4_Orc_5")  // 
+  Dead("T4_Orc_6")  // 
+  Dead("T4_Orc_7")  // 
+  Dead("T4_Orc_8")  // 
+  Dead("T4_Orc_9")  // 
+  Dead("T4_Orc_10")  // 
+  Dead("T4_Orc_11")  // 
+  Dead("T4_Orc_12")  // 
+  Dead("T4_Orc_13")  // 
+  Dead("T4_Orc_14")  // 
+  Dead("T4_Orc_15")  // 
+  Dead("T4_Orc_16")  // 
+  Dead("T4_Orc_17")  // 
+  Dead("T4_Orc_18")  // 
+  Dead("T4_Orc_19")  // 
+  Dead("T4_Orc_20")  // 
+  Dead("T4_Orc_21")  // 
+  Dead("T4_Archer_3")  // 
+  Dead("T4_Archer_4")  // 
+  Dead("T4_Archer_5")  // 
+  Dead("T4_Archer_6")  // 
+  Dead("T4_Firestarter_1")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Team_04_Fighting","MYAREA",2)
+    SetGlobal("SR_Orc_Guards_Dead","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Team_06_Fighting","MYAREA",0)
+  !Global("TEAM_6","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Team_06_Fighting","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Team_06_Fighting","MYAREA",1)
+  Dead("Peasant_1")  // 
+  Dead("Peasant_2")  // 
+  Dead("Peasant_3")  // 
+  Dead("Peasant_4")  // 
+  Dead("Peasant_5")  // 
+  Dead("Peasant_6")  // 
+  Dead("Peasant_7")  // 
+  Dead("Peasant_8")  // 
+  Dead("Peasant_9")  // 
+  Dead("Peasant_10")  // 
+  Dead("Peasant_11")  // 
+  Dead("Peasant_12")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Team_06_Fighting","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("2001_Emma_Orcs_Dead","GLOBAL",0)
+  Global("Team_01_Fighting","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("2001_Emma_Orcs_Dead","GLOBAL",1)
+    SetGlobal("SR_Orcs_Dead","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("Villagers_Dead","MYAREA",0)
+  Dead("Peasant_1")  // 
+  Dead("Peasant_2")  // 
+  Dead("Peasant_3")  // 
+  Dead("Peasant_4")  // 
+  Dead("Peasant_5")  // 
+  Dead("Peasant_6")  // 
+  Dead("Peasant_7")  // 
+  Dead("Peasant_8")  // 
+  Dead("Peasant_9")  // 
+  Dead("Peasant_10")  // 
+  Dead("Peasant_11")  // 
+  Dead("Peasant_12")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Villagers_Dead","MYAREA",1)
+    SetGlobal("SR_Villagers_Dead","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Villagers_Rescued","MYAREA",0)
+  Global("Villagers_Dead","GLOBAL",0)
+  Global("SR_Villagers_Dead","GLOBAL",0)
+  Global("Team_04_Fighting","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Villagers_Rescued","MYAREA",1)
+    SetGlobal("SR_Rescue_Villagers","GLOBAL",4)
+    DisplayMessage(27609)  // ~You have slain the orcs that were holding the villagers captive.~
+    HideCreature("Arte",FALSE)
+    Continue()
+END
+
+IF
+  Global("OpenInfoDoor","MYAREA",0)
+  OpenState("AR2001_Door1_RealSneak",TRUE)  // AR2001_Door1_RealSneak
+THEN
+  RESPONSE #100
+    SetGlobal("OpenInfoDoor","MYAREA",1)
+    Unlock("AR2001_Door1_FakeINFO")
+    OpenDoor("AR2001_Door1_FakeINFO")
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

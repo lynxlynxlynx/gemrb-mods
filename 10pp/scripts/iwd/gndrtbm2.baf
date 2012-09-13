@@ -1,0 +1,9 @@
+IF
+  Global("dirtbam_2_played","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    Activate("dirtbam2")
+    SetGlobal("dirtbam_2_played","MYAREA",1)
+END
+

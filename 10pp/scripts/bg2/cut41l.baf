@@ -1,0 +1,58 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride("ppwanev2",ForceSpell(Myself,DO_NOTHING))
+    Wait(2)
+    CreateVisualEffectObject("SPDIMNDR",Player1)
+    CreateVisualEffectObject("SPDIMNDR",Player2)
+    CreateVisualEffectObject("SPDIMNDR",Player3)
+    CreateVisualEffectObject("SPDIMNDR",Player4)
+    CreateVisualEffectObject("SPDIMNDR",Player5)
+    CreateVisualEffectObject("SPDIMNDR",Player6)
+    Wait(1)
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride("ppdili2",DestroySelf())
+    ActionOverride("ppwanev2",DestroySelf())
+    ActionOverride("ppnalj2",DestroySelf())
+    ActionOverride("ppaph2",DestroySelf())
+    ActionOverride("pptiax2",DestroySelf())
+    ActionOverride("ppdra2",DestroySelf())
+    ActionOverride("ppimoen",DestroySelf())
+    LeaveAreaLUAPanic("AR1516","",[946.917],6)
+    LeaveAreaLUA("AR1516","",[946.917],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR1516","",[947.1013],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR1516","",[849.1020],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR1516","",[991.1009],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR1516","",[997.994],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR1516","",[996.1087],6))
+    MultiPlayerSync()
+    CreateCreature("pptiax2",[796.1105],4)  // ~Tiax~
+    CreateCreature("ppnalj2",[862.1123],4)  // ~Naljier Skal~
+    CreateCreature("ppdra2",[970.1153],4)  // ~Dradeel~
+    CreateCreature("ppwanev2",[876.1193],4)  // ~Wanev~
+    CreateCreature("ppaph2",[1003.1197],4)  // ~Aphril~
+    ActionOverride("ppimoen",DestroySelf())
+    ChangeEnemyAlly("pptiax2",GOODBUTBLUE)
+    ChangeEnemyAlly("ppnalj2",GOODBUTBLUE)
+    ChangeEnemyAlly("ppdra2",GOODBUTBLUE)
+    ChangeEnemyAlly("ppwanev2",GOODBUTBLUE)
+    ChangeEnemyAlly("ppaph2",GOODBUTBLUE)
+    CreateVisualEffectObject("SPCLOUD1",Myself)
+    ActionOverride(Player2,CreateVisualEffectObject("SPDIMNDR",Myself))
+    ActionOverride(Player3,CreateVisualEffectObject("SPDIMNDR",Myself))
+    ActionOverride(Player4,CreateVisualEffectObject("SPDIMNDR",Myself))
+    ActionOverride(Player5,CreateVisualEffectObject("SPDIMNDR",Myself))
+    ActionOverride(Player6,CreateVisualEffectObject("SPDIMNDR",Myself))
+    ActionOverride("ppireni2",FaceObject(Player1))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(4)
+    CloseDoor("Door11")
+    Lock("Door11")
+    ActionOverride("ppireni2",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

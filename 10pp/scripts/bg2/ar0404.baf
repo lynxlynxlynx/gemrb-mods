@@ -1,0 +1,9 @@
+IF
+  Global("SCLjyss","GLOBAL",1)
+  Global("HiddenSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HiddenSpawn","GLOBAL",1)
+    CreateCreature("HIDDEN",[1111.2267],0)  // ~Hidden~
+END
+

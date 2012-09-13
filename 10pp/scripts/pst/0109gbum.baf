@@ -1,0 +1,84 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,BUM)
+    Continue()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Buried_Attack","GLOBAL",1)
+    Help()
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Buried_Attack","GLOBAL",1)
+    Enemy()
+    Help()
+    FloatMessage(Myself,27444)  // ~"HELP! GUARDS!"~
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  Help([0.0.0.0.0.0.BUM])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    FloatMessage(Myself,27444)  // ~"HELP! GUARDS!"~
+    RunAwayFromEx(LastAttackerOf(LastHelp),50,FALSE)
+END
+
+IF
+  WasInDialog()
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27617)  // ~"It's going to be a cold night."~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27616)  // ~*Cough*~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27615)  // ~*Wheeze*~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27614)  // ~"Wish I had something to eat."~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27613)  // ~"Wish I had something to drink."~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27612)  // ~"There's a lot of trash around here."~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27610)  // ~"I can't seen to find any work."~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27447)  // ~"Maybe I'll find a job tomorrow."~
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    FloatMessage(Myself,27445)  // ~"Pass that bottle around."~
+    StartRandomTimer(1,15,30)
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    StartRandomTimer(1,15,30)
+END
+

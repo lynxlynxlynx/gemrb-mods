@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trig1")  // 
+    Activate(Myself)
+    PlaySequence(ANIM_MISC1)
+    SmallWait(5)
+    StartCutScene("3017cut4")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trig2")  // 
+    Activate(Myself)
+    PlaySequence(ANIM_MISC1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trig3")  // 
+    Activate(Myself)
+    PlaySequence(ANIM_MISC1)
+END
+

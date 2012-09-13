@@ -1,0 +1,16 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    ForceSpell([PC],TRAP_SPINNING_BLADES)
+    Continue()
+END
+
+IF
+  Opened([PC])
+  PartyHasItem("Keysntry")  // ~Small Red Key~
+THEN
+  RESPONSE #100
+    DestroyPartyItem("Keysntry",TRUE)
+END
+

@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    PlaySound("ISC_03A")
+    PlayDead(45)
+    RestorePartyLocations()
+    SetGlobal("GivePowerSlayer","GLOBAL",1)
+    EndCutSceneMode()
+    RestParty()
+    FadeFromColor([30.0],0)
+END
+

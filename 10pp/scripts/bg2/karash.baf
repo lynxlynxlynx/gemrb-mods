@@ -1,0 +1,150 @@
+IF
+  See([0.0.0.TANARI])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.TANARI],30)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("notalk","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("notalk","LOCALS",1)
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  See([GOODCUTOFF])
+  Global("hostile","LOCALS",0)
+  Global("BatEnemy","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("hostile","LOCALS",1)
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_PANIC)
+  LevelPartyGT(16)
+  NumInPartyGT(4)
+  !Difficulty(EASIEST)
+  !GlobalTimerNotExpired("FearEffect","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("FearEffect","LOCALS",10)
+    ForceSpell(NearestEnemyOf(Myself),DEMON_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("Prep","LOCALS")
+  GlobalLT("XPGiven","GLOBAL",500000)
+  LevelPartyGT(16)
+  !DifficultyLT(NORMAL)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Prep","LOCALS",1000)
+    CreateVisualEffect("ICWRATI",[610.627])
+    CreateCreature("GORBAT5",[610.627],14)  // ~Bone Fiend~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NumCreatureLT("GORBAT3",3)  // ~Cornugon~
+  LevelPartyGT(16)
+  !DifficultyLT(NORMAL)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("morecornugon","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("morecornugon","LOCALS",8)
+    CreateVisualEffectObject("ICWRATI",Myself)
+    CreateCreatureObject("GORBAT3",NearestEnemyOf(Myself),0,0,0)  // ~Cornugon~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NumCreatureLT("GORDEM2",2)  // ~Velithuu~
+  LevelPartyGT(16)
+  !DifficultyLT(NORMAL)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("morevelithuu","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("morevelithuu","LOCALS",10)
+    CreateVisualEffectObject("ICWRATI",Myself)
+    CreateCreatureObject("GORDEM2",Myself,0,0,0)  // ~Velithuu~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NumCreatureLT("GORBAT5",2)  // ~Bone Fiend~
+  LevelPartyGT(16)
+  !DifficultyLT(NORMAL)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("morebonefd","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("morebonefd","LOCALS",12)
+    CreateVisualEffectObject("ICWRATI",Myself)
+    CreateCreatureObject("GORBAT5",NearestEnemyOf(Myself),0,0,0)  // ~Bone Fiend~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(2)
+    Range(LastSeenBy(Myself),10)
+    HPPercentLT(Myself,100)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("Invis","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Invis","LOCALS",12)
+    ReallyForceSpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !HasBounceEffects(LastSeenBy(Myself))
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !Range(LastSeenBy(Myself),10)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("FireSpell","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("FireSpell","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),DEATHKNIGHT_FIREBALL)
+  RESPONSE #100
+    SetGlobalTimer("FireSpell","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_HOLD_PERSON)
+  RESPONSE #100
+    SetGlobalTimer("FireSpell","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  !See(NearestEnemyOf(Myself))
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RandomWalkContinuous()
+END
+

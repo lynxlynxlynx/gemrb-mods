@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    ActionOverride("FSSkel",Attack("FSSpir1"))
+    Attack("FSSkel")
+    SetGlobal("FSSkelFight","AR3023",1)
+END
+

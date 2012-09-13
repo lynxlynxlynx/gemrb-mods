@@ -1,0 +1,7 @@
+IF
+  Global("RiftGo","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

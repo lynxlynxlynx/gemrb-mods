@@ -1,0 +1,24 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("IvanneSpawn","GLOBAL",0)
+  !Exists("IVANNE")  // IVANNE
+THEN
+  RESPONSE #100
+    CreateCreature("IVANNE",[1035.835],0)  // IVANNE
+    SetGlobal("IvanneSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("tranion","GLOBAL",1)
+  Global("TranionSpawn","GLOBAL",0)
+  !Exists("DETRAN")  // DETRAN
+THEN
+  RESPONSE #100
+    CreateCreature("DETRAN",[1065.835],0)  // DETRAN
+    SetGlobal("TranionSpawn","GLOBAL",1)
+    Continue()
+END
+

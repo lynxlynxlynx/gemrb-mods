@@ -1,0 +1,16 @@
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType([0.0.0.FIGHTER_THIEF]))
+  See(LastAttackerOf(LastSeenBy(Myself)))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

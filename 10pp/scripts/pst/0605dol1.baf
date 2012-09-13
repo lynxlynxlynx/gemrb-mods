@@ -1,0 +1,199 @@
+IF
+  !Internal(Myself,INTERNAL_3,1)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_3,1)
+    Continue()
+END
+
+IF
+  !Internal(Myself,INTERNAL_2,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_2,0)
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_1,3)
+THEN
+  RESPONSE #100
+    MoveToPoint([2351.934])
+    MoveToPoint([2347.1014])
+    Face(4)
+    Wait(1)
+    OpenDoor("AR605d04")
+    MoveToPoint([2234.1037])
+    Face(12)
+    CloseDoor("ar605d04")
+    ChangeAIScript("0605dol2",DEFAULT)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48078)  // ~"Would you like to play a game?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48079)  // ~"Would you like to debate a topic?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron1")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48078)  // ~"Would you like to play a game?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48079)  // ~"Would you like to debate a topic?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron1",6)
+    FaceObject("BPatron1")
+    ChangeAIScript("0605dol3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron2")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48078)  // ~"Would you like to play a game?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48079)  // ~"Would you like to debate a topic?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron2",6)
+    FaceObject("BPatron2")
+    ChangeAIScript("0605dol3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron3")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48078)  // ~"Would you like to play a game?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48079)  // ~"Would you like to debate a topic?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron3",6)
+    FaceObject("BPatron3")
+    ChangeAIScript("0605dol3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron5")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron5")
+    FloatMessage(Myself,48080)  // ~"Hello again."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron5",6)
+    SendTrigger("BPatron6",6)
+    SendTrigger("BPatron7",6)
+    SendTrigger("BPatron8",6)
+    FaceObject("BPatron5")
+    ChangeAIScript("0605dol3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2349.934])
+    Face(10)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2424.860])
+    Face(0)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2424.998])
+    Face(10)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,2)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2485.934])
+    Face(2)
+    StartRandomTimer(1,10,15)
+    SetInternal(Myself,INTERNAL_0,0)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+

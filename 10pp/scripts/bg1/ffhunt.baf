@@ -1,0 +1,24 @@
+IF
+  Heard("FFHUNT",1)  // ~Flaming Fist Enforcer~
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([PC])
+  Global("Captured","GLOBAL",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  Global("Captured","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

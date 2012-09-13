@@ -1,0 +1,6 @@
+IF
+THEN
+  RESPONSE #100
+    Wait(200)
+END
+

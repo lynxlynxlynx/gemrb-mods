@@ -1,0 +1,25 @@
+IF
+  Global("SC_Mercy_3_At_Table","AR0402",0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0402mkr1",DEFAULT)
+END
+
+IF
+  Global("SC_Mercy_Turn_Talk","AR0402",2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,9322)  // ~"Let us know if you find anything."~
+    Wait(3)
+    IncrementGlobal("SC_Mercy_Turn_Talk","AR0402",1)
+END
+
+IF
+  Global("SC_Mercy_Turn_Talk","AR0402",6)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,9326)  // ~"Will you just sit down and relax? He's bound to show up sooner or later."~
+    Wait(5)
+    IncrementGlobal("SC_Mercy_Turn_Talk","AR0402",1)
+END
+

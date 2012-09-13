@@ -1,0 +1,14 @@
+IF
+  GlobalTimerExpired("Escape","LOCALS")
+  NumberOfTimesTalkedTo(3)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    Wait(1)
+    Activate(Myself)
+    Wait(1)
+    SetInterrupt(TRUE)
+    StartDialogNoSet([PC])
+END
+

@@ -1,0 +1,50 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    ClearActions()
+    GlobalSet("SC_Hostile","AR0402",1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.0.0.ABISHAI_BLACK])
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Help([0.0.0.0.GLABREZU])
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  Global("SC_Hostile","AR0402",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ClearActions()
+    Enemy()
+END
+

@@ -1,0 +1,14 @@
+IF
+  !Global("Current_Area","GLOBAL",3017)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",3017)
+END
+
+IF
+  Global("AR3017_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR3017_Visited","GLOBAL",1)
+END
+

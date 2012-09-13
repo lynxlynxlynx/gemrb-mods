@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    GlobalSet("Trans_Vanish","GLOBAL",1)
+    PlaySoundNotRanged("Tra060")
+    PlaySequence(ANIM_SPELL1)
+    Wait(1)
+    PlaySequence(ANIM_SPELL3)
+    StickySinisterPoof("EF02TPR2","Trans",-1)
+    Wait(1)
+    StartCutScene("1204ti1")
+END
+

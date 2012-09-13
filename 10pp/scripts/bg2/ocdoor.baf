@@ -1,0 +1,14 @@
+IF
+  Opened([ANYTHING])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,23493)  // ~The halls resonate with the sound of grinding stone. A door has opened somewhere nearby.~
+END
+
+IF
+  Closed([ANYTHING])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,23494)  // ~You are filled with a sudden sense of dread as the room fills with the sound of shifting stone. A door has sealed itself shut somewhere nearby. ~
+END
+

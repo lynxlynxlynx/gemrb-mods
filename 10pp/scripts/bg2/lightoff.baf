@@ -1,0 +1,40 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("TrapOff","AR0602",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,18540)  // ~This is a switch of some kind. Perhaps it will stop this lightning contraption from conjuring anymore of these annoying little mephits.~
+    SetGlobal("TrapOff","AR0602",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("TrapOff","AR0602",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,18541)  // ~The lightning machine stops once you have flicked the switch.~
+    AddexperienceParty(2000)
+    SoundActivate("ElectricalRoom1",FALSE)
+    TriggerActivation("LightningRoom",FALSE)
+    AmbientActivate("AM0602F",FALSE)
+    SetGlobal("TrapOff","AR0602",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,18542)  // ~Flicking this switch again will undoubtedly result in the machine restarting and its conjuring of more beasts. It wouldn't be wise to switch it back on.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

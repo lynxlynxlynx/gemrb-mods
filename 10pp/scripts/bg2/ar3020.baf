@@ -1,0 +1,106 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetGlobal("OpenDungeonDoor5","GLOBAL",1)
+END
+
+IF
+  OR(2)
+    Global("Destroy3020Demo","GLOBAL",1)
+    Dead("Demogor2")  // ~Demogorgon~
+  Global("DisableTalkTrigger","AR3020",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("DemoGorgonInfo",FALSE)
+    SetGlobal("DisableTalkTrigger","AR3020",1)
+END
+
+IF
+  Dead("Demogor2")  // ~Demogorgon~
+  Global("DemoGorgonIsDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DemoGorgonIsDead","GLOBAL",1)
+END
+
+IF
+  Global("DemoGorgonIsDead","GLOBAL",1)
+  PartyHasItem("PLOT01A")  // ~Ritual Scroll~
+THEN
+  RESPONSE #100
+    TakePartyItem("PLOT01A")
+    DisplayStringNoNameHead(Player1,73862)  // ~The ritual scroll given to you by Odren crumbles into dust before your eyes.~
+END
+
+IF
+  Global("DemoGorgonIsDead","GLOBAL",1)
+  Global("KillDemoGorgon","AR3020",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KillDemoGorgon","AR3020",1)
+    TriggerActivation("DemoGorgonInfo",FALSE)
+    AddXP2DA("Plot01H")
+    TriggerActivation("Tran3019",TRUE)
+    TriggerActivation("Tran3000",TRUE)
+    AmbientActivate("AMB_Portal1",TRUE)
+    AmbientActivate("AMB_Portal2",TRUE)
+    SoundActivate("PortalL",TRUE)
+    SoundActivate("PortalR",TRUE)
+    ActionOverride("Demogor1",DestroySelf())
+END
+
+IF
+  Global("KnightsInKeep","GLOBAL",1)
+  Global("KillKnights","AR3020",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KillKnights","AR3020",1)
+    ActionOverride("SHUPOL01",ChangeAIScript("one",OVERRIDE))
+    ActionOverride("SHUGAR01",ChangeAIScript("one",OVERRIDE))
+    ActionOverride("SHUGFG01",ChangeAIScript("one",OVERRIDE))
+    ActionOverride("SHUGMG01",ChangeAIScript("one",OVERRIDE))
+    ActionOverride("SHUGPR01",ChangeAIScript("one",OVERRIDE))
+    ActionOverride("SHUPOL01",Kill(Myself))
+    ActionOverride("SHUGAR01",Kill(Myself))
+    ActionOverride("SHUGFG01",Kill(Myself))
+    ActionOverride("SHUGMG01",Kill(Myself))
+    ActionOverride("SHUGPR01",Kill(Myself))
+END
+
+IF
+  Global("TalkedTozGorDemo","GLOBAL",1)
+  SpellCastInnate([ANYONE],ODREN_RITUAL_SCROLL)
+  Global("OdrenRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddXP2DA("PLOT01F")
+    TakePartyItem("PLOT01A")
+    SetGlobal("OdrenRitualDone","GLOBAL",1)
+    TriggerActivation("Tran3019",FALSE)
+    TriggerActivation("Tran3000",FALSE)
+    AmbientActivate("AMB_Portal1",FALSE)
+    AmbientActivate("AMB_Portal2",FALSE)
+    SoundActivate("PortalL",FALSE)
+    SoundActivate("PortalR",FALSE)
+END
+
+IF
+  Global("DemoGorgonIsDead","GLOBAL",0)
+  Global("DemoGorgonChange","GLOBAL",1)
+  Global("SpawnDemogorgonFiends","AR3020",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDemogorgonFiends","AR3020",1)
+    TriggerActivation("DemoGorgonInfo",FALSE)
+END
+
+IF
+  Global("DemoGorgonIsDead","GLOBAL",0)
+  Global("DemoGorgonChange","GLOBAL",0)
+  Delay(15)
+THEN
+  RESPONSE #100
+    CreateVisualEffect("spfearef",[966.990])
+END
+

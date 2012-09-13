@@ -1,0 +1,11 @@
+IF
+  Clicked([PC])
+  Global("BattleSquareState","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BattleSquareSelected","MYAREA",3)
+    SetGlobal("BattleSquareLevel","MYAREA",0)
+    SetGlobal("BattleSquareState","MYAREA",2)
+    TriggerActivation(Myself,FALSE)
+END
+

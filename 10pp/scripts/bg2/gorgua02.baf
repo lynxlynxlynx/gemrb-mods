@@ -1,0 +1,193 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,ILLUSION_DEATH)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  Detect("gorgua01")  // ~Aurumach Rilmani~
+  !Dead("gorgua01")  // ~Aurumach Rilmani~
+  Range("gorgua01",12)  // ~Aurumach Rilmani~
+THEN
+  RESPONSE #100
+    RunAwayFrom("gorgua01",15)
+END
+
+IF
+  HPPercentLT(Myself,40)
+  Global("FerruHeal","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FerruHeal","LOCALS",1)
+    ForceSpell(Myself,CLERIC_CURE_MEDIUM_WOUNDS)
+    ApplySpell(Myself,CLERIC_NEUTRALIZE_POISON)
+END
+
+IF
+  !StateCheck(Myself,STATE_BLUR)
+  !GlobalTimerNotExpired("FerruBlur","LOCALS")
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("FerruBlur","LOCALS",15)
+    ForceSpell(Myself,WIZARD_BLUR)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  See(LastAttackerOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Range(NearestEnemyOf(Myself),4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject([GOODCUTOFF])
+END
+
+IF
+  Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+  !See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  RandomNum(4,1)
+  GlobalLT("FerruDispel","LOCALS",3)
+  !GlobalTimerNotExpired("FerruDispelTimer","LOCALS")
+  !StateCheck(LastSeenBy(Myself),STATE_NORMAL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  OR(7)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_DRAWUPONHOLYMIGHT)
+    StateCheck(LastSeenBy(Myself),STATE_BLUR)
+    StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+    CheckStatGT(LastSeenBy(Myself),0,0)
+    CheckStatGT(LastSeenBy(Myself),0,0)
+  !StateCheck(LastSeenBy(Myself),STATE_PANIC)
+  !StateCheck(LastSeenBy(Myself),STATE_SLOWED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+THEN
+  RESPONSE #100
+    IncrementGlobal("FerruDispel","LOCALS",1)
+    SetGlobalTimer("FerruDispelTimer","LOCALS",6)
+    ForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  RandomNum(3,1)
+  OR(5)
+    Class(LastSeenBy(Myself),MAGE_ALL)
+    Class(LastSeenBy(Myself),SORCERER)
+    Class(LastSeenBy(Myself),CLERIC_ALL)
+    Class(LastSeenBy(Myself),DRUID_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("FerruDispel","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("FerruDispel","LOCALS",12)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  RandomNum(3,1)
+  NumCreatureLT("gorgua02",3)  // ~Ferrumach Rilmani~
+  !StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  Global("FerruIceStorm","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FerruIceStorm","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_ICE_STORM)
+END
+
+IF
+  !StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #50
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

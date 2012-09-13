@@ -1,0 +1,52 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISC4H")  // ~Wand of Fire Key~
+  Global("Pedfire","AR0603",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Pedfire","AR0603",1)
+    DisplayString(Myself,60010)  // ~A wand is mounted on this pedestal. A key that matches the wand must be found if you wish to pass before the pedestal without being blasted by the wand. ~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISC4H")  // ~Wand of Fire Key~
+  Global("Pedfire","AR0603",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,60011)  // ~Perhaps the mosaics on the floor will offer hints as to the type of wand and the type of key that must be found to take the wand from the pedestal.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISC4H")  // ~Wand of Fire Key~
+  GlobalLT("Pedfire","AR0603",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Pedfire","AR0603",2)
+    TakePartyItem("MISC4H")
+    GiveItemCreate("WAND05",LastTrigger,1,1,0)  // ~Wand of Fire~
+    TriggerActivation("FireWandTrap",FALSE)
+    DisplayString(Myself,60012)  // ~You insert the key into a slot near the base and the wand is released. It is safe to pass before this pedestal.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("Pedfire","AR0603",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,43018)  // ~There is nothing else on the pedestal.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

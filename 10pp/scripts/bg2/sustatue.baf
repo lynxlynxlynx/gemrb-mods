@@ -1,0 +1,35 @@
+IF
+  Contains("MISCB1",Myself)
+  Contains("MISCB2",Myself)
+  Contains("MISCB3",Myself)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran2800",FALSE)
+    DestroyItem("MISCB1")  // ~Talisman of Rillifane~
+    DestroyItem("MISCB2")  // ~Golden Goblet of Life~
+    DestroyItem("MISCB3")  // ~Moonblade~
+    CreateVisualEffect("SHACID2",[153.362])
+    CreateVisualEffect("SHACID2",[181.308])
+    CreateVisualEffect("SHACID2",[316.215])
+    CreateVisualEffect("SHACID2",[390.192])
+    CreateVisualEffect("SHACID2",[580.193])
+    CreateVisualEffect("SHACID2",[652.216])
+    CreateVisualEffect("SHACID2",[786.309])
+    CreateVisualEffect("SHACID2",[817.361])
+    CreateVisualEffect("SHACID2",[787.547])
+    CreateVisualEffect("SHACID2",[183.547])
+    CreateVisualEffect("SPDISPM2",[206.243])
+    CreateVisualEffect("SPDISPM2",[485.162])
+    CreateVisualEffect("SPDISPM2",[763.245])
+    AddXPObject(Player1,65000)
+    AddXPObject(Player2,65000)
+    AddXPObject(Player3,65000)
+    AddXPObject(Player4,65000)
+    AddXPObject(Player5,65000)
+    AddXPObject(Player6,65000)
+    Wait(1)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("Cut54a")
+END
+

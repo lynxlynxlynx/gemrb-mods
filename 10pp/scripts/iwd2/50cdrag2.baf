@@ -1,0 +1,111 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_41Ingrat_01")  // 
+    HideGUI()
+    JumpToPoint([20.1125])
+    MoveViewObject(Myself,20)
+    HideCreature(Myself,FALSE)
+    SetVisualRange(100)
+    MultiPlayerSync()
+    MoveViewObject(Myself,20)
+    MoveToPoint([335.990])
+    FloatMessage("01_50NWSold_02",18346)  // ~"Impossible - they've defeated it!  Now we'll have to kill them..."~
+    Wait(1)
+    FaceObject("01_50NWSold_02")
+    FloatMessage(Myself,18347)  // ~"Silence, you *fool!*"~
+    Wait(3)
+    MoveViewObject([PC][0.0.10000.10000],20)
+    Wait(2)
+    UnhideGUI()
+    MultiPlayerSync()
+    SetVisualRange(0)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_02")  // 
+    WaitRandom(1,2)
+    JumpToPoint([20.1125])
+    HideCreature(Myself,FALSE)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_03")  // 
+    WaitRandom(1,2)
+    JumpToPoint([20.1125])
+    HideCreature(Myself,FALSE)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_04")  // 
+    WaitRandom(1,2)
+    JumpToPoint([20.1125])
+    HideCreature(Myself,FALSE)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_05")  // 
+    WaitRandom(1,2)
+    JumpToPoint([20.1125])
+    HideCreature(Myself,FALSE)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_06")  // 
+    WaitRandom(1,2)
+    JumpToPoint([20.1125])
+    HideCreature(Myself,FALSE)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_50NWSold_07")  // 
+    WaitRandom(1,2)
+    JumpToPoint([20.1125])
+    HideCreature(Myself,FALSE)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+    WaitRandom(0,1)
+    ReturnToSavedLocation(5)
+END
+

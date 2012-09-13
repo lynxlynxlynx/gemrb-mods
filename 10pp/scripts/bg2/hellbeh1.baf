@@ -1,0 +1,191 @@
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ForceSpell(LastSeenBy(Myself),BEHOLDER_PARALYZATION)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HPGT(Myself,65)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    ForceSpell([PC],BEHOLDER_CHARM_PERSON)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HPGT(Myself,55)
+THEN
+  RESPONSE #100
+    FaceObject(SecondNearest([PC]))
+    ForceSpell(SecondNearest([PC]),BEHOLDER_FEAR)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  See(LeastDamagedOf(Myself))
+  Allegiance(Myself,ENEMY)
+  HPGT(Myself,45)
+THEN
+  RESPONSE #100
+    FaceObject(LeastDamagedOf(Myself))
+    ForceSpell(LeastDamagedOf(Myself),BEHOLDER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  !See(LeastDamagedOf(Myself))
+  HPGT(Myself,45)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    ForceSpell([PC],BEHOLDER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HPGT(Myself,25)
+THEN
+  RESPONSE #100
+    FaceObject(ThirdNearest([PC]))
+    ForceSpell(ThirdNearest([PC]),BEHOLDER_FLESH_TO_STONE)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  See([PC.0.0.MAGE])
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ForceSpell(LastSeenBy(Myself),BEHOLDER_ANTIMAGIC_RAY)
+    SetGlobal("BeholderBehavior","LOCALS",1)
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",0)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  !See([PC.0.0.MAGE])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    ForceSpell([PC],BEHOLDER_ANTIMAGIC_RAY)
+    SetGlobal("BeholderBehavior","LOCALS",1)
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ForceSpell(LastSeenBy(Myself),BEHOLDER_PARALYZATION)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HPGT(Myself,15)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    ForceSpell([PC],BEHOLDER_DOMINATION)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HPGT(Myself,35)
+THEN
+  RESPONSE #100
+    FaceObject(SecondNearest([PC]))
+    ForceSpell(SecondNearest([PC]),BEHOLDER_SLOW)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HPGT(Myself,5)
+THEN
+  RESPONSE #100
+    FaceObject(ThirdNearest([PC]))
+    ForceSpell(ThirdNearest([PC]),BEHOLDER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See(LeastDamagedOf(Myself))
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FaceObject(LeastDamagedOf(Myself))
+    ForceSpell(LeastDamagedOf(Myself),BEHOLDER_DEATH_RAY)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  !See(LeastDamagedOf(Myself))
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    ForceSpell([PC],BEHOLDER_DEATH_RAY)
+    Continue()
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  See([PC.0.0.MAGE])
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ForceSpell(LastSeenBy(Myself),BEHOLDER_ANTIMAGIC_RAY)
+    SetGlobal("BeholderBehavior","LOCALS",0)
+    Wait(2)
+END
+
+IF
+  Global("BeholderBehavior","LOCALS",1)
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  !See([PC.0.0.MAGE])
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ForceSpell(LastSeenBy(Myself),BEHOLDER_ANTIMAGIC_RAY)
+    SetGlobal("BeholderBehavior","LOCALS",0)
+END
+

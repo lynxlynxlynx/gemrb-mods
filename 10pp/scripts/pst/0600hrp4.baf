@@ -1,0 +1,65 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([0.0.0.BAD])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,17013)  // ~::Yawn::~
+    StartRandomTimer(1,300,600)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(5,20)
+    Face(4)
+  RESPONSE #100
+    WaitRandom(5,20)
+    Face(6)
+  RESPONSE #100
+    WaitRandom(5,20)
+    Face(8)
+  RESPONSE #100
+    WaitRandom(5,20)
+    Face(12)
+END
+

@@ -1,0 +1,51 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("SC_Hostile","AR0402",1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("SC_Hostile","AR0402",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  LOS([PC],10)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,9497)  // ~"Welcome to the Smoldering Corpse!"~
+    Wait(5)
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,9504)  // ~"Buy a gal a drink, scarred man?"~
+    Wait(5)
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,9505)  // ~"If you can get over the smell, this ain't a bad place to call kip."~
+    Wait(5)
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,9506)  // ~"You clueless?"~
+    Wait(5)
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,9507)  // ~"Did you come to watch him burn?"~
+    Wait(5)
+END
+

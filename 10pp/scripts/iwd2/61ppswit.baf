@@ -1,0 +1,39 @@
+IF
+  Clicked([PC])
+  Sequence("PendulumFront",ATTACK)  // PendulumFront
+THEN
+  RESPONSE #100
+    FloatMessage("PendulumSwitch",41352)  // ~The pendulum trap has been deactivated.~
+    Deactivate("pendulum")
+    TriggerActivation("PendulumTrigger1",FALSE)
+    TriggerActivation("PendulumTrigger2",FALSE)
+    TriggerActivation("PendulumTrigger3",FALSE)
+    TriggerActivation("PendulumTrigger4",FALSE)
+    PlaySequence("PendulumFront",AWAKE)
+    PlaySequence("PendulumBack",AWAKE)
+    PlaySequence("PendulumShadow",AWAKE)
+END
+
+IF
+  Clicked([PC])
+  Sequence("PendulumFront",AWAKE)  // PendulumFront
+THEN
+  RESPONSE #100
+    FloatMessage("PendulumSwitch",41350)  // ~The pendulum trap has been activated.~
+    Activate("pendulum")
+    TriggerActivation("PendulumTrigger1",TRUE)
+    TriggerActivation("PendulumTrigger2",TRUE)
+    TriggerActivation("PendulumTrigger3",TRUE)
+    TriggerActivation("PendulumTrigger4",TRUE)
+    PlaySequence("PendulumFront",ATTACK)
+    PlaySequence("PendulumBack",ATTACK)
+    PlaySequence("PendulumShadow",ATTACK)
+END
+
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

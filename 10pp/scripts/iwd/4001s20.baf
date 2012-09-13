@@ -1,0 +1,36 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.GOBLIN])
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(LastHelp(Myself)))
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(156)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

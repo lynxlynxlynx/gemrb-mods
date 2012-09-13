@@ -1,0 +1,132 @@
+IF
+  Detect([PC])
+  Range(LastSeenBy(Myself),15)
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  Global("KaylFallenPaladinPlot","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",0)
+  OR(2)
+    Allegiance("kaysmgl",ENEMY)  // kaysmgl
+    Allegiance("kaysmg",ENEMY)  // kaysmg
+  !Allegiance(Myself,ENEMY)
+  !CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("KaylStartFight","GLOBAL",1)
+END
+
+IF
+  See("kaypala")  // kaypala
+  !Range("kaypala",10)  // kaypala
+  !Allegiance(Myself,ENEMY)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("kaypala")
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",2)
+  !Range([PC],10)
+  NumberOfTimesTalkedTo(1)
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+
+IF
+  Detect([PC])
+  Global("KaylStartFight","GLOBAL",2)
+  Global("TalkedAfterFight","LOCALS",0)
+  Range(LastSeenBy(Myself),15)
+  NumTimesTalkedToGT(0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Heard("kaypala",89)  // kaypala
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("kaypal",89)  // kaypal
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  Global("KaylAnargAttack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(89)
+    Enemy()
+END
+
+IF
+  Dead("kaysmgl")  // kaysmgl
+  NumDeadGT("kaysmg",5)
+THEN
+  RESPONSE #100
+    SetGlobal("KaylStartFight","GLOBAL",2)
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",1)
+  See("kaysmgl")  // kaysmgl
+  !Dead("kaysmgl")  // kaysmgl
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate("kaysmgl",15)
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",1)
+  OR(2)
+    See([NEUTRAL.0.HUMAN.THIEF])
+    See([ENEMY.0.HUMAN.THIEF])
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",1)
+  See("kaysmg")  // kaysmg
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate("kaysmg",15)
+END
+

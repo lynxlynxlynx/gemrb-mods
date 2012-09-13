@@ -1,0 +1,9 @@
+IF
+  Global("CerndPlot","GLOBAL",1)
+  Global("SpawnBeggar","AR0708",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnBeggar","AR0708",1)
+    CreateCreature("CEBEGGAR",[442.267],0)  // ~Catis~
+END
+

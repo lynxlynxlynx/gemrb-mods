@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Pudu")  // 
+    FadeToColor([0.0],0)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+    Wait(1)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Vyxein")  // 
+    Wait(1)
+    DestroySelf()
+END
+

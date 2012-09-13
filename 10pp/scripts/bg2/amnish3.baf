@@ -1,0 +1,9 @@
+IF
+  Global("Chapter","GLOBAL",3)
+  Global("ChangeAmnish3","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ChangeAmnish3","GLOBAL",1)
+    SetDialogue("amnish")
+END
+

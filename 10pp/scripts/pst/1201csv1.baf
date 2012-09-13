@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    FadeToBlack()
+    Wait(3)
+    DisableFogDither()
+    DisableSpriteDither()
+    ExploreMapChunk([4493.1095],0,600)
+    MoveViewPoint([4493.1095],INSTANT)
+    StartSong(CHAR_VHAILOR,[0.0],Normal)
+    CreateCreature("VhailF",[4493.1095])  // ~Vhailor~
+    CreateCreature("Trans",[4680.805])  // ~The Transcendent One~
+    StickySinisterPoof("S113SMOK","VhailF",1)
+    StartCutScene("1201CV11")
+END
+

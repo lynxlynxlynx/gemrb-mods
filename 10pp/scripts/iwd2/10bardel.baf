@@ -1,0 +1,7 @@
+IF
+  !Global("AR1003_BAR_CLEANUP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("VhailF")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewObject("Nameless",INSTANT)
+    EnableFogDither()
+    EnableSpriteDither()
+    ExploreMapChunk([4493.1095],0,600)
+    FadeFromBlack()
+    Wait(3)
+    EndCutSceneMode()
+END
+

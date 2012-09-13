@@ -1,0 +1,52 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(3)
+    Unlock("Gate01")
+    Unlock("Gate02")
+    OpenDoor("Gate01")
+    OpenDoor("Gate02")
+    SetGlobal("ElvenGateOpened","GLOBAL",1)
+    ScreenShake([20.20],15)
+    Wait(1)
+    CreateVisualEffect("SPRAISED",[3067.778])
+    CreateVisualEffect("SPRAISED",[3166.867])
+    Wait(2)
+    CreateCreature("M05SPIR1",[3067.778],2)  // ~Elven Spirit~
+    CreateCreature("M05SPIR2",[3166.867],2)  // ~Elven Spirit~
+    StartCutScene("Movie05c")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("m05demon")  // 
+    MoveToPoint([2945.1035])
+    Face(10)
+    DisplayStringHead(Myself,57803)  // ~Death!~
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("m05elf1")  // 
+    SmallWait(7)
+    DisplayStringHead(Myself,57802)  // ~The Exile be cursed! The gods smile not upon us!~
+    MoveToPoint([3127.805])
+    Face(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("m05elf2")  // 
+    DisplayStringHead(Myself,57798)  // ~Quickly! It's coming!~
+    MoveToPoint([3146.837])
+    Face(2)
+END
+

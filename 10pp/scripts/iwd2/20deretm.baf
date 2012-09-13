@@ -1,0 +1,19 @@
+IF
+  AttackedBy([GOODCUTOFF],0)
+  Allegiance(Myself,ENEMY)
+  !See(LastAttackerOf(Myself),0)
+  !TargetUnreachable(LastMarkedObject)
+THEN
+  RESPONSE #100
+    MoveToObject(LastMarkedObject)
+END
+
+IF
+  !TimerActive(24)
+  !IsFacingSavedRotation(Myself)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(24,5)
+END
+

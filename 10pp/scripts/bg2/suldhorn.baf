@@ -1,0 +1,52 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("SuldHorn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,53250)  // ~There are chunks of broken mortar around the statue. It appears to have had a piece broken off. You could look more closely if you wish to.~
+    SetGlobal("SuldHorn","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  !PartyHasItem("miscbs")  // ~Stone Horn~
+  Global("SuldHorn","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,53262)  // ~You move closer to the statue and to your surprise, it begins to move! The stone head turns towards you and the mouth moves, but no sound comes out. The statue holds out its hands, as if asking for something and a look of profound sorrow mars its smooth marble features. After a brief moment, the statue moves back to its original position and moves no more.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("miscbs")  // ~Stone Horn~
+  Global("SuldHorn","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57870)  // ~You fit the Horn to the statue's lips and its hands rise to steady the instrument. It blows a clear powerful note on the Horn and falls silent.~
+    TakePartyItem("miscbs")
+    AddexperienceParty(3000)
+    CloseDoor("Horn01")
+    IncrementGlobal("StopWaterfall","GLOBAL",1)
+    SetGlobal("SuldHorn","GLOBAL",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("SuldHorn","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57871)  // ~The statue moves no more.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

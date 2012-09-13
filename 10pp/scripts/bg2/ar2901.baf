@@ -1,0 +1,39 @@
+IF
+  OnCreation()
+  Global("CloseDoorsFirstTime","AR2901",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CloseDoorsFirstTime","AR2901",1)
+    SetGlobalTimer("HellFearTimer","GLOBAL",0)
+    TriggerActivation("Tran2900",FALSE)
+END
+
+IF
+  Exists("hellfear")  // ~Fear~
+  Global("Player1Fear","GLOBAL",1)
+  Global("FearEscape","AR2901",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FearEscape","AR2901",1)
+    CreateVisualEffect("spportal",[414.395])
+    ActionOverride("hellfear",EscapeArea())
+END
+
+IF
+  Dead("hellbeh1")  // ~Elder Orb~
+  Dead("hellbeh2")  // ~Elder Orb~
+  Global("Player1Fear","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Player1Fear","GLOBAL",1)
+END
+
+IF
+  PartyHasItem("clck30")  // ~Cloak of Bravery~
+  Global("TrapDisabled","AR2901",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("FearTrap",FALSE)
+    SetGlobal("TrapDisabled","AR2901",1)
+END
+

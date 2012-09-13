@@ -1,0 +1,18 @@
+IF
+  Global("Unload_53DD2EB","LOCALS",1)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Global("TEAM_2","MYAREA",0)
+  !See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("Unload_53DD2EB","LOCALS",1)
+    ForceSpellPoint([2000.1480],WIZARD_DIMENSION_DOOR)
+    Wait(1)
+END
+

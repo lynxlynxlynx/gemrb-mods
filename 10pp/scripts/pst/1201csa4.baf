@@ -1,0 +1,36 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AnnahF")  // 
+    Wait(3)
+    Attack("Trans")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    PlaySoundNotRanged("Tra090A")
+    StartSong(CHAR_ANNAH,[0.0],Normal)
+    Wait(2)
+    Spell("AnnahF",WIZARD_FIRE_AND_ICE)
+    Wait(3)
+    Spell("AnnahF",WIZARD_FIRE_AND_ICE)
+    Wait(3)
+    Spell("AnnahF",WIZARD_FIRE_AND_ICE)
+    Wait(3)
+    SetInterrupt(FALSE)
+    ApplySpell("AnnahF",0)
+    Wait(1)
+    ClearAllActions()
+    SetAnimState("AnnahF",ANIM_DIE)
+    SetInterrupt(TRUE)
+    Wait(3)
+    MoveToPoint([4493.800])
+    FadeToBlack()
+    Wait(3)
+    StartCutScene("1201CSA5")
+END
+

@@ -1,0 +1,38 @@
+IF
+  Global("AWAKE","LOCALS",0)
+  !Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,AWAKE)
+    SetGlobal("AWAKE","LOCALS",1)
+    Wait(2)
+    FaceObject(NearestPC)
+    Continue()
+END
+
+IF
+  !Global("AWAKE","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(18)
+  Global("AWAKE","LOCALS",0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8586)  // ~"Zzznnzzn..."~
+    StartRandomTimer(18,3,5)
+  RESPONSE #100
+    FloatMessage(Myself,1015)  // ~"Zzzzzzz..."~
+    StartRandomTimer(18,3,5)
+END
+
+IF
+  Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

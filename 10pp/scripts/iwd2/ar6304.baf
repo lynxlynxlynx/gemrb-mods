@@ -1,0 +1,66 @@
+IF
+  !Global("MT_ResetVisualRange","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MT_ResetVisualRange","GLOBAL",0)
+    SetVisualRange(0)
+    Continue()
+END
+
+IF
+  Global("SH_Dead_Slaves_Message","GLOBAL",0)
+  !Global("SH_Iyachtu_Dead","GLOBAL",1)
+  GlobalGT("SH_Kill_Slaves","GLOBAL",0)
+  GlobalGT("SH_Dead_Slaves","GLOBAL",9)
+THEN
+  RESPONSE #100
+    SetGlobal("SH_Dead_Slaves_Message","GLOBAL",1)
+    DisplayMessage(36887)  // ~You have slain ten slaves in accordance to Iyachtu Xvim's quest.~
+    Continue()
+END
+
+IF
+  !Global("SH_Guards_Dead","GLOBAL",1)
+  Dead("GB_RedAbishai1")  // 
+  Dead("GB_RedAbishai2")  // 
+  Dead("GB_RedAbishai3")  // 
+  Dead("GB_GlabrezuGuard1")  // 
+  Dead("GB_GlabrezuGuard2")  // 
+  Dead("GB_ThayvianMage1")  // 
+  Dead("GB_ThayvianMage2")  // 
+  Dead("GB_ThayvianMage3")  // 
+  Dead("GB_ThayvianMage4")  // 
+  Dead("GB_Guard1")  // 
+  Dead("GB_Guard2")  // 
+  Dead("GB_Guard3")  // 
+  Dead("GB_Guard4")  // 
+  Dead("GB_Guard5")  // 
+  Dead("GB_Guard6")  // 
+  Dead("GB_Guard7")  // 
+  Dead("GB_Guard8")  // 
+  Dead("GB_Guard9")  // 
+  Dead("GB_Guard10")  // 
+  Dead("GB_HalfGoblin1")  // 
+  Dead("GB_HalfGoblin2")  // 
+  Dead("GB_HalfGoblin3")  // 
+  Dead("GB_YuanTiHalfbreed1")  // 
+  Dead("GB_YuanTiHalfbreed2")  // 
+  Dead("GB_Bugbear1")  // 
+  Dead("GB_Bugbear2")  // 
+  Dead("GB_SlayerKnight1")  // 
+  Dead("GB_SlayerKnight2")  // 
+  Dead("RuinlordGaduCrum")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SH_Guards_Dead","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,27 @@
+IF
+  Global("Paid_RA","AR0301",0)
+  Global("0301_Respawn_Good","GLOBAL",1)
+  See([PC])
+  Range([PC],15)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],ONE_AI_SECOND,FALSE)
+END
+
+IF
+  Global("Paid_RA","AR0301",0)
+  Global("0301_Respawn_Good","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    MoveToObjectEx([PC],0)
+END
+
+IF
+  Global("Paid_RA","AR0301",1)
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

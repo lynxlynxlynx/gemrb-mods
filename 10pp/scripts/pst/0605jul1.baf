@@ -1,0 +1,79 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,48070)  // ~::Pout::~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,28845)  // ~*Sigh*~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,34918)  // ~::Moan::~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,48071)  // ~::Sulk::~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,48072)  // ~::Mope::~
+    Wait(5)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([504.1338])
+    Face(0)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([504.1413])
+    Face(8)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([368.1278])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,3)
+THEN
+  RESPONSE #100
+    MoveToPoint([330.1278])
+    Face(10)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,4)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([383.1219])
+    Face(14)
+    StartRandomTimer(1,10,15)
+    SetInternal(Myself,INTERNAL_0,0)
+END
+

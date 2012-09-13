@@ -1,0 +1,40 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,MERCHANT_2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([0.0.BAR_CROWD_2])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  !NearLocation(Myself,[315.2485],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([315.2485])
+    Face(14)
+END
+

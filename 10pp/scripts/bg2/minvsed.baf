@@ -1,0 +1,148 @@
+IF
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+  HaveSpell(CLERIC_ARMOR_OF_FAITH)
+  CheckStatGT(Myself,3,ARMORCLASS)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ARMOR_OF_FAITH)
+    Continue()
+END
+
+IF
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+  HaveSpell(CLERIC_BLESS)
+  HPGT(LastSeenBy(Myself),20)
+  !StateCheck(Myself,STATE_BLESS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_BLESS)
+    Continue()
+END
+
+IF
+  OR(4)
+    StateCheck(Myself,STATE_PANIC)
+    SpellCast([ANYONE],WIZARD_HORROR)
+    SpellCast([ANYONE],WIZARD_SPOOK)
+    SpellCastPriest([ANYONE],CLERIC_CLOAK_OF_FEAR)
+  HaveSpell(CLERIC_REMOVE_FEAR)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_REMOVE_FEAR)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOfType([0.ANIMAL]))
+  HaveSpell(RANGER_CHARM_ANIMAL)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),RANGER_CHARM_ANIMAL)
+    Continue()
+END
+
+IF
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+  !Range(LastSeenBy(Myself),20)
+  HaveSpell(CLERIC_ENTANGLE)
+  AreaCheck("UTDOOR)")
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_ENTANGLE)
+    Continue()
+END
+
+IF
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+  HaveSpell(CLERIC_DOOM)
+THEN
+  RESPONSE #50
+    Spell(LastSeenBy(Myself),CLERIC_DOOM)
+    Continue()
+  RESPONSE #50
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,30)
+  HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MEDIUM_WOUNDS)
+END
+
+IF
+  HPPercentLT(Myself,60)
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  OR(2)
+    Dead("Edwin")  // Edwin
+    !Detect("Edwin")  // Edwin
+  CombatCounter(0)
+  !Allegiance(Myself,ENEMY)
+  Global("EdwinMinscFight","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("EdwinMinscFight","GLOBAL",2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(2)
+    Dead("Edwin")  // Edwin
+    !Detect("Edwin")  // Edwin
+  CombatCounter(0)
+  Global("EdwinMinscFight","GLOBAL",1)
+  !See([PC])
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  HPPercentLT(Myself,50)
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+  HaveSpell(MINSC_BERSERK)
+THEN
+  RESPONSE #100
+    Spell(Myself,MINSC_BERSERK)
+END
+
+IF
+  See("Edwin")  // Edwin
+  !Dead("Edwin")  // Edwin
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate("Edwin",30)
+END
+
+IF
+  !See("Edwin")  // Edwin
+  Range(LastSeenBy(Myself),50)
+THEN
+  RESPONSE #100
+    MoveToObject("Edwin")
+END
+
+IF
+  See("Edwin")  // Edwin
+  !Range("Edwin",10)  // Edwin
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate("Edwin",30)
+END
+

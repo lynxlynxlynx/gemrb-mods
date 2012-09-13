@@ -1,0 +1,182 @@
+IF
+  See([0.0.0.IMP])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.IMP],30)
+END
+
+IF
+  See([GOODCUTOFF])
+  Global("hostile","LOCALS",0)
+  Global("TanEnemy","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("hostile","LOCALS",1)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("notalk","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("notalk","LOCALS",1)
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !Range(LastSeenBy(Myself),10)
+  GlobalLT("symbol","LOCALS",3)
+  !DifficultyLT(NORMAL)
+  RandomNum(2,1)
+  !GlobalTimerNotExpired("symbstun","LOCALS")
+THEN
+  RESPONSE #100
+    IncrementGlobal("symbol","LOCALS",1)
+    SetGlobalTimer("symbstun","LOCALS",18)
+    ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !GlobalTimerNotExpired("paralyze","LOCALS")
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("paralyze","LOCALS",15)
+    ForceSpell(NearestEnemyOf(Myself),TANARI_PARALYZE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),12)
+  StateCheck(LastSeenBy,STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("Prep","LOCALS")
+  NumInPartyGT(5)
+  GlobalLT("XPGiven","GLOBAL",500000)
+  LevelPartyGT(16)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Prep","LOCALS",1000)
+    SetGlobalTimer("moreglabrezu","LOCALS",10)
+    SetGlobalTimer("moremaurezhi","LOCALS",10)
+    CreateVisualEffect("SPUNHOLY",[488.410])
+    CreateCreature("GORTAN6",[488.410],0)  // ~Maurezhi~
+    CreateVisualEffect("SPUNHOLY",[335.516])
+    CreateCreature("GORTAN6",[335.516],13)  // ~Maurezhi~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NumCreatureLT("GORTAN4",3)  // ~Glabrezu~
+  RandomNum(2,1)
+  LevelPartyGT(18)
+  !DifficultyLT(NORMAL)
+  !GlobalTimerNotExpired("moreglabrezu","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("moreglabrezu","LOCALS",10)
+    CreateVisualEffectObject("SPUNHOLY",Myself)
+    CreateCreatureObject("GORTAN4",NearestEnemyOf(Myself),0,0,0)  // ~Glabrezu~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NumCreatureLT("GORTAN6",2)  // ~Maurezhi~
+  RandomNum(2,1)
+  LevelPartyGT(18)
+  !Difficulty(EASIEST)
+  !GlobalTimerNotExpired("moremaurezhi","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("moremaurezhi","LOCALS",12)
+    CreateVisualEffectObject("SPUNHOLY",Myself)
+    CreateCreatureObject("GORTAN6",Myself,0,0,0)  // ~Maurezhi~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !GlobalTimerNotExpired("Confuse","LOCALS")
+  !DifficultyLT(NORMAL)
+  RandomNum(3,1)
+  NumInPartyGT(5)
+  LevelPartyGT(16)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Confuse","LOCALS",1000)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CONFUSION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  !GlobalTimerNotExpired("Emotion","LOCALS")
+  !DifficultyLT(NORMAL)
+  RandomNum(3,1)
+  NumInPartyGT(5)
+  LevelPartyGT(16)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Emotion","LOCALS",1000)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_EMOTION_HOPELESSNESS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),10)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("RandSpell","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("RandSpell","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),0)
+  RESPONSE #100
+    SetGlobalTimer("RandSpell","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_UNHOLY_BLIGHT)
+  RESPONSE #100
+    SetGlobalTimer("RandSpell","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+  RESPONSE #100
+    SetGlobalTimer("RandSpell","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),10)
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),10)
+  HPPercentLT(Myself,80)
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

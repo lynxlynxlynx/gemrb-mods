@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ignus")  // 
+    Enemy()
+    PlaySequence(ANIM_STANCEFIDGET1)
+    PlaySound("Ign051B")
+    Wait(5)
+    FadeToBlack()
+    Wait(3)
+    StartCutScene("1201CI25")
+END
+

@@ -1,0 +1,21 @@
+IF
+  TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600thbn",DEFAULT)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+

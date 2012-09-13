@@ -1,0 +1,71 @@
+IF
+  OnCreation()
+  !Global("Playhouse","GLOBAL",1)
+  Global("firstActivate","AR0511",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran0522",FALSE)
+    SetGlobal("firstActivate","AR0511",1)
+END
+
+IF
+  OnCreation()
+  Global("Playhouse","GLOBAL",1)
+  Global("firstActivate","AR0511",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran0509",FALSE)
+    SetGlobal("firstActivate","AR0511",2)
+END
+
+IF
+  Global("Playhouse","GLOBAL",1)
+  Global("firstActivate","AR0511",1)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran0509",FALSE)
+    TriggerActivation("Tran0522",TRUE)
+    SetGlobal("firstActivate","AR0511",2)
+END
+
+IF
+  Global("AranJob","GLOBAL",2)
+  Global("JaylosSpawn","AR0511",0)
+THEN
+  RESPONSE #100
+    SetGlobal("JaylosSpawn","AR0511",1)
+    CreateCreature("JAYLOS",[416.595],0)  // ~Jaylos~
+    CreateCreature("CAEHAN",[373.722],14)  // ~Caehan~
+END
+
+IF
+  Global("AranJob","GLOBAL",2)
+  Global("JaylosSpawn","AR0511",1)
+  Dead("Jaylos")  // ~Jaylos~
+  Dead("Caehan")  // ~Caehan~
+THEN
+  RESPONSE #100
+    SetGlobal("JaylosSpawn","AR0511",2)
+    CreateCreature("BODFGT03",[374.1010],10)  // ~Guild Contact~
+END
+
+IF
+  Global("ThumbSeeker","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ThumbSeeker","GLOBAL",2)
+    CreateCreature("JANGIT01",[946.986],6)  // ~Githyanki~
+    CreateCreature("JANGIT02",[858.1054],8)  // ~Githyanki~
+END
+
+IF
+  Dead("JanGith1")  // JanGith1
+  Dead("JanGith2")  // JanGith2
+  Global("ThumbSeeker","GLOBAL",2)
+  Global("HiddenJournal","AR0511",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HiddenJournal","AR0511",1)
+    AddJournalEntry(34726,QUEST)
+END
+

@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CORNUGON_1")  // 
+    EquipItem("APORT",0)
+    FaceObject([PC])
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    MoveToPoint([783.503])
+    FaceObject([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CORNUGON_2")  // 
+    EquipItem("APORT",0)
+    FaceObject([PC])
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    MoveToPoint([529.555])
+    FaceObject([PC])
+END
+

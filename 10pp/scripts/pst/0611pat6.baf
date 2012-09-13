@@ -1,0 +1,47 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  Allegiance([PC],ENEMY)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  Help([ENEMY])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(LastAttackerOf(LastHelp),50,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([372.565])
+    Face(14)
+    Wait(15)
+    MoveToPoint([659.355])
+    Face(6)
+    Wait(10)
+    MoveToPoint([524.402])
+    Face(6)
+    Wait(5)
+    MoveToPoint([422.439])
+    Face(6)
+    Wait(10)
+    MoveToPoint([807.960])
+    DestroySelf()
+    GlobalSet("Wandering_Patron","AR0611",0)
+END
+

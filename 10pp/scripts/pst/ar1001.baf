@@ -1,0 +1,35 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",1001)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1001)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR1001_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR1001_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Pillar_Warning","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Wait(1)
+    GlobalSet("Cornugon_Captain_Spawn","GLOBAL",1)
+    GlobalSet("Pillar_Warning","GLOBAL",2)
+    Continue()
+END
+

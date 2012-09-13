@@ -1,0 +1,33 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    SetCutSceneLite(TRUE)
+    HideGUI()
+    Wait(2)
+    SetGlobal("StartSpiritMaze","AR3019",1)
+    TakePartyItem("Plot05D")
+    LeaveAreaLUAPanic("AR3023","",[1263.1540],8)
+    LeaveAreaLUA("AR3023","",[1263.1540],8)
+    ActionOverride(Player2,LeaveAreaLUA("AR3023","",[1303.1589],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR3023","",[1342.1561],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR3023","",[1205.1583],10))
+    ActionOverride(Player5,LeaveAreaLUA("AR3023","",[1168.1557],10))
+    ActionOverride(Player6,LeaveAreaLUA("AR3023","",[1262.1602],8))
+    Wait(2)
+    MultiPlayerSync()
+    MakeUnselectable(150000)
+    ActionOverride(Player2,MakeUnselectable(150000))
+    ActionOverride(Player3,MakeUnselectable(150000))
+    ActionOverride(Player4,MakeUnselectable(150000))
+    ActionOverride(Player5,MakeUnselectable(150000))
+    ActionOverride(Player6,MakeUnselectable(150000))
+    CreateCreature("NOSAVE",[1266.1429],0)  // <Invalid Strref -1>
+    ActionOverride("FSSkel",PlayDeadInterruptible(1000000))
+    Wait(2)
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+END
+

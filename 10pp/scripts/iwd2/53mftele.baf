@@ -1,0 +1,75 @@
+IF
+  !Global("TEAM_2","MYAREA",0)
+  Global("MindFlayerTeleport","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,24096)  // ~.:Casts Plane Shift:.~
+    Wait(2)
+    JumpToPoint([1650.1400])
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    SetInterrupt(TRUE)
+    SetGlobal("MindFlayerTeleport","MYAREA",1)
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("TEAM_2","MYAREA",0)
+  Global("MindFlayerTeleport","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,24096)  // ~.:Casts Plane Shift:.~
+    Wait(2)
+    JumpToPoint([2300.1450])
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    SetInterrupt(TRUE)
+    SetGlobal("MindFlayerTeleport","MYAREA",2)
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("TEAM_2","MYAREA",0)
+  Global("MindFlayerTeleport","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,24096)  // ~.:Casts Plane Shift:.~
+    Wait(2)
+    JumpToPoint([2100.1700])
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    SetInterrupt(TRUE)
+    SetGlobal("MindFlayerTeleport","MYAREA",3)
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("TEAM_2","MYAREA",0)
+  Global("MindFlayerTeleport","MYAREA",3)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,24096)  // ~.:Casts Plane Shift:.~
+    Wait(2)
+    JumpToPoint([1900.1250])
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    SetInterrupt(TRUE)
+    ChangeCurrentScript("")
+END
+

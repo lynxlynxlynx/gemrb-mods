@@ -1,0 +1,141 @@
+IF
+  HaveSpell(CLERIC_SILENCE_15_FOOT)
+  OR(2)
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+  Range(LastSeenBy(Myself),25)
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_BOLT_OF_GLORY)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CONFUSION)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CONFUSION)
+END
+
+IF
+  Detect([ANYONE])
+  !See(LastSeenBy(Myself))
+  Range(LastSeenBy(Myself),10)
+  HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_1)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MENTAL_DOMINATION)
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !HasBounceEffects(LastSeenBy(Myself))
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CLOAK_OF_FEAR)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CLOAK_OF_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_COMMAND)
+  !HasBounceEffects(LastSeenBy(Myself))
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_COMMAND)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MAGIC_STONE)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MAGIC_STONE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SHILLELAGH)
+  !HasItem("FBLADE",Myself)  // ~Flame Blade~
+  !HasItem("SHILLE",Myself)  // ~Shillelagh~
+  !HasItem("SHAMMR",Myself)  // ~Spiritual Hammer~
+  !HasItem("CHILLT",Myself)  // ~Chill Touch~
+  !HasItem("GHOULT",Myself)  // ~Ghoul Touch~
+  !HasItem("SGRASP",Myself)  // ~Shocking Grasp~
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SHILLELAGH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

@@ -1,0 +1,9 @@
+IF
+  See([PC])
+  Global("CastRuin","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CastRuin","LOCALS",1)
+    ForceSpellRES("SpWish23",Player1)  // ~Ruin~
+END
+

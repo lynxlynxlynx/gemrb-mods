@@ -1,0 +1,18 @@
+IF
+  Global("Move","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToObjectNoInterrupt("DOOR02")
+    OpenDoor("DOOR02")
+    MoveToPointNoInterrupt([1700.202])
+    SetGlobal("Move","LOCALS",1)
+END
+
+IF
+  Global("Move","LOCALS",1)
+THEN
+  RESPONSE #100
+    TriggerActivation("Coffin",TRUE)
+    DestroySelf()
+END
+

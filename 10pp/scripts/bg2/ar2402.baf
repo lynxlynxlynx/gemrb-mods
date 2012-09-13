@@ -1,0 +1,10 @@
+IF
+  Global("DrowCityHostile","GLOBAL",1)
+  Global("opengates","AR2402",0)
+THEN
+  RESPONSE #100
+    Unlock("Gate")
+    OpenDoor("Gate")
+    SetGlobal("opengates","AR2402",1)
+END
+

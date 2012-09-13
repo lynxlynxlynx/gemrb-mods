@@ -1,0 +1,64 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([0.0.BAR_CROWD_2])
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx(LastAttackerOf(LastHelp),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx(LastAttackerOf(LastHelp),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  Exists([0.0.0.0.0.0.MERCHANT_2][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,50737)  // ~"My good man... another... ale, please."~
+    Wait(3)
+    ForceFacing([0.0.0.0.0.0.MERCHANT_2][0.0.10000.10000],12)
+    FloatMessage([0.0.0.0.0.0.MERCHANT_2][0.0.10000.10000],50738)  // ~"Here you are."~
+    Wait(3)
+    ForceFacing([0.0.0.0.0.0.MERCHANT_2][0.0.10000.10000],14)
+    FloatMessage(Myself,50739)  // ~*Glug*~
+    Wait(3)
+    FloatMessage(Myself,50739)  // ~*Glug*~
+    Wait(3)
+    FloatMessage(Myself,50739)  // ~*Glug*~
+    Wait(3)
+    FloatMessage(Myself,50739)  // ~*Glug*~
+    Wait(3)
+    FloatMessage(Myself,50740)  // ~"Whew! Now that's... the - *belch* - stuff."~
+    Wait(3)
+END
+

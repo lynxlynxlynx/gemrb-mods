@@ -1,0 +1,7 @@
+IF
+  Global("PipeOrder","AR0404",4)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

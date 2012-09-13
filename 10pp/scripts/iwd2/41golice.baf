@@ -1,0 +1,8 @@
+IF
+  HitBy([ANYONE],COLD)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    Continue()
+END
+

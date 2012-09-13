@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,62605)  // ~You smell the rank, acrid stench of noxious fumes wafting up from the polluted pool in the room just beyond the gate.     ~
+END
+

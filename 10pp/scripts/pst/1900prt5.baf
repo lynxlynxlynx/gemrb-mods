@@ -1,0 +1,42 @@
+IF
+  HarmlessEntered([PC])
+  Global("1900_Switch","AR1900",5)
+THEN
+  RESPONSE #100
+    SetCorpseEnabled("effect_5",1)
+    SetCorpseEnabled("effect_1",0)
+    SetCorpseEnabled("effect_2",0)
+    SetCorpseEnabled("effect_3",0)
+    SetCorpseEnabled("effect_4",0)
+    SetCorpseEnabled("effect_6",0)
+    SetCorpseEnabled("effect_7",0)
+    SetCorpseEnabled("effect_8",0)
+    SetCorpseEnabled("effect_9",0)
+    SetCorpseEnabled("effect_10",0)
+    SetCorpseEnabled("effect_11",0)
+    SmallWait(5)
+    MoveViewPoint([479.1804],INSTANT)
+    TeleportParty("AR1900",[479.1804],12)
+END
+
+IF
+  HarmlessEntered([PC])
+THEN
+  RESPONSE #100
+    SetCorpseEnabled("effect_5",1)
+    SetCorpseEnabled("effect_1",0)
+    SetCorpseEnabled("effect_2",0)
+    SetCorpseEnabled("effect_3",0)
+    SetCorpseEnabled("effect_4",0)
+    SetCorpseEnabled("effect_6",0)
+    SetCorpseEnabled("effect_7",0)
+    SetCorpseEnabled("effect_8",0)
+    SetCorpseEnabled("effect_9",0)
+    SetCorpseEnabled("effect_10",0)
+    SetCorpseEnabled("effect_11",0)
+    GlobalSet("1900_Switch","AR1900",5)
+    SmallWait(5)
+    MoveViewPoint([2417.311],INSTANT)
+    TeleportParty("AR1900",[2417.311],0)
+END
+

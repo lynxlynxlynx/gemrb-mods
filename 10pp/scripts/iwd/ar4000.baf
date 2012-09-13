@@ -1,0 +1,15 @@
+IF
+  Global("CHAPTER","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementChapter("")
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,39 @@
+IF
+  Global("CHILDREN_FLOAT","MYAREA",0)
+  GlobalTimerExpired("CHILDREN_FLOAT_TIMER","MYAREA")
+  See("MOMMY")  // MOMMY
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16211)  // ~"Mommy, I'm scared."~
+    SetGlobalTimer("CHILDREN_FLOAT_TIMER","MYAREA",1)
+    SetGlobal("CHILDREN_FLOAT","MYAREA",1)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromNoLeaveArea(LastAttackerOf(Myself),45)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToObject("MOMMY")
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+END
+

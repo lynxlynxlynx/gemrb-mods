@@ -1,0 +1,7 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("HelpLaerta","GLOBAL",1)
+END
+

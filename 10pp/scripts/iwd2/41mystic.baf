@@ -1,0 +1,170 @@
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("212022012408",Myself,SPELLCAST_IGNORE_SEE)
+      // WIZARD_MINOR_MIRROR_IMAGE
+      // WIZARD_BLUR
+      // WIZARD_STONESKIN
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_41MYSTIC_0","LOCALS",-1)
+  Allegiance(Myself,ENEMY)
+  !Global("OBJ_SP_41MYSTIC_0","LOCALS",-1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("21042205222523162306241724012411",LastMarkedObject,7)
+      // WIZARD_CHARM_PERSON
+      // WIZARD_HORROR
+      // WIZARD_POWER_WORD_SLEEP
+      // WIZARD_DIRE_CHARM
+      // WIZARD_HOLD_PERSON
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_CONFUSION
+      // WIZARD_EMOTION_HOPELESSNESS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("OBJ_SP_41MYSTIC_0","LOCALS",-1)
+  !HaveSpell(WIZARD_CHARM_PERSON)
+  !HaveSpell(WIZARD_HORROR)
+  !HaveSpell(WIZARD_POWER_WORD_SLEEP)
+  !HaveSpell(WIZARD_DIRE_CHARM)
+  !HaveSpell(WIZARD_HOLD_PERSON)
+  !HaveSpell(WIZARD_BELTYNS_BURNING_BLOOD)
+  !HaveSpell(WIZARD_CONFUSION)
+  !HaveSpell(WIZARD_EMOTION_HOPELESSNESS)
+THEN
+  RESPONSE #100
+    SetGlobal("OBJ_SP_41MYSTIC_0","LOCALS",-1)
+    Continue()
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_41MYSTIC_1","LOCALS",-1)
+  Allegiance(Myself,ENEMY)
+  !Global("OBJ_SP_41MYSTIC_1","LOCALS",-1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("211821122312",LastMarkedObject,7)
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_SLOW
+    MarkSpellAndObject("23052212",Myself,7)
+      // WIZARD_HASTE
+      // WIZARD_MIRROR_IMAGE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("23052212",Myself,7)
+      // WIZARD_HASTE
+      // WIZARD_MIRROR_IMAGE
+    MarkSpellAndObject("211821122312",LastMarkedObject,7)
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_SLOW
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("OBJ_SP_41MYSTIC_1","LOCALS",-1)
+  !HaveSpell(WIZARD_CHROMATIC_ORB)
+  !HaveSpell(WIZARD_MAGIC_MISSILE)
+  !HaveSpell(WIZARD_SLOW)
+  !HaveSpell(WIZARD_HASTE)
+  !HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    SetGlobal("OBJ_SP_41MYSTIC_1","LOCALS",-1)
+    Continue()
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Allegiance(Myself,ENEMY)
+  Global("SetWanderTimer","LOCALS",1)
+  Or(3)
+    !Exists(Myself)
+    Dead(Myself)  // 
+    !IsCreatureAreaFlag(Myself,INVULNERABLE)
+  RandomNum(5,1)
+  Or(3)
+    See("02_Warrior_04",0)  // 02_Warrior_04
+    See("02_Assassin_01",0)  // 02_Assassin_01
+    See("02_Bishop_02",0)  // 02_Bishop_02
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("22032305",Myself,7)
+      // WIZARD_SEE_INVISIBILITY
+      // WIZARD_HASTE
+    MarkSpellAndObject("230222072410",LastMarkedObject,7)
+      // WIZARD_DISPEL_MAGIC
+      // WIZARD_KNOCK
+      // WIZARD_REMOVE_CURSE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("230222072410",LastMarkedObject,7)
+      // WIZARD_DISPEL_MAGIC
+      // WIZARD_KNOCK
+      // WIZARD_REMOVE_CURSE
+    MarkSpellAndObject("22032305",Myself,7)
+      // WIZARD_SEE_INVISIBILITY
+      // WIZARD_HASTE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

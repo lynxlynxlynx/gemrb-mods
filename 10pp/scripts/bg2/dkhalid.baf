@@ -1,0 +1,15 @@
+IF
+  IsOverMe("Jaheira")  // Jaheira
+  Global("SawKhalid","AR0603",0)
+  Dead("MephitPortal1")  // MephitPortal1
+  Dead("MephitPortal2")  // MephitPortal2
+  Dead("MephitPortal3")  // MephitPortal3
+  Dead("MephitPortal4")  // MephitPortal4
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    MoveViewPoint([1166.2665],INSTANT)
+    MoveViewPoint([1320.2406],VERY_FAST)
+    ActionOverride("Jaheira",StartDialogNoSet(Player1))
+END
+

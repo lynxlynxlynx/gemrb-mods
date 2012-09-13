@@ -1,0 +1,349 @@
+IF
+  Global("WENT_MELEE","LOCALS",0)
+  !HaveSpell(WIZARD_MORDENKAINENS_FORCE_MISSILES)
+THEN
+  RESPONSE #100
+    SetGlobal("WENT_MELEE","LOCALS",1)
+    EquipMostDamagingMelee()
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartTimer(24,7)
+    Continue()
+END
+
+IF
+  Global("BODY_COUNT","GLOBAL",0)
+  !TimerActive(24)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,23650)  // ~"I think you better slow it down, Murdaugh."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,23652)  // ~"Why don't you lay off the wine and sing us a tune?"~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,23651)  // ~"Honestly, Murdaugh.  Are you trying to drink yourself blind?"~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,24033)  // ~"Surely your innards must be pickled by now."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #250
+    StartTimer(24,7)
+    Continue()
+END
+
+IF
+  Global("BODY_COUNT","GLOBAL",1)
+  !TimerActive(24)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,24034)  // ~"I heard that ruffian Digby was found dead in the forest."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,24035)  // ~"Emmerich said an animal tore out the poor fool's throat."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,24036)  // ~"I guess Digby should've heeded Emmerich's warnings."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #300
+    StartTimer(24,7)
+    Continue()
+END
+
+IF
+  Global("BODY_COUNT","GLOBAL",2)
+  !TimerActive(24)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,24037)  // ~"First Digby... now Dolan.  I wonder whose next?"~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,24038)  // ~"Both brothers killed by the same beast?  Strange indeed."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,24039)  // ~"I wonder if Doogal will stick around now that his brothers are dead?"~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #300
+    StartTimer(24,7)
+    Continue()
+END
+
+IF
+  Global("BODY_COUNT","GLOBAL",3)
+  !TimerActive(24)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,24040)  // ~"Purvis sure has been getting a lot of business these days."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,24073)  // ~"I tell you... that's no ordinary wolf doing all the killing."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,24074)  // ~"Poor Doogal.  Oh well... those brothers always did stick together."~
+    StartTimer(24,7)
+    Continue()
+  RESPONSE #300
+    StartTimer(24,7)
+    Continue()
+END
+
+IF
+  HasItem("EXTHEAL",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("EXTHEAL",Myself)  // ~Potion of Extra Healing~
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_SEVEN_EYES)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_SEVEN_EYES)
+    RemoveSpell(WIZARD_SEVEN_EYES)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_MORDENKAINENS_FORCE_MISSILES)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_MORDENKAINENS_FORCE_MISSILES)
+    RemoveSpell(WIZARD_MORDENKAINENS_FORCE_MISSILES)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_IRON_BODY)
+  See("LWMURD")  // LWMURD
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_IRON_BODY)
+    RemoveSpell(WIZARD_IRON_BODY)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+    RemoveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_TROLLISH_FORTITUDE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_TROLLISH_FORTITUDE)
+    RemoveSpell(WIZARD_TROLLISH_FORTITUDE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_SUFFOCATE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_SUFFOCATE)
+    RemoveSpell(WIZARD_SUFFOCATE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_FINGER_OF_DEATH)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
+    RemoveSpell(WIZARD_FINGER_OF_DEATH)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_FLESH_TO_STONE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_FLESH_TO_STONE)
+    RemoveSpell(WIZARD_FLESH_TO_STONE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+    RemoveSpell(WIZARD_MAGIC_MISSILE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+    RemoveSpell(WIZARD_POWER_WORD_STUN)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_AGANNAZAR_SCORCHER)
+    RemoveSpell(WIZARD_AGANNAZAR_SCORCHER)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_CONFUSION)
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_CONFUSION)
+    RemoveSpell(WIZARD_CONFUSION)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",5)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",2)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([703.364])
+    MoveToPoint([703.364])
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    Face(SE)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",3)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",7)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",4)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",4)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",5)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",4)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([726.328])
+    MoveToPoint([726.328])
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",5)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",3)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",6)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",6)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",6)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([788.308])
+    MoveToPoint([788.308])
+END
+

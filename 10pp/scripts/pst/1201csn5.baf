@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("NordomF")  // 
+    Enemy()
+    PlaySoundNotRanged("Nor150a")
+    StartSong(CHAR_NORDOM,[0.0],Normal)
+    Wait(4)
+    MoveToPoint([4285.978])
+    Face(14)
+    PlaySoundNotRanged("Nor150B")
+    Wait(3)
+    StartSong(CHAR_NORDOM,[0.0],Normal)
+    PlaySoundNotRanged("Nor148c")
+    Wait(3)
+    StartCutScene("1201CSN6")
+END
+

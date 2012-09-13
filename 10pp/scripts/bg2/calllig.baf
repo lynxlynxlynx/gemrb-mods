@@ -1,0 +1,16 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastTrigger(Myself),TRAP_FLAMESTRIKE)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

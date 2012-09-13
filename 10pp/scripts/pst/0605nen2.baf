@@ -1,0 +1,499 @@
+IF
+  !Internal(Myself,INTERNAL_3,2)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_3,2)
+    Continue()
+END
+
+IF
+  !Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_1,0)
+END
+
+IF
+  Internal(Myself,INTERNAL_2,2)
+THEN
+  RESPONSE #100
+    MoveToPoint([546.1009])
+    Face(4)
+    Wait(1)
+    OpenDoor("AR605d10")
+    MoveToPoint([433.954])
+    Face(12)
+    CloseDoor("AR605d10")
+    Face(0)
+    ChangeAIScript("0605nen1",DEFAULT)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48062)  // ~"Hi!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48068)  // ~"Heya!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48069)  // ~"Heh!"~
+    Wait(5)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron1")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48062)  // ~"Hi!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48068)  // ~"Heya!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48069)  // ~"Heh!"~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron1",4)
+    FaceObject("BPatron1")
+    ChangeAIScript("0605nen3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron2")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48062)  // ~"Hi!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48068)  // ~"Heya!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48069)  // ~"Heh!"~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron2",4)
+    FaceObject("BPatron2")
+    ChangeAIScript("0605nen3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron3")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48062)  // ~"Hi!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48068)  // ~"Heya!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48069)  // ~"Heh!"~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron3",4)
+    FaceObject("BPatron3")
+    ChangeAIScript("0605nen3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron5")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron5")
+    FloatMessage(Myself,48062)  // ~"Hi!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron5")
+    FloatMessage(Myself,48068)  // ~"Heya!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron5")
+    FloatMessage(Myself,48069)  // ~"Heh!"~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron5",4)
+    FaceObject("BPatron5")
+    ChangeAIScript("0605nen3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([547.1198])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    MoveToPoint([633.1314])
+    Face(2)
+    Wait(1)
+    OpenDoor("AR605d11")
+    MoveToPoint([594.1346])
+    Face(2)
+    WaitRandom(3,5)
+    Face(4)
+    WaitRandom(3,5)
+    Face(10)
+    OpenDoor("AR605d11")
+    MoveToPoint([696.1301])
+    Face(10)
+    CloseDoor("AR605d11")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+THEN
+  RESPONSE #100
+    MoveToPoint([875.1461])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,3)
+THEN
+  RESPONSE #100
+    MoveToPoint([975.1493])
+    Face(0)
+    Wait(1)
+    OpenDoor("AR605d12")
+    MoveToPoint([975.1578])
+    Face(0)
+    WaitRandom(3,5)
+    Face(4)
+    WaitRandom(3,5)
+    Face(8)
+    OpenDoor("AR605d12")
+    MoveToPoint([975.1493])
+    Face(0)
+    CloseDoor("AR605d12")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,4)
+THEN
+  RESPONSE #100
+    MoveToPoint([1198.1530])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,5)
+THEN
+  RESPONSE #100
+    MoveToPoint([1665.1530])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,6)
+THEN
+  RESPONSE #100
+    MoveToPoint([1828.1475])
+    Face(0)
+    Wait(1)
+    OpenDoor("AR605d02")
+    MoveToPoint([1828.1589])
+    Face(0)
+    WaitRandom(3,5)
+    Face(14)
+    WaitRandom(3,5)
+    Face(8)
+    OpenDoor("AR605d02")
+    MoveToPoint([1828.1475])
+    Face(10)
+    CloseDoor("AR605d02")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,7)
+THEN
+  RESPONSE #100
+    MoveToPoint([2067.1362])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    MoveToPoint([2115.1290])
+    Face(14)
+    Wait(1)
+    OpenDoor("AR605d03")
+    MoveToPoint([2180.1354])
+    Face(12)
+    WaitRandom(3,5)
+    Face(10)
+    WaitRandom(3,5)
+    Face(6)
+    OpenDoor("AR605d03")
+    MoveToPoint([2115.1290])
+    Face(14)
+    CloseDoor("AR605d03")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,9)
+THEN
+  RESPONSE #100
+    MoveToPoint([2166.1194])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,10)
+THEN
+  RESPONSE #100
+    MoveToPoint([2166.1040])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,11)
+THEN
+  RESPONSE #100
+    MoveToPoint([2274.1040])
+    Face(12)
+    Wait(1)
+    OpenDoor("AR605d04")
+    MoveToPoint([2399.1019])
+    Face(12)
+    WaitRandom(3,5)
+    Face(14)
+    WaitRandom(3,5)
+    Face(10)
+    OpenDoor("AR605d04")
+    MoveToPoint([2113.776])
+    Face(12)
+    CloseDoor("AR605d04")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,12)
+THEN
+  RESPONSE #100
+    MoveToPoint([2162.807])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,13)
+THEN
+  RESPONSE #100
+    MoveToPoint([2110.754])
+    Face(10)
+    Wait(1)
+    OpenDoor("AR605d05")
+    MoveToPoint([2228.630])
+    Face(10)
+    WaitRandom(3,5)
+    Face(8)
+    WaitRandom(3,5)
+    Face(2)
+    OpenDoor("AR605d05")
+    MoveToPoint([2113.776])
+    Face(10)
+    Wait(1)
+    CloseDoor("AR605d05")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,14)
+THEN
+  RESPONSE #100
+    MoveToPoint([1910.621])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,15)
+THEN
+  RESPONSE #100
+    MoveToPoint([1795.596])
+    Face(8)
+    Wait(1)
+    OpenDoor("AR605d06")
+    MoveToPoint([1796.453])
+    Face(8)
+    WaitRandom(3,5)
+    Face(10)
+    WaitRandom(3,5)
+    Face(0)
+    OpenDoor("AR605d06")
+    MoveToPoint([1795.596])
+    Face(8)
+    CloseDoor("AR605d06")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,16)
+THEN
+  RESPONSE #100
+    MoveToPoint([1657.572])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,17)
+THEN
+  RESPONSE #100
+    MoveToPoint([1555.507])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,18)
+THEN
+  RESPONSE #100
+    MoveToPoint([1501.507])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,19)
+THEN
+  RESPONSE #100
+    MoveToPoint([1451.557])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,20)
+THEN
+  RESPONSE #100
+    MoveToPoint([1024.557])
+    Face(6)
+    Wait(1)
+    OpenDoor("AR605d08")
+    MoveToPoint([970.502])
+    Face(6)
+    WaitRandom(3,5)
+    Face(8)
+    WaitRandom(3,5)
+    Face(14)
+    OpenDoor("AR605d08")
+    MoveToPoint([1024.575])
+    Face(6)
+    Wait(1)
+    CloseDoor("AR605d08")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,21)
+THEN
+  RESPONSE #100
+    MoveToPoint([860.715])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,22)
+THEN
+  RESPONSE #100
+    MoveToPoint([795.715])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,23)
+THEN
+  RESPONSE #100
+    MoveToPoint([736.766])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,24)
+THEN
+  RESPONSE #100
+    MoveToPoint([689.738])
+    Face(6)
+    Wait(1)
+    OpenDoor("AR605d09")
+    MoveToPoint([629.698])
+    Face(6)
+    WaitRandom(3,5)
+    Face(8)
+    WaitRandom(3,5)
+    Face(14)
+    OpenDoor("AR605d09")
+    MoveToPoint([745.761])
+    Face(6)
+    Wait(1)
+    CloseDoor("AR605d09")
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,25)
+THEN
+  RESPONSE #100
+    MoveToPoint([736.824])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,25)
+THEN
+  RESPONSE #100
+    MoveToPoint([546.1009])
+    StartRandomTimer(1,5,10)
+    SetInternal(Myself,INTERNAL_0,0)
+    IncInternal(Myself,INTERNAL_2,1)
+END
+

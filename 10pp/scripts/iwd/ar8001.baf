@@ -1,0 +1,42 @@
+IF
+  Global("CHAPTER","GLOBAL",5)
+THEN
+  RESPONSE #100
+    IncrementChapter("")
+    Continue()
+END
+
+IF
+  !Global("MARKETH_DEAD","GLOBAL",0)
+  !Global("8001_THIEF_SPAWN","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("8001_THIEF_SPAWN","GLOBAL",0)
+END
+
+IF
+  Global("8001_THIEF_SPAWN","GLOBAL",0)
+  Global("MARKETH_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("8001_THIEF_SPAWN","GLOBAL",1)
+END
+
+IF
+  GlobalLT("BEORN_QUEST","GLOBAL",3)
+  GlobalGT("8008_SALAMANDERS_DEAD","GLOBAL",11)
+  !Global("SHIKATA_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BEORN_QUEST","GLOBAL",3)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

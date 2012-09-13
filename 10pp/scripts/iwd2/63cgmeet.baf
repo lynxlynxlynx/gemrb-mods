@@ -1,0 +1,152 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Zigma")  // 
+    SetGlobal("63cGMeet_Stopper","MYAREA",1)
+    SetGlobal("TEAM_1","MYAREA",1)
+    HideGUI()
+    MultiPlayerSync()
+    MoveViewObject(Myself,15)
+    Wait(3)
+    FloatMessage(Myself,32169)  // ~"Alright, listen up.  I've been informed by Captain Pudu that a party of adventurers is on their way to the Hand.  Under no circumstances are they to be allowed entry!"~
+    Wait(8)
+    FloatMessage(Myself,32170)  // ~"After this meeting you are to return to your units and put them on full alert.  I want extra guards placed at the entrance, and walking the corridors as well."~
+    Wait(9)
+    FloatMessage(Myself,32171)  // ~"Now, as for the descriptions of the adventurers, they are as follows...  By the powers!  That's them!  Slay them!"~
+    Wait(4)
+    FaceObject([PC])
+    Wait(4)
+    MoveViewObject([PC],FASTEST)
+    MultiPlayerSync()
+    UnhideGUI()
+    EndCutSceneMode()
+    MultiPlayerSync()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard01")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard02")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard03")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard04")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard05")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard06")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard07")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard08")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard09")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard10")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard11")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Guard12")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Slayer_Knight_of_Xvi1")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Slayer_Knight_of_Xvi2")  // 
+    WaitRandom(24,26)
+    FaceObject(NearestPC)
+END
+

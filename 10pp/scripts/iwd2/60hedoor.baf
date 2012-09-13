@@ -1,0 +1,15 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    ActionOverride("Heartless_Dead1",JumpToPoint([3390.2300]))
+    ActionOverride("Heartless_Dead2",JumpToPoint([3440.2260]))
+    ActionOverride("Heartless_Dead3",JumpToPoint([3440.2220]))
+    ActionOverride("Heartless_Dead4",JumpToPoint([3500.2243]))
+    ActionOverride("Heartless_Dead5",JumpToPoint([3440.2330]))
+    ActionOverride("Heartless_Dead6",JumpToPoint([3500.2310]))
+    ActionOverride("Heartless_Dead7",JumpToPoint([3560.2300]))
+    ActionOverride("Heartless_Dead8",JumpToPoint([3540.2250]))
+    SetGlobal("Initial_Pos_Offset","MYAREA",2)
+END
+

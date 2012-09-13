@@ -1,0 +1,8 @@
+IF
+  Global("PalinMove","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogue("palin",[PC])
+END
+

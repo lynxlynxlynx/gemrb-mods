@@ -1,0 +1,34 @@
+IF
+  Heard("Sirine",1)  // Sirine
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+    SetGlobalTimer("Sil","GLOBAL",10)
+END
+
+IF
+  NumberOfTimesTalkedTo(1)
+  Allegiance(Myself,NEUTRAL)
+  GlobalTimerExpired("Sil","GLOBAL")
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(1)
+    Enemy()
+END
+

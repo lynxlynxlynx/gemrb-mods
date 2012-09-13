@@ -1,0 +1,46 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Malavon_Despana")  // 
+    MultiPlayerSync()
+    OpenDoor("AR5300_Door1_NorthGate")
+    Wait(2)
+    MultiPlayerSync()
+    MoveViewPoint([610.730],VERY_FAST)
+    MoveToPoint([610.730])
+    SetSavedLocationPoint(610,730,SE)
+    SetStartPos([610.730])
+    Wait(4)
+    MultiPlayerSync()
+    CloseDoor("AR5300_Door1_NorthGate")
+    MoveViewObject(NearestPC,15)
+    EndCutSceneMode()
+    MultiPlayerSync()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("House_Despana_Guard_01")  // 
+    Wait(2)
+    MoveToPoint([540.720])
+    SetSavedLocationPoint(540,720,SE)
+    SetStartPos([540.720])
+    Wait(9)
+    Face(SE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("House_Despana_Guard_02")  // 
+    MoveToPoint([630.680])
+    SetSavedLocationPoint(630,680,SE)
+    SetStartPos([630.680])
+    Wait(9)
+    Face(SE)
+END
+

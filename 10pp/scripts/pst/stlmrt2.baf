@@ -1,0 +1,41 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Morte")  // 
+    Wait(1)
+    Face(10)
+    Wait(7)
+    Face(0)
+    FloatMessage(Myself,50473)  // ~'What in the Nine Hells are you ... "~
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("wererat1")  // 
+    TimedMoveToPoint([640.2294],120)
+    Face(10)
+    Wait(1)
+    FloatMessage(Myself,50471)  // ~"Is this the one?"~
+    Wait(5)
+    MoveToObjectEx("Morte",0)
+    FaceObject("Morte")
+    StartCutScene("stlmrt3")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("wererat2")  // 
+    TimedMoveToPoint([882.2301],120)
+    Face(6)
+    Wait(3)
+    FloatMessage(Myself,50472)  // ~"It's a skull, ain't it? That's what HE wants. Grab it."~
+    Wait(3)
+    MoveToObjectEx("Morte",0)
+    FaceObject("Morte")
+END
+

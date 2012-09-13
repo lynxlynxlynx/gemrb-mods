@@ -1,0 +1,9 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("astHorror","LOCALC",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_HORROR)
+    SetGlobal("astHorror","LOCALC",1)
+END
+

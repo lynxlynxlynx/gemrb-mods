@@ -1,0 +1,11 @@
+IF
+  OR(2)
+    Entered([ANYONE])
+    Opened([ANYONE])
+  !Global("ImpRiddle","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Kill(LastTrigger)
+    CreateCreature("sahspc01",[668.3080],8)  // ~Spectre~
+END
+

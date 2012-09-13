@@ -1,0 +1,10 @@
+IF
+  OR(2)
+    AttackedBy([ANYONE],DEFAULT)
+    Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedKeldornsFamily","GLOBAL",1)
+    EscapeArea()
+END
+

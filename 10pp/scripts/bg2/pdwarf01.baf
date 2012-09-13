@@ -1,0 +1,11 @@
+IF
+  Dead("pmaster")  // ~Master of Thralls~
+  Global("MasterDead","LOCALS",0)
+  CombatCounter(0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("MasterDead","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

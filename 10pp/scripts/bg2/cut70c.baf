@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(1)
+    ActionOverride("drelle2",JumpToPoint([821.1883]))
+    JumpToPoint([725.1884])
+    Face(10)
+    MoveViewPoint([755.1864],INSTANT)
+    FadeFromColor([30.0],0)
+    Wait(2)
+    ActionOverride("drelle2",StartDialogNoSet(Player1))
+END
+

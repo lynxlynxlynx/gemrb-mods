@@ -1,0 +1,37 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Buried_Attack","GLOBAL",1)
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  WasInDialog()
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+  !Help([0.0.0.0.0.0.HOSTILE_THUG])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+

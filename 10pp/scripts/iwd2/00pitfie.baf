@@ -1,0 +1,74 @@
+IF
+  Global("OncePerDaySummoning","LOCALS",0)
+  !Global("00PITFIE_Mark","LOCALS",0)
+  HPPercentLT(Myself,35)
+THEN
+  RESPONSE #100
+    SetGlobal("OncePerDaySummoning","LOCALS",1)
+    ForceSpell(MyTarget,INNATE_SUMMONED_GELUGON_SUMMONING)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    Continue()
+END
+
+IF
+  GlobalLT("Action","LOCALS",2)
+  Range(MyTarget,2,GREATER_THAN)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,38707)  // ~.:Casts Teleport Without Error:.~
+    JumpToObject(MyTarget)
+    FaceObject(MyTarget)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  GlobalLT("Action","LOCALS",2)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Action","LOCALS",1)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  GlobalLT("Action","LOCALS",2)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2504240423182501",LastMarkedObject,7)
+      // WIZARD_CONE_OF_COLD
+      // WIZARD_ICE_STORM
+      // WIZARD_ICELANCE
+      // WIZARD_ANIMATE_DEAD
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetGlobal("Action","LOCALS",0)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

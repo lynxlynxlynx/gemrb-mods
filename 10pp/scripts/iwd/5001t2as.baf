@@ -1,0 +1,36 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,0)
+END
+
+IF
+  Internal(Myself,0,0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    SetInternal(Myself,0,1)
+    Continue()
+END
+
+IF
+  Internal(Myself,0,0)
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    SetInternal(Myself,0,1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Internal(Myself,0,0)
+  Global("5001_Alert_2","AR5001",1)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,1)
+    Attack([PC][0.0.10000.10000])
+END
+

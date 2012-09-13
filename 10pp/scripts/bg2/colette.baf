@@ -1,0 +1,32 @@
+IF
+  OR(2)
+    Global("DaarHostile","GLOBAL",1)
+    Dead("DAAR")  // DAAR
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  OR(2)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    Allegiance("Jermien",ENEMY)  // Jermien
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("ColetteHostile","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Dead("Juggernaut")  // Juggernaut
+  Global("JuggernautAlive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("JuggernautAlive","GLOBAL",3)
+    CreateCreature("JUGDAR01",[302.385],10)  // ~Daar~
+    ActionOverride("Daar",MoveToObject("Colette"))
+    Wait(1)
+    StartDialogNoSet([PC])
+END
+

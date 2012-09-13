@@ -1,0 +1,17 @@
+IF
+  Clicked([PC])
+  Global("NathanielTalk","MYAREA",0)
+  GlobalLT("41NateFreeQuest","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("NathanielTalk","MYAREA",1)
+END
+
+IF
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1","MYAREA",1)
+    ChangeCurrentScript("")
+END
+

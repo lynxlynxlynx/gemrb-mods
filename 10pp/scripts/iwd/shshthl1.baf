@@ -1,0 +1,229 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,OR)
+    Continue()
+END
+
+IF
+  Global("SAW_ENEMY","LOCALS",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("SAW_ENEMY","LOCALS",1)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_1_1")  // BONE_1_1
+  !Dead("BONE_1_1")  // BONE_1_1
+  HPPercentLT("BONE_1_1",75)  // BONE_1_1
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_1_1",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_1_2")  // BONE_1_2
+  !Dead("BONE_1_2")  // BONE_1_2
+  HPPercentLT("BONE_1_2",75)  // BONE_1_2
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_1_2",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_1_3")  // BONE_1_3
+  !Dead("BONE_1_3")  // BONE_1_3
+  HPPercentLT("BONE_1_3",75)  // BONE_1_3
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_1_3",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_1_4")  // BONE_1_4
+  !Dead("BONE_1_4")  // BONE_1_4
+  HPPercentLT("BONE_1_4",75)  // BONE_1_4
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_1_4",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_2_1")  // BONE_2_1
+  !Dead("BONE_2_1")  // BONE_2_1
+  HPPercentLT("BONE_2_1",75)  // BONE_2_1
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_2_1",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_2_2")  // BONE_2_2
+  !Dead("BONE_2_2")  // BONE_2_2
+  HPPercentLT("BONE_2_2",75)  // BONE_2_2
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_2_2",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_2_3")  // BONE_2_3
+  !Dead("BONE_2_3")  // BONE_2_3
+  HPPercentLT("BONE_2_3",75)  // BONE_2_3
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_2_3",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_2_4")  // BONE_2_4
+  !Dead("BONE_2_4")  // BONE_2_4
+  HPPercentLT("BONE_2_4",75)  // BONE_2_4
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_2_4",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_2_5")  // BONE_2_5
+  !Dead("BONE_2_5")  // BONE_2_5
+  HPPercentLT("BONE_2_5",75)  // BONE_2_5
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_2_5",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_3_1")  // BONE_3_1
+  !Dead("BONE_3_1")  // BONE_3_1
+  HPPercentLT("BONE_3_1",75)  // BONE_3_1
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_3_1",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See("BONE_3_2")  // BONE_3_2
+  !Dead("BONE_3_2")  // BONE_3_2
+  HPPercentLT("BONE_3_2",75)  // BONE_3_2
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell("BONE_3_2",TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(TANARI_VAMPIRIC_TOUCH)
+  See([ENEMY])
+  !Dead("ENEMY])")  // ENEMY])
+  HPPercentLT([ENEMY],75)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+THEN
+  RESPONSE #100
+    Spell([ENEMY],TANARI_VAMPIRIC_TOUCH)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_LARLOCHS_MINOR_DRAIN)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_LARLOCHS_MINOR_DRAIN)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  See([ENEMY])
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastAttackerOf(Myself),45)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(36)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  ActionListEmpty()
+  !Global("SAW_ENEMY","LOCALS",0)
+  !See([ENEMY])
+THEN
+  RESPONSE #100
+    MoveToObject([ENEMY][0.0.10000.10000])
+END
+

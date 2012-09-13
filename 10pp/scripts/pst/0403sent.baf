@@ -1,0 +1,70 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Kill_SDThug","GLOBAL",1)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.XAOSITECT])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    MoveToObjectEx(Protagonist,0)
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Attack([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    Face(8)
+    Wait(3)
+    MoveToPoint([636.2122])
+    Face(10)
+    Wait(2)
+    Face(2)
+    Wait(3)
+    MoveToPoint([437.2260])
+    Face(2)
+    Wait(2)
+    Face(10)
+    Wait(3)
+    MoveToPoint([636.2122])
+    Face(10)
+    Wait(2)
+    Face(0)
+    Wait(3)
+    MoveToPoint([578.2451])
+    Face(2)
+END
+

@@ -1,0 +1,44 @@
+IF
+  PickLockFailed([PC])
+  NearLocation([PC],[879.548],2)
+  Global("Lothar_Mad","AR0508",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Mad","AR0508",1)
+END
+
+IF
+  PickLockFailed([PC])
+  NearLocation([PC],[1363.652],2)
+  Global("Lothar_Mad","AR0508",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Mad","AR0508",1)
+END
+
+IF
+  PickLockFailed([PC])
+  NearLocation([PC],[2964.690],2)
+  Global("Lothar_Mad","AR0508",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Mad","AR0508",2)
+END
+
+IF
+  PickLockFailed([PC])
+  NearLocation([PC],[2899.495],2)
+  Global("Lothar_Mad","AR0508",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Mad","AR0508",2)
+END
+
+IF
+  Opened([PC])
+  Global("Lothar_Mad","AR0508",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Mad","AR0508",3)
+END
+

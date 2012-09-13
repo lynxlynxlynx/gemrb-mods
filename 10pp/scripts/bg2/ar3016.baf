@@ -1,0 +1,315 @@
+IF
+  Global("OpenDungeonDoor2","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenDungeonDoor2","GLOBAL",1)
+    TriggerActivation("AirProx1",FALSE)
+    TriggerActivation("AirProx2",FALSE)
+END
+
+IF
+  Global("SetDifficulty","AR3016",0)
+  OR(3)
+    NumInPartyLT(5)
+    GlobalGT("XPGiven","GLOBAL",500000)
+    LevelPartyLT(14)
+THEN
+  RESPONSE #100
+    SetGlobal("SetDifficulty","AR3016",1)
+    SpawnPtActivate("SpawnPoint5")
+    SpawnPtActivate("SpawnPoint6")
+    SpawnPtActivate("SpawnPoint7")
+    SpawnPtActivate("SpawnPoint8")
+    SpawnPtDeactivate("SpawnPoint1")
+    SpawnPtDeactivate("SpawnPoint2")
+    SpawnPtDeactivate("SpawnPoint3")
+    SpawnPtDeactivate("SpawnPoint4")
+END
+
+IF
+  Global("FanOn","AR3016",1)
+  Global("GlobesOn","AR3016",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("GlobesOn","AR3016",1)
+    SetGlobalTimer("Globe1Charged","AR3016",2)
+    SetGlobalTimer("Globe2Charged","AR3016",4)
+    CreateCreature("GORFAN",[2050.348],0)  // <Invalid Strref -1>
+    PlaySound("EFF_M35A")
+    ActionOverride("gorfan",ReallyForceSpellPoint([2182.567],BEHOLDER_BLAST_VISUAL2))
+    SmallWait(2)
+    ActionOverride("gorfan",ReallyForceSpellPoint([1907.422],BEHOLDER_BLAST_VISUAL2))
+    SmallWait(1)
+    ActionOverride("gorfan",ReallyForceSpellPoint([1840.496],BEHOLDER_BLAST_VISUAL2))
+    SmallWait(2)
+    ActionOverride("gorfan",ReallyForceSpellPoint([2190.426],BEHOLDER_BLAST_VISUAL2))
+    SmallWait(1)
+    ActionOverride("gorfan",ReallyForceSpellPoint([1987.484],BEHOLDER_BLAST_VISUAL2))
+    CreateCreature("GORAIR02",[2182.567],0)  // ~Greater Air Elemental~
+    SmallWait(2)
+    CreateCreature("GORAIR02",[1907.422],0)  // ~Greater Air Elemental~
+    SmallWait(1)
+    CreateCreature("GORAIR01",[1840.496],0)  // ~Lesser Air Elemental~
+    SmallWait(2)
+    CreateCreature("GORAIR01",[2190.426],0)  // ~Lesser Air Elemental~
+    SmallWait(1)
+    CreateCreature("GORSTALK",[1987.484],0)  // ~Guardian of Air~
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("PoisonSpawn","AR3016",0)
+  Dead("gorstalk")  // ~Guardian of Air~
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("PoisonSpawn","AR3016",1)
+    CreateCreature("GORSNAKE",[3781.1504],2)  // ~Giant Snake~
+    CreateCreature("GORJELGR",[3512.1476],2)  // ~Green Slime~
+    CreateCreature("GORJELGR",[3421.1624],2)  // ~Green Slime~
+    CreateCreature("GORMISTP",[3533.1672],2)  // ~Poison Mist~
+    CreateCreature("GORMISTP",[3866.1643],2)  // ~Poison Mist~
+    CreateCreature("GORMISTP",[3424.1571],2)  // ~Poison Mist~
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("IceSpawn","AR3016",0)
+  Dead("gorstalk")  // ~Guardian of Air~
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("IceSpawn","AR3016",1)
+    CreateCreature("GORGOLI",[2063.2713],8)  // ~Ice Golem~
+    CreateCreature("GORMISTI",[1885.2760],8)  // ~Ice Mist~
+    CreateCreature("GORMISTI",[2017.2588],8)  // ~Ice Mist~
+    CreateCreature("GORMISTI",[2227.2776],8)  // ~Ice Mist~
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("KillIceGolem","AR3016",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SPRITE_IS_DEADgorfir01","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorfir02","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorfir03","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorfir04","GLOBAL",1)
+    SetGlobal("3016FireCreaturesAlive","GLOBAL",4)
+    CreateCreature("gorfirg",[249.1711],12)  // ~Fire Giant~
+    Wait(1)
+    SetGlobal("KillIceGolem","AR3016",2)
+    ApplyDamage("gorgoli",1,CRUSHING)
+END
+
+IF
+  Global("FireCreatureSpawn","AR3016",1)
+THEN
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[451.1581])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[483.1590])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[488.1625])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[489.1677])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[484.1721])
+    SmallWait(7)
+    CreateCreature("GORFIR01",[484.1721],14)  // ~Greater Fire Elemental~
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[458.1571])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[481.1552])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[512.1534])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[550.1542])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[572.1565])
+    SmallWait(7)
+    CreateCreature("GORFIR01",[572.1565],14)  // ~Greater Fire Elemental~
+END
+
+IF
+  Global("FireCreatureSpawn","AR3016",2)
+THEN
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[451.1581])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[483.1590])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[488.1625])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[489.1677])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[484.1721])
+    SmallWait(7)
+    CreateCreature("GORFIR02",[484.1721],14)  // ~Greater Fire Elemental~
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[458.1571])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[481.1552])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[512.1534])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[550.1542])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[572.1565])
+    SmallWait(7)
+    CreateCreature("GORFIR02",[572.1565],14)  // ~Greater Fire Elemental~
+END
+
+IF
+  Global("FireCreatureSpawn","AR3016",3)
+THEN
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[451.1581])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[483.1590])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[488.1625])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[489.1677])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[484.1721])
+    SmallWait(7)
+    CreateCreature("GORFIR03",[484.1721],14)  // ~Greater Fire Elemental~
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[458.1571])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[481.1552])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[512.1534])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[550.1542])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[572.1565])
+    SmallWait(7)
+    CreateCreature("GORFIR03",[572.1565],14)  // ~Greater Fire Elemental~
+END
+
+IF
+  Global("FireCreatureSpawn","AR3016",4)
+THEN
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[451.1581])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[483.1590])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[488.1625])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[489.1677])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[484.1721])
+    SmallWait(7)
+    CreateCreature("GORFIR04",[484.1721],14)  // ~Greater Fire Elemental~
+  RESPONSE #100
+    SetGlobal("FireCreatureSpawn","AR3016",0)
+    CreateVisualEffect("SPMETSW3",[458.1571])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[481.1552])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[512.1534])
+    SmallWait(1)
+    CreateVisualEffect("SPMETSW3",[550.1542])
+    SmallWait(1)
+    CreateVisualEffect("ICFIRSDI",[572.1565])
+    SmallWait(7)
+    CreateCreature("GORFIR04",[572.1565],14)  // ~Greater Fire Elemental~
+END
+
+IF
+  Global("GlobesOn","AR3016",1)
+  !GlobalTimerNotExpired("LightningGlobeTimer1","AR3016")
+THEN
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning1",FALSE)
+    SetGlobalTimer("LightningGlobeTimer1","AR3016",4)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning1",TRUE)
+    StaticSequence("AMB_Lightning1",0)
+    SetGlobalTimer("LightningGlobeTimer1","AR3016",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning1",TRUE)
+    StaticSequence("AMB_Lightning1",1)
+    SetGlobalTimer("LightningGlobeTimer1","AR3016",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning1",TRUE)
+    StaticSequence("AMB_Lightning1",2)
+    SetGlobalTimer("LightningGlobeTimer1","AR3016",1)
+    Continue()
+END
+
+IF
+  Global("GlobesOn","AR3016",1)
+  !GlobalTimerNotExpired("LightningGlobeTimer2","AR3016")
+THEN
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning2",FALSE)
+    SetGlobalTimer("LightningGlobeTimer2","AR3016",4)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning2",TRUE)
+    StaticSequence("AMB_Lightning2",0)
+    SetGlobalTimer("LightningGlobeTimer2","AR3016",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning2",TRUE)
+    StaticSequence("AMB_Lightning2",1)
+    SetGlobalTimer("LightningGlobeTimer2","AR3016",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning2",TRUE)
+    StaticSequence("AMB_Lightning2",2)
+    SetGlobalTimer("LightningGlobeTimer2","AR3016",1)
+    Continue()
+END
+
+IF
+  Global("GlobesOn","AR3016",1)
+  !GlobalTimerNotExpired("LightningGlobeTimer3","AR3016")
+THEN
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning3",FALSE)
+    SetGlobalTimer("LightningGlobeTimer3","AR3016",4)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning3",TRUE)
+    StaticSequence("AMB_Lightning3",0)
+    SetGlobalTimer("LightningGlobeTimer3","AR3016",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning3",TRUE)
+    StaticSequence("AMB_Lightning3",1)
+    SetGlobalTimer("LightningGlobeTimer3","AR3016",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Lightning3",TRUE)
+    StaticSequence("AMB_Lightning3",2)
+    SetGlobalTimer("LightningGlobeTimer3","AR3016",1)
+    Continue()
+END
+
+IF
+  Global("GlobesOn","AR3016",2)
+  Global("TurnOffLightning","AR3016",0)
+THEN
+  RESPONSE #100
+    AmbientActivate("AMB_Lightning1",FALSE)
+    AmbientActivate("AMB_Lightning2",FALSE)
+    AmbientActivate("AMB_Lightning3",FALSE)
+    SetGlobal("TurnOffLightning","AR3016",1)
+END
+

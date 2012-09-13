@@ -1,0 +1,22 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(18)
+  !Allegiance(Myself,ENEMY)
+  Global("Eltob_Dies","GLOBAL",1)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,27594)  // ~"Now I must recruit another student."~
+    StartTimer(18,5)
+  RESPONSE #50
+    FloatMessage(Myself,27595)  // ~"I want to see each of you bleed!  Don't hold back this time!"~
+    StartTimer(18,5)
+  RESPONSE #100
+    StartTimer(18,5)
+END
+

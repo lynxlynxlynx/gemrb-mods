@@ -1,0 +1,25 @@
+IF
+  AttackedBy([ANYTHING],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("SAY_LINE","LOCALS",0)
+  LOS([PC],25)
+THEN
+  RESPONSE #100
+    SetGlobal("SAY_LINE","LOCALS",1)
+    FloatMessage(Myself,16326)  // ~"COME OUT, STOOPID HOOMUN!"~
+    Wait(2)
+END
+
+IF
+  Global("SAY_LINE","LOCALS",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16325)  // ~"ME NO SQUISH YOU IF YOU COME OUT NOW."~
+    ChangeCurrentScript("")
+END
+

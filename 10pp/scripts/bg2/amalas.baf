@@ -1,0 +1,10 @@
+IF
+  Range(Player1,10)
+  NumberOfTimesTalkedTo(0)
+  See(Player1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+

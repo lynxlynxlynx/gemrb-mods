@@ -1,0 +1,60 @@
+IF
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    Wait(3)
+END
+
+IF
+  HaveSpell(WIZARD_FIREBALL)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FIREBALL)
+    Wait(3)
+END
+
+IF
+  HaveSpell(WIZARD_BLINDNESS)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_BLINDNESS)
+END
+
+IF
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    Wait(3)
+END
+
+IF
+  HaveSpell(WIZARD_MELFS_ACID_ARROW)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MELFS_ACID_ARROW)
+    Wait(3)
+END
+
+IF
+  HaveSpell(WIZARD_SHIELD)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SHIELD)
+    Wait(3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

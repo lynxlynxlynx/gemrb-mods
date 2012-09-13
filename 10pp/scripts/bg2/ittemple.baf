@@ -1,0 +1,36 @@
+IF
+  WalkedToTrigger([ANYONE])
+  CheckStat(LastTrigger,18,STR)
+  CheckStat(LastTrigger,100,STREXTRA)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  CheckStatGT(LastTrigger,18,STR)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !GlobalTimerNotExpired("Entrance5204Timer","AR5204")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Entrance5204Timer","AR5204",5)
+    DisplayString(Myself,70620)  // ~You are not strong enough to open the door.  Perhaps there is another way in.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("Entrance5204Timer","AR5204")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

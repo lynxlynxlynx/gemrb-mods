@@ -1,0 +1,45 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISC45")  // ~Rogue Stone~
+THEN
+  RESPONSE #100
+    SaveGame(0)
+    TakePartyItem("MISC45")
+    DisplayString(Myself,8639)  // ~You peer into the nothingness behind the door and the Rogue Stone in your backpack glows fiercely and disappears. You are pulled into the blackness.~
+    StartCutSceneMode()
+    CreateVisualEffectObject("SPDIMNDR",Player1)
+    Wait(4)
+    FadeToColor([20.0],0)
+    Wait(1)
+    PlaySound("PORTAL2")
+    Wait(2)
+    ActionOverride(Player1,LeaveAreaLUAPanic("AR1008","",[495.755],10))
+    ActionOverride(Player1,LeaveAreaLUA("AR1008","",[495.755],10))
+    ActionOverride(Player2,LeaveAreaLUA("AR1008","",[431.730],10))
+    ActionOverride(Player3,LeaveAreaLUA("AR1008","",[459.777],10))
+    ActionOverride(Player4,LeaveAreaLUA("AR1008","",[502.818],10))
+    ActionOverride(Player5,LeaveAreaLUA("AR1008","",[425.815],10))
+    ActionOverride(Player6,LeaveAreaLUA("AR1008","",[361.756],10))
+    MultiPlayerSync()
+    EndCutSceneMode()
+    FadeFromColor([20.0],0)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISC45")  // ~Rogue Stone~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,8636)  // ~You open the door and peer through but you see nothing. There is no room, no house just emptiness, darkness. It is a bizarre thing to behold. You do not know what would happen if you stepped through.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

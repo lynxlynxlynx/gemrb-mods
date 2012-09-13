@@ -1,0 +1,18 @@
+IF
+  See([PC])
+  !Dead("kpsold08")  // ~de'Arnise Guard~
+  See("kpsold08")  // ~de'Arnise Guard~
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  See([PC])
+  !Dead("kpsold09")  // ~de'Arnise Guard~
+  See("kpsold09")  // ~de'Arnise Guard~
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

@@ -1,0 +1,71 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_1,0)
+END
+
+IF
+  !Internal(Myself,INTERNAL_1,1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  StealFailed([PC])
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_1,2)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,1)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,66562)  // ~"Sorry, I don't trade with thieves."~
+    StartRandomTimer(1,20,40)
+  RESPONSE #100
+    FloatMessage(Myself,66561)  // ~"Conduct your business elsewhere, berk."~
+    StartRandomTimer(1,20,40)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(6)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9535)  // ~"Da finest goods in all a' Sigil!"~
+    WaitRandom(5,7)
+    Face(8)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9534)  // ~"Don't waste yer time wit dese udder cheats an' liars!"~
+    WaitRandom(5,7)
+    Face(6)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9533)  // ~"Fair bargains, square trades!"~
+    WaitRandom(5,7)
+    Face(4)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9532)  // ~"Items at prices ya won't believe!"~
+    WaitRandom(5,7)
+END
+

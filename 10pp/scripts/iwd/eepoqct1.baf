@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    SetGlobal("END_PORTAL","GLOBAL",1)
+    MoveViewPoint([603.414],VERY_FAST)
+    Wait(1)
+    Face(N)
+    Wait(2)
+    ForceSpellPoint([603.414],INNATE_POQUELINS_PORTAL_OPENING)
+    Wait(1)
+    StartCutScene("EECRNENT")
+    Wait(1)
+    Activate("GATEWAY")
+    Wait(3)
+    FaceObject([PC])
+    Wait(2)
+    Dialogue([PC])
+END
+

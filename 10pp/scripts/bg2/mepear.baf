@@ -1,0 +1,18 @@
+IF
+  See(NearestEnemyOf(Myself))
+  GlobalLT("EARTHMEPHIT","LOCALS",3)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_SPIT_ROCK)
+    IncrementGlobal("EARTHMEPHIT","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

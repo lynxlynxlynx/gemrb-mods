@@ -1,0 +1,46 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  Global("PlayerAttackedActors","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayerAttackedActors","GLOBAL",1)
+    MoraleInc(Myself,-5)
+    Enemy()
+END
+
+IF
+  Global("PlayerAttackedActors","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    MoraleInc(Myself,-5)
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoraleInc(Myself,-1)
+    RunAwayFrom(LastSeenBy(Myself),150)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFrom([GOODCUTOFF],150)
+END
+
+IF
+  !See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_PANIC)
+  Global("PlayerAttackedActors","GLOBAL",1)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

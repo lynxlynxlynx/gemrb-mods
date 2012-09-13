@@ -1,0 +1,16 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+END
+
+IF
+  See(Player1)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player1,15)
+END
+

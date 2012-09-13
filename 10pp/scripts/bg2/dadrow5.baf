@@ -1,0 +1,76 @@
+IF
+  Detect([PC])
+  Global("ambientDrow2","AR2200",0)
+  !Allegiance(Myself,ENEMY)
+  !Dead("daduer2")  // ~Duergar~
+THEN
+  RESPONSE #100
+    SetGlobal("udAmbient1Start","AR2200",1)
+    DisplayStringHead(Myself,56788)  // ~That's valuable merchandise, you fool! Be careful!~
+    Wait(2)
+    DisplayStringHead("daduer2",56791)  // ~Please, master! I haven't eaten in a week...~
+    Wait(2)
+    DisplayStringHead(Myself,56792)  // ~No more of your idiocy! You've outlived any usefulness.~
+    Wait(2)
+    AttackOneRound("daduer2")
+    Kill("daduer2")
+    CreateCreature("dadrow4",[1041.3630],8)  // ~Drow Priestess~
+    ActionOverride("dadrow4",MoveToPoint([1123.3338]))
+    SetGlobal("ambientDrow2","AR2200",1)
+END
+
+IF
+  Global("udAmbient1Start","AR2200",1)
+  !Allegiance(Myself,ENEMY)
+  !Detect([PC])
+THEN
+  RESPONSE #100
+    ActionOverride("daduer2",Kill(Myself))
+    ActionOverride("dadrow4",EscapeArea())
+    EscapeArea()
+END
+
+IF
+  Global("ambientDrow2","AR2200",1)
+  !Allegiance(Myself,ENEMY)
+  Detect("dadrow4")  // ~Drow Priestess~
+  Range(LastSeenBy(Myself),9)
+THEN
+  RESPONSE #100
+    DisplayStringHead("dadrow4",56793)  // ~What is going on here, Leathel?~
+    SetGlobal("ambientDrow2","AR2200",2)
+END
+
+IF
+  Global("ambientDrow2","AR2200",2)
+  !Allegiance(Myself,ENEMY)
+  Detect("dadrow4")  // ~Drow Priestess~
+  Range(LastSeenBy(Myself),9)
+THEN
+  RESPONSE #100
+    Wait(2)
+    DisplayStringHead(Myself,56801)  // ~The slave never listens and I tire of it. ~
+    Wait(2)
+    DisplayStringHead("dadrow4",56804)  // ~The slave is not your property. He is mine.~
+    Wait(2)
+    DisplayStringHead(Myself,56806)  // ~I'm sorry, my mistress. The slave got out of hand and was punished.~
+    Wait(2)
+    DisplayStringHead("dadrow4",56808)  // ~Understand this, fool. You are easier to replace than a trained slave.~
+    Wait(2)
+    DisplayStringHead(Myself,56814)  // ~But -- mistress, please! No...~
+    Wait(2)
+    DisplayStringHead("dadrow4",56815)  // ~I have other sons.~
+    Wait(2)
+    ActionOverride("dadrow4",ForceSpell("dadrow5",FLASHY_DEATH_YEAH))
+    SetGlobal("ambientDrow2","AR2200",4)
+END
+
+IF
+  !Dead("yself)")  // yself)
+  !Dead("dadrow4")  // ~Drow Priestess~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ActionOverride("dadrow4",MoveToPoint([1123.3338]))
+END
+

@@ -1,0 +1,15 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+

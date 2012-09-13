@@ -1,0 +1,18 @@
+IF
+  Delay(42)
+  See(Player1)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,20820)  // ~I have an offer for you if you wish to hear it.~
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("Attacked","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    DisplayStringHead(Myself,2313)  // ~Bah, you are no more than common thugs, beneath my notice. I will observe from afar.~
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+

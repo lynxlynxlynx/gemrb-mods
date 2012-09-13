@@ -1,0 +1,17 @@
+IF
+  See("CLONE1")  // ~Escaped Clone~
+  !Dead("clone1")  // ~Escaped Clone~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),10)
+END
+
+IF
+  Dead("clone1")  // ~Escaped Clone~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

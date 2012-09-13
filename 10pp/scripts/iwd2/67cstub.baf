@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Stubnok")  // 
+    FadeToColor([0.0],0)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+    DestroySelf()
+END
+

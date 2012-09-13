@@ -1,0 +1,7 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    StartCutScene("50cRok3A")
+END
+

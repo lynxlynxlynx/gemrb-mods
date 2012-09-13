@@ -1,0 +1,9 @@
+IF
+  Global("TEAM_12","MYAREA",1)
+  Exists(NearestPC)
+  !See(NearestPC,0)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+END
+

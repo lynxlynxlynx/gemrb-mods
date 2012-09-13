@@ -1,0 +1,61 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("DruidPool","AR1901",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,8460)  // ~This is the Holy Font of the Druid Grove. Its waters are said the hold a magic that keeps the Grove and its Spirit alive and healthy. If something should happen to the waters, the Grove and the druids would suffer.~
+    SetGlobal("DruidPool","AR1901",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISCA2")  // ~Sulphurous Poison~
+  Global("GrovePoisoned","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GrovePoisoned","GLOBAL",1)
+    TakePartyItem("MISCA2")
+    AddexperienceParty(24750)
+    DisplayString(Myself,8463)  // ~As Lord Khellon has suggested, you empty the sulphurous poison into the pool. The change happens within seconds and a putrid, unhealthy odor arises from the once pure waters.~
+    CreateVisualEffect("SHACID2",[1031.363])
+    CreateVisualEffect("SHACID2",[1141.371])
+    CreateVisualEffect("SHACID2",[1085.320])
+    SmallWait(8)
+    CreateVisualEffect("SHACID2",[1082.359])
+    CreateVisualEffect("SHACID2",[1147.311])
+    SmallWait(8)
+    CreateVisualEffect("SHACID2",[1098.277])
+    CreateVisualEffect("SHACID2",[1031.310])
+    CreateVisualEffect("SHACID2",[1141.371])
+    CreateVisualEffect("SHACID2",[1085.320])
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISCA2")  // ~Sulphurous Poison~
+  Global("GrovePoisoned","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,8461)  // ~Should you wish to do so, you could poison the Grove in an attempt to weaken Faldorn. You would need an appropriate poison.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("GrovePoisoned","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,8465)  // ~There is no further damage that you can do to the pool that would be greater than that which you have already wrought. The Grove is dying.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([PC])  // 
+    Wait(2)
+    PlaySound("RNG_M03")
+    StartCutScene("LWFCEDOR")
+END
+

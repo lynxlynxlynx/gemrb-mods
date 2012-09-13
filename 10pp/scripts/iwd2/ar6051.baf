@@ -1,0 +1,778 @@
+IF
+  Global("Kill_ar6051","GLOBAL",1)
+THEN
+  RESPONSE #100
+    NoAction()
+    Wait(30)
+END
+
+IF
+  !Global("Player1_Wearing_Robes","GLOBAL",1)
+  Or(2)
+    !Exists(Player1)
+    Dead(Player1)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Player1_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player1)
+  !Dead(Player1)  // 
+  !Global("Player1_Wearing_Robes","GLOBAL",1)
+  Or(12)
+    IsAnimationID(Player1,CLERIC_MALE_HUMAN)
+    IsAnimationID(Player1,CLERIC_MALE_ELF)
+    IsAnimationID(Player1,CLERIC_MALE_DWARF)
+    IsAnimationID(Player1,CLERIC_MALE_HALFLING)
+    IsAnimationID(Player1,CLERIC_MALE_GNOME)
+    IsAnimationID(Player1,CLERIC_MALE_HALFORC)
+    IsAnimationID(Player1,CLERIC_FEMALE_HUMAN)
+    IsAnimationID(Player1,CLERIC_FEMALE_ELF)
+    IsAnimationID(Player1,CLERIC_FEMALE_DWARF)
+    IsAnimationID(Player1,CLERIC_FEMALE_HALFLING)
+    IsAnimationID(Player1,CLERIC_FEMALE_GNOME)
+    IsAnimationID(Player1,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player1_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player1)
+  !Dead(Player1)  // 
+  Global("Player1_Wearing_Robes","GLOBAL",1)
+  !IsAnimationID(Player1,CLERIC_MALE_HUMAN)
+  !IsAnimationID(Player1,CLERIC_MALE_ELF)
+  !IsAnimationID(Player1,CLERIC_MALE_DWARF)
+  !IsAnimationID(Player1,CLERIC_MALE_HALFLING)
+  !IsAnimationID(Player1,CLERIC_MALE_GNOME)
+  !IsAnimationID(Player1,CLERIC_MALE_HALFORC)
+  !IsAnimationID(Player1,CLERIC_FEMALE_HUMAN)
+  !IsAnimationID(Player1,CLERIC_FEMALE_ELF)
+  !IsAnimationID(Player1,CLERIC_FEMALE_DWARF)
+  !IsAnimationID(Player1,CLERIC_FEMALE_HALFLING)
+  !IsAnimationID(Player1,CLERIC_FEMALE_GNOME)
+  !IsAnimationID(Player1,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player1_Wearing_Robes","GLOBAL",0)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  !Global("Player2_Wearing_Robes","GLOBAL",1)
+  Or(2)
+    !Exists(Player2)
+    Dead(Player2)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Player2_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player2)
+  !Dead(Player2)  // 
+  !Global("Player2_Wearing_Robes","GLOBAL",1)
+  Or(12)
+    IsAnimationID(Player2,CLERIC_MALE_HUMAN)
+    IsAnimationID(Player2,CLERIC_MALE_ELF)
+    IsAnimationID(Player2,CLERIC_MALE_DWARF)
+    IsAnimationID(Player2,CLERIC_MALE_HALFLING)
+    IsAnimationID(Player2,CLERIC_MALE_GNOME)
+    IsAnimationID(Player2,CLERIC_MALE_HALFORC)
+    IsAnimationID(Player2,CLERIC_FEMALE_HUMAN)
+    IsAnimationID(Player2,CLERIC_FEMALE_ELF)
+    IsAnimationID(Player2,CLERIC_FEMALE_DWARF)
+    IsAnimationID(Player2,CLERIC_FEMALE_HALFLING)
+    IsAnimationID(Player2,CLERIC_FEMALE_GNOME)
+    IsAnimationID(Player2,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player2_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player2)
+  !Dead(Player2)  // 
+  Global("Player2_Wearing_Robes","GLOBAL",1)
+  !IsAnimationID(Player2,CLERIC_MALE_HUMAN)
+  !IsAnimationID(Player2,CLERIC_MALE_ELF)
+  !IsAnimationID(Player2,CLERIC_MALE_DWARF)
+  !IsAnimationID(Player2,CLERIC_MALE_HALFLING)
+  !IsAnimationID(Player2,CLERIC_MALE_GNOME)
+  !IsAnimationID(Player2,CLERIC_MALE_HALFORC)
+  !IsAnimationID(Player2,CLERIC_FEMALE_HUMAN)
+  !IsAnimationID(Player2,CLERIC_FEMALE_ELF)
+  !IsAnimationID(Player2,CLERIC_FEMALE_DWARF)
+  !IsAnimationID(Player2,CLERIC_FEMALE_HALFLING)
+  !IsAnimationID(Player2,CLERIC_FEMALE_GNOME)
+  !IsAnimationID(Player2,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player2_Wearing_Robes","GLOBAL",0)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  !Global("Player3_Wearing_Robes","GLOBAL",1)
+  Or(2)
+    !Exists(Player3)
+    Dead(Player3)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Player3_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player3)
+  !Dead(Player3)  // 
+  !Global("Player3_Wearing_Robes","GLOBAL",1)
+  Or(12)
+    IsAnimationID(Player3,CLERIC_MALE_HUMAN)
+    IsAnimationID(Player3,CLERIC_MALE_ELF)
+    IsAnimationID(Player3,CLERIC_MALE_DWARF)
+    IsAnimationID(Player3,CLERIC_MALE_HALFLING)
+    IsAnimationID(Player3,CLERIC_MALE_GNOME)
+    IsAnimationID(Player3,CLERIC_MALE_HALFORC)
+    IsAnimationID(Player3,CLERIC_FEMALE_HUMAN)
+    IsAnimationID(Player3,CLERIC_FEMALE_ELF)
+    IsAnimationID(Player3,CLERIC_FEMALE_DWARF)
+    IsAnimationID(Player3,CLERIC_FEMALE_HALFLING)
+    IsAnimationID(Player3,CLERIC_FEMALE_GNOME)
+    IsAnimationID(Player3,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player3_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player3)
+  !Dead(Player3)  // 
+  Global("Player3_Wearing_Robes","GLOBAL",1)
+  !IsAnimationID(Player3,CLERIC_MALE_HUMAN)
+  !IsAnimationID(Player3,CLERIC_MALE_ELF)
+  !IsAnimationID(Player3,CLERIC_MALE_DWARF)
+  !IsAnimationID(Player3,CLERIC_MALE_HALFLING)
+  !IsAnimationID(Player3,CLERIC_MALE_GNOME)
+  !IsAnimationID(Player3,CLERIC_MALE_HALFORC)
+  !IsAnimationID(Player3,CLERIC_FEMALE_HUMAN)
+  !IsAnimationID(Player3,CLERIC_FEMALE_ELF)
+  !IsAnimationID(Player3,CLERIC_FEMALE_DWARF)
+  !IsAnimationID(Player3,CLERIC_FEMALE_HALFLING)
+  !IsAnimationID(Player3,CLERIC_FEMALE_GNOME)
+  !IsAnimationID(Player3,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player3_Wearing_Robes","GLOBAL",0)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  !Global("Player4_Wearing_Robes","GLOBAL",1)
+  Or(2)
+    !Exists(Player4)
+    Dead(Player4)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Player4_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player4)
+  !Dead(Player4)  // 
+  !Global("Player4_Wearing_Robes","GLOBAL",1)
+  Or(12)
+    IsAnimationID(Player4,CLERIC_MALE_HUMAN)
+    IsAnimationID(Player4,CLERIC_MALE_ELF)
+    IsAnimationID(Player4,CLERIC_MALE_DWARF)
+    IsAnimationID(Player4,CLERIC_MALE_HALFLING)
+    IsAnimationID(Player4,CLERIC_MALE_GNOME)
+    IsAnimationID(Player4,CLERIC_MALE_HALFORC)
+    IsAnimationID(Player4,CLERIC_FEMALE_HUMAN)
+    IsAnimationID(Player4,CLERIC_FEMALE_ELF)
+    IsAnimationID(Player4,CLERIC_FEMALE_DWARF)
+    IsAnimationID(Player4,CLERIC_FEMALE_HALFLING)
+    IsAnimationID(Player4,CLERIC_FEMALE_GNOME)
+    IsAnimationID(Player4,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player4_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player4)
+  !Dead(Player4)  // 
+  Global("Player4_Wearing_Robes","GLOBAL",1)
+  !IsAnimationID(Player4,CLERIC_MALE_HUMAN)
+  !IsAnimationID(Player4,CLERIC_MALE_ELF)
+  !IsAnimationID(Player4,CLERIC_MALE_DWARF)
+  !IsAnimationID(Player4,CLERIC_MALE_HALFLING)
+  !IsAnimationID(Player4,CLERIC_MALE_GNOME)
+  !IsAnimationID(Player4,CLERIC_MALE_HALFORC)
+  !IsAnimationID(Player4,CLERIC_FEMALE_HUMAN)
+  !IsAnimationID(Player4,CLERIC_FEMALE_ELF)
+  !IsAnimationID(Player4,CLERIC_FEMALE_DWARF)
+  !IsAnimationID(Player4,CLERIC_FEMALE_HALFLING)
+  !IsAnimationID(Player4,CLERIC_FEMALE_GNOME)
+  !IsAnimationID(Player4,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player4_Wearing_Robes","GLOBAL",0)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  !Global("Player5_Wearing_Robes","GLOBAL",1)
+  Or(2)
+    !Exists(Player5)
+    Dead(Player5)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Player5_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player5)
+  !Dead(Player5)  // 
+  !Global("Player5_Wearing_Robes","GLOBAL",1)
+  Or(12)
+    IsAnimationID(Player5,CLERIC_MALE_HUMAN)
+    IsAnimationID(Player5,CLERIC_MALE_ELF)
+    IsAnimationID(Player5,CLERIC_MALE_DWARF)
+    IsAnimationID(Player5,CLERIC_MALE_HALFLING)
+    IsAnimationID(Player5,CLERIC_MALE_GNOME)
+    IsAnimationID(Player5,CLERIC_MALE_HALFORC)
+    IsAnimationID(Player5,CLERIC_FEMALE_HUMAN)
+    IsAnimationID(Player5,CLERIC_FEMALE_ELF)
+    IsAnimationID(Player5,CLERIC_FEMALE_DWARF)
+    IsAnimationID(Player5,CLERIC_FEMALE_HALFLING)
+    IsAnimationID(Player5,CLERIC_FEMALE_GNOME)
+    IsAnimationID(Player5,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player5_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player5)
+  !Dead(Player5)  // 
+  Global("Player5_Wearing_Robes","GLOBAL",1)
+  !IsAnimationID(Player5,CLERIC_MALE_HUMAN)
+  !IsAnimationID(Player5,CLERIC_MALE_ELF)
+  !IsAnimationID(Player5,CLERIC_MALE_DWARF)
+  !IsAnimationID(Player5,CLERIC_MALE_HALFLING)
+  !IsAnimationID(Player5,CLERIC_MALE_GNOME)
+  !IsAnimationID(Player5,CLERIC_MALE_HALFORC)
+  !IsAnimationID(Player5,CLERIC_FEMALE_HUMAN)
+  !IsAnimationID(Player5,CLERIC_FEMALE_ELF)
+  !IsAnimationID(Player5,CLERIC_FEMALE_DWARF)
+  !IsAnimationID(Player5,CLERIC_FEMALE_HALFLING)
+  !IsAnimationID(Player5,CLERIC_FEMALE_GNOME)
+  !IsAnimationID(Player5,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player5_Wearing_Robes","GLOBAL",0)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  !Global("Player6_Wearing_Robes","GLOBAL",1)
+  Or(2)
+    !Exists(Player6)
+    Dead(Player6)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Player6_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player6)
+  !Dead(Player6)  // 
+  !Global("Player6_Wearing_Robes","GLOBAL",1)
+  Or(12)
+    IsAnimationID(Player6,CLERIC_MALE_HUMAN)
+    IsAnimationID(Player6,CLERIC_MALE_ELF)
+    IsAnimationID(Player6,CLERIC_MALE_DWARF)
+    IsAnimationID(Player6,CLERIC_MALE_HALFLING)
+    IsAnimationID(Player6,CLERIC_MALE_GNOME)
+    IsAnimationID(Player6,CLERIC_MALE_HALFORC)
+    IsAnimationID(Player6,CLERIC_FEMALE_HUMAN)
+    IsAnimationID(Player6,CLERIC_FEMALE_ELF)
+    IsAnimationID(Player6,CLERIC_FEMALE_DWARF)
+    IsAnimationID(Player6,CLERIC_FEMALE_HALFLING)
+    IsAnimationID(Player6,CLERIC_FEMALE_GNOME)
+    IsAnimationID(Player6,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player6_Wearing_Robes","GLOBAL",1)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists(Player6)
+  !Dead(Player6)  // 
+  Global("Player6_Wearing_Robes","GLOBAL",1)
+  !IsAnimationID(Player6,CLERIC_MALE_HUMAN)
+  !IsAnimationID(Player6,CLERIC_MALE_ELF)
+  !IsAnimationID(Player6,CLERIC_MALE_DWARF)
+  !IsAnimationID(Player6,CLERIC_MALE_HALFLING)
+  !IsAnimationID(Player6,CLERIC_MALE_GNOME)
+  !IsAnimationID(Player6,CLERIC_MALE_HALFORC)
+  !IsAnimationID(Player6,CLERIC_FEMALE_HUMAN)
+  !IsAnimationID(Player6,CLERIC_FEMALE_ELF)
+  !IsAnimationID(Player6,CLERIC_FEMALE_DWARF)
+  !IsAnimationID(Player6,CLERIC_FEMALE_HALFLING)
+  !IsAnimationID(Player6,CLERIC_FEMALE_GNOME)
+  !IsAnimationID(Player6,CLERIC_FEMALE_HALFORC)
+THEN
+  RESPONSE #100
+    SetGlobal("Player6_Wearing_Robes","GLOBAL",0)
+    IncrementGlobal("6051_Wearing_Robes","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  OpenState("AR6051_Pitroom",FALSE)  // AR6051_Pitroom
+THEN
+  RESPONSE #100
+    SetDoorFlag("Stele_Pit_Up",0,TRUE)
+    SetDoorFlag("Stele_Pit_Down",0,FALSE)
+    Continue()
+END
+
+IF
+  OpenState("AR6051_Pitroom",TRUE)  // AR6051_Pitroom
+THEN
+  RESPONSE #100
+    SetDoorFlag("Stele_Pit_Up",0,FALSE)
+    SetDoorFlag("Stele_Pit_Down",0,TRUE)
+    Continue()
+END
+
+IF
+  Global("Unhide_Everyone_Once","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Unhide_Everyone_Once","MYAREA",1)
+    AllowAreaResting(FALSE)
+    HideCreature("Ojaiha",FALSE)
+    HideCreature("Ashra",FALSE)
+    HideCreature("Inhatri",FALSE)
+    HideCreature("Ritual_Initiate_01",FALSE)
+    HideCreature("Ritual_Initiate_02",FALSE)
+    HideCreature("Ritual_Initiate_03",FALSE)
+    HideCreature("Ritual_Initiate_04",FALSE)
+    HideCreature("Ritual_Pureblood_Fighter_01",FALSE)
+    HideCreature("Ritual_Pureblood_Fighter_02",FALSE)
+    HideCreature("Ritual_Pureblood_Sorcerer_01",FALSE)
+    HideCreature("Ritual_Pureblood_Sorcerer_02",FALSE)
+    HideCreature("Ritual_Yuan-Ti_05",FALSE)
+    HideCreature("Ritual_Yuan-Ti_06",FALSE)
+    HideCreature("Ritual_Yuan-Ti_07",FALSE)
+    HideCreature("Ritual_Yuan-Ti_08",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Elite_01",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Elite_02",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Elite_03",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Elite_04",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Archer_01",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Archer_02",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Priest_02",FALSE)
+    HideCreature("Ritual_Yuan-Ti_Priest_03",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_01",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_02",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_03",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_04",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_05",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_06",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_07",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_08",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_09",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_10",FALSE)
+    HideCreature("Viper_Fang1",FALSE)
+    HideCreature("Viper_Fang2",FALSE)
+    HideCreature("Viper_Fang3",FALSE)
+    HideCreature("Viper_Fang4",FALSE)
+    HideCreature("Viper_Fang5",FALSE)
+    HideCreature("Viper_Fang6",FALSE)
+    HideCreature("Viper_Fang7",FALSE)
+    HideCreature("Viper_Fang8",FALSE)
+    HideCreature("Viper_Fang9",FALSE)
+    HideCreature("Heartless_Dead1",FALSE)
+    HideCreature("Heartless_Dead2",FALSE)
+    HideCreature("Heartless_Dead3",FALSE)
+    HideCreature("Heartless_Dead4",FALSE)
+    HideCreature("Heartless_Dead5",FALSE)
+    HideCreature("Heartless_Dead6",FALSE)
+    HideCreature("Heartless_Dead7",FALSE)
+    HideCreature("Heartless_Dead8",FALSE)
+    HideCreature("Yuan-Ti1",FALSE)
+    HideCreature("Yuan-Ti2",FALSE)
+    HideCreature("Yuan-Ti3",FALSE)
+    HideCreature("Yuan-Ti4",FALSE)
+    HideCreature("Yuan-Ti5",FALSE)
+    HideCreature("Yuan-Ti6",FALSE)
+    HideCreature("Yuan-Ti7",FALSE)
+    HideCreature("Pureblood_Fighter1",FALSE)
+    HideCreature("Pureblood_Fighter2",FALSE)
+    HideCreature("Initiate1",FALSE)
+    HideCreature("Initiate2",FALSE)
+    HideCreature("Yuan-Ti_Priest1",FALSE)
+    HideCreature("Yuan-Ti_Priest2",FALSE)
+    HideCreature("Yuan-Ti_Priest3",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_01",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_02",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_03",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_04",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_05",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_06",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_07",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_08",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_09",FALSE)
+    HideCreature("Yuan_Ti_Archer_Guard_10",FALSE)
+    HideCreature("Histachii1",FALSE)
+    HideCreature("Histachii2",FALSE)
+    HideCreature("Histachii3",FALSE)
+    HideCreature("Histachii4",FALSE)
+    HideCreature("Histachii5",FALSE)
+    HideCreature("Histachii6",FALSE)
+    HideCreature("Coiled_Cabal1",FALSE)
+    HideCreature("Coiled_Cabal2",FALSE)
+    HideCreature("Coiled_Cabal3",FALSE)
+    HideCreature("Coiled_Cabal4",FALSE)
+    HideCreature("Coiled_Cabal5",FALSE)
+    HideCreature("Coiled_Cabal6",FALSE)
+    HideCreature("Coiled_Cabal7",FALSE)
+    Continue()
+END
+
+IF
+  GlobalLT("AR6051_Neutralize","GLOBAL",4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("AR6051_Neutralize","GLOBAL",1)
+    SetGlobal("TEAM_1","MYAREA",0)
+    SetGlobal("TEAM_2","MYAREA",0)
+    SetGlobal("TEAM_3","MYAREA",0)
+    SetGlobal("TEAM_4","MYAREA",0)
+    SetGlobal("TEAM_5","MYAREA",0)
+    SetGlobal("TEAM_6","MYAREA",0)
+    SetGlobal("TEAM_7","MYAREA",0)
+    SetGlobal("TEAM_8","MYAREA",0)
+    SetGlobal("TEAM_9","MYAREA",0)
+    SetGlobal("TEAM_10","MYAREA",0)
+    SetGlobal("TEAM_11","MYAREA",0)
+    SetGlobal("TEAM_12","MYAREA",0)
+    SetGlobal("TEAM_13","MYAREA",0)
+    SetGlobal("TEAM_14","MYAREA",0)
+    SetGlobal("TEAM_15","MYAREA",0)
+    SetGlobal("TEAM_16","MYAREA",0)
+    SetGlobal("TEAM_17","MYAREA",0)
+    SetGlobal("TEAM_18","MYAREA",0)
+    SetGlobal("TEAM_19","MYAREA",0)
+    ChangeEnemyAlly("Ojaiha",NEUTRAL)
+    ChangeEnemyAlly("Ashra",NEUTRAL)
+    ChangeEnemyAlly("Inhatri",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Initiate_01",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Initiate_02",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Initiate_03",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Initiate_04",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Pureblood_Fighter_01",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Pureblood_Fighter_02",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Pureblood_Sorcerer_01",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Pureblood_Sorcerer_02",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_05",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_06",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_07",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_08",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Elite_01",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Elite_02",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Elite_03",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Elite_04",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Archer_01",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Archer_02",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Priest_02",NEUTRAL)
+    ChangeEnemyAlly("Ritual_Yuan-Ti_Priest_03",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_01",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_02",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_03",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_04",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_05",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_06",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_07",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_08",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_09",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_10",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang1",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang2",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang3",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang4",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang5",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang6",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang7",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang8",NEUTRAL)
+    ChangeEnemyAlly("Viper_Fang9",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead1",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead2",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead3",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead4",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead5",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead6",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead7",NEUTRAL)
+    ChangeEnemyAlly("Heartless_Dead8",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti1",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti2",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti3",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti4",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti5",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti6",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti7",NEUTRAL)
+    ChangeEnemyAlly("Pureblood_Fighter1",NEUTRAL)
+    ChangeEnemyAlly("Pureblood_Fighter2",NEUTRAL)
+    ChangeEnemyAlly("Initiate1",NEUTRAL)
+    ChangeEnemyAlly("Initiate2",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti_Priest1",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti_Priest2",NEUTRAL)
+    ChangeEnemyAlly("Yuan-Ti_Priest3",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_01",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_02",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_03",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_04",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_05",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_06",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_07",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_08",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_09",NEUTRAL)
+    ChangeEnemyAlly("Yuan_Ti_Archer_Guard_10",NEUTRAL)
+    ChangeEnemyAlly("Histachii1",NEUTRAL)
+    ChangeEnemyAlly("Histachii2",NEUTRAL)
+    ChangeEnemyAlly("Histachii3",NEUTRAL)
+    ChangeEnemyAlly("Histachii4",NEUTRAL)
+    ChangeEnemyAlly("Histachii5",NEUTRAL)
+    ChangeEnemyAlly("Histachii6",NEUTRAL)
+    ChangeEnemyAlly("Coiled_Cabal1",NEUTRAL)
+    ChangeEnemyAlly("Coiled_Cabal2",NEUTRAL)
+    ChangeEnemyAlly("Coiled_Cabal3",NEUTRAL)
+    ChangeEnemyAlly("Coiled_Cabal4",NEUTRAL)
+    ChangeEnemyAlly("Coiled_Cabal5",NEUTRAL)
+    ChangeEnemyAlly("Coiled_Cabal6",NEUTRAL)
+    ChangeEnemyAlly("Coiled_Cabal7",NEUTRAL)
+END
+
+IF
+  Global("Initial_Pos_Offset","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Initial_Pos_Offset","MYAREA",1)
+    ActionOverride("Heartless_Dead2",JumpToPoint([3440.2322]))
+    ActionOverride("Heartless_Dead3",JumpToPoint([3440.2282]))
+    ActionOverride("Heartless_Dead4",JumpToPoint([3500.2305]))
+    ActionOverride("Heartless_Dead5",JumpToPoint([3440.2392]))
+    ActionOverride("Heartless_Dead6",JumpToPoint([3500.2372]))
+    ActionOverride("Heartless_Dead7",JumpToPoint([3560.2362]))
+    ActionOverride("Heartless_Dead8",JumpToPoint([3540.2312]))
+    ActionOverride("Heartless_Dead1",JumpToPoint([3390.2362]))
+END
+
+IF
+  Global("Opened_TreasuryDoors","MYAREA",0)
+  OpenState("AR6051_Brick1",TRUE)  // AR6051_Brick1
+  OpenState("AR6051_Brick2",TRUE)  // AR6051_Brick2
+  OpenState("AR6051_Brick3",TRUE)  // AR6051_Brick3
+  OpenState("AR6051_Brick4",TRUE)  // AR6051_Brick4
+  OpenState("AR6051_Brick5",TRUE)  // AR6051_Brick5
+  OpenState("AR6051_Brick6",TRUE)  // AR6051_Brick6
+  OpenState("AR6051_Brick7",TRUE)  // AR6051_Brick7
+  OpenState("AR6051_Brick8",TRUE)  // AR6051_Brick8
+  OpenState("AR6051_Brick9",TRUE)  // AR6051_Brick9
+  OpenState("AR6051_Brick10",TRUE)  // AR6051_Brick10
+THEN
+  RESPONSE #100
+    SetGlobal("Opened_TreasuryDoors","MYAREA",1)
+    SetGlobal("60Treasury_Doors_Opened","GLOBAL",1)
+    SetGlobal("TEAM_16","MYAREA",1)
+    SetGlobalTimer("BrickTimer","MYAREA",1)
+    SetGlobal("Brick11","MYAREA",1)
+    Unlock("AR6051_Brick11")
+    OpenDoor("AR6051_Brick11")
+    Lock("AR6051_Brick11")
+    PlaySoundPoint("AM6051d",[3614.1690])
+    Unlock("AR6051_Door21")
+    OpenDoor("AR6051_Door21")
+    Lock("AR6051_Door21")
+    PlaySoundPoint("AMB_D04A",[3423.1542])
+    SetDoorFlag("AR6051_Brick1",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick2",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick3",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick4",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick5",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick6",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick7",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick8",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick9",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick10",HIDDEN,TRUE)
+    SetDoorFlag("AR6051_Brick11",HIDDEN,TRUE)
+    MultiPlayerSync()
+END
+
+IF
+  Global("Opened_TreasuryDoors","MYAREA",1)
+  OpenState("AR6051_Door21",FALSE)  // AR6051_Door21
+THEN
+  RESPONSE #100
+    SetGlobal("Opened_TreasuryDoors","MYAREA",1)
+    Unlock("AR6051_Door21")
+    OpenDoor("AR6051_Door21")
+    Lock("AR6051_Door21")
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  Global("6051_YuanTi_Dead","GLOBAL",0)
+  Dead("Ojaiha")  // 
+  Dead("Ashra")  // 
+  Dead("Inhatri")  // 
+  Dead("Jezrael")  // 
+  NumCreatureLT([0.0.YUANTI][0.0.10000.10000],6)
+THEN
+  RESPONSE #100
+    AllowAreaResting(TRUE)
+    SetGlobal("6051_YuanTi_Dead","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chult_AwardYuanTiKillXP","GLOBAL",0)
+  Global("6050_YuanTi_Dead","GLOBAL",1)
+  Global("6051_YuanTi_Dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Chult_AwardYuanTiKillXP","GLOBAL",1)
+    AddXPVar("LEVEL_12_AVERAGE",33397)  // ~You have broken the strength of the yuan-ti in Chult and saved Kuldahar.~
+    AddJournalEntry(24016)
+    Continue()
+END
+
+IF
+  Global("Kuldahar_Start_Cutscene","GLOBAL",0)
+  Global("6050_YuanTi_Dead","GLOBAL",1)
+  Global("6051_YuanTi_Dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_Start_Cutscene","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chult_AwardYuanTiKillXP","GLOBAL",1)
+  !GlobalGT("Crossroads_Quest","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Crossroads_Quest","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("Chult_PortalClosing","GLOBAL",1)
+  Global("Cutscene_SummonGuardian","GLOBAL",1)
+  Dead("The_Guardian")  // 
+THEN
+  RESPONSE #100
+    TriggerActivation("To6001",TRUE)
+    SaveGame(39588)  // ~Guardian Slain, Portal Collapsing~
+    Wait(2)
+    AllowAreaResting(FALSE)
+    IncrementGlobal("Chult_PortalClosing","GLOBAL",1)
+    ScreenShake(15,5,5)
+    SetGlobalTimer("TimerPortalClose","GLOBAL",30)
+    Continue()
+END
+
+IF
+  Global("Chult_PortalClosing","GLOBAL",2)
+  GlobalTimerExpired("TimerPortalClose","GLOBAL")
+THEN
+  RESPONSE #100
+    IncrementGlobal("Chult_PortalClosing","GLOBAL",1)
+    ScreenShake(30,10,10)
+    SetGlobalTimer("TimerPortalClose","GLOBAL",20)
+    Continue()
+END
+
+IF
+  Global("Chult_PortalClosing","GLOBAL",3)
+  GlobalTimerExpired("TimerPortalClose","GLOBAL")
+THEN
+  RESPONSE #100
+    IncrementGlobal("Chult_PortalClosing","GLOBAL",1)
+    ScreenShake(45,20,20)
+    SetGlobalTimer("TimerPortalClose","GLOBAL",10)
+    Continue()
+END
+
+IF
+  Global("Chult_PortalClosing","GLOBAL",4)
+  GlobalTimerExpired("TimerPortalClose","GLOBAL")
+THEN
+  RESPONSE #100
+    IncrementGlobal("Chult_PortalClosing","GLOBAL",1)
+    ScreenShake(150,40,40)
+    SetGlobalTimer("TimerPortalClose","GLOBAL",10)
+    Continue()
+END
+
+IF
+  Global("Chult_PortalClosing","GLOBAL",5)
+  GlobalTimerExpired("TimerPortalClose","GLOBAL")
+THEN
+  RESPONSE #100
+    IncrementGlobal("Chult_PortalClosing","GLOBAL",1)
+    SetGlobalTimer("TimerPortalClose","GLOBAL",5)
+    Continue()
+END
+
+IF
+  Global("Chult_PortalClosing","GLOBAL",6)
+  GlobalTimerExpired("TimerPortalClose","GLOBAL")
+THEN
+  RESPONSE #100
+    IncrementGlobal("Chult_PortalClosing","GLOBAL",1)
+    EndGame(37558)  // ~The portal to Kuldahar has closed and trapped you in Chult.  Your adventures are over.~
+    Continue()
+END
+

@@ -1,0 +1,8 @@
+IF
+  HarmlessEntered([PC])
+  Global("Curst_Slavers","AR0900",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Slavers","AR0900",1)
+END
+

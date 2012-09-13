@@ -1,0 +1,59 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeFromColor([30.0],0)
+    Wait(2)
+    DisplayStringWait("cuardul",57010)  // ~Things go well on the surface.  The temple of their false god has been defiled.~ [ARDULA11]
+    DisplayStringWait("cujon4",57012)  // ~I am pleased.  My revenge will soon come.~ [IRENIC85]
+    DisplayStringWait("cuardul",57014)  // ~We did not act for your benefit, Irenicus, though you did offer some...interesting opportunities.~ [ARDULA12]
+    ActionOverride("cujon4",DisplayStringHead(Myself,57017))  // ~Yes, Matron Mother, excuse my careless words.~ [IRENIC86]
+    ActionOverride("cuguard",MoveToPointNoInterrupt([1317.1089]))
+    ActionOverride("cupris1",MoveToPointNoInterrupt([1178.1124]))
+    ActionOverride("cupris2",MoveToPointNoInterrupt([1238.1144]))
+    Wait(4)
+    DisplayStringWait("cuphaer",57019)  // ~Our first prisoners arrive, Matron Mother.~ [PHAERE11]
+    ActionOverride("cuguard",Face(8))
+    SmallWait(7)
+    DisplayStringWait("cuguard",57020)  // ~These two rank high among the surface scum, Matron.  What is to be their fate?~ [DRESC101]
+    DisplayStringWait("cuardul",57021)  // ~Their presence sickens me.  Kill them.~ [ARDULA13]
+    DisplayStringWait("cujon4",57023)  // ~Perhaps it would be better to interrogate them first.~ [IRENIC79]
+    ActionOverride("cupris1",DisplayStringHead(Myself,57026))  // ~Joneleth, what are you doing with these monsters!  You are one of...~ [ELPRIZ01]
+    SmallWait(7)
+    ActionOverride("cujon4",ForceSpell("cupris1",WIZARD_DISINTEGRATE2_IGNORE_RESISTANCE))
+    ActionOverride("cujon4",ReallyForceSpell("cupris2",WIZARD_DISINTEGRATE2_IGNORE_RESISTANCE))
+    CreateVisualEffectObject("SPFLSRIN","cupris1")
+    CreateVisualEffectObject("SPFLSRIN","cupris2")
+    Wait(1)
+    CreateVisualEffectObject("SPDISPMA","cupris1")
+    CreateVisualEffectObject("SPDISPMA","cupris2")
+    Wait(3)
+    DisplayStringWait("cuardul",57028)  // ~An odd way to question, Irenicus.  Did you not like his tone?~ [ARDULA14]
+    DisplayStringWait("cujon4",57030)  // ~I...reconsidered, Matron.  Your command was the wiser.~ [IRENIC80]
+    Wait(2)
+    FadeToColor([30.0],0)
+    Wait(2)
+    LeaveAreaLUAPanic("AR2100","",[213.3303],0)
+    LeaveAreaLUA("AR2100","",[213.3303],0)
+    ActionOverride(Player2,LeaveAreaLUA("AR2100","",[253.3348],0))
+    ActionOverride(Player3,LeaveAreaLUA("AR2100","",[264.3404],0))
+    ActionOverride(Player4,LeaveAreaLUA("AR2100","",[169.3377],0))
+    ActionOverride(Player5,LeaveAreaLUA("AR2100","",[199.3413],0))
+    ActionOverride(Player6,LeaveAreaLUA("AR2100","",[234.3451],0))
+    MultiPlayerSync()
+    IncrementChapter("")
+    AddXPObject(Player1,20000)
+    AddXPObject(Player2,20000)
+    AddXPObject(Player3,20000)
+    AddXPObject(Player4,20000)
+    AddXPObject(Player5,20000)
+    AddXPObject(Player6,20000)
+    Wait(1)
+    AddJournalEntry(10944,INFO)
+    EndCutSceneMode()
+    SmallWait(1)
+    TextScreen("SCRTXT07")
+    FadeFromColor([30.0],0)
+END
+

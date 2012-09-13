@@ -1,0 +1,16 @@
+IF
+  Global("GrovePoisoned","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(Player1)
+END
+
+IF
+  Dead("cefald01")  // ~Faldorn~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

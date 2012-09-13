@@ -1,0 +1,16 @@
+IF
+  Global("TRAP_WARNING","MYAREA",0)
+  OpenState("AR5200_Boards",FALSE)  // AR5200_Boards
+  Entered([PC])
+THEN
+  RESPONSE #100
+    DisplayMessage(22952)  // ~This ancient bridge looks dangerous - it would behoove adventurers to carefully watch where they place their feet.~
+    SetGlobal("TRAP_WARNING","MYAREA",1)
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+END
+

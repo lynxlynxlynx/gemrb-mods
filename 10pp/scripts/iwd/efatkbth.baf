@@ -1,0 +1,8 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastSeenBy(Myself),4)
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

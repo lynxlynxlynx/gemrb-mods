@@ -1,0 +1,43 @@
+IF
+  Global("slaves","AR2203",2)
+  Global("numslaves","AR2203",0)
+THEN
+  RESPONSE #100
+    CreateCreature("UDVICTI2",[1074.394],4)  // ~Slave~
+    Wait(1)
+    ActionOverride("Slave2",MoveToPointNoInterrupt([904.417]))
+    ActionOverride("Slave2",ApplySpell(Myself,SLAVE_CHUNK))
+    Wait(2)
+    ReputationInc(-1)
+    SetGlobal("numslaves","AR2203",1)
+END
+
+IF
+  Global("slaves","AR2203",3)
+  Global("numslaves","AR2203",1)
+THEN
+  RESPONSE #100
+    CreateCreature("UDVICTI3",[1074.394],4)  // ~Slave~
+    Wait(1)
+    ActionOverride("Slave3",MoveToPointNoInterrupt([904.417]))
+    ActionOverride("Slave3",ApplySpell(Myself,SLAVE_CHUNK))
+    Wait(2)
+    ReputationInc(-1)
+    SetGlobal("numslaves","AR2203",2)
+END
+
+IF
+  Global("slaves","AR2203",4)
+  Global("numslaves","AR2203",2)
+THEN
+  RESPONSE #100
+    CreateCreature("UDVICTI4",[1074.394],4)  // ~Slave~
+    Wait(1)
+    ActionOverride("Slave4",MoveToPointNoInterrupt([904.417]))
+    ActionOverride("Slave4",ApplySpell(Myself,SLAVE_CHUNK))
+    Wait(2)
+    ReputationInc(-1)
+    SetGlobal("numslaves","AR2203",3)
+    SetGlobal("slaves","AR2203",5)
+END
+

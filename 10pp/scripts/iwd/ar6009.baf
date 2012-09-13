@@ -1,0 +1,17 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetGlobal("udspawnb","GLOBAL",0)
+    SetGlobal("udspawnc","GLOBAL",0)
+    SetGlobal("udspawna","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("udspawna","GLOBAL",0)
+    SetGlobal("udspawnc","GLOBAL",0)
+    SetGlobal("udspawnb","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("udspawna","GLOBAL",0)
+    SetGlobal("udspawnb","GLOBAL",0)
+    SetGlobal("udspawnc","GLOBAL",1)
+END
+

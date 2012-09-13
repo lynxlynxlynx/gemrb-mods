@@ -1,0 +1,72 @@
+IF
+  OnCreation()
+  Global("RandomEncounters","GLOBAL",0)
+  GlobalLT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("RandomEncounters","GLOBAL",1)
+    CreateCreature("RESUNA",[488.558],10)  // ~Suna Seni~
+    CreateCreature("REELDAR",[500.454],10)  // ~Eldarin~
+    CreateCreature("REFIGH01",[552.476],10)  // ~Slaver~
+    CreateCreature("REMAGE01",[427.548],10)  // ~Slaver Wizard~
+    CreateCreature("RECLER01",[525.591],10)  // ~Slaver~
+    CreateCreature("RETHIE01",[585.542],10)  // ~Slaver~
+END
+
+IF
+  OnCreation()
+  Global("RandomEncounters","GLOBAL",1)
+  GlobalLT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("RandomEncounters","GLOBAL",2)
+    CreateCreature("RENFELD",[408.563],2)  // ~Renfeld~
+    CreateCreature("RETHUG01",[222.664],8)  // ~Thug~
+    CreateCreature("RETHUG02",[261.619],6)  // ~Mage~
+    CreateCreature("RETHUG03",[268.567],4)  // ~Thug~
+    CreateCreature("RETHUG04",[301.613],14)  // ~Thug~
+END
+
+IF
+  OnCreation()
+  Global("RandomEncounters","GLOBAL",2)
+  GlobalLT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("RandomEncounters","GLOBAL",3)
+    CreateCreature("ORC05",[488.558],10)  // ~Orog~
+    CreateCreature("ORC05",[500.454],10)  // ~Orog~
+    CreateCreature("ORC05",[552.476],10)  // ~Orog~
+    CreateCreature("ORC05",[427.548],10)  // ~Orog~
+    CreateCreature("REFIGH01",[525.591],10)  // ~Slaver~
+    CreateCreature("REFIGH01",[585.542],10)  // ~Slaver~
+    CreateCreature("ORC05",[589.542],10)  // ~Orog~
+    CreateCreature("ORC05",[592.542],10)  // ~Orog~
+END
+
+IF
+  OnCreation()
+  Global("RandomEncounters","GLOBAL",3)
+  GlobalGT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("RandomEncounters","GLOBAL",4)
+    CreateCreature("RERAK01",[488.558],10)  // ~Traveler~
+    CreateCreature("RERAK02",[500.454],10)  // ~Traveler~
+    CreateCreature("RERAK03",[552.476],10)  // ~Traveler~
+    CreateCreature("RERAK04",[427.548],10)  // ~Traveler~
+    CreateCreature("RERAK05",[525.591],10)  // ~Traveler~
+    CreateCreature("RERAK06",[585.542],10)  // ~Traveler~
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    CreateCreature("REBAND01",[488.558],10)  // ~Bandit~
+    CreateCreature("REBAND02",[500.454],10)  // ~Bandit~
+    CreateCreature("REBAND03",[552.476],10)  // ~Bandit~
+    CreateCreature("REBAND04",[427.548],10)  // ~Bandit~
+    CreateCreature("REBAND05",[525.591],10)  // ~Bandit~
+END
+

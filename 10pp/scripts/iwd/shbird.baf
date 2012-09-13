@@ -1,0 +1,53 @@
+IF
+  CreatureHidden(Myself)
+  !Global("BIRDS_VIS","MYAREA",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE3","MYAREA",0)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("MAP_GROUP_HOSTILE3","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",1)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",32,OR)
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",1)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalkContinuous()
+END
+

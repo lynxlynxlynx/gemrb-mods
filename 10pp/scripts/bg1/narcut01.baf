@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Narlen")  // 
+    SetGlobal("NarlenMove","GLOBAL",8)
+    MoveToPoint([622.243])
+    EndCutSceneMode()
+    Dialogue([PC])
+END
+

@@ -1,0 +1,9 @@
+IF
+  Global("Chapter","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartMovie("NASHKELL")
+    IncrementChapter("Chptxt2")
+    AddJournalEntry(15836,USER)
+END
+

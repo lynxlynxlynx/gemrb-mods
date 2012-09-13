@@ -1,0 +1,18 @@
+IF
+  Opened([ANYONE])
+  !StateCheck(LastTrigger,STATE_INVISIBLE)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+  !Dead("Juggernaut")  // Juggernaut
+THEN
+  RESPONSE #100
+    ActionOverride("Jermien",Enemy())
+    SetGlobal("ColetteDaarHostile","GLOBAL",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

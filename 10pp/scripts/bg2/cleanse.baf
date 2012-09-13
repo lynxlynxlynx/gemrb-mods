@@ -1,0 +1,84 @@
+IF
+  OR(4)
+    Contains("MISCBL",Myself)
+    Contains("MISCBM",Myself)
+    Contains("MISCBN",Myself)
+    Contains("MISCBO",Myself)
+  Global("CleanseVampire","AR1401",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CleanseVampire","AR1401",1)
+END
+
+IF
+  Contains("MISCBL",Myself)
+  Contains("MISCBP",Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("CleanseVampire","AR1401",2)
+    DestroyItem("MISCBL")  // ~Aerie's Body~
+    DestroyItem("MISCBP")  // ~Bodhi's Black Heart~
+    CreateVisualEffect("SPMETSW2",[2592.1701])
+    CreateVisualEffect("SPMETSW2",[2645.1742])
+    Wait(1)
+    CreateVisualEffect("SPFLESHS",[2565.1677])
+    Wait(1)
+    MoveGlobal("AR1401","Aerie",[2565.1677])
+    SetInterrupt(TRUE)
+END
+
+IF
+  Contains("MISCBM",Myself)
+  Contains("MISCBP",Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("CleanseVampire","AR1401",2)
+    DestroyItem("MISCBM")  // ~Anomen's Body~
+    DestroyItem("MISCBP")  // ~Bodhi's Black Heart~
+    CreateVisualEffect("SPMETSW2",[2592.1701])
+    CreateVisualEffect("SPMETSW2",[2645.1742])
+    Wait(1)
+    CreateVisualEffect("SPFLESHS",[2565.1677])
+    Wait(1)
+    MoveGlobal("AR1401","Anomen",[2565.1677])
+    SetInterrupt(TRUE)
+END
+
+IF
+  Contains("MISCBN",Myself)
+  Contains("MISCBP",Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("CleanseVampire","AR1401",2)
+    DestroyItem("MISCBN")  // ~Jaheira's Body~
+    DestroyItem("MISCBP")  // ~Bodhi's Black Heart~
+    CreateVisualEffect("SPMETSW2",[2592.1701])
+    CreateVisualEffect("SPMETSW2",[2645.1742])
+    Wait(1)
+    CreateVisualEffect("SPFLESHS",[2565.1677])
+    Wait(1)
+    MoveGlobal("AR1401","Jaheira",[2565.1677])
+    SetInterrupt(TRUE)
+END
+
+IF
+  Contains("MISCBO",Myself)
+  Contains("MISCBP",Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("CleanseVampire","AR1401",2)
+    DestroyItem("MISCBO")  // ~Viconia's Body~
+    DestroyItem("MISCBP")  // ~Bodhi's Black Heart~
+    CreateVisualEffect("SPMETSW2",[2592.1701])
+    CreateVisualEffect("SPMETSW2",[2645.1742])
+    Wait(1)
+    CreateVisualEffect("SPFLESHS",[2565.1677])
+    Wait(1)
+    MoveGlobal("AR1401","Viconia",[2565.1677])
+    SetInterrupt(TRUE)
+END
+

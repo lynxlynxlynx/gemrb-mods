@@ -1,0 +1,14 @@
+IF
+  See([PC])
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("spoke","LOCALS",1)
+    DisplayStringHead(Myself,2435)  // ~This is our territory.~
+  RESPONSE #100
+    DisplayStringHead(Myself,4374)  // ~You're stealing without permission, for that you're going to pay.~
+    SetGlobal("spoke","LOCALS",1)
+  RESPONSE #200
+    SetGlobal("spoke","LOCALS",1)
+END
+

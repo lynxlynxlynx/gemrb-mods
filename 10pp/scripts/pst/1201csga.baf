@@ -1,0 +1,38 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    Wait(3)
+    MoveToPoint([4799.758])
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GraceF")  // 
+    Wait(2)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    Wait(3)
+    FadeToBlack()
+    Wait(4)
+    EnableFogDither()
+    EnableSpriteDither()
+    MoveViewPoint([849.1008],INSTANT)
+    StartSong(CHAR_GRACE,[0.0],Normal)
+    FadeFromBlack()
+    Wait(4)
+    SinisterPoof("EF02TPR2",[849.1008],1)
+    EndCutSceneMode()
+    JumpToPoint([849.1008])
+END
+

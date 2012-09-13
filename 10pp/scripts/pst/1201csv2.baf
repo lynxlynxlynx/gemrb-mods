@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    FadeToBlack()
+    Wait(3)
+    DisableFogDither()
+    DisableSpriteDither()
+    ExploreMapChunk([4493.1095],0,600)
+    MoveViewPoint([4493.1095],INSTANT)
+    CreateCreature("VhailF",[4493.1095])  // ~Vhailor~
+    CreateCreature("Trans",[4680.805])  // ~The Transcendent One~
+    StartSong(CHAR_VHAILOR,[0.0],Normal)
+    StartCutScene("1201CV21")
+END
+

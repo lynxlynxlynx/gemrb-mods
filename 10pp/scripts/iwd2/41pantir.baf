@@ -1,0 +1,66 @@
+IF
+  CheckSpellState(Player1,ANTIMAGIC_SHELL)
+  Or(2)
+    Entered(Player1)
+    IsOverMe(Player1)
+THEN
+  RESPONSE #100
+    ForceSpell(Player1,2086)
+    Continue()
+END
+
+IF
+  CheckSpellState(Player2,ANTIMAGIC_SHELL)
+  Or(2)
+    Entered(Player2)
+    IsOverMe(Player2)
+THEN
+  RESPONSE #100
+    ForceSpell(Player2,2086)
+    Continue()
+END
+
+IF
+  CheckSpellState(Player3,ANTIMAGIC_SHELL)
+  Or(2)
+    Entered(Player3)
+    IsOverMe(Player3)
+THEN
+  RESPONSE #100
+    ForceSpell(Player3,2086)
+    Continue()
+END
+
+IF
+  CheckSpellState(Player4,ANTIMAGIC_SHELL)
+  Or(2)
+    Entered(Player4)
+    IsOverMe(Player4)
+THEN
+  RESPONSE #100
+    ForceSpell(Player4,2086)
+    Continue()
+END
+
+IF
+  CheckSpellState(Player5,ANTIMAGIC_SHELL)
+  Or(2)
+    Entered(Player5)
+    IsOverMe(Player5)
+THEN
+  RESPONSE #100
+    ForceSpell(Player5,2086)
+    Continue()
+END
+
+IF
+  CheckSpellState(Player6,ANTIMAGIC_SHELL)
+  Or(2)
+    Entered(Player6)
+    IsOverMe(Player6)
+THEN
+  RESPONSE #100
+    ForceSpell(Player6,2086)
+    Continue()
+END
+

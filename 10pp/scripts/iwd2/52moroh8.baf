@@ -1,0 +1,385 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",8)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Dead(Player1)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC8r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Dead(Player2)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC8r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Dead(Player3)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC8r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Dead(Player4)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC8r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Dead(Player5)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC8r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Dead(Player6)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC8r")
+END
+
+IF
+  Global("C_8_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Dead("06_52MNKBR_1")  // 
+  Dead("06_52MNKBR_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_8_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player1)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player1,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",9)
+    Unlock("AR5202_Door10")
+    Unlock("AR5202_Door1")
+    OpenDoor("AR5202_Door10")
+    OpenDoor("AR5202_Door1")
+    ActionOverride("10_52Proxi_00",DestroySelf())
+    ActionOverride("10_52Proxi_01",DestroySelf())
+    ActionOverride("10_52Proxi_02",DestroySelf())
+    ActionOverride("10_52Proxi_03",DestroySelf())
+    ActionOverride("10_52Proxi_04",DestroySelf())
+    ActionOverride("10_52Proxi_05",DestroySelf())
+    ActionOverride("10_52Proxi_06",DestroySelf())
+    ActionOverride("10_52Proxi_07",DestroySelf())
+    ActionOverride("10_52Proxi_08",DestroySelf())
+    ActionOverride("10_52Proxi_09",DestroySelf())
+    AddXPVar("Level_10_Average",34477)  // ~You have mastered the Chamber of Immolation, last of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player1,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("C_8_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Dead("06_52MNKBR_1")  // 
+  Dead("06_52MNKBR_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_8_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player2)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player2,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",9)
+    Unlock("AR5202_Door10")
+    Unlock("AR5202_Door1")
+    OpenDoor("AR5202_Door10")
+    OpenDoor("AR5202_Door1")
+    ActionOverride("10_52Proxi_00",DestroySelf())
+    ActionOverride("10_52Proxi_01",DestroySelf())
+    ActionOverride("10_52Proxi_02",DestroySelf())
+    ActionOverride("10_52Proxi_03",DestroySelf())
+    ActionOverride("10_52Proxi_04",DestroySelf())
+    ActionOverride("10_52Proxi_05",DestroySelf())
+    ActionOverride("10_52Proxi_06",DestroySelf())
+    ActionOverride("10_52Proxi_07",DestroySelf())
+    ActionOverride("10_52Proxi_08",DestroySelf())
+    ActionOverride("10_52Proxi_09",DestroySelf())
+    AddXPVar("Level_10_Average",34477)  // ~You have mastered the Chamber of Immolation, last of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player2,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("C_8_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Dead("06_52MNKBR_1")  // 
+  Dead("06_52MNKBR_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_8_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player3)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player3,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",9)
+    Unlock("AR5202_Door10")
+    Unlock("AR5202_Door1")
+    OpenDoor("AR5202_Door10")
+    OpenDoor("AR5202_Door1")
+    ActionOverride("10_52Proxi_00",DestroySelf())
+    ActionOverride("10_52Proxi_01",DestroySelf())
+    ActionOverride("10_52Proxi_02",DestroySelf())
+    ActionOverride("10_52Proxi_03",DestroySelf())
+    ActionOverride("10_52Proxi_04",DestroySelf())
+    ActionOverride("10_52Proxi_05",DestroySelf())
+    ActionOverride("10_52Proxi_06",DestroySelf())
+    ActionOverride("10_52Proxi_07",DestroySelf())
+    ActionOverride("10_52Proxi_08",DestroySelf())
+    ActionOverride("10_52Proxi_09",DestroySelf())
+    AddXPVar("Level_10_Average",34477)  // ~You have mastered the Chamber of Immolation, last of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player3,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("C_8_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Dead("06_52MNKBR_1")  // 
+  Dead("06_52MNKBR_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_8_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player4)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player4,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",9)
+    Unlock("AR5202_Door10")
+    Unlock("AR5202_Door1")
+    OpenDoor("AR5202_Door10")
+    OpenDoor("AR5202_Door1")
+    ActionOverride("10_52Proxi_00",DestroySelf())
+    ActionOverride("10_52Proxi_01",DestroySelf())
+    ActionOverride("10_52Proxi_02",DestroySelf())
+    ActionOverride("10_52Proxi_03",DestroySelf())
+    ActionOverride("10_52Proxi_04",DestroySelf())
+    ActionOverride("10_52Proxi_05",DestroySelf())
+    ActionOverride("10_52Proxi_06",DestroySelf())
+    ActionOverride("10_52Proxi_07",DestroySelf())
+    ActionOverride("10_52Proxi_08",DestroySelf())
+    ActionOverride("10_52Proxi_09",DestroySelf())
+    AddXPVar("Level_10_Average",34477)  // ~You have mastered the Chamber of Immolation, last of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player4,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("C_8_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Dead("06_52MNKBR_1")  // 
+  Dead("06_52MNKBR_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_8_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player5)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player5,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",9)
+    Unlock("AR5202_Door10")
+    Unlock("AR5202_Door1")
+    OpenDoor("AR5202_Door10")
+    OpenDoor("AR5202_Door1")
+    ActionOverride("10_52Proxi_00",DestroySelf())
+    ActionOverride("10_52Proxi_01",DestroySelf())
+    ActionOverride("10_52Proxi_02",DestroySelf())
+    ActionOverride("10_52Proxi_03",DestroySelf())
+    ActionOverride("10_52Proxi_04",DestroySelf())
+    ActionOverride("10_52Proxi_05",DestroySelf())
+    ActionOverride("10_52Proxi_06",DestroySelf())
+    ActionOverride("10_52Proxi_07",DestroySelf())
+    ActionOverride("10_52Proxi_08",DestroySelf())
+    ActionOverride("10_52Proxi_09",DestroySelf())
+    AddXPVar("Level_10_Average",34477)  // ~You have mastered the Chamber of Immolation, last of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player5,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("C_8_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Dead("06_52MNKBR_1")  // 
+  Dead("06_52MNKBR_2")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_8_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player6)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player6,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",9)
+    Unlock("AR5202_Door10")
+    Unlock("AR5202_Door1")
+    OpenDoor("AR5202_Door10")
+    OpenDoor("AR5202_Door1")
+    ActionOverride("10_52Proxi_00",DestroySelf())
+    ActionOverride("10_52Proxi_01",DestroySelf())
+    ActionOverride("10_52Proxi_02",DestroySelf())
+    ActionOverride("10_52Proxi_03",DestroySelf())
+    ActionOverride("10_52Proxi_04",DestroySelf())
+    ActionOverride("10_52Proxi_05",DestroySelf())
+    ActionOverride("10_52Proxi_06",DestroySelf())
+    ActionOverride("10_52Proxi_07",DestroySelf())
+    ActionOverride("10_52Proxi_08",DestroySelf())
+    ActionOverride("10_52Proxi_09",DestroySelf())
+    AddXPVar("Level_10_Average",34477)  // ~You have mastered the Chamber of Immolation, last of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player6,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ChangeCurrentScript("")
+END
+

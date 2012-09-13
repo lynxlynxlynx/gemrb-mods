@@ -1,0 +1,45 @@
+IF
+  Global("FIGHT_GATE_STATE","MYAREA",3)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("FIGHT_GATE_STATE","MYAREA",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([649.410])
+    Face(S)
+    SetGlobal("FIGHT_GATE_STATE","MYAREA",3)
+END
+
+IF
+  Global("FIGHT_GATE_STATE","MYAREA",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([685.452])
+    Face(SE)
+    Wait(1)
+    PlaySound("am9200d")
+    OpenDoor("AR9200_GATE1")
+    SetGlobal("FIGHT_GATE_STATE","MYAREA",2)
+END
+
+IF
+  Global("FIGHT_GATE_STATE","MYAREA",0)
+  Or(2)
+    !Global("BC_BATTLE_OVER","GLOBAL",0)
+    !Global("BC_GROUP_HOSTILE1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FIGHT_GATE_STATE","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

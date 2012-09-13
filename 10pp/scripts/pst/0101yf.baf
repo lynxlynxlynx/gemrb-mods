@@ -1,0 +1,82 @@
+IF
+  HPPercentLT(Myself,50)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(12)
+    WaitRandom(3,5)
+    Face(14)
+    WaitRandom(3,5)
+    FloatMessage(Myself,9743)  // ~"Nothin' 'ere..."~
+    Wait(2)
+    MoveToPoint([1913.2162])
+    MoveToPoint([1971.2309])
+    Face(10)
+    Wait(2)
+    FloatMessage(Myself,9737)  // ~"Dammed razorvine..."~
+    WaitRandom(3,5)
+    Face(12)
+    WaitRandom(10,12)
+    MoveToPoint([1971.2369])
+    MoveToPoint([1806.2440])
+    Face(0)
+    Wait(1)
+    FloatMessage(Myself,9742)  // ~"Stakin' my claim, are ye, ye bastard..."~
+    Wait(3)
+    MoveToPoint([1667.2440])
+    MoveToPoint([1562.2335])
+    MoveToPoint([1562.2215])
+    Face(10)
+    Wait(3)
+    FloatMessage(Myself,9741)  // ~"Hmmmm... maybe somethin' under 'ere...?"~
+    Wait(2)
+    MoveToPoint([1540.2194])
+    Face(6)
+    Wait(3)
+    FloatMessage(Myself,9740)  // ~"Wonder what that ol' ghoul is up to..."~
+    Wait(2)
+    MoveToPoint([1562.2215])
+    MoveToPoint([1651.2215])
+    MoveToPoint([1686.2180])
+    Face(6)
+    Wait(3)
+    FloatMessage(Myself,9739)  // ~"Maybe o'er 'ere..."~
+    Wait(2)
+    MoveToPoint([1635.2128])
+    Face(6)
+    Wait(3)
+    MoveToPoint([1686.2180])
+    MoveToPoint([1738.2127])
+    MoveToPoint([1878.2127])
+    MoveToPoint([1913.2162])
+    Face(12)
+    Wait(3)
+    FloatMessage(Myself,9738)  // ~"Maybe o'er 'ere...?"~
+    Wait(2)
+    MoveToPoint([1960.2162])
+END
+

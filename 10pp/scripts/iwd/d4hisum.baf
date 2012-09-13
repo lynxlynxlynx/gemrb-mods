@@ -1,0 +1,98 @@
+IF
+  HaveSpell(CLERIC_SUMMON_TROLLS)
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+  !TimerActive(25)
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    PlaySequence("YUAN-TIPRIEST1",CAST)
+    PlaySequence("YUAN-TIPRIEST2",CAST)
+    SpellPoint([3140.1830],CLERIC_SUMMON_TROLLS)
+    StartTimer(25,120)
+END
+
+IF
+  HaveSpell(CLERIC_SUMMON_LIZARDMEN)
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+  !TimerActive(25)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,XOR)
+    PlaySequence("YUAN-TIPRIEST2",CAST)
+    PlaySequence("YUAN-TIPRIEST1",CAST)
+    SpellPoint([3140.1830],CLERIC_SUMMON_LIZARDMEN)
+    StartTimer(25,120)
+END
+
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  !HaveSpell(CLERIC_SUMMON_TROLLS)
+  !HaveSpell(CLERIC_SUMMON_LIZARDMEN)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",1,OR)
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",2,AND)
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #75
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",2,OR)
+    PlaySequence(Myself,HEAD_TURN)
+    Continue()
+  RESPONSE #25
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",2,OR)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_STATIC_CHARGE)
+  See(NearestEnemyOf(Myself))
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_STATIC_CHARGE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)
+  See(NearestEnemyOf(Myself))
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)
+    Wait(2)
+END
+
+IF
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !Global("YUANTI_INFERNO","GLOBAL",0)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+

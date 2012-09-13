@@ -1,0 +1,20 @@
+IF
+  Global("unlockeddoor","AR2009",0)
+  OR(2)
+    Global("loganjob1","GLOBAL",1)
+    Global("unlock2009","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("unlockeddoor","AR2009",1)
+    Unlock("Door02")
+    OpenDoor("Door02")
+END
+
+IF
+  Global("CerndGone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("CerndGone","GLOBAL",2)
+    ActionOverride("Cernd",DestroySelf())
+END
+

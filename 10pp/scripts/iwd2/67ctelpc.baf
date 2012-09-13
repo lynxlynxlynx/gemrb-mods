@@ -1,0 +1,90 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("BuvaiDeNaly")  // 
+    SetGlobal("SH_Teleported_To_6303","GLOBAL",1)
+    HideGUI()
+    MultiPlayerSync()
+    MoveViewObject(Myself,FASTEST)
+    Wait(2)
+    SpellCastEffect(Myself,"CHA_MM05","CAS_EN10","PRE_P08",GLOW_ABJURATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ABJURATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ABJURATION,1,ATTACK)
+    Wait(1)
+    PlaySound("EFF_E02")
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    HideCreature(Myself,TRUE)
+    Wait(3)
+    FadeToColor([0.0],0)
+    Wait(1)
+    StartCutScene("LUA6303a")
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(6)
+    PlaySound("EFF_E02")
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(6)
+    PlaySound("EFF_E02")
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(6)
+    PlaySound("EFF_E02")
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(6)
+    PlaySound("EFF_E02")
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(6)
+    PlaySound("EFF_E02")
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(6)
+    PlaySound("EFF_E02")
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    HideCreature(Myself,TRUE)
+END
+

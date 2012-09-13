@@ -1,0 +1,218 @@
+IF
+  !Global("AGOG_BLUSH","MYAREA",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("AGOG_BLUSH","MYAREA",0)
+    FloatMessage(Myself,17484)  // ~"Bluh."~
+    PlaySequence(Myself,HEAD_TURN)
+    Wait(1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FaceObject("01_50LIMHA_01")
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",100)
+  HPPercent(Myself,100)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",100)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",95)
+  HPPercentGT(Myself,94)
+  HPPercentLT(Myself,100)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",95)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",90)
+  HPPercentGT(Myself,89)
+  HPPercentLT(Myself,95)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",90)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",85)
+  HPPercentGT(Myself,84)
+  HPPercentLT(Myself,90)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",85)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",80)
+  HPPercentGT(Myself,79)
+  HPPercentLT(Myself,85)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",80)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",75)
+  HPPercentGT(Myself,74)
+  HPPercentLT(Myself,80)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",75)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",70)
+  HPPercentGT(Myself,69)
+  HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",70)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",65)
+  HPPercentGT(Myself,64)
+  HPPercentLT(Myself,70)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",65)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",60)
+  HPPercentGT(Myself,59)
+  HPPercentLT(Myself,65)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",60)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",55)
+  HPPercentGT(Myself,54)
+  HPPercentLT(Myself,60)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",55)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",50)
+  HPPercentGT(Myself,49)
+  HPPercentLT(Myself,55)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",50)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",45)
+  HPPercentGT(Myself,44)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",45)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",40)
+  HPPercentGT(Myself,39)
+  HPPercentLT(Myself,45)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",40)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",35)
+  HPPercentGT(Myself,34)
+  HPPercentLT(Myself,40)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",35)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",30)
+  HPPercentGT(Myself,29)
+  HPPercentLT(Myself,35)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",30)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",25)
+  HPPercentGT(Myself,24)
+  HPPercentLT(Myself,30)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",25)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",20)
+  HPPercentGT(Myself,19)
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",20)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",15)
+  HPPercentGT(Myself,14)
+  HPPercentLT(Myself,20)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",15)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",10)
+  HPPercentGT(Myself,9)
+  HPPercentLT(Myself,15)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",10)
+    Continue()
+END
+
+IF
+  !Global("5001_AGOG_HP","GLOBAL",5)
+  HPPercentGT(Myself,4)
+  HPPercentLT(Myself,10)
+THEN
+  RESPONSE #100
+    SetGlobal("5001_AGOG_HP","GLOBAL",5)
+    Continue()
+END
+

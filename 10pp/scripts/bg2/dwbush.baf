@@ -1,0 +1,12 @@
+IF
+  IsOverMe([PC])
+  Global("trig1","AR2400",0)
+THEN
+  RESPONSE #100
+    SetGlobal("trig1","AR2400",1)
+    ClearAllActions()
+    Wait(1)
+    StartCutSceneMode()
+    StartCutScene("Cut44AA")
+END
+

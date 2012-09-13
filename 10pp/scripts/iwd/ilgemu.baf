@@ -1,0 +1,29 @@
+IF
+  GlobalTimerExpired("SUMMON_UMBER","LOCALS")
+  Difficulty(3,3)
+  !See(NearestEnemyOf(Myself))
+  !Exists([0.0.SAHUAGIN][0.0.10000.10000])
+  !Exists([0.0.UMBERHULK][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SUMMON_UMBER","LOCALS",15)
+    ForceSpellPoint([1245.1162],INNATE_DRAGON_GEM_SUMMONING)
+    Wait(1)
+    ForceSpellPoint([1248.806],INNATE_DRAGON_GEM_SUMMONING)
+    WaitRandom(3,5)
+END
+
+IF
+  GlobalTimerExpired("SUMMON_UMBER","LOCALS")
+  !See(NearestEnemyOf(Myself))
+  Or(2)
+    Difficulty(3,3)
+    !Exists([0.0.SAHUAGIN][0.0.10000.10000])
+  !Exists([0.0.UMBERHULK][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SUMMON_UMBER","LOCALS",15)
+    ForceSpellPoint([1208.903],INNATE_DRAGON_GEM_SUMMONING)
+    WaitRandom(3,5)
+END
+

@@ -1,0 +1,38 @@
+IF
+  PartyHasItem("Plot04B")  // ~Red Oil~
+  Global("SpawnVamp","AR3021",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    MoveViewObject("REDOIL",INSTANT)
+    SetGlobal("SpawnVamp","AR3021",1)
+    ScreenShake([20.20],20)
+    PlaySound("EFF_M36B")
+    Wait(2)
+    PlaySound("amthund")
+    CreateVisualEffect("CALLLIGH",[662.997])
+    CreateVisualEffect("CALLLIGH",[329.981])
+    Wait(1)
+    OpenDoor("Egg01")
+    OpenDoor("Egg02")
+    CreateVisualEffect("SPSTRENH",[662.997])
+    CreateVisualEffect("SPSTRENH",[329.981])
+    Wait(1)
+    CreateCreature("MindVam",[662.997],3)  // ~Vampiric Illithid~
+    CreateCreature("MindVam",[329.981],14)  // ~Vampiric Illithid~
+    EndCutSceneMode()
+END
+
+IF
+  PartyHasItem("Plot04g")  // ~Illithid Rod~
+  PartyHasItem("Plot04h")  // ~Illithid Rod~
+THEN
+  RESPONSE #100
+    TakePartyItem("Plot04g")
+    TakePartyItem("Plot04h")
+    DisplayStringHead(Player1,71011)  // ~You lock the two halves of the rod together. The Illithid Rod can now be used to open one of the doors in the area.~
+    AddXP2DA("Plot06e")
+    GiveItemCreate("Plot04i",Player1,0,0,0)  // ~Illithid Rod~
+    TriggerActivation("OilDoor",FALSE)
+END
+

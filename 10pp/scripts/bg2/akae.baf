@@ -1,0 +1,10 @@
+IF
+  Dead("Samia")  // ~Samia~
+  See([PC])
+  Global("SamiaHostile","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SamiaHostile","GLOBAL",1)
+    StartDialogNoSet(Player1)
+END
+

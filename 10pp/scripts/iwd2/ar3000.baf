@@ -1,0 +1,119 @@
+IF
+  OnCreation()
+  Global("30enneli_Healed","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetHP("Ennelia",6)
+    Continue()
+END
+
+IF
+  Global("30BRASTO_ESCAPE","GLOBAL",3)
+  Global("BRASTON_PAUSED_STATE","GLOBAL",2)
+  Global("31brasto_Dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature("Braston",FALSE)
+    SetGlobal("BRASTON_DELETE_AR3100","GLOBAL",1)
+    SetGlobal("BRASTON_PAUSED_STATE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("BRASTON_DELETE_AR3000","GLOBAL",0)
+  !Dead("Braston")  // 
+THEN
+  RESPONSE #100
+    ActionOverride("Braston",DestroySelf())
+    SetGlobal("BRASTON_DELETE_AR3000","GLOBAL",0)
+    Continue()
+END
+
+IF
+  GlobalLT("30ENNELI_BQUEST","GLOBAL",2)
+  !Global("ENNELIA_BRASTON_TEAM","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("30ENNELI_BQUEST","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("DRUMMERS_RESET","MYAREA",0)
+  !Global("31BUGGUT_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2","MYAREA",0)
+    SetGlobal("TEAM_7","MYAREA",0)
+    SetGlobal("TEAM_15","MYAREA",0)
+    ActionOverride("07_GobRu",DestroySelf())
+    ActionOverride("08_GobRu",DestroySelf())
+    ActionOverride("15_OrcRu",DestroySelf())
+    SetGlobal("DRUM_1_STATE","MYAREA",0)
+    SetGlobal("DRUM_2_STATE","MYAREA",0)
+    SetGlobal("DRUM_3_STATE","MYAREA",0)
+    SetGlobal("SPAWN_LOCK","MYAREA",0)
+    SetGlobal("DRUMMERS_RESET","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SPAWN_LOCK","MYAREA",0)
+  !Dead("DRUM_SUMMON_A")  // 
+  !Dead("DRUM_SUMMON_B")  // 
+  Or(2)
+    CheckAreaDiffLevel(1)
+    !Dead("DRUM_SUMMON_C")  // 
+  Or(2)
+    !CheckAreaDiffLevel(3)
+    !Dead("DRUM_SUMMON_D")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SPAWN_LOCK","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SPAWN_LOCK","MYAREA",2)
+  GlobalTimerExpired("WORG_SPAWN_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("SPAWN_LOCK","MYAREA",0)
+    Continue()
+END
+
+IF
+  Global("SPAWN_LOCK","MYAREA",1)
+  Or(2)
+    Dead("DRUM_SUMMON_A")  // 
+    Dead("DRUM_SUMMON_B")  // 
+  Or(2)
+    CheckAreaDiffLevel(1)
+    Dead("DRUM_SUMMON_C")  // 
+  Or(2)
+    !CheckAreaDiffLevel(3)
+    Dead("DRUM_SUMMON_D")  // 
+THEN
+  RESPONSE #100
+    SetGlobalTimerRandom("WORG_SPAWN_TIMER","MYAREA",45,60)
+    SetGlobal("SPAWN_LOCK","MYAREA",2)
+    Continue()
+END
+
+IF
+  !Global("AR3000_DRUM_SUMMON","GLOBAL",0)
+  !Global("SPAWN_LOCK","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AR3000_DRUM_SUMMON","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

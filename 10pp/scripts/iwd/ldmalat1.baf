@@ -1,0 +1,328 @@
+IF
+  Global("MALAVON_WARP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",3)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",4)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",5)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",6)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",7)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",8)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",9)
+    Continue()
+END
+
+IF
+  GlobalGT("MALAVON_PHASE","GLOBAL",3)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_MONSTER_SUMMONING_VI_MALAVON)
+    Wait(2)
+    ForceSpell(Myself,WIZARD_CONJURE_EARTH_ELEMENTAL_MALAVON)
+    Wait(2)
+    ForceSpell(Myself,WIZARD_CONJURE_EARTH_ELEMENTAL_MALAVON)
+    Wait(2)
+    ChangeCurrentScript("")
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",2)
+  !NearLocation(Myself,1240,590,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",1)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([1240.590],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",1)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([870.475],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([870.475],WIZARD_CLOUDKILL)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",2,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",3)
+  !NearLocation(Myself,330,610,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",2)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",2,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([330.610],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",2)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([335.835],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([335.835],WIZARD_CLOUDKILL)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",4,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",4)
+  !NearLocation(Myself,870,475,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",3)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",4,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([870.475],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",3)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([1240.590],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([1240.590],WIZARD_DEATH_FOG)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",8,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",5)
+  !NearLocation(Myself,580,805,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",4)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",8,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([580.805],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",4)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([500.1060],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([500.1060],WIZARD_CLOUDKILL)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",16,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",6)
+  !NearLocation(Myself,415,1060,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",5)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",16,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([415.1060],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",5)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([580.805],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([580.805],WIZARD_CLOUDKILL)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",32,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",7)
+  !NearLocation(Myself,335,835,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",6)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",32,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([335.835],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",6)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([335.835],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([335.835],WIZARD_CLOUDKILL)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",64,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",8)
+  !NearLocation(Myself,1005,945,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",7)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",64,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([1005.945],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",7)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([895.745],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([895.745],WIZARD_CLOUDKILL)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",128,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",9)
+  !NearLocation(Myself,2060,810,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",8)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",128,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([2060.810],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",8)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SpellPoint([2060.810],WIZARD_INCENDIARY_CLOUD)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",256,AND)
+  GlobalLT("MALAVON_WARP","GLOBAL",10)
+  !NearLocation(Myself,870,475,25)
+  !BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MALAVON_PHASE","GLOBAL",1)
+    SetGlobal("MALAVON_WARP","GLOBAL",9)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",256,OR)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,OR)
+    ForceSpellPoint([870.475],WIZARD_DIMENSION_DOOR)
+    Wait(7)
+    Continue()
+END
+
+IF
+  Global("MALAVON_WARP","GLOBAL",9)
+  GlobalLT("MALAVON_PHASE","GLOBAL",4)
+  BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,AND)
+THEN
+  RESPONSE #100
+    SpellPoint([690.600],WIZARD_WEB)
+    Wait(2)
+    SpellPoint([690.600],WIZARD_CLOUDKILL)
+    Wait(2)
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    BitGlobal("GLOBAL:MALAVON_STATE_VAR","",1024,XOR)
+END
+
+IF
+  !Global("MALAVON_WARP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MALAVON_WARP","GLOBAL",0)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

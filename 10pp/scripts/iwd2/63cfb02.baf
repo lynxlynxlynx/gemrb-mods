@@ -1,0 +1,49 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Isair")  // 
+    SetGlobal("StartCutscene_63cFB02","MYAREA",1)
+    ActionOverride("63GlabSL",DestroySelf())
+    ActionOverride("63GlabSR",DestroySelf())
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,38707)  // ~.:Casts Teleport Without Error:.~
+    Wait(1)
+    EndCutSceneMode()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Madae")  // 
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,38707)  // ~.:Casts Teleport Without Error:.~
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("63GlabSL")  // 
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,POISON,0)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("63GlabSR")  // 
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,POISON,0)
+    DestroySelf()
+END
+

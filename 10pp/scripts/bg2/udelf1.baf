@@ -1,0 +1,45 @@
+IF
+  See([PC])
+  Global("init1","AR2401",0)
+THEN
+  RESPONSE #100
+    SetGlobal("init1","AR2401",1)
+    DisplayStringHead(Myself,52975)  // ~The dark enemy is there! Attack, that the forests will never again feel the taint of their step! For Suldanessellar!~
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  Global("init1","AR2401",1)
+  Global("oneAttack","AR2401",0)
+THEN
+  RESPONSE #100
+    SetGlobal("oneAttack","AR2401",1)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  Global("escapeElf","AR2401",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("GoodElfKill","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GoodElfKill","GLOBAL",1)
+END
+
+IF
+  See([PC])
+  CombatCounter(0)
+  Global("init1","AR2401",1)
+  Delay(1)
+THEN
+  RESPONSE #100
+    SetGlobal("init1","AR2401",2)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

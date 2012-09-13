@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  See([PC])
+THEN
+    AttackReevaluate([PC],15)
+END
+
+IF
+  !Range([PC],4)
+  See([PC])
+THEN
+    MoveToObject(LastSeenBy)
+END
+
+IF
+  !See([PC])
+THEN
+    MoveToObject(Player1)
+    MoveToObject(Player2)
+    MoveToObject(Player3)
+    MoveToObject(Player4)
+    MoveToObject(Player5)
+    MoveToObject(Player6)
+END
+
+
+END

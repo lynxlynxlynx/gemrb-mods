@@ -1,0 +1,42 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(99)
+    Enemy()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SmallWait(0)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    MoveToCenterOfScreen(90)
+END
+
+IF
+  OR(3)
+    !OnScreen(Myself)
+    TimeLT(DAWN_END)
+    TimeGT(20)
+THEN
+  RESPONSE #100
+    Wait(2)
+    EscapeArea()
+END
+
+IF
+  OnScreen(Myself)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

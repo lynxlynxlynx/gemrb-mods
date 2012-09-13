@@ -1,0 +1,7 @@
+IF
+  Global("EnteredAR0906","AR0906",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredAR0906","AR0906",1)
+END
+

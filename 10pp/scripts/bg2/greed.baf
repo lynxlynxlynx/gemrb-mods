@@ -1,0 +1,20 @@
+IF
+  See(NearestEnemyOf(Myself))
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    StartTimer(1,6)
+    ApplySpell(Myself,WIZARD_INVISIBILITY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    SetNumTimesTalkedTo(1)
+    StartTimer(1,6)
+    ReallyForceSpell(Myself,WIZARD_CLOUDKILL)
+    ApplySpell(Myself,WIZARD_INVISIBILITY)
+END
+

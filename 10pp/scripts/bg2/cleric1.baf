@@ -1,0 +1,57 @@
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    Help()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_COMMAND)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_COMMAND)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ENTANGLE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_ENTANGLE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MAGIC_STONE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MAGIC_STONE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SHILLELAGH)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_SHILLELAGH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),3)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),3)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

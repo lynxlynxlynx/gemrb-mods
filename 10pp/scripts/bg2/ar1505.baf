@@ -1,0 +1,54 @@
+IF
+  OnCreation()
+  Global("CreateArb","AR1505",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CreateArb","AR1505",1)
+    CreateCreature("ELEARB07",[608.369],0)  // ~Apparition~
+END
+
+IF
+  GlobalTimerExpired("BodhiHunts","GLOBAL")
+  !Global("AsylumPlot","GLOBAL",100)
+  !Exists("ppbodhi4")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    CreateCreatureObject("ppbodhi4",Player1,0,0,0)  // ~Bodhi~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    FadeFromColor([20.0],0)
+    ActionOverride("ppbodhi4",StartDialogNoSet(Player1))
+END
+
+IF
+  Global("SecretTwo","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StateOverrideFlag(TRUE)
+    CreateVisualEffectObject("SPCLOUD1",Player1)
+    CreateVisualEffectObject("SPCLOUD1",Player2)
+    CreateVisualEffectObject("SPCLOUD1",Player3)
+    CreateVisualEffectObject("SPCLOUD1",Player4)
+    CreateVisualEffectObject("SPCLOUD1",Player5)
+    CreateVisualEffectObject("SPCLOUD1",Player6)
+    FadeToColor([20.0],0)
+    Wait(2)
+    ActionOverride(Player1,LeaveAreaLUAPanic("AR1508","",[586.437],8))
+    ActionOverride(Player1,LeaveAreaLUA("AR1508","",[586.437],8))
+    ActionOverride(Player2,LeaveAreaLUA("AR1508","",[669.465],8))
+    ActionOverride(Player3,LeaveAreaLUA("AR1508","",[513.454],8))
+    ActionOverride(Player4,LeaveAreaLUA("AR1508","",[590.518],8))
+    ActionOverride(Player5,LeaveAreaLUA("AR1508","",[658.577],8))
+    ActionOverride(Player6,LeaveAreaLUA("AR1508","",[705.518],8))
+    ActionOverride(Player1,MultiPlayerSync())
+    ActionOverride(Player1,FadeFromColor([20.0],0))
+    ActionOverride(Player1,CreateVisualEffectObject("SPCLOUD1",Myself))
+    ActionOverride(Player2,CreateVisualEffectObject("SPCLOUD1",Myself))
+    ActionOverride(Player3,CreateVisualEffectObject("SPCLOUD1",Myself))
+    ActionOverride(Player4,CreateVisualEffectObject("SPCLOUD1",Myself))
+    ActionOverride(Player5,CreateVisualEffectObject("SPCLOUD1",Myself))
+    ActionOverride(Player6,CreateVisualEffectObject("SPCLOUD1",Myself))
+    ActionOverride(Player1,StateOverrideFlag(FALSE))
+END
+

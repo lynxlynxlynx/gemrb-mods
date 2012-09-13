@@ -1,0 +1,103 @@
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,60)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SPELL_PHASE","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SPELL_PHASE","LOCALS",1)
+    Spell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("SPELL_PHASE","LOCALS",1)
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_RADIUS)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("SPELL_PHASE","LOCALS",1)
+    Spell(LastSeenBy(Myself),CLERIC_CURSE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SPELL_PHASE","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SPELL_PHASE","LOCALS",2)
+    Spell(Myself,CLERIC_FLAME_BLADE)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("SPELL_PHASE","LOCALS",2)
+    Spell(Myself,CLERIC_SPIRITUAL_HAMMER)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Help([PC])
+  Help([EVILCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp(Myself))
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+
+IF
+  ActionListEmpty()
+  NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    Wait(5)
+END
+

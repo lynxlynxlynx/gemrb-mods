@@ -1,0 +1,7 @@
+IF
+  Heard("Tenya",1)  // ~Tenya~
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

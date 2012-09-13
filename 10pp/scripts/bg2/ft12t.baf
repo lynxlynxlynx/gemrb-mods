@@ -1,0 +1,30 @@
+IF
+  Heard([ANYONE],152)
+  InMyGroup(LastHeardBy(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackOneRound(NearestEnemyOf(LastHeardBy(Myself)))
+    AttackOneRound(NearestEnemyOf(LastHeardBy(Myself)))
+    AttackOneRound(NearestEnemyOf(LastHeardBy(Myself)))
+    AttackOneRound(NearestEnemyOf(LastHeardBy(Myself)))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),3)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

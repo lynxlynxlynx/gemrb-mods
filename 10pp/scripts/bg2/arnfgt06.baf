@@ -1,0 +1,44 @@
+IF
+  Detect([PC])
+  Range(LastSeenBy(Myself),6)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("GrimwarderAttack","AR0801",1)
+  Global("Done","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Done","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  NumDead("bodfgt01",2)
+  NumDead("bodfgt02",2)
+  Global("Done","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Done","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  !Range(Player1,5)
+  Global("Done","LOCALS",0)
+  NumTimesTalkedToGT(0)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  GlobalGT("Chapter","GLOBAL",3)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

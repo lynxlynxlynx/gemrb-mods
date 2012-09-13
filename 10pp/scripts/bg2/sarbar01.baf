@@ -1,0 +1,9 @@
+IF
+  Global("BarShake2","AR5003",1)
+  !Dead("sarwench")  // sarwench
+THEN
+  RESPONSE #100
+    SetGlobal("BarShake2","AR5003",0)
+    DisplayStringHead(Myself,72050)  // ~Another close one!  Any damage this time?~
+END
+

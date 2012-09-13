@@ -1,0 +1,74 @@
+IF
+  Global("53GolIm","GLOBAL",10)
+  HitBy(Player1,ELECTRICITY)
+THEN
+  RESPONSE #100
+    SetGlobal("53PCGolem_Protect","GLOBAL",1)
+    HideCreature(Myself,TRUE)
+    CreateCreature("53GOLIMH","",[1475.1945],0)  // ~Enhanced Flesh Golem~
+    DestroySelf()
+END
+
+IF
+  Global("53GolIm","GLOBAL",10)
+  HitBy(Player2,ELECTRICITY)
+THEN
+  RESPONSE #100
+    SetGlobal("53PCGolem_Protect","GLOBAL",2)
+    HideCreature(Myself,TRUE)
+    CreateCreature("53GOLIMH","",[1475.1945],0)  // ~Enhanced Flesh Golem~
+    DestroySelf()
+END
+
+IF
+  Global("53GolIm","GLOBAL",10)
+  HitBy(Player3,ELECTRICITY)
+THEN
+  RESPONSE #100
+    SetGlobal("53PCGolem_Protect","GLOBAL",3)
+    HideCreature(Myself,TRUE)
+    CreateCreature("53GOLIMH","",[1475.1945],0)  // ~Enhanced Flesh Golem~
+    DestroySelf()
+END
+
+IF
+  Global("53GolIm","GLOBAL",10)
+  HitBy(Player4,ELECTRICITY)
+THEN
+  RESPONSE #100
+    SetGlobal("53PCGolem_Protect","GLOBAL",4)
+    HideCreature(Myself,TRUE)
+    CreateCreature("53GOLIMH","",[1475.1945],0)  // ~Enhanced Flesh Golem~
+    DestroySelf()
+END
+
+IF
+  Global("53GolIm","GLOBAL",10)
+  HitBy(Player5,ELECTRICITY)
+THEN
+  RESPONSE #100
+    SetGlobal("53PCGolem_Protect","GLOBAL",5)
+    HideCreature(Myself,TRUE)
+    CreateCreature("53GOLIMH","",[1475.1945],0)  // ~Enhanced Flesh Golem~
+    DestroySelf()
+END
+
+IF
+  Global("53GolIm","GLOBAL",10)
+  HitBy(Player6,ELECTRICITY)
+THEN
+  RESPONSE #100
+    SetGlobal("53PCGolem_Protect","GLOBAL",6)
+    HideCreature(Myself,TRUE)
+    CreateCreature("53GOLIMH","",[1475.1945],0)  // ~Enhanced Flesh Golem~
+    DestroySelf()
+END
+
+IF
+  !HPPercent(Myself,100)
+THEN
+  RESPONSE #100
+    SetHPPercent(Myself,100,MAX_HP)
+    Continue()
+END
+

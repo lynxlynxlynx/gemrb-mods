@@ -1,0 +1,49 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Explore()
+    CreateVisualEffectObject("SPROTECT","ppireni2")
+    PlaySound("EFF_M23C")
+    Wait(1)
+    CreateVisualEffectObject("SPFLESHS","ppireni2")
+    PlaySound("EFF_M28")
+    Wait(1)
+    CreateVisualEffectObject("SPFLSRIN","ppireni2")
+    Wait(2)
+    CreateVisualEffectObject("SPFIREPI","ppireni2")
+    PlaySound("EFF_M21")
+    Wait(1)
+    CreateVisualEffectObject("SPDISPMA","ppireni2")
+    PlaySound("EFF_M01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ppireni2")  // 
+    ForceSpell(Myself,LONG_VISUAL2)
+    MoveViewPoint([929.651],6)
+    Wait(3)
+    ActionOverride("ppshad01",ReallyForceSpell(Myself,TRANSFORMATION_DEATH))
+    MoveViewPoint([1090.761],6)
+    Wait(2)
+    ActionOverride("ppshad02",ReallyForceSpell(Myself,TRANSFORMATION_DEATH))
+    MoveViewPoint([1250.879],6)
+    Wait(2)
+    ActionOverride("ppshad03",ReallyForceSpell(Myself,TRANSFORMATION_DEATH))
+    MoveViewPoint([1412.988],6)
+    Wait(2)
+    ActionOverride("ppshad04",ReallyForceSpell(Myself,TRANSFORMATION_DEATH))
+    MoveViewPoint([1324.1193],6)
+    Wait(2)
+    ActionOverride("ppshad05",ReallyForceSpell(Myself,TRANSFORMATION_DEATH))
+    MoveViewPoint([1163.1303],6)
+    Wait(2)
+    ActionOverride("ppshad06",ReallyForceSpell(Myself,TRANSFORMATION_DEATH))
+    SetGlobal("ppDeadThief","AR1516",6)
+    EndCutSceneMode()
+END
+

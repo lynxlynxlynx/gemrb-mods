@@ -1,0 +1,1059 @@
+IF
+  Global("OjaihaGuardSpawn","MYAREA",0)
+  Global("Ritual_RitualState","GLOBAL",3)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("OjaihaGuardSpawn","MYAREA",1)
+    CreateCreature("60ViFang","",[-1.-1],0)  // ~Viper's Fangs Assassin~
+    CreateCreature("60ViprGo","",[-1.-1],0)  // ~Viper~
+    CreateCreature("60ViFang","",[-1.-1],0)  // ~Viper's Fangs Assassin~
+    CreateCreature("60ViprGo","",[-1.-1],0)  // ~Viper~
+    CreateCreature("60ViFang","",[-1.-1],0)  // ~Viper's Fangs Assassin~
+    CreateCreature("60ViprGo","",[-1.-1],0)  // ~Viper~
+    CreateCreature("60ViFang","",[-1.-1],0)  // ~Viper's Fangs Assassin~
+    CreateCreature("60ViprGo","",[-1.-1],0)  // ~Viper~
+    CreateCreature("60ViFang","",[-1.-1],0)  // ~Viper's Fangs Assassin~
+    CreateCreature("60ViprGo","",[-1.-1],0)  // ~Viper~
+    Continue()
+END
+
+IF
+  Or(2)
+    Global("Ritual_RitualState","GLOBAL",3)
+    Global("Ritual_RitualState","GLOBAL",-1)
+  Global("Ojaiha_Chest_Clicked","MYAREA",1)
+  Global("6051_Wearing_Robes","GLOBAL",6)
+THEN
+  RESPONSE #100
+    SetGlobal("Ojaiha_Chest_Clicked","MYAREA",2)
+    FloatMessage(Myself,36914)  // ~"Stay away from there, initiate.  You are not permitted to open those."~
+    Wait(3)
+    FaceSavedLocation(Myself)
+END
+
+IF
+  Or(2)
+    Global("Ritual_RitualState","GLOBAL",3)
+    Global("Ritual_RitualState","GLOBAL",-1)
+  Global("Ojaiha_Chest_Clicked","MYAREA",1)
+  !Global("6051_Wearing_Robes","GLOBAL",6)
+THEN
+  RESPONSE #100
+    SetGlobal("Ojaiha_Chest_Clicked","MYAREA",3)
+    FloatMessage(Myself,36913)  // ~"Eh?  What is this?!  Intruders!  Intruders in the temple!"~
+    Wait(3)
+    Enemy()
+END
+
+IF
+  Global("ar6051_Kill_Ritual","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("Ojaiha",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_Priest_02",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_Priest_03",Kill(Myself))
+    ActionOverride("Ritual_Initiate_01",Kill(Myself))
+    ActionOverride("Ritual_Initiate_02",Kill(Myself))
+    ActionOverride("Ritual_Initiate_03",Kill(Myself))
+    ActionOverride("Ritual_Initiate_04",Kill(Myself))
+    ActionOverride("Ritual_Pureblood_Fighter_01",Kill(Myself))
+    ActionOverride("Ritual_Pureblood_Fighter_02",Kill(Myself))
+    ActionOverride("Ritual_Pureblood_Sorcerer_01",Kill(Myself))
+    ActionOverride("Ritual_Pureblood_Sorcerer_02",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_05",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_06",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_07",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_08",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_Elite_01",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_Elite_02",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_Elite_03",Kill(Myself))
+    ActionOverride("Ritual_Yuan-Ti_Elite_04",Kill(Myself))
+END
+
+IF
+  !Global("Hearts","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Hearts","MYAREA",0)
+    Continue()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("60pSnkSt_HeartMissing","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Hearts","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Hearts","MYAREA",1)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("Hearts","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("Hearts","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",-1)
+    FaceObject(LastSeenBy(Myself))
+    FloatMessage(Myself,34586)  // ~"Desecrators!  Yuan-ti, attack!"~
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  Or(2)
+    !IsScriptName("Ojaiha",Myself)
+    Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Or(7)
+    !Global("TEAM_1","MYAREA",0)
+    !Global("TEAM_2","MYAREA",0)
+    !Global("TEAM_3","MYAREA",0)
+    !Global("TEAM_4","MYAREA",0)
+    !Global("TEAM_5","MYAREA",0)
+    !Global("TEAM_6","MYAREA",0)
+    !Global("TEAM_7","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(1)
+  !IsFacingSavedRotation(Myself)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(1,5)
+    Continue()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",0)
+  Or(33)
+    Dead("Ritual_Initiate_01")  // 
+    Dead("Ritual_Initiate_02")  // 
+    Dead("Ritual_Initiate_03")  // 
+    Dead("Ritual_Initiate_04")  // 
+    Dead("Ritual_Pureblood_Fighter_01")  // 
+    Dead("Ritual_Pureblood_Fighter_02")  // 
+    Dead("Ritual_Pureblood_Sorcerer_01")  // 
+    Dead("Ritual_Pureblood_Sorcerer_02")  // 
+    Dead("Ritual_Yuan-Ti_05")  // 
+    Dead("Ritual_Yuan-Ti_06")  // 
+    Dead("Ritual_Yuan-Ti_07")  // 
+    Dead("Ritual_Yuan-Ti_08")  // 
+    Dead("Ritual_Yuan-Ti_Elite_01")  // 
+    Dead("Ritual_Yuan-Ti_Elite_02")  // 
+    Dead("Ritual_Yuan-Ti_Elite_03")  // 
+    Dead("Ritual_Yuan-Ti_Elite_04")  // 
+    Dead("Ritual_Yuan-Ti_Archer_01")  // 
+    Dead("Ritual_Yuan-Ti_Archer_02")  // 
+    Dead("Ritual_Yuan-Ti_Priest_02")  // 
+    Dead("Ritual_Yuan-Ti_Priest_03")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",5)
+    Continue()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",5)
+  Global("Aborting","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Aborting","MYAREA",1)
+    Face(W)
+    Wait(2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",5)
+  Global("Aborting","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Aborting","MYAREA",2)
+    Face(SE)
+    Wait(2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",5)
+  Global("Aborting","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Aborting","MYAREA",3)
+    Face(SW)
+    FloatMessage(Myself,36894)  // ~"Why are we not all here?!  We have shamed ourselves before Sseth!"~
+    Wait(5)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",5)
+  Global("Aborting","MYAREA",3)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",2)
+    SetGlobal("Aborting","MYAREA",4)
+    Face(SW)
+    FloatMessage(Myself,36895)  // ~"Return to your posts - there shall be no more rituals until the ones absent have been punished in Sseth's embrace!"~
+    Wait(5)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",1)
+    SetGlobal("Ritual_DialogState","MYAREA",0)
+    SetGlobal("Ritual_DialogState","MYAREA",0)
+    SetGlobal("Ritual_Delay_00_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_01_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_02_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_03_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_04_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_05_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_06_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_07_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_08_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_09_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_10_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_11_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_12_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_13_Started","MYAREA",0)
+    SetGlobal("Ritual_Delay_14_Started","MYAREA",0)
+    SetGlobal("Ritual_Pause_StartedTimer","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_00","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_01","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_02","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_03","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_04","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_05","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_06","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_07","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_08","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_09","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_10","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_11","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_12","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_13","MYAREA",0)
+    SetGlobal("Ritual_DoneLine_14","MYAREA",0)
+    Continue()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",2)
+  Global("Aborting","MYAREA",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    ActionOverride("Ojaiha",JumpToPoint([2990.370]))
+    ActionOverride("Ritual_Yuan-Ti_Priest_02",JumpToPoint([3020.1190]))
+    ActionOverride("Ritual_Yuan-Ti_Priest_03",JumpToPoint([3620.860]))
+    ActionOverride("Ritual_Yuan-Ti_Priest_02",FaceObject("Ritual_Yuan-Ti_Priest_03"))
+    ActionOverride("Ritual_Yuan-Ti_Priest_03",FaceObject("Ritual_Yuan-Ti_Priest_02"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Initiate_01",JumpToPoint([1570.1980]))
+    ActionOverride("Ritual_Initiate_02",JumpToPoint([1510.1990]))
+    ActionOverride("Ritual_Initiate_03",JumpToPoint([1420.1920]))
+    ActionOverride("Ritual_Initiate_04",JumpToPoint([1450.1860]))
+    ActionOverride("Ritual_Initiate_01",FaceObject("Ritual_Initiate_02"))
+    ActionOverride("Ritual_Initiate_02",FaceObject("Ritual_Initiate_01"))
+    ActionOverride("Ritual_Initiate_03",FaceObject("Ritual_Initiate_04"))
+    ActionOverride("Ritual_Initiate_04",FaceObject("Ritual_Initiate_03"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Pureblood_Fighter_01",JumpToPoint([2710.2630]))
+    ActionOverride("Ritual_Pureblood_Fighter_02",JumpToPoint([2540.2670]))
+    ActionOverride("Ritual_Pureblood_Fighter_01",FaceObject("Ritual_Pureblood_Fighter_02"))
+    ActionOverride("Ritual_Pureblood_Fighter_02",FaceObject("Ritual_Pureblood_Fighter_01"))
+    ActionOverride("Ritual_Pureblood_Sorcerer_01",JumpToPoint([1820.2620]))
+    ActionOverride("Ritual_Pureblood_Sorcerer_02",JumpToPoint([2050.2640]))
+    ActionOverride("Ritual_Pureblood_Sorcerer_01",FaceObject("Ritual_Pureblood_Sorcerer_02"))
+    ActionOverride("Ritual_Pureblood_Sorcerer_02",FaceObject("Ritual_Pureblood_Sorcerer_01"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Yuan-Ti_05",JumpToPoint([2480.2640]))
+    ActionOverride("Ritual_Yuan-Ti_06",JumpToPoint([2400.2640]))
+    ActionOverride("Ritual_Yuan-Ti_07",JumpToPoint([2350.2610]))
+    ActionOverride("Ritual_Yuan-Ti_08",JumpToPoint([2030.2480]))
+    ActionOverride("Ritual_Yuan-Ti_05",FaceObject("Ritual_Yuan-Ti_06"))
+    ActionOverride("Ritual_Yuan-Ti_06",FaceObject("Ritual_Yuan-Ti_05"))
+    ActionOverride("Ritual_Yuan-Ti_07",FaceObject("Ritual_Yuan-Ti_08"))
+    ActionOverride("Ritual_Yuan-Ti_08",FaceObject("Ritual_Yuan-Ti_07"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Yuan-Ti_Elite_01",JumpToPoint([2170.880]))
+    ActionOverride("Ritual_Yuan-Ti_Elite_02",JumpToPoint([2090.950]))
+    ActionOverride("Ritual_Yuan-Ti_Elite_03",JumpToPoint([2490.1100]))
+    ActionOverride("Ritual_Yuan-Ti_Elite_04",JumpToPoint([2550.1020]))
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+    DisplayMessage(34437)  // ~The ritual concludes, and the yuan-ti slither back to their posts, hissing to themselves.~
+    Continue()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",2)
+  !Global("Aborting","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",3)
+    Continue()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",2)
+  Global("Aborting","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",-1)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    ActionOverride("Ojaiha",JumpToPoint([2990.370]))
+    ActionOverride("Ritual_Yuan-Ti_Priest_02",JumpToPoint([3020.1190]))
+    ActionOverride("Ritual_Yuan-Ti_Priest_03",JumpToPoint([3620.860]))
+    ActionOverride("Ritual_Yuan-Ti_Priest_02",FaceObject("Ritual_Yuan-Ti_Priest_03"))
+    ActionOverride("Ritual_Yuan-Ti_Priest_03",FaceObject("Ritual_Yuan-Ti_Priest_02"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Initiate_01",JumpToPoint([1570.1980]))
+    ActionOverride("Ritual_Initiate_02",JumpToPoint([1510.1990]))
+    ActionOverride("Ritual_Initiate_03",JumpToPoint([1420.1920]))
+    ActionOverride("Ritual_Initiate_04",JumpToPoint([1450.1860]))
+    ActionOverride("Ritual_Initiate_01",FaceObject("Ritual_Initiate_02"))
+    ActionOverride("Ritual_Initiate_02",FaceObject("Ritual_Initiate_01"))
+    ActionOverride("Ritual_Initiate_03",FaceObject("Ritual_Initiate_04"))
+    ActionOverride("Ritual_Initiate_04",FaceObject("Ritual_Initiate_03"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Pureblood_Fighter_01",JumpToPoint([2710.2630]))
+    ActionOverride("Ritual_Pureblood_Fighter_02",JumpToPoint([2540.2670]))
+    ActionOverride("Ritual_Pureblood_Fighter_01",FaceObject("Ritual_Pureblood_Fighter_02"))
+    ActionOverride("Ritual_Pureblood_Fighter_02",FaceObject("Ritual_Pureblood_Fighter_01"))
+    ActionOverride("Ritual_Pureblood_Sorcerer_01",JumpToPoint([1820.2620]))
+    ActionOverride("Ritual_Pureblood_Sorcerer_02",JumpToPoint([2050.2640]))
+    ActionOverride("Ritual_Pureblood_Sorcerer_01",FaceObject("Ritual_Pureblood_Sorcerer_02"))
+    ActionOverride("Ritual_Pureblood_Sorcerer_02",FaceObject("Ritual_Pureblood_Sorcerer_01"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Yuan-Ti_05",JumpToPoint([2480.2640]))
+    ActionOverride("Ritual_Yuan-Ti_06",JumpToPoint([2400.2640]))
+    ActionOverride("Ritual_Yuan-Ti_07",JumpToPoint([2350.2610]))
+    ActionOverride("Ritual_Yuan-Ti_08",JumpToPoint([2030.2480]))
+    ActionOverride("Ritual_Yuan-Ti_05",FaceObject("Ritual_Yuan-Ti_06"))
+    ActionOverride("Ritual_Yuan-Ti_06",FaceObject("Ritual_Yuan-Ti_05"))
+    ActionOverride("Ritual_Yuan-Ti_07",FaceObject("Ritual_Yuan-Ti_08"))
+    ActionOverride("Ritual_Yuan-Ti_08",FaceObject("Ritual_Yuan-Ti_07"))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Yuan-Ti_Elite_01",JumpToPoint([2170.880]))
+    ActionOverride("Ritual_Yuan-Ti_Elite_02",JumpToPoint([2090.950]))
+    ActionOverride("Ritual_Yuan-Ti_Elite_03",JumpToPoint([2490.1100]))
+    ActionOverride("Ritual_Yuan-Ti_Elite_04",JumpToPoint([2550.1020]))
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+    DisplayMessage(34437)  // ~The ritual concludes, and the yuan-ti slither back to their posts, hissing to themselves.~
+    Continue()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",3)
+  Global("Ritual_Pause_StartedTimer","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Pause_StartedTimer","MYAREA",1)
+    SetGlobalTimer("Ritual_Pause_Timer","MYAREA",360)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",3)
+  Global("Ritual_Pause_StartedTimer","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Pause_Timer","MYAREA")
+THEN
+  RESPONSE #100
+    Wait(1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",3)
+  Global("Ritual_Pause_StartedTimer","MYAREA",1)
+  GlobalTimerExpired("Ritual_Pause_Timer","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Pause_StartedTimer","MYAREA",2)
+    SetGlobal("Ritual_RitualState","GLOBAL",4)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",4)
+  Global("TEAM_1","MYAREA",0)
+  Global("TEAM_2","MYAREA",0)
+  Global("TEAM_3","MYAREA",0)
+  Global("TEAM_4","MYAREA",0)
+  Global("TEAM_5","MYAREA",0)
+  Global("TEAM_6","MYAREA",0)
+  Global("TEAM_7","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",0)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    ActionOverride("Ojaiha",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_Priest_02",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_Priest_03",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_Priest_02",Face(NE))
+    ActionOverride("Ritual_Yuan-Ti_Priest_03",Face(NE))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Initiate_01",JumpToSavedLocation())
+    ActionOverride("Ritual_Initiate_02",JumpToSavedLocation())
+    ActionOverride("Ritual_Initiate_03",JumpToSavedLocation())
+    ActionOverride("Ritual_Initiate_04",JumpToSavedLocation())
+    ActionOverride("Ritual_Initiate_01",Face(NE))
+    ActionOverride("Ritual_Initiate_02",Face(NE))
+    ActionOverride("Ritual_Initiate_03",Face(NE))
+    ActionOverride("Ritual_Initiate_04",Face(NE))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Pureblood_Fighter_01",JumpToSavedLocation())
+    ActionOverride("Ritual_Pureblood_Fighter_02",JumpToSavedLocation())
+    ActionOverride("Ritual_Pureblood_Fighter_01",Face(NE))
+    ActionOverride("Ritual_Pureblood_Fighter_02",Face(NE))
+    ActionOverride("Ritual_Pureblood_Sorcerer_01",JumpToSavedLocation())
+    ActionOverride("Ritual_Pureblood_Sorcerer_02",JumpToSavedLocation())
+    ActionOverride("Ritual_Pureblood_Sorcerer_01",Face(NE))
+    ActionOverride("Ritual_Pureblood_Sorcerer_02",Face(NE))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Yuan-Ti_05",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_06",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_07",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_08",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_05",Face(NE))
+    ActionOverride("Ritual_Yuan-Ti_06",Face(NE))
+    ActionOverride("Ritual_Yuan-Ti_07",Face(NE))
+    ActionOverride("Ritual_Yuan-Ti_08",Face(NE))
+    MultiPlayerSync()
+    ActionOverride("Ritual_Yuan-Ti_Elite_01",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_Elite_02",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_Elite_03",JumpToSavedLocation())
+    ActionOverride("Ritual_Yuan-Ti_Elite_04",JumpToSavedLocation())
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    DisplayMessage(34438)  // ~The ritual commences, and the yuan-ti take their positions within the temple.~
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",0)
+THEN
+  RESPONSE #100
+    FloatMessage("Ritual_Yuan-Ti_Archer_01",22994)  // ~"All be silent and still!  Mighty and venerable Ojaiha of the Gleaming Scales is here!"~
+    FloatMessage("Ritual_Yuan-Ti_Archer_02",22994)  // ~"All be silent and still!  Mighty and venerable Ojaiha of the Gleaming Scales is here!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_00_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_00_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_00","MYAREA",5)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_00_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_00","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_00_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_00","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_00_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,24535)  // ~"Listen, my children.  As I stand in the shadow of the idol of Sseth, so do you stand, reflected in the eyes of the great serpent."~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_01_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_01_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_01","MYAREA",10)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_01_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_01","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_01_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_01","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_01_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,25587)  // ~"As the wretched humans of Mezro creep and poke through our jungle, I know how you long to slay them.  I *know*, my childen.  I know!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_02_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_02_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_02","MYAREA",10)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_02_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_02","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_02_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_02","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_02_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",3)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,24706)  // ~"And through me, Sseth knows!  He sees your suffering!  He tastes your hunger pangs, the dryness of your mouths!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_03_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_03_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_03","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_03_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_03","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_03_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_03","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_03_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",4)
+THEN
+  RESPONSE #100
+    FloatMessage("Ritual_Yuan-Ti_Priest_02",25583)  // ~"Praise and glory to Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_03",25583)  // ~"Praise and glory to Sseth!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_04_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_04_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_04","MYAREA",10)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_04_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_04","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_04_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_04","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_04_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",5)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,25584)  // ~"Yes!  Glory to Sseth... and praise... and *utter* devotion.  Just as the serpent swallows whole its prey, so too must you submit completely to the will of our great lord!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_05_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_05_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_05","MYAREA",3)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_05_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_05","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_05_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_05","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_05_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",6)
+THEN
+  RESPONSE #100
+    FloatMessage("Ritual_Yuan-Ti_Archer_01",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Yuan-Ti_Archer_02",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_02",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_03",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_02",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_04",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Yuan-Ti_06",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Yuan-Ti_08",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Pureblood_Sorcerer_02",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Pureblood_Fighter_01",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Initiate_02",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    FloatMessage("Ritual_Initiate_04",25585)  // ~"We hear and obey, great and venerable Ojaiha!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_06_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_06_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_06","MYAREA",10)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_06_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_06","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_06_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_06","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_06_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",7)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,25586)  // ~"I am great in the eyes of Sseth!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_07_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_07_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_07","MYAREA",3)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_07_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_07","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_07_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_07","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_07_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",8)
+THEN
+  RESPONSE #100
+    FloatMessage("Ritual_Yuan-Ti_Archer_01",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_Archer_02",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_02",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_03",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_02",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_04",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_06",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_08",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Pureblood_Sorcerer_02",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Pureblood_Fighter_01",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Initiate_02",25592)  // ~"We are great in the eyes of Sseth!"~
+    FloatMessage("Ritual_Initiate_04",25592)  // ~"We are great in the eyes of Sseth!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_08_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_08_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_08","MYAREA",3)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_08_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_08","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_08_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_08","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_08_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",9)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,25590)  // ~"I am warm in Sseth's embrace!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_09_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_09_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_09","MYAREA",3)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_09_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_09","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_09_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_09","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_09_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",10)
+THEN
+  RESPONSE #100
+    FloatMessage("Ritual_Yuan-Ti_Archer_01",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Yuan-Ti_Archer_02",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_02",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_03",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_02",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_04",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Yuan-Ti_06",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Yuan-Ti_08",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Pureblood_Sorcerer_02",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Pureblood_Fighter_01",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Initiate_02",25596)  // ~"We are warm in Sseth's embrace!"~
+    FloatMessage("Ritual_Initiate_04",25596)  // ~"We are warm in Sseth's embrace!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_10_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_10_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_10","MYAREA",3)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_10_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_10","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_10_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_10","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_10_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",11)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,25591)  // ~"I would throw myself into the fangs of Sseth for his sake!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_11_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_11_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_11","MYAREA",3)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_11_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_11","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_11_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_11","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_11_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_DialogState","MYAREA",12)
+THEN
+  RESPONSE #100
+    FloatMessage("Ritual_Yuan-Ti_Archer_01",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Yuan-Ti_Archer_02",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_02",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_03",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_02",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Yuan-Ti_Elite_04",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Yuan-Ti_06",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Yuan-Ti_08",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Pureblood_Sorcerer_02",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Pureblood_Fighter_01",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Initiate_02",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    FloatMessage("Ritual_Initiate_04",25594)  // ~"We will throw ourselves into the fangs of Sseth for his sake!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_12_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_12_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_12","MYAREA",10)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_12_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_12","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_12_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_12","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_12_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",13)
+THEN
+  RESPONSE #100
+    FloatMessage("Ritual_Yuan-Ti_Priest_02",25583)  // ~"Praise and glory to Sseth!"~
+    FloatMessage("Ritual_Yuan-Ti_Priest_03",25583)  // ~"Praise and glory to Sseth!"~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_13_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_13_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_13","MYAREA",3)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_13_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_13","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_13_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_13","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_13_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",14)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,25595)  // ~"May the horror of light pass over you.  May the peace of night embrace you."~
+    IncrementGlobal("Ritual_DialogState","MYAREA",1)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_14_Started","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_14_Started","MYAREA",1)
+    SetGlobalTimer("Ritual_Delay_14","MYAREA",10)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_14_Started","MYAREA",1)
+  !GlobalTimerExpired("Ritual_Delay_14","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_Delay_14_Started","MYAREA",1)
+  GlobalTimerExpired("Ritual_Delay_14","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_Delay_14_Started","MYAREA",2)
+END
+
+IF
+  Global("Ritual_RitualState","GLOBAL",1)
+  Global("Ritual_DialogState","MYAREA",15)
+THEN
+  RESPONSE #100
+    SetGlobal("Ritual_RitualState","GLOBAL",2)
+    SetGlobal("Ritual_DialogState","MYAREA",-1)
+    Continue()
+END
+

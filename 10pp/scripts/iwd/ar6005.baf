@@ -1,0 +1,28 @@
+IF
+  Global("KILL_LICH_MINIONS","MYAREA",0)
+  !Global("LICH_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LICH_MINIONS_FOLLOW","MYAREA",0)
+    SetGlobal("KILL_LICH_MINIONS","MYAREA",1)
+    Continue()
+END
+
+IF
+  GlobalGT("UD_LICH_SPAWN_DEAD","GLOBAL",0)
+  GlobalGT("UD_LICH_SPAWN_CNT","MYAREA",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("UD_LICH_SPAWN_DEAD","GLOBAL",-1)
+    IncrementGlobal("UD_LICH_SPAWN_CNT","MYAREA",-1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

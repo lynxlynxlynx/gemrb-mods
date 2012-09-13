@@ -1,0 +1,168 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  Die()
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Sarge",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Sarge",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(14)
+    WaitRandom(5,10)
+    Face(0)
+    WaitRandom(5,10)
+    MoveToPoint([544.1339])
+    MoveToPoint([639.1339])
+    Face(0)
+    WaitRandom(5,10)
+    Face(2)
+    WaitRandom(5,10)
+    Face(14)
+    WaitRandom(5,10)
+    MoveToPoint([743.1305])
+    MoveToPoint([849.1366])
+    Face(0)
+    Wait(5)
+    Face(2)
+    Wait(5)
+    MoveToPoint([1121.1055])
+    MoveToPoint([1244.1095])
+    Face(0)
+    Wait(5)
+    Face(2)
+    Wait(5)
+    Face(14)
+    Wait(5)
+    MoveToPoint([1247.924])
+    Face(12)
+    Wait(3)
+    Face(2)
+    Wait(3)
+    MoveToPoint([1246.731])
+    MoveToPoint([1384.641])
+    Face(8)
+    Wait(5)
+    Face(10)
+    Wait(5)
+    MoveToPoint([1462.672])
+    Face(10)
+    Wait(5)
+    MoveToPoint([1451.731])
+    MoveToPoint([1185.731])
+    MoveToPoint([1031.553])
+    MoveToPoint([1190.474])
+    Face(0)
+    Wait(5)
+    Face(14)
+    Wait(5)
+    Face(0)
+    MoveToPoint([1190.474])
+    MoveToPoint([1031.553])
+    MoveToPoint([1185.731])
+    MoveToPoint([1451.731])
+    Wait(5)
+    Face(10)
+    MoveToPoint([1462.672])
+    Wait(5)
+    Face(10)
+    Wait(5)
+    Face(8)
+    MoveToPoint([1384.641])
+    MoveToPoint([1246.731])
+    Wait(3)
+    Face(2)
+    Wait(3)
+    Face(12)
+    MoveToPoint([1247.924])
+    Wait(5)
+    Face(14)
+    Wait(5)
+    Face(2)
+    Wait(5)
+    Face(0)
+    MoveToPoint([1244.1095])
+    MoveToPoint([1121.1055])
+    Wait(5)
+    Face(2)
+    Wait(5)
+    Face(0)
+    MoveToPoint([849.1366])
+    MoveToPoint([743.1305])
+    WaitRandom(5,10)
+    Face(14)
+    WaitRandom(5,10)
+    Face(2)
+    WaitRandom(5,10)
+    Face(0)
+    MoveToPoint([639.1339])
+    MoveToPoint([544.1339])
+    WaitRandom(5,10)
+    Face(0)
+    WaitRandom(5,10)
+END
+

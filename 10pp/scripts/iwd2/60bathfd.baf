@@ -1,0 +1,26 @@
+IF
+  Global("ar6051_Kill_FireAndAcid","GLOBAL",1)
+THEN
+  RESPONSE #100
+    NoAction()
+    Wait(3000)
+END
+
+IF
+  Disarmed([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Fire_Room_Active","MYAREA",-1)
+    CloseDoor(Myself)
+    SetGlobal("Fire_Room_Armed","MYAREA",-1)
+    CloseDoor("AR6051_Lava_Art")
+    DisplayMessage(37446)  // ~You have disabled the fire pit trap so that it will never go off again. ~
+END
+
+IF
+  Closed([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Fire_Room_Active","MYAREA",11)
+END
+

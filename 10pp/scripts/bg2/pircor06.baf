@@ -1,0 +1,10 @@
+IF
+  Global("CaptainSleep","GLOBAL",1)
+  Global("TalkedToGirl","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TalkedToGirl","LOCALS",1)
+    Wait(1)
+    StartDialogNoSet([PC])
+END
+

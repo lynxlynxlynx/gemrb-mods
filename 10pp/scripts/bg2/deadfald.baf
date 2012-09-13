@@ -1,0 +1,7 @@
+IF
+  Dead("cefald01")  // ~Faldorn~
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

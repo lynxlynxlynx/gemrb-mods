@@ -1,0 +1,77 @@
+IF
+  !Global("TEAM_12","MYAREA",0)
+  Dead("12_PATROL_LEADER")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_12","MYAREA",1)
+END
+
+IF
+  ActionListEmpty()
+  !IsScriptName("12_PATROL_LEADER",Myself)
+  Dead("12_PATROL_LEADER")  // 
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("12_PATROL_LEADER")
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,2335,681,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2335.681])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  IsScriptName("12_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([2335.681])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  IsScriptName("12_PATROL_LEADER",Myself)
+  !TimerActive(22)
+THEN
+  RESPONSE #100
+    StartTimer(22,10)
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  NearSavedLocation(4)
+  IsScriptName("12_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",3)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !TimerActive(22)
+  !NearSavedLocation(4)
+  IsScriptName("12_PATROL_LEADER",Myself)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  IsScriptName("12_PATROL_LEADER",Myself)
+  !TimerActive(22)
+THEN
+  RESPONSE #100
+    StartTimer(22,10)
+    SetGlobal("ML_0","LOCALS",0)
+END
+

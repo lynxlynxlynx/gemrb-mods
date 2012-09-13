@@ -1,0 +1,11 @@
+IF
+  !TimerActive(18)
+  GlobalGT("50Suoma_Help","Global",3)
+THEN
+  RESPONSE #15
+    FloatMessage(Myself,17034)  // ~"These are dark times... dark times, indeed."~
+    StartRandomTimer(18,15,20)
+  RESPONSE #85
+    StartRandomTimer(18,15,20)
+END
+

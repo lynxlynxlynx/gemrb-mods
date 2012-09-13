@@ -1,0 +1,67 @@
+IF
+  Global("0205_Angry","AR0205",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("0205_Angry","AR0205",1)
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(10,15)
+    MoveToPoint([1356.583])
+    Face(2)
+    WaitRandom(10,15)
+    MoveToPoint([1356.519])
+    MoveToPoint([1315.477])
+    Face(2)
+    WaitRandom(10,15)
+    MoveToPoint([1315.446])
+    Face(8)
+    WaitRandom(10,15)
+    MoveToPoint([1387.446])
+    Face(10)
+    WaitRandom(10,15)
+    MoveToPoint([1315.446])
+    Face(8)
+    WaitRandom(10,15)
+    MoveToPoint([1315.477])
+    Face(2)
+    WaitRandom(10,15)
+    MoveToPoint([1356.519])
+    MoveToPoint([1356.583])
+    Face(2)
+    WaitRandom(10,15)
+    MoveToPoint([1395.622])
+    MoveToPoint([1395.622])
+    Face(2)
+END
+

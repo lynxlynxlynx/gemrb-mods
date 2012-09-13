@@ -1,0 +1,18 @@
+IF
+  Global("SW_Villagers_Freed","GLOBAL",4)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Global("SR_Myson_Freed","GLOBAL",2)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    Dialogue(LastMarkedObject)
+END
+

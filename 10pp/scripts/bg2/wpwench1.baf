@@ -1,0 +1,47 @@
+IF
+  Detect([PC])
+  Allegiance(Myself,NEUTRAL)
+  Global("Task1","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToObject("Way1")
+    ActionOverride("WPcust1",DisplayStringHead(Myself,4592))  // ~Where's me ale woman?~
+    Wait(1)
+    DisplayStringHead(Myself,4604)  // ~Wait 'cha turn.~
+    Wait(2)
+    MoveToObject("Way2")
+    Wait(1)
+    MoveToObject("Way1")
+    Wait(1)
+    DisplayStringHead(Myself,4611)  // ~Here ya go.~
+    Wait(2)
+    SetGlobal("Task1","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  Allegiance(Myself,NEUTRAL)
+  Global("Task1","LOCALS",1)
+THEN
+  RESPONSE #10
+    Wait(1)
+    MoveToObject("Way1")
+  RESPONSE #10
+    Wait(2)
+    MoveToObject("Way2")
+  RESPONSE #10
+    Wait(1)
+    MoveToObject("Way3")
+  RESPONSE #10
+    Wait(2)
+    MoveToObject("Way4")
+  RESPONSE #10
+    Wait(1)
+    MoveToObject("Way5")
+  RESPONSE #1
+    Wait(1)
+    MoveToObject("WPcust2")
+    DisplayStringHead(Myself,4590)  // ~No more for you~
+    Wait(2)
+END
+

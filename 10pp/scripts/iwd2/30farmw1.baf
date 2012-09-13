@@ -1,0 +1,23 @@
+IF
+  !TimerActive(21)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,1013)  // ~* Grunt *~
+    StartRandomTimer(21,8,20)
+    Continue()
+  RESPONSE #50
+    StartRandomTimer(21,8,20)
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,ATTACK)
+    WaitRandom(1,2)
+  RESPONSE #100
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    WaitRandom(1,2)
+END
+

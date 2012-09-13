@@ -1,0 +1,11 @@
+IF
+  Range([PC],15)
+  Global("StartedGorionCutscene","AR5202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("StartedGorionCutscene","AR5202",1)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut218a")
+END
+

@@ -1,0 +1,38 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  GlobalLT("MK_Counter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    RunToObject("Nameless")
+    Dialogue([PC])
+END
+
+IF
+  GlobalGT("MK_Counter","GLOBAL",999)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunToObject("Nameless")
+    RunningAttack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #1
+    Enemy()
+    Help()
+    RunToObject("Nameless")
+    RunningAttack(NearestEnemyOf(Myself))
+  RESPONSE #3
+    RunToObject("Nameless")
+    Dialogue([PC])
+END
+

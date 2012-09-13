@@ -1,0 +1,114 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_1")  // 
+    FaceObject([PC])
+    Enemy()
+    SetStartPos([184.246])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_2")  // 
+    FaceObject([PC])
+    Enemy()
+    SetStartPos([88.355])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_3")  // 
+    FaceObject([PC])
+    Enemy()
+    SetStartPos([232.258])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_4")  // 
+    FaceObject([PC])
+    Enemy()
+    SetStartPos([280.270])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_5")  // 
+    FaceObject([PC])
+    Enemy()
+    SetStartPos([136.378])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_6")  // 
+    FaceObject([PC])
+    Enemy()
+    SetStartPos([179.388])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    FaceObject([ENEMY])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(1)
+    FaceObject([ENEMY])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(1)
+    FaceObject([ENEMY])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(1)
+    FaceObject([ENEMY])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(1)
+    FaceObject([ENEMY])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(1)
+    FaceObject([ENEMY])
+END
+

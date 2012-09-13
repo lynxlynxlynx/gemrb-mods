@@ -1,0 +1,17 @@
+IF
+  HitBy(Player1,CRUSHING)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("TutorialLesson","GLOBAL",10)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EscapeArea()
+END
+
+IF
+  Global("TutorialLesson","GLOBAL",9)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player1,15)
+END
+

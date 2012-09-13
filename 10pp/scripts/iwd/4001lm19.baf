@@ -1,0 +1,7 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_4)
+END
+

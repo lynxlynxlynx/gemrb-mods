@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(2)
+    MoveViewPoint([2650.783],INSTANT)
+    CreateCreature("DRJON",[2512.487],14)  // ~Jon Irenicus~
+    CreateCreature("DRESELF1",[2673.760],10)  // ~Elf Male~
+    CreateCreature("DRESELF2",[2614.758],10)  // ~Elf Female~
+    CreateCreature("DRESELF4",[2650.807],10)  // ~Elf Female~
+    CreateCreature("DRESELF3",[2590.754],10)  // ~Elf Male~
+    CreateCreature("DRESELF5",[2607.804],10)  // ~Elf Male~
+    CreateCreature("DRESELF6",[2540.765],12)  // ~Elf Female~
+    CreateCreature("DRESELF8",[2540.765],12)  // ~Elf Female~
+    CreateCreature("DRESELF7",[2522.809],12)  // ~Elf Male~
+    FadeFromColor([30.0],0)
+    Wait(1)
+    StartCutScene("Cut68d")
+END
+

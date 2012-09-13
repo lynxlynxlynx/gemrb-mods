@@ -1,0 +1,291 @@
+IF
+  Range(LastAttackerOf(Myself),6)
+  Global("ThrallOrb","GLOBAL",2)
+  GlobalLT("asunfire","LOCALS",1)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_MANTLE)
+    IncrementGlobal("asunfire","LOCALS",1)
+    ReallyForceSpell(Myself,WIZARD_SUN_FIRE)
+    Wait(1)
+    Kill("pthral07")
+    Kill("pthral08")
+    Kill("pthral09")
+END
+
+IF
+  Global("ThrallOrb","GLOBAL",2)
+  Detect(NearestEnemyOf(Myself))
+  See([0.0.0.0.99])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+    Kill(LastSeenBy(Myself))
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),WIZARD_BURNING_HANDS)
+    Kill(LastSeenBy(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_ELECTRICITY)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(7)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_CHANT)
+    StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+    StateCheck(LastSeenBy(Myself),STATE_BLUR)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+  Global("PrepDef","LOCALS",0)
+THEN
+  RESPONSE #70
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("PrepDef","LOCALS",1)
+  RESPONSE #30
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("PrepDef","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  StateCheck(Myself,STATE_SILENCED)
+  HaveSpell(WIZARD_VOCALIZE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_STONE_SKIN)
+  CheckStatLT(Myself,1,STONESKINS)
+  HitBy([ANYONE],CRUSHING)
+  Global("Prep2","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,40199)  // ~Chain Contingency - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    DisplayString(Myself,3302)  // ~Chain Contingency - Spell Turning~
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    DisplayString(Myself,40240)  // ~Chain Contingency - Mislead~
+    ApplySpell(Myself,WIZARD_MISLEAD)
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("Prep2","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !HasBounceEffects(Myself)
+  HaveSpell(WIZARD_SPELL_TURNING)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_TURNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_NPC_SYMBOL_STUN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHAIN_LIGHTNING)
+  Global("chain","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHAIN_LIGHTNING)
+    SetGlobal("chain","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHAIN_LIGHTNING)
+  Global("chain","LOCALS",1)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHAIN_LIGHTNING)
+    SetGlobal("chain","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_KILL)
+  HPLT(LastSeenBy(Myself),60)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_KILL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39968)  // ~Spell Trigger - Fired~
+    DisplayString(Myself,40244)  // ~Spell Trigger - Stoneskins~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    DisplayString(Myself,40245)  // ~Spell Trigger - Globe of Invulnerability~
+    ApplySpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)
+    DisplayString(Myself,40246)  // ~Spell Trigger - Minor Spell Turning~
+    ApplySpell(Myself,WIZARD_MINOR_SPELL_TURNING)
+    Spell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FINGER_OF_DEATH)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FLESH_TO_STONE)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39969)  // ~Spell Sequencer - Fired~
+    DisplayString(Myself,40241)  // ~Spell Sequencer - Stoneskins~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    DisplayString(Myself,40242)  // ~Spell Sequencer - Improved Invisibility~
+    ApplySpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+    DisplayString(Myself,40243)  // ~Spell Sequencer - Fireshield Red~
+    ApplySpell(Myself,WIZARD_FIRE_SHIELD_RED)
+    Spell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DISINTEGRATE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHAOS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHAOS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SHADOW_DOOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SHADOW_DOOR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_WYVERN_CALL)
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_WYVERN_CALL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ANIMATE_DEAD)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ANIMATE_DEAD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SPIDER_SPAWN)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPIDER_SPAWN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+  Global("PrepM","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    SetGlobal("PrepM","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FLAME_ARROW)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MELF_ACID_ARROW)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MELF_ACID_ARROW)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

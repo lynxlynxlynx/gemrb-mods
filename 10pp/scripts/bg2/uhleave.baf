@@ -1,0 +1,25 @@
+IF
+  Global("CrowdDisperse","AR1100",1)
+  Global("SpeechOver","LOCALS",0)
+  !Range("Atta",5)  // Atta
+THEN
+  RESPONSE #100
+    MoveToObjectNoInterrupt("Atta")
+END
+
+IF
+  Global("CrowdDisperse","AR1100",1)
+  Global("SpeechOver","LOCALS",0)
+  Range("Atta",5)  // Atta
+THEN
+  RESPONSE #100
+    SetGlobal("SpeechOver","LOCALS",1)
+END
+
+IF
+  Global("VillageSaved","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

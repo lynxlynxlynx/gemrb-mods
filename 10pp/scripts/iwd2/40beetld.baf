@@ -1,0 +1,151 @@
+IF
+  Global("AR4000_VISITED","GLOBAL",0)
+  !TimerActive(100)
+  StateCheck(Player1,STATE_SLEEPING)
+  InWeaponRange(Player1)
+THEN
+  RESPONSE #10
+    FaceObject(Player1)
+    ApplySpell(Player1,TRAP_ARROW)
+    StartRandomTimer(100,5,10)
+  RESPONSE #90
+    FaceObject(Player1)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    PickPockets(Player1)
+    Enemy()
+    StartRandomTimer(100,5,10)
+END
+
+IF
+  Global("AR4000_VISITED","GLOBAL",0)
+  !TimerActive(100)
+  StateCheck(Player2,STATE_SLEEPING)
+  InWeaponRange(Player2)
+THEN
+  RESPONSE #10
+    FaceObject(Player2)
+    ApplySpell(Player2,TRAP_ARROW)
+    StartRandomTimer(100,5,10)
+  RESPONSE #90
+    FaceObject(Player2)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    PickPockets(Player2)
+    Enemy()
+    StartRandomTimer(100,5,10)
+END
+
+IF
+  Global("AR4000_VISITED","GLOBAL",0)
+  !TimerActive(100)
+  StateCheck(Player3,STATE_SLEEPING)
+  InWeaponRange(Player3)
+THEN
+  RESPONSE #10
+    FaceObject(Player3)
+    ApplySpell(Player3,TRAP_ARROW)
+    StartRandomTimer(100,5,10)
+  RESPONSE #90
+    FaceObject(Player3)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    PickPockets(Player3)
+    Enemy()
+    StartRandomTimer(100,5,10)
+END
+
+IF
+  Global("AR4000_VISITED","GLOBAL",0)
+  !TimerActive(100)
+  StateCheck(Player4,STATE_SLEEPING)
+  InWeaponRange(Player4)
+THEN
+  RESPONSE #10
+    FaceObject(Player4)
+    ApplySpell(Player4,TRAP_ARROW)
+    StartRandomTimer(100,5,10)
+  RESPONSE #90
+    FaceObject(Player4)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    PickPockets(Player4)
+    Enemy()
+    StartRandomTimer(100,5,10)
+END
+
+IF
+  Global("AR4000_VISITED","GLOBAL",0)
+  !TimerActive(100)
+  StateCheck(Player5,STATE_SLEEPING)
+  InWeaponRange(Player5)
+THEN
+  RESPONSE #10
+    FaceObject(Player5)
+    ApplySpell(Player5,TRAP_ARROW)
+    StartRandomTimer(100,5,10)
+  RESPONSE #90
+    FaceObject(Player5)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    PickPockets(Player5)
+    Enemy()
+    StartRandomTimer(100,5,10)
+END
+
+IF
+  Global("AR4000_VISITED","GLOBAL",0)
+  !TimerActive(100)
+  StateCheck(Player6,STATE_SLEEPING)
+  InWeaponRange(Player6)
+THEN
+  RESPONSE #10
+    FaceObject(Player6)
+    ApplySpell(Player6,TRAP_ARROW)
+    StartRandomTimer(100,5,10)
+  RESPONSE #90
+    FaceObject(Player6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    PickPockets(Player6)
+    Enemy()
+    StartRandomTimer(100,5,10)
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See([PC],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackReevaluate(LastMarkedObject,75)
+END
+
+IF
+  Global("AR4000_VISITED","GLOBAL",0)
+  RandomNum(5,1)
+  See("Oswald",0)  // Oswald
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackReevaluate(LastMarkedObject,75)
+END
+
+IF
+  !TimerActive(19)
+  Global("AR4000_VISITED","GLOBAL",0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartRandomTimer(19,5,10)
+END
+
+IF
+  !TimerActive(20)
+  Global("AR4000_VISITED","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+    StartRandomTimer(20,5,10)
+END
+

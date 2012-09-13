@@ -1,0 +1,49 @@
+IF
+  Global("DestroyC6Guard","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  TimeGT(5)
+  TimeLT(DUSK_END)
+  AreaType(OUTDOOR)
+  Global("Deactivated","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivated","LOCALS",1)
+    Deactivate(Myself)
+END
+
+IF
+  TimeGT(5)
+  TimeLT(DUSK_END)
+  AreaType(OUTDOOR)
+  Global("Deactivated","LOCALS",1)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  OR(2)
+    TimeLT(DAWN_START)
+    TimeGT(DUSK_START)
+  Global("Deactivated","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivated","LOCALS",0)
+    Activate(Myself)
+END
+
+IF
+  NumberOfTimesTalkedTo(1)
+  AreaCheck("AR0800")
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR12")
+    Enemy()
+    EscapeAreaMove("AR0808",599,1867,12)
+END
+

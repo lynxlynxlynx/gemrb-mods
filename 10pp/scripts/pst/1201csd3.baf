@@ -1,0 +1,51 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("DakkonF")  // 
+    Face(12)
+    Wait(1)
+    Face(4)
+    Wait(1)
+    Face(0)
+    StartSong(CHAR_DAKKON,[0.0],Normal)
+    Wait(1)
+    Face(8)
+    Wait(1)
+    CreateCreature("TransF",[4164.1386])  // ~The Transcendent One~
+    StartCutScene("1201csD4")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("D_Shadow_4")  // 
+    MoveToPoint([4493.936])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("D_Shadow_5")  // 
+    MoveToPoint([4652.1095])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("D_Shadow_6")  // 
+    MoveToPoint([4493.1241])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("D_Shadow_7")  // 
+    StartSong(CHAR_DAKKON,[0.0],Normal)
+    MoveToPoint([4345.1095])
+END
+

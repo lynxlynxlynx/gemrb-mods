@@ -1,0 +1,24 @@
+IF
+  Allegiance(Myself,0)
+  HasItem("minhp1",Myself)  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    DestroyItem("minhp1")  // <Invalid Strref -1>
+END
+
+IF
+  OR(7)
+    SpellCastPriest([ANYONE],CLERIC_CLOAK_OF_FEAR)
+    SpellCastPriest([ANYONE],CLERIC_SYMBOL_FEAR)
+    SpellCast([ANYONE],WIZARD_HORROR)
+    SpellCast([ANYONE],WIZARD_SYMBOL_FEAR)
+    SpellCastOnMe([ANYONE],CLERIC_SYMBOL_FEAR)
+    SpellCastOnMe([ANYONE],WIZARD_HORROR)
+    SpellCastOnMe([ANYONE],WIZARD_SYMBOL_FEAR)
+  Global("ViekangBye","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ViekangBye","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

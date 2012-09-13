@@ -1,0 +1,20 @@
+IF
+  PartyHasItem("miscbh")  // ~Deirex's Gem~
+  Global("SpeakJarlaxle","AR2208",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ActionOverride("jarlaxle",StartDialogNoSet(Player1))
+    SetGlobal("SpeakJarlaxle","AR2208",1)
+    EndCutSceneMode()
+END
+
+IF
+  Dead("Jarlaxle")  // ~Jarlaxle~
+  Dead("breg01")  // ~Visaj~
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("cut52b")
+END
+

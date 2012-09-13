@@ -1,0 +1,11 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #20
+    Enemy()
+    SetInternal(Myself,INTERNAL_0,1)
+    Attack(NearestEnemyOf(Myself))
+  RESPONSE #80
+    Face(0)
+END
+

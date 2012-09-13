@@ -1,0 +1,7 @@
+IF
+  Global("RunSailor","AR1600",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

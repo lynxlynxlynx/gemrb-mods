@@ -1,0 +1,10 @@
+IF
+  StealFailed([ANYONE])
+THEN
+  RESPONSE #100
+    Wait(3)
+    CreateCreature("FLAMEN",[375.288])  // ~Flaming Fist Enforcer~
+    CreateCreature("FLAMEN2",[375.288])  // ~Flaming Fist Enforcer~
+    CreateCreature("FLAMEN2",[375.288])  // ~Flaming Fist Enforcer~
+END
+

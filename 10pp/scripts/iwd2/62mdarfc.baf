@@ -1,0 +1,95 @@
+IF
+  Global("Buff","LOCALS",0)
+  LOS(NearestEnemyOf(Myself),29)
+THEN
+  RESPONSE #100
+    SetGlobal("Buff","LOCALS",1)
+    ForceSpell(Myself,WIZARD_STONESKIN)
+    SpellWait(WIZARD_STONESKIN)
+    ForceSpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+    SpellWait(WIZARD_IMPROVED_INVISIBILITY)
+    ForceSpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)
+    SpellWait(WIZARD_GLOBE_OF_INVULNERABILITY)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    See([ENEMY.UNDEAD.ORC],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("22052422260327052902290629032805",LastMarkedObject,7)
+      // WIZARD_HORROR
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_CHAIN_LIGHTNING
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_IX
+      // WIZARD_WAIL_OF_THE_BANSHEE
+      // WIZARD_POWER_WORD_KILL
+      // WIZARD_ABI_DALZIMS_HORRID_WILTING
+    MarkSpellAndObject("2710",Myself,7)
+      // WIZARD_SEVEN_EYES
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2710",Myself,7)
+      // WIZARD_SEVEN_EYES
+    MarkSpellAndObject("22052422260327052902290629032805",LastMarkedObject,7)
+      // WIZARD_HORROR
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_CHAIN_LIGHTNING
+      // WIZARD_POWER_WORD_STUN
+      // WIZARD_SUMMON_MONSTER_IX
+      // WIZARD_WAIL_OF_THE_BANSHEE
+      // WIZARD_POWER_WORD_KILL
+      // WIZARD_ABI_DALZIMS_HORRID_WILTING
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  GlobalGT("Num_Dread_Warrior_Dead","MYAREA",6)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2113",Myself,3)
+      // WIZARD_PROTECTION_FROM_EVIL
+    MarkSpellAndObject("2905",LastMarkedObject,3)
+      // WIZARD_GATE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    See([ENEMY.UNDEAD.ORC],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

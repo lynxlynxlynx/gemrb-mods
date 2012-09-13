@@ -1,0 +1,71 @@
+IF
+  Global("INITIALIZED_61MEPLAV","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BreathCount","LOCALS",8)
+    SetGlobal("INITIALIZED_61MEPLAV","LOCALS",1)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  GlobalGT("BreathCount","LOCALS",0)
+  GlobalTimerExpired("BreathTimer","LOCALS")
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("BreathCount","LOCALS",-1)
+    FaceObject(LastMarkedObject)
+    PlaySequence(Myself,ATTACK)
+    SmallWait(7)
+    ReallyForceSpell(LastMarkedObject,2089)
+    SetGlobalTimer("BreathTimer","LOCALS",21)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("Gate","LOCALS",0)
+  Global("61LavaMephitDied","GLOBAL",1)
+  RandomNum(10,1)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    CreateCreature("61mepLav","MyBuddy",[-1.-1],0)  // ~Lava Mephit~
+    SetGlobal("61LavaMephitDied","GLOBAL",0)
+    SetGlobal("Gate","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("Fireworks","LOCALS",0)
+  RandomNum(5,1)
+  See(NearestEnemyOf(Myself),0)
+  !StateCheck(LastMarkedObject,STATE_BLIND)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+    PlaySequence(Myself,ATTACK)
+    SmallWait(7)
+    ReallyForceSpell(LastMarkedObject,WIZARD_BLINDNESS)
+    SetGlobal("Fireworks","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself),0)
+  !TargetUnreachable(LastMarkedObject)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Range(NearestPC,10,GREATER_THAN)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

@@ -1,0 +1,16 @@
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+  !TargetUnreachable([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+

@@ -1,0 +1,9 @@
+IF
+  WalkedToTrigger([ANYONE])
+THEN
+  RESPONSE #100
+    ActionOverride(LastTrigger,JumpToPoint([965.249]))
+    ActionOverride(LastTrigger,OpenDoor("DOOR06"))
+    ActionOverride(LastTrigger,Face(0))
+END
+

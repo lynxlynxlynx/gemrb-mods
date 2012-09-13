@@ -1,0 +1,49 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ALPHEUSD")  // 
+    Wait(1)
+    StartCutScene("LWPFCRND")
+    Wait(3)
+    PlaySound("MAGE_CS")
+    Wait(1)
+    StartCutScene("LWFCEDOR")
+    Wait(3)
+    StartCutScene("LWPFCRND")
+    Wait(3)
+    OpenDoor("AR9100_DOOR1_TO9101")
+    Wait(1)
+    StartCutScene("LWFCEDOR")
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    EquipItem("LWRING",0)
+    MoveToPoint([2377.1380])
+    StartCutScene("LWFCEALP")
+    MoveToPoint([2446.1317])
+    Face(E)
+    FloatMessage(Myself,18060)  // ~"AAAAAAGH!"~
+    Wait(2)
+    StartCutScene("LWALPEND")
+    PlayDead(170)
+    PlaySequence(Myself,AWAKE)
+    Wait(2)
+    FloatMessage(Myself,18060)  // ~"AAAAAAGH!"~
+    StartCutScene("LWFCEALP")
+    Wait(1)
+    MoveToPoint([2344.1300])
+    StartCutScene("LWFCEALP")
+    FloatMessage(Myself,18060)  // ~"AAAAAAGH!"~
+    Wait(2)
+    MoveToPoint([2514.1451])
+    StartCutScene("LWFCEALP")
+    Wait(2)
+    EquipItem("LWRING",1)
+    UnhideGUI()
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    EndCutSceneMode()
+    Kill(Myself)
+END
+

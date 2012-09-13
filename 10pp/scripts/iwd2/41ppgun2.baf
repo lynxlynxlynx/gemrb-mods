@@ -1,0 +1,19 @@
+IF
+  Global("41PrismFire","MYAREA",3)
+  Global("LibraryTrapDeactivated","MYAREA",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("LibraryTrap",FALSE)
+    DisplayMessage(30021)  // ~Trap Deactivated~
+    SetGlobal("LibraryTrapDeactivated","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("41PrismFire","MYAREA",3)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([3105.1918],2092)
+    TriggerActivation(Myself,FALSE)
+END
+

@@ -1,0 +1,24 @@
+IF
+  ActionListEmpty()
+  OR(8)
+    PartyHasItem("sw1h15")  // ~Scimitar +3, Frostbrand~
+    PartyHasItem("sw1h16")  // ~Scimitar +5, Defender~
+    PartyHasItem("chan06")  // ~Mithril Chain Mail +4~
+    PartyHasItem("bruenaxe")  // ~Battle Axe +3~
+    PartyHasItem("bruenpla")  // ~Mithral Field Plate Armor +2~
+    PartyHasItem("cattibow")  // ~Tansheron's Bow +3~
+    PartyHasItem("regisamu")  // ~Ruby Pendant~
+    PartyHasItem("aegis2")  // ~Aegis Fang~
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  ActionListEmpty()
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

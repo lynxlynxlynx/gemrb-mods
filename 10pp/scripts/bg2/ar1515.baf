@@ -1,0 +1,207 @@
+IF
+  OnCreation()
+  Global("SaemonOut","GLOBAL",0)
+  Global("DisableAfter1500","AR1515",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DisableAfter1500","AR1515",1)
+    TriggerActivation("1500after",FALSE)
+    Continue()
+END
+
+IF
+  Global("SaemonOut","GLOBAL",0)
+  OR(2)
+    Global("Disable1500","GLOBAL",1)
+    Global("OpenJonBedroom","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Disable1500","GLOBAL",2)
+    TriggerActivation("Tran1500",FALSE)
+    TriggerActivation("1500after",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("HasAsylumWardstone","GLOBAL",1)
+  Global("createdJon","AR1515",0)
+  Global("PPdeshSend","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreature("ppireni1",[1498.1182],12)  // ~Coordinator~
+    SetGlobal("createdJon","AR1515",1)
+    Unlock("Door01")
+    Unlock("Door02")
+    Unlock("Door03")
+    Unlock("Door04")
+    Unlock("Door05")
+    Unlock("Door10")
+    OpenDoor("Door01")
+    OpenDoor("Door02")
+    OpenDoor("Door03")
+    OpenDoor("Door04")
+    OpenDoor("Door05")
+    OpenDoor("Door10")
+    CreateCreature("ppdili",[1098.537],12)  // ~Dili~
+    CreateCreature("ppwanev",[950.453],12)  // ~Wanev~
+    CreateCreature("ppnalj",[796.348],12)  // ~Naljier Skal~
+    CreateCreature("ppaphril",[609.447],12)  // ~Aphril~
+    CreateCreature("pptiax",[388.594],12)  // ~Tiax~
+    CreateCreature("ppdradee",[707.813],12)  // ~Dradeel~
+    CreateCreature("ppimoen",[937.1229],12)  // ~Imoen~
+    Continue()
+END
+
+IF
+  Global("AsylumPlot","GLOBAL",51)
+  Global("newCrazy","AR1515",0)
+THEN
+  RESPONSE #100
+    ActionOverride("ppworker",DestroySelf())
+    CreateCreature("ppworker",[521.905],0)  // ~Lonk the Sane~
+    ActionOverride("ppworker",DestroyItem("minhp1"))  // <Invalid Strref -1>
+    SetGlobal("newCrazy","AR1515",1)
+    Unlock("Door09")
+    OpenDoor("Door09")
+    CloseDoor("Door06")
+    Lock("Door06")
+    CloseDoor("Door05")
+    Lock("Door05")
+    ActionOverride("ppireni2",DestroySelf())
+    ActionOverride("ppireni1",DestroySelf())
+    ActionOverride("ppdili",DestroySelf())
+    ActionOverride("ppwanev",DestroySelf())
+    ActionOverride("ppnalj",DestroySelf())
+    ActionOverride("ppaphril",DestroySelf())
+    ActionOverride("pptiax",DestroySelf())
+    ActionOverride("ppdradee",DestroySelf())
+    ActionOverride("ppimoen",DestroySelf())
+END
+
+IF
+  Global("onlyOnce","AR1515",0)
+  Global("createdJon","AR1515",0)
+  OR(2)
+    GlobalTimerExpired("JonDoesKill","GLOBAL")
+    Global("AsylumPlot","GLOBAL",19)
+THEN
+  RESPONSE #100
+    SetGlobal("createdJon","AR1515",1)
+    SetGlobal("AsylumPlot","GLOBAL",19)
+    SetGlobal("onlyOnce","AR1515",1)
+    CreateCreatureObjectDoor("ppireni2",Player1,0,0,0)  // ~Jon Irenicus~
+    ActionOverride("ppireni2",StartDialogNoSet(Player1))
+END
+
+IF
+  Global("ppattackedJon","GLOBAL",1)
+  Global("onlyOnce","AR1515",0)
+THEN
+  RESPONSE #100
+    SetGlobal("onlyOnce","AR1515",1)
+    SetGlobal("ppattackedJon","GLOBAL",2)
+    SetGlobal("createdJon","AR1515",1)
+    SetGlobal("AsylumPlot","GLOBAL",19)
+    SetGlobal("onlyOnce","AR1515",1)
+    CreateCreatureObjectDoor("ppireni2",Player1,0,0,0)  // ~Jon Irenicus~
+    ActionOverride("ppireni2",StartDialogNoSet(Player1))
+END
+
+IF
+  Global("freethem","AR1515",0)
+  Global("AsylumPlot","GLOBAL",53)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,48691)  // ~You free the inmates and prepare for your battle with Irenicus.~
+    SetGlobal("freethem","AR1515",1)
+    SetGlobal("AsylumPlot","GLOBAL",54)
+    StartCutSceneMode()
+    StartCutScene("Cut41m")
+END
+
+IF
+  Dead("ppworker")  // ~Lonk the Sane~
+  Global("playerTalk","AR1515",0)
+  Global("speakWhenLonkDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("playerTalk","AR1515",1)
+    SetGlobal("speakWhenLonkDead","GLOBAL",1)
+    ActionOverride(Player1,StartDialogue("player1",Player1))
+END
+
+IF
+  GlobalGT("AsylumPlot","GLOBAL",54)
+  Global("UnlockedIt","AR1515",0)
+THEN
+  RESPONSE #100
+    SetGlobal("UnlockedIt","AR1515",1)
+    Unlock("Door06")
+    OpenDoor("Door06")
+    Unlock("Door05")
+    OpenDoor("Door05")
+    Unlock("Door08")
+    OpenDoor("Door08")
+    TriggerActivation("Tran1500",FALSE)
+    TriggerActivation("1500after",TRUE)
+END
+
+IF
+  Global("OpenJonBedroom","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Unlock("Door06")
+    OpenDoor("Door06")
+    Unlock("Door05")
+    OpenDoor("Door05")
+    Unlock("Door08")
+    OpenDoor("Door08")
+    SetGlobal("OpenJonBedroom","GLOBAL",2)
+    TriggerActivation("Tran1500",FALSE)
+    TriggerActivation("1500after",TRUE)
+END
+
+IF
+  Global("AsylumPlot","GLOBAL",55)
+  Global("madeAlly2","AR1515",0)
+THEN
+  RESPONSE #100
+    SetGlobal("madeAlly2","AR1515",1)
+    SetGlobal("SaemonInitIRGone","GLOBAL",1)
+    CreateCreature("ppsaem2",[362.445],0)  // ~Saemon Havarian~
+    Unlock("Door06")
+    OpenDoor("Door06")
+    Unlock("Door05")
+    OpenDoor("Door05")
+    Unlock("Door08")
+    OpenDoor("Door08")
+END
+
+IF
+  Global("AsylumPlot","GLOBAL",55)
+  InParty("Valygar")  // Valygar
+  Global("madeAlly2","AR1515",0)
+  Global("SunaTalkedToValygar","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Unlock("Door06")
+    OpenDoor("Door06")
+    Unlock("Door05")
+    OpenDoor("Door05")
+    Unlock("Door08")
+    OpenDoor("Door08")
+    SetGlobal("madeAlly2","AR1515",1)
+    CreateCreature("ppsaem2",[362.445],0)  // ~Saemon Havarian~
+END
+
+IF
+  Global("SaemonOut","GLOBAL",1)
+  Global("SaemonEnable1500","AR1515",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SaemonEnable1500","AR1515",1)
+    TriggerActivation("Tran1500",TRUE)
+    TriggerActivation("1500after",FALSE)
+END
+

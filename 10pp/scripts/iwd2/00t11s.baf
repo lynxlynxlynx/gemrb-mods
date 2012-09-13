@@ -1,0 +1,32 @@
+IF
+  Global("SA_SEE","LOCALS",0)
+  Global("TEAM_11","MYAREA",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("TEAM_SA_11","MYAREA",1)
+    SetGlobal("SA_SEE","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("SA_SEE","LOCALS",1)
+  Global("TEAM_11","MYAREA",0)
+  !See([PC],0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("TEAM_SA_11","MYAREA",-1)
+    SetGlobal("SA_SEE","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("TEAM_11","MYAREA",0)
+  Global("SA_SEE","LOCALS",2)
+  Global("TEAM_SA_11","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_11","MYAREA",1)
+    Continue()
+END
+

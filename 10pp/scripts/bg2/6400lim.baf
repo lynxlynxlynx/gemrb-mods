@@ -1,0 +1,15 @@
+IF
+  HPLT(Myself,3)
+  Global("SpawnNow","AR6400",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnNow","AR6400",1)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnNow","AR6400",1)
+END
+

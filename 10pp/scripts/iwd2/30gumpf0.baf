@@ -1,0 +1,10 @@
+IF
+  !TimerActive(21)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,1016)  // ~"Guthma hungers.  Hurry up cleaning that meat!"~
+    StartRandomTimer(21,5,10)
+  RESPONSE #50
+    StartRandomTimer(21,5,10)
+END
+

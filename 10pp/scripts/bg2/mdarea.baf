@@ -1,0 +1,41 @@
+IF
+  True()
+THEN
+  RESPONSE #30
+    Wait(3)
+  RESPONSE #10
+    Wait(10)
+  RESPONSE #50
+    MoveToOffset([16.0])
+  RESPONSE #70
+    MoveToOffset([-16.0])
+  RESPONSE #70
+    MoveToOffset([0.16])
+  RESPONSE #50
+    MoveToOffset([0.-16])
+  RESPONSE #40
+    MoveToOffset([8.8])
+  RESPONSE #50
+    MoveToOffset([8.-8])
+  RESPONSE #60
+    MoveToOffset([-8.-8])
+  RESPONSE #30
+    MoveToOffset([-8.8])
+  RESPONSE #70
+    MoveToOffset([32.0])
+  RESPONSE #70
+    MoveToOffset([-32.0])
+  RESPONSE #70
+    MoveToOffset([0.32])
+  RESPONSE #40
+    MoveToOffset([0.-32])
+  RESPONSE #70
+    MoveToOffset([16.16])
+  RESPONSE #30
+    MoveToOffset([16.-16])
+  RESPONSE #60
+    MoveToOffset([-16.-16])
+  RESPONSE #70
+    MoveToOffset([-16.16])
+END
+

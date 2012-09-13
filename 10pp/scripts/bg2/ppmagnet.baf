@@ -1,0 +1,32 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,6)
+  Global("magtrap","AR1514",0)
+THEN
+  RESPONSE #100
+    SetGlobal("magtrap","AR1514",1)
+    DisplayString(Myself,48334)  // ~You may rotate this horseshoe shaped wheel.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,6)
+  Global("magtrap","AR1514",1)
+THEN
+  RESPONSE #100
+    SetGlobal("magtrap","AR1514",2)
+    OpenDoor("Secret02")
+    DisplayString(Myself,48576)  // ~You turn the wheel with all your strength.  From the west you hear a loud creaking as if a door were being opened.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,6)
+  Global("magtrap","AR1514",2)
+THEN
+  RESPONSE #100
+    SetGlobal("magtrap","AR1514",1)
+    CloseDoor("Secret02")
+    DisplayString(Myself,4668)  // ~You turn the wheel with all your strength.  From the west you hear a loud creaking as if a door were being closed.~
+END
+

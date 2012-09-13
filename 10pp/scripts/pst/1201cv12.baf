@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("VhailF")  // 
+    StartSong(CHAR_VHAILOR,[0.0],Normal)
+    SetAnimState(Myself,ANIM_GETUP)
+    FaceObject("Trans")
+    StartCutScene("1201CV13")
+END
+

@@ -1,0 +1,10 @@
+IF
+  Global("AldethMove","GLOBAL",2)
+  !Exists("Aldeth")  // ~Aldeth Sashenstar~
+  !Dead("Aldeth")  // ~Aldeth Sashenstar~
+THEN
+  RESPONSE #100
+    CreateCreature("ALDETH",[217.491])  // ~Aldeth Sashenstar~
+    ActionOverride("Aldeth",SetNumTimesTalkedTo(1))
+END
+

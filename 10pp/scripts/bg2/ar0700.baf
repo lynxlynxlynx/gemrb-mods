@@ -1,0 +1,204 @@
+IF
+  OnCreation()
+  Global("CagedCreatures","AR0700",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CagedCreatures","AR0700",1)
+    CreateCreatureImpassable("WAUKSQU",[2366.1949],0)
+    CreateCreatureImpassable("WAUKMOO",[2410.1937],0)
+    CreateCreatureImpassable("WAUKSNA",[2898.2177],12)
+    CreateCreatureImpassable("WAUKLEO",[2309.2325],0)
+END
+
+IF
+  SpellCast([PC],0)
+  !GlobalTimerNotExpired("SpellsBad","GLOBAL")
+  Global("BribedCowled","GLOBAL",0)
+  GlobalLT("CowledWarning","GLOBAL",7)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectDoor("COWENF2",LastTrigger,0,0,0)  // ~Cowled Enforcer~
+    SetGlobalTimer("SpellsBad","GLOBAL",300)
+END
+
+IF
+  SpellCast([PC],0)
+  Global("BribedCowled","GLOBAL",0)
+  GlobalTimerNotExpired("SpellsBad","GLOBAL")
+THEN
+  RESPONSE #100
+    Wait(1)
+END
+
+IF
+  Global("AmaWaukeen","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DayNight(MIDNIGHT)
+    SetGlobal("AmaWaukeen","GLOBAL",2)
+    FadeToColor([20.0],0)
+    CreateCreature("shthass1",[877.898],7)  // ~Ama~
+    StartCutSceneMode()
+    StartCutScene("cut24a")
+END
+
+IF
+  Global("TentActive","AR0700",0)
+  Global("CutScene01","AR0700",5)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran0600",FALSE)
+    TriggerActivation("Tran0607",FALSE)
+    SetGlobal("TentActive","AR0700",1)
+END
+
+IF
+  Dead("CircusGuard")  // CircusGuard
+  Global("TentActive","AR0700",1)
+  Global("CutScene01","AR0700",5)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran0600",TRUE)
+    SetGlobal("TentActive","AR0700",2)
+END
+
+IF
+  Global("NoEntry","AR0700",2)
+  Global("TentActive","AR0700",1)
+  Global("CutScene01","AR0700",5)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran0600",TRUE)
+    SetGlobal("TentActive","AR0700",2)
+END
+
+IF
+  Dead("KalahIllusion")  // KalahIllusion
+  Global("TentActive","AR0700",2)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran0600",FALSE)
+    TriggerActivation("Tran0607",TRUE)
+    SetGlobal("TentActive","AR0700",3)
+END
+
+IF
+  Global("GaalSpoke","GLOBAL",1)
+  Global("ProphetSpawn","AR0700",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ProphetSpawn","AR0700",1)
+    CreateCreature("PROPHET1",[2016.2497],0)  // ~Prophet~
+END
+
+IF
+  GlobalTimerExpired("JerliaLeave","GLOBAL")
+  Global("SpawnJerlia","AR0700",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnJerlia","AR0700",1)
+    CreateCreature("SCJERLIA",[736.2201],14)  // ~Jerlia the Ore Merchant~
+END
+
+IF
+  GlobalTimerExpired("Bystander","GLOBAL")
+THEN
+  RESPONSE #100
+    ActionOverride("bystand1",EscapeArea())
+    ActionOverride("bystand2",EscapeArea())
+END
+
+IF
+  Global("PostCutSpeak","AR0700",0)
+  Global("CutScene01","AR0700",5)
+  GlobalTimerExpired("CutScene01Timer","AR0700")
+  InParty("Minsc")  // Minsc
+  !Dead("Minsc")  // Minsc
+  !StateCheck("Minsc",STATE_SLEEPING)  // Minsc
+THEN
+  RESPONSE #100
+    SetGlobal("PostCutSpeak","AR0700",1)
+    ActionOverride("Minsc",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("PostCutSpeak","AR0700",0)
+  Global("CutScene01","AR0700",5)
+  GlobalTimerExpired("CutScene01Timer","AR0700")
+  InParty("Jaheira")  // Jaheira
+  !Dead("Jaheira")  // Jaheira
+  !StateCheck("Jaheira",STATE_SLEEPING)  // Jaheira
+THEN
+  RESPONSE #100
+    SetGlobal("PostCutSpeak","AR0700",1)
+    ActionOverride("Jaheira",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("PostCutSpeak","AR0700",0)
+  Global("CutScene01","AR0700",5)
+  GlobalTimerExpired("CutScene01Timer","AR0700")
+  InParty("Yoshimo")  // Yoshimo
+  !Dead("Yoshimo")  // Yoshimo
+  !StateCheck("Yoshimo",STATE_SLEEPING)  // Yoshimo
+THEN
+  RESPONSE #100
+    SetGlobal("PostCutSpeak","AR0700",1)
+    ActionOverride("Yoshimo",StartDialogNoSet([PC]))
+END
+
+IF
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_START)
+  GlobalTimerExpired("CutScene01Timer","AR0700")
+  GlobalLT("EXTRACOUNT","MYAREA",5)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    CreateCreatureOffScreen("brat1",6)  // ~Boy~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("brat2",6)  // ~Girl~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("brat3",6)  // ~Boy~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("ftown1",6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("ftown2",6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("ftown3",6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("ftown4",6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("mtown1",6)  // ~Peasant~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("mtown2",6)  // ~Peasant~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("mtown3",6)  // ~Peasant~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("mtown4",6)  // ~Peasant~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("noblem1",6)  // ~Nobleman~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("noblem2",6)  // ~Nobleman~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("noblew1",6)  // ~Noblewoman~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreatureOffScreen("noblew2",6)  // ~Noblewoman~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+END
+

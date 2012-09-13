@@ -1,0 +1,47 @@
+IF
+  Entered([PC])
+  GlobalGT("Lo_Quest","GLOBAL",2)
+THEN
+  RESPONSE #100
+END
+
+IF
+  Entered([PC])
+  HasItem("PTKEY4","Nameless")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+END
+
+IF
+  Entered([PC])
+  HasItem("PTKEY3","Nameless")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+END
+
+IF
+  Entered([PC])
+  HasItem("PTKEY2","Nameless")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("1800ptk3")
+END
+
+IF
+  Entered([PC])
+  HasItem("PTKEY1","Nameless")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("1800ptk2")
+END
+
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("1800ptn1")
+END
+

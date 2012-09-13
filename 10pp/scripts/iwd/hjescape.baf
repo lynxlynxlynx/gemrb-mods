@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    ForceSpell(Myself,INNATE_WIND_WALK)
+    Wait(2)
+    EndCutSceneMode()
+    DestroySelf()
+END
+

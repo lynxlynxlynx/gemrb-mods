@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(2)
+    JumpToPoint([298.829])
+    ActionOverride(Player2,JumpToPoint([226.867]))
+    ActionOverride(Player3,JumpToPoint([225.901]))
+    ActionOverride(Player4,JumpToPoint([343.857]))
+    ActionOverride(Player5,JumpToPoint([307.882]))
+    ActionOverride(Player6,JumpToPoint([268.921]))
+    ActionOverride("sahpr2",JumpToPoint([179.772]))
+    ActionOverride("sahpr2",SetHomeLocation([179.772]))
+    ActionOverride("sahpr4",DestroySelf())
+    Wait(1)
+    CreateCreature("sahpr4",[40.894],2)  // ~Senior Priestess Sallinithyl~
+    DayNight(DAWN_START)
+    Wait(1)
+    DayNight(DUSK_START)
+    ActionOverride("sahchf02",JumpToPoint([92.843]))
+    ActionOverride("sahreb02",DestroySelf())
+    Face(6)
+    ActionOverride(Player2,Face(6))
+    ActionOverride(Player3,Face(6))
+    ActionOverride(Player4,Face(6))
+    ActionOverride(Player5,Face(6))
+    ActionOverride(Player6,Face(6))
+    MoveViewPoint([226.867],INSTANT)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    ActionOverride("sahpr2",StartDialogNoSet(Player1))
+END
+

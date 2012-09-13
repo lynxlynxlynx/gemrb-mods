@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("NaliaKeepControl","GLOBAL",1)
+    SetGlobal("KeepPlot","GLOBAL",12)
+    FadeToColor([30.0],0)
+    Wait(1)
+    LeaveAreaLUAPanic("AR1304","",[3373.2517],6)
+    LeaveAreaLUA("AR1304","",[3373.2517],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR1304","",[3432.2524],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR1304","",[3383.2568],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR1304","",[3429.2573],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR1304","",[3481.2567],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR1304","",[3467.2629],6))
+    MultiPlayerSync()
+    Wait(1)
+    DisplayString(Myself,40104)  // ~Incensed at your decisions, a crowd of angry peasants has stormed the gates of the keep, let in by mutinous guardsmen that also thought you abused your power as ruler of the land and manor.As cries of rage traveled the halls you were forced to reluctantly escape through a side passage... even with your skills, a crowd of both peasants and guardsmen could not have been held off for long.By the time you left the keep, the gentlefolk of the land had taken control of the building... likely waiting for knights from the Order of the Most Radiant Heart or even a new lord to come from nearby.  Either way, rule of the de'Arnise Keep has been stripped from you... permanently.~
+    CreateCreature("KPGATE01",[3306.2412],14)  // ~Guard~
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+END
+

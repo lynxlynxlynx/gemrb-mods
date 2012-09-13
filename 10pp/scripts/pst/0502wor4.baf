@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    FloatMessageRnd(Myself,"0502work")
+    PlaySequence(ANIM_TALK3)
+    WaitRandom(3,5)
+    MoveToPoint([1717.1553])
+    MoveToPoint([1680.1553])
+    Face(4)
+    WaitRandom(3,5)
+    FloatMessageRnd(Myself,"0502work")
+    PlaySequence(ANIM_TALK2)
+    WaitRandom(3,5)
+    MoveToPoint([1717.1553])
+    MoveToPoint([1662.1606])
+    Face(6)
+END
+

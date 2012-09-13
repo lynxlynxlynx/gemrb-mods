@@ -1,0 +1,52 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+  !StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedCandleKeep","GLOBAL",1)
+    Enemy()
+    Spell(LastAttackerOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  Global("AttackedCandleKeep","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(LastAttackerOf(Myself),STATE_SLEEPING)
+  !StateCheck(LastAttackerOf(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(LastAttackerOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+

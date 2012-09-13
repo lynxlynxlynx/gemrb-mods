@@ -1,0 +1,12 @@
+IF
+  Global("PlayerSawGuardPost","MYAREA",0)
+  See([PC],0)
+  LOS(LastSeenBy(Myself),100)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayerSawGuardPost","MYAREA",1)
+    DisplayString(LastSeenBy(Myself),35855)  // ~You see a ledge with a clear view of the area and both of its exits.  Perched atop the ledge is a large, jewel-encrusted throne.  The ledge appears to be a guard post.~
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

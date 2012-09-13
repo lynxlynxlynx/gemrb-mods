@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([908.2050])
+    Face(0)
+    MoveToPoint([905.2241])
+    Face(14)
+    MoveToPoint([1015.2352])
+    Face(6)
+    MoveToPoint([1015.2352])
+    Face(4)
+    MoveToPoint([645.2235])
+    Face(10)
+    MoveToPoint([737.2149])
+    Face(12)
+    MoveToPoint([646.1952])
+    MoveToPoint([646.1952])
+    Face(10)
+END
+

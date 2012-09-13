@@ -1,0 +1,46 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27433)  // ~"Aelwyn became angered, and they fled in terror at the sound of her voice."~
+    GlobalSet("Attack_Aelwyn","AR0600",1)
+    Dialogue("Nameless")
+END
+
+IF
+  Global("Aelwyn","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Face(4)
+    SavePlace()
+    ChangeAIScript("0600ael2",DEFAULT)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    Face(6)
+    Wait(5)
+    Face(4)
+    Wait(5)
+    Face(2)
+    Wait(5)
+    Face(4)
+END
+

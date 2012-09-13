@@ -1,0 +1,7 @@
+IF
+  Global("M05SpiesDie","AR2800",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

@@ -1,0 +1,103 @@
+IF
+  CreatureHidden(Myself)
+  !Global("52Ven_Loot","GLOBAL",2)
+  OpenState("AR5203_Door1",TRUE)  // AR5203_Door1
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("52Ven_Loot","GLOBAL",4)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("VEN_GET_LOOT","LOCALS",1)
+  Range("BR_Tomb",3,GREATER_THAN)  // BR_Tomb
+THEN
+  RESPONSE #100
+    MoveToObject("BR_Tomb")
+END
+
+IF
+  Global("VEN_GET_LOOT","LOCALS",1)
+  !Range("BR_Tomb",3,GREATER_THAN)  // BR_Tomb
+THEN
+  RESPONSE #100
+    SetGlobal("VEN_GET_LOOT","LOCALS",2)
+    Face(SW)
+END
+
+IF
+  Global("VEN_GET_LOOT","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobal("VEN_GET_LOOT","LOCALS",3)
+    TransferInventory("BR_Tomb",Myself)
+END
+
+IF
+  Global("VEN_GET_LOOT","LOCALS",3)
+  Or(2)
+    Allegiance(Myself,ENEMY)
+    !NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    SetGlobal("VEN_GET_LOOT","LOCALS",4)
+    SetGlobal("52Ven_Loot","GLOBAL",3)
+    SetGlobal("52Alarm","GLOBAL",1)
+    SetGlobal("TEAM_1","MYAREA",1)
+    Enemy()
+    ForceHide(Myself)
+    Continue()
+END
+
+IF
+  Global("VEN_GET_LOOT","LOCALS",4)
+THEN
+  RESPONSE #100
+    SetSavedLocationPoint(388,559,S)
+    ChangeCurrentScript("52VenH1")
+  RESPONSE #100
+    SetSavedLocationPoint(276,1276,S)
+    ChangeCurrentScript("52VenH2")
+  RESPONSE #100
+    SetSavedLocationPoint(1175,1143,S)
+    ChangeCurrentScript("52VenH3")
+  RESPONSE #100
+    SetSavedLocationPoint(2296,946,S)
+    ChangeCurrentScript("52VenH4")
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Global("VEN_GET_LOOT","LOCALS",3)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Global("VEN_GET_LOOT","LOCALS",3)
+  NearLocation(Myself,872,1038,3)
+THEN
+  RESPONSE #100
+    FaceObject(NearestPC)
+END
+
+IF
+  Global("VEN_GET_LOOT","LOCALS",3)
+  !NearLocation(Myself,872,1038,3)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,NO_TALK,FALSE)
+    MoveToPoint([872.1038])
+END
+

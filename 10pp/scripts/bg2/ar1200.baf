@@ -1,0 +1,96 @@
+IF
+  OnCreation()
+  Global("CloseTempleRuin","AR1200",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CloseTempleRuin","AR1200",1)
+    TriggerActivation("TRAN1201",FALSE)
+END
+
+IF
+  Global("AewimerEscape","AR1200",1)
+  Global("TheMerchantsLeave","AR1200",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TheMerchantsLeave","AR1200",1)
+    ActionOverride("aewimer1",EscapeArea())
+    ActionOverride("aewimer2",EscapeArea())
+    ActionOverride("aewimer3",EscapeArea())
+END
+
+IF
+  Dead("palkni01")  // ~Ogre Mage~
+  Dead("palkni02")  // ~Ogre~
+  Dead("palkni03")  // ~Gnoll Elite~
+  Dead("palkni04")  // ~Ogre~
+  Dead("palkni05")  // ~Baby Wyvern~
+  Global("DomainPaladinBattle","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DomainPaladinBattle","GLOBAL",1)
+    CreateCreatureOffScreen("garren",0)  // ~Garren Windspear~
+    TriggerActivation("TRAN1201",TRUE)
+    TriggerActivation("TEMPLE1",FALSE)
+    ActionOverride("palkni01",DestroySelf())
+    ActionOverride("palkni02",DestroySelf())
+    ActionOverride("palkni03",DestroySelf())
+    ActionOverride("palkni04",DestroySelf())
+    ActionOverride("palkni05",DestroySelf())
+    CreateCreatureAtLocation("LOCpalkni01","GLOBAL","deadb01")
+    CreateCreatureAtLocation("LOCpalkni02","GLOBAL","deadb01")
+    CreateCreatureAtLocation("LOCpalkni03","GLOBAL","deadb01")
+    CreateCreatureAtLocation("LOCpalkni04","GLOBAL","deadb01")
+    CreateCreatureAtLocation("LOCpalkni05","GLOBAL","deadb01")
+END
+
+IF
+  Global("StartKidnap","AR1200",0)
+  OR(2)
+    Global("Kidnap","GLOBAL",1)
+    Global("Kidnap","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("StartKidnap","AR1200",1)
+END
+
+IF
+  Global("frLeaveDryads","AR1200",1)
+THEN
+  RESPONSE #100
+    ActionOverride("Ulene",MoveToPointNoInterrupt([5099.3283]))
+    ActionOverride("Cania",MoveToPointNoInterrupt([5099.3283]))
+    ActionOverride("Elyme",MoveToPointNoInterrupt([5099.3283]))
+    ActionOverride("Llylla",MoveToPointNoInterrupt([5099.3283]))
+    ActionOverride("Ulene",EscapeArea())
+    ActionOverride("Cania",EscapeArea())
+    ActionOverride("Elyme",EscapeArea())
+    ActionOverride("Llylla",EscapeArea())
+END
+
+IF
+  Global("VaelasaHostile","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("VaelasaHostile","GLOBAL",2)
+    CreateCreature("vbearbl",[4265.3351],4)  // ~Black Bear~
+    CreateCreature("vbearca",[4209.3210],2)  // ~Cave Bear~
+    CreateCreature("vbearbr",[3712.3343],10)  // ~Brown Bear~
+    CreateCreature("ankheg01",[3704.3306],0)  // ~Ankheg~
+    CreateVisualEffect("SPWOOD",[4041.3199])
+    CreateVisualEffect("SPWOOD",[3776.3177])
+    Wait(4)
+    CreateCreature("SIRINE01",[4041.3199],14)  // ~Sirine~
+    CreateCreature("SIRINE01",[3776.3177],14)  // ~Sirine~
+END
+
+IF
+  Global("FirbanFight","GLOBAL",1)
+  Global("JumOutside","AR1200",0)
+  !Dead("garjum")  // ~Jum~
+THEN
+  RESPONSE #100
+    SetGlobal("JumOutside","AR1200",1)
+    CreateCreature("garjum",[1072.3432],6)  // ~Jum~
+    ActionOverride("garjum",SetNumTimesTalkedTo(1))
+END
+

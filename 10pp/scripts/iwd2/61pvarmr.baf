@@ -1,0 +1,10 @@
+IF
+  Global("61PlayerSawArmory","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("61PlayerSawArmory","GLOBAL",1)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

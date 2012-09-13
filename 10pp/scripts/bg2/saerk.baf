@@ -1,0 +1,27 @@
+IF
+  Global("AnomenFinalFight","GLOBAL",1)
+  Global("SaerkFights","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SaerkFights","LOCALS",1)
+    SetDialogue("")
+    ChangeAIScript("saerkx",RACE)
+    ChangeEnemyAlly(Myself,EVILBUTBLUE)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,EVILBUTBLUE)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,ENEMY)
+END
+
+IF
+  Allegiance("Anomen",ENEMY)  // Anomen
+  Allegiance(Myself,EVILBUTBLUE)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+

@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateCreature("SENIYA",[3108.2330])  // ~Seniyad~
+    CreateCreature("DRUID3",[3110.2389])  // ~Druid~
+    CreateCreature("DRUID3",[3149.2352])  // ~Druid~
+    CreateCreature("DRUID3",[3156.2316])  // ~Druid~
+    ActionOverride("Seniyad",Shout(2))
+    ActionOverride("Seniyad",MoveToPoint([2695.2130]))
+    ActionOverride("Seniyad",Dialogue([PC]))
+END
+

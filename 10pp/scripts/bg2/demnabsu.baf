@@ -1,0 +1,77 @@
+IF
+  OR(2)
+    See([GOODCUTOFF.0.0.CLERIC_ALL])
+    See([GOODCUTOFF.0.0.MAGE_ALL])
+  Global("silence","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),TANARI_SILENCE)
+    SetGlobal("silence","LOCALS",1)
+END
+
+IF
+  See([GOODCUTOFF])
+  Global("abilities","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),TANARI_DEATH_GAZE)
+    SetGlobal("abilities","LOCALS",1)
+    Wait(1)
+    ForceSpell(LastSeenBy(Myself),TANARI_PARALYZE)
+END
+
+IF
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #60
+    AttackOneRound(LastSeenBy(Myself))
+    AttackOneRound(LastSeenBy(Myself))
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),TANARI_VAMPIRIC_TOUCH)
+    AttackOneRound(LastSeenBy(Myself))
+  RESPONSE #15
+    ForceSpell(LastSeenBy(Myself),TANARI_PARALYZE)
+    AttackOneRound(LastSeenBy(Myself))
+  RESPONSE #5
+    ForceSpell(LastSeenBy(Myself),TANARI_DEATH_GAZE)
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  OR(2)
+    See([0.0.0.CLERIC_ALL])
+    See([0.0.0.MAGE_ALL])
+  Global("silence","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),TANARI_SILENCE)
+    SetGlobal("silence","LOCALS",1)
+END
+
+IF
+  See([ANYONE])
+  Global("abilities","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),TANARI_DEATH_GAZE)
+    SetGlobal("abilities","LOCALS",1)
+    Wait(1)
+    ForceSpell(LastSeenBy(Myself),TANARI_PARALYZE)
+END
+
+IF
+  See([ANYONE])
+THEN
+  RESPONSE #70
+    AttackReevaluate(LastSeenBy(Myself),30)
+  RESPONSE #15
+    ForceSpell(LastSeenBy(Myself),TANARI_VAMPIRIC_TOUCH)
+    Wait(2)
+  RESPONSE #10
+    ForceSpell(LastSeenBy(Myself),TANARI_PARALYZE)
+    Wait(2)
+  RESPONSE #5
+    ForceSpell(LastSeenBy(Myself),0)
+    Wait(2)
+END
+

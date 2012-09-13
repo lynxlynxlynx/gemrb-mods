@@ -1,0 +1,15 @@
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8500)  // ~"RRRRRAAAAAARGH!!!  Whre si my magic hatt??!!!  I AM VARY DIPSLLEASED SIR!!!  Ph34R M3!!!"~
+    StartRandomTimer(1,15,30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),5)
+END
+

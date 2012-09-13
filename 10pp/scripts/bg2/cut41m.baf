@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    CreateCreature("ppdili2",[789.1139],2)  // ~Dili~
+    CreateCreature("ppwanev2",[827.1183],2)  // ~Wanev~
+    CreateCreature("ppnalj2",[904.1185],2)  // ~Naljier Skal~
+    CreateCreature("ppaph2",[914.1246],2)  // ~Aphril~
+    CreateCreature("pptiax2",[965.1237],2)  // ~Tiax~
+    CreateCreature("ppdra2",[928.1270],2)  // ~Dradeel~
+    JumpToPoint([793.1299])
+    MoveViewPoint([793.1299],100)
+    ActionOverride(Player2,JumpToPoint([799.1342]))
+    ActionOverride(Player3,JumpToPoint([698.1267]))
+    ActionOverride(Player4,JumpToPoint([643.1240]))
+    ActionOverride(Player5,JumpToPoint([787.1362]))
+    ActionOverride(Player6,JumpToPoint([846.1395]))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    ActionOverride("ppdili2",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

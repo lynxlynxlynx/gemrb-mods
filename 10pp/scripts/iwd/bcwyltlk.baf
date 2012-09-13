@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WYLFDENE")  // 
+    StopJoinRequests()
+    MultiPlayerSync()
+    ClearAllActions()
+    MultiPlayerSync()
+    SetGlobal("BC_CUTSCENE","GLOBAL",0)
+    SetDialogueRange(75)
+    Wait(1)
+    MultiPlayerSync()
+    Dialogue(Protagonist)
+END
+

@@ -1,0 +1,45 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    ChangeAIScript("0601sn5b",GENERAL)
+    Enemy()
+END
+
+IF
+  Help([0.0.TEAM_5])
+THEN
+  RESPONSE #100
+    ChangeAIScript("0601sn5b",GENERAL)
+    Enemy()
+END
+
+IF
+  Global("Lecture_Death","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SmallWait(0)
+END
+
+IF
+  Global("Lecture_Ghysis","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SmallWait(0)
+END
+
+IF
+  Global("Lecture_3Planes","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SmallWait(0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeAIScript("0601sn5a",GENERAL)
+END
+

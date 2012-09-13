@@ -1,0 +1,34 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("UDMASTER")  // 
+    FadeToColor([20.0],0)
+    ActionOverride(Player1,JumpToPoint([2161.1919]))
+    ActionOverride(Player2,JumpToPoint([2212.1967]))
+    ActionOverride(Player3,JumpToPoint([2247.2029]))
+    ActionOverride(Player4,JumpToPoint([2103.1899]))
+    ActionOverride(Player5,JumpToPoint([2162.1986]))
+    ActionOverride(Player6,JumpToPoint([2198.2079]))
+    ActionOverride("udogre",JumpToPoint([2779.1684]))
+    ActionOverride("udsimyaz",JumpToPoint([2159.1874]))
+    ActionOverride("udgith02",JumpToPoint([2043.1864]))
+    ActionOverride("udgith03",JumpToPoint([2105.1871]))
+    ActionOverride("udgith04",JumpToPoint([2016.1881]))
+    ActionOverride("udgith05",JumpToPoint([2016.1881]))
+    ActionOverride("udogre",JumpToPoint([2779.1684]))
+    CloseDoor("Door16")
+    Wait(1)
+    CreateCreature("kuotoa01",[1811.2218],12)  // ~Kuo-Toa~
+    CreateCreature("kuolie01",[1778.2166],12)  // ~Kuo-Toa Lieutenant~
+    CreateCreature("kuocap01",[1710.2195],12)  // ~Kuo-Toa Captain~
+    CreateCreature("kuomon01",[1818.2018],12)  // ~Kuo-Toa Monitor~
+    Lock("Door16")
+    Wait(1)
+    MoveViewPoint([2198.2079],100)
+    SetGlobalTimer("udMindTimer","GLOBAL",3)
+    SetGlobal("udMind","GLOBAL",15)
+    FadeFromColor([20.0],0)
+    EndCutSceneMode()
+END
+

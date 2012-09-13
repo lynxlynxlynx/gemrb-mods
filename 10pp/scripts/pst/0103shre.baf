@@ -1,0 +1,61 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Share_Spawn_1","GLOBAL",0)
+END
+
+IF
+  Global("Share_Spawn_Once","GLOBAL",0)
+  Global("Share_Spawn_2","GLOBAL",0)
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,48219)  // ~"Bloods! Kill this man!"~
+    GlobalSet("Share_Spawn_Once","GLOBAL",1)
+    GlobalSet("Share_Spawn_2","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([710.372])
+    Face(6)
+    FloatMessage(Myself,48220)  // ~::Mumbles Sourly::~
+    Wait(2)
+    MoveToPoint([596.256])
+    Face(14)
+    FloatMessage(Myself,48220)  // ~::Mumbles Sourly::~
+    Wait(2)
+END
+

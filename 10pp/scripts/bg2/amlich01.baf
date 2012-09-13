@@ -1,0 +1,60 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  OR(4)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    HitBy([GOODCUTOFF],CRUSHING)
+    HPPercentLT(Myself,100)
+    CheckStatLT(Myself,50,RESISTMAGIC)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Dead("marlowe")  // ~Marlowe~
+  GlobalLT("LichJob","GLOBAL",2)
+  Global("LichUpset","LOCALS",0)
+  OR(2)
+    See([PC])
+    See(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("LichUpset","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  NumTimesTalkedToGT(0)
+  Global("LichFightStart","AR5509",0)
+  Global("LichTalk","LOCALS",0)
+  OR(2)
+    See([PC])
+    See(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("LichTalk","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  GlobalLT("LichJob","GLOBAL",2)
+  Global("MallaDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MallaDead","GLOBAL",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+  !GlobalTimerNotExpired("SkelTimer","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SkelTimer","LOCALS",6)
+    CreateCreatureObjectEffect("SKELAR02","SPRAISED",Myself)
+    CreateCreatureObjectEffect("SKELAR02","SPRAISED",Myself)
+END
+

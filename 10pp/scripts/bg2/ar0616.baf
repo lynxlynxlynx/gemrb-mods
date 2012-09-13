@@ -1,0 +1,39 @@
+IF
+  Global("EnteredIronThrone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartMovie("IRONTHRN")
+    SetGlobal("EnteredIronThrone","GLOBAL",1)
+END
+
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("PangwaSpawn","GLOBAL",0)
+  !Exists("PANGWA")  // PANGWA
+THEN
+  RESPONSE #100
+    CreateCreature("PANGWA",[676.432],0)  // PANGWA
+    SetGlobal("PangwaSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("DhaniaSpawn","GLOBAL",0)
+  !Exists("DHANIA")  // DHANIA
+THEN
+  RESPONSE #100
+    CreateCreature("DHANIA",[986.771],0)  // DHANIA
+    SetGlobal("DhaniaSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("SearchIronThrone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SearchIronThrone","GLOBAL",1)
+END
+

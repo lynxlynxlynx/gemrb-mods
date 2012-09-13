@@ -1,0 +1,50 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(LastAttackerOf(LastHelp),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  !BitCheck("0612_Status","AR0612",BIT1)
+THEN
+  RESPONSE #100
+    Wait(5)
+    MoveToPoint([472.462])
+    MoveToPoint([436.493])
+    Face(6)
+    Wait(10)
+    MoveToPoint([436.603])
+    MoveToPoint([485.652])
+    SetGlobalTimer("0612_Timer_1","AR0612",30)
+    BitSet("0612_Status","AR0612",3)
+    DestroySelf()
+END
+
+IF
+  BitCheck("0612_Status","AR0612",BIT1)
+THEN
+  RESPONSE #100
+    MoveToPoint([627.483])
+    BitClear("0612_Status","AR0612",BIT1)
+END
+

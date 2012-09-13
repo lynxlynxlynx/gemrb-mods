@@ -1,0 +1,8 @@
+IF
+  Global("DeactivateTran3019","AR3026",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DeactivateTran3019","AR3026",1)
+    TriggerActivation("Tran3019",FALSE)
+END
+

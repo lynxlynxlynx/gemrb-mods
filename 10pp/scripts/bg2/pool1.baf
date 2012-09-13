@@ -1,0 +1,27 @@
+IF
+  Clicked([ANYONE])
+  Global("Pool1","AR0602",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Pool1","AR0602",1)
+    DisplayString(Myself,14314)  // ~The pool churns and swirls. Strange lights dance within. As you stare at the pool you catch a glimpse of a cityscape. For a brief moment, with absolute clarity, you watch as the city changes. Ages pass and the inhabitants drop their primitive tools and ways. Discoveries are made and the minds of the people change and grow, everyday grasping a new fact or invention. The image slips away until you see only a pool.~
+END
+
+IF
+  Clicked([ANYONE])
+  Global("Pool1","AR0602",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Pool1","AR0602",2)
+    DisplayString(Myself,14251)  // ~The pool draws you to it. Within its depths you see a wonderous sight. A strange and beautiful city rises before your eyes. Metallic buildings reach as far as the eye can see and people of all races mingle and live in harmony. Extraordinary machines carry them about their daily business. Reluctantly, you draw your eyes away from the serene image.~
+END
+
+IF
+  Clicked([ANYONE])
+  Global("Pool1","AR0602",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Pool1","AR0602",0)
+    DisplayString(Myself,14303)  // ~Within the pool the mists swirl in an unsettling fashion. You catch a brief glimpse of a wasteland, littered with corpses. Battles rage where brother slays brother and the only peace to be found is that of the grave. Just as quickly, the vision slips away and the pool is again empty.~
+END
+

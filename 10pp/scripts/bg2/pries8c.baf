@@ -1,0 +1,46 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CALL_WOODLAND_BEINGS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CALL_WOODLAND_BEINGS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_1)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CALL_LIGHTNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MISCAST_MAGIC)
+  HaveSpell(CLERIC_SILENCE_15_FOOT)
+  OR(2)
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_MISCAST_MAGIC)
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

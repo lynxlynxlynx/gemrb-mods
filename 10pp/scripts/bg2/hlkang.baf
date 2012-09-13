@@ -1,0 +1,9 @@
+IF
+  HP(Myself,1)
+  Global("KangaxxHurt","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KangaxxHurt","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

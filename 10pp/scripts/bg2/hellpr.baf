@@ -1,0 +1,33 @@
+IF
+  Global("HellSwap","GLOBAL",1)
+  Range([PC],20)
+  Global("Player1Pride","GLOBAL",1)
+  Global("RoomPride","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RoomPride","GLOBAL",1)
+    SetGlobal("HellSwap","GLOBAL",0)
+    TriggerActivation("PrideRoom",FALSE)
+END
+
+IF
+  Global("HellSwap","GLOBAL",1)
+  Range([PC],20)
+  Global("Player1Pride","GLOBAL",2)
+  Global("RoomPride","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RoomPride","GLOBAL",2)
+    SetGlobal("HellSwap","GLOBAL",0)
+    TriggerActivation("PrideRoom",FALSE)
+END
+
+IF
+  Global("RoomPride","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("RoomPride","GLOBAL",2)
+    SetGlobal("HellSwap","GLOBAL",0)
+    TriggerActivation("PrideRoom",FALSE)
+END
+

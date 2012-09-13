@@ -1,0 +1,227 @@
+IF
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+  Global("AlarmGolems","AR0602",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AlarmGolems","AR0602",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OpenState("DOOR01",FALSE)  // DOOR01
+  Range("DOOR01",15)  // DOOR01
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+    Continue()
+END
+
+IF
+  OpenState("DOOR02",FALSE)  // DOOR02
+  Range("DOOR02",15)  // DOOR02
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR02")
+    Continue()
+END
+
+IF
+  OpenState("DOOR04",FALSE)  // DOOR04
+  Range("DOOR04",15)  // DOOR04
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR04")
+    Continue()
+END
+
+IF
+  OpenState("DOOR05",FALSE)  // DOOR05
+  Range("DOOR05",15)  // DOOR05
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR05")
+    Continue()
+END
+
+IF
+  OpenState("DOOR07",FALSE)  // DOOR07
+  Range("DOOR07",15)  // DOOR07
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR07")
+    Continue()
+END
+
+IF
+  OpenState("DOOR08",FALSE)  // DOOR08
+  Range("DOOR08",15)  // DOOR08
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR08")
+    Continue()
+END
+
+IF
+  OpenState("DOOR09",FALSE)  // DOOR09
+  Range("DOOR09",15)  // DOOR09
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR09")
+    Continue()
+END
+
+IF
+  OpenState("DOOR10",FALSE)  // DOOR10
+  Range("DOOR10",15)  // DOOR10
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR10")
+    Continue()
+END
+
+IF
+  OpenState("DOOR11",FALSE)  // DOOR11
+  Range("DOOR11",15)  // DOOR11
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR11")
+    Continue()
+END
+
+IF
+  OpenState("DOOR13",FALSE)  // DOOR13
+  Range("DOOR13",15)  // DOOR13
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR13")
+    Continue()
+END
+
+IF
+  OpenState("DOOR14",FALSE)  // DOOR14
+  Range("DOOR14",15)  // DOOR14
+  !See([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR14")
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([571.2079])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([429.2187])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",2)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([542.2276])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",3)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([888.2511])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",4)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1140.2670])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",5)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1481.2676])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",6)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1729.2664])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",7)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1569.2357])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",8)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1920.2101])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",9)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([2127.1963])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Behavior","LOCALS",10)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([2438.1940])
+    IncrementGlobal("Behavior","LOCALS",1)
+    Continue()
+END
+
+IF
+  !See([PC])
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+

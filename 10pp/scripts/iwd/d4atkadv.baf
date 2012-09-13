@@ -1,0 +1,19 @@
+IF
+  !See(NearestEnemyOf(Myself))
+  See([0.0.GOBLIN])
+THEN
+  RESPONSE #100
+    Enemy()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !See(NearestEnemyOf(Myself))
+  AttackedBy([0.0.GOBLIN],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+

@@ -1,0 +1,10 @@
+IF
+  InParty("HaerDalis")  // HaerDalis
+  Global("HaerDalisMurderPlot","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HaerDaisMurderPlot","GLOBAL",1)
+    Wait(3)
+    CreateCreatureObject("GUAMUR",Myself,0,0,0)  // ~Amnish Soldier~
+END
+

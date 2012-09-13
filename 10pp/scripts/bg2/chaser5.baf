@@ -1,0 +1,33 @@
+IF
+  Entered([ANYONE])
+  Global("Chase","GLOBAL",2)
+THEN
+  RESPONSE #20
+    CreateCreature("DOPDOP",[867.1844],0)  // DOPDOP
+    CreateCreature("DOPKIE",[867.1844],0)  // DOPKIE
+    Wait(300)
+  RESPONSE #20
+    CreateCreature("DOPDUR",[867.1844],0)  // DOPDUR
+    CreateCreature("DOPDOP",[867.1844],0)  // DOPDOP
+    Wait(300)
+  RESPONSE #20
+    CreateCreature("DOPISL",[867.1844],0)  // DOPISL
+    CreateCreature("DOPDUR",[867.1844],0)  // DOPDUR
+    Wait(300)
+  RESPONSE #20
+    CreateCreature("DOPFUE",[867.1844],0)  // DOPFUE
+    CreateCreature("DOPISL",[867.1844],0)  // DOPISL
+    Wait(300)
+  RESPONSE #20
+    CreateCreature("DOPKIE",[867.1844],0)  // DOPKIE
+    CreateCreature("DOPFUE",[867.1844],0)  // DOPFUE
+    Wait(300)
+END
+
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    Wait(1)
+END
+

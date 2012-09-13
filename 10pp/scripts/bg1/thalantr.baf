@@ -1,0 +1,30 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackThalantyr","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Trigger(1)
+THEN
+  RESPONSE #50
+    StartCutSceneMode()
+    Face(1)
+    SmallWait(1)
+    ForceSpell("Melicamp",EFFECT_ONLY)
+    Wait(1)
+    ActionOverride("Melicamp",Polymorph(MAGE_MALE_HUMAN_LOW))
+    EndCutSceneMode()
+  RESPONSE #50
+    StartCutSceneMode()
+    Face(1)
+    SmallWait(1)
+    ForceSpell("Melicamp",EFFECT_ONLY)
+    Wait(1)
+    ActionOverride("Melicamp",Polymorph(MAGE_MALE_HUMAN_LOW))
+    Kill("Melicamp")
+    EndCutSceneMode()
+END
+

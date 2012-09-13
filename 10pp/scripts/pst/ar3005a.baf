@@ -1,0 +1,15 @@
+IF
+  !Global("Current_Area","GLOBAL",3005)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",3005)
+    StartTimer(1,5)
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("RatWarren","GLOBAL",1)
+END
+

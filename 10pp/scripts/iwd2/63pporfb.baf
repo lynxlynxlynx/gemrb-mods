@@ -1,0 +1,51 @@
+IF
+  HasItem("63GenCL",Myself)  // ~Holy Water of Corellon Larethian~
+THEN
+  RESPONSE #100
+    SetGlobal("SH_Purify_Pool","GLOBAL",3)
+    SetGlobal("Pool_Tainted","GLOBAL",1)
+    Deactivate("6303MS1")
+    DestroyItem("63GenCL")  // ~Holy Water of Corellon Larethian~
+    SpellHitEffectPoint(Myself,[-1.-1],CALL_LIGHTNING,0)
+    DisplayMessage(37855)  // ~The radiant pool calms, and seems no more threatening than a small pond.~
+    AddJournalEntry(24975)
+END
+
+IF
+  Global("PoR_HealIsair","MYAREA",0)
+  !Global("StartCutscene_63cFB04","MYAREA",0)
+  !Global("Pool_Tainted","GLOBAL",1)
+  HPPercentLT("Isair2",66)  // Isair2
+THEN
+  RESPONSE #100
+    SetGlobal("PoR_HealIsair","MYAREA",1)
+    ReallyForceSpell("Isair2",CLERIC_HEAL)
+    SpellWait(CLERIC_HEAL)
+END
+
+IF
+  Global("PoR_HealMadae","MYAREA",0)
+  !Global("StartCutscene_63cFB04","MYAREA",0)
+  !Global("Pool_Tainted","GLOBAL",1)
+  HPPercentLT("Madae2",66)  // Madae2
+THEN
+  RESPONSE #100
+    SetGlobal("PoR_HealMadae","MYAREA",1)
+    ReallyForceSpell("Madae2",CLERIC_HEAL)
+    SpellWait(CLERIC_HEAL)
+END
+
+IF
+  Global("PoR_Buff","MYAREA",0)
+  !Global("Pool_Tainted","GLOBAL",1)
+  !Global("StartCutscene_63cFB04","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PoR_Buff","MYAREA",1)
+    ReallyForceSpell("Isair2",WIZARD_AEGIS)
+    ReallyForceSpell("Isair2",WIZARD_SEVEN_EYES)
+    ReallyForceSpell("Isair2",WIZARD_EXECUTIONERS_EYES)
+    ReallyForceSpell("Madae2",CLERIC_DIVINE_SHELL)
+    ReallyForceSpell("Madae2",CLERIC_HOLY_AURA)
+END
+

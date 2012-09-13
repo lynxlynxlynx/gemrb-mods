@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("UDMASTER")  // 
+    ActionOverride("UDOGRE",Unlock("Door16"))
+    ActionOverride("UDOGRE",OpenDoor("Door16"))
+    ActionOverride("UDOGRE",MoveToPoint([2696.1621]))
+    SetGlobal("udMind","GLOBAL",150)
+    Wait(6)
+    ActionOverride("UDOGRE",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,18 @@
+IF
+  WalkedToTrigger([ANYONE])
+  !GlobalTimerNotExpired("FateSpiritTimer","AR4500")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("FateSpiritTimer","AR4500",10)
+    CreateCreature("FATESP",[1999.1218],0)  // ~Fate Spirit~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("FateSpiritTimer","AR4500")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger(Myself))
+END
+

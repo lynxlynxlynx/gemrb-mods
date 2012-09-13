@@ -1,0 +1,60 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("miscA4")  // ~Potion of Squirrel Change~
+  Global("hole","AR2100",0)
+THEN
+  RESPONSE #100
+    SetGlobal("hole","AR2100",1)
+    DisplayString(Myself,50838)  // ~You see a tiny hole, small enough for a small rodent.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("miscA4")  // ~Potion of Squirrel Change~
+  Global("hole","AR2100",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,50934)  // ~You see a hole small enough for a rodent.  Too bad you don't have some way to change into a rat or a squirrel.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("miscA4")  // ~Potion of Squirrel Change~
+  Global("hole","AR2100",1)
+THEN
+  RESPONSE #100
+    SetGlobal("hole","AR2100",2)
+    DisplayString(Myself,50939)  // ~You could probably use your Potion of Squirrel change to enter the tunnel.  (click hole again to use potion)~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("miscA4")  // ~Potion of Squirrel Change~
+  Global("hole","AR2100",2)
+THEN
+  RESPONSE #100
+    SetGlobal("hole","AR2100",3)
+    DisplayString(Myself,51003)  // ~You drink the potion, transform into a squirrel and enter the tunnel.~
+    Wait(1)
+    ActionOverride(LastTrigger,ApplySpell(Myself,UNDER_SQUIRREL))
+    Wait(4)
+    FadeToColor([20.0],0)
+    MoveViewPoint([169.2599],100)
+    ActionOverride(LastTrigger,JumpToPoint([169.2599]))
+    Wait(2)
+    ActionOverride(LastTrigger,ApplySpell(Myself,UNDER_NORM))
+    FadeFromColor([20.0],0)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

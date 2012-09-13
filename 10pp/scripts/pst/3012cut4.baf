@@ -1,0 +1,52 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([0.0.0.0.0.0.PERSON_1][0.0.10000.10000])  // 
+    PlaySequence(ANIM_ATTACK)
+    TimedMoveToPoint([628.497],45)
+    Face(2)
+    Wait(3)
+    StartCutScene("3012cut5")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([0.0.0.0.0.0.PERSON_2][0.0.10000.10000])  // 
+    PlaySequence(ANIM_ATTACK)
+    TimedMoveToPoint([608.568],45)
+    Face(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([0.0.0.0.0.0.PERSON_3][0.0.10000.10000])  // 
+    PlaySequence(ANIM_ATTACK)
+    TimedMoveToPoint([535.568],45)
+    Face(10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([0.0.0.0.0.0.PERSON_4][0.0.10000.10000])  // 
+    PlaySequence(ANIM_ATTACK)
+    TimedMoveToPoint([516.497],45)
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([0.0.0.0.0.0.PERSON_5][0.0.10000.10000])  // 
+    PlaySequence(ANIM_ATTACK)
+    TimedMoveToPoint([572.451],45)
+    Face(0)
+END
+

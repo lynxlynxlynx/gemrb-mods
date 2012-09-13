@@ -1,0 +1,10 @@
+IF
+  !CheckDoorFlags(Myself,HIDDEN)
+  Or(2)
+    !Global("Tabard_Quest","GLOBAL",0)
+    Dead("Tabard_Mooncalf")  // 
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,HIDDEN,TRUE)
+END
+

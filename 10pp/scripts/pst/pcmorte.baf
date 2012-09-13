@@ -1,0 +1,19 @@
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  AttackedBy([ENEMY],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  Help(Player1)
+  Range(Player1,6)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp))
+END
+

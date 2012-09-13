@@ -1,0 +1,46 @@
+IF
+  XPLT(Player1,400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("skelwa01",[-1.-1],0)  // ~Skeleton Warrior~
+    CreateCreature("shadow01",[-1.-1],0)  // ~Shadow~
+    CreateCreature("shadow01",[-1.-1],0)  // ~Shadow~
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("skelwa01",[-1.-1],0)  // ~Skeleton Warrior~
+    CreateCreature("skelwa01",[-1.-1],0)  // ~Skeleton Warrior~
+    CreateCreature("shadfi01",[-1.-1],0)  // ~Shadow Fiend~
+    CreateCreature("shadfi01",[-1.-1],0)  // ~Shadow Fiend~
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("mumgre01",[-1.-1],0)  // ~Greater Mummy~
+    CreateCreature("icbone01",[-1.-1],0)  // ~Bone Golem~
+    CreateCreature("skelwa01",[-1.-1],0)  // ~Skeleton Warrior~
+    CreateCreature("skelwa03",[-1.-1],0)  // ~Skeleton Warrior~
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("lich01",[-1.-1],0)  // ~Lich~
+    CreateCreature("mumgre01",[-1.-1],0)  // ~Greater Mummy~
+    CreateCreature("mumgre01",[-1.-1],0)  // ~Greater Mummy~
+    CreateCreature("skelwa01",[-1.-1],0)  // ~Skeleton Warrior~
+    CreateCreature("skelwa03",[-1.-1],0)  // ~Skeleton Warrior~
+END
+

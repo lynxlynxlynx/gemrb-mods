@@ -1,0 +1,10 @@
+IF
+  See([PC])
+  Range(LastSeenBy(Myself),7)
+  Global("once","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,57434)  // ~For the Lord of Slime, we shall follow or fall!~
+    SetGlobal("once","LOCALS",1)
+END
+

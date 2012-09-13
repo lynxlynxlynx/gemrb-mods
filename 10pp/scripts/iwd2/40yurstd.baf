@@ -1,0 +1,69 @@
+IF
+  Global("40FomorianDied","GLOBAL",1)
+  Global("03_Fomorian_01_dead","GLOBAL",1)
+  Global("03_Fomorian_02_dead","GLOBAL",1)
+  Global("03_Fomorian_03_dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("40FomoriansDefeated","GLOBAL",1)
+    SetGlobal("40FomorianDied","GLOBAL",0)
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("40FomorianDied","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("40FomorianDied","GLOBAL",0)
+END
+
+IF
+  !TimerActive(18)
+  Global("40FomoriansDefeated","GLOBAL",0)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,34108)  // ~"*He-help...* *p-p-please...*"~
+    StartRandomTimer(18,10,30)
+  RESPONSE #50
+    FloatMessage(Myself,34109)  // ~"*Ugggghhhhhh!*  I...am Yurst.  Cap-Captain.  Pl-please he-help.  They're... ki-killing... me."~
+    StartRandomTimer(18,10,30)
+  RESPONSE #50
+    FloatMessage(Myself,34110)  // ~"Giants... killing... me.  Help... p-please."~
+    StartRandomTimer(18,10,30)
+  RESPONSE #50
+    FloatMessage(Myself,34111)  // ~"*The p-p-pain!*  *It's... un-b-bearable!*"~
+    StartRandomTimer(18,10,30)
+  RESPONSE #50
+    FloatMessage(Myself,34096)  // ~"My life... is... slipping...away."~
+    StartRandomTimer(18,10,30)
+  RESPONSE #250
+    StartRandomTimer(18,10,30)
+END
+
+IF
+  !TimerActive(100)
+  !Global("40FomoriansDefeated","GLOBAL",1)
+  Global("40GoublikaOrder","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayerIsNearYurst","MYAREA",-1)
+    Continue()
+END
+
+IF
+  Global("PlayerIsNearYurst","MYAREA",-1)
+  Range(NearestPC,30,LESS_THAN)
+THEN
+  RESPONSE #100
+    StartTimer(100,10)
+    SetGlobal("PlayerIsNearYurst","MYAREA",1)
+END
+
+IF
+  Global("PlayerIsNearYurst","MYAREA",-1)
+THEN
+  RESPONSE #100
+    StartTimer(100,10)
+    SetGlobal("PlayerIsNearYurst","MYAREA",0)
+END
+

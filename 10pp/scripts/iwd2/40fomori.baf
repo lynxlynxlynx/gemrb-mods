@@ -1,0 +1,17 @@
+IF
+  ActionListEmpty()
+  !TimerActive(100)
+  Global("40PlayerSawYurst","GLOBAL",1)
+  Global("PlayerIsNearYurst","MYAREA",1)
+  !Global("40FomoriansDefeated","GLOBAL",1)
+  !Global("Yurst_dead","GLOBAL",1)
+  NearSavedLocation(5)
+THEN
+  RESPONSE #100
+    FaceObject("Yurst")
+    PlaySequence(Myself,SHOOT)
+    SmallWait(7)
+    ForceSpell("Yurst",2098)
+    StartRandomTimer(100,30,60)
+END
+

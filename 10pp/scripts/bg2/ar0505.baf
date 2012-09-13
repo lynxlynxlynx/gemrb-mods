@@ -1,0 +1,83 @@
+IF
+  Global("SaerkFightStart1","AR0505",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SaerkFightStart1","AR0505",2)
+    OpenDoor("SECRET01")
+    OpenDoor("SECRET03")
+    CreateCreatureOffScreen("sguard4",0)  // ~Guard~
+END
+
+IF
+  Global("SaerkFightStart1","AR0505",2)
+  Dead("sguard2")  // ~Guard~
+  NumDeadGT("sguard4",2)
+THEN
+  RESPONSE #100
+    SetGlobal("SaerkFightStart1","AR0505",3)
+    CreateCreatureOffScreen("sguard4",0)  // ~Guard~
+    CreateCreatureOffScreen("sguard4",0)  // ~Guard~
+    CreateCreatureOffScreen("sguard4",0)  // ~Guard~
+    CreateCreatureOffScreen("sguard4",0)  // ~Guard~
+END
+
+IF
+  !GlobalTimerExpired("AnomenSaerkTimer","GLOBAL")
+  Global("AnomenSaerk","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenSaerk","GLOBAL",2)
+    Wait(5)
+    StartCutSceneMode()
+    StartCutScene("cut38a")
+END
+
+IF
+  !GlobalTimerExpired("AnomenSaerkTimer","GLOBAL")
+  Global("AnomenSaerk","GLOBAL",2)
+  Global("ASCutDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("cut38a")
+END
+
+IF
+  GlobalTimerExpired("AnomenSaerkTimer","GLOBAL")
+  Global("AnomenSaerk","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenSaerk","GLOBAL",3)
+    SetGlobal("AnomenRomanceActive","GLOBAL",3)
+    ActionOverride("Anomen",DestroySelf())
+    CreateCreature("AHAMMED",[1123.866],6)  // ~Servant~
+END
+
+IF
+  Global("AnomenSaerk","GLOBAL",2)
+  Dead("Saerk")  // ~Saerk Farrahd~
+  !Dead("Anomen")  // Anomen
+  !StateCheck("Anomen",STATE_HELPLESS)  // Anomen
+  !StateCheck("Anomen",STATE_STUNNED)  // Anomen
+  !StateCheck("Anomen",STATE_SLEEPING)  // Anomen
+  !StateCheck("Anomen",STATE_PANIC)  // Anomen
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenSaerk","GLOBAL",3)
+    ActionOverride("Anomen",StartDialogue("BANOMEN",Player1))
+END
+
+IF
+  Global("AnomenSaerk","GLOBAL",2)
+  Dead("Anomen")  // Anomen
+  !Dead("Saerk")  // ~Saerk Farrahd~
+  !StateCheck("Saerk",STATE_HELPLESS)  // ~Saerk Farrahd~
+  !StateCheck("Saerk",STATE_STUNNED)  // ~Saerk Farrahd~
+  !StateCheck("Saerk",STATE_SLEEPING)  // ~Saerk Farrahd~
+  !StateCheck("Saerk",STATE_PANIC)  // ~Saerk Farrahd~
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenSaerk","GLOBAL",3)
+    ActionOverride("Saerk",StartDialogue("SAERK",Player1))
+END
+

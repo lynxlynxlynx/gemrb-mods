@@ -1,0 +1,14 @@
+IF
+  Global("Current_Area","GLOBAL",604)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0604sen4",DEFAULT)
+END
+
+IF
+  Global("Current_Area","GLOBAL",601)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0601stud",DEFAULT)
+END
+

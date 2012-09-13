@@ -1,0 +1,24 @@
+IF
+  HPPercentLT("SKEL_2_1",75)  // SKEL_2_1
+THEN
+  RESPONSE #100
+    Spell("SKEL_2_1",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+
+IF
+  HPPercentLT("SKEL_2_2",75)  // SKEL_2_2
+THEN
+  RESPONSE #100
+    Spell("SKEL_2_2",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+
+IF
+  HPPercentLT("SKEL_2_3",75)  // SKEL_2_3
+THEN
+  RESPONSE #100
+    Spell("SKEL_2_3",TANARI_VAMPIRIC_TOUCH)
+    Continue()
+END
+

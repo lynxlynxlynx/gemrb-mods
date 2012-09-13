@@ -1,0 +1,26 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(30,40)
+    MoveToPoint([1896.869])
+    MoveToPoint([1392.364])
+    MoveToPoint([1392.153])
+    Face(14)
+    ChangeAIScript("0100cl2a",GENERAL)
+END
+

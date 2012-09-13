@@ -1,0 +1,18 @@
+IF
+  See("sewsha01")  // ~Shadow Fiend~
+  !Dead("sewsha01")  // ~Shadow Fiend~
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    AttackReevaluate("sewsha01",45)
+END
+
+IF
+  See("sewsha02")  // ~Shadow Fiend~
+  !Dead("sewsha02")  // ~Shadow Fiend~
+  RandomNum(3,2)
+THEN
+  RESPONSE #100
+    AttackReevaluate("sewsha02",45)
+END
+

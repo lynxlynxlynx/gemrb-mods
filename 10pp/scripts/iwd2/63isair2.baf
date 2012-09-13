@@ -1,0 +1,17 @@
+IF
+  Global("Pool_Tainted","GLOBAL",1)
+  Global("TeleportIsairMadaeHP33","MYAREA",0)
+  HPPercentGT(Myself,33)
+THEN
+  RESPONSE #100
+    MatchHP("Isair",CURRENT_HP)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

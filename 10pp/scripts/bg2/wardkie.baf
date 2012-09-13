@@ -1,0 +1,131 @@
+IF
+  Contains("MISC2A",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2A")  // ~Doppelganger Wardstone~
+    GiveItemCreate("MISC2A",[PC],0,0,0)  // ~Doppelganger Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2B",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2B")  // ~Level 1 Exit Wardstone~
+    GiveItemCreate("MISC2B",[PC],0,0,0)  // ~Level 1 Exit Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2C",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2C")  // ~Islanne Wardstone~
+    GiveItemCreate("MISC2C",[PC],0,0,0)  // ~Islanne Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2E",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2E")  // ~Fuernebol Wardstone~
+    GiveItemCreate("MISC2E",[PC],0,0,0)  // ~Fuernebol Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2F",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2F")  // ~Teleportation Wardstone~
+    GiveItemCreate("MISC2F",[PC],0,0,0)  // ~Teleportation Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2G",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2G")  // ~Level 2 Exit Wardstone~
+    GiveItemCreate("MISC2G",Player1,0,0,0)  // ~Level 2 Exit Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2H",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2H")  // ~Move out men! The enemy is everywhere!~
+    GiveItemCreate("MISC2H",[PC],0,0,0)  // ~Move out men! The enemy is everywhere!~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2I",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2I")  // ~Wardstone Forgery~
+    GiveItemCreate("MISC2I",[PC],0,0,0)  // ~Wardstone Forgery~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2J",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2J")  // ~Wardstone Forgery~
+    GiveItemCreate("MISC2J",[PC],0,0,0)  // ~Wardstone Forgery~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2K",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2K")  // ~Compass Wardstone~
+    GiveItemCreate("MISC2K",[PC],0,0,0)  // ~Compass Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2L",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2L")  // ~Bone Wardstone~
+    GiveItemCreate("MISC2L",[PC],0,0,0)  // ~Bone Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2M",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2M")  // ~Dwarven Rune 1 Wardstone~
+    GiveItemCreate("MISC2M",[PC],0,0,0)  // ~Dwarven Rune 1 Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2N",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC2N")  // ~Dwarven Rune 2 Wardstone~
+    GiveItemCreate("MISC2N",[PC],0,0,0)  // ~Dwarven Rune 2 Wardstone~
+    ReallyForceSpell(Myself,TRAP_FIREBALL)
+END
+
+IF
+  Contains("MISC2D",Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("kieldoor2","GLOBAL",0)
+END
+
+IF
+  !Contains("MISC2D",Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("kieldoor2","GLOBAL",1)
+END
+

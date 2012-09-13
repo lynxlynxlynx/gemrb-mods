@@ -1,0 +1,39 @@
+IF
+  Global("DukeThanks","GLOBAL",0)
+  Global("InactiveDoor","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("InactiveDoor","GLOBAL",1)
+    TriggerActivation("Door0146",FALSE)
+END
+
+IF
+  Global("DukeThanks","GLOBAL",1)
+  !Exists("DENKOD")  // DENKOD
+  !Dead("DENKOD")  // DENKOD
+THEN
+  RESPONSE #100
+    CreateCreature("DENKOD",[881.430],0)  // DENKOD
+    TriggerActivation("Door0146",TRUE)
+END
+
+IF
+  Global("NarlenMove","GLOBAL",3)
+  !Exists("Narlen")  // Narlen
+  !Dead("Narlen")  // Narlen
+THEN
+  RESPONSE #100
+    CreateCreature("NARLEN",[660.366],0)  // NARLEN
+    ActionOverride("Narlen",SetNumTimesTalkedTo(1))
+END
+
+IF
+  Global("NarlenMove","GLOBAL",5)
+  !Exists("Narlen")  // Narlen
+  !Dead("Narlen")  // Narlen
+THEN
+  RESPONSE #100
+    CreateCreature("NARLEN",[660.366],0)  // NARLEN
+    ActionOverride("Narlen",SetNumTimesTalkedTo(1))
+END
+

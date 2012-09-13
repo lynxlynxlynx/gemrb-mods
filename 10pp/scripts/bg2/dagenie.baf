@@ -1,0 +1,112 @@
+IF
+  See([PC])
+  Global("AttackMe","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackMe","LOCALS",2)
+END
+
+IF
+  See([PC])
+  Global("AttackMe","LOCALS",2)
+  Delay(3)
+  !Dead("dadrow8")  // ~Drow Torturer~
+  !Dead("dadrow9")  // ~Drow Torturer~
+  !Dead("dadrow10")  // ~Drow Torturer~
+  !Dead("dadrow11")  // ~Drow Torturer~
+THEN
+  RESPONSE #25
+    ActionOverride("dadrow8",ForceSpell("dagenie",FLASHY_1))
+    ActionOverride("dadrow8",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead(Myself,57095)  // ~Release me! Destroy this body!~
+    Wait(1)
+    DisplayStringHead("dadrow8",57102)  // ~Hahaha... Well done.~
+    Wait(1)
+    DisplayStringHead("dadrow11",57114)  // ~You will pass to your home plane when we say so, no sooner.~
+    SetGlobal("AttackMe","LOCALS",1)
+  RESPONSE #25
+    ActionOverride("dadrow8",ForceSpell("dagenie",FLASHY_2))
+    ActionOverride("dadrow8",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead(Myself,57096)  // ~This interminable mockery must end!  ~
+    Wait(1)
+    DisplayStringHead("dadrow8",57103)  // ~This is a talkative one. ~
+    Wait(1)
+    DisplayStringHead("dadrow11",57113)  // ~Shut up, creature!~
+    SetGlobal("AttackMe","LOCALS",1)
+  RESPONSE #25
+    ActionOverride("dadrow8",ForceSpell("dagenie",FLASHY_2))
+    ActionOverride("dadrow8",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead(Myself,57097)  // ~If you must attack, do so with finality!~
+    Wait(1)
+    DisplayStringHead("dadrow8",57104)  // ~It is a fine way to train.~
+    Wait(1)
+    DisplayStringHead("dadrow9",57105)  // ~I am through training. I am merely amused.~
+    SetGlobal("AttackMe","LOCALS",1)
+  RESPONSE #25
+    ActionOverride("dadrow8",ForceSpell("dagenie",FLASHY_4))
+    ActionOverride("dadrow8",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead(Myself,57098)  // ~Release me from this physical form.~
+    Wait(1)
+    DisplayStringHead("dadrow8",57106)  // ~Do not forget to heal it.~
+    Wait(1)
+    DisplayStringHead("dadrow11",57112)  // ~We will maintain its physical form as long as needed.~
+    SetGlobal("AttackMe","LOCALS",1)
+  RESPONSE #25
+    ActionOverride("dadrow9",ForceSpell("dagenie",FLASHY_1))
+    ActionOverride("dadrow9",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead(Myself,57099)  // ~Let my spirit return to my home plane!~
+    Wait(1)
+    DisplayStringHead("dadrow9",57107)  // ~Hahaha!~
+    SetGlobal("AttackMe","LOCALS",1)
+  RESPONSE #25
+    ActionOverride("dadrow9",ForceSpell("dagenie",FLASHY_2))
+    ActionOverride("dadrow9",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead(Myself,57100)  // ~I will not be your practice dummy!~
+    Wait(1)
+    DisplayStringHead("dadrow9",57108)  // ~I wonder how long it will stand this.~
+    SetGlobal("AttackMe","LOCALS",1)
+  RESPONSE #25
+    ActionOverride("dadrow9",ForceSpell("dagenie",FLASHY_2))
+    ActionOverride("dadrow9",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead(Myself,57101)  // ~Destroy this form and free me, damn you!~
+    Wait(1)
+    DisplayStringHead("dadrow9",57109)  // ~Remember: no fatal damage. We do not want to free it.~
+    Wait(1)
+    DisplayStringHead("dadrow10",57111)  // ~Do not let its words sway you.~
+    SetGlobal("AttackMe","LOCALS",1)
+  RESPONSE #25
+    ActionOverride("dadrow9",ForceSpell("dagenie",FLASHY_4))
+    ActionOverride("dadrow9",ForceSpell("dagenie",SMALL_DAMAGE_SPELL))
+    Wait(1)
+    DisplayStringHead("dadrow10",57110)  // ~Concentrate!~
+    SetGlobal("AttackMe","LOCALS",1)
+END
+
+IF
+  See([PC])
+  Global("AttackMe","LOCALS",1)
+  !Dead("dadrow10")  // ~Drow Torturer~
+  !Dead("dadrow11")  // ~Drow Torturer~
+THEN
+  RESPONSE #50
+    ActionOverride("dadrow10",ForceSpell("dagenie",CLERIC_CURE_MEDIUM_WOUNDS))
+    SetGlobal("AttackMe","LOCALS",2)
+  RESPONSE #50
+    ActionOverride("dadrow11",ForceSpell("dagenie",CLERIC_CURE_MEDIUM_WOUNDS))
+    SetGlobal("AttackMe","LOCALS",2)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,57116)  // ~Freedom! My form crumbles, my spirit free! ~
+END
+

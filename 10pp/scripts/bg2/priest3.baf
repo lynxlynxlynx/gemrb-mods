@@ -1,0 +1,43 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_RIGID_THINKING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_RIGID_THINKING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+  !StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ENTANGLE)
+  !StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+  !StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_ENTANGLE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SPIRITUAL_HAMMER)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SPIRITUAL_HAMMER)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

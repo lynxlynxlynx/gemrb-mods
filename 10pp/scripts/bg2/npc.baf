@@ -1,0 +1,28 @@
+IF
+  HotKey(A)
+THEN
+  RESPONSE #100
+    Swing()
+END
+
+IF
+  HotKey(S)
+THEN
+  RESPONSE #100
+    Recoil()
+END
+
+IF
+  HotKey(D)
+THEN
+  RESPONSE #100
+    PlaySound("RAN")
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+

@@ -1,0 +1,10 @@
+IF
+  Unlocked([PC])
+THEN
+  RESPONSE #100
+    ActionOverride("Lightning_Gens1",DestroySelf())
+    AddExperiencePartyCR(4)
+    Unlock("5302MS2_1")
+    Deactivate("5302MS2_1")
+END
+

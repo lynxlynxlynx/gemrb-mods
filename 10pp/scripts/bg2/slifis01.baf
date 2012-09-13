@@ -1,0 +1,18 @@
+IF
+  HitBy([ANYONE],FIRE)
+  Global("NoFusion","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NoFusion","LOCALS",1)
+END
+
+IF
+  Die()
+  Global("NoFusion","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,71108)  // ~Rather than dying, the creature splits into two.~
+    CreateCreatureObjectEffect("SLIFIS02","TRGOOYAA",Myself)
+    CreateCreatureObjectEffect("SLIFIS02","TRGOOYAA",Myself)
+END
+

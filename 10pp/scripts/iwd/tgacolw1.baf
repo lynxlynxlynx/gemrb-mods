@@ -1,0 +1,132 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetSavedLocation()
+END
+
+IF
+  HPLT(Myself,11)
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+END
+
+IF
+  Internal(Myself,0,0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_STATIC_CHARGE)
+    Wait(2)
+    SetInternal(Myself,0,1)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_DISPEL_MAGIC)
+    Wait(2)
+    SetInternal(Myself,0,1)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+    SetInternal(Myself,0,1)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_ENTANGLE)
+    Wait(2)
+    SetInternal(Myself,0,1)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MAGICAL_STONE)
+    Wait(2)
+    SetInternal(Myself,0,1)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CURSE)
+    Wait(2)
+    SetInternal(Myself,0,1)
+END
+
+IF
+  Internal(Myself,0,1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_STATIC_CHARGE)
+    Wait(2)
+    SetInternal(Myself,0,2)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_DISPEL_MAGIC)
+    Wait(2)
+    SetInternal(Myself,0,2)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+    SetInternal(Myself,0,2)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_ENTANGLE)
+    Wait(2)
+    SetInternal(Myself,0,2)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MAGICAL_STONE)
+    Wait(2)
+    SetInternal(Myself,0,2)
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CURSE)
+    Wait(2)
+    SetInternal(Myself,0,2)
+END
+
+IF
+  Internal(Myself,0,2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_STRENGTH_OF_ONE)
+    Wait(2)
+    SetInternal(Myself,0,3)
+  RESPONSE #100
+    Spell(Myself,CLERIC_FLAME_BLADE)
+    Wait(2)
+    SetInternal(Myself,0,3)
+  RESPONSE #100
+    Spell(Myself,CLERIC_SPIRITUAL_HAMMER)
+    Wait(2)
+    SetInternal(Myself,0,3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastAttackerOf(Myself),45)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    MoveToObject(LastHelp)
+END
+
+IF
+  !NearSavedLocation(10)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

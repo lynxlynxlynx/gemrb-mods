@@ -1,0 +1,12 @@
+IF
+  Entered([ANYONE])
+  ReputationLT(LastTrigger,4)
+  !StateCheck(LastTrigger,STATE_INVISIBLE)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,16458)  // ~You have failed!  Guards have been alerted.~
+    Wait(3)
+    CreateCreature("BOUNTY",[-1.-1],0)  // BOUNTY
+END
+

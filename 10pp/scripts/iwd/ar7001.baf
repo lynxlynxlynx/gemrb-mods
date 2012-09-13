@@ -1,0 +1,34 @@
+IF
+  !Global("SLAVE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SLAVE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",32,AND)
+  !Global("SLAVES_FREE_1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",32,OR)
+    Continue()
+END
+
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",32,AND)
+  !Global("KERISH_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",32,OR)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

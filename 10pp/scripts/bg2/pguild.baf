@@ -1,0 +1,51 @@
+IF
+  OR(7)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    HitBy([GOODCUTOFF],CRUSHING)
+    AttackedBy([PC],DEFAULT)
+    AttackedBy([FAMILIAR],DEFAULT)
+    AttackedBy([ALLY],DEFAULT)
+    AttackedBy([CONTROLLED],DEFAULT)
+    AttackedBy([CHARMED],DEFAULT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Shout(33)
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],33)
+  Global("GuildScared","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GuildScared","LOCALS",1)
+    Shout(33)
+END
+
+IF
+  Global("GuildScared","LOCALS",1)
+  Range([PC],20)
+  See([PC])
+THEN
+  RESPONSE #40
+    DisplayStringHead(Myself,61349)  // ~Run!  The Boss is on a rampage!!~
+    Shout(33)
+    RunAwayFrom(LastSeenBy(Myself),10)
+  RESPONSE #60
+    Shout(33)
+    RunAwayFrom(LastSeenBy(Myself),10)
+END
+
+IF
+  Global("GuildScared","GLOBAL",1)
+  CombatCounter(0)
+  !Heard([ANYONE],33)
+  !See([PC])
+  !Range([PC],20)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("GuildScared","GLOBAL",0)
+END
+

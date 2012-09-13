@@ -1,0 +1,80 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("KaylPartyHelped","GLOBAL",1)
+    Shout(89)
+    Enemy()
+END
+
+IF
+  Heard("kaysmg",89)  // kaysmg
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("kaysmgl",89)  // kaysmgl
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([0.0.HUMAN.THIEF],89)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",1)
+  OR(3)
+    See(NearestEnemyOf(Myself))
+    See([NEUTRAL.0.HUMAN.FIGHTER])
+    See([ENEMY.0.HUMAN.FIGHTER])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  !Range(LastSeenBy(Myself),4)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",1)
+  OR(3)
+    See(NearestEnemyOf(Myself))
+    See([NEUTRAL.0.HUMAN.FIGHTER])
+    See([ENEMY.0.HUMAN.FIGHTER])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  Range(LastSeenBy(Myself),4)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  Global("KaylStartFight","GLOBAL",1)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    Shout(83)
+    Continue()
+END
+
+IF
+  Dead("kaypall")  // kaypall
+  NumDeadGT("kaypal",3)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

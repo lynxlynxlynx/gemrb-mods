@@ -1,0 +1,52 @@
+IF
+  PartyHasItem("KEY11")  // ~Planar Prison Cell Key~
+  Global("DisableDeathTrap","AR0516",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DisableDeathTrap","AR0516",1)
+    TriggerActivation("DeathTrap1",FALSE)
+    TriggerActivation("DeathTrap2",FALSE)
+END
+
+IF
+  !PartyHasItem("KEY11")  // ~Planar Prison Cell Key~
+  Global("DisableDeathTrap","AR0516",1)
+THEN
+  RESPONSE #100
+    SetGlobal("DisableDeathTrap","AR0516",0)
+    TriggerActivation("DeathTrap1",TRUE)
+    TriggerActivation("DeathTrap2",TRUE)
+END
+
+IF
+  Global("ThrallOrb","GLOBAL",2)
+  Global("DisableCells","AR0516",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DisableCells","AR0516",1)
+    TriggerActivation("Sphincter1",FALSE)
+    TriggerActivation("Sphincter2",FALSE)
+    TriggerActivation("Sphincter3",FALSE)
+    TriggerActivation("Sphincter4",FALSE)
+    TriggerActivation("Sphincter5",FALSE)
+END
+
+IF
+  Global("ThrallOrb","GLOBAL",2)
+  PartyHasItem("MISC7Y")  // ~Thrall Collar~
+THEN
+  RESPONSE #100
+    TakePartyItem("MISC7Y")
+END
+
+IF
+  !InPartyAllowDead("HaerDalis")  // HaerDalis
+  Dead("HaerDalis")  // HaerDalis
+  Global("GetRidofHD","AR0516",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GetRidofHD","AR0516",1)
+    Wait(5)
+    ActionOverride("HaerDalis",DestroySelf())
+END
+

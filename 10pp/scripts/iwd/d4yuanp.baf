@@ -1,0 +1,37 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("CAST_SPECIAL","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastSeenBy(Myself),CLERIC_STATIC_CHARGE)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(Myself,CLERIC_STRENGTH_OF_ONE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+

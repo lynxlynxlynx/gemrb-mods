@@ -1,0 +1,43 @@
+IF
+  GlobalGT("KeepPlot","GLOBAL",11)
+  AreaCheck("AR1304")
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Heard("kproen01",1)  // ~Lord Roenall~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  See("kpsold03")  // ~de'Arnise Guard~
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate("kpsold03",30)
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  See("kpsold04")  // ~de'Arnise Guard~
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate("kpsold04",30)
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  See("kpcapt02")  // ~Captain Cernick~
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate("kpcapt02",30)
+END
+

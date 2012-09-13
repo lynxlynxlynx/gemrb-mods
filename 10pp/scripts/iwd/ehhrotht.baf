@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("HROTHGAR")  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    SetGlobal("6005_LICH_SPAWN","GLOBAL",1)
+    SetGlobal("6006_LICH_SPAWN","GLOBAL",1)
+    SetGlobal("4001_SPAWN","GLOBAL",1)
+    SetGlobal("4002_SPAWN","GLOBAL",1)
+    SetGlobal("4003_SPAWN","GLOBAL",1)
+    SetGlobal("4004_SPAWN","GLOBAL",1)
+    SetGlobal("4005_SPAWN","GLOBAL",1)
+    SetGlobal("8001_SPAWN","GLOBAL",1)
+    SetGlobal("8005_SPAWN","GLOBAL",1)
+    SetGlobal("8008_SPAWN","GLOBAL",1)
+    SetGlobal("8009_SPAWN","GLOBAL",1)
+    MoveToPoint([586.490])
+    FaceObject([PC])
+    SmallWait(10)
+    Dialogue(Protagonist)
+END
+

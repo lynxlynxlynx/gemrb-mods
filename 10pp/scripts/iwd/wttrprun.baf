@@ -1,0 +1,90 @@
+IF
+  !Global("KERISH_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("SLAVES_FREE_1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,AND)
+THEN
+  RESPONSE #80
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FloatMessage(Myself,18362)  // ~"Traitor!"~
+    Continue()
+  RESPONSE #80
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FloatMessage(Myself,18363)  // ~"Betrayer!"~
+    Continue()
+  RESPONSE #80
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FloatMessage(Myself,18364)  // ~"You freed the slaves. Traitor!"~
+    Continue()
+  RESPONSE #80
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FloatMessage(Myself,18365)  // ~"I will free your soul."~
+    Continue()
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    Continue()
+END
+
+IF
+  Or(2)
+    See(NearestEnemyOf(Myself))
+    See([ALLY])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  Or(2)
+    AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+    AttackedBy([ALLY],DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    Wait(5)
+END
+

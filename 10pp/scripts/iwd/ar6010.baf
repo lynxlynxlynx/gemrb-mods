@@ -1,0 +1,59 @@
+IF
+  OnCreation()
+  Global("PUZZLE_STAIRS_OPEN","GLOBAL",1)
+THEN
+  RESPONSE #100
+    OpenDoor("AR6010DOOR1")
+END
+
+IF
+  OnCreation()
+  Global("PUZZLE_STAIRS_OPEN","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR6010DOOR1")
+END
+
+IF
+  !Global("PUZZLE_A_DISABLED","GLOBAL",0)
+  GlobalLT("AR6010_TRAP_STATE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("AR6010_PLAY_SOUND","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("PUZZLE_B_DISABLED","GLOBAL",0)
+  GlobalLT("AR6010_TRAP_STATE","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("AR6010_PLAY_SOUND","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("AR6010_PLAY_SOUND","GLOBAL",0)
+THEN
+  RESPONSE #100
+    PlaySound("REARM_S")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetGlobal("AR6010_PLAY_SOUND","GLOBAL",0)
+    SetGlobal("PUZZLE_B_DISABLED","GLOBAL",0)
+    SetGlobal("PUZZLE_A_DISABLED","GLOBAL",0)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

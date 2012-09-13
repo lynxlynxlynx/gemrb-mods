@@ -1,0 +1,129 @@
+IF
+  OnCreation()
+  Global("ThunderSound","AR0904",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ThunderSound","AR0904",1)
+    PlaySound("am0904c")
+END
+
+IF
+  Global("YarrylSpawn","GLOBAL",0)
+  OR(5)
+    Class(Player1,CLERIC)
+    Class(Player1,FIGHTER_CLERIC)
+    Class(Player1,CLERIC_MAGE)
+    Class(Player1,CLERIC_THIEF)
+    Class(Player1,FIGHTER_MAGE_CLERIC)
+  Alignment(Player1,MASK_EVIL)
+THEN
+  RESPONSE #100
+    SetGlobal("YarrylSpawn","GLOBAL",1)
+    CreateCreature("SCYARRYL",[341.323],14)  // ~Talon Yarryl~
+END
+
+IF
+  Global("AmuletStolen","GLOBAL",0)
+  Global("MaeVarWork","GLOBAL",3)
+  PartyHasItem("MISC4Y")  // ~Necklace of Talos~
+THEN
+  RESPONSE #100
+    AddexperienceParty(20000)
+    SetGlobal("AmuletStolen","GLOBAL",1)
+    SetGlobalTimer("StoleAmulet","AR0904",ONE_DAY)
+END
+
+IF
+  GlobalTimerExpired("TalvilonReturn","GLOBAL")
+  Global("TalvilonEnd","GLOBAL",0)
+  !Exists("talvilon")  // ~Acolyte Vilon~
+  !Dead("talvilon")  // ~Acolyte Vilon~
+THEN
+  RESPONSE #100
+    CreateCreature("TALVILON",[1195.564],4)  // ~Acolyte Vilon~
+    ActionOverride("talvilon",SetNumTimesTalkedTo(1))
+END
+
+IF
+  Global("TalvilonEnd","GLOBAL",1)
+  Dead("clcoti01")  // ~Cotirso~
+  !Exists("talvilon")  // ~Acolyte Vilon~
+  !Dead("talvilon")  // ~Acolyte Vilon~
+THEN
+  RESPONSE #100
+    SetGlobal("TalvilonEnd","GLOBAL",2)
+    CreateCreature("TALVILON",[1195.564],4)  // ~Acolyte Vilon~
+    ActionOverride("talvilon",SetNumTimesTalkedTo(1))
+END
+
+IF
+  GlobalTimerExpired("Clglin01Return","GLOBAL")
+  Global("Clglin01Spawn","GLOBAL",0)
+  Global("JoinTalos","GLOBAL",1)
+  !Dead("clglin01")  // ~Glinden~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Clglin01Spawn","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut82f")
+END
+
+IF
+  GlobalTimerExpired("Cltiva01Return","GLOBAL")
+  Global("Cltiva01Spawn","GLOBAL",0)
+  Global("JoinTalos","GLOBAL",1)
+  !Dead("cltiva01")  // ~Ti'Vael~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Cltiva01Spawn","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut82e")
+END
+
+IF
+  Global("Clardi01Spawn","GLOBAL",1)
+  Global("JoinTalos","GLOBAL",1)
+  !Dead("clardi01")  // ~Inspector Ardis~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Clardi01Spawn","GLOBAL",2)
+    StartCutSceneMode()
+    StartCutScene("Cut82g")
+END
+
+IF
+  Dead("talmiss")  // ~Mistress Ada~
+THEN
+  RESPONSE #100
+    ActionOverride("talmiss2",DestroySelf())
+END
+
+IF
+  Dead("talmiss2")  // ~Mistress Ada~
+THEN
+  RESPONSE #100
+    ActionOverride("talmiss",DestroySelf())
+END
+
+IF
+  Global("JoinTalos","GLOBAL",1)
+  !Global("Stripped","GLOBAL",1)
+  Global("SetRest","AR0904",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SetRest","AR0904",1)
+    SetAreaRestFlag(1)
+END
+
+IF
+  Global("Stripped","GLOBAL",1)
+  Global("SetRest","AR0904",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SetRest","AR0904",2)
+    SetAreaRestFlag(0)
+END
+

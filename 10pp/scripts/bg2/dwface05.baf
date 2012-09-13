@@ -1,0 +1,32 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("face5","AR2100",0)
+THEN
+  RESPONSE #100
+    SetGlobal("face5","AR2100",1)
+    DisplayString(Myself,51077)  // ~Manipulate the facet to release a trapped soul.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("face5","AR2100",1)
+THEN
+  RESPONSE #100
+    SetGlobal("face5","AR2100",2)
+    DisplayString(Myself,51078)  // ~You have released a lost soul.~
+    ScreenShake([2125.1982],20)
+    Wait(4)
+    CreateCreatureDoor("udtrap05",[2125.1982],0)
+    TriggerActivation("Face6",FALSE)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

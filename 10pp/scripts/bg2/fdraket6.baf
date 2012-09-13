@@ -1,0 +1,19 @@
+IF
+  Entered([ANYONE])
+  Global("Firedrake6","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Firedrake6","GLOBAL",1)
+    SetGlobalTimer("FiredrakeTime6","GLOBAL",0)
+END
+
+IF
+  Global("Firedrake6","GLOBAL",1)
+  GlobalTimerExpired("FiredrakeTime6","GLOBAL")
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,WIZARD_AGANNAZAR_SCORCHER)
+    Wait(2)
+    SetGlobalTimer("FiredrakeTime6","GLOBAL",8)
+END
+

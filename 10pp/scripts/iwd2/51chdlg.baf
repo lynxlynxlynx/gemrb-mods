@@ -1,0 +1,77 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("01_51Harsho_01")  // 
+    SetDialogueRange(300)
+    FadeToColor([0.0],0)
+    Wait(1)
+    MoveViewPoint([1221.619],INSTANT)
+    FaceObject([PC])
+    Wait(1)
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    Dialogue([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    JumpToPoint([1180.580])
+    FaceObject("01_51Harsho_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(1)
+    JumpToPoint([1215.610])
+    FaceObject("01_51Harsho_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(1)
+    JumpToPoint([1255.635])
+    FaceObject("01_51Harsho_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(1)
+    JumpToPoint([1150.615])
+    FaceObject("01_51Harsho_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(1)
+    JumpToPoint([1185.650])
+    FaceObject("01_51Harsho_01")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(1)
+    JumpToPoint([1225.670])
+    FaceObject("01_51Harsho_01")
+END
+

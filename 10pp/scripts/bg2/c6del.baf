@@ -1,0 +1,18 @@
+IF
+  See([PC])
+  Global("Shout","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Shout","LOCALS",1)
+    DisplayStringHead(Myself,54854)  // ~Join the wretched darkness, fools!~
+END
+
+IF
+  OR(2)
+    Die()
+    OpenState("DOOR01",TRUE)  // DOOR01
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,DEL_MIST_FORM_CHANGE)
+END
+

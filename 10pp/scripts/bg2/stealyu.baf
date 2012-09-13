@@ -1,0 +1,17 @@
+IF
+  StealFailed([ANYONE])
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("stolenfrom","LOCALS",1)
+    StartDialogNoSet(LastTrigger)
+END
+
+IF
+  HPPercentLT(Myself,70)
+  Global("stolenFrom","LOCALS",1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+

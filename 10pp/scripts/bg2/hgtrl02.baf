@@ -1,0 +1,18 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,TROLL_SETHP1)
+    PlayDead(300)
+    ReallyForceSpell(Myself,TROLL_FIRE_CHANGE)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("ICMAGICH",Myself)
+    CreateVisualEffectObject("SPFIREPI",Myself)
+    DestroySelf()
+END
+

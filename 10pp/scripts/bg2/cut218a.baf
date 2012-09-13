@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  True()
+THEN
+    MoveViewObject(Player1,INSTANT)
+    SmallWait(7)
+    MoveViewPoint([1554.1417],VERY_FAST)
+    MoveToPoint([1554.1417])
+    CreateVisualEffect("ICFIRSDI",[1456.1336])
+    Wait(1)
+    Wait(1)
+    ActionOverride("hgwra01",StartDialogNoSet(Player1))
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1643.1441])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1674.1497])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1650.1533])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1614.1539])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+    MoveToPoint([1561.1541])
+    Face(6)
+END
+
+
+END

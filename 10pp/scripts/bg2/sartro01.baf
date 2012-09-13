@@ -1,0 +1,10 @@
+IF
+  OnCreation()
+  Dead("gromnir")  // ~Gromnir Il-Khan~
+  Global("Escape","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Escape","LOCALS",1)
+    DestroySelf()
+END
+

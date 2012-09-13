@@ -1,0 +1,46 @@
+IF
+  !Global("Current_Area","GLOBAL",601)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",601)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0601_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0601_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Thorncombe","GLOBAL",4)
+  Global("Lady_Arrived","AR0601",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Lady_Arrived","AR0601",1)
+    CreateCreature("Thrncmb",[3119.1837])  // ~Sensate~
+    Continue()
+END
+
+IF
+  Global("Eli","GLOBAL",4)
+  Global("Eli_Arrived","AR0601",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Eli_Arrived","AR0601",1)
+    CreateCreature("Eli",[2555.1700])  // ~Sensate~
+    Continue()
+END
+
+IF
+  Global("Qui_Sai","GLOBAL",4)
+THEN
+  RESPONSE #100
+    GlobalSet("Qui_Sai","GLOBAL",5)
+    StartCutSceneMode()
+    StartCutScene("0601cs1")
+END
+

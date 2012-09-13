@@ -1,0 +1,25 @@
+IF
+  Range([PC],10)
+  Global("Ambush1","AR6100",1)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    MoveViewPoint([537.1408],INSTANT)
+    SetGlobal("Ambush1","AR6100",2)
+    SmallWait(7)
+    CreateVisualEffect("SPstrenh",[437.1368])
+    CreateVisualEffect("SPstrenh",[618.1367])
+    CreateVisualEffect("SPstrenh",[586.1435])
+    CreateVisualEffect("SPstrenh",[488.1438])
+    CreateVisualEffect("SPstrenh",[533.1509])
+    PlaySound("amthund")
+    Wait(1)
+    CreateCreature("umbhul02",[437.1368],8)  // ~Umber Hulk Elder~
+    CreateCreature("umbhul02",[618.1367],8)  // ~Umber Hulk Elder~
+    CreateCreature("drofod01",[586.1435],8)  // ~Drow~
+    CreateCreature("drofod01",[488.1438],8)  // ~Drow~
+    CreateCreature("behhiv01",[533.1509],8)  // ~Hive Mother~
+    EndCutSceneMode()
+END
+

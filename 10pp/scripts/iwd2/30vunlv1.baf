@@ -1,0 +1,47 @@
+IF
+  Global("LEAVE_START","LOCALS",0)
+  !Global("VUNARG_LEAVING","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetStartPos([750.1140])
+    SetGlobal("LEAVE_START","LOCALS",1)
+END
+
+IF
+  !Global("VUNARG_LEAVING","GLOBAL",0)
+  NearLocation(Myself,3750,1140,4)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !Global("TEAM_10","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("VUNARG_LEAVING","GLOBAL",0)
+  !Dead("10_GobVun")  // 
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("10_GobVun")
+END
+
+IF
+  !Global("VUNARG_LEAVING","GLOBAL",0)
+  Dead("10_GobVun")  // 
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("30VunLv2")
+END
+
+IF
+  !Global("VUNARG_LEAVING","GLOBAL",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

@@ -1,0 +1,43 @@
+IF
+  NearLocation(Myself,[776.1368],0)
+THEN
+  RESPONSE #100
+    Face(14)
+    ChangeTeam(Myself,TEAM_3)
+    ChangeAIScript("0000talk",GENERAL)
+END
+
+IF
+  NearLocation(Myself,[818.1386],0)
+THEN
+  RESPONSE #100
+    Face(6)
+    ChangeTeam(Myself,TEAM_3)
+    ChangeDialog(Myself,"DThugB2")
+    ChangeAIScript("0000talk",GENERAL)
+END
+
+IF
+  NearLocation(Myself,[2252.2110],0)
+THEN
+  RESPONSE #100
+    Face(14)
+    ChangeDialog(Myself,"DThugB3")
+    ChangeAIScript("0000wand",GENERAL)
+END
+
+IF
+  NearLocation(Myself,[1024.508],0)
+THEN
+  RESPONSE #100
+    Face(12)
+    ChangeAIScript("0000wand",GENERAL)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeAIScript("0000wand",GENERAL)
+END
+

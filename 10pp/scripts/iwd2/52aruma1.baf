@@ -1,0 +1,22 @@
+IF
+  HasItem("52KeyRT",Myself)  // ~Raven Tomb Key~
+  !Global("52Aruma_Gone","GLOBAL",0)
+  !Dead("01_52Salisa_01")  // 
+THEN
+  RESPONSE #100
+    GiveItem("52KeyRT","01_52Salisa_01")  // ~Raven Tomb Key~
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([GOODCUTOFF.0.0.0.150],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(LastMarkedObject,150)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

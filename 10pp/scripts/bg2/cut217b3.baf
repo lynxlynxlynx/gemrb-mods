@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewPoint([1944.1406],INSTANT)
+    CreateVisualEffect("SPSTRENH",[1819.1408])
+    Wait(1)
+    CreateCreature("D1GHOST",[1819.1408],14)  // ~Alianna~
+    Wait(3)
+    CreateVisualEffect("SPUSEANY",[1819.1408])
+    Wait(1)
+    ActionOverride("d1moth",ChangeAnimation("D1MOTHEL"))
+    Wait(2)
+    ActionOverride("d1moth",StartDialogNoSet(Player1))
+END
+

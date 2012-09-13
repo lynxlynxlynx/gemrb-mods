@@ -1,0 +1,57 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeTeam(Myself,TEAM_4)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.TEAM_4])
+THEN
+  RESPONSE #100
+    Enemy()
+    FaceObject(LastHelp)
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

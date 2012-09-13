@@ -1,0 +1,7 @@
+IF
+  IsOverMe([ANYONE])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,ACID_DAMAGE_1)
+END
+

@@ -1,0 +1,22 @@
+IF
+  HPPercentGT("Support_Beam_North",0)  // Support_Beam_North
+THEN
+  RESPONSE #100
+    Attack("Support_Beam_North")
+END
+
+IF
+  HPPercentGT("Support_Beam_South",0)  // Support_Beam_South
+THEN
+  RESPONSE #100
+    Attack("Support_Beam_South")
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

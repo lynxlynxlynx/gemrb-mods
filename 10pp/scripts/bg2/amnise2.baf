@@ -1,0 +1,7 @@
+IF
+  Heard("AmnishEnforcer",1)  // AmnishEnforcer
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

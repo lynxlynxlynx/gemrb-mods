@@ -1,0 +1,10 @@
+IF
+  Disarmed([PC])
+THEN
+  RESPONSE #100
+    Deactivate("ExitTrap")
+    TriggerActivation("ExitTrapHidden",FALSE)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

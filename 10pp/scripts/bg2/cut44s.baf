@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride("udMove01",MoveToPointNoInterrupt([912.1059]))
+    ActionOverride("udMove02",MoveToPointNoInterrupt([935.1124]))
+    Wait(2)
+    ActionOverride("udMove01",Deactivate(Myself))
+    ActionOverride("udMove02",Deactivate(Myself))
+    Wait(4)
+    ActionOverride("udMove01",Activate(Myself))
+    ActionOverride("udMove02",Activate(Myself))
+    Wait(2)
+    ActionOverride("udMove01",MoveToPoint([575.1185]))
+    ActionOverride("udMove02",MoveToPoint([571.1233]))
+    CreateCreatureObject("udphae01","udMove01",0,0,0)  // ~Phaere~
+    MoveViewPoint([575.1185],100)
+    StartCutScene("Cut44s2")
+END
+

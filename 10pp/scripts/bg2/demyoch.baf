@@ -1,0 +1,90 @@
+IF
+  Global("ReduceDemons","AR3012",1)
+  AreaCheck("AR3012")
+  Exists(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See([0.0.0.IMP])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.IMP],30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(2)
+    HPPercentLT(Myself,100)
+    Range(LastSeenBy(Myself),20)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("invisible","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("invisible","LOCALS",1000)
+    ReallyForceSpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !DifficultyLT(NORMAL)
+  !NumCreatureGT([ENEMY.0.SPIDER],2)
+  RandomNum(2,1)
+  !GlobalTimerNotExpired("morespiders","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("morespiders","LOCALS",12)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_SPIDER_SPAWN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Difficulty(EASIEST)
+  !CheckStatGT(LastSeenBy(Myself),50,RESISTMAGIC)
+  !HasBounceEffects(LastSeenBy(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  !HPPercentGT(LastSeenBy(Myself),50)
+  !GlobalTimerNotExpired("Dominate","LOCALS")
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Dominate","LOCALS",15)
+    ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DOMINATION)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Range(NearestEnemyOf(Myself),20)
+THEN
+  RESPONSE #100
+    SetGlobal("running","LOCALS",1)
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("running","LOCALS",1)
+  !Range(NearestEnemyOf(Myself),20)
+THEN
+  RESPONSE #100
+    SetGlobal("running","LOCALS",0)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Global("running","LOCALS",0)
+  !Range(NearestEnemyOf(Myself),20)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

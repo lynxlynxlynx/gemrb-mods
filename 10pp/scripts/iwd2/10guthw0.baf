@@ -1,0 +1,36 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  !Allegiance(Myself,ENEMY)
+  !Global("TEAM_1","MYAREA",0)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,28792)  // ~"Go on!  Hit 'em!"~
+    StartRandomTimer(18,8,12)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,28793)  // ~"Ha!  That's the spirit!"~
+    StartRandomTimer(18,8,12)
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  GlobalTimerNotExpired("PUKE_TIMER","MYAREA")
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16418)  // ~"Uhhhrhrrrrk!"~
+    StartRandomTimer(18,6,18)
+    PlaySequence(Myself,DAMAGE)
+END
+

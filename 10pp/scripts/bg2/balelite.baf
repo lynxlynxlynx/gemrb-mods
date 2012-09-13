@@ -1,0 +1,7 @@
+IF
+  Dead("balth")  // ~Balthazar~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

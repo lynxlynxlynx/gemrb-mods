@@ -1,0 +1,31 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("DragonWell","AR1202",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,40849)  // ~This ancient well seems to still be in working order.  If you wanted you could winch up the water pail.~
+    SetGlobal("DragonWell","AR1202",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("DragonWell","AR1202",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,40850)  // ~You begin to operate the winch, slowly lifting the bucket from the bottom of the well.  After a few moments the bucket is within reach.  You pull a strangely shaped helmet from the murky water in the bucket.  Before you are able to examine it, a wind rushes up from the depths of the well.~
+    GiveItemCreate("helm21",Player1,0,0,0)  // ~Dragon Helm~
+    Wait(3)
+    CreateCreature("ELAIR01",[1319.1305],9)  // ~Air Elemental~
+    SetGlobal("DragonWell","AR1202",2)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

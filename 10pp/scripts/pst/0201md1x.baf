@@ -1,0 +1,18 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Global("Mortuary_Alert_1","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,25980)  // ~"You there! Hold!"~
+    Wait(2)
+    Dialogue([PC])
+END
+

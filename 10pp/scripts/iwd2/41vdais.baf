@@ -1,0 +1,8 @@
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("41PlayerSawDais","GLOBAL",1)
+    ChangeCurrentScript("")
+END
+

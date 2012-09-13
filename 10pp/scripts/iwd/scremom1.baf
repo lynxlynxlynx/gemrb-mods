@@ -1,0 +1,38 @@
+IF
+  Global("STARTED_MOVE","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("STARTED_MOVE","LOCALS",1)
+    MoveToPoint([1879.777])
+END
+
+IF
+  !Global("STARTED_MOVE","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("STARTED_MOVE","LOCALS",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

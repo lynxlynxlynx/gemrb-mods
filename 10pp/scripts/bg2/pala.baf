@@ -1,0 +1,24 @@
+IF
+  OR(2)
+    AttackedBy([ANYONE],DEFAULT)
+    Allegiance("Mazzy",ENEMY)  // Mazzy
+THEN
+  RESPONSE #100
+    ActionOverride("vara",EscapeArea())
+    ActionOverride("danno",EscapeArea())
+    ActionOverride("mazzy",LeaveParty())
+    ActionOverride("mazzy",Enemy())
+    SetGlobal("MazzyNoCure","GLOBAL",1)
+    EscapeArea()
+END
+
+IF
+  Global("MazzyDeadAllFailed","GLOBAL",1)
+  !GlobalGT("PalaCureFound","GLOBAL",0)
+  GlobalTimerExpired("PalaDead","GLOBAL")
+  !Dead("Pala")  // ~Pala Fentan~
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+

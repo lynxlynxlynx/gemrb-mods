@@ -1,0 +1,60 @@
+IF
+  See([ANYONE])
+  Allegiance(Myself,ENEMY)
+  !StateCheck(LastSeenBy,STATE_HELPLESS)
+  GlobalLT("TANARIPARALYZE","LOCALS",3)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy,TANARI_PARALYZE)
+    IncrementGlobal("TANARIPARALYZE","LOCALS",1)
+END
+
+IF
+  See([ANYONE])
+  Allegiance(Myself,ENEMY)
+  StateCheck(LastSeenBy,STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy)
+    AttackOneRound(LastSeenBy)
+END
+
+IF
+  See([0.0.0.MAGE])
+  Allegiance(Myself,ENEMY)
+  Global("Prep","LOCALS",1)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy,WIZARD_DISPEL_MAGIC)
+    SetGlobal("Prep","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Allegiance(Myself,ENEMY)
+  Global("Prep","LOCALS",2)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_CONFUSION)
+    SetGlobal("Prep","LOCALS",3)
+END
+
+IF
+  See([ANYONE])
+  Allegiance(Myself,ENEMY)
+  !StateCheck(LastSeenBy,STATE_HELPLESS)
+  GlobalLT("TANARIPARALYZE","LOCALS",7)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy,TANARI_PARALYZE)
+    IncrementGlobal("TANARIPARALYZE","LOCALS",1)
+END
+
+IF
+  See([ANYONE])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate([ANYONE],30)
+END
+

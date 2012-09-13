@@ -1,0 +1,66 @@
+IF
+  Help([ANYONE])
+  !Help([PC])
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_4)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Global("Summon_Dance","AR3012",0)
+  !NearLocation(Myself,[516.497],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([516.497])
+    Face(14)
+    Wait(4)
+    FloatMessage(Myself,48678)  // ~"Daaaaa..."~
+END
+
+IF
+  Global("Summon_Dance","AR3012",1)
+  !NearLocation(Myself,[535.568],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([535.568])
+    Face(10)
+    Wait(4)
+    FloatMessage(Myself,48678)  // ~"Daaaaa..."~
+END
+

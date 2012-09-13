@@ -1,0 +1,74 @@
+IF
+  GlobalLT("Action","LOCALS",2)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Action","LOCALS",1)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  HasItem("CMDamag",Myself)  // ~Inflict Moderate Wounds~
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("Action","LOCALS",0)
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("111115131616",LastMarkedObject,7)
+      // CLERIC_BANE
+      // CLERIC_CAUSE_CRITICAL_WOUNDS
+      // CLERIC_DOLOROUS_DECAY
+    MarkSpellAndObject("12181409",Myself,7)
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_CLOAK_OF_FEAR
+    MarkSpellAndObject("17151726",ThirdNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_SYMBOL_OF_HOPELESSNESS
+      // CLERIC_SYMBOL_OF_DEATH
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("12181409",Myself,7)
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_CLOAK_OF_FEAR
+    MarkSpellAndObject("17151726",ThirdNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_SYMBOL_OF_HOPELESSNESS
+      // CLERIC_SYMBOL_OF_DEATH
+    MarkSpellAndObject("111115131616",LastMarkedObject,7)
+      // CLERIC_BANE
+      // CLERIC_CAUSE_CRITICAL_WOUNDS
+      // CLERIC_DOLOROUS_DECAY
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("17151726",ThirdNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_SYMBOL_OF_HOPELESSNESS
+      // CLERIC_SYMBOL_OF_DEATH
+    MarkSpellAndObject("111115131616",LastMarkedObject,7)
+      // CLERIC_BANE
+      // CLERIC_CAUSE_CRITICAL_WOUNDS
+      // CLERIC_DOLOROUS_DECAY
+    MarkSpellAndObject("12181409",Myself,7)
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_CLOAK_OF_FEAR
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetGlobal("Action","LOCALS",0)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

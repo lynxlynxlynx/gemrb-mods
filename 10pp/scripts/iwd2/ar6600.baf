@@ -1,0 +1,16 @@
+IF
+  !Global("SH_BarracksGuardsReset","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SH_BarracksGuardsReset","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

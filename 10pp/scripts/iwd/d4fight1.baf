@@ -1,0 +1,42 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([ENEMY],DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(75)
+    Dialogue([PC])
+END
+

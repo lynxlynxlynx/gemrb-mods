@@ -1,0 +1,90 @@
+IF
+  Global("FACTORY_2_SPAWN_STATE","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("FACTORY_2_SPAWN_STATE","MYAREA",1)
+    PlaySoundPoint("AM5102e",[604.884])
+    PlaySequence("AR5102_EXPLOSION2",AWAKE)
+    OpenDoor("AR5102_AMBUSH2")
+    SmallWait(5)
+    PlaySequence("AR5102_EXPLOSION2",ATTACK)
+    Continue()
+END
+
+IF
+  Global("FACTORY_2_SPAWN_STATE","MYAREA",1)
+  CheckAreaDiffLevel(1)
+THEN
+  RESPONSE #100
+    SetGlobal("FACTORY_2_SPAWN_CNT","MYAREA",1)
+    SetGlobal("FACTORY_2_SPAWN_STATE","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FACTORY_2_SPAWN_STATE","MYAREA",1)
+  CheckAreaDiffLevel(2)
+THEN
+  RESPONSE #100
+    SetGlobal("FACTORY_2_SPAWN_CNT","MYAREA",2)
+    SetGlobal("FACTORY_2_SPAWN_STATE","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("FACTORY_2_SPAWN_STATE","MYAREA",1)
+  CheckAreaDiffLevel(3)
+THEN
+  RESPONSE #100
+    SetGlobal("FACTORY_2_SPAWN_CNT","MYAREA",2)
+    SetGlobal("FACTORY_2_SPAWN_STATE","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("KOOL_AID_MAN_SPAWN","GLOBAL",0)
+  Global("FACTORY_2_SPAWN_STATE","MYAREA",3)
+  !IsHeartOfFuryModeOn()
+THEN
+  RESPONSE #100
+    SetGlobal("KOOL_AID_MAN_SPAWN","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("FACTORY_2_SPAWN_STATE","MYAREA",3)
+  Global("KOOL_AID_MAN_SPAWN","GLOBAL",0)
+  IsHeartOfFuryModeOn()
+THEN
+  RESPONSE #100
+    SetGlobal("FACTORY_2_SPAWN_STATE","MYAREA",4)
+    FloatMessage(Player1,20829)  // ~"Oh, no."~
+    Wait(1)
+    FloatMessage(Player2,20829)  // ~"Oh, no."~
+    Wait(1)
+    FloatMessage(Player3,20829)  // ~"Oh, no."~
+    SetGlobal("KOOL_AID_MAN_SPAWN","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("FACTORY_2_SPAWN_STATE","MYAREA",3)
+THEN
+  RESPONSE #100
+    SetGlobal("FACTORY_2_SPAWN_STATE","MYAREA",4)
+    Continue()
+END
+
+IF
+  Global("FACTORY_NO_SPAWN","MYAREA",0)
+  GlobalGT("FACTORY_2_SPAWN_CNT","MYAREA",0)
+  Global("5102_UMBERHULK_FACTORY_2","GLOBAL",0)
+  GlobalTimerExpired("FACTORY_2_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobalTimerRandom("FACTORY_2_TIMER","MYAREA",3,5)
+    IncrementGlobal("FACTORY_2_SPAWN_CNT","MYAREA",-1)
+    SetGlobal("5102_UMBERHULK_FACTORY_2","GLOBAL",1)
+END
+

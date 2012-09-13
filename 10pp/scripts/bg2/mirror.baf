@@ -1,0 +1,45 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("ActivateCrystal","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KillAnath","GLOBAL",1)
+    DisplayString(Myself,41623)  // ~The polished glass of this ruined window catches some of the weak light that the darkened gem puts forth. You could arrange the pane in such a manner that it would reflect all of the light if you so wish.~
+    SetGlobal("ActivateCrystal","AR1404",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("ActivateCrystal","AR1404",1)
+THEN
+  RESPONSE #100
+    SetGlobal("KillAnath","GLOBAL",1)
+    DisplayString(Myself,41624)  // ~When you turn the pane of polished glass, it reflects the light from the gem and the area brightens.~
+    CreateCreatureObjectOffScreen("shadow01",LastTrigger,0,0,0)  // ~Shadow~
+    CreateCreatureObjectOffScreen("shadow01",LastTrigger,0,0,0)  // ~Shadow~
+    CreateCreatureObjectOffScreen("shadow01",LastTrigger,0,0,0)  // ~Shadow~
+    CreateCreatureObjectOffScreen("shadow01",LastTrigger,0,0,0)  // ~Shadow~
+    CloseDoor("Crystal")
+    TriggerActivation("Shadow1",TRUE)
+    SetGlobal("ActivateCrystal","AR1404",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("ActivateCrystal","AR1404",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,41626)  // ~There is no other use for this glass.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

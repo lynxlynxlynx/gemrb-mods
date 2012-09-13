@@ -1,0 +1,119 @@
+IF
+  !Global("TEAM_10","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("TEAM_10","MYAREA",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("TEAM_10","MYAREA",0)
+  OpenState("AR5004_1A",TRUE)  // AR5004_1A
+  OpenState("AR5004_2A",TRUE)  // AR5004_2A
+  OpenState("AR5004_3A",TRUE)  // AR5004_3A
+  OpenState("AR5004_4A",TRUE)  // AR5004_4A
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetGlobal("TEAM_10","MYAREA",1)
+    OpenDoor("AR5004_TeleportBlock")
+    AddXPVar("LEVEL_9_AVERAGE",26667)  // ~You've managed to open the barbarians' Gate-of-Stone.~
+    StartCutScene("50cRokFA")
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Global("TEAM_10","MYAREA",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("TEAM_10","MYAREA",0)
+  OpenState("AR5004_1B",TRUE)  // AR5004_1B
+  OpenState("AR5004_2B",TRUE)  // AR5004_2B
+  OpenState("AR5004_3B",TRUE)  // AR5004_3B
+  OpenState("AR5004_4B",TRUE)  // AR5004_4B
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetGlobal("TEAM_10","MYAREA",1)
+    OpenDoor("AR5004_TeleportBlock")
+    AddXPVar("LEVEL_9_AVERAGE",26667)  // ~You've managed to open the barbarians' Gate-of-Stone.~
+    StartCutScene("50cRokFB")
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Global("TEAM_10","MYAREA",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("TEAM_10","MYAREA",0)
+  OpenState("AR5004_1C",TRUE)  // AR5004_1C
+  OpenState("AR5004_2C",TRUE)  // AR5004_2C
+  OpenState("AR5004_3C",TRUE)  // AR5004_3C
+  OpenState("AR5004_4C",TRUE)  // AR5004_4C
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetGlobal("TEAM_10","MYAREA",1)
+    OpenDoor("AR5004_TeleportBlock")
+    AddXPVar("LEVEL_9_AVERAGE",26667)  // ~You've managed to open the barbarians' Gate-of-Stone.~
+    StartCutScene("50cRokFC")
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Global("TEAM_10","MYAREA",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("TEAM_10","MYAREA",0)
+  OpenState("AR5004_1D",TRUE)  // AR5004_1D
+  OpenState("AR5004_2D",TRUE)  // AR5004_2D
+  OpenState("AR5004_3D",TRUE)  // AR5004_3D
+  OpenState("AR5004_4D",TRUE)  // AR5004_4D
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    PlaySound("am1000j")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SetGlobal("TEAM_9","MYAREA",1)
+    SetGlobal("TEAM_10","MYAREA",1)
+    OpenDoor("AR5004_TeleportBlock")
+    AddXPVar("LEVEL_9_AVERAGE",26667)  // ~You've managed to open the barbarians' Gate-of-Stone.~
+    StartCutScene("50cRokFD")
+    SetInterrupt(TRUE)
+END
+

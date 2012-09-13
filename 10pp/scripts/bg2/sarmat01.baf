@@ -1,0 +1,35 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+  Global("INFORMPLOTCUTACTIVE","GLOBAL",2)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  OR(2)
+    Dead("sarson01")  // ~Ardic Santele~
+    Global("ArdicSaved","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ByeSarMat01","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  OR(2)
+    Dead("sarcnt01")  // ~Mirnielle Santele~
+    Dead("sarmag01")  // ~Errard~
+  Global("KiserJob","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

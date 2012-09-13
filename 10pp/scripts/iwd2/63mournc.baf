@@ -1,0 +1,103 @@
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("Summon","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  IsHeartOfFuryModeOn()
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",4)
+END
+
+IF
+  Global("Summon","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  CheckAreaDiffLevel(1)
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",1)
+END
+
+IF
+  Global("Summon","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  CheckAreaDiffLevel(2)
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",2)
+END
+
+IF
+  Global("Summon","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  CheckAreaDiffLevel(3)
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",3)
+END
+
+IF
+  Global("Summon","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",-1)
+    ForceSpellPoint([1180.767],WIZARD_CACOFIEND)
+    SpellWait(WIZARD_CACOFIEND)
+    ReallyForceSpell(Myself,WIZARD_LUTZAENS_FREQUENT_JAUNT)
+    ChangeCurrentScript("63Mour1C")
+END
+
+IF
+  Global("Summon","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",-1)
+    ForceSpellPoint([1180.767],WIZARD_SUMMON_FIEND)
+    SpellWait(WIZARD_SUMMON_FIEND)
+    ReallyForceSpell(Myself,WIZARD_LUTZAENS_FREQUENT_JAUNT)
+    ChangeCurrentScript("63Mour2C")
+END
+
+IF
+  Global("Summon","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",-1)
+    ForceSpellPoint([1180.767],WIZARD_GATE)
+    SpellWait(WIZARD_GATE)
+    ReallyForceSpell(Myself,WIZARD_LUTZAENS_FREQUENT_JAUNT)
+    ChangeCurrentScript("63Mour3C")
+END
+
+IF
+  Global("Summon","LOCALS",4)
+THEN
+  RESPONSE #100
+    SetGlobal("Summon","LOCALS",-1)
+    ForceSpellPoint([1180.767],WIZARD_CACOFIEND)
+    SpellWait(WIZARD_CACOFIEND)
+    ForceSpellPoint([1180.767],WIZARD_SUMMON_FIEND)
+    SpellWait(WIZARD_SUMMON_FIEND)
+    ForceSpellPoint([1180.767],WIZARD_GATE)
+    SpellWait(WIZARD_GATE)
+    ReallyForceSpell(Myself,WIZARD_LUTZAENS_FREQUENT_JAUNT)
+    ChangeCurrentScript("63Mour3C")
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+

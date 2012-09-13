@@ -1,0 +1,30 @@
+IF
+  Global("30BRASTO_ESCAPE","GLOBAL",2)
+  Global("BRASTON_PAUSED_STATE","GLOBAL",2)
+  Global("31brasto_Dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature("Braston",FALSE)
+    SetGlobal("BRASTON_DELETE_AR3101","GLOBAL",1)
+    SetGlobal("BRASTON_PAUSED_STATE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("BRASTON_DELETE_AR3100","GLOBAL",0)
+  !Dead("Braston")  // 
+THEN
+  RESPONSE #100
+    ActionOverride("Braston",DestroySelf())
+    SetGlobal("BRASTON_DELETE_AR3100","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

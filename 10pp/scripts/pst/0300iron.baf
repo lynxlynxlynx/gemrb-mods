@@ -1,0 +1,68 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(4)
+    PlaySequence(ANIM_STANDTOSTANCE)
+    PlaySequence(ANIM_STANCETOSTAND)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9397)  // ~"Pretty nails..."~
+    WaitRandom(5,7)
+    MoveToPoint([2211.1480])
+    Face(4)
+    PlaySequence(ANIM_STANDTOSTANCE)
+    PlaySequence(ANIM_STANCETOSTAND)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9396)  // ~"Here's a fine one..."~
+    WaitRandom(5,7)
+    MoveToPoint([2256.1497])
+    Face(0)
+    PlaySequence(ANIM_STANDTOSTANCE)
+    PlaySequence(ANIM_STANCETOSTAND)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9395)  // ~"Nails, nails..."~
+    WaitRandom(5,7)
+    MoveToPoint([2434.1510])
+    Face(0)
+    PlaySequence(ANIM_STANDTOSTANCE)
+    PlaySequence(ANIM_STANCETOSTAND)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9394)  // ~"Here's a pretty one..."~
+    WaitRandom(5,7)
+    MoveToPoint([2420.1468])
+    Face(4)
+    PlaySequence(ANIM_STANDTOSTANCE)
+    PlaySequence(ANIM_STANCETOSTAND)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9385)  // ~"This one will fetch a pretty bit of jink..."~
+    WaitRandom(5,7)
+    MoveToPoint([2492.1276])
+    Face(8)
+    PlaySequence(ANIM_STANDTOSTANCE)
+    PlaySequence(ANIM_STANCETOSTAND)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9382)  // ~"Hamrys will like this one, he will..."~
+    WaitRandom(5,7)
+    MoveToPoint([2167.1389])
+END
+

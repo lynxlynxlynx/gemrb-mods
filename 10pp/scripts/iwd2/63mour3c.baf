@@ -1,0 +1,217 @@
+IF
+  !TimerActive(18)
+  HaveSpell(WIZARD_LOWER_RESISTANCE)
+  CheckStatGT(NearestEnemyOf(Myself),15,RESISTMAGIC)
+THEN
+  RESPONSE #100
+    StartTimer(18,21)
+    Spell(NearestEnemyOf(Myself),WIZARD_LOWER_RESISTANCE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !TimerActive(17)
+  HaveSpell(WIZARD_MALAVONS_RAGE)
+  Range(ThirdNearestEnemyOf(Myself),15,LESS_THAN)
+THEN
+  RESPONSE #100
+    StartTimer(17,21)
+    Spell(ThirdNearestEnemyOf(Myself),WIZARD_MALAVONS_RAGE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !TimerActive(17)
+  HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)
+  Range(ThirdNearestEnemyOf(Myself),30,LESS_THAN)
+THEN
+  RESPONSE #100
+    StartTimer(17,21)
+    Spell(ThirdNearestEnemyOf(Myself),WIZARD_WAIL_OF_THE_BANSHEE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !TimerActive(17)
+  HaveSpell(WIZARD_SUNFIRE)
+  Range(ThirdNearestEnemyOf(Myself),30,LESS_THAN)
+THEN
+  RESPONSE #100
+    StartTimer(17,21)
+    Spell(ThirdNearestEnemyOf(Myself),WIZARD_SUNFIRE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],0)
+  HaveSpell(WIZARD_OTILUKES_RESILIENT_SPHERE)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_OTILUKES_RESILIENT_SPHERE,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_OTILUKES_RESILIENT_SPHERE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  NumCreatureGT([ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],4)
+  Range([ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],20,LESS_THAN)
+  HaveSpell(WIZARD_IMPROVED_HASTE)
+  See([ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_IMPROVED_HASTE,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_IMPROVED_HASTE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("242524172609261226132902",LastMarkedObject,7)
+      // CLERIC_CONTAGION
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_INVISIBLE_STALKER
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",FourthNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("2910",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+    MarkSpellAndObject("26082405",Myself,7)
+      // WIZARD_GLOBE_OF_INVULNERABILITY
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2405","Zilvar",SPELLCAST_RANDOM)
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2603",FourthNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("2910",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+    MarkSpellAndObject("26082405",Myself,7)
+      // WIZARD_GLOBE_OF_INVULNERABILITY
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2405","Zilvar",SPELLCAST_RANDOM)
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("242524172609261226132902",LastMarkedObject,7)
+      // CLERIC_CONTAGION
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_INVISIBLE_STALKER
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2910",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+    MarkSpellAndObject("26082405",Myself,7)
+      // WIZARD_GLOBE_OF_INVULNERABILITY
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2405","Zilvar",SPELLCAST_RANDOM)
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("242524172609261226132902",LastMarkedObject,7)
+      // CLERIC_CONTAGION
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_INVISIBLE_STALKER
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",FourthNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("26082405",Myself,7)
+      // WIZARD_GLOBE_OF_INVULNERABILITY
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2405","Zilvar",SPELLCAST_RANDOM)
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("242524172609261226132902",LastMarkedObject,7)
+      // CLERIC_CONTAGION
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_INVISIBLE_STALKER
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",FourthNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("2910",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2405","Zilvar",SPELLCAST_RANDOM)
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("242524172609261226132902",LastMarkedObject,7)
+      // CLERIC_CONTAGION
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_INVISIBLE_STALKER
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",FourthNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("2910",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+    MarkSpellAndObject("26082405",Myself,7)
+      // WIZARD_GLOBE_OF_INVULNERABILITY
+      // WIZARD_IMPROVED_INVISIBILITY
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("242524172609261226132902",LastMarkedObject,7)
+      // CLERIC_CONTAGION
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_INVISIBLE_STALKER
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",FourthNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("2910",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+    MarkSpellAndObject("26082405",Myself,7)
+      // WIZARD_GLOBE_OF_INVULNERABILITY
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2405","Zilvar",SPELLCAST_RANDOM)
+      // WIZARD_IMPROVED_INVISIBILITY
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

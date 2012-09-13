@@ -1,0 +1,23 @@
+IF
+  Range([PC],10)
+  Global("SpawnStart","AR5203",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnStart","AR5203",1)
+    DisplayStringNoName(Myself,73292)  // ~Yaga Shura's army pours towards you, led by the giant Bhaalspawn himself, and you realize that you shall have to kill Yaga Shura if you wish to break their ranks. If you fail to kill him soon, you may be overrun. ~
+    SetGlobal("SPRITE_IS_DEADysextra1","GLOBAL",6)
+    SetGlobal("SPRITE_IS_DEADysextra2","GLOBAL",2)
+    SetGlobal("SPRITE_IS_DEADysextra3","GLOBAL",1)
+    SetGlobalTimer("RemindPartyOfYaga","AR5203",10)
+END
+
+IF
+  GlobalTimerExpired("RemindPartyOfYaga","AR5203")
+  !Dead("Yaga01")  // ~Yaga-Shura~
+  Global("Reminder","AR5203",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("RemindPartyOfYaga","AR5203",10)
+    DisplayString(Myself,74032)  // ~You can see Yaga-Shura off to the west of the bridge.~
+END
+

@@ -1,0 +1,9 @@
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([536.402])
+    SetGlobal("EHWOLF_DEAD","GLOBAL",1)
+    DestroySelf()
+END
+

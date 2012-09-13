@@ -1,0 +1,8 @@
+IF
+  Global("RandomEncounters","GLOBAL",2)
+  See(Player1)
+THEN
+  RESPONSE #100
+    ForceSpell(Player1,WIZARD_IMPRISONMENT)
+END
+

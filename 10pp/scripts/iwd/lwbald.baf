@@ -1,0 +1,8 @@
+IF
+  Global("BODY_COUNT","GLOBAL",4)
+  Global("PURVIS_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

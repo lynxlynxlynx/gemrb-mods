@@ -1,0 +1,7 @@
+IF
+  HarmlessOpened([PC])
+THEN
+  RESPONSE #100
+    DestroyPartyItem("Drmkey",TRUE)
+END
+

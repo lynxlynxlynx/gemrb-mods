@@ -1,0 +1,90 @@
+IF
+  Global("PlayerToldOfShadelord","GLOBAL",1)
+  Global("CreateLens","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CreateLens","AR1404",1)
+    ActionOverride("shadel",CreateItem("c6lens",0,0,0))  // ~Lens Piece~
+END
+
+IF
+  Dead("shadel")  // ~Shade Lord~
+  Global("FinishedLensPlot","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FinishedLensPlot","AR1404",1)
+    IncrementGlobal("LensPlot","GLOBAL",1)
+END
+
+IF
+  Dead("SHADEL")  // ~Shade Lord~
+  Dead("SHALT01")  // ~Shadow Altar~
+  Dead("RNGSHA02")  // ~Shadow Patrick~
+  CombatCounter(0)
+  Global("ShadowLordDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("Cut30a")
+END
+
+IF
+  Global("ShadowTrap","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ShadowTrap","AR1404",1)
+    TriggerActivation("Shadow1",FALSE)
+END
+
+IF
+  Global("KillAnath","GLOBAL",1)
+  Global("AnathDead","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AnathDead","AR1404",1)
+    ActionOverride("rngwlf01",DestroySelf())
+    ActionOverride("rngwlf02",DestroySelf())
+    ActionOverride("rngwlf03",DestroySelf())
+    ActionOverride("rngwlf04",DestroySelf())
+    ActionOverride("rngwlf05",DestroySelf())
+END
+
+IF
+  Global("AnathTemple","GLOBAL",1)
+  Global("AnathSpawn","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AnathSpawn","AR1404",1)
+    CreateCreature("rngwlf03",[4409.353],0)  // ~Anath~
+    CreateCreature("shadow01",[4533.305],0)  // ~Shadow~
+    CreateCreature("shadow01",[4461.403],0)  // ~Shadow~
+    CreateCreature("shawol01",[4313.407],0)  // ~Shade Wolf~
+    CreateCreature("shawol01",[4377.179],0)  // ~Shade Wolf~
+    CreateCreature("shawol01",[4376.475],9)  // ~Shade Wolf~
+END
+
+IF
+  NumDeadGT("shdafi01",0)
+  Global("ExtraShadowFiends","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ExtraShadowFiends","AR1404",1)
+    CreateCreature("shadfi01",[4359.188],0)  // ~Shadow Fiend~
+    CreateCreature("shadfi01",[4533.265],0)  // ~Shadow Fiend~
+END
+
+IF
+  NumDeadGT("shadow01",4)
+  Global("ExtraShadows","AR1404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ExtraShadows","AR1404",1)
+    CreateCreature("shadow01",[3937.260],0)  // ~Shadow~
+    CreateCreature("shadow01",[3825.337],0)  // ~Shadow~
+    CreateCreature("shadow01",[3798.523],0)  // ~Shadow~
+    CreateCreature("shadow01",[4007.709],0)  // ~Shadow~
+    CreateCreature("shadow01",[3917.468],0)  // ~Shadow~
+    CreateCreature("shadow01",[3844.521],0)  // ~Shadow~
+END
+

@@ -1,0 +1,218 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,CLERIC_PHYSICAL_MIRROR)
+    ApplySpell(Myself,CLERIC_SHIELD_OF_THE_ARCHONS)
+    ApplySpell(Myself,CLERIC_REGENERATE)
+    ForceSpell(Myself,NPC_BLADE_BARRIER)
+    SetGlobal("prep","LOCALS",1)
+    UseItem("RING34",Myself)  // ~Ring of Spell Turning~
+END
+
+IF
+  HPLT(Myself,15)
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_EARTHQUAKE)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_EARTHQUAKE)
+END
+
+IF
+  HPLT(Myself,40)
+  Global("Recoup","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_SANCTUARY)
+    ForceSpell(Myself,CLERIC_HEAL)
+    Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)
+    SetGlobal("Recoup","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CONFUSION)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CONFUSION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMATE_DEAD)
+  Global("dead","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMATE_DEAD)
+    SetGlobal("dead","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_3)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_STUN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HARM)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HARM)
+    SetGlobal("startAttack","LOCALS",1)
+END
+
+IF
+  GlobalLT("startAttack","LOCALS",6)
+THEN
+  RESPONSE #100
+    IncrementGlobal("startAttack","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  HPLT(Myself,40)
+  Global("Recoup","LOCALS",1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_SANCTUARY)
+    Spell(Myself,CLERIC_HEAL)
+    SetGlobal("Recoup","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_BOLT_OF_GLORY)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_FEAR)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+  Global("flame","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+    SetGlobal("flame","LOCALS",1)
+END
+
+IF
+  Detect(NearestEnemyOf(Myself))
+  !See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_TRUE_SIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SLAY_LIVING)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SLAY_LIVING)
+    SetGlobal("startAttack2","LOCALS",1)
+END
+
+IF
+  GlobalLT("startAttack2","LOCALS",6)
+THEN
+  RESPONSE #100
+    IncrementGlobal("startAttack2","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMATE_DEAD)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMATE_DEAD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_BLADE_BARRIER)
+  Global("blade","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,NPC_BLADE_BARRIER)
+    SetGlobal("blade","LOCALS",1)
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_FOOT)
+  OR(2)
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CHARM_PERSON)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CHARM_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,20)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Mdarfein")  // 
+    MoveViewObject(NearestPC,25)
+    Wait(3)
+    EndCutSceneMode()
+END
+

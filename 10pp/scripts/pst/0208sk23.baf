@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequenceTimed(ANIM_ATTACK,4)
+    MoveToPoint([2073.2996])
+    MoveToPoint([2144.2996])
+    Face(2)
+    PlaySequenceTimed(ANIM_ATTACK,3)
+    Face(12)
+    PlaySequenceTimed(ANIM_ATTACK,3)
+    MoveToPoint([2144.3121])
+    MoveToPoint([2246.3121])
+    Face(8)
+    PlaySequenceTimed(ANIM_ATTACK,6)
+    MoveToPoint([2144.3121])
+    MoveToPoint([2144.2996])
+    Face(2)
+    PlaySequenceTimed(ANIM_ATTACK,3)
+    Face(12)
+    PlaySequenceTimed(ANIM_ATTACK,3)
+    MoveToPoint([2073.2996])
+    MoveToPoint([1958.3114])
+    Face(8)
+END
+

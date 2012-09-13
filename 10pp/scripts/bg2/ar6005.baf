@@ -1,0 +1,37 @@
+IF
+  Global("DisableExit","AR6005",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DisableExit","AR6005",1)
+    TriggerActivation("Tran6004",FALSE)
+    TriggerActivation("Info6004",TRUE)
+END
+
+IF
+  Dead("Abazigal")  // ~Abazigal~
+  Global("HadBhaal25Dream2","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    TriggerActivation("Tran6004",TRUE)
+    TriggerActivation("Info6004",FALSE)
+    SetGlobal("HadBhaal25Dream2","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut234a")
+END
+
+IF
+  Dead("Abazigal")  // ~Abazigal~
+  Dead("Sendai")  // ~Sendai~
+  Global("HadBhaal25Dream2","GLOBAL",1)
+  Global("HadBhaal25Dream3","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    TriggerActivation("Tran6004",TRUE)
+    TriggerActivation("Info6004",FALSE)
+    SetGlobal("HadBhaal25Dream3","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut235a")
+END
+

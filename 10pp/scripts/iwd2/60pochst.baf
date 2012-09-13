@@ -1,0 +1,30 @@
+IF
+  GlobalLT("Ojaiha_Chest_Clicked","MYAREA",3)
+  Range("Ojaiha",30,LESS_THAN)  // Ojaiha
+  Unlocked(Myself)
+THEN
+  RESPONSE #100
+    Lock(Myself)
+    Continue()
+END
+
+IF
+  Global("Ojaiha_Chest_Clicked","MYAREA",0)
+  Range("Ojaiha",30,LESS_THAN)  // Ojaiha
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Ojaiha_Chest_Clicked","MYAREA",1)
+    ActionOverride("Ojaiha",FaceObject(LastTrigger))
+END
+
+IF
+  Global("Ojaiha_Chest_Clicked","MYAREA",2)
+  Range("Ojaiha",30,LESS_THAN)  // Ojaiha
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Ojaiha_Chest_Clicked","MYAREA",2)
+    SetGlobal("TEAM_7","MYAREA",1)
+END
+

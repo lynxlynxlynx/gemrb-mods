@@ -1,0 +1,18 @@
+IF
+  Global("RoomGreed","GLOBAL",1)
+  Global("GreedGenieCast","AR2906",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GreedGenieCast","AR2906",1)
+    ForceSpellPoint([3135.700],HELL_GREED_GOOD)
+END
+
+IF
+  Global("RoomGreed","GLOBAL",2)
+  Global("GreedGenieCast","AR2906",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GreedGenieCast","AR2906",1)
+    ForceSpellPoint([3135.700],HELL_GREED_EVIL)
+END
+

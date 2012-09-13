@@ -1,0 +1,188 @@
+IF
+  Global("51SPECTRE","GLOBAL",2)
+  !Global("TEAM_11_DEAD","MYAREA",0)
+  !Global("TEAM_13_DEAD","MYAREA",0)
+  !Global("TEAM_14_DEAD","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("51SPECTRE","GLOBAL",3)
+    Continue()
+END
+
+IF
+  Global("51SPECTRE","GLOBAL",3)
+  Or(2)
+    !Allegiance(Myself,ENEMY)
+    !See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    UseItem("11Veira2",Myself)  // <Invalid Strref -1>
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  !Global("PREFER_PC","LOCALS",0)
+  !See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",0)
+    Continue()
+END
+
+IF
+  GlobalGT("51SPECTRE","GLOBAL",1)
+  !Allegiance(Myself,NEUTRAL)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",0)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    ClearSpriteEffects(Myself)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Or(2)
+    Global("51SPECTRE","GLOBAL",1)
+    NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Global("51SPECTRE","GLOBAL",2)
+  Global("PREFER_PC","LOCALS",0)
+  Global("TEAM_11_DEAD","MYAREA",0)
+  Or(30)
+    See("11_51Dargab_01",0)  // 11_51Dargab_01
+    See("11_51DUEBO_02",0)  // 11_51DUEBO_02
+    See("11_51DUEBO_03",0)  // 11_51DUEBO_03
+    See("11_51DUEBO_04",0)  // 11_51DUEBO_04
+    See("11_51DUEBO_05",0)  // 11_51DUEBO_05
+    See("11_51DUEBO_06",0)  // 11_51DUEBO_06
+    See("11_51DUEBO_08",0)  // 11_51DUEBO_08
+    See("11_51DUEBO_09",0)  // 11_51DUEBO_09
+    See("11_51DUEWA_10",0)  // 11_51DUEWA_10
+    See("11_51DUEWA_11",0)  // 11_51DUEWA_11
+    See("11_51DUEWA_12",0)  // 11_51DUEWA_12
+    See("11_51DUEWA_13",0)  // 11_51DUEWA_13
+    See("11_51DUEWA_14",0)  // 11_51DUEWA_14
+    See("11_51DUEWA_15",0)  // 11_51DUEWA_15
+    See("11_51DUEWA_28",0)  // 11_51DUEWA_28
+    See("11_51DUEWA_29",0)  // 11_51DUEWA_29
+    See("11_51DUEWA_30",0)  // 11_51DUEWA_30
+    See("11_51DUEWA_31",0)  // 11_51DUEWA_31
+    See("11_51ORCSS_16",0)  // 11_51ORCSS_16
+    See("11_51ORCSS_17",0)  // 11_51ORCSS_17
+    See("11_51ORCSS_18",0)  // 11_51ORCSS_18
+    See("11_51ORCSS_19",0)  // 11_51ORCSS_19
+    See("11_51ORCSS_20",0)  // 11_51ORCSS_20
+    See("11_51ORCSS_21",0)  // 11_51ORCSS_21
+    See("11_51ORCSS_22",0)  // 11_51ORCSS_22
+    See("11_51ORCSS_23",0)  // 11_51ORCSS_23
+    See("11_51ORCSS_24",0)  // 11_51ORCSS_24
+    See("11_51ORCSS_25",0)  // 11_51ORCSS_25
+    See("11_51ORCSS_26",0)  // 11_51ORCSS_26
+    See("11_51ORCSS_27",0)  // 11_51ORCSS_27
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("51SPECTRE","GLOBAL",2)
+  Global("PREFER_PC","LOCALS",0)
+  Global("TEAM_13_DEAD","MYAREA",0)
+  Or(17)
+    See("13_51Zama_01",0)  // 13_51Zama_01
+    See("13_51DUECL_02",0)  // 13_51DUECL_02
+    See("13_51DUECL_03",0)  // 13_51DUECL_03
+    See("13_51DUECL_17",0)  // 13_51DUECL_17
+    See("13_51Barud_04",0)  // 13_51Barud_04
+    See("13_51Harhor_05",0)  // 13_51Harhor_05
+    See("13_51DUEWA_06",0)  // 13_51DUEWA_06
+    See("13_51DUEWA_07",0)  // 13_51DUEWA_07
+    See("13_51DUEWA_08",0)  // 13_51DUEWA_08
+    See("13_51DUEBO_09",0)  // 13_51DUEBO_09
+    See("13_51DUEBO_10",0)  // 13_51DUEBO_10
+    See("13_51DUEBO_11",0)  // 13_51DUEBO_11
+    See("13_51DUEBO_12",0)  // 13_51DUEBO_12
+    See("13_51DUEWA_13",0)  // 13_51DUEWA_13
+    See("13_51DUEWA_14",0)  // 13_51DUEWA_14
+    See("13_51DUEWA_15",0)  // 13_51DUEWA_15
+    See("13_51DUEWA_16",0)  // 13_51DUEWA_16
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("51SPECTRE","GLOBAL",2)
+  Global("PREFER_PC","LOCALS",0)
+  Global("TEAM_14_DEAD","MYAREA",0)
+  Or(15)
+    See("14_51DUEWA_01",0)  // 14_51DUEWA_01
+    See("14_51DUEWA_02",0)  // 14_51DUEWA_02
+    See("14_51DUEBO_03",0)  // 14_51DUEBO_03
+    See("14_51ORCSS_04",0)  // 14_51ORCSS_04
+    See("14_51ORCSS_05",0)  // 14_51ORCSS_05
+    See("14_51ORCSS_06",0)  // 14_51ORCSS_06
+    See("14_51ORCSS_07",0)  // 14_51ORCSS_07
+    See("14_51ORCSS_08",0)  // 14_51ORCSS_08
+    See("14_51ORCSS_09",0)  // 14_51ORCSS_09
+    See("14_51ORCSS_10",0)  // 14_51ORCSS_10
+    See("14_51ORCSS_11",0)  // 14_51ORCSS_11
+    See("14_51ORCSS_12",0)  // 14_51ORCSS_12
+    See("14_51ORCSS_13",0)  // 14_51ORCSS_13
+    See("14_51ORCSS_14",0)  // 14_51ORCSS_14
+    See("14_51ORCSS_15",0)  // 14_51ORCSS_15
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PREFER_PC","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("PREFER_PC","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("PREFER_PC","LOCALS",0)
+  Global("51SPECTRE","GLOBAL",2)
+  !Allegiance(Myself,ENEMY)
+  Or(2)
+    ActionListEmpty()
+    Global("FOLLOW_MODE","LOCALS",0)
+  Or(2)
+    Heard([ENEMY],175)
+    Heard([NEUTRAL],175)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_MODE","LOCALS",1)
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Global("PREFER_PC","LOCALS",0)
+  Global("51SPECTRE","GLOBAL",2)
+  !Allegiance(Myself,ENEMY)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_MODE","LOCALS",0)
+    RandomWalk()
+END
+

@@ -1,0 +1,34 @@
+IF
+  Or(2)
+    Opened([PC])
+    Entered([PC])
+THEN
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,WIZARD_SNILLOCS_SNOWBALL_SWARM)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,WIZARD_EMOTION_FEAR)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,WIZARD_ICE_DAGGER)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,WIZARD_ICE_STORM)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,CLERIC_UNHOLY_BLIGHT)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,CLERIC_CHARM_PERSON_OR_MAMMAL)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,CLERIC_DISPEL_MAGIC)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,CLERIC_FROST_FINGERS)
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,CLERIC_SILENCE_15_RADIUS)
+END
+

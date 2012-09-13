@@ -1,0 +1,31 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("HecitosSpawn","GLOBAL",0)
+  !Exists("HECITO")  // ~Hecito~
+THEN
+  RESPONSE #100
+    CreateCreature("HECITO",[2038.402])  // ~Hecito~
+    SetGlobal("HecitosSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("Capture600","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Capture600","GLOBAL",1)
+    CreateCreature("FFHUNT",[1710.1284])  // ~Flaming Fist Enforcer~
+    CreateCreature("FFHUNT",[1710.1284])  // ~Flaming Fist Enforcer~
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  !Exists("Lothtyran")  // Lothtyran
+  !Dead("Lothtyran")  // Lothtyran
+THEN
+  RESPONSE #100
+    CreateCreature("SIRLOT",[1950.324])  // ~Nobleman~
+END
+

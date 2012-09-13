@@ -1,0 +1,108 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Ghotrag")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_04")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_Archer_03")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_Archer_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_Archer_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_Elite_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_Elite_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_05")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_03_")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Goblin_06")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+

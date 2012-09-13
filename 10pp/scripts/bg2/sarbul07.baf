@@ -1,0 +1,42 @@
+IF
+  Global("Sarbul06Enemy","AR5003",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Sarbul06Enemy","AR5003",2)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Detect([PC])
+  See("sarwai01")  // ~Waitress~
+  Global("WaitressTalk","AR5003",1)
+  !GlobalTimerNotExpired("WaitressTalkTimer","AR5003")
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #20
+    SetGlobal("WaitressTalk","AR5003",0)
+    SetGlobalTimer("WaitressTalkTimer","AR5003",5)
+  RESPONSE #10
+    FaceObject("sarwai01")
+    DisplayStringHead(Myself,71391)  // ~Yer a pretty one aren't ya?~
+    SetGlobal("WaitressTalk","AR5003",3)
+    SetGlobalTimer("WaitressTalkTimer","AR5003",5)
+  RESPONSE #10
+    FaceObject("sarwai01")
+    DisplayStringHead(Myself,71393)  // ~Why don't ya come back to the barracks?~
+    SetGlobal("WaitressTalk","AR5003",3)
+    SetGlobalTimer("WaitressTalkTimer","AR5003",5)
+  RESPONSE #10
+    FaceObject("sarwai01")
+    DisplayStringHead(Myself,71394)  // ~Stop being such a priss.~
+    SetGlobal("WaitressTalk","AR5003",3)
+    SetGlobalTimer("WaitressTalkTimer","AR5003",5)
+END
+

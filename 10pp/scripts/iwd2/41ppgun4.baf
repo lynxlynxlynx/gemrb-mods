@@ -1,0 +1,20 @@
+IF
+  Global("41PrismFire","MYAREA",3)
+  OpenState("AR4102_Door15",TRUE)  // AR4102_Door15
+THEN
+  RESPONSE #100
+    ForceSpellPoint([1059.2516],2092)
+    SetGlobalTimer("PrismFireDelay","MYAREA",2)
+    TriggerActivation("Mirror4",TRUE)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",3)
+  OpenState("AR4102_Door15",FALSE)  // AR4102_Door15
+THEN
+  RESPONSE #100
+    ForceSpellPoint([1059.2516],2092)
+    TriggerActivation(Myself,FALSE)
+END
+

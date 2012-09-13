@@ -1,0 +1,89 @@
+IF
+  Global("ATK_MEL","LOCALS",1)
+  TimerExpired(28)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_MEL","LOCALS",0)
+    Continue()
+END
+
+IF
+  !Global("ATK_MEL","LOCALS",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  Global("ATK_PHASE","LOCALS",5)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PHASE","LOCALS",6)
+    SetGlobal("ATK_MEL","LOCALS",2)
+    ForceSpell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("ATK_PHASE","LOCALS",4)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PHASE","LOCALS",5)
+    StartRandomTimer(28,14,35)
+    SetGlobal("ATK_MEL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_UNHOLY_BLIGHT)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  Global("ATK_PHASE","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PHASE","LOCALS",4)
+    StartRandomTimer(28,14,35)
+    SetGlobal("ATK_MEL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  Global("ATK_PHASE","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PHASE","LOCALS",3)
+    StartRandomTimer(28,14,35)
+    SetGlobal("ATK_MEL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CONFUSION)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  Global("ATK_PHASE","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PHASE","LOCALS",2)
+    ForceSpell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("ATK_PHASE","LOCALS",0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,24942)  // ~"Muhahaha!  Simple pig-ape.  I told you it was safe to *wear* me, not safe to *summon* me!"~
+    SetGlobal("ATK_PHASE","LOCALS",1)
+    ForceSpell(Myself,WIZARD_MIRROR_IMAGE)
+    Wait(2)
+END
+

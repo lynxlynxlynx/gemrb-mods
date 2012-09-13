@@ -1,0 +1,56 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_HASTE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_HASTE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DIRE_CHARM)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DIRE_CHARM)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CONFUSION)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CONFUSION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHROMATIC_ORB)
+  !StateCheck(NearestEnemyOf(Myself),STATE_STUNNED)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_GHOUL_TOUCH)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_GHOUL_TOUCH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

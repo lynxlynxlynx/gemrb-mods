@@ -1,0 +1,80 @@
+IF
+  GlobalLT("DMPlacedGems","AR0062",3)
+THEN
+  RESPONSE #100
+    ActionOverride("Container1",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container2",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container3",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container4",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container5",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container6",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container7",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container8",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container9",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container10",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container11",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container12",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container13",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container14",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container15",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container16",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container17",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container18",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container19",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container20",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container21",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container22",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container23",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container24",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+  RESPONSE #100
+    ActionOverride("Container25",CreateItem("DMGEM1",0,0,0))  // ~Rogue Stone~
+    IncrementGlobal("DMPlacedGems","AR0062",1)
+END
+

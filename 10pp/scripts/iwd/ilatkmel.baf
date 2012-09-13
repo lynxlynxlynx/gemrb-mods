@@ -1,0 +1,59 @@
+IF
+  Global("ATK_PREF","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PREF","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ATK_PREF","LOCALS",0)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PREF","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ATK_PREF","LOCALS",0)
+  See([0.0.BARBARIAN])
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PREF","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ATK_PREF","LOCALS",0)
+  AttackedBy([0.0.BARBARIAN],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PREF","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ATK_PREF","LOCALS",1)
+  See([0.0.BARBARIAN])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !Global("ATK_PREF","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ATK_PREF","LOCALS",0)
+    Continue()
+END
+

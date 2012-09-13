@@ -1,0 +1,49 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",0)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",2)
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_SNILLOCS_SNOWBALL_SWARM)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",1)
+  See(NearestEnemyOf(Myself))
+  !TimerActive(27)
+THEN
+  RESPONSE #100
+    StartRandomTimer(27,18,24)
+    Spell(LastSeenBy(Myself),WIZARD_SNILLOCS_SNOWBALL_SWARM)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_ICELANCE)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",2)
+  See(NearestEnemyOf(Myself))
+  !TimerActive(27)
+THEN
+  RESPONSE #100
+    StartRandomTimer(27,18,24)
+    Spell(LastSeenBy(Myself),WIZARD_ICELANCE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_ICE_STORM)
+  See(NearestEnemyOf(Myself))
+  !TimerActive(27)
+THEN
+  RESPONSE #100
+    StartRandomTimer(27,18,24)
+    Spell(LastSeenBy(Myself),WIZARD_ICE_STORM)
+    Wait(2)
+END
+

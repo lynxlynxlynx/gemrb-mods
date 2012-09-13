@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GEM")  // 
+    Wait(1)
+    MoveViewPoint([1342.951],VERY_FAST)
+END
+

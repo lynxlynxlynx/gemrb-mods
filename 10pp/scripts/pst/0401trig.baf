@@ -1,0 +1,9 @@
+IF
+  GlobalGT("Pregnant_Quest","GLOBAL",0)
+  TriggerClick()
+THEN
+  RESPONSE #100
+    DebugOutput("Got_Trigger")
+    Dialogue([PC])
+END
+

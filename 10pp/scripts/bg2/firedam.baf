@@ -1,0 +1,15 @@
+IF
+  IsOverMe([ANYONE])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,FIREDRAKE_DAMAGE)
+    Continue()
+END
+
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,FIREDRAKE_DAMAGE)
+END
+

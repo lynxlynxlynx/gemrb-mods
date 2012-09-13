@@ -1,0 +1,14 @@
+IF
+  HitBy([ANYONE],FIRE)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,ICE_GOLEM_STEAM)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

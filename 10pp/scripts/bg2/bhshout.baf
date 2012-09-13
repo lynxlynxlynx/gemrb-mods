@@ -1,0 +1,32 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("UnseeingEye","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("UnseeingEye","GLOBAL",1)
+END
+
+IF
+  Dead("UnseeingEye")  // UnseeingEye
+  !Global("UnseeingEye","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("UnseeingEye","GLOBAL",2)
+END
+
+IF
+  Global("UnseeingEye","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("UnseeingEye","GLOBAL",2)
+  See([PC])
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

@@ -1,0 +1,8 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("GOLSTO01",[1576.317],0)  // ~Stone Golem~
+    CreateCreature("GOLSTO01",[1544.468],0)  // ~Stone Golem~
+END
+

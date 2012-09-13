@@ -1,0 +1,9 @@
+IF
+  Global("LogsClicked","MYAREA",0)
+  Opened([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("LogsClicked","MYAREA",1)
+    FloatMessage(Myself,39544)  // ~You break the log free from the rocks on this side of the river.~
+END
+

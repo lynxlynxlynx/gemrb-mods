@@ -1,0 +1,26 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([0.0.0.0.151])
+  Name("ppgith",Myself)
+  Global("flee","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("flee","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  Global("AttackedGith","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedGith","GLOBAL",1)
+    Continue()
+END
+

@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Sorn")  // 
+    MoveToObjectUntilSee(NearestPC)
+    FaceObject(NearestPC)
+    Wait(3)
+    SetDialogueRange(300)
+    Dialogue(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nadal")  // 
+    MoveToObjectUntilSee(NearestPC)
+    FaceObject(NearestPC)
+END
+

@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Pillar")  // 
+    FadeToBlack()
+    Wait(2)
+    Activate("Morte")
+    Wait(1)
+    FadeFromBlack()
+    Wait(1)
+    StartCutScene("1001ct3b")
+END
+

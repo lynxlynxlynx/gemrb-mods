@@ -1,0 +1,19 @@
+IF
+  !Detect("Aerie")  // ~Aerie~
+  InParty("Aerie")  // ~Aerie~
+THEN
+  RESPONSE #100
+    MoveToObject("Aerie")
+END
+
+IF
+  Detect("Aerie")  // ~Aerie~
+  InParty("Aerie")  // ~Aerie~
+  !StateCheck("Aerie",STATE_SLEEPING)  // ~Aerie~
+  Global("QuayleMessengerTalks","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("QuayleMessengerTalks","LOCALS",1)
+    Dialog("Aerie")
+END
+

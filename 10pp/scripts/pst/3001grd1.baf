@@ -1,0 +1,22 @@
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !TimerActive(1)
+  See([0.0.0.0.0.0.PERSON_4])
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK2)
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK3)
+    StartRandomTimer(1,15,30)
+END
+

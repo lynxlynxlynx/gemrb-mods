@@ -1,0 +1,152 @@
+IF
+  Delay(12)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(SecondNearest([PC]),BEHOLDER_FEAR)
+    Wait(1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("cowledwizard","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_ENERGY)
+    ApplySpell(Myself,SPELL_DEFLECTION_NO_VISUAL)
+    SetGlobal("cowledwizard","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_KILL)
+  HPLT(LastSeenBy(Myself),60)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_KILL)
+END
+
+IF
+  See(SecondNearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_KILL)
+  HPLT(LastSeenBy(Myself),60)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_KILL)
+END
+
+IF
+  See(ThirdNearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_KILL)
+  HPLT(LastSeenBy(Myself),60)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_KILL)
+END
+
+IF
+  See(FourthNearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_KILL)
+  HPLT(LastSeenBy(Myself),60)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_KILL)
+END
+
+IF
+  See(FifthNearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_KILL)
+  HPLT(LastSeenBy(Myself),60)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_KILL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  See(SecondNearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  See(ThirdNearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  See(FourthNearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See([0.0.0.0.0.SUMMONED])
+  HaveSpell(WIZARD_DEATH_SPELL)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    Spell([0.0.0.0.0.SUMMONED],WIZARD_DEATH_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MONSTER_SUMMONING_4)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MONSTER_SUMMONING_4)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

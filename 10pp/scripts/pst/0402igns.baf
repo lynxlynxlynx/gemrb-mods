@@ -1,0 +1,15 @@
+IF
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    ChangeAIScript("pcignus",DEFAULT)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(1,3)
+    Face(-1)
+END
+

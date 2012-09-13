@@ -1,0 +1,46 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_92)
+    Continue()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([0.0.0.0.0.0.PERSON_92])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_STANCEFIDGET1)
+    WaitRandom(1,5)
+  RESPONSE #100
+    PlaySequence(ANIM_ATTACK1)
+    WaitRandom(1,5)
+END
+

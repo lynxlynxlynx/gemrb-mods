@@ -1,0 +1,186 @@
+IF
+  Global("JaheiraSummoned","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("AttackFirstHarpers","GLOBAL",1)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    LeaveParty()
+    DisplayStringHead(Myself,56235)  // ~No! What are you doing?!~
+    Enemy()
+END
+
+IF
+  Global("AttackFirstHarpers","GLOBAL",1)
+  !InParty(Myself)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,56235)  // ~No! What are you doing?!~
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("wtarsgt",DEFAULT)
+    ChangeAIScript("druidx",SPECIFICS)
+    ChangeAIScript("useitem",GENERAL)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("druidx",SPECIFICS)
+    ChangeAIScript("wtarsgt",DEFAULT)
+    ChangeAIScript("useitem",GENERAL)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",SPECIFICS)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    Continue()
+END
+
+IF
+  OR(2)
+    GlobalGT("LoveTalk","LOCALS",50)
+    Global("JaheiraRomanceActive","GLOBAL",2)
+  Global("ExpLoveTalk","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("JaheiraRomanceActive","GLOBAL",2)
+    SetGlobal("ExpLoveTalk","LOCALS",1)
+    RealSetGlobalTimer("JaheiraRomance","GLOBAL",2400)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("JaheiraRomance","GLOBAL")
+  Global("JaheiraRomanceActive","GLOBAL",2)
+  PartyRested()
+  See(Player1)
+  CombatCounter(0)
+  OR(4)
+    Global("ExpLoveTalk","LOCALS",1)
+    Global("ExpLoveTalk","LOCALS",5)
+    Global("ExpLoveTalk","LOCALS",9)
+    Global("ExpLoveTalk","LOCALS",11)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("JaheiraRomance","GLOBAL",10)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("JaheiraRomance","GLOBAL")
+  Global("JaheiraRomanceActive","GLOBAL",2)
+  !AreaType(DUNGEON)
+  See(Player1)
+  CombatCounter(0)
+  OR(4)
+    Global("ExpLoveTalk","LOCALS",1)
+    Global("ExpLoveTalk","LOCALS",5)
+    Global("ExpLoveTalk","LOCALS",9)
+    Global("ExpLoveTalk","LOCALS",11)
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(36)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("JaheiraRomance","GLOBAL")
+  OR(6)
+    Global("ExpLoveTalk","LOCALS",2)
+    Global("ExpLoveTalk","LOCALS",4)
+    Global("ExpLoveTalk","LOCALS",6)
+    Global("ExpLoveTalk","LOCALS",8)
+    Global("ExpLoveTalk","LOCALS",10)
+    Global("ExpLoveTalk","LOCALS",12)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    RealSetGlobalTimer("JaheiraRomance","GLOBAL",2400)
+END
+
+IF
+  Global("LovedOne","GLOBAL",2)
+  Global("ExpLoveTalk","LOCALS",3)
+  InParty(Myself)
+  Global("JaheiraRomanceActive","GLOBAL",2)
+  See(Player1)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    Interact(Player1)
+END
+
+IF
+  GlobalGT("WraithPunish","GLOBAL",0)
+  !Global("LovedOne","GLOBAL",2)
+  InParty(Myself)
+  Global("JaheiraRomanceActive","GLOBAL",2)
+  GlobalGT("ExpLoveTalk","LOCALS",0)
+  GlobalLT("ExpLoveTalk","LOCALS",4)
+THEN
+  RESPONSE #100
+    SetGlobal("ExpLoveTalk","LOCALS",4)
+END
+
+IF
+  Global("SaradushSacked","GLOBAL",1)
+  Global("ExpLoveTalk","LOCALS",7)
+  InParty(Myself)
+  Global("JaheiraRomanceActive","GLOBAL",2)
+  See(Player1)
+  PartyRested()
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(36)
+    Interact(Player1)
+END
+
+IF
+  Global("ChallengesDone","GLOBAL",1)
+  Global("ExpLoveTalk","LOCALS",13)
+  InParty(Myself)
+  Global("JaheiraRomanceActive","GLOBAL",2)
+  See(Player1)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ExpLoveTalk","LOCALS",1)
+    PlaySong(36)
+    Interact(Player1)
+END
+

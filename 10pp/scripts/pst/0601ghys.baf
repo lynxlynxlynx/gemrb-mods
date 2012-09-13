@@ -1,0 +1,59 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+END
+
+IF
+  Help([0.0.TEAM_4])
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,49107)  // ~"...from the 'uman point o' view. I's not promotin' one..."~
+    Wait(5)
+    FloatMessage(Myself,49108)  // ~"...back yer lids an' crack yer bone boxes: 'tis all a steamin' 'eap o' barmy..."~
+    Wait(5)
+    FloatMessage(Myself,49109)  // ~"...are slaughterin' tanar'ri, tanar'ri are butcherin'..."~
+    Wait(5)
+END
+

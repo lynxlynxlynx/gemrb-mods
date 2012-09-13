@@ -1,0 +1,21 @@
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,68003)  // ~"Oye! I'll learn you not to break *my* room, sod!"~
+    SetInternal(Myself,INTERNAL_0,1)
+    Wait(1)
+    Attack([PC])
+END
+

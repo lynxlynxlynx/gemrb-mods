@@ -1,0 +1,29 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISCBG")  // ~Lich's Tooth~
+  Global("LichTooth","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57423)  // ~The Lich's Tooth lowers all of the magical wards. You may enter the room.~
+    TakePartyItem("MISCBG")
+    SetGlobal("LichTooth","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISCBG")  // ~Lich's Tooth~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57424)  // ~The way is blocked by powerful and bizarre wards. You shall have to find some way to deactivate them if you wish to enter.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,61363)  // ~To examine this doorway, move closer.~
+END
+

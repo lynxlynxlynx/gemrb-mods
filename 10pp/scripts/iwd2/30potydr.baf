@@ -1,0 +1,8 @@
+IF
+  Global("OTYUGH_ESCAPE","MYAREA",0)
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    SetGlobal("OTYUGH_ESCAPE","MYAREA",1)
+END
+

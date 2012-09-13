@@ -1,0 +1,8 @@
+IF
+  Global("65Party_Teleported","GLOBAL",1)
+  OpenState(Myself,FALSE)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+END
+

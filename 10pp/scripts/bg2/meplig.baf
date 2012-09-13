@@ -1,0 +1,26 @@
+IF
+  See(NearestEnemyOf(Myself))
+  GlobalLT("LIGHTNINGMEPHIT","LOCALS",2)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_LIGHTNING_BOLT)
+    IncrementGlobal("LIGHTNINGMEPHIT","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(10)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_BOLT)
+END
+

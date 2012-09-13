@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    MoveViewPoint([1841.3590],VERY_FAST)
+    Wait(1)
+    CreateVisualEffect("SPFLESHS",[1841.3590])
+    Wait(1)
+    CreateCreature("LASSAL",[1841.3590],0)  // ~Lassal~
+    ActionOverride("Mook",Wait(1))
+    ActionOverride("Mook",StartDialogNoSet(Player1))
+END
+

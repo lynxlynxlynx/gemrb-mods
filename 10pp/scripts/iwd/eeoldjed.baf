@@ -1,0 +1,61 @@
+IF
+  !Global("EHOLDJED_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    SetGlobalTimer("JED_FLOAT_TIMER","LOCALS",3)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  Global("JED_FLOAT","LOCALS",0)
+  GlobalTimerExpired("JED_FLOAT_TIMER","LOCALS")
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("JED_FLOAT","LOCALS",1)
+    FloatMessage(Myself,18612)  // ~"Arrrr cap'n ish a man who wears women's clothes..." *burp*~
+    SetGlobalTimer("JED_FLOAT_TIMER","LOCALS",2)
+END
+
+IF
+  Global("JED_FLOAT","LOCALS",1)
+  GlobalTimerExpired("JED_FLOAT_TIMER","LOCALS")
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("JED_FLOAT","LOCALS",0)
+    FloatMessage(Myself,18062)  // ~"Avast there, maties!" *hic* "Come join Ol' Jed in a drink and few shee chanties."~
+    SetGlobalTimer("JED_FLOAT_TIMER","LOCALS",10)
+END
+

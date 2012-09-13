@@ -1,0 +1,35 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Trap_Tripped","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(1)
+    MoveToPoint([245.290])
+    Face(10)
+    Wait(1)
+    MoveToPoint([379.205])
+    Face(4)
+END
+

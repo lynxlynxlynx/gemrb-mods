@@ -1,0 +1,38 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("OtyughGrate","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27219)  // ~There is a pool beneath this grate. The water is dark and slime-filled. You could reach into it if you wish to.~
+    SetGlobal("OtyughGrate","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("OtyughGrate","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27221)  // ~You kneel upon the grate and reach into the pool. You find something but as you draw it out of the pool, you are bitten by some creature. Despite the pain, you draw an old, shriveled hand out of the pool.~
+    ReallyForceSpell(LastTrigger,TRAP_UNDERWATER_BITE)
+    GiveItemCreate("MISC5S",LastTrigger,0,0,0)  // ~Hand~
+    SetGlobal("OtyughGrate","GLOBAL",2)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27198)  // ~Other than the creature that bit you, there is nothing else of interest in this pool.~
+END
+

@@ -1,0 +1,48 @@
+IF
+  HPLT(Myself,10)
+  GlobalLT("DjinniGasForm","LOCALS",3)
+  !StateCheck(Myself,STATE_DEAD)
+THEN
+  RESPONSE #100
+    IncrementGlobal("DjinniGasForm","LOCALS",1)
+    ReallyForceSpell(Myself,DJINNI_GAS_FORM_CHANGE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  GlobalLT("DjinniInvisibility","LOCALS",1)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    IncrementGlobal("DjinniInvisibility","LOCALS",1)
+    ForceSpell(Myself,WIZARD_SHADOW_DOOR)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("djinni","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,11941)  // ~contingency~
+    ApplySpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)
+    SetGlobal("djinni","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("djinniprot","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    SetGlobal("djinniprot","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

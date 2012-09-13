@@ -1,0 +1,68 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("Pipe02Clicked","AR0404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Pipe02Clicked","AR0404",1)
+    DisplayString(Myself,27111)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:No sacrifice will doBut the blood of a friend, true.But guilt will leave its stainIf you wish to have the bladeThis verse sounds like the ravings of a madman.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("PipeOrder","AR0404",4)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27195)  // ~There is nothing else to do with this pipe.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("MISC5Q")  // ~Blood of Quallo's Friend~
+  Global("PipeOrder","AR0404",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27111)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:No sacrifice will doBut the blood of a friend, true.But guilt will leave its stainIf you wish to have the bladeThis verse sounds like the ravings of a madman.~
+    DisplayString(Myself,27145)  // ~As you pour the blood of Quallo's friend, the carrion crawler, into the pipe, the water turns crimson.~
+    CreateVisualEffectObject("ICMAGICH",Myself)
+    SetGlobal("PipeOrder","AR0404",3)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("MISC5Q")  // ~Blood of Quallo's Friend~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27081)  // ~You hear the rush of wind and your hair stands on end. It seems that you've placed the items in the wrong order.~
+    ReallyForceSpell(LastTrigger,MEPHIT_LIGHTNING_BOLT)
+    SetGlobal("PipeOrder","AR0404",0)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  !PartyHasItem("MISC5Q")  // ~Blood of Quallo's Friend~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27111)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:No sacrifice will doBut the blood of a friend, true.But guilt will leave its stainIf you wish to have the bladeThis verse sounds like the ravings of a madman.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27111)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:No sacrifice will doBut the blood of a friend, true.But guilt will leave its stainIf you wish to have the bladeThis verse sounds like the ravings of a madman.~
+END
+

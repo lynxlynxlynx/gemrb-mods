@@ -1,0 +1,42 @@
+IF
+  Clicked([PC])
+  OpenState("AR6101_Door1",FALSE)  // AR6101_Door1
+THEN
+  RESPONSE #100
+    SetGlobal("RackVictim","MYAREA",1)
+    ActionOverride(LastTrigger,MoveToPoint([2920.1465]))
+    Continue()
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Global("RackVictim","MYAREA",1)
+  GlobalLT("61NheeroGateQuest","GLOBAL",3)
+  Range(LastTrigger,4,LESS_THAN)
+  Global("61PrisonAlarmRang","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastTrigger,WIZARD_DISPEL_MAGIC)
+    Wait(1)
+    ReallyForceSpell(LastTrigger,CLERIC_SYMBOL_OF_FEAR)
+    Continue()
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Global("RackVictim","MYAREA",1)
+  GlobalLT("61NheeroGateQuest","GLOBAL",3)
+  Range(LastTrigger,4,LESS_THAN)
+THEN
+  RESPONSE #100
+    Unlock("AR6101_Door1")
+    OpenDoor("AR6101_Door1")
+    AddJournalEntry(34983)
+    AddXPVar("LEVEL_12_EASY",35013)  // ~You opened the gate to the prison by using the rack in the torture chamber.~
+    SetGlobal("61NheeroGateQuest","GLOBAL",3)
+    SetGlobal("RackVictim","MYAREA",0)
+    ChangeCurrentScript("")
+END
+

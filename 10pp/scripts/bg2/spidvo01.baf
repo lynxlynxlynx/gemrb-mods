@@ -1,0 +1,15 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(10)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,VORTEX_WEB)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),5)
+END
+

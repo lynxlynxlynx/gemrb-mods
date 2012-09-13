@@ -1,0 +1,81 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("DemonHeartTrigger","AR0413",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2324)  // ~This pulsing mass of flesh seems to be the power core for the sphere. You will have to find some way to repower it if you wish to return to Athkatla on the Prime Material Plane.~
+    SetGlobal("DemonHeartTrigger","AR0413",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("DemonHeartTrigger","AR0413",1)
+  !PartyHasItem("misc6m")  // ~Demon Heart~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2324)  // ~This pulsing mass of flesh seems to be the power core for the sphere. You will have to find some way to repower it if you wish to return to Athkatla on the Prime Material Plane.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  PartyHasItem("misc6m")  // ~Demon Heart~
+  Global("DemonHeartTrigger","AR0413",1)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    CreateVisualEffect("AMCALL",[843.725])
+    PlaySound("EFF_P12")
+    CreateVisualEffect("AMCALL",[753.739])
+    PlaySound("EFF_P12")
+    DisplayString(Myself,2325)  // ~For lack of a more obvious solution, you feed the demon's heart to one of the many mouths that are imbedded in the flesh of the structure. A moment later the sphere shudders and you can sense it powering up.~
+    CreateVisualEffect("AMCALL",[743.687])
+    PlaySound("EFF_P12")
+    AddexperienceParty(45500)
+    TakePartyItem("misc6m")
+    Wait(4)
+    CreateVisualEffect("ICMAGICH",[1111.611])
+    CreateVisualEffect("ICMAGICH",[1094.731])
+    CreateVisualEffect("ICMAGICH",[840.864])
+    CreateVisualEffect("AMCALL",[776.623])
+    PlaySound("EFF_P12")
+    CreateVisualEffect("AMCALL",[743.687])
+    PlaySound("EFF_P12")
+    CreateVisualEffect("AMCALL",[876.677])
+    PlaySound("EFF_P12")
+    Wait(1)
+    CreateVisualEffect("AMCALL",[843.725])
+    PlaySound("EFF_P12")
+    CreateVisualEffect("AMCALL",[753.739])
+    PlaySound("EFF_P12")
+    Wait(1)
+    CreateVisualEffect("AMCALL",[979.674])
+    PlaySound("EFF_P12")
+    CreateVisualEffect("AMCALL",[924.594])
+    PlaySound("EFF_P12")
+    Wait(1)
+    SetGlobal("PowerObsidianSphere","GLOBAL",1)
+    SetGlobal("DemonHeartTrigger","AR0413",2)
+    Wait(2)
+    FadeToColor([20.0],0)
+    Wait(3)
+    FadeFromColor([20.0],0)
+    ScreenShake([10.10],10)
+    DisplayString(Myself,5191)  // ~The power core of the sphere roars to life, distorting space as it races through the planes.  After a few minutes the sphere lurches, the power fades, and the power core fizzles.  The sphere has taken its last planar jaunt.~
+    SoundActivate("0413b-OFF",FALSE)
+    SoundActivate("MainAmbient",FALSE)
+    SoundActivate("0413a-ON",TRUE)
+    EndCutSceneMode()
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("DemonHeartTrigger","AR0413",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2326)  // ~The sphere's engine is dead, its energy permanently drained after returning you to Athkatla.~
+END
+

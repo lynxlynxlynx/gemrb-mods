@@ -1,0 +1,10 @@
+IF
+  Clicked([PC])
+  GlobalLT("61CurrentDay","GLOBAL",4)
+  Global("PlayerKnowsCabinetIsLocked","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayerKnowsCabinetIsLocked","MYAREA",1)
+    ChangeCurrentScript("")
+END
+

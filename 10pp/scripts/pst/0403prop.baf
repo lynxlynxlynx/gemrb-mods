@@ -1,0 +1,42 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  NullDialog([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,32683)  // ~"Speak the walls silently the chaos of prophecies."~
+    Wait(15)
+    FloatMessage(Myself,32684)  // ~"Written are the prophets of the halls on the words."~
+    Wait(15)
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

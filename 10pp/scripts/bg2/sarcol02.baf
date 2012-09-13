@@ -1,0 +1,10 @@
+IF
+  Detect([PC])
+  Global("MistressTalk","AR5010",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut230a")
+END
+

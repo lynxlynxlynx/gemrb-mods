@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("KGENIE2",[922.272],2)  // ~Genie~
+END
+

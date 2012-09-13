@@ -1,0 +1,12 @@
+IF
+  !TimerActive(19)
+  Or(3)
+    HitBy([PC],CRUSHING)
+    AttackedBy([PC],0)
+    Global("ThirdWave","MYAREA",2)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+    StartTimer(19,5)
+END
+

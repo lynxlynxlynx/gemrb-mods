@@ -1,0 +1,34 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",7)
+  OpenState(Myself,FALSE)
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+    OpenDoor(Myself)
+END
+
+IF
+  Global("52Morohem_Master","GLOBAL",7)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  OpenState(Myself,TRUE)
+  OpenState("AR5202_Switch10",FALSE)  // AR5202_Switch10
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+    CloseDoor(Myself)
+    Lock(Myself)
+END
+
+IF
+  Global("52Morohem_Master","GLOBAL",7)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  OpenState(Myself,FALSE)
+  OpenState("AR5202_Switch10",TRUE)  // AR5202_Switch10
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite("C7_SWITCH_EFFECT_MIDDLE","C7_SWITCH_EFFECT_MIDDLE",CURSE,0)
+    Unlock(Myself)
+    OpenDoor(Myself)
+    Lock(Myself)
+END
+

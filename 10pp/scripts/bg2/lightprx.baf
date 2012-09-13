@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,9680)  // ~The machine in the center of the room looks dangerous. Perhaps there is some sort of control device that will allow you to turn it off.~
+END
+

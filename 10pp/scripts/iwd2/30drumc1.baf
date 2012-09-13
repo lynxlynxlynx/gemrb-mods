@@ -1,0 +1,16 @@
+IF
+  Global("DRUM_1_STATE","MYAREA",0)
+  !Dead("DRUM_1")  // 
+  Or(3)
+    !Global("TEAM_2","MYAREA",0)
+    See(NearestEnemyOf(Myself),0)
+    AttackedBy([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_1_STATE","MYAREA",1)
+    FloatMessage(Myself,470)  // ~"Kill!  Sound drum and kill!"~
+    SetGlobal("I_PLAY_DRUMS","LOCALS",1)
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+    ChangeCurrentScript("")
+END
+

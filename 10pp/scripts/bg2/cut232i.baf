@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride(Player2,MakeUnselectable(0))
+    ActionOverride(Player3,MakeUnselectable(0))
+    ActionOverride(Player4,MakeUnselectable(0))
+    ActionOverride(Player5,MakeUnselectable(0))
+    ActionOverride(Player6,MakeUnselectable(0))
+    EndCutSceneMode()
+    Wait(3)
+    ActionOverride("senbeh01",StartDialogNoSet([PC]))
+END
+

@@ -1,0 +1,96 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,5,10)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("MOVE_HAILEE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVE_HAILEE","GLOBAL",2)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("HAILEE_HOME","GLOBAL",1)
+  !TimerActive(24)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,24101)  // ~"Is there a bear outside?"~
+    StartRandomTimer(24,5,10)
+    Continue()
+  RESPONSE #150
+    StartRandomTimer(24,5,10)
+    Continue()
+END
+
+IF
+  Global("HAILEE_HOME","GLOBAL",2)
+  !TimerActive(24)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,24592)  // ~"I want to go fishing and catch some magic fish."~
+    StartRandomTimer(24,5,10)
+    Continue()
+  RESPONSE #150
+    StartRandomTimer(24,5,10)
+    Continue()
+END
+
+IF
+  Global("HAILEE_HOME","GLOBAL",5)
+  !TimerActive(24)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,24593)  // ~"Uh... Kieran's not looking for me, is he?"~
+    StartRandomTimer(24,5,10)
+    Continue()
+  RESPONSE #150
+    StartRandomTimer(24,5,10)
+    Continue()
+END
+
+IF
+  Global("HAILEE_HOME","GLOBAL",6)
+  !TimerActive(24)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,24594)  // ~"You better not put me in the well."~
+    StartRandomTimer(24,5,10)
+    Continue()
+  RESPONSE #150
+    StartRandomTimer(24,5,10)
+    Continue()
+END
+
+IF
+  GlobalGT("HAILEE_HOME","GLOBAL",2)
+  GlobalLT("HAILEE_HOME","GLOBAL",5)
+  !TimerActive(24)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,24591)  // ~"Want to throw briarcones at Purvis?"~
+    StartRandomTimer(24,5,10)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,24100)  // ~"As soon as Purvis comes out of his shack, I'm gonna hit him with stones."~
+    StartRandomTimer(24,5,10)
+    Continue()
+  RESPONSE #150
+    StartRandomTimer(24,5,10)
+    Continue()
+END
+

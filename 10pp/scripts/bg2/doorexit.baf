@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  Range(Player1,6)
+THEN
+    OpenDoor("DOOR15")
+    PlaySound("AMB_D04A")
+    SetGlobal("DurlagLevel2","GLOBAL",1)
+END
+
+IF
+  Range(Player2,6)
+THEN
+    OpenDoor("DOOR15")
+    PlaySound("AMB_D04A")
+    SetGlobal("DurlagLevel2","GLOBAL",1)
+END
+
+IF
+  Range(Player3,6)
+THEN
+    OpenDoor("DOOR15")
+    PlaySound("AMB_D04A")
+    SetGlobal("DurlagLevel2","GLOBAL",1)
+END
+
+IF
+  Range(Player4,6)
+THEN
+    OpenDoor("DOOR15")
+    PlaySound("AMB_D04A")
+    SetGlobal("DurlagLevel2","GLOBAL",1)
+END
+
+IF
+  Range(Player5,6)
+THEN
+    OpenDoor("DOOR15")
+    PlaySound("AMB_D04A")
+    SetGlobal("DurlagLevel2","GLOBAL",1)
+END
+
+IF
+  Range(Player6,6)
+THEN
+    OpenDoor("DOOR15")
+    PlaySound("AMB_D04A")
+    SetGlobal("DurlagLevel2","GLOBAL",1)
+END
+
+
+END

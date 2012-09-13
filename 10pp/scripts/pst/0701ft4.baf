@@ -1,0 +1,79 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+END
+
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help("CrstFem")  // ~Curst Citizen~
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  Help("Crstmal")  // ~Curst Citizen~
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  Help("CrstMch")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    MoveToPoint([2968.1778])
+    Face(6)
+    Wait(15)
+    MoveToPoint([2930.2055])
+    Face(14)
+    Wait(22)
+    MoveToPoint([3259.1970])
+    Face(12)
+    Wait(30)
+    MoveToPoint([3516.1922])
+    Face(12)
+    Wait(10)
+    MoveToPoint([3591.1695])
+    Face(8)
+    Wait(15)
+    MoveToPoint([3288.1536])
+    Face(6)
+    Wait(20)
+    MoveToPoint([2838.1883])
+    Face(4)
+    Wait(25)
+    MoveToPoint([3589.1701])
+    Face(8)
+END
+

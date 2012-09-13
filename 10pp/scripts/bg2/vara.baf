@@ -1,0 +1,24 @@
+IF
+  OR(2)
+    Allegiance("Mazzy",ENEMY)  // Mazzy
+    AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    ActionOverride("danno",EscapeArea())
+    ActionOverride("pala",EscapeArea())
+    ActionOverride("mazzy",LeaveParty())
+    ActionOverride("mazzy",Enemy())
+    SetGlobal("MazzyNoCure","GLOBAL",1)
+    EscapeArea()
+END
+
+IF
+  Global("MazzyDeadAllFailed","GLOBAL",1)
+  Global("VaraSpeaks","LOCALS",0)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("VaraSpeaks","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

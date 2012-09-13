@@ -1,0 +1,11 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    ApplySpell(Myself,WIZARD_HASTE)
+    ForceSpell(Myself,WIZARD_SHADOW_DOOR)
+    SetGlobal("prep","LOCALS",1)
+END
+

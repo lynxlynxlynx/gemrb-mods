@@ -1,0 +1,16 @@
+IF
+  GlobalGT("JaheiraCursed","GLOBAL",0)
+  GlobalLT("JaheiraCursed","GLOBAL",7)
+  Global("TerreceSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TerreceSpawn","GLOBAL",1)
+END
+
+IF
+  Dead("TOLGER")  // ~Tolgerias~
+THEN
+  RESPONSE #100
+    ActionOverride("TOLGER",DestroySelf())
+END
+

@@ -1,0 +1,33 @@
+IF
+  !TimerActive(18)
+  GlobalLT("Reig_Quest","GLOBAL",2)
+  !See([ENEMY.0.GOBLIN],0)
+THEN
+  RESPONSE #20
+    FloatMessage(Myself,1662)  // ~"Brohn didn't even see it coming..."~
+    StartRandomTimer(18,10,15)
+  RESPONSE #20
+    FloatMessage(Myself,1665)  // ~"How fares your arm, Reig?"~
+    StartRandomTimer(18,10,15)
+  RESPONSE #160
+    StartRandomTimer(18,10,15)
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartRandomTimer(19,1,5)
+END
+
+IF
+  !TimerActive(19)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartRandomTimer(19,1,5)
+END
+

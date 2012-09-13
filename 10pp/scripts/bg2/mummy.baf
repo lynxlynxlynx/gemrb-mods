@@ -1,0 +1,9 @@
+IF
+  See("korgan")  // korgan
+  Global("SeenMummy","LOCALS",0)
+THEN
+  RESPONSE #100
+    ActionOverride("korgan",StartDialogNoSet(Player1))
+    SetGlobal("SeenMummy","LOCALS",1)
+END
+

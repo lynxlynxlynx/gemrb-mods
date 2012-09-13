@@ -1,0 +1,7 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Wait(9)
+END
+

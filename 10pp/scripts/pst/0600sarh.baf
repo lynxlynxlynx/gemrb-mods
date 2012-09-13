@@ -1,0 +1,68 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("0600_Respawn_Toady","GLOBAL",0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([0.0.SARH_PARTY])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  See([PC])
+  GlobalLT("Sarhava","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,31977)  // ~"By every Power and its mother, what in the hells be *that?*"~
+    Wait(6)
+  RESPONSE #100
+    FloatMessage(Myself,32080)  // ~::Drunken Laughter::~
+    Wait(6)
+  RESPONSE #100
+    FloatMessage(Myself,32082)  // ~"You, *sirrah*... I would speak with you."~
+    Wait(6)
+  RESPONSE #100
+    FloatMessage(Myself,32083)  // ~"*Sirrah,* a moment of your time!"~
+    Wait(6)
+  RESPONSE #100
+    FloatMessage(Myself,32085)  // ~"Lady blind me, do corpses now walk Sigil's streets?"~
+    Wait(6)
+  RESPONSE #100
+    FloatMessage(Myself,32087)  // ~"What *is* that carrion stench?!"~
+    Wait(6)
+  RESPONSE #100
+    FloatMessage(Myself,32088)  // ~"Lo! What a beast!"~
+    Wait(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([2528.895])
+    MoveToPoint([2350.895])
+    MoveToPoint([2530.1071])
+    MoveToPoint([2530.1495])
+    MoveToPoint([2636.1495])
+    MoveToPoint([2636.1004])
+END
+

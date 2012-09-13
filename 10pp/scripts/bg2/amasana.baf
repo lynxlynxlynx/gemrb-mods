@@ -1,0 +1,58 @@
+IF
+  Global("Enclave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("MayorCutscene","AR5500",0)
+  OR(7)
+    Allegiance("ammayor",ENEMY)  // ~Omar Haraad~
+    Allegiance("ammerc03",ENEMY)  // ~Mercenary~
+    Allegiance("ammerc04",ENEMY)  // ~Mercenary~
+    Allegiance(Myself,ENEMY)
+    Dead("ammayor")  // ~Omar Haraad~
+    Dead("ammerc03")  // ~Mercenary~
+    Dead("ammerc04")  // ~Mercenary~
+THEN
+  RESPONSE #100
+    SetGlobal("MayorCutscene","AR5500",1)
+    SetGlobal("AsanaPlot","GLOBAL",10)
+END
+
+IF
+  Global("AsanaPlot","GLOBAL",10)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Die()
+  Global("amasanaDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("amasanaDead","GLOBAL",1)
+END
+
+IF
+  Detect([PC])
+  Range(LastSeenBy(Myself),10)
+  Global("MayorCutscene","AR5500",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut212a")
+END
+
+IF
+  Global("AsanaPlot","GLOBAL",3)
+  Global("TalktotheParty","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TalktotheParty","LOCALS",1)
+    Dialog([PC])
+END
+

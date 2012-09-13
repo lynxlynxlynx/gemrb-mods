@@ -1,0 +1,60 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FaceObject("Hedron")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    FaceObject("Hedron")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    FaceObject("Hedron")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    FaceObject("Hedron")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    FaceObject("Hedron")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    FaceObject("Hedron")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hedron")  // 
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    FaceObject(Protagonist)
+    SmallWait(3)
+    Dialogue(Protagonist)
+END
+

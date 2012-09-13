@@ -1,0 +1,108 @@
+IF
+  HotKey(D)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+END
+
+IF
+  HotKey(F)
+THEN
+  RESPONSE #100
+    EquipRanged()
+END
+
+IF
+  HotKey(S)
+  Global("pscript_AutoFollow","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,835)  // ~Follow mode on~
+    SetGlobal("pscript_AutoFollow","LOCALS",1)
+END
+
+IF
+  HotKey(S)
+  Global("pscript_AutoFollow","LOCALS",1)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,836)  // ~Follow mode off~
+    SetGlobal("pscript_AutoFollow","LOCALS",0)
+END
+
+IF
+  HotKey(G)
+  Global("pscript_Pain","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,831)  // ~Shout for help at three quarter hit points~
+    SetGlobal("pscript_Pain","LOCALS",1)
+END
+
+IF
+  HotKey(G)
+  Global("pscript_Pain","LOCALS",1)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,832)  // ~Shout for help at half hit points~
+    SetGlobal("pscript_Pain","LOCALS",2)
+END
+
+IF
+  HotKey(G)
+  Global("pscript_Pain","LOCALS",2)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,833)  // ~Shout for help when almost dead~
+    SetGlobal("pscript_Pain","LOCALS",3)
+END
+
+IF
+  HotKey(G)
+  Global("pscript_Pain","LOCALS",3)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,830)  // ~Never shout for help~
+    SetGlobal("pscript_Pain","LOCALS",0)
+END
+
+IF
+  HPPercentLT(Myself,75)
+  See(NearestEnemyOf(Myself))
+  Global("pscript_Pain","LOCALS",1)
+THEN
+  RESPONSE #100
+    Help()
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,50)
+  See(NearestEnemyOf(Myself))
+  Global("pscript_Pain","LOCALS",2)
+THEN
+  RESPONSE #100
+    Help()
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,25)
+  See(NearestEnemyOf(Myself))
+  Global("pscript_Pain","LOCALS",3)
+THEN
+  RESPONSE #100
+    Help()
+    Continue()
+END
+
+IF
+  !Range(Player1,15)
+  Global("pscript_AutoFollow","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    MoveToObject(Player1)
+    SetInterrupt(TRUE)
+END
+

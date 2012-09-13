@@ -1,0 +1,11 @@
+IF
+  Global("FLOODED","GLOBAL",1)
+  !Exists("SLAVFREE")  // SLAVFREE
+  !Dead("SLAVFREE")  // SLAVFREE
+THEN
+  RESPONSE #100
+    CreateCreature("SLAVFREE",[2822.755],0)  // SLAVFREE
+    CreateCreature("NARRAT",[3099.722],0)  // NARRAT
+    SetGlobal("FLOODED","GLOBAL",2)
+END
+

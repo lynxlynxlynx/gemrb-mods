@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(2)
+    MoveViewObject("Head4",INSTANT)
+    Explore()
+    Wait(1)
+    FadeFromColor([30.0],0)
+    SmallWait(5)
+    ScreenShake([20.20],20)
+    PlaySound("EFF_M36B")
+    Wait(2)
+    AmbientActivate("AMB_Head4L",TRUE)
+    AmbientActivate("AMB_Head4R",TRUE)
+    SmallWait(5)
+    StaticSequence("AMB_Head4L",1)
+    StaticSequence("AMB_Head4R",1)
+    ActionOverride("Head4",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,52 @@
+IF
+  XPLT(Player1,400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("kuotoa01",[-1.-1],0)  // ~Kuo-Toa~
+    CreateCreature("kuotoa01",[-1.-1],0)  // ~Kuo-Toa~
+    CreateCreature("kuotoa01",[-1.-1],0)  // ~Kuo-Toa~
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("kuotoa01",[-1.-1],0)  // ~Kuo-Toa~
+    CreateCreature("kuowar01",[-1.-1],0)  // ~Kuo-Toa Warrior~
+    CreateCreature("kuowar01",[-1.-1],0)  // ~Kuo-Toa Warrior~
+    CreateCreature("kuowar01",[-1.-1],0)  // ~Kuo-Toa Warrior~
+    CreateCreature("kuowhi01",[-1.-1],0)  // ~Kuo-Toa Whip~
+    CreateCreature("kuomon01",[-1.-1],0)  // ~Kuo-Toa Monitor~
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("kuowar01",[-1.-1],0)  // ~Kuo-Toa Warrior~
+    CreateCreature("kuolie01",[-1.-1],0)  // ~Kuo-Toa Lieutenant~
+    CreateCreature("kuopri01",[-1.-1],0)  // ~Kuo-Toa Priest~
+    CreateCreature("kuomag01",[-1.-1],0)  // ~Kuo-Toa Wizard~
+    CreateCreature("kuomon01",[-1.-1],0)  // ~Kuo-Toa Monitor~
+    CreateCreature("kuowhi01",[-1.-1],0)  // ~Kuo-Toa Whip~
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("kuowar01",[-1.-1],0)  // ~Kuo-Toa Warrior~
+    CreateCreature("kuopri01",[-1.-1],0)  // ~Kuo-Toa Priest~
+    CreateCreature("kuomag01",[-1.-1],0)  // ~Kuo-Toa Wizard~
+    CreateCreature("kuomon01",[-1.-1],0)  // ~Kuo-Toa Monitor~
+    CreateCreature("kuomon01",[-1.-1],0)  // ~Kuo-Toa Monitor~
+    CreateCreature("kuomon01",[-1.-1],0)  // ~Kuo-Toa Monitor~
+    CreateCreature("kuowhi01",[-1.-1],0)  // ~Kuo-Toa Whip~
+END
+

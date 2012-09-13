@@ -1,0 +1,27 @@
+IF
+  GlobalLT("Mob_Dead","AR3016",3)
+THEN
+  RESPONSE #10
+    FloatMessage(Myself,9634)  // ~"Help!"~
+    Continue()
+  RESPONSE #10
+    FloatMessage(Myself,9518)  // ~"Help! Please, someone help me!"~
+    Continue()
+  RESPONSE #80
+    Continue()
+END
+
+IF
+  GlobalLT("Mob_Dead","AR3016",3)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([0.0.0.0.0.0.PERSON_9],50,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+

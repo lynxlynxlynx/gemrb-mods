@@ -1,0 +1,10 @@
+IF
+  Detect([PC])
+  Range(LastSeenBy(Myself),10)
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("spoke","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

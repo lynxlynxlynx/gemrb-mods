@@ -1,0 +1,40 @@
+IF
+  Or(2)
+    Global("Ancient_Wyvern_dead","GLOBAL",1)
+    Global("Ancient_Wyvern_dead","GLOBAL",30)
+THEN
+  RESPONSE #100
+    DisplayMessage(34975)  // ~The floor in this area strikes you as odd.  Its edges have been intentionally loosened to compromise the floor's integrity.~
+    IncrementGlobal("Ancient_Wyvern_dead","GLOBAL",1)
+END
+
+IF
+  Global("Ancient_Wyvern_dead","GLOBAL",59)
+THEN
+  RESPONSE #100
+    PlaySound("AM6101g")
+    DisplayMessage(35358)  // ~The impact from the ancient wyvern falling upon the floor has collapsed it!~
+    OpenDoor(Myself)
+    ActionOverride("Ancient_Wyvern",DestroySelf())
+    TriggerActivation("CollapseWarning",FALSE)
+    IncrementGlobal("Ancient_Wyvern_dead","GLOBAL",1)
+END
+
+IF
+  Global("Ancient_Wyvern_dead","GLOBAL",60)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Ancient_Wyvern_dead","GLOBAL",-1)
+    ChangeCurrentScript("")
+    TriggerActivation("To6102a",TRUE)
+END
+
+IF
+  GlobalGT("Ancient_Wyvern_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ScreenShake(15,8,6)
+    IncrementGlobal("Ancient_Wyvern_dead","GLOBAL",1)
+END
+

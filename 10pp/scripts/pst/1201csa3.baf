@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AnnahF")  // 
+    StartCutSceneMode()
+    Wait(1)
+    StartSong(CHAR_ANNAH,[0.0],Normal)
+    PlaySoundNotRanged("Ana584B")
+    Wait(4)
+    StartCutScene("1201CSA4")
+END
+

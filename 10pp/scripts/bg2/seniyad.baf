@@ -1,0 +1,21 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("KilledDruids","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SeniyadSpells","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SeniyadSpells","GLOBAL",1)
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_CALL_LIGHTNING)
+    Wait(1)
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_ANIMAL_SUMMONING_2)
+    Wait(1)
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_SPIRITUAL_HAMMER)
+END
+

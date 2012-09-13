@@ -1,0 +1,51 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Penn_Out","GLOBAL",2)
+    TeleportParty("AR0500",[3348.1081],10)
+END
+
+IF
+  See([0.0.0.0.0.0.PERSON_3])
+  Global("Change_Brain","AR0509",0)
+  Global("Wait_For_Messenger","AR0509",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,2962)  // ~"I've got a message for you to run. Here. Take it and these coins."~
+    PlaySequence(ANIM_TALK1)
+    GlobalSet("Wait_For_Messenger","AR0509",0)
+END
+
+IF
+  See([0.0.0.0.0.0.PERSON_3])
+  Global("Change_Brain","AR0509",1)
+  Global("Wait_For_Messenger","AR0509",1)
+THEN
+  RESPONSE #100
+    Wait(2)
+    FloatMessage(Myself,46634)  // ~"Thank you. Here's another coin."~
+    PlaySequence(ANIM_TALK1)
+    GlobalSet("Wait_For_Messenger","AR0509",0)
+END
+
+IF
+  See([0.0.0.0.0.0.PERSON_3])
+THEN
+  RESPONSE #100
+    FaceObject([0.0.0.0.0.0.PERSON_3])
+END
+
+IF
+  !See([0.0.0.0.0.0.PERSON_3])
+THEN
+  RESPONSE #50
+    FaceObject([PC])
+    FloatMessage(Myself,1792)  // ~::Skritch Skritch::~
+    Wait(5)
+  RESPONSE #50
+    FaceObject([PC])
+    FloatMessage(Myself,46636)  // ~::mumbles:: "Have to remember to..."~
+    Wait(5)
+END
+

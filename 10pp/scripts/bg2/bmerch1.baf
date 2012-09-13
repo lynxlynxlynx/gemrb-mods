@@ -1,0 +1,17 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Dead("Bdock1")  // ~Dockhand Ogre~
+  Dead("bdock2")  // ~Dockhand Ogre~
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

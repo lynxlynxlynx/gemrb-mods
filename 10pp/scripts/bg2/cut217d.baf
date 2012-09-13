@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewPoint([1944.1406],INSTANT)
+    Wait(1)
+    ActionOverride("d1moth",PlayDeadInterruptible(10000))
+    Wait(1)
+    CreateVisualEffect("ICRMPARI",[1876.1478])
+    Wait(1)
+    CreateCreature("D1SAREV",[1876.1478],12)  // ~Sarevok~
+    Wait(2)
+    ActionOverride("d1sarev",StartDialogNoSet(Player1))
+END
+

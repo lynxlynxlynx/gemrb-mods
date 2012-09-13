@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CBoss")  // 
+    Dialogue([PC])
+    SetInternal(Myself,INTERNAL_0,1)
+    EndCutSceneMode()
+END
+

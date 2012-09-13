@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    ExploreMapChunk([4262.898],0,400)
+    MoveViewPoint([4262.898],INSTANT)
+    Wait(1)
+    Activate("charlie1")
+    SetAnimState("charlie1",ANIM_GETUP)
+    Activate("charlie2")
+    SetAnimState("charlie2",ANIM_GETUP)
+    Activate("charlie3")
+    SetAnimState("charlie3",ANIM_GETUP)
+    Wait(2)
+    StartCutScene("0610ct2e")
+END
+

@@ -1,0 +1,14 @@
+IF
+  Global("61NheeroMissionQuest","GLOBAL",2)
+  Or(2)
+    PartyHasItem("61GenMM")  // ~Modified Mandrake Root~
+    PartyHasItem("61HFGnMM")  // ~Modified Mandrake Root~
+THEN
+  RESPONSE #100
+    FloatMessage(NearestPC,34992)  // ~Mandal's soul led us to the room where he threw Nheero's modified mandrake root before he died, and we found it there.~
+    AddJournalEntry(34992)
+    SetGlobal("61NheeroMissionQuest","GLOBAL",3)
+    ChangeCurrentScript("")
+    TriggerActivation(Myself,FALSE)
+END
+

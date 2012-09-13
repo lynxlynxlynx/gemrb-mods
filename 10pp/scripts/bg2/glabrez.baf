@@ -1,0 +1,85 @@
+IF
+  See([0.0.0.IMP])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.IMP],30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+    StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+THEN
+  RESPONSE #100
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Allegiance(Myself,ENEMY)
+  OR(6)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_NORMAL)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_BLUR)
+    StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+  !GlobalTimerNotExpired("dispelled","LOCALS")
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("dispelled","LOCALS",1000)
+    SpellNoDec(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Difficulty(EASIEST)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(NearestEnemyOf(Myself),STATE_STUNNED)
+  !GlobalTimerNotExpired("confused","LOCALS")
+  LevelPartyGT(14)
+  NumInPartyGT(4)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("confused","LOCALS",1000)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CONFUSION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !DifficultyLT(NORMAL)
+  GlobalLT("PWStun","LOCALS",3)
+  !GlobalTimerNotExpired("GlabStun","LOCALS")
+  RandomNum(3,1)
+  !StateCheck(NearestEnemyOf(Myself),STATE_STUNNED)
+  !StateCheck(NearestEnemyOf(Myself),STATE_CONFUSED)
+  LevelPartyGT(16)
+  NumInPartyGT(4)
+THEN
+  RESPONSE #50
+    IncrementGlobal("PWStun","LOCALS",1)
+    SetGlobalTimer("GlabStun","LOCALS",12)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  !See([GOODCUTOFF])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #70
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

@@ -1,0 +1,10 @@
+IF
+  Global("HINT_0_GIVEN","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    FloatMessage("Door_Hint_Text_00",38690)  // ~To open locked doors or containers, select the attack cursor and attack the locked object, or pick the lock by selecting the thief skills button and clicking on the door or container. ~
+    SetGlobal("HINT_0_GIVEN","MYAREA",1)
+    Continue()
+END
+

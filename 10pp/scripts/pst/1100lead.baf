@@ -1,0 +1,22 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PACK_LEADER)
+    Continue()
+END
+
+IF
+  NearLocation(Myself,[1086.1803],20)
+THEN
+  RESPONSE #100
+    RunToSavedLocation()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

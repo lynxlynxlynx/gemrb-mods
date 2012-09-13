@@ -1,0 +1,35 @@
+IF
+  Global("LONELYWOOD_ALARM","GLOBAL",0)
+  !Global("AREA_HOSTILE","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LONELYWOOD_ALARM","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("AREA_HOSTILE","MYAREA",0)
+  !Global("LONELYWOOD_ALARM","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AREA_HOSTILE","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,47 @@
+IF
+  Detect([PC])
+  Global("SaradushAmbientInsults","AR5003",0)
+  !GlobalTimerNotExpired("SaradushInsultTimer","AR5003")
+  Global("DwarfInsultDisplay","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DwarfInsultDisplay","LOCALS",1)
+    SetGlobal("SaradushAmbientInsults","AR5003",1)
+    DisplayStringHead(Myself,71398)  // ~Yer all a bunch of pansy forest runners.~
+    SetGlobalTimer("SaradushInsultTimer","AR5003",5)
+  RESPONSE #100
+    SetGlobal("DwarfInsultDisplay","LOCALS",1)
+    SetGlobal("SaradushAmbientInsults","AR5003",1)
+    DisplayStringHead(Myself,71399)  // ~Why don't ya go back to yer forest hiding places.~
+    SetGlobalTimer("SaradushInsultTimer","AR5003",5)
+  RESPONSE #100
+    SetGlobal("DwarfInsultDisplay","LOCALS",1)
+    SetGlobal("SaradushAmbientInsults","AR5003",1)
+    DisplayStringHead(Myself,71403)  // ~Gromnir probably didn't mean to invite your kind here.~
+    SetGlobalTimer("SaradushInsultTimer","AR5003",5)
+  RESPONSE #100
+    SetGlobal("DwarfInsultDisplay","LOCALS",1)
+    SetGlobal("SaradushAmbientInsults","AR5003",1)
+    DisplayStringHead("SARDW05",71398)  // ~Yer all a bunch of pansy forest runners.~
+    SetGlobalTimer("SaradushInsultTimer","AR5003",5)
+  RESPONSE #100
+    SetGlobal("DwarfInsultDisplay","LOCALS",1)
+    SetGlobal("SaradushAmbientInsults","AR5003",1)
+    DisplayStringHead("SARDW05",71399)  // ~Why don't ya go back to yer forest hiding places.~
+    SetGlobalTimer("SaradushInsultTimer","AR5003",5)
+  RESPONSE #100
+    SetGlobal("DwarfInsultDisplay","LOCALS",1)
+    SetGlobal("SaradushAmbientInsults","AR5003",1)
+    DisplayStringHead("SARDW05",71403)  // ~Gromnir probably didn't mean to invite your kind here.~
+    SetGlobalTimer("SaradushInsultTimer","AR5003",5)
+END
+
+IF
+  Detect([PC])
+  Global("DwarfInsultDisplay","LOCALS",1)
+  Delay(15)
+THEN
+  RESPONSE #100
+    SetGlobal("DwarfInsultDisplay","LOCALS",0)
+END
+

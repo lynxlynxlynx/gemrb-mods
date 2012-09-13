@@ -1,0 +1,48 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    LeaveAreaLUA("AR1000","LOAD1000",[464.938],4)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    LeaveAreaLUA("AR1000","LOAD1000",[444.886],2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    LeaveAreaLUA("AR1000","LOAD1000",[388.871],0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    LeaveAreaLUA("AR1000","LOAD1000",[435.988],6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    LeaveAreaLUA("AR1000","LOAD1000",[384.1007],8)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    LeaveAreaLUA("AR1000","LOAD1000",[334.987],10)
+END
+

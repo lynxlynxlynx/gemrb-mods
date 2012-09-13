@@ -1,0 +1,38 @@
+IF
+  Detect([PC])
+  Global("doOnce","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,62033)  // ~The reek of chemicals and fermented brain overwhelms you as you step into sight of the famed elder brain of the Illithid.  An instant later the brain lashes out at you with a psionic whip...~
+    Wait(1)
+    ForceSpell(LastSeenBy(Myself),PSIONIC_EGOWHIP)
+    SetInterrupt(TRUE)
+    SetGlobal("doOnce","LOCALS",1)
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  Global("firstspawn","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("firstspawn","LOCALS",1)
+    CloseDoor("Door01")
+    Lock("Door01")
+    CreateVisualEffect("SPROTECT",[728.711])
+    CreateCreature("udgolem",[728.711],12)  // ~Brain Golem~
+    CreateVisualEffect("SPROTECT",[501.905])
+    CreateCreature("udgolem",[501.905],12)  // ~Brain Golem~
+END
+
+IF
+  Global("firstspawn","LOCALS",1)
+  Delay(45)
+  See(NearestEnemyOf(Myself))
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    CreateVisualEffect("SPROTECT",[501.905])
+    CreateCreature("udgolem",[501.905],12)  // ~Brain Golem~
+END
+

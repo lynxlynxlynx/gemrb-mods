@@ -1,0 +1,270 @@
+IF
+  GlobalTimerExpired("RestTimer","MYAREA")
+THEN
+  RESPONSE #100
+    ActionOverride("Nathaniel",Rest())
+    ActionOverride("Lysara",Rest())
+    ActionOverride("Cathin",Rest())
+    ActionOverride("Ondabo",Rest())
+    SetGlobalTimer("RestTimer","MYAREA",2400)
+END
+
+IF
+  Global("41XhaanMindQuest","GLOBAL",3)
+  Global("AbishaiEscape","MYAREA",0)
+  OpenState("AR4101_Door14",TRUE)  // AR4101_Door14
+THEN
+  RESPONSE #100
+    SetGlobal("AbishaiEscape","MYAREA",1)
+    SetGlobalTimer("AbishaiTimer","MYAREA",1)
+END
+
+IF
+  Global("41XhaanMindQuest","GLOBAL",3)
+  Global("AbishaiEscape","MYAREA",0)
+  OpenState("AR4101_Door16",TRUE)  // AR4101_Door16
+THEN
+  RESPONSE #100
+    SetGlobal("AbishaiEscape","MYAREA",2)
+    SetGlobalTimer("AbishaiTimer","MYAREA",1)
+END
+
+IF
+  Or(2)
+    Global("AbishaiEscape","MYAREA",1)
+    Global("AbishaiEscape","MYAREA",2)
+  GlobalTimerExpired("AbishaiTimer","MYAREA")
+THEN
+  RESPONSE #100
+    FadeToColor([0.0],0)
+    IncrementGlobal("AbishaiEscape","MYAREA",1)
+    SetGlobalTimer("AbishaiTimer","MYAREA",3)
+END
+
+IF
+  Global("AbishaiEscape","MYAREA",2)
+THEN
+  RESPONSE #100
+    Kill("01_Postulant_14")
+    Kill("01_Postulant_15")
+    Kill("01_Postulant_16")
+    Kill("01_Postulant_17")
+    Kill("01_Postulant_18")
+    Kill("01_Postulant_19")
+    Kill("01_Postulant_20")
+    Kill("01_Postulant_21")
+    Kill("01_Postulant_22")
+    Kill("01_Postulant_23")
+    Kill("01_Postulant_24")
+    Kill("01_Postulant_25")
+    Kill("01_Wolf_26")
+    Kill("01_Wolf_27")
+    Kill("01_Wolf_28")
+    Kill("01_Wolf_29")
+    Kill("01_Wolf_30")
+    Kill("Champion_03")
+    Kill("01_Frosttouch_42")
+    Kill("01_Stormsister_45")
+    Kill("01_Wolf_46")
+    Kill("01_Stormsister_44")
+    Kill("01_Frosttouch_43")
+    Kill("01_Bear_75")
+    Kill("Door_Guard_01")
+    Kill("Door_Guard_02")
+    Kill("Champion_02")
+    SetGlobal("AbishaiEscape","MYAREA",3)
+END
+
+IF
+  Global("AbishaiEscape","MYAREA",3)
+  GlobalTimerExpired("AbishaiTimer","MYAREA")
+THEN
+  RESPONSE #100
+    FadeFromColor([0.0],0)
+    SetGlobal("AbishaiEscape","MYAREA",-1)
+END
+
+IF
+  Global("PrisonerTalk","MYAREA",-1)
+  !Dead("04_Prisoner_02")  // 
+THEN
+  RESPONSE #100
+    AddXPVar("Level_8_Easy",23491)  // ~You freed this prisoner from his cell.~
+    Continue()
+END
+
+IF
+  Global("PrisonerTalk","MYAREA",-1)
+  !Dead("04_Prisoner_03")  // 
+THEN
+  RESPONSE #100
+    AddXPVar("Level_8_Easy",23491)  // ~You freed this prisoner from his cell.~
+    Continue()
+END
+
+IF
+  Global("PrisonerTalk","MYAREA",-1)
+  !Dead("04_Prisoner_04")  // 
+THEN
+  RESPONSE #100
+    AddXPVar("Level_8_Easy",23491)  // ~You freed this prisoner from his cell.~
+    Continue()
+END
+
+IF
+  Global("PrisonerTalk","MYAREA",-1)
+  !Dead("04_Prisoner_05")  // 
+THEN
+  RESPONSE #100
+    AddXPVar("Level_8_Easy",23491)  // ~You freed this prisoner from his cell.~
+    Continue()
+END
+
+IF
+  Global("PrisonerTalk","MYAREA",-1)
+  !Dead("04_Prisoner_06")  // 
+THEN
+  RESPONSE #100
+    AddXPVar("Level_8_Easy",23491)  // ~You freed this prisoner from his cell.~
+    Continue()
+END
+
+IF
+  Global("PrisonerTalk","MYAREA",-1)
+THEN
+  RESPONSE #100
+    AddJournalEntry(23488)
+    OpenDoor("AR4101_Door5")
+    SetGlobal("PrisonerTalk","MYAREA",0)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("41ZackAreaNum","GLOBAL",4101)
+  Global("41ZackTask","GLOBAL",3)
+  Global("41Zack_dead","GLOBAL",0)
+  !Exists("41Zack")  // ~Zack Boosenburry~
+THEN
+  RESPONSE #100
+    CreateCreature("41Zack","41Zack",[1120.2144],10)  // ~Zack Boosenburry~
+    ActionOverride("41Zack",SetNumTimesTalkedTo(1))
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("41ZackAreaNum","GLOBAL",4101)
+  Global("41ZackTask","GLOBAL",11)
+  Global("41Zack_dead","GLOBAL",0)
+  !Exists("41Zack")  // ~Zack Boosenburry~
+  GlobalTimerNotExpired("41BelladonnaTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    CreateCreature("41Zack","41Zack",[1120.2144],10)  // ~Zack Boosenburry~
+    ActionOverride("41Zack",SetNumTimesTalkedTo(1))
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    PlaySequence("Dais",READY)
+    SetGlobal("DaisSequence","MYAREA",7)
+    SetGlobal("LastDaisLeft","MYAREA",-1)
+    SetGlobal("LastDaisRight","MYAREA",-1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  OpenState("AR4101_Door16",FALSE)  // AR4101_Door16
+  Global("41UnhideAbishai","GLOBAL",2)
+THEN
+  RESPONSE #100
+    OpenDoor("AR4101_Door16")
+    Continue()
+END
+
+IF
+  Global("4101Visited","MYAREA",0)
+  TimeOfDay(DAY)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SacrificeTimer1","MYAREA",ONE_DAY)
+    SetGlobalTimer("SacrificeTimer2","MYAREA",TWO_DAYS)
+    SetGlobalTimer("SacrificeTimer3","MYAREA",THREE_DAYS)
+    SetGlobalTimer("SacrificeTimer4","MYAREA",FOUR_DAYS)
+    SetGlobalTimer("SacrificeTimer5","MYAREA",FIVE_DAYS)
+    Continue()
+END
+
+IF
+  Global("4101Visited","MYAREA",0)
+  !TimeOfDay(DAY)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SacrificeTimer1","MYAREA",3600)
+    SetGlobalTimer("SacrificeTimer2","MYAREA",10800)
+    SetGlobalTimer("SacrificeTimer3","MYAREA",18000)
+    SetGlobalTimer("SacrificeTimer4","MYAREA",25200)
+    SetGlobalTimer("SacrificeTimer5","MYAREA",32400)
+    Continue()
+END
+
+IF
+  Global("4101Visited","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly("Acolyte_01",NEUTRAL)
+    ChangeEnemyAlly("Acolyte_02",NEUTRAL)
+    ChangeEnemyAlly("Acolyte_03",NEUTRAL)
+    ChangeEnemyAlly("Acolyte_04",NEUTRAL)
+    ActionOverride("DeadHenchman",DestroyItem("41CIMIRR"))  // <Invalid Strref -1>
+    ClearSpriteEffects("DeadHenchman")
+    Kill("DeadHenchman")
+    SetGlobal("4101Visited","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("RJ_AR4101","GLOBAL",0)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("RJ_AR4101","GLOBAL",0)
+    Continue()
+END
+
+IF
+  GlobalLT("SP_BATTLE_MUSIC","MYAREA",2)
+  Dead("Lysara")  // 
+  !AnyPCSeesEnemy()
+THEN
+  RESPONSE #100
+    SetMusic(COMBAT_NORMAL,none)
+    SetGlobal("SP_BATTLE_MUSIC","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("SP_BATTLE_MUSIC","MYAREA",0)
+  !CreatureHidden("Lysara")  // Lysara
+  Allegiance("Lysara",ENEMY)  // Lysara
+THEN
+  RESPONSE #100
+    SetMusic(COMBAT_NORMAL,BATTLE7)
+    SetGlobal("SP_BATTLE_MUSIC","MYAREA",1)
+    Continue()
+END
+

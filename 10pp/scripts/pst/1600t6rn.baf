@@ -1,0 +1,45 @@
+IF
+  Global("Team_6_Leader","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("1600t6gl",DEFAULT)
+END
+
+IF
+  Specifics(Myself,LEAVING)
+  NearLocation(Myself,[1095.1168],0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Specifics(Myself,LEAVING)
+  NearLocation(Myself,[1125.431],0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Specifics(Myself,LEAVING)
+  NearLocation(Myself,[1651.487],0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !Specifics(Myself,LEAVING)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,LEAVING)
+    MoveToPoint([1095.1168])
+  RESPONSE #100
+    ChangeSpecifics(Myself,LEAVING)
+    MoveToPoint([1125.431])
+  RESPONSE #100
+    ChangeSpecifics(Myself,LEAVING)
+    MoveToPoint([1651.487])
+END
+

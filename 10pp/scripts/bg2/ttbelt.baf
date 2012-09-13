@@ -1,0 +1,69 @@
+IF
+  AttackedBy(Player1,DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("TutorialLesson","GLOBAL",5)
+  OR(2)
+    HasItemEquiped("STAF01",Player1)
+    HasItemEquiped("DAGG01",Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("TutorialLesson","GLOBAL",6)
+    SetGlobalTimer("TutorialWait","GLOBAL",1)
+END
+
+IF
+  Range(Player1,15)
+  Global("TutorialLesson","GLOBAL",28)
+  Dead("ttskel")  // ~Skeleton~
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  GlobalTimerExpired("TutorialWait","GLOBAL")
+  OR(16)
+    Global("TutorialLesson","GLOBAL",1)
+    Global("TutorialLesson","GLOBAL",3)
+    Global("TutorialLesson","GLOBAL",4)
+    Global("TutorialLesson","GLOBAL",5)
+    Global("TutorialLesson","GLOBAL",6)
+    Global("TutorialLesson","GLOBAL",7)
+    Global("TutorialLesson","GLOBAL",8)
+    Global("TutorialLesson","GLOBAL",10)
+    Global("TutorialLesson","GLOBAL",11)
+    Global("TutorialLesson","GLOBAL",12)
+    Global("TutorialLesson","GLOBAL",13)
+    Global("TutorialLesson","GLOBAL",22)
+    Global("TutorialLesson","GLOBAL",37)
+    Global("TutorialLesson","GLOBAL",39)
+    Global("TutorialLesson","GLOBAL",40)
+    Global("TutorialLesson","GLOBAL",42)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+    Wait(1)
+END
+
+IF
+  Global("TutorialLesson","GLOBAL",41)
+  AreaCheck("AR0015")
+  Detect(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("TutorialLesson","GLOBAL",42)
+    TriggerActivation("TRAN0018",TRUE)
+    TriggerActivation("INFO0018",FALSE)
+    FadeFromColor([30.0],0)
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

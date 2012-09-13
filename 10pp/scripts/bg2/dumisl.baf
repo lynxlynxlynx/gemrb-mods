@@ -1,0 +1,24 @@
+IF
+  HitBy([ANYONE],CRUSHING)
+  OpenState("DOOR02",TRUE)  // DOOR02
+THEN
+  RESPONSE #100
+    ClearActions(LastAttackerOf(Myself))
+    Unlock("DOOR02")
+    CloseDoor("DOOR02")
+    Lock("DOOR02")
+    PlaySound("AMB_D04A")
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  OpenState("DOOR02",FALSE)  // DOOR02
+THEN
+  RESPONSE #100
+    ClearActions(LastAttackerOf(Myself))
+    Unlock("DOOR02")
+    OpenDoor("DOOR02")
+    Lock("DOOR02")
+    PlaySound("AMB_D04A")
+END
+

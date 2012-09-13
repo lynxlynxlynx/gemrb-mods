@@ -1,0 +1,428 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  Range([PC],6)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  InParty(Myself)
+  AreaCheck("AR0400")
+  !Global("TalkedToDelon","GLOBAL",1)
+  !Global("TalkedToLloyd","GLOBAL",1)
+  Global("MinscWillTalk","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MinscWillTalk","LOCALS",1)
+    SetGlobalTimer("MinscDelon","GLOBAL",SIX_DAYS)
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("MinscDelon","GLOBAL")
+  Global("TalkedToDelon","GLOBAL",0)
+  Global("TalkedToLloyd","GLOBAL",0)
+  Global("Acceptance","GLOBAL",0)
+  Global("VillageSaved","GLOBAL",0)
+  !Dead("Delon")  // ~Delon~
+  !InParty("Mazzy")  // Mazzy
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(CITY)
+  AreaType(OUTDOOR)
+  CombatCounter(0)
+  !AreaCheck("AR1000")
+  !AreaCheck("AR2000")
+  Global("DelonSpawn","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DelonSpawn","LOCALS",1)
+    CreateCreatureObjectOffScreen("Delon",Myself,0,0,0)  // ~Delon~
+END
+
+IF
+  GlobalTimerExpired("MinscRemindsImnesvale","GLOBAL")
+  Global("TalkedToLloyd","GLOBAL",0)
+  Global("VillageSaved","GLOBAL",0)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(0)
+  !AreaCheck("AR1100")
+  !AreaCheck("AR1400")
+  CombatCounter(0)
+  InParty(Myself)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+  GlobalLT("MinscReminder","LOCALS",2)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Keldorn")  // Keldorn
+  Dead("Keldorn")  // Keldorn
+  Global("KeldornDie","LOCALS",0)
+  GlobalGT("MinscKeldorn","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact([PC])
+END
+
+IF
+  InParty(Myself)
+  InParty("Keldorn")  // Keldorn
+  !Dead("Keldorn")  // Keldorn
+  Global("KeldornDie","LOCALS",1)
+  GlobalGT("MinscKeldorn","LOCALS",0)
+  See("Keldorn")  // Keldorn
+  !StateCheck("Keldorn",STATE_SLEEPING)  // Keldorn
+THEN
+  RESPONSE #100
+    Interact("Keldorn")
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  Dead("Aerie")  // ~Aerie~
+  Global("MinscWitch","GLOBAL",1)
+  Global("AerieRaised","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AerieRaised","LOCALS",1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  !Dead("Aerie")  // ~Aerie~
+  Global("MinscWitch","GLOBAL",1)
+  Global("AerieRaised","LOCALS",1)
+  See("Aerie")  // ~Aerie~
+  !StateCheck("Aerie",STATE_SLEEPING)  // ~Aerie~
+THEN
+  RESPONSE #100
+    SetGlobal("AerieRaised","LOCALS",2)
+    SetGlobal("MinscFury","GLOBAL",0)
+    Interact("Aerie")
+END
+
+IF
+  InParty(Myself)
+  !GlobalTimerNotExpired("MinscWitchTimer","GLOBAL")
+  Global("MinscWitch","GLOBAL",1)
+  HPLT("Aerie",15)  // ~Aerie~
+  InParty("Aerie")  // ~Aerie~
+  Exists(LastAttackerOf("Aerie"))  // ~Aerie~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MinscWitchTimer","GLOBAL",60)
+    DisplayStringHead(Myself,45230)  // ~I must defend my witch!!~
+    Attack(LastAttackerOf("Aerie"))
+END
+
+IF
+  InParty(Myself)
+  Global("MinscWitch","GLOBAL",1)
+  Global("MinscFury","GLOBAL",0)
+  HaveSpell(MINSC_BERSERK)
+  Dead("Aerie")  // ~Aerie~
+THEN
+  RESPONSE #100
+    SetGlobal("MinscFury","GLOBAL",1)
+    DisplayStringHead(Myself,55944)  // ~No-oooo! Aerie! AERIE!!!~
+    Spell(Myself,MINSC_BERSERK)
+END
+
+IF
+  InParty(Myself)
+  InParty("Keldorn")  // Keldorn
+  StateCheck(Myself,STATE_BERSERK)
+  Global("MinscBerserker","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MinscBerserker","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Keldorn")  // Keldorn
+  See("Keldorn")  // Keldorn
+  !Dead("Keldorn")  // Keldorn
+  !StateCheck("Keldorn",STATE_SLEEPING)  // Keldorn
+  Global("MinscBerserker","GLOBAL",1)
+  !StateCheck(Myself,STATE_BERSERK)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    Interact("Keldorn")
+END
+
+IF
+  InParty(Myself)
+  Global("MinscBerserker","GLOBAL",1)
+  !StateCheck(Myself,STATE_BERSERK)
+  CombatCounter(0)
+  OR(4)
+    !InParty("Keldorn")  // Keldorn
+    !See("Keldorn")  // Keldorn
+    Dead("Keldorn")  // Keldorn
+    StateCheck("Keldorn",STATE_SLEEPING)  // Keldorn
+THEN
+  RESPONSE #100
+    SetGlobal("MinscBerserker","GLOBAL",0)
+END
+
+IF
+  InParty(Myself)
+  Global("MinscCharmed","AR0602",1)
+  Global("HelpDryads","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",DEFAULT)
+    SetLeavePartyDialogueFile()
+    LeaveParty()
+END
+
+IF
+  !InParty(Myself)
+  Global("MinscCharmed","AR0602",1)
+  OR(4)
+    Dead("Ulene")  // Ulene
+    Dead("Cania")  // Cania
+    Dead("Elyme")  // Elyme
+    Global("HelpDryads","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("MinscCharmed","AR0602",2)
+    JoinParty()
+END
+
+IF
+  InParty(Myself)
+  ReputationGT(Player1,13)
+  Global("MinscGoodRep","LOCALS",0)
+  CombatCounter(0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  ReputationGT(Player1,15)
+  Global("MinscGoodRep2","LOCALS",0)
+  CombatCounter(0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  ReputationGT(Player1,18)
+  Global("MinscGoodRep3","LOCALS",0)
+  CombatCounter(0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  ReputationLT(Player1,7)
+  Global("MinscBadRep","LOCALS",0)
+  CombatCounter(0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  ReputationLT(Player1,3)
+  Global("MinscBadRep2","LOCALS",0)
+  CombatCounter(0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Mazzy")  // Mazzy
+  See("Mazzy")  // Mazzy
+  !Dead("Mazzy")  // Mazzy
+  !StateCheck("Mazzy",STATE_SLEEPING)  // Mazzy
+  HPLT(Myself,20)
+  !HP(Myself,1)
+  CombatCounter(0)
+  Global("MinscBelow20","LOCALS",0)
+  GlobalLT("MinscMazzy","LOCALS",3)
+  See("Mazzy")  // Mazzy
+THEN
+  RESPONSE #100
+    Interact("Mazzy")
+END
+
+IF
+  InParty(Myself)
+  Global("MinscBelow20","LOCALS",1)
+  !HPLT(Myself,20)
+THEN
+  RESPONSE #100
+    SetGlobal("MinscBelow20","LOCALS",0)
+END
+
+IF
+  InParty(Myself)
+  Dead("Mazzy")  // Mazzy
+  Global("MazzyDie","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact([PC])
+END
+
+IF
+  InParty(Myself)
+  OR(5)
+    !InParty("Mazzy")  // Mazzy
+    Dead("Mazzy")  // Mazzy
+    !See("Mazzy")  // Mazzy
+    StateCheck("Mazzy",STATE_SLEEPING)  // Mazzy
+    GlobalGT("MinscMazzy","LOCALS",3)
+  InParty("Keldorn")  // Keldorn
+  !Dead("Keldorn")  // Keldorn
+  HPLT(Myself,20)
+  !HP(Myself,1)
+  CombatCounter(0)
+  Global("MinscBelow20","LOCALS",0)
+  GlobalLT("MinscKeldorn2","LOCALS",2)
+  See("Keldorn")  // Keldorn
+  !StateCheck("Keldorn",STATE_SLEEPING)  // Keldorn
+THEN
+  RESPONSE #100
+    Interact("Keldorn")
+END
+
+IF
+  InParty(Myself)
+  InParty("Keldorn")  // Keldorn
+  !Dead("Keldorn")  // Keldorn
+  !StateCheck("Keldorn",STATE_SLEEPING)  // Keldorn
+  HPLT("Keldorn",20)  // Keldorn
+  !HP("Keldorn",1)  // Keldorn
+  CombatCounter(0)
+  Global("MinscKeldorn3","LOCALS",0)
+  See("Keldorn")  // Keldorn
+THEN
+  RESPONSE #100
+    Interact("Keldorn")
+END
+
+IF
+  InParty(Myself)
+  HPLT(Myself,20)
+  !HP(Myself,1)
+  Global("MinscBelow20","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MinscComplain","LOCALS",1)
+    SetGlobal("MinscBelow20","LOCALS",1)
+END
+
+IF
+  InParty(Myself)
+  HPGT(Myself,19)
+  Global("MinscBelow20","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MinscBelow20","LOCALS",0)
+END
+
+IF
+  InParty(Myself)
+  GlobalLT("MinscInjured","LOCALS",3)
+  GlobalGT("MinscComplain","LOCALS",4)
+  See(Player1)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("MinscComplain","LOCALS",0)
+    StartDialogNoSet(Player1)
+    IncrementGlobal("MinscInjured","LOCALS",1)
+END
+
+IF
+  InParty(Myself)
+  Global("MinscInjured","LOCALS",3)
+  GlobalGT("MinscComplain","LOCALS",19)
+  See(Player1)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("MinscComplain","LOCALS",0)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  Global("EdwinMinscFight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetLeavePartyDialogueFile()
+    LeaveParty()
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("minvsed",SPECIFICS)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("minscx",SPECIFICS)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("minscx",SPECIFICS)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",SPECIFICS)
+    Continue()
+END
+

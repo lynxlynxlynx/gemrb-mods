@@ -1,0 +1,50 @@
+IF
+  !Global("BARBARIAN_CAMP_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("SKELETON_RACE_KILLED","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("EFATKMEL")
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !Global("ATTACK_PREF","LOCALS",2)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACK_PREF","LOCALS",2)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("ATTACK_PREF","LOCALS",0)
+  AttackedBy([0.0.SKELETON],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACK_PREF","LOCALS",1)
+    AttackReevaluate(LastAttackerOf(Myself),225)
+END
+
+IF
+  !Global("ATTACK_PREF","LOCALS",1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),225)
+END
+

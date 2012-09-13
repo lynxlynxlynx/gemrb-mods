@@ -1,0 +1,9 @@
+IF
+  Global("Wode_Float_Help_Message","ar5300",1)
+  See(LastAttackerOf("Wode_the_Guileful"),0)  // Wode_the_Guileful
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

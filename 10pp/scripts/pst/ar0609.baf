@@ -1,0 +1,34 @@
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    GlobalSet("Respawn_0609","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !TimerActive(1)
+  Global("Respawn_0609","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartTimer(1,30)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",609)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",609)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0609_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0609_Visited","GLOBAL",1)
+    Continue()
+END
+

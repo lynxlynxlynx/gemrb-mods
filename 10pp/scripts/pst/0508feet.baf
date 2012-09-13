@@ -1,0 +1,10 @@
+IF
+  HarmlessEntered([PC])
+  Global("KidMorte_Talk","AR0508",0)
+  Global("Morte_Stolen","GLOBAL",1)
+  Global("Lothar_Feet","AR0508",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Feet","AR0508",1)
+END
+

@@ -1,0 +1,9 @@
+IF
+  LOS([PC],25)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,INNATE_FROST_AURA)
+    Wait(1)
+    ChangeCurrentScript("")
+END
+

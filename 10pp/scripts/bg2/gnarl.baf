@@ -1,0 +1,17 @@
+IF
+  !Dead("Hairtooth")  // Hairtooth
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  Dead("Hairtooth")  // Hairtooth
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

@@ -1,0 +1,47 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("cutspy2")  // 
+    MoveViewObject("finmel01",INSTANT)
+    SetGlobal("FinalFight","AR6200",8)
+    ReallyForceSpellRES("jwsleep","finmel01")  // <Invalid Strref -1>
+    Wait(2)
+    FadeToColor([20.0],0)
+    Wait(2)
+    ReallyForceSpellRES("jwdeath",Player1)  // <Invalid Strref -1>
+    ApplySpell(Player2,CLERIC_RESURRECTION)
+    ApplySpell(Player3,CLERIC_RESURRECTION)
+    ApplySpell(Player4,CLERIC_RESURRECTION)
+    ApplySpell(Player5,CLERIC_RESURRECTION)
+    ApplySpell(Player6,CLERIC_RESURRECTION)
+    ApplySpell(Myself,GENIE_LIMITED_WISH_HEAL_ALL)
+    ActionOverride(Player1,ReallyForceSpell(Myself,SLAYER_BACK_TO_HUMAN))
+    Wait(1)
+    ActionOverride(Player1,JumpToPoint([1290.1220]))
+    ActionOverride(Player2,JumpToPoint([1227.1254]))
+    ActionOverride(Player3,JumpToPoint([1357.1261]))
+    ActionOverride(Player4,JumpToPoint([1294.1296]))
+    ActionOverride(Player5,JumpToPoint([1155.1258]))
+    ActionOverride(Player6,JumpToPoint([1436.1278]))
+    ActionOverride("finmel01",JumpToPoint([1288.1131]))
+    MoveViewPoint([1288.1131],INSTANT)
+    ActionOverride("finmel01",Face(0))
+    ActionOverride(Player1,Face(8))
+    ActionOverride(Player2,Face(8))
+    ActionOverride(Player3,Face(8))
+    ActionOverride(Player4,Face(8))
+    ActionOverride(Player5,Face(8))
+    ActionOverride(Player6,Face(8))
+    ReallyForceSpellRES("jwsleep","finmel01")  // <Invalid Strref -1>
+    Wait(1)
+    SmallWait(5)
+    FadeFromColor([30.0],0)
+    Wait(2)
+    CreateVisualEffect("SPSOLBRD",[1240.1200])
+    Wait(3)
+    CreateCreature("FINSOL01",[1240.1200],14)  // ~Solar~
+    Wait(1)
+    ActionOverride("finsol01",StartDialogNoSet(Player1))
+END
+

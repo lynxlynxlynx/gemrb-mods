@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveViewPoint([1944.1406],INSTANT)
+    CreateVisualEffect("SPIMPFR",[1953.1355])
+    Wait(1)
+    CreateVisualEffect("SPIMPPT",[1953.1355])
+    Wait(1)
+    CreateCreature("D1SKEL",[1953.1355],0)  // ~Gorion~
+    Wait(4)
+    CreateVisualEffect("SPFLESHS",[1953.1355])
+    ActionOverride("d1gori",ChangeAnimation("D1GORI"))
+    Wait(2)
+    ActionOverride("d1gori",StartDialogNoSet(Player1))
+END
+

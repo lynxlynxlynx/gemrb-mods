@@ -1,0 +1,8 @@
+IF
+  Global("TEAM_","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_","MYAREA",1)
+END
+

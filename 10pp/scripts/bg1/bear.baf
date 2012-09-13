@@ -1,0 +1,32 @@
+IF
+  Range([GOODCUTOFF],7)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  HitBy([ANYONE],FIRE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    RunAwayFrom(LastAttackerOf(Myself),200)
+    SetInterrupt(TRUE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

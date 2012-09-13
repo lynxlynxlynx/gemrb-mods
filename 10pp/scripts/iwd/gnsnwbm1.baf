@@ -1,0 +1,9 @@
+IF
+  Global("snowbam_1_played","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    Activate("snowbam1")
+    SetGlobal("snowbam_1_played","MYAREA",1)
+END
+

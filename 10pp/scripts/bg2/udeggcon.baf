@@ -1,0 +1,19 @@
+IF
+  Contains("misc9t","Eggs")  // Eggs
+  Global("doEggMove","AR2201",1)
+THEN
+  RESPONSE #100
+    DestroyItem("MISC9T")  // ~Dragon Eggs~
+END
+
+IF
+  GlobalGT("udDrowPlot","GLOBAL",30)
+  OR(2)
+    Contains("misc9u","Eggs")  // Eggs
+    Contains("misc9v","Eggs")  // Eggs
+THEN
+  RESPONSE #100
+    DestroyItem("MISC9U")  // ~Fake Dragon Eggs (Phaere's)~
+    DestroyItem("MISC9V")  // ~Fake Dragon Eggs (Solaufein)~
+END
+

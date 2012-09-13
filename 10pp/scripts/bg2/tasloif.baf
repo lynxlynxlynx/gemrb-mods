@@ -1,0 +1,14 @@
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp(Myself)))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

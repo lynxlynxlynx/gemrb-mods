@@ -1,0 +1,17 @@
+IF
+  OpenState(Myself,FALSE)
+  !Global("TEAM_1","MYAREA",0)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+END
+
+IF
+  OpenState(Myself,FALSE)
+  Global("Viciscamera_Dead","GLOBAL",1)
+  NearLocation([0.0.DRIDER],1100,1200,30)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+END
+

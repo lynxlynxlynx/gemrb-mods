@@ -1,0 +1,38 @@
+IF
+  Exists([PC][1984.384.2687.767])
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("OkayToLightKeg","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToLightKeg","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("OkayToLightKeg","LOCALS",1)
+  See([ENEMY.MONSTER.KEG.0.200],0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  Global("OkayToLightKeg","LOCALS",1)
+  See([ENEMY.MONSTER.KEG.0.200],0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+END
+

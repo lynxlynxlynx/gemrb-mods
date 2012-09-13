@@ -1,0 +1,109 @@
+IF
+  !CheckDoorFlags(Myself,HIDDEN)
+  GlobalGT("52Morohem_Master","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,HIDDEN,TRUE)
+    Continue()
+END
+
+IF
+  Or(2)
+    !Global("52Morohem_Master","GLOBAL",2)
+    Global("WATCHING_PLAYER","MYAREA",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,TRUE)
+    SmallWait(8)
+    MoveViewPoint([900.1290],25)
+    ActionOverride(LastTrigger,JumpToPoint([900.1290]))
+    Wait(1)
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,FALSE)
+    IncrementGlobal("CHAMBER_2_MONK_REQUEST","MYAREA",1)
+    SetGlobal("CHAMBER_2_TERROR_LEVEL","MYAREA",0)
+    SpellHitEffectSprite("C2_ARCH_1_EFFECT","C2_ARCH_1_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_4_EFFECT","C2_ARCH_4_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_2_EFFECT","C2_ARCH_2_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_5_EFFECT","C2_ARCH_5_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_3_EFFECT","C2_ARCH_3_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_6_EFFECT","C2_ARCH_6_EFFECT",CLOUDBURST,0)
+END
+
+IF
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",1)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,TRUE)
+    SmallWait(8)
+    MoveViewPoint([900.1290],25)
+    ActionOverride(LastTrigger,JumpToPoint([900.1290]))
+    Wait(1)
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,FALSE)
+    IncrementGlobal("CHAMBER_2_MONK_REQUEST","MYAREA",1)
+    SetGlobal("CHAMBER_2_TERROR_LEVEL","MYAREA",0)
+    SpellHitEffectSprite("C2_ARCH_1_EFFECT","C2_ARCH_1_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_4_EFFECT","C2_ARCH_4_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_2_EFFECT","C2_ARCH_2_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_5_EFFECT","C2_ARCH_5_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_3_EFFECT","C2_ARCH_3_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_6_EFFECT","C2_ARCH_6_EFFECT",CLOUDBURST,0)
+END
+
+IF
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",2)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,TRUE)
+    SmallWait(8)
+    MoveViewPoint([1175.1329],25)
+    ActionOverride(LastTrigger,JumpToPoint([1175.1329]))
+    Wait(1)
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,FALSE)
+    SetGlobal("CHAMBER_2_TERROR_LEVEL","MYAREA",3)
+    SpellHitEffectSprite("C2_ARCH_1_EFFECT","C2_ARCH_1_EFFECT",EXALTATION,0)
+    SpellHitEffectSprite("C2_ARCH_4_EFFECT","C2_ARCH_4_EFFECT",EXALTATION,0)
+    SpellHitEffectSprite("C2_ARCH_2_EFFECT","C2_ARCH_2_EFFECT",EXALTATION,0)
+    SpellHitEffectSprite("C2_ARCH_5_EFFECT","C2_ARCH_5_EFFECT",EXALTATION,0)
+    SpellHitEffectSprite("C2_ARCH_3_EFFECT","C2_ARCH_3_EFFECT",EXALTATION,0)
+    SpellHitEffectSprite("C2_ARCH_6_EFFECT","C2_ARCH_6_EFFECT",EXALTATION,0)
+END
+
+IF
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",3)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,TRUE)
+    SmallWait(8)
+    MoveViewPoint([900.1290],25)
+    ActionOverride(LastTrigger,JumpToPoint([900.1290]))
+    Wait(1)
+    SpellHitEffectSprite(LastTrigger,LastTrigger,MALAVONS_RAGE_SPIKE_SWATH,0)
+    HideCreature(LastTrigger,FALSE)
+    IncrementGlobal("CHAMBER_2_MONK_REQUEST","MYAREA",1)
+    SetGlobal("CHAMBER_2_TERROR_LEVEL","MYAREA",0)
+    SpellHitEffectSprite("C2_ARCH_1_EFFECT","C2_ARCH_1_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_4_EFFECT","C2_ARCH_4_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_2_EFFECT","C2_ARCH_2_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_5_EFFECT","C2_ARCH_5_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_3_EFFECT","C2_ARCH_3_EFFECT",CLOUDBURST,0)
+    SpellHitEffectSprite("C2_ARCH_6_EFFECT","C2_ARCH_6_EFFECT",CLOUDBURST,0)
+END
+

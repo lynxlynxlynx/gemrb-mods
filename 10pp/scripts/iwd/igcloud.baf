@@ -1,0 +1,11 @@
+IF
+  !TimerActive(4)
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),10)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    StartTimer(4,49)
+    ForceSpell(NearestEnemyOf(Myself),INNATE_IRON_GOLEM_CLOUD)
+END
+

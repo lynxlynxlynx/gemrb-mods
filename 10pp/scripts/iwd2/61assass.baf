@@ -1,0 +1,33 @@
+IF
+  !Global("61CurrentDay","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite("INVISIBLE",Myself,ALTERATION,0)
+    DestroySelf()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,1944,403,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1944.403])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1944.403])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

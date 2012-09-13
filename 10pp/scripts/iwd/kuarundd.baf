@@ -1,0 +1,58 @@
+IF
+  !Global("ARUNDEL_OUTSIDE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !NumberOfTimesTalkedTo(0)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    SetGlobal("ARUNDEL_DEAD","GLOBAL",1)
+    Kill(Myself)
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("BIG_SCARY_GLOBAL","GLOBAL",0)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,SLEEP)
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    SetGlobal("DYING_ARUNDEL","LOCALS",1)
+    Continue()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !CreatureHidden(Myself)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    Dialogue([PC])
+END
+

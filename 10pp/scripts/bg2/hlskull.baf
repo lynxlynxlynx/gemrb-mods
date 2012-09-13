@@ -1,0 +1,10 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+  Global("HLSKULLInitOnce","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HLSKULLInitOnce","GLOBAL",1)
+    StartDialogNoSet(Player1)
+END
+

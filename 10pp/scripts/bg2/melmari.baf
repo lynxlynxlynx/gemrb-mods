@@ -1,0 +1,36 @@
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,STONESKINS)
+  Global("onecontin","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("onecontin","LOCALS",1)
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,STONESKINS)
+  !GlobalTimerNotExpired("stoneskin","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("stoneskin","LOCALS",15)
+    SpellNoDec(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  !See([GOODCUTOFF])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

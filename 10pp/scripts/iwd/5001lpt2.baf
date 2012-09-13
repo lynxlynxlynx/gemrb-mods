@@ -1,0 +1,101 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp(Myself)))
+END
+
+IF
+  Global("5001_Alert_2","AR5001",0)
+  See([0.DEAD])
+THEN
+  RESPONSE #100
+    SetGlobal("5001_Alert_2","AR5001",1)
+END
+
+IF
+  Global("5001_Alert_2","AR5001",1)
+THEN
+  RESPONSE #100
+    Attack([PC][0.0.10000.10000])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([590.2128])
+    Face(NE)
+    MoveToPoint([694.2024])
+    Face(N)
+    MoveToPoint([694.1866])
+    Face(NE)
+    MoveToPoint([770.1790])
+    Face(NE)
+    Wait(15)
+    MoveToPoint([962.1790])
+    Face(S)
+    MoveToPoint([962.1875])
+    Face(SE)
+    MoveToPoint([998.1910])
+    Face(S)
+    MoveToPoint([998.2009])
+    Face(E)
+    MoveToPoint([1236.2009])
+    Face(E)
+    Wait(15)
+    MoveToPoint([1270.2042])
+    Face(S)
+    MoveToPoint([1270.2327])
+    Face(SE)
+    MoveToPoint([1471.2528])
+    Face(E)
+    MoveToPoint([1678.2528])
+    Face(E)
+    Wait(15)
+    MoveToPoint([1471.2528])
+    Face(E)
+    MoveToPoint([1270.2327])
+    Face(SE)
+    MoveToPoint([1270.2042])
+    Face(S)
+    MoveToPoint([1236.2009])
+    Face(E)
+    Wait(15)
+    MoveToPoint([998.2009])
+    Face(E)
+    MoveToPoint([998.1910])
+    Face(S)
+    MoveToPoint([962.1875])
+    Face(SE)
+    MoveToPoint([962.1790])
+    Face(S)
+    MoveToPoint([770.1790])
+    Face(NE)
+    Wait(15)
+    MoveToPoint([694.1866])
+    Face(NE)
+    MoveToPoint([694.2024])
+    Face(N)
+    MoveToPoint([590.2128])
+    Face(NE)
+    MoveToPoint([590.2306])
+    Face(N)
+END
+

@@ -1,0 +1,16 @@
+IF
+  Global("PlayerLooksLikeDrow","GLOBAL",1)
+  Global("changed","AR2102",0)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,ApplySpell(Myself,DROW_CHANGE))
+    ActionOverride(Player2,ApplySpell(Myself,DROW_CHANGE))
+    ActionOverride(Player3,ApplySpell(Myself,DROW_CHANGE))
+    ActionOverride(Player4,ApplySpell(Myself,DROW_CHANGE))
+    ActionOverride(Player5,ApplySpell(Myself,DROW_CHANGE))
+    ActionOverride(Player6,ApplySpell(Myself,DROW_CHANGE))
+    Wait(2)
+    SetGlobal("changed","AR2102",1)
+    ActionOverride("udsilver",StartDialogNoSet(Player1))
+END
+

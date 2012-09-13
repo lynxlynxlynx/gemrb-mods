@@ -1,0 +1,8 @@
+IF
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,ATTACK)
+    WaitRandom(2,5)
+END
+

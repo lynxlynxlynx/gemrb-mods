@@ -1,0 +1,383 @@
+IF
+  Global("TEAM_11_DEAD","MYAREA",0)
+  Dead("11_51Dargab_01")  // 
+  Dead("11_51DUEBO_02")  // 
+  Dead("11_51DUEBO_03")  // 
+  Dead("11_51DUEBO_04")  // 
+  Dead("11_51DUEBO_05")  // 
+  Dead("11_51DUEBO_06")  // 
+  Dead("11_51DUEBO_08")  // 
+  Dead("11_51DUEBO_09")  // 
+  Dead("11_51DUEWA_10")  // 
+  Dead("11_51DUEWA_11")  // 
+  Dead("11_51DUEWA_12")  // 
+  Dead("11_51DUEWA_13")  // 
+  Dead("11_51DUEWA_14")  // 
+  Dead("11_51DUEWA_15")  // 
+  Dead("11_51DUEWA_28")  // 
+  Dead("11_51DUEWA_29")  // 
+  Dead("11_51DUEWA_30")  // 
+  Dead("11_51DUEWA_31")  // 
+  Dead("11_51ORCSS_16")  // 
+  Dead("11_51ORCSS_17")  // 
+  Dead("11_51ORCSS_18")  // 
+  Dead("11_51ORCSS_19")  // 
+  Dead("11_51ORCSS_20")  // 
+  Dead("11_51ORCSS_21")  // 
+  Dead("11_51ORCSS_22")  // 
+  Dead("11_51ORCSS_23")  // 
+  Dead("11_51ORCSS_24")  // 
+  Dead("11_51ORCSS_25")  // 
+  Dead("11_51ORCSS_26")  // 
+  Dead("11_51ORCSS_27")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_11_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_13_DEAD","MYAREA",0)
+  Dead("13_51Zama_01")  // 
+  Dead("13_51DUECL_02")  // 
+  Dead("13_51DUECL_03")  // 
+  Dead("13_51DUECL_17")  // 
+  Dead("13_51Barud_04")  // 
+  Dead("13_51Harhor_05")  // 
+  Dead("13_51DUEWA_06")  // 
+  Dead("13_51DUEWA_07")  // 
+  Dead("13_51DUEWA_08")  // 
+  Dead("13_51DUEBO_09")  // 
+  Dead("13_51DUEBO_10")  // 
+  Dead("13_51DUEBO_11")  // 
+  Dead("13_51DUEBO_12")  // 
+  Dead("13_51DUEWA_13")  // 
+  Dead("13_51DUEWA_14")  // 
+  Dead("13_51DUEWA_15")  // 
+  Dead("13_51DUEWA_16")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_13_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_14_DEAD","MYAREA",0)
+  Dead("14_51DUEWA_01")  // 
+  Dead("14_51DUEWA_02")  // 
+  Dead("14_51DUEBO_03")  // 
+  Dead("14_51ORCSS_04")  // 
+  Dead("14_51ORCSS_05")  // 
+  Dead("14_51ORCSS_06")  // 
+  Dead("14_51ORCSS_07")  // 
+  Dead("14_51ORCSS_08")  // 
+  Dead("14_51ORCSS_09")  // 
+  Dead("14_51ORCSS_10")  // 
+  Dead("14_51ORCSS_11")  // 
+  Dead("14_51ORCSS_12")  // 
+  Dead("14_51ORCSS_13")  // 
+  Dead("14_51ORCSS_14")  // 
+  Dead("14_51ORCSS_15")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_14_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("5101_DUERGAR_CLEANUP","MYAREA",0)
+  GlobalGT("50DUERGAR_DESTROY","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("11_51DARGAB_01",DestroySelf())
+    ActionOverride("11_51DUEBO_02",DestroySelf())
+    ActionOverride("11_51DUEBO_03",DestroySelf())
+    ActionOverride("11_51DUEBO_04",DestroySelf())
+    ActionOverride("11_51DUEBO_05",DestroySelf())
+    ActionOverride("11_51DUEBO_06",DestroySelf())
+    ActionOverride("11_51DUEBO_07",DestroySelf())
+    ActionOverride("11_51DUEBO_08",DestroySelf())
+    ActionOverride("11_51DUEBO_09",DestroySelf())
+    ActionOverride("11_51DUEWA_10",DestroySelf())
+    ActionOverride("11_51DUEWA_11",DestroySelf())
+    ActionOverride("11_51DUEWA_12",DestroySelf())
+    ActionOverride("11_51DUEWA_13",DestroySelf())
+    ActionOverride("11_51DUEWA_14",DestroySelf())
+    ActionOverride("11_51DUEWA_15",DestroySelf())
+    ActionOverride("11_51DUEWA_28",DestroySelf())
+    ActionOverride("11_51DUEWA_29",DestroySelf())
+    ActionOverride("11_51DUEWA_30",DestroySelf())
+    ActionOverride("11_51DUEWA_31",DestroySelf())
+    ActionOverride("11_51ORCSS_16",DestroySelf())
+    ActionOverride("11_51ORCSS_17",DestroySelf())
+    ActionOverride("11_51ORCSS_18",DestroySelf())
+    ActionOverride("11_51ORCSS_19",DestroySelf())
+    ActionOverride("11_51ORCSS_20",DestroySelf())
+    ActionOverride("11_51ORCSS_21",DestroySelf())
+    ActionOverride("11_51ORCSS_22",DestroySelf())
+    ActionOverride("11_51ORCSS_23",DestroySelf())
+    ActionOverride("11_51ORCSS_24",DestroySelf())
+    ActionOverride("11_51ORCSS_25",DestroySelf())
+    ActionOverride("11_51ORCSS_26",DestroySelf())
+    ActionOverride("11_51ORCSS_27",DestroySelf())
+    ActionOverride("12_51SPE_01",DestroySelf())
+    ActionOverride("13_51ZAMA_01",DestroySelf())
+    ActionOverride("13_51DUECL_02",DestroySelf())
+    ActionOverride("13_51DUECL_03",DestroySelf())
+    ActionOverride("13_51DUECL_17",DestroySelf())
+    ActionOverride("13_51BARUD_04",DestroySelf())
+    ActionOverride("13_51HARHOR_05",DestroySelf())
+    ActionOverride("13_51DUEWA_06",DestroySelf())
+    ActionOverride("13_51DUEWA_07",DestroySelf())
+    ActionOverride("13_51DUEWA_08",DestroySelf())
+    ActionOverride("13_51DUEBO_09",DestroySelf())
+    ActionOverride("13_51DUEBO_10",DestroySelf())
+    ActionOverride("13_51DUEBO_11",DestroySelf())
+    ActionOverride("13_51DUEBO_12",DestroySelf())
+    ActionOverride("13_51DUEWA_13",DestroySelf())
+    ActionOverride("13_51DUEWA_14",DestroySelf())
+    ActionOverride("13_51DUEWA_15",DestroySelf())
+    ActionOverride("13_51DUEWA_16",DestroySelf())
+    ActionOverride("14_51DUEWA_01",DestroySelf())
+    ActionOverride("14_51DUEWA_02",DestroySelf())
+    ActionOverride("14_51DUEBO_03",DestroySelf())
+    ActionOverride("14_51ORCSS_04",DestroySelf())
+    ActionOverride("14_51ORCSS_05",DestroySelf())
+    ActionOverride("14_51ORCSS_06",DestroySelf())
+    ActionOverride("14_51ORCSS_07",DestroySelf())
+    ActionOverride("14_51ORCSS_08",DestroySelf())
+    ActionOverride("14_51ORCSS_09",DestroySelf())
+    ActionOverride("14_51ORCSS_10",DestroySelf())
+    ActionOverride("14_51ORCSS_11",DestroySelf())
+    ActionOverride("14_51ORCSS_12",DestroySelf())
+    ActionOverride("14_51ORCSS_13",DestroySelf())
+    ActionOverride("14_51ORCSS_14",DestroySelf())
+    ActionOverride("14_51ORCSS_15",DestroySelf())
+    SetGlobal("5101_DUERGAR_CLEANUP","MYAREA",1)
+    Continue()
+END
+
+IF
+  GlobalLT("TOTAL_05_BEETLE_SPAWN","MYAREA",30)
+  GlobalGT("5101_05_BEETLE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("5101_05_BEETLE_SPAWN","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_1_DEAD","MYAREA",0)
+  Dead("01_51HHR_01")  // 
+  Dead("01_51HHR_02")  // 
+  Dead("01_51HHR_03")  // 
+  Dead("01_51HHR_04")  // 
+  Dead("01_51HHR_05")  // 
+  Dead("01_51HHR_06")  // 
+  Dead("01_51HHRH_07")  // 
+  Dead("01_51HHRH_08")  // 
+  Dead("01_51HHRH_09")  // 
+  Dead("01_51HHRH_10")  // 
+  Dead("01_51HHRH_11")  // 
+  Dead("01_51HHRH_12")  // 
+  Dead("01_51HHRGU_13")  // 
+  Dead("01_51HHRGU_14")  // 
+  Dead("01_51HHRGU_15")  // 
+  Dead("01_51HHRGU_16")  // 
+  Dead("01_51HHRGU_17")  // 
+  Dead("01_51HHRGU_18")  // 
+  Dead("01_51HHRGU_19")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_2_DEAD","MYAREA",0)
+  Dead("02_51HHR_01")  // 
+  Dead("02_51HHR_02")  // 
+  Dead("02_51HHRH_03")  // 
+  Dead("02_51HHRH_04")  // 
+  Dead("02_51HHRH_05")  // 
+  Dead("02_51HHRH_06")  // 
+  Dead("02_51HHRH_07")  // 
+  Dead("02_51HHRH_08")  // 
+  Dead("02_51HHRH_09")  // 
+  Dead("02_51HHRH_10")  // 
+  Dead("02_51HHRGH_11")  // 
+  Dead("02_51HHRGH_12")  // 
+  Dead("02_51HHRGH_13")  // 
+  Dead("02_51HHRGH_14")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_3_DEAD","MYAREA",0)
+  Dead("03_51HHR_01")  // 
+  Dead("03_51HHR_02")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_3_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_4_DEAD","MYAREA",0)
+  Dead("04_51HHR_01")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_4_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_6_DEAD","MYAREA",0)
+  Dead("06_51HHRGU_01")  // 
+  Dead("06_51HHRGU_02")  // 
+  Dead("06_51HHR_03")  // 
+  Dead("06_51HHR_04")  // 
+  Dead("06_51HHR_05")  // 
+  Dead("06_51HHR_06")  // 
+  Dead("06_51HHR_07")  // 
+  Dead("06_51HHRH_08")  // 
+  Dead("06_51HHRH_09")  // 
+  Dead("06_51HHRH_10")  // 
+  Dead("06_51HHRH_11")  // 
+  Dead("06_51HHRH_12")  // 
+  Dead("06_51HHRH_13")  // 
+  Dead("06_51HHR_14")  // 
+  Dead("06_51HHRHGU_15")  // 
+  Dead("06_51HHRGH_16")  // 
+  Dead("06_51HHRGH_17")  // 
+  Dead("06_51HHRGU_18")  // 
+  Dead("06_51HHRGU_19")  // 
+  Dead("06_51HHRGH_20")  // 
+  Dead("06_51HHRGH_21")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_6_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_7_DEAD","MYAREA",0)
+  Dead("07_51HHRMA_01")  // 
+  Dead("07_51HHRGH_02")  // 
+  Dead("07_51HHRGH_03")  // 
+  Dead("07_51HHRGH_04")  // 
+  Dead("07_51HHRGH_05")  // 
+  Dead("07_51HHRGH_06")  // 
+  Dead("07_51HHRGH_07")  // 
+  Dead("07_51HHRGH_08")  // 
+  Dead("07_51HHRGH_09")  // 
+  Dead("07_51HHRGH_10")  // 
+  Dead("07_51HHRGH_11")  // 
+  Dead("07_51HHRH_12")  // 
+  Dead("07_51HHRH_13")  // 
+  Dead("07_51HHRH_14")  // 
+  Dead("07_51HHRH_15")  // 
+  Dead("07_51HHRH_16")  // 
+  Dead("07_51HHRH_17")  // 
+  Dead("07_51HHRGH_18")  // 
+  Dead("07_51HHRGH_19")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_7_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_8_DEAD","MYAREA",0)
+  Dead("08_51TROIC_01")  // 
+  Dead("08_51TROIC_02")  // 
+  Dead("08_51TROIC_03")  // 
+  Dead("08_51TROIC_04")  // 
+  Dead("08_51TROIC_05")  // 
+  Dead("08_51TROIC_06")  // 
+  Dead("08_51TROIC_07")  // 
+  Dead("08_51TROIC_08")  // 
+  Dead("08_51TROIC_09")  // 
+  Dead("08_51TROIC_10")  // 
+  Dead("08_51TROIC_11")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_8_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_9_DEAD","MYAREA",0)
+  Dead("09_51OCH_01")  // 
+  Dead("09_51OCH_02")  // 
+  Dead("09_51OCH_03")  // 
+  Dead("09_51OCHH_04")  // 
+  Dead("09_51OCHH_05")  // 
+  Dead("09_51OCHH_06")  // 
+  Dead("09_51OCHH_07")  // 
+  Dead("09_51OCHH_08")  // 
+  Dead("09_51OCHH_09")  // 
+  Dead("09_51OCHH_10")  // 
+  Dead("09_51OCHH_11")  // 
+  Dead("09_51OCHH_12")  // 
+  Dead("09_51OCHH_13")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_9_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_10_DEAD","MYAREA",0)
+  Dead("10_51SHA_01")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_10_DEAD","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("AR5101_MONSTERS_DEAD","GLOBAL",0)
+  !Global("TEAM_1_DEAD","MYAREA",0)
+  !Global("TEAM_2_DEAD","MYAREA",0)
+  !Global("TEAM_3_DEAD","MYAREA",0)
+  !Global("TEAM_4_DEAD","MYAREA",0)
+  !Global("TEAM_6_DEAD","MYAREA",0)
+  !Global("TEAM_7_DEAD","MYAREA",0)
+  !Global("TEAM_8_DEAD","MYAREA",0)
+  !Global("TEAM_9_DEAD","MYAREA",0)
+  !Global("TEAM_10_DEAD","MYAREA",0)
+  Dead([ENEMY.0.SLIME][0.0.10000.10000])  // 
+THEN
+  RESPONSE #100
+    DisplayMessage(28374)  // ~You have slain the last of the river-cave monsters.~
+    SetGlobal("AR5101_MONSTERS_DEAD","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("AR5101_MONSTERS_DEAD","GLOBAL",1)
+  Global("51BARUD_CAVES","GLOBAL",1)
+  Global("51Barud_Dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddJournalEntry(29165)
+    SetGlobal("AR5101_MONSTERS_DEAD","GLOBAL",2)
+END
+
+IF
+THEN
+  RESPONSE #100
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

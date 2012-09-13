@@ -1,0 +1,79 @@
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  AttackedBy([ENEMY],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  HPPercentLT(MostDamagedOf(Myself),90)
+  HaveSpell(CLERIC_AID)
+THEN
+  RESPONSE #100
+    Spell(MostDamagedOf(Myself),CLERIC_AID)
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  HPPercentLT(MostDamagedOf(Myself),75)
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(MostDamagedOf(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  HPPercentLT(MostDamagedOf(Myself),65)
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(MostDamagedOf(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  HPPercentLT(MostDamagedOf(Myself),45)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(MostDamagedOf(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  HPPercentLT(MostDamagedOf(Myself),25)
+  HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(MostDamagedOf(Myself),CLERIC_CURE_CRITICAL_WOUNDS)
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  HPPercentLT([PC],0)
+  HaveSpell(CLERIC_RAISE_DEAD)
+THEN
+  RESPONSE #100
+    Spell(MostDamagedOf(Myself),CLERIC_RAISE_DEAD)
+END
+
+IF
+  InParty(Myself)
+  Global("PartyScriptsActive","GLOBAL",1)
+  Help(Player1)
+  Range(Player1,6)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp))
+END
+

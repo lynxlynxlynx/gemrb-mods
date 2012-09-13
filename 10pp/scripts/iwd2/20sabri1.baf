@@ -1,0 +1,18 @@
+IF
+  !NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Global("SR_Sabrina_Freed","GLOBAL",2)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    Dialogue(LastMarkedObject)
+END
+

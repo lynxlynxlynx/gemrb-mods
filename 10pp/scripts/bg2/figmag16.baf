@@ -1,0 +1,63 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_STONE_SKIN)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_IMPROVED_HASTE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_HASTE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAZE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAZE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FINGER_OF_DEATH)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SUN_FIRE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SUN_FIRE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MONSTER_SUMMONING_3)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MONSTER_SUMMONING_3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MORDENKAINENS_SWORD)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MORDENKAINENS_SWORD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

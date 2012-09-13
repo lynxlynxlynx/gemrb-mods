@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem1")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem2")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem3")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem4")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem5")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem6")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGemL")
+END
+

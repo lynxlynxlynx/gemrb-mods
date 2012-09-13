@@ -1,0 +1,8 @@
+IF
+  HPLT(Myself,2)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_CURE_CRITICAL_WOUNDS)
+    PlayDead(150)
+END
+

@@ -1,0 +1,14 @@
+IF
+  See([0.0.SPIDER])
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(Myself),100)
+END
+
+IF
+  !See([0.0.SPIDER])
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

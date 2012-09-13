@@ -1,0 +1,10 @@
+IF
+  Clicked([ANYONE])
+THEN
+  RESPONSE #100
+    SetGlobal("TreeLifeTalk","AR2805",1)
+    ActionOverride(Player1,StartDialogue("Player1",Myself))
+    TriggerActivation("SelfTalk",FALSE)
+    TriggerActivation("Tran2806",TRUE)
+END
+

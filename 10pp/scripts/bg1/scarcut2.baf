@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Eltan")  // 
+    MoveToPoint([319.253])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Scar")  // 
+    Wait(3)
+    Dialogue([PC])
+    SetGlobal("ScarMission","GLOBAL",7)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("IgnusF")  // 
+    PlaySoundNotRanged("Ign084")
+    PlaySequence(ANIM_ATTACK1)
+    Wait(3)
+    Face(4)
+    Wait(1)
+    StartSong(CHAR_IGNUS,[0.0],Normal)
+    Face(12)
+    Wait(1)
+    Face(4)
+    Wait(1)
+    StartCutScene("1201CI22")
+END
+

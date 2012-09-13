@@ -1,0 +1,28 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  OR(2)
+    Global("MazzyAltar","GLOBAL",0)
+    Global("MazzyAltar","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,43908)  // ~The altar has had its evil shattered. The golden sheen of its former homage to Amaunator can be seen beneath the grime.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("MazzyAltar","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,44039)  // ~The altar has been cleaned and inscribed by Mazzy. It now stands as a monument to her brave companions who gave their lives in an attempt to defeat the Shade Lord. ~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

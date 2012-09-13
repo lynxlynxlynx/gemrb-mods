@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ALPHEUS")  // 
+    StartCutSceneMode()
+    HideCreature("ALPHEUS",FALSE)
+    HideGUI()
+    MultiPlayerSync()
+    ClearAllActions()
+    MoveViewPoint([2422.1386],INSTANT)
+    ForceSpellPoint([2506.1461],WIZARD_DIMENSION_DOOR)
+    Wait(3)
+    FaceObject([PC])
+    Wait(2)
+    FaceObject("VAARGLAN")
+    SetDialogueRange(75)
+    Wait(1)
+    Dialogue(Protagonist)
+END
+

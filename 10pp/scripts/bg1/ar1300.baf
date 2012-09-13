@@ -1,0 +1,57 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("AlanSpawn","GLOBAL",0)
+  !Exists("ALANBL")  // ~Alan Blackblade~
+THEN
+  RESPONSE #100
+    CreateCreature("ALANBL",[567.1404])  // ~Alan Blackblade~
+    SetGlobal("AlanSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("Capture1300","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Capture1300","GLOBAL",1)
+    CreateCreature("FFHUNT",[1616.1547])  // ~Flaming Fist Enforcer~
+    CreateCreature("FFHUNT",[1616.1547])  // ~Flaming Fist Enforcer~
+END
+
+IF
+  Global("NarlenMove","GLOBAL",4)
+  !Exists("Narlen")  // ~Narlen Darkwalk~
+  !Dead("Narlen")  // ~Narlen Darkwalk~
+THEN
+  RESPONSE #100
+    CreateCreature("NARLEN",[361.857])  // ~Narlen Darkwalk~
+    ActionOverride("Narlen",SetNumTimesTalkedTo(1))
+END
+
+IF
+  TimeGT(20)
+  Exists("Narlen")  // ~Narlen Darkwalk~
+THEN
+  RESPONSE #100
+    Activate("Narlen")
+END
+
+IF
+  TimeLT(4)
+  Exists("Narlen")  // ~Narlen Darkwalk~
+THEN
+  RESPONSE #100
+    Activate("Narlen")
+END
+
+IF
+  TimeGT(4)
+  TimeLT(20)
+  Exists("Narlen")  // ~Narlen Darkwalk~
+THEN
+  RESPONSE #100
+    Deactivate("Narlen")
+END
+

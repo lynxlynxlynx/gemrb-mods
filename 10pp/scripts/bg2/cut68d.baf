@@ -1,0 +1,112 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("drjon")  // 
+    MoveViewPoint([2700.703],SLOW)
+    MoveToPoint([2721.623])
+    ForceSpell("dreself1",CUTSCENE_POWERWORD_KILL)
+    CreateVisualEffectObject("SPMAGGLO",Myself)
+    CreateVisualEffectObject("SPFEAREF","dreself1")
+    ForceSpell("dreself6",CUTSCENE_POWERWORD_KILL)
+    CreateVisualEffectObject("SPFLSRIN","dreself6")
+    CreateVisualEffectObject("SPFIREPI","dreself6")
+    ForceSpell("dreself2",CUTSCENE_POWERWORD_KILL)
+    CreateVisualEffectObject("CALLLIGH","dreself2")
+    CreateVisualEffectObject("ICRMPARI",Myself)
+    ForceSpell("dreself3",CUTSCENE_POWERWORD_KILL)
+    CreateVisualEffectObject("ICSPAIN","dreself3")
+    ReallyForceSpell("dreself4",CUTSCENE_POWERWORD_KILL)
+    CreateVisualEffectObject("SPWRDFLD","dreself4")
+    ReallyForceSpell("dreself5",CUTSCENE_POWERWORD_KILL)
+    CreateVisualEffectObject("ICFIRSDI","dreself5")
+    ForceSpell("dreself4",CUTSCENE_POWERWORD_KILL)
+    ForceSpell("dreself5",CUTSCENE_POWERWORD_KILL)
+    ForceSpell("dreself7",WIZARD_DISINTEGRATE2_IGNORE_RESISTANCE)
+    ReallyForceSpell("dreself8",WIZARD_DISINTEGRATE2_IGNORE_RESISTANCE)
+    FadeToColor([20.0],0)
+    Wait(1)
+    MoveViewPoint([1381.2145],INSTANT)
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    ActionOverride("drelle",StartDialogNoSet(Player1))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself1")  // 
+    SmallWait(9)
+    DisplayStringHead(Myself,5254)  // ~The Exile returns.~
+    MoveToPoint([3033.415])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself2")  // 
+    Wait(1)
+    SmallWait(7)
+    MoveToPoint([3033.415])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself3")  // 
+    Wait(2)
+    MoveToPoint([3033.415])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself4")  // 
+    Wait(2)
+    MoveToPoint([3033.415])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself5")  // 
+    Wait(2)
+    MoveToPoint([3033.415])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself6")  // 
+    Wait(1)
+    SmallWait(7)
+    DisplayStringHead(Myself,5257)  // ~Run, he comes this way!~
+    MoveToPoint([3074.950])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself7")  // 
+    Wait(2)
+    SmallWait(7)
+    MoveToPoint([3074.950])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("dreself8")  // 
+    Wait(2)
+    MoveToPoint([3074.950])
+END
+

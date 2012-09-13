@@ -1,0 +1,39 @@
+IF
+  Global("Chapter","GLOBAL",3)
+  Global("ElminsterSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ElminsterSpawn","GLOBAL",1)
+    CreateCreature("ELMIN2",[4710.3091],0)  // ELMIN2
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",3)
+  Global("ChloeSpawn","GLOBAL",0)
+  !Exists("Chloe")  // Chloe
+  !Dead("Chloe")  // Chloe
+THEN
+  RESPONSE #100
+    SetGlobal("ChloeSpawn","GLOBAL",1)
+    CreateCreature("CHLOE",[4127.2881],0)  // CHLOE
+    Continue()
+END
+
+IF
+  Global("EnteredBeregost","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartMovie("BEREGOST")
+    SetGlobal("EnteredBeregost","GLOBAL",1)
+END
+
+IF
+  GlobalGT("CHAPTER","GLOBAL",3)
+  Exists("Chloe")  // Chloe
+THEN
+  RESPONSE #100
+    ActionOverride("Chloe",DestroySelf())
+END
+

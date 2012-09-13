@@ -1,0 +1,26 @@
+IF
+  OnCreation()
+  !Global("SLAVE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SLAVE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("SLAVE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+    SetGlobal("SLAVE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

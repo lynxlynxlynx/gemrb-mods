@@ -1,0 +1,19 @@
+IF
+  GlobalGT("5200_YETI_DEAD","GLOBAL",0)
+  !Exists([ENEMY][2600.1465.5.-1])
+THEN
+  RESPONSE #100
+    IncrementGlobal("5200_YETI_DEAD","GLOBAL",-1)
+    JumpToPoint([2660.1465])
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

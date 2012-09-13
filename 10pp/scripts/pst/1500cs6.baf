@@ -1,0 +1,28 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hargrim")  // 
+    Face(14)
+    Wait(5)
+    FloatMessage("Hargrim",19248)  // ~"Soego, what is this I hear of thee being in league with Many-As-One?"~
+    Wait(4)
+    FloatMessage("Soego2",19249)  // ~"What?! It is untrue! A cruel rumor! A lie!"~
+    Wait(4)
+    FloatMessage("Hargrim",19251)  // ~"Dare thou lie to the high priest of the Silent King?"~
+    Wait(4)
+    FloatMessage("Soego2",19332)  // ~"No! No, Hargrimm, I would never presume..."~
+    Wait(4)
+    FloatMessage("Hargrim",19333)  // ~"Where is thy journal? Let me see it. Prove thy innocence before the eyes of the Silent King."~
+    Wait(4)
+    FloatMessage("Soego2",19334)  // ~"I... I..."~
+    Wait(2)
+    FloatMessage("Soego2",19335)  // ~"I beg for your mercy, Hargrimm..."~
+    Wait(4)
+    FloatMessage("Hargrim",19336)  // ~"The Dead Truce shall protect thee here, Soego, but thou shall never leave these catacombs. Thou shall continue thy pursuit of thy precious 'True Death' here, alone... for the rest of thy days. Farewell."~
+    Wait(7)
+    FloatMessage("Soego2",63964)  // ~"But... you... can't... nnnnARAGH!"~
+    Wait(3)
+    StartCutScene("1500cs9")
+END
+

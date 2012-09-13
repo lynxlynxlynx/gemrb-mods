@@ -1,0 +1,40 @@
+IF
+  !TimerActive(18)
+  Global("SCREED_DEAD","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+  !Exists("SCREED")  // SCREED
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8117)  // ~"Get yer ass back on the boat!"~
+    StartRandomTimer(18,3,6)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8118)  // ~"And where in the hells do you think YOU'RE running off to?!"~
+    StartRandomTimer(18,3,6)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8119)  // ~"Get back on the boat this instant, ye idiot!"~
+    StartRandomTimer(18,3,6)
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  Global("ELDGULL_DEAD","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+  !Exists("ELDGULL")  // ELDGULL
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8117)  // ~"Get yer ass back on the boat!"~
+    StartRandomTimer(18,3,6)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8118)  // ~"And where in the hells do you think YOU'RE running off to?!"~
+    StartRandomTimer(18,3,6)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8119)  // ~"Get back on the boat this instant, ye idiot!"~
+    StartRandomTimer(18,3,6)
+    Continue()
+END
+

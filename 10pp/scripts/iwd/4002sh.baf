@@ -1,0 +1,7 @@
+IF
+  Help([0.0.SPIDER])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp(Myself)))
+END
+

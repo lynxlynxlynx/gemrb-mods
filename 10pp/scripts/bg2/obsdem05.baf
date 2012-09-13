@@ -1,0 +1,20 @@
+IF
+  OR(2)
+    !See(Player1)
+    !Range(Player1,7)
+THEN
+  RESPONSE #100
+    Wait(3)
+    MoveToObject(Player1)
+END
+
+IF
+  See(Player1)
+  Range(Player1,7)
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("spoke","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+

@@ -1,0 +1,27 @@
+IF
+  Entered([PC])
+  CheckStatLT(LastTrigger,113,MOVESILENTLY)
+THEN
+  RESPONSE #100
+    Shout(106)
+    SetGlobal("LastShout","LOCALS",106)
+    FloatMessage(Myself,35588)  // ~"Em phle!["Help me!" reordered and scrambled]"~
+    IncrementGlobal("YuantiCallForHelp","MYAREA",1)
+    StartTimer(102,7)
+    SetGlobal("TEAM_7","MYAREA",1)
+    StartTimer(101,300)
+    Continue()
+END
+
+IF
+  Entered([PC])
+  CheckStatLT(LastTrigger,113,MOVESILENTLY)
+  !See(LastTrigger,0)
+THEN
+  RESPONSE #100
+    Shout(109)
+    SetGlobal("LastShout","LOCALS",109)
+    FloatMessage(Myself,35592)  // ~"Yemen dhenid.["Enemy hidden." reordered and scrambled]"~
+    StartTimer(102,7)
+END
+

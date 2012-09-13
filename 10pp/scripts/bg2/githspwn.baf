@@ -1,0 +1,10 @@
+IF
+  Range([PC],15)
+  PartyHasItem("misc8u")  // ~Silver Blade~
+  Global("KruinTalked","GLOBAL",0)
+  !Exists("Kruin")  // ~Kruin~
+THEN
+  RESPONSE #100
+    CreateCreature("KRUIN",[-1.-1],0)  // ~Kruin~
+END
+

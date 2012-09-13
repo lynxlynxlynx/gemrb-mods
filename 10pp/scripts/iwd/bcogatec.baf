@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ANGAAR")  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    MoveViewPoint([706.461],VERY_FAST)
+    SetDialogueRange(300)
+    Wait(1)
+    PlaySound("am9200d")
+    OpenDoor("AR9200_GATE1")
+    Wait(1)
+    MoveToPoint([685.452])
+    Face(SE)
+    Wait(1)
+    CloseDoor("AR9200_GATE1")
+    Wait(1)
+    MoveToPoint([649.410])
+    CloseDoor("AR9200_GATE1")
+    Face(W)
+    PlaySound("am9200e")
+    CloseDoor("AR9200_GATE1")
+    SetStartPos([0.0])
+    SetSavedLocation()
+    EndCutSceneMode()
+END
+

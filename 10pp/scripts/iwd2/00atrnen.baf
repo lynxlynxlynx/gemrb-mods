@@ -1,0 +1,7 @@
+IF
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+END
+

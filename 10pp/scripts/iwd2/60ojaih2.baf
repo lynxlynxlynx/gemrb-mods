@@ -1,0 +1,30 @@
+IF
+  !NumberOfTimesTalkedTo(0)
+  Global("Ojaiha_Manual_Dialog_Timer","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Ojaiha_Manual_Dialog_Timer","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Global("6051_Ojaiha_Busy","GLOBAL",0)
+  Global("Ritual_RitualState","GLOBAL",0)
+  Or(2)
+    NumberOfTimesTalkedTo(0)
+    GlobalGT("Ojaiha_Manual_Dialog_Timer","LOCALS",120)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("Ojaiha_Manual_Dialog_Timer","LOCALS",0)
+    Dialogue(LastMarkedObject)
+END
+

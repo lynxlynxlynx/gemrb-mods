@@ -1,0 +1,124 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  OR(3)
+    Allegiance(Myself,GOODBUTBLUE)
+    Allegiance(Myself,NEUTRAL)
+    Allegiance(Myself,0)
+THEN
+  RESPONSE #100
+    Shout(ALERT)
+    Enemy()
+END
+
+IF
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    Shout(ALERT)
+    Continue()
+END
+
+IF
+  Heard([EVILCUTOFF],ALERT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !GlobalTimerNotExpired("nextduel","LOCALS")
+  See("AMDUEL01")  // ~Mercenary~
+  See("AMDUEL02")  // ~Mercenary~
+  Range("AMDUEL01",15)  // ~Mercenary~
+  Range("AMDUEL02",15)  // ~Mercenary~
+  !Allegiance(Myself,ENEMY)
+  !See(NearestEnemyOf(Myself))
+  Global("DuelOn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("nextduel","LOCALS",60)
+    Wait(1)
+    FaceObject("AMDUEL01")
+    Wait(3)
+    DisplayStringHead(Myself,71359)  // ~Ready?~
+    SetGlobal("DuelOn","GLOBAL",1)
+END
+
+IF
+  Global("DuelOn","GLOBAL",2)
+  !Allegiance(Myself,ENEMY)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("DuelOn","GLOBAL",3)
+END
+
+IF
+  Global("DuelOn","GLOBAL",3)
+  GlobalTimerExpired("nextduel","LOCALS")
+  !Allegiance(Myself,ENEMY)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("DuelOn","GLOBAL",0)
+END
+
+IF
+  Global("DuelOn","GLOBAL",1)
+  !GlobalTimerNotExpired("DuelComment","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DuelComment","LOCALS",3)
+  RESPONSE #100
+    SetGlobalTimer("DuelComment","LOCALS",3)
+    FaceObject("AMDUEL01")
+  RESPONSE #100
+    SetGlobalTimer("DuelComment","LOCALS",3)
+    FaceObject("AMDUEL02")
+  RESPONSE #10
+    SetGlobalTimer("DuelComment","LOCALS",3)
+    DisplayStringHead(Myself,71554)  // ~Good... good.~
+  RESPONSE #10
+    SetGlobalTimer("DuelComment","LOCALS",3)
+    DisplayStringHead(Myself,71555)  // ~Excellent technique.~
+  RESPONSE #10
+    SetGlobalTimer("DuelComment","LOCALS",3)
+    DisplayStringHead(Myself,71556)  // ~What kind of swing is THAT?~
+    Wait(1)
+    ActionOverride("AMDUEL01",DisplayStringHead(Myself,543))  // ~Sorry, sir.~
+  RESPONSE #10
+    SetGlobalTimer("DuelComment","LOCALS",3)
+    DisplayStringHead(Myself,71557)  // ~Hmm.  Yes, that looks fine.~
+  RESPONSE #10
+    SetGlobalTimer("DuelComment","LOCALS",3)
+    DisplayStringHead(Myself,71558)  // ~(sigh)~
+END
+
+IF
+  Global("DuelOn","GLOBAL",2)
+  !Allegiance(Myself,ENEMY)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("DuelOn","GLOBAL",3)
+END
+
+IF
+  Global("DuelOn","GLOBAL",3)
+  GlobalTimerExpired("nextduel","LOCALS")
+  !Allegiance(Myself,ENEMY)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("DuelOn","GLOBAL",0)
+END
+

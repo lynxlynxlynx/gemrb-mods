@@ -1,0 +1,86 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_ACID_STORM)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_STINKING_CLOUD)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_DIRE_CHARM)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_OTILUKES_FREEZING_SPHERE)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_COLOR_SPRAY)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_ICE_STORM)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_SNILLOCS_SNOWBALL_SWARM)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_SHROUD_OF_FLAME)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_BLINDNESS)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_INCENDIARY_CLOUD)
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    Spell(LastAttackerOf(Myself),WIZARD_SLOW)
+    Wait(2)
+    Continue()
+END
+
+IF
+  !Global("CAST_SPECIAL","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem1")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem2")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem3")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem4")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem5")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    ChangeCurrentScript("ilGem6")
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",0)
+    Continue()
+END
+

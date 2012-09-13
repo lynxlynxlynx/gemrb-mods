@@ -1,0 +1,16 @@
+IF
+  CreatureHidden(Myself)
+  Global("30OGRGAR_NODES","GLOBAL",5)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

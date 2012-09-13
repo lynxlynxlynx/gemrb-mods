@@ -1,0 +1,22 @@
+IF
+  Entered([PC])
+  PartyHasItem("MISC8Q")  // ~Rebel's Orb~
+  !Dead("sahpr2")  // ~Prince Villynaty~
+THEN
+  RESPONSE #100
+    CreateCreature("sahchf02",[4545.770],6)  // ~Sahuagin Chieftain~
+    SetGlobal("RebelsHostile","AR2300",0)
+    SetGlobal("NoAmbush","AR2300",1)
+    TriggerActivation("GotSahOrb",FALSE)
+END
+
+IF
+  Entered([PC])
+  !PartyHasItem("MISC8Q")  // ~Rebel's Orb~
+THEN
+  RESPONSE #100
+    CreateCreature("sahchf02",[4545.770],6)  // ~Sahuagin Chieftain~
+    SetGlobal("RebelsHostile","AR2300",1)
+    TriggerActivation("GotSahOrb",FALSE)
+END
+

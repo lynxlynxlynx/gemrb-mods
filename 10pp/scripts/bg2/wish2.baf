@@ -1,0 +1,1028 @@
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",111)
+  !CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseSTR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseINT","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCON","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseWIS","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCHR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH14",LastTalkedToBy)  // ~Create Wand~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH10",LastTalkedToBy)  // ~Mass Raise Dead~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",111)
+  CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseSTR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCON","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH08",LastTalkedToBy)  // <Invalid Strref -1>
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH11",LastTalkedToBy)  // ~Greater Deathblow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH12",LastTalkedToBy)  // ~Hardiness~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH09",LastTalkedToBy)  // ~Globe of Blades~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH17",LastTalkedToBy)  // ~Time Stop~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",112)
+  !CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseINT","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCHR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH07",LastTalkedToBy)  // ~Greater Restoration~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH10",LastTalkedToBy)  // ~Mass Raise Dead~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH13",LastTalkedToBy)  // ~Alchemy~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH14",LastTalkedToBy)  // ~Create Wand~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH16",LastTalkedToBy)  // ~Rest~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",112)
+  CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH08",LastTalkedToBy)  // <Invalid Strref -1>
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH09",LastTalkedToBy)  // ~Globe of Blades~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH11",LastTalkedToBy)  // ~Greater Deathblow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH12",LastTalkedToBy)  // ~Hardiness~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH15",LastTalkedToBy)  // ~Wealth~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH17",LastTalkedToBy)  // ~Time Stop~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH32",LastTalkedToBy)  // ~Abi-Dalzim's Horrid Wilting~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH33",LastTalkedToBy)  // ~Intoxication~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",122)
+  !CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH07",LastTalkedToBy)  // ~Greater Restoration~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH10",LastTalkedToBy)  // ~Mass Raise Dead~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH15",LastTalkedToBy)  // ~Wealth~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH16",LastTalkedToBy)  // ~Rest~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",112)
+  CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH09",LastTalkedToBy)  // ~Globe of Blades~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH11",LastTalkedToBy)  // ~Greater Deathblow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH12",LastTalkedToBy)  // ~Hardiness~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH16",LastTalkedToBy)  // ~Rest~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH32",LastTalkedToBy)  // ~Abi-Dalzim's Horrid Wilting~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH33",LastTalkedToBy)  // ~Intoxication~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",211)
+  !CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseINT","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCHR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH13",LastTalkedToBy)  // ~Alchemy~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH14",LastTalkedToBy)  // ~Create Wand~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH10",LastTalkedToBy)  // ~Mass Raise Dead~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH16",LastTalkedToBy)  // ~Rest~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",211)
+  CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseSTR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCON","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH08",LastTalkedToBy)  // <Invalid Strref -1>
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH11",LastTalkedToBy)  // ~Greater Deathblow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH12",LastTalkedToBy)  // ~Hardiness~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH09",LastTalkedToBy)  // ~Globe of Blades~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH17",LastTalkedToBy)  // ~Time Stop~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",212)
+  !CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseINT","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseWIS","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCHR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH07",LastTalkedToBy)  // ~Greater Restoration~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH10",LastTalkedToBy)  // ~Mass Raise Dead~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH13",LastTalkedToBy)  // ~Alchemy~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH14",LastTalkedToBy)  // ~Create Wand~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH16",LastTalkedToBy)  // ~Rest~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH25",LastTalkedToBy)  // ~Slow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH27",LastTalkedToBy)  // ~Knockback~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH32",LastTalkedToBy)  // ~Abi-Dalzim's Horrid Wilting~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",212)
+  CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH08",LastTalkedToBy)  // <Invalid Strref -1>
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH09",LastTalkedToBy)  // ~Globe of Blades~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH11",LastTalkedToBy)  // ~Greater Deathblow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH12",LastTalkedToBy)  // ~Hardiness~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH13",LastTalkedToBy)  // ~Alchemy~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH17",LastTalkedToBy)  // ~Time Stop~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH32",LastTalkedToBy)  // ~Abi-Dalzim's Horrid Wilting~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",222)
+  !CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseINT","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCHR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH07",LastTalkedToBy)  // ~Greater Restoration~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH10",LastTalkedToBy)  // ~Mass Raise Dead~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH13",LastTalkedToBy)  // ~Alchemy~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH14",LastTalkedToBy)  // ~Create Wand~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH16",LastTalkedToBy)  // ~Rest~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH25",LastTalkedToBy)  // ~Slow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH27",LastTalkedToBy)  // ~Knockback~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH32",LastTalkedToBy)  // ~Abi-Dalzim's Horrid Wilting~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",222)
+  CombatCounterGT(0)
+THEN
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH08",LastTalkedToBy)  // <Invalid Strref -1>
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH09",LastTalkedToBy)  // ~Globe of Blades~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH11",LastTalkedToBy)  // ~Greater Deathblow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH12",LastTalkedToBy)  // ~Hardiness~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH13",LastTalkedToBy)  // ~Alchemy~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH17",LastTalkedToBy)  // ~Time Stop~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH33",LastTalkedToBy)  // ~Intoxication~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH32",LastTalkedToBy)  // ~Abi-Dalzim's Horrid Wilting~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH29",LastTalkedToBy)  // ~Strength~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("FindWish1","LOCALS",1)
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+
+IF
+  Global("Wish2Begin","GLOBAL",1)
+  Global("WishLevel","GLOBAL",311)
+THEN
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseSTR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseINT","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseDEX","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseWIS","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCON","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",2)
+    SetGlobal("RaiseCHR","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH07",LastTalkedToBy)  // ~Greater Restoration~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH09",LastTalkedToBy)  // ~Globe of Blades~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH10",LastTalkedToBy)  // ~Mass Raise Dead~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH11",LastTalkedToBy)  // ~Greater Deathblow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH12",LastTalkedToBy)  // ~Hardiness~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH13",LastTalkedToBy)  // ~Alchemy~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH14",LastTalkedToBy)  // ~Create Wand~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH16",LastTalkedToBy)  // ~Rest~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH17",LastTalkedToBy)  // ~Time Stop~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH18",LastTalkedToBy)  // ~Summon Dark Planetar~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH20",LastTalkedToBy)  // ~Hit Points Lowered~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH21",LastTalkedToBy)  // ~Hit Points Lowered~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH14",LastTalkedToBy)  // ~Create Wand~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH20",LastTalkedToBy)  // ~Hit Points Lowered~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH25",LastTalkedToBy)  // ~Slow~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH26",LastTalkedToBy)  // ~Breach~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH27",LastTalkedToBy)  // ~Knockback~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH28",LastTalkedToBy)  // ~Heal~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH29",LastTalkedToBy)  // ~Strength~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH30",LastTalkedToBy)  // ~Miscast Magic~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH31",LastTalkedToBy)  // ~Magic Resistance~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH32",LastTalkedToBy)  // ~Abi-Dalzim's Horrid Wilting~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+  RESPONSE #100
+    SetGlobal("Wish2Begin","GLOBAL",0)
+    SetGlobal("WishLevel","GLOBAL",0)
+    ApplySpellRES("SPWISH33",LastTalkedToBy)  // ~Intoxication~
+    Wait(1)
+    ForceSpell(Myself,POOF_GONE)
+END
+

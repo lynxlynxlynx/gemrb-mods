@@ -1,0 +1,14 @@
+IF
+  Global("Current_Area","GLOBAL",108)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0108cmp3",DEFAULT)
+END
+
+IF
+  Global("Current_Area","GLOBAL",403)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0403ggng",DEFAULT)
+END
+

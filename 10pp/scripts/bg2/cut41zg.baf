@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateCreatureDoor("ppsaha",[992.1440],0)
+    CreateCreatureDoor("ppsaha",[827.1362],0)
+    CreateCreatureDoor("ppsaha",[630.1460],0)
+    CreateCreatureDoor("ppsaha",[864.1581],0)
+    CreateCreatureDoor("ppsaha",[713.1551],0)
+    SetGlobalTimer("GithTimer1","GLOBAL",5)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,71 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    IncrementGlobal("Lady","GLOBAL",1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  !NearLocation(Myself,[1337.2325],18)
+THEN
+  RESPONSE #100
+    MoveToPoint([1337.2325])
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(3,5)
+    StartTimer(1,6)
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(3,5)
+    StartTimer(1,7)
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(3,5)
+    StartTimer(1,8)
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(3,5)
+    StartTimer(1,9)
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(3,5)
+    StartTimer(1,10)
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(3,5)
+    StartTimer(1,11)
+  RESPONSE #100
+    Face(-1)
+    WaitRandom(3,5)
+    StartTimer(1,12)
+END
+
+IF
+  TimerActive(1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    StartTimer(1,10)
+END
+

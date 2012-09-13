@@ -1,0 +1,73 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp(Myself)))
+END
+
+IF
+  Global("5001_Alert_1","AR5001",0)
+  See([0.DEAD])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,1850)  // ~"Chikkka ma sssthest caro!"~
+    SetGlobal("5001_Alert_1","AR5001",1)
+END
+
+IF
+  Global("5001_Alert_1","AR5001",1)
+THEN
+  RESPONSE #100
+    Attack([PC][0.0.10000.10000])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1532.952])
+    Face(SE)
+    Wait(15)
+    MoveToPoint([1694.790])
+    Face(N)
+    MoveToPoint([1694.639])
+    Face(NE)
+    Wait(15)
+    MoveToPoint([1594.539])
+    Face(W)
+    MoveToPoint([1356.539])
+    Face(NW)
+    MoveToPoint([1282.464])
+    Face(W)
+    MoveToPoint([978.464])
+    Face(S)
+    Wait(15)
+    MoveToPoint([978.592])
+    Face(SW)
+    MoveToPoint([846.725])
+    Face(S)
+    MoveToPoint([846.928])
+    Face(SE)
+    MoveToPoint([870.952])
+    Face(SW)
+    Wait(15)
+    MoveToPoint([1416.952])
+    Face(E)
+END
+

@@ -1,0 +1,39 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Githzerai_Ambush_Spawn","GLOBAL",1)
+    Enemy()
+    SetInternal(Myself,INTERNAL_0,1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #10
+    Face(10)
+    Wait(2)
+    Face(2)
+    Wait(1)
+    MoveToPoint([2229.800])
+    Face(10)
+    WaitRandom(3,8)
+    MoveToPoint([2641.976])
+    Face(12)
+    WaitRandom(5,12)
+    MoveToPoint([2443.1344])
+    Wait(2)
+    Face(14)
+    WaitRandom(4,8)
+    MoveToPoint([2243.1143])
+END
+

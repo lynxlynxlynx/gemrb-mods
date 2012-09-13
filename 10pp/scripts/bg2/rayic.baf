@@ -1,0 +1,27 @@
+IF
+  Detect([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("RayicWaits","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("RayicWaitsPC","GLOBAL",10)
+    SetGlobal("RayicWaits","GLOBAL",2)
+END
+
+IF
+  OR(2)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    GlobalTimerExpired("RayicWaitsPC","GLOBAL")
+  !Allegiance(Myself,ENEMY)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

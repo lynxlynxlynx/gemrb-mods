@@ -1,0 +1,7 @@
+IF
+  NearLocation(Myself,[835.359],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",GENERAL)
+END
+

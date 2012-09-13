@@ -1,0 +1,272 @@
+IF
+  !Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  IsHeartOfFuryModeOn()
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #25
+    SetGlobal("PC_PREFERED_TARGET","LOCALS",1)
+    Continue()
+  RESPONSE #75
+    Continue()
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  !TimerActive(12)
+  CheckAreaDiffLevel(2)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #25
+    SetGlobal("PC_PREFERED_TARGET","LOCALS",1)
+    Continue()
+  RESPONSE #75
+    StartRandomTimer(12,6,18)
+    Continue()
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  !TimerActive(12)
+  CheckAreaDiffLevel(3)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #50
+    SetGlobal("PC_PREFERED_TARGET","LOCALS",1)
+    Continue()
+  RESPONSE #50
+    StartRandomTimer(12,6,18)
+    Continue()
+END
+
+IF
+  !Global("PC_PREFERED_TARGET","LOCALS",0)
+  !See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("PC_PREFERED_TARGET","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("PC_PREFERED_TARGET","LOCALS",1)
+    Enemy()
+    Continue()
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Or(3)
+    See([ENEMY.0.GOBLIN],0)
+    See([ENEMY.0.OGRE],0)
+    See([ENEMY.0.WOLF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_1_STATE","MYAREA",1)
+  Or(3)
+    See("01_Goblin_01",0)  // 01_Goblin_01
+    See("01_Goblin_02",0)  // 01_Goblin_02
+    See("01_Goblin_Archer_01",0)  // 01_Goblin_Archer_01
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_2_STATE","MYAREA",1)
+  Or(3)
+    See("02_Goblin_01",0)  // 02_Goblin_01
+    See("02_Goblin_02",0)  // 02_Goblin_02
+    See("02_Goblin_Archer_01",0)  // 02_Goblin_Archer_01
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_3_STATE","MYAREA",1)
+  Or(5)
+    See("03_Goblin_01",0)  // 03_Goblin_01
+    See("03_Goblin_02",0)  // 03_Goblin_02
+    See("03_Goblin_Archer_01",0)  // 03_Goblin_Archer_01
+    See("03_Goblin_Archer_02",0)  // 03_Goblin_Archer_02
+    See("03_Vghotan",0)  // 03_Vghotan
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_4_STATE","MYAREA",1)
+  Or(3)
+    See("04_Goblin_01",0)  // 04_Goblin_01
+    See("04_Goblin_02",0)  // 04_Goblin_02
+    See("04_Goblin_Archer_01",0)  // 04_Goblin_Archer_01
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_5_STATE","MYAREA",1)
+  Or(11)
+    See("05_Goblin_01",0)  // 05_Goblin_01
+    See("05_Goblin_02",0)  // 05_Goblin_02
+    See("05_Goblin_03",0)  // 05_Goblin_03
+    See("05_Goblin_04",0)  // 05_Goblin_04
+    See("05_Goblin_05",0)  // 05_Goblin_05
+    See("05_Goblin_Archer_01",0)  // 05_Goblin_Archer_01
+    See("05_Goblin_Archer_02",0)  // 05_Goblin_Archer_02
+    See("05_Goblin_Archer_03",0)  // 05_Goblin_Archer_03
+    See("05_Goblin_Elite_01",0)  // 05_Goblin_Elite_01
+    See("05_Goblin_Elite_02",0)  // 05_Goblin_Elite_02
+    See("05_Ghotrag",0)  // 05_Ghotrag
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_6_STATE","MYAREA",1)
+  Or(11)
+    See("06_Goblin_01",0)  // 06_Goblin_01
+    See("06_Goblin_02",0)  // 06_Goblin_02
+    See("06_Goblin_03",0)  // 06_Goblin_03
+    See("06_Goblin_04",0)  // 06_Goblin_04
+    See("06_Goblin_05",0)  // 06_Goblin_05
+    See("06_Goblin_Archer_01",0)  // 06_Goblin_Archer_01
+    See("06_Goblin_Archer_02",0)  // 06_Goblin_Archer_02
+    See("06_Goblin_Archer_03",0)  // 06_Goblin_Archer_03
+    See("06_Goblin_Elite_01",0)  // 06_Goblin_Elite_01
+    See("06_Goblin_Elite_02",0)  // 06_Goblin_Elite_02
+    See("06_Caballus",0)  // 06_Caballus
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_7_STATE","MYAREA",1)
+  Or(8)
+    See("07_Goblin_01",0)  // 07_Goblin_01
+    See("07_Goblin_02",0)  // 07_Goblin_02
+    See("07_Goblin_03",0)  // 07_Goblin_03
+    See("07_Goblin_04",0)  // 07_Goblin_04
+    See("07_Goblin_05",0)  // 07_Goblin_05
+    See("07_Goblin_Archer_01",0)  // 07_Goblin_Archer_01
+    See("07_Goblin_Archer_02",0)  // 07_Goblin_Archer_02
+    See("07_Goblin_Elite_01",0)  // 07_Goblin_Elite_01
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  Global("GOBLIN_TEAM_8_STATE","MYAREA",1)
+  Or(6)
+    See("08_Phaen",0)  // 08_Phaen
+    See("08_Goblin_01",0)  // 08_Goblin_01
+    See("08_Goblin_02",0)  // 08_Goblin_02
+    See("08_Goblin_Elite_01",0)  // 08_Goblin_Elite_01
+    See("08_Goblin_Archer_01",0)  // 08_Goblin_Archer_01
+    See("08_Goblin_Archer_02",0)  // 08_Goblin_Archer_02
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  See("01_WOLF_01",0)  // 01_WOLF_01
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  See("03_WOLF_01",0)  // 03_WOLF_01
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  See("03_WOLF_02",0)  // 03_WOLF_02
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("FOLLOW_PC","LOCALS",0)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("PC_PREFERED_TARGET","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("PC_PREFERED_TARGET","LOCALS",1)
+    Continue()
+END
+

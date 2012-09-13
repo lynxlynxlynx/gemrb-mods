@@ -1,0 +1,8 @@
+IF
+  Heard("Bandic",1)  // ~Deke~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

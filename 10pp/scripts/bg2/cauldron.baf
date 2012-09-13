@@ -1,0 +1,46 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISCAZ")  // ~Beholder Eye~
+  Global("Cauldron","AR1008",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Cauldron","AR1008",1)
+    TakePartyItem("MISCAZ")
+    DisplayString(Myself,28347)  // ~Not knowing what else can be done, you drop the Beholder's Eye into the boiling cauldron. Immediately, the liquid calms and the machine further along the wall begins to hum.~
+    CreateVisualEffect("SHACID2",[1328.402])
+    Wait(1)
+    CreateVisualEffect("SPMETSW2",[833.616])
+    CreateVisualEffect("SPMETSW2",[840.703])
+    CreateVisualEffect("SPMETSW2",[940.752])
+    CreateVisualEffect("SPMETSW2",[1058.728])
+    CreateVisualEffect("SPMETSW2",[1105.648])
+    CreateVisualEffect("SPMETSW2",[1045.573])
+    CreateVisualEffect("SPMETSW2",[922.559])
+    CreateVisualEffect("SPFIREPI",[962.554])
+    PlaySound("EFF_M13")
+    Wait(1)
+    SmallWait(7)
+    PlaySound("EFF_38")
+    CreateVisualEffect("SPDISPM2",[962.554])
+    SoundActivate("scriptam1008b1",TRUE)
+    SoundActivate("scriptam1008b2",TRUE)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISCAZ")  // ~Beholder Eye~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,28343)  // ~The liquid in the cauldron boils and seethes as you approach. The symbol of the Twisted Rune emblazons the cauldron and these words are written beneath it:The Orb is sight. The Eye is the way. The path yet remains...~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

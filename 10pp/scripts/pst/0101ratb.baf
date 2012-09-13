@@ -1,0 +1,41 @@
+IF
+  HPPercentLT(Myself,33)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #15
+    FloatMessage(Myself,48282)  // ~::Whistles Merrily::~
+  RESPONSE #15
+    PlaySequence(ANIM_STANCEFIDGET1)
+    PlaySequence(ANIM_STANCETOSTAND)
+  RESPONSE #10
+    FloatMessage(Myself,48282)  // ~::Whistles Merrily::~
+    PlaySequence(ANIM_STANCEFIDGET1)
+    PlaySequence(ANIM_STANCETOSTAND)
+  RESPONSE #160
+    Wait(1)
+END
+

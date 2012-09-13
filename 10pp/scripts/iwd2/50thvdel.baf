@@ -1,0 +1,10 @@
+IF
+  Or(3)
+    !Global("50Barbarians_Leave","GLOBAL",0)
+    !Global("AR5010_Visited","GLOBAL",0)
+    !Global("AR5002_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

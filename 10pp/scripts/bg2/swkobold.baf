@@ -1,0 +1,8 @@
+IF
+  Global("SWKobold","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Attack("swshaman")
+END
+

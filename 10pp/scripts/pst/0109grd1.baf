@@ -1,0 +1,27 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    IncrementGlobal("Lady","GLOBAL",1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(LastHelp))
+END
+

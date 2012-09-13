@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AnnahF")  // 
+    StartSong(CHAR_ANNAH,[0.0],Normal)
+    Wait(3)
+    FaceObject("Trans")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    MoveToPoint([4493.1155])
+    PlaySoundNotRanged("Tra030")
+    PlaySequence(ANIM_MISC2)
+    Wait(3)
+    EndCutSceneMode()
+    Dialogue("Nameless")
+END
+

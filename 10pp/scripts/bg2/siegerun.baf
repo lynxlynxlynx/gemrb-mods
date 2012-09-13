@@ -1,0 +1,36 @@
+IF
+  Global("SiegeLocation","AR5000",1)
+  See("SiegeSight1")  // SiegeSight1
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+    RunAwayFrom("SiegeSight1",45)
+END
+
+IF
+  Global("SiegeLocation","AR5000",2)
+  See("SiegeSight2")  // SiegeSight2
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+    RunAwayFrom("SiegeSight2",45)
+END
+
+IF
+  Global("SiegeLocation","AR5000",3)
+  See("SiegeSight3")  // SiegeSight3
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+    RunAwayFrom("SiegeSight3",45)
+END
+
+IF
+  Global("SiegeLocation","AR5000",4)
+  See("SiegeSight4")  // SiegeSight4
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,71199)  // ~Incoming!  Run for your lives!~
+    RunAwayFrom("SiegeSight4",45)
+END
+

@@ -1,0 +1,8 @@
+IF
+  GlobalLT("TalkedtoRillpuzz","AR2809",2)
+THEN
+  RESPONSE #100
+    CreateVisualEffect("SPFLESH2",[671.295])
+    Wait(10)
+END
+

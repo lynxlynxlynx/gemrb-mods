@@ -1,0 +1,28 @@
+IF
+  StealFailed([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Wait(3)
+    CreateCreature("WATCHN",[535.425])  // ~Watcher~
+    CreateCreature("WATCHN2",[535.425])  // ~Watcher~
+    CreateCreature("WATCHN2",[535.425])  // ~Watcher~
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedCandleKeep","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Global("AttackedCandleKeep","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

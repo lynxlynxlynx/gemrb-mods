@@ -1,0 +1,17 @@
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Global("GoodElfKill","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GoodElfKill","GLOBAL",2)
+END
+
+IF
+  Global("GoodElfKill","GLOBAL",2)
+  Global("TurnHostile","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("TurnHostile","LOCALS",1)
+END
+

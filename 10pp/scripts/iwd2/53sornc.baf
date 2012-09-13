@@ -1,0 +1,103 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("Viciscamera_Dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("TEAM_4","MYAREA",1)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_53SORNC_0","LOCALS",-1)
+  Allegiance(Myself,ENEMY)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("21022201221221142311",Myself,7)
+      // WIZARD_ARMOR
+      // WIZARD_BLUR
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_SHIELD
+      // WIZARD_PROTECTION_FROM_NORMAL_MISSILES
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+    SetGlobal("OBJ_SP_53SORNC_0","LOCALS",-1)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("210324222318231621042222",LastMarkedObject,7)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_ICELANCE
+      // WIZARD_DIRE_CHARM
+      // WIZARD_CHARM_PERSON
+      // WIZARD_BLINDNESS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  GlobalLT("TwoFromTwo","LOCALS",2)
+  Global("SPELL_LIST_1_INDEX","LOCALS",-1)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("21022201221221142311",Myself,7)
+      // WIZARD_ARMOR
+      // WIZARD_BLUR
+      // WIZARD_MIRROR_IMAGE
+      // WIZARD_SHIELD
+      // WIZARD_PROTECTION_FROM_NORMAL_MISSILES
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    IncrementGlobal("TwoFromTwo","LOCALS",1)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

@@ -1,0 +1,13 @@
+IF
+  Dead("drim02")  // ~Imoen~
+  Global("dream","AR0014",9)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    FadeToColor([30.0],0)
+    Wait(1)
+    CreateCreature("drim02",[721.654],0)  // ~Imoen~
+    SetGlobal("dream","AR0014",11)
+    ActionOverride("drim02",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([2379.2690],VERY_FAST)
+    MoveToPoint([2379.2690])
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,9 @@
+IF
+  Global("MoonBladeFight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MoonBladeFight","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut56a")
+END
+

@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    MoveViewPoint([922.283],INSTANT)
+    JumpToPoint([741.291])
+    ActionOverride(Player2,JumpToPoint([786.263]))
+    ActionOverride(Player3,JumpToPoint([844.247]))
+    ActionOverride(Player4,JumpToPoint([965.241]))
+    ActionOverride(Player5,JumpToPoint([1039.255]))
+    ActionOverride(Player6,JumpToPoint([1107.282]))
+    FadeFromColor([20.0],0)
+    Wait(2)
+    SetGlobal("udDrowPlot","GLOBAL",30)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,20 @@
+IF
+  Dead("Tiana")  // ~Tiana~
+  GlobalGT("TianaMove","GLOBAL",1)
+  See([PC])
+  Global("RumarDidSpeak","AR0406",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Dead("Priss")  // ~Priss~
+  GlobalGT("TianaMove","GLOBAL",1)
+  See([PC])
+  Global("RumarDidSpeak","AR0406",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

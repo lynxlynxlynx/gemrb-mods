@@ -1,0 +1,36 @@
+IF
+  BitGlobal("MYAREA:AREA_VAR","",4,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",4,AND)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  Or(2)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    AttackedBy(Myself,DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",4,OR)
+    Enemy()
+    Continue()
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",4,AND)
+  ActionListEmpty()
+  !TargetUnreachable([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+

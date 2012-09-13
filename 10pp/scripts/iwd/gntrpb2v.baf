@@ -1,0 +1,56 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  BitGlobal("MYAREA:AREA_GROUP_VAR","",2,AND)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",2,AND)
+  BitGlobal("MYAREA:AREA_GROUP_VAR","",2,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #50
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",2,OR)
+    PlaySequence(Myself,HEAD_TURN)
+    Continue()
+  RESPONSE #50
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",2,OR)
+    Continue()
+END
+
+IF
+  BitGlobal("MYAREA:AREA_GROUP_VAR","",2,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastSeenBy(Myself),4)
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+  BitGlobal("MYAREA:AREA_GROUP_VAR","",2,AND)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_GROUP_VAR","",2,OR)
+END
+
+IF
+  BitGlobal("MYAREA:AREA_GROUP_VAR","",2,AND)
+  ActionListEmpty()
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+END
+

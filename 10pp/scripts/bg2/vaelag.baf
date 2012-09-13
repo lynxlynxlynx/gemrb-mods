@@ -1,0 +1,12 @@
+IF
+  Global("JanLissaPlot","GLOBAL",13)
+THEN
+  RESPONSE #30
+    Wait(1)
+    MoveToObjectNoInterrupt("DOOR0400")
+    EscapeArea()
+  RESPONSE #30
+    MoveToObjectNoInterrupt("DOOR0400")
+    EscapeArea()
+END
+

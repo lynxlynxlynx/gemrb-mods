@@ -1,0 +1,9 @@
+IF
+  !TimerActive(22)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+    StartRandomTimer(22,2,5)
+END
+

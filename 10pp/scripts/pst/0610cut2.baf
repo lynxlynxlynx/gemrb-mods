@@ -1,0 +1,33 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    StartSong(CHAR_SHADOWS,[0.0],Normal)
+    GlobalSet("Shadow_Spawn","GLOBAL",1)
+    FadeToBlack()
+    Wait(4)
+    FadeFromBlack()
+    DeactivateEx("alpha1",FALSE)
+    DeactivateEx("alpha2",FALSE)
+    DeactivateEx("alpha3",FALSE)
+    DeactivateEx("beta1",FALSE)
+    DeactivateEx("beta2",FALSE)
+    DeactivateEx("beta3",FALSE)
+    DeactivateEx("charlie1",FALSE)
+    DeactivateEx("charlie2",FALSE)
+    DeactivateEx("charlie3",FALSE)
+    DeactivateEx("delta1",FALSE)
+    DeactivateEx("delta2",FALSE)
+    DeactivateEx("echo1",FALSE)
+    DeactivateEx("echo2",FALSE)
+    EnablePortalTravel("NWExit",0)
+    GlobalSet("Trigit_Attack","GLOBAL",2)
+    EnablePortalTravel("SWExit",0)
+    GlobalSet("to0700_Active","AR0610",1)
+    EnablePortalTravel("NEExit",0)
+    DisableFogDither()
+    DisableSpriteDither()
+    StartCutScene("0610ct2b")
+END
+

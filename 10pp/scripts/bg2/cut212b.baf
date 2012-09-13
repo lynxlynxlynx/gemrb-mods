@@ -1,0 +1,36 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ammayor")  // 
+    MoveToObject([PC])
+    StartDialogNoSet([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("amasana")  // 
+    MoveToPoint([2433.1100])
+    FaceObject("ammerc04")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ammerc03")  // 
+    MoveToPoint([2429.1136])
+    FaceObject("amasana")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ammerc04")  // 
+    MoveToPoint([2382.1117])
+    FaceObject("amasana")
+END
+

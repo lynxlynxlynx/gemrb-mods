@@ -1,0 +1,26 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    StartCutSceneMode()
+    CutSceneId(Myself)  // 
+    ClearAllActions()
+    Dialogue([PC])
+END
+

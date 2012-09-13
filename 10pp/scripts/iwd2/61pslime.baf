@@ -1,0 +1,49 @@
+IF
+  Or(2)
+    Entered([PC])
+    IsOverMe([PC])
+  OpenState("AR6103_CircleDoor",TRUE)  // AR6103_CircleDoor
+THEN
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    SetGlobalTimer("SlimeDoorTimer","MYAREA",ONE_DAY)
+    PlaySoundPoint("AM6103h",[645.1640])
+    CloseDoor("AR6103_CircleDoor")
+    TriggerActivation("InfoSlimeDoor",TRUE)
+    TriggerActivation("SlimeTriggerDisable",TRUE)
+    ScreenShake(75,40,30)
+    HideCreature("05_MustardJelly_01",FALSE)
+    HideCreature("05_MustardJelly_02",FALSE)
+    HideCreature("05_MustardJelly_03",FALSE)
+    HideCreature("05_MustardJelly_04",FALSE)
+    HideCreature("05_MustardJelly_05",FALSE)
+    HideCreature("05_MustardJelly_06",FALSE)
+    HideCreature("05_MustardJelly_07",FALSE)
+    HideCreature("05_MustardJelly_08",FALSE)
+    HideCreature("05_MustardJelly_09",FALSE)
+    HideCreature("05_MustardJelly_10",FALSE)
+    HideCreature("05_OliveSlime_11",FALSE)
+    HideCreature("05_OliveSlime_12",FALSE)
+    HideCreature("05_OliveSlime_13",FALSE)
+    HideCreature("05_OliveSlime_14",FALSE)
+    HideCreature("05_OliveSlime_15",FALSE)
+    HideCreature("05_OliveSlime_16",FALSE)
+    HideCreature("05_OliveSlime_17",FALSE)
+    HideCreature("05_OliveSlime_18",FALSE)
+    HideCreature("05_OliveSlime_19",FALSE)
+    HideCreature("05_OliveSlime_20",FALSE)
+END
+
+IF
+  OpenState("AR6103_CircleDoor",FALSE)  // AR6103_CircleDoor
+  GlobalTimerExpired("SlimeDoorTimer","MYAREA")
+THEN
+  RESPONSE #100
+    PlaySoundPoint("AM6103h",[645.1640])
+    OpenDoor("AR6103_CircleDoor")
+    TriggerActivation("InfoSlimeDoor",FALSE)
+    TriggerActivation("SlimeTriggerDisable",FALSE)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

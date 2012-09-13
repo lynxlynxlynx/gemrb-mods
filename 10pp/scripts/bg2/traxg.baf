@@ -1,0 +1,16 @@
+IF
+  Global("JanMove","GLOBAL",1)
+  See("Jan")  // Jan
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("Jan")
+END
+
+IF
+  Global("JanMove","GLOBAL",1)
+  !See("Jan")  // Jan
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

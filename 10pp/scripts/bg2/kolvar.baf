@@ -1,0 +1,28 @@
+IF
+  See([PC])
+  Global("TalkedWithParty","GLOBAL",0)
+  InParty("Xzar")  // ~Xzar~
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  See([PC])
+  Global("TalkedWithParty","GLOBAL",0)
+  InParty("Montaron")  // Montaron
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  See([PC])
+  Global("TalkedWithParty","GLOBAL",0)
+  InParty("Xzar")  // ~Xzar~
+  InParty("Montaron")  // Montaron
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+

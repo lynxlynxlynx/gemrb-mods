@@ -1,0 +1,10 @@
+IF
+  See([0.0.0.IMP])
+  Detect([GOODCUTOFF])
+  Global("BloodWar","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BloodWar","LOCALS",1)
+    DisplayStringHead(Myself,70654)  // ~Die, baatezu!  You fiends shall never win the Blood War!!~
+END
+

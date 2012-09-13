@@ -1,0 +1,127 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("LIMHA_MODE","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_MODE","MYAREA",0)
+    Continue()
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",0)
+  HaveSpell(WIZARD_CHAOS)
+  See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_CHAOS,0)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",0)
+    Spell(LastMarkedObject,WIZARD_CHAOS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",1)
+  HaveSpell(WIZARD_VITRIOLIC_SPHERE)
+  Or(2)
+    See([PC],0)
+    See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_VITRIOLIC_SPHERE,0)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",1)
+    Spell(LastMarkedObject,WIZARD_VITRIOLIC_SPHERE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",2)
+  HaveSpell(WIZARD_DEAFNESS)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_DEAFNESS,0)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",2)
+    Spell(LastMarkedObject,WIZARD_DEAFNESS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",3)
+  HaveSpell(WIZARD_MELFS_ACID_ARROW)
+  Or(2)
+    See([PC],0)
+    See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_MELFS_ACID_ARROW,0)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",3)
+    Spell(LastMarkedObject,WIZARD_MELFS_ACID_ARROW)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",4)
+  HaveSpell(WIZARD_CHARM_PERSON)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_CHARM_PERSON,0)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",4)
+    Spell(LastMarkedObject,WIZARD_CHARM_PERSON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",5)
+  HaveSpell(WIZARD_DIRE_CHARM)
+  Or(2)
+    See([PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],0)
+    See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_DIRE_CHARM,0)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",5)
+    Spell(LastMarkedObject,WIZARD_DIRE_CHARM)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",6)
+  HaveSpell(WIZARD_HOLD_PERSON)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_HOLD_PERSON,0)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",6)
+    Spell(LastMarkedObject,WIZARD_HOLD_PERSON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("LIMHA_LAST_CAST","MYAREA",-1)
+THEN
+  RESPONSE #100
+    SetGlobal("LIMHA_LAST_CAST","MYAREA",-1)
+    Continue()
+END
+

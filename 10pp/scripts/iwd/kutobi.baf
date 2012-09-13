@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StopJoinRequests()
+    SetGlobal("9300_RESET_JOIN","GLOBAL",1)
+    MultiPlayerSync()
+    ForceSpell(Myself,INNATE_WIND_WALK)
+    Wait(2)
+    SetGlobal("SET_MYSELF_HIDDEN","LOCALS",1)
+    HideCreature(Myself,TRUE)
+    MultiPlayerSync()
+    EndCutSceneMode()
+    StartCutScene("LUA9300")
+END
+

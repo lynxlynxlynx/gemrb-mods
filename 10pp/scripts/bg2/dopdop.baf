@@ -1,0 +1,93 @@
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #25
+    ChangeAnimation("DOPKIE")
+  RESPONSE #75
+    Continue()
+END
+
+IF
+  See([0.0.DOPPLEGANGER.FIGHTER])
+  HPPercentLT([0.0.DOPPLEGANGER.FIGHTER],50)
+THEN
+  RESPONSE #25
+    ChangeAnimation("DOPKIE")
+  RESPONSE #75
+    Continue()
+END
+
+IF
+  See([0.0.DOPPLEGANGER.BARD])
+  HPPercentLT([0.0.DOPPLEGANGER.BARD],50)
+THEN
+  RESPONSE #25
+    ChangeAnimation("DOPKIE")
+  RESPONSE #75
+    Continue()
+END
+
+IF
+  See([0.0.DOPPLEGANGER.CLERIC])
+  HPPercentLT([0.0.DOPPLEGANGER.CLERIC],50)
+THEN
+  RESPONSE #25
+    ChangeAnimation("DOPKIE")
+  RESPONSE #75
+    Continue()
+END
+
+IF
+  See([0.0.DOPPLEGANGER.DOPPLEGANGER_GREATER])
+  HPPercentLT([0.0.DOPPLEGANGER.DOPPLEGANGER_GREATER],50)
+THEN
+  RESPONSE #25
+    ChangeAnimation("DOPKIE")
+  RESPONSE #75
+    Continue()
+END
+
+IF
+  See([0.0.DOPPLEGANGER.MAGE])
+  HPPercentLT([0.0.DOPPLEGANGER.MAGE],50)
+THEN
+  RESPONSE #25
+    ChangeAnimation("DOPKIE")
+  RESPONSE #75
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #80
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+  RESPONSE #20
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  Delay(10)
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),4)
+  Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #50
+    ChangeAnimation("DOPDUR")
+  RESPONSE #50
+    ChangeAnimation("DOPFUE")
+END
+
+IF
+  Delay(10)
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #50
+    ChangeAnimation("DOPISL")
+  RESPONSE #50
+    ChangeAnimation("DOPFUE")
+END
+

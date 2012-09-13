@@ -1,0 +1,12 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SpawnSkeletons","LOCALS",0)
+THEN
+  RESPONSE #100
+    CreateCreatureOffScreen("SKELET01",0)  // ~Skeleton~
+    CreateCreatureOffScreen("SKELET01",0)  // ~Skeleton~
+    CreateCreatureOffScreen("SKELET01",0)  // ~Skeleton~
+    CreateCreatureOffScreen("SKELET01",0)  // ~Skeleton~
+    SetGlobal("SpawnSkeletons","LOCALS",1)
+END
+

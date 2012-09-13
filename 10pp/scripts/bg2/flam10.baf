@@ -1,0 +1,14 @@
+IF
+  Heard("FlamingFist10",1)  // FlamingFist10
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("Sarevok",2)  // ~Sarevok~
+THEN
+  RESPONSE #100
+    Attack("Sarevok")
+END
+

@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Soldier_1_Gate")  // 
+    Wait(1)
+    FaceObject("06_Caballus")
+    Wait(1)
+    Attack("06_Caballus")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Soldier_2_Gate")  // 
+    Wait(1)
+    FaceObject("06_Caballus")
+    Wait(1)
+    Attack("06_Caballus")
+END
+

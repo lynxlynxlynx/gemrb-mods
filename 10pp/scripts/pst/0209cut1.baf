@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Strahan")  // 
+    MoveToPoint([756.696])
+    Face(10)
+    Dialogue(Myself)
+    GlobalSet("0209_Attack","AR0209",1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveToPoint([896.576])
+    Face(2)
+END
+

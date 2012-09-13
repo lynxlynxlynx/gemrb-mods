@@ -1,0 +1,187 @@
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite("INVISIBLE",Myself,ALTERATION,0)
+    DestroySelf()
+END
+
+IF
+  Or(2)
+    !IsCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS)
+    !IsCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,253)
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+    Continue()
+END
+
+IF
+  Global("JasperGiveFloat","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",3)
+  See("Lothar4",0)  // Lothar4
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",3)
+  !Global("TEAM_5","MYAREA",0)
+  See([ANYONE],0)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,2270,1630,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2270.1630])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("61CurrentDay","GLOBAL",3)
+  OpenState("AR6104_Ruins2",TRUE)  // AR6104_Ruins2
+THEN
+  RESPONSE #100
+    MoveToPoint([2270.1630])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  Global("61CurrentDay","GLOBAL",3)
+  OpenState("AR6104_Ruins2",TRUE)  // AR6104_Ruins2
+THEN
+  RESPONSE #100
+    JumpToPoint([1984.1728])
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,1950,2080,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1950.2080])
+    SetGlobal("ML_0","LOCALS",-1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("61CurrentDay","GLOBAL",3)
+  OpenState("AR6104_Ruins2",TRUE)  // AR6104_Ruins2
+THEN
+  RESPONSE #100
+    MoveToPoint([1950.2080])
+END
+
+IF
+  Global("ML_1","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,2567,1932,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2567.1932])
+    SetGlobal("ML_1","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_1","LOCALS",0)
+  Global("61CurrentDay","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([2567.1932])
+END
+
+IF
+  Global("ML_1","LOCALS",1)
+  Global("61CurrentDay","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Face(NE)
+    SetGlobal("ML_1","LOCALS",-1)
+END
+
+IF
+  Global("ML_2","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,1792,1792,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1792.1792])
+    SetGlobal("ML_2","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_2","LOCALS",0)
+  Global("61CurrentDay","GLOBAL",4)
+  NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1792.1792])
+END
+
+IF
+  Global("ML_2","LOCALS",1)
+  Global("61CurrentDay","GLOBAL",4)
+  NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FaceObject(NearestPC)
+    SetGlobal("ML_2","LOCALS",2)
+END
+
+IF
+  Global("ML_2","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,1950,1630,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1950.1630])
+    SetGlobal("ML_2","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("ML_2","LOCALS",2)
+  Global("61CurrentDay","GLOBAL",4)
+  NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1950.1630])
+END
+
+IF
+  Global("ML_2","LOCALS",3)
+  Global("61CurrentDay","GLOBAL",4)
+  NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FaceObject(NearestPC)
+    SetGlobal("ML_2","LOCALS",-1)
+END
+

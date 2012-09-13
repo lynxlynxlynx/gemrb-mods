@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ICASARACHT")  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    ExportParty("IWDHOW")
+    Wait(1)
+    MultiPlayerSync()
+    HideGUI()
+    SetGlobal("ICASARACHT_SPOKE","MYAREA",1)
+    SetDialogueRange(75)
+    MultiPlayerSync()
+    SmallWait(5)
+    StartCutScene("ILPTYPOS")
+    MoveViewPointUntilDone([1865.913],VERY_FAST)
+    Wait(6)
+    MultiPlayerSync()
+    PlaySound("DRAGON02")
+    StartCutScene("ILPTYFCE")
+    Wait(4)
+    MultiPlayerSync()
+    StartCutScene("ILDRGCAM")
+    MoveToPoint([1558.995])
+    Face(E)
+    Wait(2)
+    SmallWait(8)
+    PlaySound("DRAGON01")
+    PlaySequence(Myself,CAST)
+    Wait(2)
+    StartCutScene("ILPTYTLK")
+END
+

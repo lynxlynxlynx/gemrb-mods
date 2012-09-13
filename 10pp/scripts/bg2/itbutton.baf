@@ -1,0 +1,100 @@
+IF
+  Clicked([ANYONE])
+  Global("TouchedYSButton","GLOBAL",1)
+  Range(LastTrigger,15)
+  !PartyHasItem("hgward01")  // ~Flame Wardstone~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,70628)  // ~You attempt to manipulate the controls...the machine whirrs for a moment with magical energy, and then emits a harsh noise, displaying a flame symbol on its surface.~
+    CreateVisualEffect("ICMAGICH",[1934.1170])
+    Wait(1)
+    ApplySpell(LastTrigger,WIZARD_INCENDIARY_CLOUD)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("TouchedYSButton","GLOBAL",1)
+  Range(LastTrigger,15)
+  PartyHasItem("hgward01")  // ~Flame Wardstone~
+  !PartyHasItem("hgward02")  // ~Skull Wardstone~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,71185)  // ~You attempt to manipulate the controls...the machine whirrs for a moment with magical energy, and then emits a harsh noise, displaying a skull symbol on its surface.~
+    CreateVisualEffect("SPUNHOLY",[1934.1170])
+    Wait(1)
+    ApplySpell(LastTrigger,WIZARD_DEATH_SPELL)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("TouchedYSButton","GLOBAL",1)
+  Range(LastTrigger,15)
+  PartyHasItem("hgward01")  // ~Flame Wardstone~
+  PartyHasItem("hgward02")  // ~Skull Wardstone~
+  !PartyHasItem("hgward03")  // ~Hammer Wardstone~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,71186)  // ~You attempt to manipulate the controls...the machine whirrs for a moment with magical energy, and then emits a harsh noise, displaying a hammer symbol on its surface.~
+    CreateVisualEffect("ICRMPARI",[1934.1170])
+    Wait(1)
+    ApplySpell(LastTrigger,WIZARD_FLESH_TO_STONE)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("TouchedYSButton","GLOBAL",1)
+  Range(LastTrigger,15)
+  PartyHasItem("hgward01")  // ~Flame Wardstone~
+  PartyHasItem("hgward02")  // ~Skull Wardstone~
+  PartyHasItem("hgward03")  // ~Hammer Wardstone~
+  !PartyHasItem("hgward04")  // ~Blood Wardstone~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,71187)  // ~You attempt to manipulate the controls...the machine whirrs for a moment with magical energy, and then emits a harsh noise, displaying a symbol representing blood on its surface.~
+    CreateVisualEffect("SPSTRENH",[1934.1170])
+    Wait(1)
+    ApplySpell(LastTrigger,WIZARD_WAIL_OF_THE_BANSHEE)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("TouchedYSButton","GLOBAL",1)
+  Range(LastTrigger,15)
+  PartyHasItem("hgward01")  // ~Flame Wardstone~
+  PartyHasItem("hgward02")  // ~Skull Wardstone~
+  PartyHasItem("hgward03")  // ~Hammer Wardstone~
+  PartyHasItem("hgward04")  // ~Blood Wardstone~
+THEN
+  RESPONSE #100
+    TakePartyItem("hgward01")
+    TakePartyItem("hgward02")
+    TakePartyItem("hgward03")
+    TakePartyItem("hgward04")
+    CreateVisualEffect("SPDISPMA",[1934.1170])
+    DisplayString(Myself,70629)  // ~You manipulate the controls, placing the wardstones in various vacant slots.  Upon inserting the last, the machine suddenly emits a purring sound and appears to power down...the force which was blocking the stairwell is now gone.~
+    TriggerActivation("Info5204",FALSE)
+    TriggerActivation("Tran5204",TRUE)
+    AddXP2DA("PLOT11E")
+    PlaySound("am5201e")
+    Wait(1)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("TouchedYSButton","GLOBAL",0)
+  Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    SetGlobal("TouchedYSButton","GLOBAL",1)
+    DisplayString(Myself,71188)  // ~The strange device has a strange field of energy around it.  It has complicated-looking controls, with various buttons and four small depressions.  On closer inspection, each of the impressions has a symbol over it: a flame, a skull, a hammer and blood.  You could attempt to manipulate the controls, if you wish.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

@@ -1,0 +1,72 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Shout(100)
+    EscapeArea()
+END
+
+IF
+  Detect([PC])
+  See([ENEMY])
+  Global("Scene1","AR2800",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Scene1","AR2800",1)
+    DisplayStringHead(Myself,18539)  // ~<CHARNAME>! We are overwhelmed!~
+END
+
+IF
+  Heard([ANYONE],99)
+  InMyGroup(LastHeardBy(Myself))
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+    Shout(99)
+END
+
+IF
+  NumDead("suundead",3)
+  Global("Scene1","AR2800",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("Scene1","AR2800",2)
+    DisplayStringHead(Myself,23956)  // ~Move out men! The enemy is everywhere!~
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  See([ENEMY])
+  Global("Scene1","AR2800",1)
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY],45)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  InMyGroup(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Shout(99)
+END
+

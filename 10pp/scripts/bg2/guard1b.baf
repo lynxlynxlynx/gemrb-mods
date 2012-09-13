@@ -1,0 +1,8 @@
+IF
+  Global("Backroom","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    MoveToPoint([871.952])
+END
+

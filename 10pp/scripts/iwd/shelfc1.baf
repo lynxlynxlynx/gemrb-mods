@@ -1,0 +1,368 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,AND)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FaceObject([PC])
+    FloatMessage(Myself,14404)  // ~"More invaders!"~
+    Continue()
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FaceObject([PC])
+    FloatMessage(Myself,6304)  // ~"For the Glory of the Hand!"~
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(NearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(SecondNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(ThirdNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(FourthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(FifthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(SixthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(SeventhNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(EigthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(NinthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(TenthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See([ENEMY])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(NearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(SecondNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(ThirdNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(FourthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(FifthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(SixthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(SeventhNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(EigthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(NinthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(TenthNearestEnemyOf(NearestEnemyOf(Myself)))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See([ENEMY])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),60)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_HOLD_PERSON)
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_PRAYER)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PRAYER)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+

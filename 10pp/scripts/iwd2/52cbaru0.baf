@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("03_52Barud_01")  // 
+    HideCreature(Myself,FALSE)
+    HideCreature("03_52Harhor_02",FALSE)
+    HideCreature("03_52DUEWA_03",FALSE)
+    HideCreature("03_52DUEWA_04",FALSE)
+    HideCreature("03_52DUEWA_05",FALSE)
+    HideCreature("03_52Zama_06",FALSE)
+    HideCreature("03_52DUECL_07",FALSE)
+    HideCreature("03_52DUEBO_08",FALSE)
+    HideCreature("03_52DUEBO_09",FALSE)
+    HideCreature("03_52Dargab_10",FALSE)
+    HideCreature("03_52ORCSS_11",FALSE)
+    HideCreature("03_52ORCSS_12",FALSE)
+    HideCreature("03_52ORCSS_13",FALSE)
+    HideCreature("03_52ORCSS_14",FALSE)
+    MultiPlayerSync()
+    ActionOverride(Player1,FaceObject("03_52Barud_01"))
+    ActionOverride(Player2,FaceObject("03_52Barud_01"))
+    ActionOverride(Player3,FaceObject("03_52Barud_01"))
+    ActionOverride(Player4,FaceObject("03_52Barud_01"))
+    ActionOverride(Player5,FaceObject("03_52Barud_01"))
+    ActionOverride(Player6,FaceObject("03_52Barud_01"))
+    MultiPlayerSync()
+    SetVisualRange(100)
+    MultiPlayerSync()
+    MoveViewPointUntilDone([1845.1190],FASTEST)
+    SetDialogueRange(300)
+    SetGlobal("TEAM_2","MYAREA",1)
+    Dialogue([PC])
+END
+

@@ -1,0 +1,74 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_1,0)
+END
+
+IF
+  !Internal(Myself,INTERNAL_1,1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  StealFailed([PC])
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    SetInternal(Myself,INTERNAL_1,2)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,1)
+  !TimerActive(1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    FloatMessage(Myself,66558)  // ~"Go away.  I wash."~
+    StartRandomTimer(1,20,40)
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    FloatMessage(Myself,66557)  // ~"My cloth. Wash it."~
+    StartRandomTimer(1,20,40)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(0)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9546)  // ~"I, Giscorl."~
+    WaitRandom(8,10)
+    Face(14)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9545)  // ~"Giscorl sell cloth, buy cloth."~
+    WaitRandom(8,10)
+    Face(12)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9544)  // ~"Giscorl wash cloth, wear cloth."~
+    WaitRandom(8,10)
+    Face(14)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9543)  // ~"Giscorl sell cloth, buy cloth."~
+    WaitRandom(8,10)
+END
+

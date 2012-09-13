@@ -1,0 +1,665 @@
+IF
+  Global("ResetArchon","MYAREA",1)
+  NearLocation(Myself,704,1344,20)
+THEN
+  RESPONSE #100
+    Deactivate("BoatEntrance1")
+    Deactivate("BoatEntrance2")
+    Deactivate("BoatPost1")
+    Deactivate("BoatPost2")
+    Deactivate("BoatExit1")
+    Deactivate("BoatExit2")
+    Deactivate("BoatCitadel1")
+    Deactivate("BoatCitadel2")
+    Deactivate("BoatPalace1")
+    Deactivate("BoatPalace2")
+    Deactivate("BoatEmbassy1")
+    Deactivate("BoatEmbassy2")
+    Deactivate("BoatStash1")
+    Deactivate("BoatStash2")
+    Deactivate("BoatAmphitheatre1")
+    Deactivate("BoatAmphitheatre2")
+    Activate("BoatEntrance1")
+    Activate("BoatEntrance2")
+    SetGlobal("CurrentDestination","MYAREA",1)
+    SetGlobal("ResetArchon","MYAREA",0)
+END
+
+IF
+  Global("ResetArchon","MYAREA",1)
+  !NearLocation(Myself,704,1344,20)
+THEN
+  RESPONSE #100
+    JumpToPoint([704.1344])
+    SetStartPos([704.1344])
+    SetSavedLocationPoint(704,1344,NE)
+END
+
+IF
+  GlobalGT("DestinationRequest","LOCALS",0)
+  Global("TravelStep","LOCALS",0)
+THEN
+  RESPONSE #100
+    FadeToColor([0.0],0)
+    SetGlobal("TravelStep","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",2)
+THEN
+  RESPONSE #100
+    Deactivate("BoatEntrance1")
+    Deactivate("BoatEntrance2")
+    Deactivate("BoatPost1")
+    Deactivate("BoatPost2")
+    Deactivate("BoatExit1")
+    Deactivate("BoatExit2")
+    Deactivate("BoatCitadel1")
+    Deactivate("BoatCitadel2")
+    Deactivate("BoatPalace1")
+    Deactivate("BoatPalace2")
+    Deactivate("BoatEmbassy1")
+    Deactivate("BoatEmbassy2")
+    Deactivate("BoatStash1")
+    Deactivate("BoatStash2")
+    Deactivate("BoatAmphitheatre1")
+    Deactivate("BoatAmphitheatre2")
+    SetGlobal("TravelStep","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",1)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatEntrance1")
+    Activate("BoatEntrance2")
+    JumpToPoint([704.1344])
+    SetStartPos([704.1344])
+    SetSavedLocationPoint(704,1344,NE)
+    ActionOverride(Player1,JumpToPoint([730.1440]))
+    ActionOverride(Player2,JumpToPoint([730.1440]))
+    ActionOverride(Player3,JumpToPoint([730.1440]))
+    ActionOverride(Player4,JumpToPoint([730.1440]))
+    ActionOverride(Player5,JumpToPoint([730.1440]))
+    ActionOverride(Player6,JumpToPoint([730.1440]))
+    MoveViewPoint([730.1440],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",1)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",2)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatPost1")
+    Activate("BoatPost2")
+    JumpToPoint([1500.1250])
+    SetStartPos([1500.1250])
+    SetSavedLocationPoint(1500,1250,NE)
+    ActionOverride(Player1,JumpToPoint([1600.1216]))
+    ActionOverride(Player2,JumpToPoint([1600.1216]))
+    ActionOverride(Player3,JumpToPoint([1600.1216]))
+    ActionOverride(Player4,JumpToPoint([1600.1216]))
+    ActionOverride(Player5,JumpToPoint([1600.1216]))
+    ActionOverride(Player6,JumpToPoint([1600.1216]))
+    MoveViewPoint([1600.1216],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",2)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",3)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatExit1")
+    Activate("BoatExit2")
+    JumpToPoint([2100.820])
+    SetStartPos([2100.820])
+    SetSavedLocationPoint(2100,820,NE)
+    ActionOverride(Player1,JumpToPoint([2080.800]))
+    ActionOverride(Player2,JumpToPoint([2080.800]))
+    ActionOverride(Player3,JumpToPoint([2080.800]))
+    ActionOverride(Player4,JumpToPoint([2080.800]))
+    ActionOverride(Player5,JumpToPoint([2080.800]))
+    ActionOverride(Player6,JumpToPoint([2080.800]))
+    MoveViewPoint([2080.800],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",3)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",4)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatCitadel1")
+    Activate("BoatCitadel2")
+    JumpToPoint([1080.2200])
+    SetStartPos([1080.2200])
+    SetSavedLocationPoint(1080,2200,NE)
+    ActionOverride(Player1,JumpToPoint([1310.2210]))
+    ActionOverride(Player2,JumpToPoint([1310.2210]))
+    ActionOverride(Player3,JumpToPoint([1310.2210]))
+    ActionOverride(Player4,JumpToPoint([1310.2210]))
+    ActionOverride(Player5,JumpToPoint([1310.2210]))
+    ActionOverride(Player6,JumpToPoint([1310.2210]))
+    MoveViewPoint([1310.2210],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",4)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",5)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatPalace1")
+    Activate("BoatPalace2")
+    JumpToPoint([1950.2210])
+    SetStartPos([1950.2210])
+    SetSavedLocationPoint(1950,2210,NE)
+    ActionOverride(Player1,JumpToPoint([1942.2085]))
+    ActionOverride(Player2,JumpToPoint([1942.2085]))
+    ActionOverride(Player3,JumpToPoint([1942.2085]))
+    ActionOverride(Player4,JumpToPoint([1942.2085]))
+    ActionOverride(Player5,JumpToPoint([1942.2085]))
+    ActionOverride(Player6,JumpToPoint([1942.2085]))
+    MoveViewPoint([1942.2085],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",5)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",6)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatEmbassy1")
+    Activate("BoatEmbassy2")
+    JumpToPoint([2560.2270])
+    SetStartPos([2560.2270])
+    SetSavedLocationPoint(2560,2270,NE)
+    ActionOverride(Player1,JumpToPoint([2720.2170]))
+    ActionOverride(Player2,JumpToPoint([2720.2170]))
+    ActionOverride(Player3,JumpToPoint([2720.2170]))
+    ActionOverride(Player4,JumpToPoint([2720.2170]))
+    ActionOverride(Player5,JumpToPoint([2720.2170]))
+    ActionOverride(Player6,JumpToPoint([2720.2170]))
+    MoveViewPoint([2720.2170],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",6)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",7)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatStash1")
+    Activate("BoatStash2")
+    JumpToPoint([2120.1820])
+    SetStartPos([2120.1820])
+    SetSavedLocationPoint(2120,1820,NE)
+    ActionOverride(Player1,JumpToPoint([2240.1860]))
+    ActionOverride(Player2,JumpToPoint([2240.1860]))
+    ActionOverride(Player3,JumpToPoint([2240.1860]))
+    ActionOverride(Player4,JumpToPoint([2240.1860]))
+    ActionOverride(Player5,JumpToPoint([2240.1860]))
+    ActionOverride(Player6,JumpToPoint([2240.1860]))
+    MoveViewPoint([2240.1860],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",7)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",3)
+  Global("DestinationRequest","LOCALS",8)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    Activate("BoatAmphitheatre1")
+    Activate("BoatAmphitheatre2")
+    JumpToPoint([2650.1310])
+    SetStartPos([2650.1310])
+    SetSavedLocationPoint(2650,1310,NE)
+    ActionOverride(Player1,JumpToPoint([2590.1310]))
+    ActionOverride(Player2,JumpToPoint([2590.1310]))
+    ActionOverride(Player3,JumpToPoint([2590.1310]))
+    ActionOverride(Player4,JumpToPoint([2590.1310]))
+    ActionOverride(Player5,JumpToPoint([2590.1310]))
+    ActionOverride(Player6,JumpToPoint([2590.1310]))
+    MoveViewPoint([2590.1310],INSTANT)
+    SetGlobal("CurrentDestination","MYAREA",8)
+    SetGlobal("TravelStep","LOCALS",-1)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  NearSavedLocation(20)
+THEN
+  RESPONSE #100
+    SetGlobal("TravelStep","LOCALS",-2)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",1)
+THEN
+  RESPONSE #100
+    JumpToPoint([704.1344])
+    SetStartPos([704.1344])
+    SetSavedLocationPoint(704,1344,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",2)
+THEN
+  RESPONSE #100
+    JumpToPoint([1500.1250])
+    SetStartPos([1500.1250])
+    SetSavedLocationPoint(1500,1250,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",3)
+THEN
+  RESPONSE #100
+    JumpToPoint([2100.820])
+    SetStartPos([2100.820])
+    SetSavedLocationPoint(2100,820,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",4)
+THEN
+  RESPONSE #100
+    JumpToPoint([1080.2200])
+    SetStartPos([1080.2200])
+    SetSavedLocationPoint(1080,2200,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",5)
+THEN
+  RESPONSE #100
+    JumpToPoint([1950.2210])
+    SetStartPos([1950.2210])
+    SetSavedLocationPoint(1950,2210,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",6)
+THEN
+  RESPONSE #100
+    JumpToPoint([2560.2270])
+    SetStartPos([2560.2270])
+    SetSavedLocationPoint(2560,2270,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",7)
+THEN
+  RESPONSE #100
+    JumpToPoint([2120.1820])
+    SetStartPos([2120.1820])
+    SetSavedLocationPoint(2120,1820,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-1)
+  !NearSavedLocation(20)
+  Global("CurrentDestination","MYAREA",8)
+THEN
+  RESPONSE #100
+    JumpToPoint([2650.1310])
+    SetStartPos([2650.1310])
+    SetSavedLocationPoint(2650,1310,NE)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayersVisible","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !BitGlobal("PlayersVisible","LOCALS",1,AND)
+  Or(2)
+    See(Player1,0)
+    Dead(Player1)  // 
+THEN
+  RESPONSE #100
+    IncrementGlobal("PlayersVisible","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !BitGlobal("PlayersVisible","LOCALS",2,AND)
+  Or(3)
+    NumInPartyLT(2)
+    See(Player2,0)
+    Dead(Player2)  // 
+THEN
+  RESPONSE #100
+    IncrementGlobal("PlayersVisible","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !BitGlobal("PlayersVisible","LOCALS",4,AND)
+  Or(3)
+    NumInPartyLT(3)
+    See(Player3,0)
+    Dead(Player3)  // 
+THEN
+  RESPONSE #100
+    IncrementGlobal("PlayersVisible","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !BitGlobal("PlayersVisible","LOCALS",8,AND)
+  Or(3)
+    NumInPartyLT(4)
+    See(Player4,0)
+    Dead(Player4)  // 
+THEN
+  RESPONSE #100
+    IncrementGlobal("PlayersVisible","LOCALS",8)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !BitGlobal("PlayersVisible","LOCALS",16,AND)
+  Or(3)
+    NumInPartyLT(5)
+    See(Player5,0)
+    Dead(Player5)  // 
+THEN
+  RESPONSE #100
+    IncrementGlobal("PlayersVisible","LOCALS",16)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !BitGlobal("PlayersVisible","LOCALS",32,AND)
+  Or(3)
+    NumInPartyLT(6)
+    See(Player6,0)
+    Dead(Player6)  // 
+THEN
+  RESPONSE #100
+    IncrementGlobal("PlayersVisible","LOCALS",32)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  Global("PlayersVisible","LOCALS",63)
+THEN
+  RESPONSE #100
+    SetGlobal("TravelStep","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",1)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([730.1440]))
+    ActionOverride(Player2,JumpToPoint([730.1440]))
+    ActionOverride(Player3,JumpToPoint([730.1440]))
+    ActionOverride(Player4,JumpToPoint([730.1440]))
+    ActionOverride(Player5,JumpToPoint([730.1440]))
+    ActionOverride(Player6,JumpToPoint([730.1440]))
+    MoveViewPoint([730.1440],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",2)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([1600.1216]))
+    ActionOverride(Player2,JumpToPoint([1600.1216]))
+    ActionOverride(Player3,JumpToPoint([1600.1216]))
+    ActionOverride(Player4,JumpToPoint([1600.1216]))
+    ActionOverride(Player5,JumpToPoint([1600.1216]))
+    ActionOverride(Player6,JumpToPoint([1600.1216]))
+    MoveViewPoint([1600.1216],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",3)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([2080.800]))
+    ActionOverride(Player2,JumpToPoint([2080.800]))
+    ActionOverride(Player3,JumpToPoint([2080.800]))
+    ActionOverride(Player4,JumpToPoint([2080.800]))
+    ActionOverride(Player5,JumpToPoint([2080.800]))
+    ActionOverride(Player6,JumpToPoint([2080.800]))
+    MoveViewPoint([2080.800],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",4)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([1310.2210]))
+    ActionOverride(Player2,JumpToPoint([1310.2210]))
+    ActionOverride(Player3,JumpToPoint([1310.2210]))
+    ActionOverride(Player4,JumpToPoint([1310.2210]))
+    ActionOverride(Player5,JumpToPoint([1310.2210]))
+    ActionOverride(Player6,JumpToPoint([1310.2210]))
+    MoveViewPoint([1310.2210],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",5)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([1942.2085]))
+    ActionOverride(Player2,JumpToPoint([1942.2085]))
+    ActionOverride(Player3,JumpToPoint([1942.2085]))
+    ActionOverride(Player4,JumpToPoint([1942.2085]))
+    ActionOverride(Player5,JumpToPoint([1942.2085]))
+    ActionOverride(Player6,JumpToPoint([1942.2085]))
+    MoveViewPoint([1942.2085],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",6)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([2720.2170]))
+    ActionOverride(Player2,JumpToPoint([2720.2170]))
+    ActionOverride(Player3,JumpToPoint([2720.2170]))
+    ActionOverride(Player4,JumpToPoint([2720.2170]))
+    ActionOverride(Player5,JumpToPoint([2720.2170]))
+    ActionOverride(Player6,JumpToPoint([2720.2170]))
+    MoveViewPoint([2720.2170],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",7)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([2240.1860]))
+    ActionOverride(Player2,JumpToPoint([2240.1860]))
+    ActionOverride(Player3,JumpToPoint([2240.1860]))
+    ActionOverride(Player4,JumpToPoint([2240.1860]))
+    ActionOverride(Player5,JumpToPoint([2240.1860]))
+    ActionOverride(Player6,JumpToPoint([2240.1860]))
+    MoveViewPoint([2240.1860],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",-2)
+  !Global("PlayersVisible","LOCALS",63)
+  Global("CurrentDestination","MYAREA",8)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,JumpToPoint([2590.1310]))
+    ActionOverride(Player2,JumpToPoint([2590.1310]))
+    ActionOverride(Player3,JumpToPoint([2590.1310]))
+    ActionOverride(Player4,JumpToPoint([2590.1310]))
+    ActionOverride(Player5,JumpToPoint([2590.1310]))
+    ActionOverride(Player6,JumpToPoint([2590.1310]))
+    MoveViewPoint([2590.1310],INSTANT)
+END
+
+IF
+  Global("TravelStep","LOCALS",4)
+  Global("DestinationRequest","LOCALS",3)
+  !Global("61CurrentDay","GLOBAL",0)
+  Global("Ziltyor_dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    TriggerActivation("To6200False",TRUE)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",4)
+  Global("DestinationRequest","LOCALS",5)
+  Global("61CurrentDay","GLOBAL",3)
+  Global("Pyros4_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetMyTarget(Protagonist)
+    HideCreature("Venomin4",FALSE)
+    HideCreature("Pyros4",FALSE)
+    FadeFromColor([0.0],0)
+    SetGlobal("DestinationRequest","LOCALS",0)
+    SetGlobal("TravelStep","LOCALS",0)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("61cPyMur")
+END
+
+IF
+  Global("TravelStep","LOCALS",4)
+  Global("DestinationRequest","LOCALS",3)
+  Global("61CurrentDay","GLOBAL",4)
+  CreatureHidden("Ziltyor")  // Ziltyor
+THEN
+  RESPONSE #100
+    HideCreature("Ziltyor",FALSE)
+    HideCreature("04_Troll_16",FALSE)
+    HideCreature("04_Troll_17",FALSE)
+    HideCreature("04_Troll_18",FALSE)
+    HideCreature("04_Troll_19",FALSE)
+    HideCreature("04_HellHound_20",FALSE)
+    HideCreature("04_HellHound_21",FALSE)
+    HideCreature("04_HellHound_22",FALSE)
+    HideCreature("04_HellHound_23",FALSE)
+    HideCreature("04_HellHound_24",FALSE)
+    HideCreature("04_HellHound_25",FALSE)
+    TriggerActivation("To6200False",FALSE)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",4)
+  Global("DestinationRequest","LOCALS",5)
+  Global("61CurrentDay","GLOBAL",4)
+  Global("SpawnedCacofiend","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell("Jasper5",WIZARD_SUMMON_MONSTER_IX)
+    SetGlobal("SpawnedCacofiend","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",4)
+  Global("DestinationRequest","LOCALS",6)
+  Global("61CurrentDay","GLOBAL",4)
+  Global("SpawnedEmbassyUndead","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell("EmbassyShelf",WIZARD_ANIMATE_DEAD)
+    ReallyForceSpell("61Embassy",WIZARD_ANIMATE_DEAD)
+    ReallyForceSpell("61Embassy",WIZARD_ANIMATE_DEAD)
+    SetGlobal("SpawnedEmbassyUndead","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("TravelStep","LOCALS",4)
+THEN
+  RESPONSE #100
+    FadeFromColor([0.0],0)
+    SetGlobal("DestinationRequest","LOCALS",0)
+    SetGlobal("TravelStep","LOCALS",0)
+END
+
+IF
+  Global("INITIALIZED_61ARCHON","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CurrentDestination","MYAREA",1)
+    SetGlobal("INITIALIZED_61ARCHON","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("CurrentDestination","MYAREA",6)
+  OpenState("AR6104_Ruins2",TRUE)  // AR6104_Ruins2
+  NearLocation(Myself,2560,2270,5)
+THEN
+  RESPONSE #100
+    JumpToPoint([2720.2180])
+    SetStartPos([2720.2180])
+    SetSavedLocationPoint(2720,2180,NE)
+END
+

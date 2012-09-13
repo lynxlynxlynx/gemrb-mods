@@ -1,0 +1,45 @@
+IF
+  XPLT(Player1,400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("raksha01",[-1.-1],0)  // ~Rakshasa~
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("raksha01",[-1.-1],0)  // ~Rakshasa~
+    CreateCreature("raksha01",[-1.-1],0)  // ~Rakshasa~
+    CreateCreature("dogre01",[-1.-1],0)  // dogre01
+    CreateCreature("dogre01",[-1.-1],0)  // dogre01
+    CreateCreature("dogre01",[-1.-1],0)  // dogre01
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("rakraj01",[-1.-1],0)  // ~Rajah~
+    CreateCreature("rakruh01",[-1.-1],0)  // ~Ruhk~
+    CreateCreature("rakruh01",[-1.-1],0)  // ~Ruhk~
+    CreateCreature("orc05",[-1.-1],0)  // ~Orog~
+    CreateCreature("orc05",[-1.-1],0)  // ~Orog~
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("rakmah01",[-1.-1],0)  // ~Maharajah~
+    CreateCreature("rakraj01",[-1.-1],0)  // ~Rajah~
+    CreateCreature("rakraj01",[-1.-1],0)  // ~Rajah~
+    CreateCreature("rakmah01",[-1.-1],0)  // ~Maharajah~
+END
+

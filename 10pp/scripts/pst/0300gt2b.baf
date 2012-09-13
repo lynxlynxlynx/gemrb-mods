@@ -1,0 +1,49 @@
+IF
+  Help([0.0.0.0.GITHZERAI])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(20,30)
+    MoveToPoint([2804.2626])
+    MoveToPoint([2804.2542])
+    MoveToPoint([2710.2450])
+    MoveToPoint([2710.2290])
+    MoveToPoint([2309.1890])
+    MoveToPoint([2309.1572])
+    MoveToPoint([2080.1493])
+    MoveToPoint([2034.1493])
+    MoveToPoint([1920.1379])
+    MoveToPoint([1391.1326])
+    MoveToPoint([964.1226])
+    MoveToPoint([792.1055])
+    MoveToPoint([792.747])
+    MoveToPoint([1391.151])
+    MoveToPoint([1391.0])
+    Face(0)
+    ChangeAIScript("0300gt2b",GENERAL)
+END
+

@@ -1,0 +1,23 @@
+IF
+  NumberOfTimesTalkedTo(2)
+  Detect([PC])
+  Global("Sacrifice","LOCALS",1)
+  Global("LeavingSahuagin","AR2300",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Dead("sahpr3")  // ~High Priestess Tlyysixxous~
+  !Allegiance(Myself,ENEMY)
+  NumberOfTimesTalkedTo(3)
+  See([PC])
+  !Dead("sahpr2")  // ~Prince Villynaty~
+  Global("LeavingSahuagin","AR2300",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet([PC])
+END
+

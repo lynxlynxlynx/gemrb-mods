@@ -1,0 +1,21 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DradeelFight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartTimer(1,15)
+    SetGlobal("DradeelFight","GLOBAL",1)
+    ApplySpell(Myself,DRADEEL_MINOR_GLOBE)
+    ApplySpell(Myself,DRADEEL_FLAMEBLADE)
+    ReallyForceSpell(Myself,DRADEEL_BLUE_FIREBALL)
+END
+
+IF
+  TimerExpired(1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    StartTimer(1,15)
+    ReallyForceSpell(Myself,DRADEEL_BLUE_FIREBALL)
+END
+

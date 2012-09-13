@@ -1,0 +1,81 @@
+IF
+  Global("SC_Ilquix_Form","AR0402",1)
+  See([0.0.0.0.ABISHAI_BLACK])
+THEN
+  RESPONSE #100
+    Attack(LastTrigger)
+END
+
+IF
+  Help([0.0.0.0.ABISHAI_BLACK])
+THEN
+  RESPONSE #100
+    PolymorphEx(Glabrezu,0)
+    GlobalSet("SC_Ilquix_Form","AR0402",1)
+    ChangeDialog(Myself,"DIlquixT")
+    Attack(LastTrigger)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    PolymorphEx(Glabrezu,0)
+    GlobalSet("SC_Ilquix_Form","AR0402",1)
+    ChangeDialog(Myself,"DIlquixT")
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    PolymorphEx(Glabrezu,0)
+    GlobalSet("SC_Ilquix_Form","AR0402",1)
+    ChangeDialog(Myself,"DIlquixT")
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Ilquix_At_Bar","AR0402",0)
+  Global("SC_Ilquix_Form","AR0402",0)
+THEN
+  RESPONSE #100
+    Wait(45)
+    MoveToPoint([679.786])
+    Face(2)
+    GlobalSet("Ilquix_At_Bar","AR0402",1)
+END
+
+IF
+  Global("Barkis_Ready_Serve_Ilquix","AR0402",1)
+  Global("SC_Ilquix_Form","AR0402",0)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_STANDFIDGET1)
+    Wait(5)
+    Face(12)
+    SetInterrupt(FALSE)
+    GlobalSet("Ilquix_At_Bar","AR0402",0)
+    Wait(92)
+    SetInterrupt(TRUE)
+    MoveToPoint([1010.760])
+    Face(14)
+END
+
+IF
+  Global("SC_Ilquix_Form","AR0402",1)
+THEN
+  RESPONSE #100
+    WaitRandom(5,10)
+    Face(-1)
+END
+

@@ -1,0 +1,54 @@
+IF
+  !See([PC])
+  TimeGT(3)
+  TimeLT(23)
+THEN
+  RESPONSE #100
+    SetGlobal("SlumsMugging","AR0400",0)
+    DestroySelf()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(1)
+    Enemy()
+END
+
+IF
+  Heard("SlumsMugger4",1)  // SlumsMugger4
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("SlumsMugging","AR0400",2)
+  See("SlumsVictim")  // SlumsVictim
+  !Dead("SlumsVictim")  // SlumsVictim
+THEN
+  RESPONSE #100
+    Attack("SlumsVictim")
+END
+
+IF
+  Detect([PC])
+  NumberOfTimesTalkedTo(0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Detect([PC])
+  Allegiance(Myself,NEUTRAL)
+  Dead("SlumsVictim")  // SlumsVictim
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

@@ -1,0 +1,14 @@
+IF
+  IsWeaponRanged(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("EFATKTR")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("EFATKTM")
+END
+

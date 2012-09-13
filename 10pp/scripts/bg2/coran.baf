@@ -1,0 +1,9 @@
+IF
+  GlobalTimerExpired("Coran","GLOBAL")
+  InParty(Myself)
+  !Dead("Wyvern")  // Wyvern
+THEN
+  RESPONSE #100
+    ActionOverride("Coran",Dialog([PC]))
+END
+

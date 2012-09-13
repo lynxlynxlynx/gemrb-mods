@@ -1,0 +1,22 @@
+IF
+  Global("GalvenaHostile","GLOBAL",0)
+  OR(2)
+    Allegiance(Myself,ENEMY)
+    Die()
+THEN
+  RESPONSE #100
+    SetGlobal("GalvenaHostile","GLOBAL",1)
+END
+
+IF
+  Global("GalvenaHostile","GLOBAL",1)
+  Global("PIRMUR0408Hostile","GLOBAL",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("PIRMUR0408Hostile","GLOBAL",1)
+    ActionOverride("PIRMUR04",Enemy())
+    ActionOverride("PIRMUR08",Enemy())
+    Enemy()
+END
+

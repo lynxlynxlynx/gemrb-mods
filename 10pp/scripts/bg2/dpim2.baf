@@ -1,0 +1,10 @@
+IF
+  IsOverMe("Korgan")  // Korgan
+  !Dead("korshag")  // ~Shagbag~
+  Global("KorganTomb","GLOBAL",1)
+  Global("LeavePimlico","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Korgan",StartDialogNoSet(Player1))
+END
+

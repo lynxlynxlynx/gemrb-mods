@@ -1,0 +1,29 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("KilledDruids","GLOBAL",1)
+END
+
+IF
+  Heard("Seniyad",1)  // Seniyad
+THEN
+  RESPONSE #100
+    Enemy()
+    ForceSpell(Myself,CLERIC_FLAME_BLADE)
+END
+
+IF
+  Heard("Seniyad",2)  // Seniyad
+THEN
+  RESPONSE #100
+    MoveToPoint([2744.2164])
+END
+
+IF
+  Heard("Seniyad",3)  // Seniyad
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

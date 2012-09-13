@@ -1,0 +1,24 @@
+IF
+  !CreatureHidden(Myself)
+  Or(5)
+    Global("60Ghost_Gone","GLOBAL",1)
+    Allegiance(Myself,ENEMY)
+    HPPercentLT(Myself,100)
+    HitBy([ANYONE],CRUSHING)
+    AttackedBy([ANYONE],0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("FirstUnhide","LOCALS",0)
+  Global("60Shortcut","GLOBAL",6)
+THEN
+  RESPONSE #100
+    SetGlobal("FirstUnhide","LOCALS",1)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+

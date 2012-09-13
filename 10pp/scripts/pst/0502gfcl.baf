@@ -1,0 +1,42 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateItem("UPortal",0,0,0)  // ~Unfolding Portal~
+    DropInventory()
+    Help()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),THIRTY_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    RunAwayFromEx([PC],THIRTY_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(LastAttackerOf(LastHelp),THIRTY_AI_SECONDS,FALSE)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

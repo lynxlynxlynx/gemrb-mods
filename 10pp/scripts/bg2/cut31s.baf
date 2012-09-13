@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    ActionOverride("bdact08",DestroySelf())
+    ActionOverride("bdact06",JumpToPoint([918.687]))
+    ActionOverride("bdact06",Face(0))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    SetGlobal("BardPlot1","GLOBAL",53)
+    ActionOverride("bdact06",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,69 @@
+IF
+  HasItem("63GenSP",Myself)  // ~Virulent Sleeping Poison~
+  Global("TEAM_1","MYAREA",0)
+  !Global("SH_Guards_Dead","GLOBAL",1)
+  HPGT("Food_Cook",0)  // Food_Cook
+  HPGT("Food_Worker1",0)  // Food_Worker1
+  HPGT("Food_Worker2",0)  // Food_Worker2
+  HPGT("Food_Worker3",0)  // Food_Worker3
+  HPGT("Food_Worker4",0)  // Food_Worker4
+THEN
+  RESPONSE #100
+    SetGlobal("SH_Guards_Dead","GLOBAL",1)
+    SetGlobal("SH_Guards_Sleep","GLOBAL",1)
+    DestroyItem("63GenSP")  // ~Virulent Sleeping Poison~
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("63cBFDe2")
+    Wait(19)
+    AddXPVar("Level_14_Hard",39395)  // ~You have eliminated the guards by poisoning their food.~
+END
+
+IF
+  HasItem("63GenLP",Myself)  // ~Lethal Virulent Poison~
+  Global("TEAM_1","MYAREA",0)
+  !Global("SH_Guards_Dead","GLOBAL",1)
+  HPGT("Food_Cook",0)  // Food_Cook
+  HPGT("Food_Worker1",0)  // Food_Worker1
+  HPGT("Food_Worker2",0)  // Food_Worker2
+  HPGT("Food_Worker3",0)  // Food_Worker3
+  HPGT("Food_Worker4",0)  // Food_Worker4
+THEN
+  RESPONSE #100
+    SetGlobal("SH_Guards_Dead","GLOBAL",1)
+    DestroyItem("63GenLP")  // ~Lethal Virulent Poison~
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("63cBFDe2")
+    Wait(19)
+    AddXPVar("Level_14_Hard",39395)  // ~You have eliminated the guards by poisoning their food.~
+END
+
+IF
+  Or(2)
+    HasItem("63GenLP",Myself)  // ~Lethal Virulent Poison~
+    HasItem("63GenSP",Myself)  // ~Virulent Sleeping Poison~
+  Global("SH_Cook_Dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SH_Guards_Dead","GLOBAL",1)
+    DestroyItem("63GenSP")  // ~Virulent Sleeping Poison~
+    DestroyItem("63GenLP")  // ~Lethal Virulent Poison~
+    DisplayMessage(39402)  // ~There is no one who can prepare the poisoned meal.~
+END
+
+IF
+  Or(2)
+    HasItem("63GenLP",Myself)  // ~Lethal Virulent Poison~
+    HasItem("63GenSP",Myself)  // ~Virulent Sleeping Poison~
+  Global("SH_Guards_Dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SH_Guards_Dead","GLOBAL",1)
+    DestroyItem("63GenSP")  // ~Virulent Sleeping Poison~
+    DestroyItem("63GenLP")  // ~Lethal Virulent Poison~
+    DisplayMessage(39716)  // ~~
+END
+

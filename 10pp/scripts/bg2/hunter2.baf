@@ -1,0 +1,8 @@
+IF
+  Detect([PC])
+  See([0.0.0.FOOD_CREATURE])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+

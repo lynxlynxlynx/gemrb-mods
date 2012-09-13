@@ -1,0 +1,24 @@
+IF
+  NearLocation(Myself,[1895.1226],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,THUG_1)
+    ChangeAIScript("0109thg1",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[1870.1226],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,THUG_2)
+    ChangeAIScript("0109thg2",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[2023.1214],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,THUG_3)
+    ChangeAIScript("0109thg3",DEFAULT)
+END
+

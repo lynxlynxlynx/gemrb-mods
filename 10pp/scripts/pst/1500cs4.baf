@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Soego2")  // 
+    FadeToBlack()
+    Wait(5)
+    CreateItem("SkullSo",0,0,0)  // ~Soego's Skull~
+    DropInventory()
+    GlobalSet("DN_Soego_Killed","GLOBAL",1)
+    DestroySelf()
+    FadeFromBlack()
+    EndCutSceneMode()
+END
+

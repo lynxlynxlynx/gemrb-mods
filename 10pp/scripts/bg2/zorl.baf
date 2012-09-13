@@ -1,0 +1,16 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("ZorlDopple","GLOBAL",1)
+END
+
+IF
+  Global("ZorlDopple","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DOPPLEGANGER_CHANGE2)
+END
+

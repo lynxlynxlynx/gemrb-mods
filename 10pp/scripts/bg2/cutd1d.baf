@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSIren")  // 
+    CreateVisualEffectObject("ICRMPARI",Myself)
+    ForceSpell("CSImoen",CUTSCENE_DAMAGE_1)
+    CreateVisualEffectObject("SPDISPMA",Myself)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CSImoen")  // 
+    Wait(2)
+    SmallWait(7)
+    PlaySound("EFF_M28")
+    CreateCreatureDoor("CSCOWL1",[560.543],0)
+    CreateCreatureDoor("CSCOWL2",[662.600],2)
+    CreateCreatureDoor("CSCOWL3",[479.636],14)
+    CreateCreatureDoor("CSCOWL4",[880.610],4)
+    CreateCreatureDoor("CSCOWL5",[549.736],8)
+    Wait(3)
+    StartCutScene("cutD1e")
+END
+

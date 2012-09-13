@@ -1,0 +1,40 @@
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch2",FALSE)  // AR4102_Switch2
+  OpenState("AR4102_Switch3",FALSE)  // AR4102_Switch3
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30915)  // ~"No mode selected."~
+    SetGlobal("GameRoomMode","MYAREA",0)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch2",FALSE)  // AR4102_Switch2
+  OpenState("AR4102_Switch3",TRUE)  // AR4102_Switch3
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30916)  // ~"Temple Maintenance selected."~
+    SetGlobal("GameRoomMode","MYAREA",1)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch2",TRUE)  // AR4102_Switch2
+  OpenState("AR4102_Switch3",FALSE)  // AR4102_Switch3
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30917)  // ~"Inner Sanctum selected."~
+    SetGlobal("GameRoomMode","MYAREA",2)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR4102_Switch2",TRUE)  // AR4102_Switch2
+  OpenState("AR4102_Switch3",TRUE)  // AR4102_Switch3
+THEN
+  RESPONSE #100
+    FloatMessage("GameMaster",30918)  // ~"Battle Square selected."~
+    SetGlobal("GameRoomMode","MYAREA",3)
+END
+

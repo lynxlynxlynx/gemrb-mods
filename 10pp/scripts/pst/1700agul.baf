@@ -1,0 +1,32 @@
+IF
+  See([0.0.0.0.GHOUL])
+THEN
+  RESPONSE #100
+    Attack([0.0.0.0.GHOUL])
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Attack([PC])
+END
+

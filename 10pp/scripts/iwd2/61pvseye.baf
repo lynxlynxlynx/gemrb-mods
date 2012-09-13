@@ -1,0 +1,10 @@
+IF
+  Global("61PlayerSawSsethEye","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("61PlayerSawSsethEye","GLOBAL",1)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

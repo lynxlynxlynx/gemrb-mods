@@ -1,0 +1,43 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+  Global("YagaShuraHeart1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YagaShuraHeart1","GLOBAL",1)
+    DisplayStringHead(Myself,70632)  // ~A beating heart burns fiercely within the brazier.  If you are careful, you could remove it from the flames.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+  Global("YagaShuraHeart1","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("YagaShuraHeart1","GLOBAL",2)
+    GiveItemCreate("hgheart2",LastTrigger,0,0,0)  // ~Yaga-Shura's Heart~
+    AddXP2DA("Plot11D")
+    CreateVisualEffect("FIRECOLD",[2077.1120])
+    AmbientActivate("AM5204A",FALSE)
+    Wait(2)
+    DisplayString(Myself,70633)  // ~The flames extinguish as the beating heart is removed.  The heart is still red-hot and burns to the touch.~
+    AddJournalEntry(66143,QUEST)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+  Global("YagaShuraHeart1","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,73214)  // ~Nothing more can be done with the now-extinguished brazier.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

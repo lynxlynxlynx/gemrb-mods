@@ -1,0 +1,10 @@
+IF
+  Delay(2)
+  Entered([ANYONE])
+  !StateCheck(LastTrigger,STATE_INVISIBLE)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    CreateCreature("BATTHO",[-1.-1],0)  // BATTHO
+END
+

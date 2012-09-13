@@ -1,0 +1,19 @@
+IF
+  GlobalGT("Chapter","GLOBAL",2)
+  Exists("Khalid")  // ~Khalid~
+  !InParty("Khalid")  // ~Khalid~
+THEN
+  RESPONSE #100
+    ActionOverride("Khalid",EscapeArea())
+    Continue()
+END
+
+IF
+  GlobalGT("Chapter","GLOBAL",2)
+  Exists("Jaheira")  // Jaheira
+  !InParty("Jaheira")  // Jaheira
+THEN
+  RESPONSE #100
+    ActionOverride("Jaheira",EscapeArea())
+END
+

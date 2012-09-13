@@ -1,0 +1,18 @@
+IF
+  Global("JuggernautAlive","GLOBAL",2)
+  See("Jermien")  // Jermien
+  !Dead("Jermien")  // Jermien
+THEN
+  RESPONSE #100
+    DestroyItem("MINHP60")  // <Invalid Strref -1>
+    Attack("Jermien")
+END
+
+IF
+  Global("JuggernautAlive","GLOBAL",2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

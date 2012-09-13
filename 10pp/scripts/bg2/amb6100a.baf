@@ -1,0 +1,29 @@
+IF
+  Range([PC],10)
+  Global("Ambush1","AR6100",3)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    MoveViewPoint([1975.256],INSTANT)
+    SetGlobal("Ambush1","AR6100",4)
+    SmallWait(7)
+    CreateVisualEffect("SPFLESHS",[1865.275])
+    CreateVisualEffect("SPFLESHS",[2090.313])
+    CreateVisualEffect("SPFLESHS",[1919.407])
+    CreateVisualEffect("SPFLESHS",[1808.394])
+    CreateVisualEffect("SPFLESHS",[2036.434])
+    CreateVisualEffect("SPFLESHS",[1900.314])
+    CreateVisualEffect("SPFLESHS",[2006.340])
+    PlaySound("amthund")
+    Wait(1)
+    CreateCreature("drofod01",[1865.275],10)  // ~Drow~
+    CreateCreature("drofod01",[2090.313],6)  // ~Drow~
+    CreateCreature("drofod02",[1919.407],8)  // ~Drow~
+    CreateCreature("drofod03",[1808.394],10)  // ~Drow~
+    CreateCreature("drofod03",[2036.434],8)  // ~Drow~
+    CreateCreature("behgau01",[1900.314],8)  // ~Gauth~
+    CreateCreature("behgau01",[2006.340],8)  // ~Gauth~
+    EndCutSceneMode()
+END
+

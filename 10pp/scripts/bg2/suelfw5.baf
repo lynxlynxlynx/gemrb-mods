@@ -1,0 +1,54 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Shout(100)
+    EscapeArea()
+END
+
+IF
+  Detect([PC])
+  See([ENEMY])
+  Global("Scene3","AR2800",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Scene3","AR2800",1)
+    DisplayStringHead(Myself,4200)  // ~Archer! Use fire to kill the beasts ere they rise again!~
+END
+
+IF
+  NumDead("sutroll",2)
+  Global("Scene3","AR2800",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("Scene3","AR2800",2)
+    DisplayStringHead(Myself,4201)  // ~Move out! The battle is far from over!~
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  See([ENEMY])
+  Global("Scene3","AR2800",1)
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY],45)
+END
+

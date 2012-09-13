@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ignus")  // 
+    PlaySequence(ANIM_GETUP)
+    Wait(2)
+    StartCutScene("1201CI13")
+END
+

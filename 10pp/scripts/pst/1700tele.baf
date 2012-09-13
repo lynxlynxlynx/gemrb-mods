@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    EndCutSceneMode()
+    LeaveAreaLUA("AR1800",[2650.1053],2)
+END
+

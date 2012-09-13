@@ -1,0 +1,9 @@
+IF
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself),0)
+  !Range(LastSeenBy(Myself),12,LESS_THAN)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),INNATE_PHASE_SPIDER_TELEPORT)
+END
+

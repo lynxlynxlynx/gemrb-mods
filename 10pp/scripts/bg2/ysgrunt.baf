@@ -1,0 +1,42 @@
+IF
+  See([PC])
+  See("yspeas")  // yspeas
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  Global("Shout2","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Shout2","LOCALS",1)
+    DisplayStringHead(Myself,72707)  // ~Ha ha ha!~
+    AttackOneRound("yspeas")
+END
+
+IF
+  See([PC])
+  Global("Shout","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    DisplayStringHead(Myself,72708)  // ~It's them!  The ones Yaga Shura wanted!~
+    Enemy()
+    SetGlobal("Shout","LOCALS",1)
+  RESPONSE #100
+    Wait(2)
+    DisplayStringHead(Myself,72709)  // ~That's the Bhaalspawn that was supposed to be in the city!~
+    Enemy()
+    SetGlobal("Shout","LOCALS",1)
+  RESPONSE #100
+    DisplayStringHead(Myself,72710)  // ~Get them!  There's a reward!~
+    Enemy()
+    SetGlobal("Shout","LOCALS",1)
+END
+
+IF
+  See("yspeas")  // yspeas
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  !Range(LastSeenBy(Myself),5)
+  Global("Shout","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToObject(LastSeenBy(Myself))
+END
+

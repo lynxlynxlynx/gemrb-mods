@@ -1,0 +1,7 @@
+IF
+  Dead("Yaga01")  // ~Yaga-Shura~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

@@ -1,0 +1,120 @@
+IF
+  Global("40SpellComponentsCheck","GLOBAL",0)
+  HasItem("00Potn50",Myself)  // ~Thrym Extract~
+  HasItem("40GenBe",Myself)  // ~Belladonna~
+  HasItem("40GenSS",Myself)  // ~Fresh Spider Silk~
+  HasItem("40GenWP",Myself)  // ~Wood Pile~
+  NumItemsGT("00Gem26",Myself,1)
+  Or(40)
+    HasItem("00Halb01",Myself)  // ~Halberd~
+    HasItem("00Halb02",Myself)  // ~Masterwork Halberd~
+    HasItem("00Sper01",Myself)  // ~Spear~
+    HasItem("00Sper95",Myself)  // ~Masterwork Spear~
+    HasItem("00Flal01",Myself)  // ~Flail~
+    HasItem("00Flal99",Myself)  // ~Masterwork Flail~
+    HasItem("00Mace01",Myself)  // ~Mace~
+    HasItem("00Mace02",Myself)  // ~Masterwork Mace~
+    HasItem("00Mstr01",Myself)  // ~Morningstar~
+    HasItem("00Mstr02",Myself)  // ~Masterwork Morningstar~
+    HasItem("30IStone",Myself)  // ~Iron Ward Stone~
+    HasItem("00Misc18",Myself)  // ~Broken weapon~
+    HasItem("00Misc19",Myself)  // ~Broken Shield~
+    HasItem("00Misc20",Myself)  // ~Broken Armor~
+    HasItem("00Misc21",Myself)  // ~Broken Miscellaneous~
+    HasItem("00Misc22",Myself)  // ~Ancient Armor~
+    HasItem("00ax1h01",Myself)  // ~Battleaxe~
+    HasItem("00ax1h02",Myself)  // ~Masterwork Battleaxe~
+    HasItem("00ax1h05",Myself)  // ~Throwing Axe~
+    HasItem("00ax1h11",Myself)  // ~Handaxe~
+    HasItem("00ax1h12",Myself)  // ~Masterwork Handaxe~
+    HasItem("00Dagg01",Myself)  // ~Dagger~
+    HasItem("00Dagg02",Myself)  // ~Masterwork Dagger~
+    HasItem("00Dagg06",Myself)  // ~Throwing Dagger~
+    HasItem("00Hamm01",Myself)  // ~Warhammer~
+    HasItem("00Hamm02",Myself)  // ~Masterwork Warhammer~
+    HasItem("00Hamm05",Myself)  // ~Warhammer~
+    HasItem("00HamT01",Myself)  // ~Throwing Hammer~
+    HasItem("00HamT02",Myself)  // ~Masterwork Throwing Hammer~
+    HasItem("00SwdB01",Myself)  // ~Bastard Sword ~
+    HasItem("00SwdB02",Myself)  // ~Masterwork Bastard Sword~
+    HasItem("00SwdC01",Myself)  // ~Scimitar~
+    HasItem("00SwdC94",Myself)  // ~Masterwork Scimitar~
+    HasItem("00SwdL01",Myself)  // ~Longsword ~
+    HasItem("00SwdL02",Myself)  // ~Masterwork Longsword~
+    HasItem("00SwdS01",Myself)  // ~Short Sword ~
+    HasItem("00SwdS02",Myself)  // ~Masterwork Short Sword~
+    HasItem("00SwdT01",Myself)  // ~Greatsword~
+    HasItem("00SwdT02",Myself)  // ~Masterwork Greatsword~
+    HasItem("00Brac01",Myself)  // ~Bracers~
+THEN
+  RESPONSE #100
+    DestroyItem("40GenSS")  // ~Fresh Spider Silk~
+    DestroyItem("00Potn50")  // ~Thrym Extract~
+    DestroyItem("40GenBe")  // ~Belladonna~
+    DestroyItem("00Gem26")  // ~Diamond~
+    DestroyItem("00Gem26")  // ~Diamond~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("40GenWP")  // ~Wood Pile~
+    DestroyItem("00Halb01")  // ~Halberd~
+    DestroyItem("00Halb02")  // ~Masterwork Halberd~
+    DestroyItem("00Sper01")  // ~Spear~
+    DestroyItem("00Sper095")  // 00Sper095
+    DestroyItem("00Flal01")  // ~Flail~
+    DestroyItem("00Flal99")  // ~Masterwork Flail~
+    DestroyItem("00Mace01")  // ~Mace~
+    DestroyItem("00Mace02")  // ~Masterwork Mace~
+    DestroyItem("00Mstr01")  // ~Morningstar~
+    DestroyItem("00Mstr02")  // ~Masterwork Morningstar~
+    DestroyItem("30IStone")  // ~Iron Ward Stone~
+    DestroyItem("00Misc18")  // ~Broken weapon~
+    DestroyItem("00Misc19")  // ~Broken Shield~
+    DestroyItem("00Misc20")  // ~Broken Armor~
+    DestroyItem("00Misc21")  // ~Broken Miscellaneous~
+    DestroyItem("00Misc22")  // ~Ancient Armor~
+    DestroyItem("00ax1h01")  // ~Battleaxe~
+    DestroyItem("00ax1h02")  // ~Masterwork Battleaxe~
+    DestroyItem("00ax1h05")  // ~Throwing Axe~
+    DestroyItem("00ax1h11")  // ~Handaxe~
+    DestroyItem("00ax1h12")  // ~Masterwork Handaxe~
+    DestroyItem("00Dagg01")  // ~Dagger~
+    DestroyItem("00Dagg02")  // ~Masterwork Dagger~
+    DestroyItem("00Dagg06")  // ~Throwing Dagger~
+    DestroyItem("00Hamm01")  // ~Warhammer~
+    DestroyItem("00Hamm02")  // ~Masterwork Warhammer~
+    DestroyItem("00Hamm05")  // ~Warhammer~
+    DestroyItem("00HamT01")  // ~Throwing Hammer~
+    DestroyItem("00HamT02")  // ~Masterwork Throwing Hammer~
+    DestroyItem("00SwdB01")  // ~Bastard Sword ~
+    DestroyItem("00SwdB02")  // ~Masterwork Bastard Sword~
+    DestroyItem("00SwdC01")  // ~Scimitar~
+    DestroyItem("00SwdC94")  // ~Masterwork Scimitar~
+    DestroyItem("00SwdL01")  // ~Longsword ~
+    DestroyItem("00SwdL02")  // ~Masterwork Longsword~
+    DestroyItem("00SwdS01")  // ~Short Sword ~
+    DestroyItem("00SwdS02")  // ~Masterwork Short Sword~
+    DestroyItem("00SwdT01")  // ~Greatsword~
+    DestroyItem("00SwdT02")  // ~Masterwork Greatsword~
+    DestroyItem("00Brac01")  // ~Bracers~
+    SetGlobal("40SpellComponentsCheck","GLOBAL",1)
+    SpellHitEffectPoint("Oswald",[223.223],ALTERATION,0)
+    ChangeCurrentScript("")
+END
+

@@ -1,0 +1,52 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,AND)
+  Range([0.0.ELEMENTAL],2)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FloatMessage(Myself,15475)  // ~"No!  Back, stay back!  Get to your portal!"~
+    Continue()
+END
+
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,AND)
+  !Range([0.0.ELEMENTAL],2)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,XOR)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  Allegiance([0.0.SALAMANDER],ENEMY)
+  HelpEX(Myself,RACE)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHelp(Myself))
+END
+
+IF
+  Allegiance([0.0.ELEMENTAL],ENEMY)
+  Help([0.0.ELEMENTAL])
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHelp(Myself))
+END
+

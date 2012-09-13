@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GraceF")  // 
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    StartSong(CHAR_GRACE,[0.0],Normal)
+    MoveToObjectEx("GraceF",0)
+    Wait(1)
+    Dialogue([PC])
+END
+

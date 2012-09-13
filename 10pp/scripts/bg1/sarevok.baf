@@ -1,0 +1,90 @@
+IF
+  GlobalTimerExpired("EndGame","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("EndGame","GLOBAL",100)
+    CreateCreature("WINSKI",[693.578])  // ~Winski Perorate~
+    ActionOverride("WINSKI",ForceSpell(Player1,SAREVOK_STRIKE))
+    Wait(2)
+    Kill(Player1)
+END
+
+IF
+  HPLT(Myself,150)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("DeathOfSarevok","GLOBAL",5)
+    MoveViewObject("Sarevok",INSTANT)
+    StartDialog("narrat2",[PC])
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  !Global("SarevokBehavior","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("SarevokBehavior","GLOBAL",3)
+    SetGlobalTimer("EndGame","GLOBAL",5)
+    Enemy()
+END
+
+IF
+  See([PC])
+  Global("SarevokBehavior","GLOBAL",0)
+  Dead("Liia")  // ~Liia Jannath~
+  Dead("Belt")  // ~Belt~
+THEN
+  RESPONSE #100
+    StartDialog("sarevo",[PC])
+END
+
+IF
+  See([PC])
+  GlobalTimerExpired("SarevokRun","GLOBAL")
+  Global("SarevokBehavior","GLOBAL",4)
+  !Exists("Winski")  // ~Winski Perorate~
+THEN
+  RESPONSE #100
+    CreateCreature("WINSKI",[693.578])  // ~Winski Perorate~
+    TriggerActivation("Door0200",TRUE)
+    TriggerActivation("Door0109a",TRUE)
+    TriggerActivation("Door0109b",TRUE)
+    TriggerActivation("Door0111",TRUE)
+    StartCutSceneMode()
+    StartCutScene("EndCut01")
+END
+
+IF
+  Range([PC],25)
+  Global("SarevokBehavior","GLOBAL",2)
+THEN
+  RESPONSE #100
+    StartDialog("sarevo",[PC])
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(Player1,5)
+THEN
+  RESPONSE #10
+    AttackReevaluate(Player1,45)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),3)
+THEN
+  RESPONSE #10
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  !Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #10
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+

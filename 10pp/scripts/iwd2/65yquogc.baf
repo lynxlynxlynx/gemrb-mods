@@ -1,0 +1,219 @@
+IF
+  IsCreatureAreaFlag(Myself,HAS_SEEN_PARTY)
+  !NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,HAS_SEEN_PARTY,FALSE)
+END
+
+IF
+  Global("30Yquog_Dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(TenthNearestEnemyOf(Myself),MAGE)
+    Class(TenthNearestEnemyOf(Myself),SORCERER)
+    Class(TenthNearestEnemyOf(Myself),DRUID)
+    Class(TenthNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(TenthNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(NinthNearestEnemyOf(Myself),MAGE)
+    Class(NinthNearestEnemyOf(Myself),SORCERER)
+    Class(NinthNearestEnemyOf(Myself),DRUID)
+    Class(NinthNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(NinthNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(EigthNearestEnemyOf(Myself),MAGE)
+    Class(EigthNearestEnemyOf(Myself),SORCERER)
+    Class(EigthNearestEnemyOf(Myself),DRUID)
+    Class(EigthNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(EigthNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(SeventhNearestEnemyOf(Myself),MAGE)
+    Class(SeventhNearestEnemyOf(Myself),SORCERER)
+    Class(SeventhNearestEnemyOf(Myself),DRUID)
+    Class(SeventhNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(SeventhNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(SixthNearestEnemyOf(Myself),MAGE)
+    Class(SixthNearestEnemyOf(Myself),SORCERER)
+    Class(SixthNearestEnemyOf(Myself),DRUID)
+    Class(SixthNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(SixthNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(FifthNearestEnemyOf(Myself),MAGE)
+    Class(FifthNearestEnemyOf(Myself),SORCERER)
+    Class(FifthNearestEnemyOf(Myself),DRUID)
+    Class(FifthNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(FifthNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(FourthNearestEnemyOf(Myself),MAGE)
+    Class(FourthNearestEnemyOf(Myself),SORCERER)
+    Class(FourthNearestEnemyOf(Myself),DRUID)
+    Class(FourthNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(FourthNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(ThirdNearestEnemyOf(Myself),MAGE)
+    Class(ThirdNearestEnemyOf(Myself),SORCERER)
+    Class(ThirdNearestEnemyOf(Myself),DRUID)
+    Class(ThirdNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(ThirdNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(SecondNearestEnemyOf(Myself),MAGE)
+    Class(SecondNearestEnemyOf(Myself),SORCERER)
+    Class(SecondNearestEnemyOf(Myself),DRUID)
+    Class(SecondNearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(SecondNearestEnemyOf(Myself))
+END
+
+IF
+  Global("MarkedObject","LOCALS",0)
+  Or(4)
+    Class(NearestEnemyOf(Myself),MAGE)
+    Class(NearestEnemyOf(Myself),SORCERER)
+    Class(NearestEnemyOf(Myself),DRUID)
+    Class(NearestEnemyOf(Myself),CLERIC)
+THEN
+  RESPONSE #100
+    SetGlobal("MarkedObject","LOCALS",1)
+    MarkObject(NearestEnemyOf(Myself))
+END
+
+IF
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)
+  Global("PreAction","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PreAction","LOCALS",1)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)
+    SpellWait(CLERIC_INVISIBILITY_PURGE)
+END
+
+IF
+  HaveSpell(WIZARD_DIMENSION_DOOR)
+  Global("PreAction","LOCALS",1)
+  Exists(LastMarkedObject)
+THEN
+  RESPONSE #100
+    SetGlobal("PreAction","LOCALS",2)
+    SetGlobal("MarkedObject","LOCALS",0)
+    Spell(LastMarkedObject,WIZARD_DIMENSION_DOOR)
+    SpellWait(WIZARD_DIMENSION_DOOR)
+END
+
+IF
+  GlobalLT("Action","LOCALS",2)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Action","LOCALS",1)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("24202104",LastMarkedObject,7)
+      // WIZARD_EMOTION_FEAR
+      // WIZARD_CHARM_PERSON
+    MarkSpellAndObject("2519",Myself,7)
+      // WIZARD_SUNFIRE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2519",Myself,7)
+      // WIZARD_SUNFIRE
+    MarkSpellAndObject("24202104",LastMarkedObject,7)
+      // WIZARD_EMOTION_FEAR
+      // WIZARD_CHARM_PERSON
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetGlobal("PreAction","LOCALS",0)
+    SetGlobal("Action","LOCALS",0)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

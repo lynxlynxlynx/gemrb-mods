@@ -1,0 +1,15 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateCreatureObjectEffect("c6elven2","spportal",Player1)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Global("GoodElfKill","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GoodElfKill","GLOBAL",2)
+END
+

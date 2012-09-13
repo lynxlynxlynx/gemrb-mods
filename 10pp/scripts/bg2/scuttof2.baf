@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    SetGlobal("MoveCut","AR3023",0)
+    Wait(1)
+    MoveViewPoint([1607.776],6)
+    MoveToPointNoInterrupt([1607.776])
+    StartDialogNoSet(Player1)
+END
+

@@ -1,0 +1,96 @@
+IF
+  HPPercentLT(Myself,50)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  HPPercentLT(Myself,75)
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  HPPercentLT("GenMage",75)  // GenMage
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell("GenMage",CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  HPPercentLT("GenThief",50)  // GenThief
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell("GenThief",CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  HPPercentLT("GenThief",75)  // GenThief
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell("GenThief",CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  HPPercentLT("GenCleric",50)  // GenCleric
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell("GenCleric",CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  HPPercentLT("GenCleric",75)  // GenCleric
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell("GenCleric",CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  HPPercentLT("GenFighter",50)  // GenFighter
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell("GenFighter",CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  HPPercentLT("GenFighter",75)  // GenFighter
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell("GenFighter",CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_COMMAND)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_COMMAND)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ENTANGLE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_ENTANGLE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MAGIC_STONE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MAGIC_STONE)
+END
+

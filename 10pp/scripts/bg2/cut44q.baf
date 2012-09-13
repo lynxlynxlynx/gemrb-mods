@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Phaere")  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    JumpToPoint([998.288])
+    ActionOverride(Player1,JumpToPoint([741.291]))
+    ActionOverride(Player2,JumpToPoint([786.263]))
+    ActionOverride(Player3,JumpToPoint([844.247]))
+    ActionOverride(Player4,JumpToPoint([965.241]))
+    ActionOverride(Player5,JumpToPoint([1039.255]))
+    ActionOverride(Player6,JumpToPoint([1107.282]))
+    ActionOverride("Ardulace",JumpToPoint([922.283]))
+    Face(8)
+    MoveViewPoint([922.283],100)
+    Wait(1)
+    FadeFromColor([20.0],0)
+    SetGlobal("udDrowPlot","GLOBAL",30)
+    ChangeEnemyAlly("Phaere",NEUTRAL)
+    ActionOverride("Ardulace",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

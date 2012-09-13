@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ICASARACHT")  // 
+    MultiPlayerSync()
+    ClearAllActions()
+    MultiPlayerSync()
+    SetGlobal("GEM_ACTIVE","GLOBAL",1)
+    SetVisualRange(50)
+    MultiPlayerSync()
+    MoveViewObject(Myself,INSTANT)
+    StartCutScene("ILDRGPAN")
+    EquipItem("MIN1HP",1)
+    DestroyItem("MIN1HP")  // <Invalid Strref -1>
+    MultiPlayerSync()
+    MoveToPoint([1342.951])
+    FaceObject("GEM")
+    StartCutScene("ILGEMVEW")
+    AddexperienceParty(50000)
+    ReallyForceSpell("GEM",INNATE_DRAGON_DEATH_ANIMATION)
+END
+

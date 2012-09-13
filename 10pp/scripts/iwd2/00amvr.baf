@@ -1,0 +1,18 @@
+IF
+  !TimerActive(19)
+  !NearSavedLocation(2)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartRandomTimer(19,2,5)
+END
+
+IF
+  !TimerActive(19)
+  NearSavedLocation(2)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartRandomTimer(19,2,5)
+END
+

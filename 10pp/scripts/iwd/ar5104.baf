@@ -1,0 +1,18 @@
+IF
+  OnCreation()
+  !BitGlobal("MYAREA:AREA_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    Wait(5)
+    OpenDoor("AR5104DOOR3")
+    BitGlobal("MYAREA:AREA_VAR","",1,OR)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

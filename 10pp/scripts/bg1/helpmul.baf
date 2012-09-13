@@ -1,0 +1,7 @@
+IF
+  Help("Mulahey")  // Mulahey
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp(Myself)))
+END
+

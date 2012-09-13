@@ -1,0 +1,182 @@
+IF
+  !Internal(Myself,INTERNAL_3,1)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_3,1)
+    Continue()
+END
+
+IF
+  !Internal(Myself,INTERNAL_2,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_2,0)
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_1,4)
+THEN
+  RESPONSE #100
+    MoveToPoint([624.647])
+    Face(14)
+    Wait(1)
+    OpenDoor("AR605d09")
+    MoveToPoint([715.738])
+    Face(6)
+    CloseDoor("ar605d09")
+    ChangeAIScript("0605ecc2",DEFAULT)
+END
+
+IF
+  See([ANYONE])
+  Global("Ecco_Speak","GLOBAL",4)
+THEN
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48055)  // ~"Greetings! I am here to CONSUME THY WEAK, DELICIOUS FLESH, PATHETIC MAN-CREATURE!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48056)  // ~"So sorry, but I'm afraid I must SNAP THY BRITTLE BONES AND CAST THY QUIVERING, FLESHY REMAINS INTO THE DEEPEST RECESSES OF CARCERI!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48057)  // ~"Oh dear! T'would seem THOU ART HARDLY WORTHY OF APPEASING MY ENDLESS HUNGER FOR MORTAL FLESH, THOU INSIGNIFIGANT RODENT! BEGONE, VERMIN!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48058)  // ~"THOU ART NOTHING! BOW BEFORE MY UNHOLY MIGHT AND PERHAPS I SHALL MAKE THEE A LEMURE FOR ONLY 10,000 YEARS!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48059)  // ~"Mmmph! MMMMMPH! RRRRR!! Mmph!"~
+    Wait(5)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See([ANYONE])
+  Global("Ecco_Speak","GLOBAL",5)
+THEN
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48062)  // ~"Hi!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48063)  // ~"Hello!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48064)  // ~"Good day to you!"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48053)  // ~"Might I be of any assistance?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([ANYONE])
+    FloatMessage(Myself,48065)  // ~"Can I help you with something?"~
+    Wait(5)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron1")  // ~Brothel Patron~
+  !Global("Ecco_Speak","GLOBAL",4)
+THEN
+  RESPONSE #500
+    SendTrigger("BPatron1",5)
+    FaceObject("BPatron1")
+    ChangeAIScript("0605ecc3",DEFAULT)
+    Continue()
+  RESPONSE #1300
+    Continue()
+END
+
+IF
+  See("BPatron2")  // ~Brothel Patron~
+  !Global("Ecco_Speak","GLOBAL",4)
+THEN
+  RESPONSE #500
+    SendTrigger("BPatron2",5)
+    FaceObject("BPatron2")
+    ChangeAIScript("0605ecc3",DEFAULT)
+    Continue()
+  RESPONSE #1300
+    Continue()
+END
+
+IF
+  See("BPatron3")  // ~Brothel Patron~
+  !Global("Ecco_Speak","GLOBAL",4)
+THEN
+  RESPONSE #500
+    SendTrigger("BPatron3",5)
+    FaceObject("BPatron3")
+    ChangeAIScript("0605ecc3",DEFAULT)
+    Continue()
+  RESPONSE #1300
+    Continue()
+END
+
+IF
+  See("BPatron5")  // ~Brothel Patron~
+  !Global("Ecco_Speak","GLOBAL",4)
+THEN
+  RESPONSE #500
+    SendTrigger("BPatron5",5)
+    FaceObject("BPatron5")
+    ChangeAIScript("0605ecc3",DEFAULT)
+    Continue()
+  RESPONSE #1300
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([451.611])
+    Face(12)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([589.611])
+    Face(8)
+    StartRandomTimer(1,10,15)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,1)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([538.479])
+    Face(14)
+    StartRandomTimer(1,10,15)
+    SetInternal(Myself,INTERNAL_0,0)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+

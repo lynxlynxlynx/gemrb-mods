@@ -1,0 +1,106 @@
+IF
+  Global("Foundry_Kellera","AR0512",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    Face(4)
+    MoveToPoint([572.955])
+    Face(6)
+    MoveToPoint([443.838])
+    Face(12)
+    FloatMessage(Myself,1000)  // ~"Sensates?"~
+    WaitRandom(3,6)
+    MoveToPoint([590.835])
+    Face(10)
+    GlobalSet("Foundry_Kellera","AR0512",2)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+
+IF
+  Global("Foundry_Kellera","AR0512",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    MoveToPoint([780.641])
+    Face(0)
+    GlobalSet("Foundry_Kellera","AR0512",3)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+
+IF
+  Global("Foundry_Kellera","AR0512",3)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    Face(12)
+    MoveToPoint([877.642])
+    Face(10)
+    GlobalSet("Foundry_Kellera","AR0512",5)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+
+IF
+  Global("Foundry_Kellera","AR0512",5)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    MoveToPoint([983.535])
+    Face(14)
+    GlobalSet("Foundry_Kellera","AR0512",6)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+
+IF
+  Global("Foundry_Kellera","AR0512",6)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    MoveToPoint([1136.684])
+    Face(4)
+    FloatMessage(Myself,1000)  // ~"Sensates?"~
+    WaitRandom(3,6)
+    MoveToPoint([1026.681])
+    GlobalSet("Foundry_Kellera","AR0512",7)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+
+IF
+  Global("Foundry_Kellera","AR0512",7)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    Face(2)
+    MoveToPoint([962.745])
+    GlobalSet("Foundry_Kellera","AR0512",8)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+
+IF
+  Global("Foundry_Kellera","AR0512",8)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    Face(0)
+    MoveToPoint([961.917])
+    Face(4)
+    MoveToPoint([870.916])
+    GlobalSet("Foundry_Kellera","AR0512",4)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+
+IF
+  Global("Foundry_Kellera","AR0512",4)
+THEN
+  RESPONSE #100
+    GlobalSet("Foundry_Kellera","AR0512",0)
+    Face(2)
+    MoveToPoint([738.1040])
+    FloatMessage(Myself,1000)  // ~"Sensates?"~
+    WaitRandom(3,6)
+    Face(6)
+    MoveToPoint([662.982])
+    Face(6)
+    GlobalSet("Foundry_Kellera","AR0512",1)
+    ChangeAIScript("0512kela",DEFAULT)
+END
+

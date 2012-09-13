@@ -1,0 +1,14 @@
+IF
+  Global("Change_Brain","AR0509",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0509mesb",GENERAL)
+END
+
+IF
+  Global("Change_Brain","AR0509",0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0509mesa",GENERAL)
+END
+

@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("POMAB")  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    SetVisualRange(30)
+    MultiPlayerSync()
+    SetGlobal("POMAB_ATTACK","GLOBAL",6)
+    CloseDoor("AR1103DOOR1")
+    Wait(1)
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    Wait(1)
+    Dialogue(Protagonist)
+END
+

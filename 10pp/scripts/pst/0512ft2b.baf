@@ -1,0 +1,41 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_STANDFIDGET1)
+    Continue()
+  RESPONSE #100
+    PlaySequence(ANIM_STANDFIDGET2)
+    Continue()
+  RESPONSE #100
+    PlaySequence(ANIM_STANCETOSTAND)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16977)  // ~"Now where did that tool go?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16976)  // ~"Who took the nails?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16975)  // ~"Whose got the hammer?"~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(14)
+    MoveToPoint([517.703])
+    Face(10)
+    MoveToPoint([638.801])
+    Face(14)
+    GlobalSet("Foundry_Area_Return","AR0512",0)
+    ChangeAIScript("0512work",DEFAULT)
+END
+

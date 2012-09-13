@@ -1,0 +1,63 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Troco_Calm","AR1700",2)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,TROCO1)
+END
+
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentLT(Myself,100)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Troco_Calm","AR1700",3)
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Exists([PC][1980.391.2108.490])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  GlobalLT("Troco_Calm","AR1700",2)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_ATTACK1)
+    WaitRandom(3,7)
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

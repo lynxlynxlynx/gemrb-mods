@@ -1,0 +1,63 @@
+IF
+  Global("DoItOnce","LOCALS",0)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("DoItOnce","LOCALS",1)
+    SetGlobalTimer("MonkWander","LOCALS",5)
+END
+
+IF
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_START)
+  !See(NearestEnemyOf(Myself))
+  GlobalTimerExpired("MonkWander","LOCALS")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("MonkWander","LOCALS",60)
+    IncrementGlobal("AmkMonkCap","AR5500",-1)
+    EscapeArea()
+  RESPONSE #100
+    SetGlobalTimer("MonkWander","LOCALS",60)
+    MoveToPoint([829.1462])
+    Wait(3)
+    MoveToObject([0.0.0.MONK])
+    FaceObject([0.0.0.MONK])
+    Wait(1)
+    ActionOverride([0.0.0.MONK],FaceObject([0.0.0.MONK]))
+    Wait(10)
+  RESPONSE #30
+    SetGlobalTimer("MonkWander","LOCALS",60)
+    MoveToPoint([2721.1404])
+    Wait(1)
+    RandomWalkContinuous()
+  RESPONSE #30
+    SetGlobalTimer("MonkWander","LOCALS",60)
+    MoveToPoint([2618.2484])
+    Wait(1)
+    RandomWalkContinuous()
+  RESPONSE #30
+    SetGlobalTimer("MonkWander","LOCALS",60)
+    RandomWalk()
+END
+
+IF
+  TimeLT(DAWN_END)
+  TimeGT(20)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    IncrementGlobal("AmkMonkCap","AR5500",-1)
+    EscapeArea()
+END
+
+IF
+  TimeLT(DAWN_END)
+  TimeGT(20)
+  Allegiance(Myself,ENEMY)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

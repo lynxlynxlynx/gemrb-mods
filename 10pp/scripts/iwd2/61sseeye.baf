@@ -1,0 +1,103 @@
+IF
+  Or(2)
+    IsRotation(Myself,NE)
+    IsRotation(Myself,E)
+THEN
+  RESPONSE #100
+    PlaySequence("SsethEyeAnim",ATTACK)
+    Continue()
+END
+
+IF
+  IsRotation(Myself,SE)
+THEN
+  RESPONSE #100
+    PlaySequence("SsethEyeAnim",AWAKE)
+    Continue()
+END
+
+IF
+  IsRotation(Myself,S)
+THEN
+  RESPONSE #100
+    PlaySequence("SsethEyeAnim",CAST)
+    Continue()
+END
+
+IF
+  IsRotation(Myself,SW)
+THEN
+  RESPONSE #100
+    PlaySequence("SsethEyeAnim",CONJURE)
+    Continue()
+END
+
+IF
+  IsRotation(Myself,W)
+THEN
+  RESPONSE #100
+    PlaySequence("SsethEyeAnim",DAMAGE)
+    Continue()
+END
+
+IF
+  Or(2)
+    IsRotation(Myself,NW)
+    IsRotation(Myself,N)
+THEN
+  RESPONSE #100
+    PlaySequence("SsethEyeAnim",DIE)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF],0)
+  !IsAnimationID(LastMarkedObject,"""""Mummy, Histachii""""")
+  CheckStatGT(LastMarkedObject,1,ENCUMBERANCE)
+THEN
+  RESPONSE #100
+    DropInventoryEX(LastMarkedObject)
+END
+
+IF
+  See([GOODCUTOFF],0)
+  !IsAnimationID(LastMarkedObject,"""""Mummy, Histachii""""")
+THEN
+  RESPONSE #100
+    ClearActions(LastMarkedObject)
+    FloatMessage(LastMarkedObject,35458)  // ~As you approach the archway Sseth's Eye suddenly stares at you and you begin to feel the overwhelming compulsion to walk away from it.~
+    ActionOverride(LastMarkedObject,MakeUnselectable(10))
+    ActionOverride(LastMarkedObject,MoveToPoint([3078.1108]))
+    Continue()
+  RESPONSE #100
+    ClearActions(LastMarkedObject)
+    FloatMessage(LastMarkedObject,35458)  // ~As you approach the archway Sseth's Eye suddenly stares at you and you begin to feel the overwhelming compulsion to walk away from it.~
+    ActionOverride(LastMarkedObject,MakeUnselectable(10))
+    ActionOverride(LastMarkedObject,MoveToPoint([1120.735]))
+    Continue()
+  RESPONSE #100
+    ClearActions(LastMarkedObject)
+    FloatMessage(LastMarkedObject,35458)  // ~As you approach the archway Sseth's Eye suddenly stares at you and you begin to feel the overwhelming compulsion to walk away from it.~
+    ActionOverride(LastMarkedObject,MakeUnselectable(10))
+    ActionOverride(LastMarkedObject,MoveToPoint([735.1565]))
+    Continue()
+  RESPONSE #100
+    ClearActions(LastMarkedObject)
+    FloatMessage(LastMarkedObject,35458)  // ~As you approach the archway Sseth's Eye suddenly stares at you and you begin to feel the overwhelming compulsion to walk away from it.~
+    ActionOverride(LastMarkedObject,MakeUnselectable(10))
+    ActionOverride(LastMarkedObject,MoveToPoint([1500.1250]))
+    Continue()
+  RESPONSE #100
+    ClearActions(LastMarkedObject)
+    FloatMessage(LastMarkedObject,35458)  // ~As you approach the archway Sseth's Eye suddenly stares at you and you begin to feel the overwhelming compulsion to walk away from it.~
+    ActionOverride(LastMarkedObject,MakeUnselectable(10))
+    ActionOverride(LastMarkedObject,MoveToPoint([2850.600]))
+    Continue()
+  RESPONSE #100
+    ClearActions(LastMarkedObject)
+    FloatMessage(LastMarkedObject,35458)  // ~As you approach the archway Sseth's Eye suddenly stares at you and you begin to feel the overwhelming compulsion to walk away from it.~
+    ActionOverride(LastMarkedObject,MakeUnselectable(10))
+    ActionOverride(LastMarkedObject,MoveToPoint([2400.1570]))
+    Continue()
+END
+

@@ -1,0 +1,73 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("Stew","AR1302",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38749)  // ~A simple wood range with a cauldron. This could be used to cook something if you had reason to do so.~
+    SetGlobal("Stew","AR1302",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISC7V")  // ~Dog Meat~
+  GlobalLT("StewReady","AR1302",3)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38750)  // ~You empty the dog meat into the cauldron to be stewed.~
+    TakePartyItem("MISC7V")
+    IncrementGlobal("StewReady","AR1302",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISC7V")  // ~Dog Meat~
+  Global("StewReady","AR1302",3)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38754)  // ~The cauldron is full enough to feed six umberhulks and the dog stew is ready.~
+    TakePartyItem("MISC7V")
+    GiveItemCreate("MISC7U",LastTrigger,0,0,0)  // ~Dog Stew~
+    AddexperienceParty(11500)
+    IncrementGlobal("StewReady","AR1302",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISC7V")  // ~Dog Meat~
+  Global("StewReady","AR1302",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38749)  // ~A simple wood range with a cauldron. This could be used to cook something if you had reason to do so.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISC7V")  // ~Dog Meat~
+  GlobalLT("StewReady","AR1302",4)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38753)  // ~You need more dog meat to fill the cauldron.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("StewReady","AR1302",4)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38757)  // ~You have no further use for the range.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

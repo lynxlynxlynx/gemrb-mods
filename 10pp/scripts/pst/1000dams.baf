@@ -1,0 +1,45 @@
+IF
+  Global("Damsel_Abishai","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SinisterPoof("S113SMOK",[898.1409],1)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,DAMSEL_IN_DISTRESS)
+    SetDialog("")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #20
+    FloatMessage(Myself,9518)  // ~"Help! Please, someone help me!"~
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,9634)  // ~"Help!"~
+    Continue()
+  RESPONSE #60
+    Continue()
+END
+
+IF
+  !Global("Damsel_Abishai","GLOBAL",1)
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

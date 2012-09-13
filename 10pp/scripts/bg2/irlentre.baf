@@ -1,0 +1,20 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("ZorlDopple","GLOBAL",1)
+END
+
+IF
+  Global("ZorlDopple","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    CreateCreature("DOPZORL",[768.607],0)  // DOPZORL
+    CreateCreature("DOPZORL",[710.673],0)  // DOPZORL
+    CreateCreature("DOPZORL",[881.661],0)  // DOPZORL
+    CreateCreature("DOPZORL",[942.567],0)  // DOPZORL
+    ForceSpell(Myself,DOPPLEGANGER_CHANGE2)
+END
+

@@ -1,0 +1,29 @@
+IF
+  General(Myself,HUMANOID)
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType([0.0.0.CLERIC]))
+  See(LastAttackerOf(LastSeenBy(Myself)))
+  Global("spokedefend","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,49769)  // ~I shall help thee!~
+    SetGlobal("spokedefend","LOCALS",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType([0.0.0.CLERIC]))
+  See(LastAttackerOf(LastSeenBy(Myself)))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

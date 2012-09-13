@@ -1,0 +1,37 @@
+IF
+  Global("ElvenCityTree","GLOBAL",1)
+  Global("DoorOpen","AR2600",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DoorOpen","AR2600",1)
+    StartCutSceneMode()
+    StartCutScene("cut50b")
+END
+
+IF
+  Global("WerewolfHostile","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("c6lanf",Enemy())
+    ActionOverride("c6safa",Enemy())
+    ActionOverride("c6were2",Enemy())
+END
+
+IF
+  Global("SpawnWolfwere","AR2600",0)
+  OR(2)
+    Global("CoranJob","GLOBAL",1)
+    Global("CoranJob","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnWolfwere","AR2600",1)
+    CreateCreature("c6safa",[3419.477],0)  // ~Safana~
+    CreateCreature("c6lanf",[3384.440],0)  // ~Lanfear~
+    CreateCreature("c6were2",[3336.255],0)  // ~Wolfwere~
+    CreateCreature("c6were2",[3512.244],2)  // ~Wolfwere~
+    CreateCreature("c6were2",[3504.402],2)  // ~Wolfwere~
+    CreateCreature("c6were2",[3675.434],0)  // ~Wolfwere~
+    CreateCreature("c6were2",[3527.525],6)  // ~Wolfwere~
+    CreateCreature("c6were2",[3202.454],14)  // ~Wolfwere~
+END
+

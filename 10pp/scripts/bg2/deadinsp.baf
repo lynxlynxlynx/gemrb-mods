@@ -1,0 +1,9 @@
+IF
+  Global("ToldInspector","GLOBAL",1)
+  Global("SpawnBody","AR0502",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnBody","AR0502",1)
+    CreateItem("MISC5M",0,0,0)  // ~Inspector's Body~
+END
+

@@ -1,0 +1,18 @@
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",32,AND)
+  Global("KERISH_LOOK","GLOBAL",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",32,OR)
+END
+
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",32,AND)
+  Global("KERISH_LOOK","GLOBAL",0)
+  Opened([PC])
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",32,OR)
+END
+

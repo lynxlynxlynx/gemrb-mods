@@ -1,0 +1,46 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    FadeToColor([20.0],0)
+    Wait(1)
+    JumpToPoint([755.1725])
+    ActionOverride(Player2,JumpToPoint([817.1787]))
+    ActionOverride(Player3,JumpToPoint([852.1665]))
+    ActionOverride(Player4,JumpToPoint([873.1731]))
+    ActionOverride(Player5,JumpToPoint([916.1655]))
+    ActionOverride(Player6,JumpToPoint([960.1734]))
+    Face(4)
+    ActionOverride(Player2,Face(4))
+    ActionOverride(Player3,Face(4))
+    ActionOverride(Player4,Face(4))
+    ActionOverride(Player5,Face(6))
+    ActionOverride(Player6,Face(2))
+    Wait(1)
+    AmbientActivate("AMB_DOOR05",TRUE)
+    SoundActivate("EnergyBarrier2",TRUE)
+    MoveViewObject(Player1,5)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    Unlock("Door5")
+    CloseDoor("Door5")
+    Lock("Door5")
+    CreateVisualEffect("SPFLSRIN",[830.1557])
+    CreateVisualEffect("SPFLSRIN",[597.1774])
+    CreateVisualEffect("SPFLSRIN",[918.1855])
+    Wait(2)
+    CreateVisualEffect("SPPORTAL",[553.1661])
+    CreateVisualEffect("SPFLESHS",[553.1661])
+    CreateCreature("chalpc01",[553.1661],12)  // ~<CHARNAME>~
+    CreateVisualEffect("SPPORTAL",[685.1913])
+    CreateCreature("chtaz02",[685.1913],10)  // ~Tamoko~
+    CreateVisualEffect("SPPORTAL",[663.1570])
+    CreateCreature("chsam01",[663.1570],0)  // ~Semaj~
+    CreateVisualEffect("SPPORTAL",[475.1717])
+    CreateCreature("chang01",[475.1717],12)  // ~Angelo~
+    Wait(4)
+    ActionOverride("chalpc01",StartDialogNoSet(Player1))
+END
+

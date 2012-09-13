@@ -1,0 +1,18 @@
+IF
+  !Dead("Delcia")  // ~Lady Delcia Caan~
+  Global("DelciaSpawn","AR1306",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DelciaSpawn","AR1306",1)
+    CreateCreature("DELCIA",[1089.857],2)  // ~Lady Delcia Caan~
+    ActionOverride("Delcia",SetNumTimesTalkedTo(1))
+END
+
+IF
+  Global("EnteredAR1306","AR1306",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredAR1306","AR1306",1)
+    Explore()
+END
+

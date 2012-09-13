@@ -1,0 +1,43 @@
+IF
+  Global("HaerDalisGemQuest","GLOBAL",20)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("FightingTheTroupe","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("FightingTheTroupe","GLOBAL",1)
+    DialogueInterrupt(FALSE)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("FightingTheTroupe","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FightingTheTroupe","GLOBAL",1)
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HasItem("potn52",Myself)  // ~Potion of Extra Healing~
+THEN
+  RESPONSE #100
+    UseItem("potn52",Myself)  // ~Potion of Extra Healing~
+END
+

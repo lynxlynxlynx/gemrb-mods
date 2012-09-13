@@ -1,0 +1,209 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeTeam(Myself,TEAM_NONGHOUL)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("DN_Prisoner","GLOBAL",2)
+    SetDoorLocked("ar1500d1",FALSE)
+    SetDoorLocked("ar1500d2",FALSE)
+    CreateItem("SkullHa",0,0,0)  // ~Hargrimm's Skull~
+    DropInventory()
+END
+
+IF
+  Global("Hargrim_DEAD","KAPUTZ",1)
+THEN
+  RESPONSE #100
+    GlobalSet("DN_Prisoner","GLOBAL",2)
+    SetDoorLocked("ar1500d1",FALSE)
+    SetDoorLocked("ar1500d2",FALSE)
+    DestroySelf()
+END
+
+IF
+  Global("Hargrimm_Relocate","AR1500",0)
+  GlobalGT("DN_Surrender","AR1500",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Hargrimm_Relocate","AR1500",1)
+    JumpToPoint([821.535])
+END
+
+IF
+  HPPercentLT(Myself,25)
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),10)
+  HaveSpell(CLERIC_CURSE)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CURSE)
+    StartTimer(1,5)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SPIRITUAL_HAMMER)
+  Range(NearestEnemyOf(Myself),20)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_SPIRITUAL_HAMMER)
+    StartTimer(1,15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),40)
+  !Range(NearestEnemyOf(Myself),20)
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CALL_LIGHTNING)
+    StartTimer(1,10)
+END
+
+IF
+  Global("H_Kill_PC","AR1500",0)
+  Global("Ghoul_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeAIScript("1500hary",DEFAULT)
+END
+
+IF
+  Global("H_Kill_PC","AR1500",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Undead_Alert","AR1500",1)
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Undead_Alert","AR1500",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Ghoul_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  Global("Nap_Time","AR1500",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("1500harx",DEFAULT)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(0)
+    WaitRandom(10,15)
+    MoveToPoint([821.817])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([1479.1478])
+    Face(-1)
+    WaitRandom(10,15)
+    MoveToPoint([1609.1346])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([2052.1346])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([2352.1643])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([2352.1838])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([2415.1903])
+    MoveToPoint([2415.2361])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([2368.2411])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([1686.2627])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([1548.2631])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([1426.2509])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([1426.1975])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([1276.1819])
+    MoveToPoint([1607.1485])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([1607.1485])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([897.778])
+    Face(-1)
+    WaitRandom(5,10)
+    MoveToPoint([897.535])
+    MoveToPoint([821.535])
+END
+

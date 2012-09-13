@@ -1,0 +1,34 @@
+IF
+  HaveSpell(CLERIC_SLOW_POISON)
+  StateCheck(Myself,STATE_POISONED)
+  HPPercentLT(Myself,75)
+  IsSpellTargetValid(Myself,CLERIC_SLOW_POISON,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SLOW_POISON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_MINOR_ELEMENTAL_BARRIER)
+  HitBy([ANYONE],FIRE)
+  HPPercentLT(Myself,75)
+  IsSpellTargetValid(Myself,CLERIC_MINOR_ELEMENTAL_BARRIER,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_MINOR_ELEMENTAL_BARRIER)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastMarkedObject,3)
+    AttackReevaluate(LastMarkedObject,45)
+END
+

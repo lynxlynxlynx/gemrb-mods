@@ -1,0 +1,15 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("EiVene_Dead","GLOBAL",1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+

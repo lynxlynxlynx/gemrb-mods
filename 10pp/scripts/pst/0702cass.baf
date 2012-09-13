@@ -1,0 +1,38 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Cassius","GLOBAL",10)
+    CreateItem("Celestia",0,0,0)  // ~"Celestial Fire"~
+    DropInventory()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+

@@ -1,0 +1,25 @@
+IF
+  !Global("Current_Area","GLOBAL",102)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",102)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0102_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0102_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  GlobalGT("Ravel","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreature("Mebbeth",[350.269])  // ~Midwife~
+    ChangeAIScript("ar0102_2",DEFAULT)
+END
+

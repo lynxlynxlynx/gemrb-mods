@@ -1,0 +1,13 @@
+IF
+  HarmlessEntered([PC])
+  Global("Mortuary_Walkthrough","GLOBAL",2)
+  InParty("Morte")  // ~Talking Skull~
+  !BitCheck("0202_Status","AR0202",BIT4)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    MoveViewPoint([1032.1127],VERY_FAST)
+    BitSet("0202_Status","AR0202",BIT4)
+    StartCutScene("0202cs3")
+END
+

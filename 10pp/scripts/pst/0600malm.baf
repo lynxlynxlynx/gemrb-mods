@@ -1,0 +1,39 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See("Nameless")  // ~Nameless One~
+THEN
+  RESPONSE #100
+    FaceObject("Nameless")
+    Continue()
+END
+
+IF
+  See("Nameless")  // ~Nameless One~
+  Global("Malmaner","GLOBAL",0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,50735)  // ~"You there, sir... I would speak with you a moment."~
+    StartRandomTimer(1,5,10)
+  RESPONSE #100
+    FloatMessage(Myself,50736)  // ~"You! Yes, you: kindly come over here, would you?"~
+    StartRandomTimer(1,5,10)
+END
+

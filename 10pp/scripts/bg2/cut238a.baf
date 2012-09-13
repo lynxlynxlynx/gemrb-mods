@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    StorePartyLocations()
+    Wait(2)
+    LeaveAreaLUAPanic("AR6108","",[1249.1253],14)
+    LeaveAreaLUA("AR6108","",[1249.1253],14)
+    ActionOverride(Player2,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player3,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player4,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player5,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player6,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    Wait(2)
+    MultiPlayerSync()
+    CreateCreature("cutspy",[628.576],10)  // <Invalid Strref -1>
+    MoveViewPoint([628.576],INSTANT)
+    Wait(1)
+    Explore()
+    FadeFromColor([30.0],0)
+    Wait(2)
+    ActionOverride("sendai",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

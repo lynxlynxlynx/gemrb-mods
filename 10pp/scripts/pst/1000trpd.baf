@@ -1,0 +1,17 @@
+IF
+  Entered([PC])
+  Global("Damsel_Trap","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Damsel_Trap","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Entered([PC])
+  Exists([0.0.0.0.0.0.DAMSEL_IN_DISTRESS])
+THEN
+  RESPONSE #100
+    GlobalSet("Damsel_Abishai","GLOBAL",1)
+END
+

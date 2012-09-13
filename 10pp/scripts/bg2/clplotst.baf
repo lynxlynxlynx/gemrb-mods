@@ -1,0 +1,20 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  AreaCheck("AR0901")
+THEN
+  RESPONSE #100
+    SetGlobal("TempleShout0901","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  AreaCheck("AR0902")
+THEN
+  RESPONSE #100
+    SetGlobal("TempleShout0902","GLOBAL",1)
+    Enemy()
+END
+

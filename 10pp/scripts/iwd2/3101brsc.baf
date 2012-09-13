@@ -1,0 +1,61 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Global("BRASTON_PAUSED_STATE","GLOBAL",2)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("BRASTON_PAUSED_STATE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("SAW_ENEMY","LOCALS",0)
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,32099)  // ~"Incoming!"~
+    SetGlobal("SAW_ENEMY","LOCALS",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  AttackedBy([ENEMY],0)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,90)
+END
+
+IF
+  !Global("SAW_ENEMY","LOCALS",0)
+  ActionListEmpty()
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  !Global("SAW_ENEMY","LOCALS",0)
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    SetGlobal("SAW_ENEMY","LOCALS",0)
+    Continue()
+END
+

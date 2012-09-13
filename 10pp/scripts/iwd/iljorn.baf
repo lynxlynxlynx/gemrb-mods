@@ -1,0 +1,418 @@
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,80)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BEORNEN")  // ~Beornen~
+  HPPercentLT("BEORNEN",80)  // ~Beornen~
+THEN
+  RESPONSE #100
+    Spell("BEORNEN",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_0")  // BARBARIAN_0
+  HPPercentLT("BARBARIAN_0",80)  // BARBARIAN_0
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_0",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_1")  // BARBARIAN_1
+  HPPercentLT("BARBARIAN_1",80)  // BARBARIAN_1
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_1",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_2")  // BARBARIAN_2
+  HPPercentLT("BARBARIAN_2",80)  // BARBARIAN_2
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_2",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_3")  // BARBARIAN_3
+  HPPercentLT("BARBARIAN_3",80)  // BARBARIAN_3
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_3",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_4")  // BARBARIAN_4
+  HPPercentLT("BARBARIAN_4",80)  // BARBARIAN_4
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_4",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_5")  // BARBARIAN_5
+  HPPercentLT("BARBARIAN_5",80)  // BARBARIAN_5
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_5",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_6")  // BARBARIAN_6
+  HPPercentLT("BARBARIAN_6",80)  // BARBARIAN_6
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_6",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("BARBARIAN_7")  // BARBARIAN_7
+  HPPercentLT("BARBARIAN_7",80)  // BARBARIAN_7
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_7",CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,80)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BEORNEN")  // ~Beornen~
+  HPPercentLT("BEORNEN",80)  // ~Beornen~
+THEN
+  RESPONSE #100
+    Spell("BEORNEN",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_0")  // BARBARIAN_0
+  HPPercentLT("BARBARIAN_0",80)  // BARBARIAN_0
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_0",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_1")  // BARBARIAN_1
+  HPPercentLT("BARBARIAN_1",80)  // BARBARIAN_1
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_1",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_2")  // BARBARIAN_2
+  HPPercentLT("BARBARIAN_2",80)  // BARBARIAN_2
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_2",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_3")  // BARBARIAN_3
+  HPPercentLT("BARBARIAN_3",80)  // BARBARIAN_3
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_3",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_4")  // BARBARIAN_4
+  HPPercentLT("BARBARIAN_4",80)  // BARBARIAN_4
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_4",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_5")  // BARBARIAN_5
+  HPPercentLT("BARBARIAN_5",80)  // BARBARIAN_5
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_5",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_6")  // BARBARIAN_6
+  HPPercentLT("BARBARIAN_6",80)  // BARBARIAN_6
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_6",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("BARBARIAN_7")  // BARBARIAN_7
+  HPPercentLT("BARBARIAN_7",80)  // BARBARIAN_7
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_7",CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,80)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BEORNEN")  // ~Beornen~
+  HPPercentLT("BEORNEN",80)  // ~Beornen~
+THEN
+  RESPONSE #100
+    Spell("BEORNEN",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_0")  // BARBARIAN_0
+  HPPercentLT("BARBARIAN_0",80)  // BARBARIAN_0
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_0",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_1")  // BARBARIAN_1
+  HPPercentLT("BARBARIAN_1",80)  // BARBARIAN_1
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_1",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_2")  // BARBARIAN_2
+  HPPercentLT("BARBARIAN_2",80)  // BARBARIAN_2
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_2",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_3")  // BARBARIAN_3
+  HPPercentLT("BARBARIAN_3",80)  // BARBARIAN_3
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_3",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_4")  // BARBARIAN_4
+  HPPercentLT("BARBARIAN_4",80)  // BARBARIAN_4
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_4",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_5")  // BARBARIAN_5
+  HPPercentLT("BARBARIAN_5",80)  // BARBARIAN_5
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_5",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_6")  // BARBARIAN_6
+  HPPercentLT("BARBARIAN_6",80)  // BARBARIAN_6
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_6",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("BARBARIAN_7")  // BARBARIAN_7
+  HPPercentLT("BARBARIAN_7",80)  // BARBARIAN_7
+THEN
+  RESPONSE #100
+    Spell("BARBARIAN_7",CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_BLADE_BARRIER)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_BLADE_BARRIER)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SLAY_LIVING)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SLAY_LIVING)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SPIRITUAL_WRATH)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_WRATH)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_BLOOD_RAGE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_BLOOD_RAGE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  See([0.0.SNOW_TROLL])
+  GlobalTimerExpired("TROLL_BOMB","MYAREA")
+  HP(LastSeenBy(Myself),1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TROLL_BOMB","MYAREA",3)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SUNSCORCH)
+    Wait(2)
+END
+
+IF
+  !TimerActive(28)
+  AttackedBy([ENEMY],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACKED","LOCALS",1)
+    Shout(11)
+    StartRandomTimer(28,2,6)
+    Continue()
+END
+
+IF
+  !Global("ATTACKED","LOCALS",0)
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  Heard([ANYTHING],12)
+THEN
+  RESPONSE #100
+    MoveToObject(LastSeenBy(LastHeardBy(Myself)))
+END
+
+IF
+  !Global("ATTACKED","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACKED","LOCALS",0)
+    Continue()
+END
+

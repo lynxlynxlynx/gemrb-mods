@@ -1,0 +1,62 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("SC_Hostile","AR0402",1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("SC_Hostile","AR0402",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !Global("Ignus","GLOBAL",1)
+  NearLocation(Myself,[1459.1099],0)
+THEN
+  RESPONSE #100
+    Face(2)
+    FloatMessage(Myself,9499)  // ~"That looks like it really hurts."~
+    Wait(5)
+    MoveToPoint([796.860])
+    Face(4)
+    Wait(6)
+    MoveToPoint([752.601])
+    Wait(15)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    MoveToPoint([836.755])
+    Face(12)
+    Wait(3)
+    MoveToPoint([1332.895])
+    Face(0)
+    Wait(10)
+    MoveToPoint([1459.1099])
+    Face(2)
+    Wait(5)
+    MoveToPoint([796.860])
+    Face(4)
+    Wait(6)
+    MoveToPoint([752.601])
+    Face(14)
+    Wait(15)
+END
+

@@ -1,0 +1,63 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(LastAttackerOf(LastHelp),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    MoveToPoint([598.916])
+    MoveToPoint([546.965])
+    MoveToPoint([625.1042])
+    MoveToPoint([755.1042])
+    Face(10)
+    Wait(10)
+    MoveToPoint([692.979])
+    MoveToPoint([758.911])
+    Face(6)
+    Wait(10)
+    MoveToPoint([838.826])
+    MoveToPoint([838.646])
+    Face(8)
+    Wait(15)
+    MoveToPoint([838.646])
+    Face(8)
+    Wait(15)
+    MoveToPoint([838.826])
+    MoveToPoint([758.911])
+    Face(6)
+    Wait(10)
+    MoveToPoint([692.979])
+    MoveToPoint([755.1042])
+    Face(10)
+    Wait(10)
+    MoveToPoint([625.1042])
+    MoveToPoint([546.965])
+    MoveToPoint([598.916])
+    MoveToPoint([598.822])
+    Face(10)
+END
+

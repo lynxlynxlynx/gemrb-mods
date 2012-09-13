@@ -1,0 +1,34 @@
+IF
+  Global("tannerplot2","GLOBAL",2)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Change","LOCALS",1)
+    ApplySpell("trskin01",SKIN_DANCER_SWITCH)
+    SetName(39107)  // ~Raissa~
+END
+
+IF
+  Global("tannerplot2","GLOBAL",2)
+  Dead("trskin01")  // ~Raissa~
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("SkinWentHostile","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateItem("MISC79",0,0,0)  // ~Raissa's Skin~
+    DropItem("MISC79",[3726.2038])
+    SetGlobal("SkinWentHostile","GLOBAL",1)
+    ActionOverride("trskin06",CreateCreatureObject("TRSKIN3B",Myself,0,0,0))  // ~Rejiek Hidesman~
+    ActionOverride("trskin06",ChangeAnimationNoEffect("TRSKIND2"))
+    ReallyForceSpell(Myself,SKIN_DANCER_RESTORE_2)
+    SmallWait(1)
+    ChangeAnimationNoEffect("TRSKIND1")
+END
+

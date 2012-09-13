@@ -1,0 +1,74 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Global("Mortuary_Alert_3","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  Global("Mortuary_Alert","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    GlobalSet("0203md3","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Mortuary_Alert","GLOBAL",1)
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See([PC])
+  GlobalGT("0203md3","GLOBAL",0)
+  Global("Appearance","GLOBAL",0)
+  Global("Join_Dustmen","GLOBAL",0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,32196)  // ~"What are you still doing here?"~
+    StartTimer(1,30)
+END
+
+IF
+  See([PC])
+  Global("0203md3","GLOBAL",0)
+  Global("Appearance","GLOBAL",0)
+  Global("Join_Dustmen","GLOBAL",0)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,25980)  // ~"You there! Hold!"~
+    Wait(2)
+    Dialogue([PC])
+    StartTimer(1,30)
+END
+
+IF
+  !NearSavedLocation(0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

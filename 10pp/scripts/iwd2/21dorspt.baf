@@ -1,0 +1,9 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    GiveItemCreate("21GenWP",[PC],1,0,0)  // ~Wood Planks~
+    PlaySound("AM2101f")
+    DisplayMessage(29271)  // ~The dam has been weakened enough to render it useless.~
+END
+

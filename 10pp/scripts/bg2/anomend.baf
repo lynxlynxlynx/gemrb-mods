@@ -1,0 +1,17 @@
+IF
+  !Global("AnomenRomanceActive","GLOBAL",0)
+  !Global("AnomenRomanceActive","GLOBAL",3)
+  Global("AnomenMatch","GLOBAL",1)
+  See(Player1)
+  CombatCounter(0)
+  OR(2)
+    Global("LoveTalk","LOCALS",31)
+    Global("LoveTalk","LOCALS",35)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    RealSetGlobalTimer("AnomenRomance","GLOBAL",1)
+    PlaySong(35)
+    Interact(Player1)
+END
+

@@ -1,0 +1,41 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,1859)  // ~"Maglubiyet, make it end!"~
+    StartRandomTimer(1,20,40)
+  RESPONSE #100
+    FloatMessage(Myself,1860)  // ~"Curse Vaprak and his eternal brood, the pain!"~
+    StartRandomTimer(1,20,40)
+  RESPONSE #100
+    FloatMessage(Myself,1861)  // ~*GrrrrrAAAAAGH!*~
+    StartRandomTimer(1,20,40)
+  RESPONSE #100
+    FloatMessage(Myself,1862)  // ~"Get out of my mind!"~
+    StartRandomTimer(1,20,40)
+END
+

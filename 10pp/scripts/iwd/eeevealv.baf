@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("EVERARD")  // 
+    StartCutSceneMode()
+    MultiPlayerSync()
+    ClearAllActions()
+    HideCreature(Myself,FALSE)
+    StartCutScene("EEPEQTLK")
+END
+

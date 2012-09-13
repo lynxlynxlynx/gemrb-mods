@@ -1,0 +1,34 @@
+IF
+  Global("HAMMER_UNLOCKED","MYAREA",0)
+  Global("AR6010_TRAP_STATE","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("HAMMER_UNLOCKED","MYAREA",1)
+    Unlock(Myself)
+END
+
+IF
+  Opened([PC])
+  Global("AR6010_TRAP_STATE","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("PUZZLE_STAIRS_OPEN","GLOBAL",1)
+    PlaySound("GEAR_S")
+END
+
+IF
+  Unlocked([PC])
+  Global("AR6010_TRAP_STATE","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("PUZZLE_STAIRS_OPEN","GLOBAL",1)
+    PlaySound("GEAR_S")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

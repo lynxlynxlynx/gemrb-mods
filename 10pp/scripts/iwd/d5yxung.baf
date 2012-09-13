@@ -1,0 +1,52 @@
+IF
+  !Global("YXUN_ATTACK","MYAREA",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    SetDialogueRange(300)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("YXUN_CAST_SPECIAL","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YXUN_CAST_SPECIAL","MYAREA",1)
+    SetGlobal("YXUN_ATTACK","MYAREA",1)
+    ReallyForceSpell(Myself,INNATE_FLASH_DESTROY_SUMMON_YXUNOMEI)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+

@@ -1,0 +1,18 @@
+IF
+  Global("Deactivation","AR0804",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivation","AR0804",1)
+    TriggerActivation("Tran0808",FALSE)
+END
+
+IF
+  Global("Chapter","GLOBAL",6)
+  Global("Deactivation","AR0804",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivation","AR0804",2)
+    TriggerActivation("Tran0801",FALSE)
+    TriggerActivation("Tran0808",TRUE)
+END
+

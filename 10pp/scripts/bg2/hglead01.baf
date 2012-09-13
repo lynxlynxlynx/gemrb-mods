@@ -1,0 +1,74 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetGlobal("SPRITE_IS_DEADHobgoblinLeader","GLOBAL",0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(10)
+THEN
+  RESPONSE #100
+    Shout(82)
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    Shout(83)
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HasItem("SCRL56",Myself)  // ~Cure Serious Wounds~
+THEN
+  RESPONSE #100
+    UseItem("SCRL56",Myself)  // ~Cure Serious Wounds~
+END
+
+IF
+  HPPercentLT(Myself,40)
+  HasItem("POTN08",Myself)  // ~Potion of Healing~
+THEN
+  RESPONSE #100
+    UseItem("POTN08",Myself)  // ~Potion of Healing~
+END
+
+IF
+  HPPercentLT(Myself,50)
+  NumCreatureGT([0.0.HOBGOBLIN],4)
+  Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    Shout(82)
+    Continue()
+END
+
+IF
+  NumCreatureLT([0.0.HOBGOBLIN],3)
+THEN
+  RESPONSE #100
+    Shout(81)
+    RunAwayFrom(NearestEnemyOf(Myself),60)
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #50
+    Shout(80)
+    AttackReevaluate(LastAttackerOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

@@ -1,0 +1,24 @@
+IF
+  Dead("pirmur01")  // ~Galvena~
+  Dead("pirmur07")  // ~Vadek~
+  AreaCheck("ar1600")
+  Global("SavedClaire","GLOBAL",1)
+  Global("InitDialogue","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("InitDialogue","LOCALS",1)
+    CreateCreature("pirmur09",[768.2173],0)  // ~Golin~
+    Wait(1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Dead("pirmur01")  // ~Galvena~
+  Dead("pirmur07")  // ~Vadek~
+  Global("SavedClaire","GLOBAL",0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+

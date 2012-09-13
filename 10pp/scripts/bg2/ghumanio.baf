@@ -1,0 +1,7 @@
+IF
+  AttackedBy(Myself,DEFAULT)
+THEN
+  RESPONSE #100
+    Wait(0)
+END
+

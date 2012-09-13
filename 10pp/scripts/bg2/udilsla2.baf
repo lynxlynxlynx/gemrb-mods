@@ -1,0 +1,26 @@
+IF
+  Dead("udmaster")  // ~The Master Brain~
+  Global("mindSlaveFreed","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+  Dead("udmaster")  // ~The Master Brain~
+  See([PC])
+  Range(LastSeenBy(Myself),7)
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("spoke","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    EscapeAreaObject("Tran2100")
+END
+

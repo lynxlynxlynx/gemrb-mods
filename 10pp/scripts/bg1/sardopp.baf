@@ -1,0 +1,11 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #30
+    Attack(NearestEnemyOf(Myself))
+  RESPONSE #30
+    Attack("Liia")
+  RESPONSE #30
+    Attack("Belt")
+END
+

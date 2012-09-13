@@ -1,0 +1,102 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  Allegiance("Iselore",ENEMY)  // Iselore
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Range("Iselore",5,GREATER_THAN)  // Iselore
+THEN
+  RESPONSE #100
+    JumpToObject("Iselore")
+    Continue()
+END
+
+IF
+  HPPercentLT("Iselore",100)  // Iselore
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    ReallyForceSpell("Iselore",CLERIC_HEAL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1719161314271523",LastMarkedObject,15)
+      // CLERIC_TREMOR
+      // CLERIC_WHIRLWIND
+      // CLERIC_WALL_OF_FIRE
+      // CLERIC_STATIC_CHARGE
+    MarkSpellAndObject("1302",Myself,15)
+      // CLERIC_CALL_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1302",Myself,15)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("1719161314271523",LastMarkedObject,15)
+      // CLERIC_TREMOR
+      // CLERIC_WHIRLWIND
+      // CLERIC_WALL_OF_FIRE
+      // CLERIC_STATIC_CHARGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+    Wait(3)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(FarthestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1719161314271523",LastMarkedObject,15)
+      // CLERIC_TREMOR
+      // CLERIC_WHIRLWIND
+      // CLERIC_WALL_OF_FIRE
+      // CLERIC_STATIC_CHARGE
+    MarkSpellAndObject("1302",Myself,15)
+      // CLERIC_CALL_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1302",Myself,15)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("1719161314271523",LastMarkedObject,15)
+      // CLERIC_TREMOR
+      // CLERIC_WHIRLWIND
+      // CLERIC_WALL_OF_FIRE
+      // CLERIC_STATIC_CHARGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+    Wait(3)
+END
+

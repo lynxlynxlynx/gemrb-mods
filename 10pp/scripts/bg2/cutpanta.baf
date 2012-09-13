@@ -1,0 +1,37 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("amsmith")  // 
+    FadeToColor([30.0],0)
+    Wait(1)
+    MoveViewObject("amsmith",5)
+    JumpToPoint([399.300])
+    Face(10)
+    Wait(1)
+    TakePartyItem("misc47")
+    TakePartyItem("misc5o")
+    TakePartyItem("misccb")
+    FadeFromColor([30.0],0)
+    Wait(2)
+    CreateVisualEffect("spcrtwpn",[446.265])
+    Wait(2)
+    Swing()
+    Wait(2)
+    CreateVisualEffect("spcrtwpn",[446.265])
+    Wait(2)
+    Swing()
+    Wait(3)
+    FadeToColor([30.0],0)
+    Wait(1)
+    FaceObject([PC])
+    Wait(2)
+    FadeFromColor([30.0],0)
+    Wait(1)
+    SetGlobal("PantArmorDone","GLOBAL",1)
+    DestroyItem("misc47")  // ~Golden Pantaloons~
+    DestroyItem("misc5o")  // ~Silver Pantaloons~
+    DestroyItem("misccb")  // ~Bronze Pantalettes~
+    Dialog(LastTalkedToBy(Myself))
+END
+

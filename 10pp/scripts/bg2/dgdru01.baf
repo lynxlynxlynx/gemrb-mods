@@ -1,0 +1,188 @@
+IF
+  Global("SpawnDGTrolls","AR1900",2)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([PC])
+  Global("SpawnDGTrolls","AR1900",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDGTrolls","AR1900",1)
+    CreateCreature("DGTROL01",[1850.1537],8)  // ~Troll~
+    CreateCreature("DGTROL01",[2002.1587],8)  // ~Troll~
+    CreateCreature("DGTROL01",[2095.1632],8)  // ~Troll~
+END
+
+IF
+  Detect([PC])
+  NumberOfTimesTalkedTo(0)
+  Global("Display","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,49597)  // ~Foul unnatural creatures! Faldorn and her Shadow Druids protect this forest now!~
+END
+
+IF
+  !See([ENEMY])
+  See([PC])
+  Global("SpawnDGTrolls","AR1900",1)
+  Allegiance(Myself,NEUTRAL)
+  Global("DisplaySecond","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DisplaySecond","LOCALS",1)
+    SetGlobal("SpawnDGTrolls","AR1900",2)
+    DisplayStringHead(Myself,49598)  // ~For the Grove! All intruders shall die!~
+END
+
+IF
+  See([0.0.TROLL.MAGE])
+  !StateCheck([0.0.TROLL.MAGE],STATE_DEAD)
+  HaveSpell(CLERIC_FLAME_BLADE)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_FLAME_BLADE)
+    AttackReevaluate([0.0.TROLL.MAGE],15)
+END
+
+IF
+  See(SecondNearest([0.0.TROLL.MAGE]))
+  !StateCheck(SecondNearest([0.0.TROLL.MAGE]),STATE_DEAD)
+  HaveSpell(CLERIC_FLAME_BLADE)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_FLAME_BLADE)
+    AttackReevaluate([0.0.TROLL.MAGE],15)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  Global("prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,CLERIC_BARKSKIN)
+    ApplySpell(Myself,CLERIC_IRONSKIN)
+    Spell("dgfig01",CLERIC_DEFENSIVE_HARMONY)
+    SetGlobal("prep","LOCALS",1)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  See(NearestMyGroupOfType)
+  HPPercentLT(LastSeenBy(Myself),90)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    RunAwayFrom(LastSeenBy(Myself),15)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  See(NearestMyGroupOfType)
+  HPPercentLT(LastSeenBy(Myself),80)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+    RunAwayFrom(LastSeenBy(Myself),15)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,90)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,80)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  AreaType(OUTDOOR)
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+  Global("didOnce","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell([0.0.TROLL.FIGHTER],CLERIC_CALL_LIGHTNING)
+    SetGlobal("didOnce","LOCALS",1)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  See(NearestMyGroupOfType)
+  HaveSpell(CLERIC_MASS_CURE)
+  Global("HealedOnce","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_MASS_CURE)
+    SetGlobal("HealedOnce","LOCALS",1)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_2)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_2)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  HaveSpell(CLERIC_CALL_WOODLAND_BEINGS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CALL_WOODLAND_BEINGS)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  AreaType(OUTDOOR)
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell([0.0.TROLL.FIGHTER],CLERIC_CALL_LIGHTNING)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  See(NearestMyGroupOfType)
+  HaveSpell(CLERIC_MASS_CURE)
+  Global("HealedOnce","LOCALS",1)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_MASS_CURE)
+    SetGlobal("HealedOnce","LOCALS",2)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  HaveSpell(CLERIC_FLAME_BLADE)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_FLAME_BLADE)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+THEN
+  RESPONSE #100
+    Attack([0.0.TROLL.FIGHTER])
+END
+

@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Soego2")  // 
+    Wait(1)
+    Kill(Myself)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hargrim")  // 
+    FloatMessage("Hargrim",63967)  // ~"It is done, then. May the Silent King protect us from such filth in the future."~
+    Wait(10)
+    FadeToBlack()
+    Wait(5)
+    MoveViewPoint([828.929],INSTANT)
+    StartCutScene("1500cs8")
+END
+

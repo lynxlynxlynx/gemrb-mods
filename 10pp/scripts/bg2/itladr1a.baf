@@ -1,0 +1,66 @@
+IF
+  WalkedToTrigger([ANYONE])
+  Global("ClimbLadder","AR5509",0)
+  !GlobalTimerNotExpired("Ladder01Timer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("ClimbLadder","AR5509",1)
+    SetGlobalTimer("Ladder01Timer","AR5509",3)
+    DisplayStringNoNameHead(LastTrigger,72126)  // ~The ladder looks quite old and treacherous, however, you may try climbing it if you wish.  To use it: click on the lower part of the ladder to ascend, click on the upper part to descend.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Class(LastTrigger,THIEF_ALL)
+  !GlobalTimerNotExpired("Ladder01Timer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("Ladder01Timer","AR5509",3)
+    ActionOverride(LastTrigger,JumpToPoint([438.302]))
+    ActionOverride(LastTrigger,Face(6))
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  CheckStatGT(LastTrigger,14,DEX)
+  !GlobalTimerNotExpired("Ladder01Timer","AR5509")
+THEN
+  RESPONSE #70
+    ClearAllActions()
+    SetGlobalTimer("Ladder01Timer","AR5509",3)
+    ActionOverride(LastTrigger,JumpToPoint([438.302]))
+    ActionOverride(LastTrigger,Face(6))
+  RESPONSE #30
+    ClearAllActions()
+    SetGlobalTimer("Ladder01Timer","AR5509",3)
+    DisplayStringNoNameHead(LastTrigger,72127)  // ~You try to climb the ladder, but fail to reach the top.~
+    ApplySpellRES("jwfall",LastTrigger)  // <Invalid Strref -1>
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  CheckStatLT(LastTrigger,15,DEX)
+  !GlobalTimerNotExpired("Ladder01Timer","AR5509")
+THEN
+  RESPONSE #40
+    ClearAllActions()
+    SetGlobalTimer("Ladder01Timer","AR5509",3)
+    ActionOverride(LastTrigger,JumpToPoint([438.302]))
+    ActionOverride(LastTrigger,Face(6))
+  RESPONSE #60
+    ClearAllActions()
+    SetGlobalTimer("Ladder01Timer","AR5509",3)
+    DisplayStringNoNameHead(LastTrigger,72127)  // ~You try to climb the ladder, but fail to reach the top.~
+    ApplySpellRES("jwfall",LastTrigger)  // <Invalid Strref -1>
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("Ladder01Timer","AR5509")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

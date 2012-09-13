@@ -1,0 +1,14 @@
+IF
+  Global("Chapter","GLOBAL",1)
+THEN
+  RESPONSE #100
+    TriggerActivation("Door5401",FALSE)
+END
+
+IF
+  Global("Chapter","GLOBAL",2)
+THEN
+  RESPONSE #100
+    TriggerActivation("Door5401",TRUE)
+END
+

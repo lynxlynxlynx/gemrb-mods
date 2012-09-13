@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOLEM_1")  // 
+    SetGlobal("GOLEM_FOLLOW_PARTY","MYAREA",1)
+    Enemy()
+    AttackReevaluate(NearestEnemyOf(Myself),75)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOLEM_2")  // 
+    SetGlobal("GOLEM_FOLLOW_PARTY","MYAREA",1)
+    Enemy()
+    AttackReevaluate(NearestEnemyOf(Myself),75)
+END
+

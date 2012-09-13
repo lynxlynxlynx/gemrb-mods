@@ -1,0 +1,403 @@
+IF
+  HPLT(Myself,6)
+  Global("Death","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,61345)  // ~Elminster's Evasion~
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Prep","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_SPELL_SHIELD)
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("PipePrep","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,61342)  // ~Elminster's Eversmoking Pipe~
+    DisplayString(Myself,61343)  // ~Contingency - Protection from Normal Missiles~
+    ApplySpell(Myself,0)
+    DisplayString(Myself,325)  // ~Contingency - Spell Turning~
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    DisplayString(Myself,61344)  // ~Contingency - Protection From Fire~
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_FIRE)
+    SetGlobal("PipePrep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SpellTrigger","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39968)  // ~Spell Trigger - Fired~
+    DisplayString(Myself,43046)  // ~Spell Trigger - Mislead~
+    ReallyForceSpell(Myself,WIZARD_MISLEAD)
+    DisplayString(Myself,43047)  // ~Spell Trigger - Fire Shield Red~
+    ReallyForceSpell(Myself,WIZARD_FIRE_SHIELD_RED)
+    DisplayString(Myself,40245)  // ~Spell Trigger - Globe of Invulnerability~
+    ReallyForceSpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)
+    SetGlobal("SpellTrigger","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  StateCheck(Myself,STATE_SILENCED)
+  HaveSpell(WIZARD_VOCALIZE)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  !HaveSpell(WIZARD_TRUE_SIGHT)
+  Delay(10)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  !HasBounceEffects(Myself)
+  !HasImmunityEffects(Myself)
+  HaveSpell(WIZARD_SPELL_TURNING)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_SPELL_TURNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(7)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_CHANT)
+    StateCheck(LastSeenBy(Myself),STATE_MIRRORIMAGE)
+    StateCheck(LastSeenBy(Myself),STATE_BLUR)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+  Global("PrepDef","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #70
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("PrepDef","LOCALS",1)
+  RESPONSE #30
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("PrepDef","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_STONE_SKIN)
+  CheckStatLT(Myself,1,STONESKINS)
+  TookDamage()
+  Global("Prep2","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,40199)  // ~Chain Contingency - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    DisplayString(Myself,3302)  // ~Chain Contingency - Spell Turning~
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    DisplayString(Myself,40240)  // ~Chain Contingency - Mislead~
+    ApplySpell(Myself,WIZARD_MISLEAD)
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("Prep2","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,STONESKINS)
+  TookDamage()
+  Global("Prep2","LOCALS",1)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("Prep2","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  TookDamage()
+  Global("Prep2","LOCALS",1)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,40252)  // ~Contingency - Protection from Magical Weapons~
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    SetGlobal("Prep2","LOCALS",2)
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  Global("summon","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+    SetGlobal("summon","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !HasBounceEffects(Myself)
+  !HasImmunityEffects(Myself)
+  HaveSpell(WIZARD_SPELL_TURNING)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_SPELL_TURNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_TIME_STOP)
+  Global("ElminCombat","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_TIME_STOP)
+    SetGlobal("ElminCombat","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_STUN)
+  Global("ElminCombat","LOCALS",1)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+    SetGlobal("ElminCombat","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_FEAR)
+  Global("ElminCombat","LOCALS",2)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_FEAR)
+    SetGlobal("ElminCombat","LOCALS",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)
+  Global("ElminCombat","LOCALS",3)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_WAIL_OF_THE_BANSHEE)
+    SetGlobal("ElminCombat","LOCALS",4)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_IMPRISONMENT)
+  Global("ElminCombat","LOCALS",4)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_IMPRISONMENT)
+    SetGlobal("ElminCombat","LOCALS",5)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_METEOR_SWARM)
+  Global("ElminCombat","LOCALS",5)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_METEOR_SWARM)
+    SetGlobal("ElminCombat","LOCALS",6)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_TIME_STOP)
+  Global("ElminCombat","LOCALS",6)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_TIME_STOP)
+    SetGlobal("ElminCombat","LOCALS",7)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_IMPRISONMENT)
+  Global("ElminCombat","LOCALS",7)
+THEN
+  RESPONSE #100
+    ForceSpell(SecondNearestEnemyOf(Myself),WIZARD_IMPRISONMENT)
+    SetGlobal("ElminCombat","LOCALS",8)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAZE)
+  Global("ElminCombat","LOCALS",8)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_MAZE)
+    SetGlobal("ElminCombat","LOCALS",9)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+  Global("ElminCombat","LOCALS",9)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+    SetGlobal("ElminCombat","LOCALS",10)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_PRISMATIC_SPRAY)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_PRISMATIC_SPRAY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_TIME_STOP)
+  Global("ElminCombat","LOCALS",10)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_TIME_STOP)
+    SetGlobal("ElminCombat","LOCALS",11)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_IMPRISONMENT)
+  Global("ElminCombat","LOCALS",11)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_IMPRISONMENT)
+    SetGlobal("ElminCombat","LOCALS",12)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAZE)
+  Global("ElminCombat","LOCALS",12)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_MAZE)
+    SetGlobal("ElminCombat","LOCALS",13)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FINGER_OF_DEATH)
+  Global("ElminCombat","LOCALS",13)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)
+    SetGlobal("ElminCombat","LOCALS",14)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_PRISMATIC_SPRAY)
+  Global("ElminCombat","LOCALS",14)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_PRISMATIC_SPRAY)
+    SetGlobal("ElminCombat","LOCALS",15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SUMMON_EFREET)
+  Global("ElminCombat","LOCALS",15)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_SUMMON_EFREET)
+    SetGlobal("ElminCombat","LOCALS",16)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_STUN)
+  Global("ElminCombat","LOCALS",16)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+    SetGlobal("ElminCombat","LOCALS",17)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(0)
+  Global("ElminCombat","LOCALS",17)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_MAZE)
+    SetGlobal("ElminCombat","LOCALS",18)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FLESH_TO_STONE)
+  Global("ElminCombat","LOCALS",18)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)
+    SetGlobal("ElminCombat","LOCALS",19)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DISINTEGRATE)
+  Global("ElminCombat","LOCALS",19)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE)
+    SetGlobal("ElminCombat","LOCALS",20)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DOMINATION)
+  Global("ElminCombat","LOCALS",20)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_DOMINATION)
+    SetGlobal("ElminCombat","LOCALS",21)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

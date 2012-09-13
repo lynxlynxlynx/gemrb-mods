@@ -1,0 +1,38 @@
+IF
+  !Global("SH_BarracksGuardsReset","GLOBAL",0)
+  LOS([GOODCUTOFF],29)
+THEN
+  RESPONSE #100
+    SetGlobal("SH_BarracksGuardsReset","GLOBAL",0)
+    SetGlobal("Wait_BarracksGuardsReset","LOCALS",0)
+END
+
+IF
+  Global("Wait_BarracksGuardsReset","LOCALS",0)
+  !Global("SH_BarracksGuardsReset","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wait_BarracksGuardsReset","LOCALS",1)
+    Wait(2)
+END
+
+IF
+  !NearSavedLocation(1)
+  !Global("SH_BarracksGuardsReset","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Wait_BarracksGuardsReset","LOCALS",0)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    JumpToSavedLocation()
+    FaceSavedLocation(Myself)
+    Wait(3)
+END
+
+IF
+  !Global("SH_BarracksGuardsReset","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SH_BarracksGuardsReset","GLOBAL",0)
+    SetGlobal("Wait_BarracksGuardsReset","LOCALS",0)
+END
+

@@ -1,0 +1,7 @@
+IF
+  Global("DestroyExtras","AR2300",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

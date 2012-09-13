@@ -1,0 +1,30 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+

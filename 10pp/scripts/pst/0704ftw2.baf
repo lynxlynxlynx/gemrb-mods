@@ -1,0 +1,32 @@
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,68011)  // ~"Worthless sod!"~
+  RESPONSE #100
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,68013)  // ~"Stemless boor!"~
+  RESPONSE #100
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,68015)  // ~"Gutless child of a man!"~
+END
+

@@ -1,0 +1,203 @@
+IF
+  OnCreation()
+  Global("Reveal0400","AR0400",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    Explore()
+    SetGlobal("Reveal0400","AR0400",1)
+    ActionOverride("GAELAN",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+    Continue()
+END
+
+IF
+  Dead("cohrvale")  // ~Cohrvale~
+  !Dead("bregg")  // ~Bregg~
+  !Allegiance("bregg",ENEMY)  // ~Bregg~
+THEN
+  RESPONSE #100
+    ActionOverride("bregg",Enemy())
+END
+
+IF
+  Dead("KORSHAG")  // ~Shagbag~
+  !InParty("KORGAN")  // KORGAN
+  Global("KorganNoKillShag","GLOBAL",0)
+THEN
+  RESPONSE #100
+    EraseJournalEntry(2057)  // ~Help Korgan recover the Book of Kaza.I have joined with Korgan Bloodaxe to gain the Book of Kaza for a collector by the name of Pimlico. It is apparently in a tomb beneath the Grave District.  One of the crypts apparently leads to a lower, older section rumored to contain undead...but also the tome.~
+    EraseJournalEntry(2060)  // ~Help Korgan recover the Book of Kaza.It appears that the Book of Kaza was taken from the tomb by former companions of Korgan's.  We must go to Pimlico's house in the Temple District to see if we can head them off and recover the book.~
+    EraseJournalEntry(2061)  // ~Help Korgan recover the Book of Kaza.It appears that Korgan's former friends weren't satisfied with whatever reward Pimlico was offering. They killed the collector and, according to Korgan, will likely be drinking their gains on the roof of the Copper Coronet.  Korgan wishes to go pay his respects, so to speak.~
+    SetGlobalTimer("KorganContract","GLOBAL",TWO_DAYS)
+    SetGlobal("KorganNoKillShag","GLOBAL",1)
+END
+
+IF
+  Global("BrusShow2","GLOBAL",1)
+  Global("BrusShow3","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BrusShow3","GLOBAL",1)
+    CreateCreature("BRUS2",[2987.1248],8)  // ~Brus~
+    Continue()
+END
+
+IF
+  Global("PCSphere","GLOBAL",2)
+  Global("KickedOutSphere","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("KickedOutSphere","GLOBAL",2)
+    CloseDoor("DoorSphere")
+    Lock("DoorSphere")
+    Wait(1)
+    FadeFromColor([30.0],0)
+END
+
+IF
+  Global("LavokOutside","GLOBAL",1)
+  Global("LavokSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LavokSpawn","GLOBAL",1)
+    Wait(1)
+    FadeFromColor([30.0],0)
+    Wait(2)
+    ActionOverride("LAVOK02",Wait(1))
+    ActionOverride("LAVOK02",StartDialogNoSet(Player1))
+END
+
+IF
+  GlobalGT("StealingPlot","GLOBAL",0)
+  Global("TravinSpawn","AR0400",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TravinSpawn","AR0400",1)
+    CreateCreature("TRAVIN",[1523.772],8)  // ~Travin~
+END
+
+IF
+  SpellCast([PC],0)
+  !GlobalTimerNotExpired("SpellsBad","GLOBAL")
+  Global("BribedCowled","GLOBAL",0)
+  GlobalLT("CowledWarning","GLOBAL",7)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectDoor("COWENF2",LastTrigger,0,0,0)  // ~Cowled Enforcer~
+    SetGlobalTimer("SpellsBad","GLOBAL",300)
+END
+
+IF
+  SpellCast([PC],0)
+  Global("BribedCowled","GLOBAL",0)
+  GlobalTimerNotExpired("SpellsBad","GLOBAL")
+THEN
+  RESPONSE #100
+    Wait(1)
+END
+
+IF
+  Global("MovingSlave","AR0400",0)
+  !Dead("SlumsSlaver2")  // SlumsSlaver2
+  !Dead("Lehtinan")  // Lehtinan
+  !GlobalTimerNotExpired("MovingSlaves","AR0400")
+  Time(MIDNIGHT)
+THEN
+  RESPONSE #100
+    SetGlobal("MovingSlave","AR0400",1)
+    SetGlobalTimer("MovingSlaves","AR0400",ONE_DAY)
+    CreateCreature("SLAVER2",[2856.754],0)  // ~Slaver Guard~
+END
+
+IF
+  Global("MovingSlave","AR0400",0)
+  !Dead("SlumsSlaver2")  // SlumsSlaver2
+  !Dead("Lehtinan")  // Lehtinan
+  !GlobalTimerNotExpired("MovingSlaves","AR0400")
+  Time(4)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MovingSlaves","AR0400",ONE_DAY)
+    SetGlobal("MovingSlave","AR0400",1)
+    CreateCreature("SLAVER2",[2856.754],0)  // ~Slaver Guard~
+END
+
+IF
+  OR(2)
+    TimeLT(5)
+    TimeGT(19)
+  !Exists("Welther")  // ~Welther~
+  Global("SpawnWelther","GLOBAL",1)
+  Global("ElgeaGone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreature("WELTHER",[2041.2673],13)  // ~Welther~
+END
+
+IF
+  Global("PimlicoDead","GLOBAL",1)
+  Global("ShagbagEscape","GLOBAL",0)
+  !GlobalTimerExpired("FindShagBag","GLOBAL")
+THEN
+  RESPONSE #100
+    CreateCreature("korshag",[2019.1741],14)  // ~Shagbag~
+    CreateCreature("korcrazy",[2009.1647],0)  // ~Cleric~
+    CreateCreature("korscroo",[2114.1732],2)  // ~Scrooloose~
+    CreateCreature("korgoo01",[1881.1621],0)  // ~Goon~
+    CreateCreature("korgoo02",[2181.1667],0)  // ~Goon~
+    SetGlobal("ShagbagEscape","GLOBAL",1)
+END
+
+IF
+  GlobalTimerExpired("FindShagbag","GLOBAL")
+THEN
+  RESPONSE #100
+    ActionOverride("korshag",DestroySelf())
+    ActionOverride("korcrazy",DestroySelf())
+    ActionOverride("korscroo",DestroySelf())
+    ActionOverride("korgoo01",DestroySelf())
+    ActionOverride("korgoo02",DestroySelf())
+END
+
+IF
+  TimeGT(3)
+  TimeLT(15)
+  InParty("mazzy")  // mazzy
+  Global("GorfHere","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreature("gorf",[2119.2610],0)  // ~Gorf the Squisher~
+    SetGlobal("GorfHere","GLOBAL",1)
+END
+
+IF
+  Global("PCSphere","GLOBAL",2)
+THEN
+  RESPONSE #100
+    CloseDoor("DoorSphere")
+    Lock("DoorSphere")
+END
+
+IF
+  OR(2)
+    TimeLT(DAWN_START)
+    TimeGT(DUSK_START)
+  Global("SpawnHabib","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnHabib","GLOBAL",1)
+    CreateCreature("HABIB",[1706.305],2)  // ~Habib~
+END
+
+IF
+  Global("AR0400DestroyGuard","AR0400",0)
+  OR(2)
+    Dead("SlumsSlaver2")  // SlumsSlaver2
+    Dead("Lehtinan")  // Lehtinan
+THEN
+  RESPONSE #100
+    SetGlobal("AR0400DestroyGuard","AR0400",1)
+    ActionOverride("Slaver4",DestroySelf())
+END
+

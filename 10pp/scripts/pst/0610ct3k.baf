@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("RavelCut")  // 
+    Face(10)
+    PlaySoundNotRanged("RAV090E")
+    Wait(2)
+    PlaySequence(ANIM_TALK1)
+    StartSong(CHAR_TRANSCENDENT,[0.0],Normal)
+    Wait(2)
+    PlaySequence(ANIM_TALK3)
+    Wait(6)
+    Wait(2)
+    StartCutScene("0610ct3l")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("TransCut")  // 
+    StartSong(CHAR_TRANSCENDENT,[0.0],Normal)
+END
+

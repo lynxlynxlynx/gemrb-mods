@@ -1,0 +1,75 @@
+IF
+  Global("JonDemonTeleport","AR2906",1)
+  Global("Teleport","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("Teleport","LOCALS",1)
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPFIREPI",Myself)
+    JumpToPoint([3480.2155])
+    Face(6)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("JonDemonTeleport","AR2906",2)
+  Global("Teleport","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("Teleport","LOCALS",1)
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPFIREPI",Myself)
+    JumpToPoint([808.819])
+    Face(14)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("JonDemonTeleport","AR2906",3)
+  Global("Teleport","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("Teleport","LOCALS",1)
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPFIREPI",Myself)
+    JumpToPoint([3250.851])
+    Face(2)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("JonDemonTeleport","AR2906",4)
+  Global("Teleport","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("Teleport","LOCALS",1)
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPFIREPI",Myself)
+    JumpToPoint([1594.2806])
+    Face(6)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("JonDemonTeleport","AR2906",5)
+  Global("Teleport","LOCALS",4)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("Teleport","LOCALS",1)
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPFIREPI",Myself)
+    JumpToPoint([401.1813])
+    Face(14)
+    SetInterrupt(TRUE)
+END
+

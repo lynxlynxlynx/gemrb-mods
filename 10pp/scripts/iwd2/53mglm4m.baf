@@ -1,0 +1,171 @@
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,720,540,4)
+THEN
+  RESPONSE #100
+    SetStartPos([720.540])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([720.540])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1100,360,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1100.360])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([1100.360])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,1180,490,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1180.490])
+    SetGlobal("ML_0","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([1180.490])
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,1080,540,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1080.540])
+    SetGlobal("ML_0","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([1080.540])
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  ActionListEmpty()
+  NearLocation(Myself,1160,660,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1160.660])
+    SetGlobal("ML_0","LOCALS",5)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([1160.660])
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  ActionListEmpty()
+  NearLocation(Myself,950,800,4)
+THEN
+  RESPONSE #100
+    SetStartPos([950.800])
+    SetGlobal("ML_0","LOCALS",6)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([950.800])
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  ActionListEmpty()
+  NearLocation(Myself,1050,890,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1050.890])
+    SetGlobal("ML_0","LOCALS",7)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([1050.890])
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  ActionListEmpty()
+  NearLocation(Myself,930,1020,4)
+THEN
+  RESPONSE #100
+    SetStartPos([930.1020])
+    SetGlobal("ML_0","LOCALS",8)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([930.1020])
+END
+
+IF
+  Global("ML_0","LOCALS",8)
+  ActionListEmpty()
+  NearLocation(Myself,370,800,4)
+THEN
+  RESPONSE #100
+    SetStartPos([370.800])
+    SetGlobal("ML_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",8)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPoint([370.800])
+END
+

@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lothar")  // 
+    MoveViewPoint([967.539],INSTANT)
+    SinisterPoof("EF01TPRT",[967.539],1)
+    JumpToPoint([967.539])
+    FaceObject([PC])
+    Dialogue([PC])
+    EndCutSceneMode()
+END
+

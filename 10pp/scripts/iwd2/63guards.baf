@@ -1,0 +1,7 @@
+IF
+  Global("SH_Guards_Sleep","MYAREA",1)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_SLEEP)
+END
+

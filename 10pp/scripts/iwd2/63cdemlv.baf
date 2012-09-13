@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Yxbudurzmutkimdu")  // 
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    MultiPlayerSync()
+    DestroySelf()
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Tutuplimbobo")  // 
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Pfinikmillillin")  // 
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    DestroySelf()
+END
+

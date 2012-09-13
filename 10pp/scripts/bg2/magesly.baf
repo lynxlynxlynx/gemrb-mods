@@ -1,0 +1,31 @@
+IF
+  See([PC.0.0.MAGE])
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(SecondNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(ThirdNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(FourthNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(FifthNearestEnemyOf(Myself),15)
+  RESPONSE #10
+    EquipRanged()
+    AttackReevaluate(SixthNearestEnemyOf(Myself),15)
+END
+

@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Silke")  // 
+    MoveViewPoint([3522.2108],INSTANT)
+    Wait(8)
+    StartDialogue("cutsilk",Player1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Merchant1")  // 
+    MoveToPoint([3522.2108])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Merchant2")  // 
+    MoveToPoint([3524.2065])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Merchant3")  // 
+    MoveToPoint([3568.2112])
+END
+

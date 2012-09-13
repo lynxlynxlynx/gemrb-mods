@@ -1,0 +1,37 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("udmind01")  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    SetGlobal("udDoneDuty","AR2400",1)
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    Wait(1)
+    ActionOverride(Player1,JumpToPoint([2501.1528]))
+    ActionOverride(Player2,JumpToPoint([2486.1596]))
+    ActionOverride(Player3,JumpToPoint([2544.1602]))
+    ActionOverride(Player4,JumpToPoint([2629.1598]))
+    ActionOverride(Player5,JumpToPoint([2446.1634]))
+    ActionOverride(Player6,JumpToPoint([2535.1616]))
+    CreateCreature("udogre",[3337.1654],4)  // ~Ogre~
+    MoveViewPoint([2535.1616],100)
+    Wait(2)
+    ApplySpell(Player1,MIND_CRIPPLE)
+    ApplySpell(Player2,MIND_CRIPPLE)
+    ApplySpell(Player3,MIND_CRIPPLE)
+    ApplySpell(Player4,MIND_CRIPPLE)
+    ApplySpell(Player5,MIND_CRIPPLE)
+    ApplySpell(Player6,MIND_CRIPPLE)
+    Wait(5)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    DisplayStringHead(Player1,37454)  // ~You awaken upon a hard stone floor.  What tortures the mind flayers have in store for you is unknown, but a sense of dread falls over you nevertheless.~
+    EndCutSceneMode()
+END
+

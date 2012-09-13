@@ -1,0 +1,9 @@
+IF
+  OR(2)
+    Global("DalokSpawn","AR1900",1)
+    Dead("cefald01")  // ~Faldorn~
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

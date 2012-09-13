@@ -1,0 +1,51 @@
+IF
+  OR(2)
+    GlobalGT("OgronAttack","GLOBAL",0)
+    Global("MadulfGroupLeaves","AR1100",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ogrealliance","GLOBAL",0)
+  Global("rangerprotector","GLOBAL",6)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("ogrealliance","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+    Shout(89)
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

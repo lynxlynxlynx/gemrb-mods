@@ -1,0 +1,31 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("SugarSpawn","GLOBAL",0)
+  !Exists("SUGAR")  // SUGAR
+THEN
+  RESPONSE #100
+    CreateCreature("SUGAR",[2290.2442],0)  // SUGAR
+    SetGlobal("SugarSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("Capture100","GLOBAL",0)
+  Global("DukeThanks","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Capture100","GLOBAL",1)
+    CreateCreature("FFHUNT",[2532.1555],0)  // FFHUNT
+    CreateCreature("FFHUNT",[2532.1555],0)  // FFHUNT
+END
+
+IF
+  Global("EldothMove","GLOBAL",0)
+  InParty("Eldoth")  // Eldoth
+THEN
+  RESPONSE #100
+    ActionOverride("Eldoth",Dialog([PC]))
+END
+

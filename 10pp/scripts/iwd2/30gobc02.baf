@@ -1,0 +1,38 @@
+IF
+  Global("PREFER_PC","LOCALS",0)
+  Dead(MyTarget)  // 
+  Heard([ANYONE],88)
+  !TargetUnreachable(LastHeardBy)
+THEN
+  RESPONSE #100
+    SetMyTarget(LastHeardBy)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(WIZARD_WEB)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_WEB,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_WEB)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    See(MyTarget,0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_MAGIC_MISSILE,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_MAGIC_MISSILE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+

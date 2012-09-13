@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([1312.849],FAST)
+    MoveToPoint([1312.849])
+    StartCutScene("1501cut3")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("StaleMa")  // 
+    MoveToObjectEx("Nameless",0)
+END
+

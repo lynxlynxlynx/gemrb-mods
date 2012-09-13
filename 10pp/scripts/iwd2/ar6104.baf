@@ -1,0 +1,1415 @@
+IF
+  Or(2)
+    Global("NewDay","MYAREA",1)
+    Global("6104Visited","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MaxArchonBluffs","MYAREA",-1)
+    Continue()
+END
+
+IF
+  Global("MaxArchonBluffs","MYAREA",-1)
+  Or(6)
+    CheckSkillGT(Player1,16,Bluff)
+    CheckSkillGT(Player2,16,Bluff)
+    CheckSkillGT(Player3,16,Bluff)
+    CheckSkillGT(Player4,16,Bluff)
+    CheckSkillGT(Player5,16,Bluff)
+    CheckSkillGT(Player6,16,Bluff)
+THEN
+  RESPONSE #100
+    SetGlobal("MaxArchonBluffs","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("MaxArchonBluffs","MYAREA",-1)
+  Or(6)
+    CheckSkillGT(Player1,9,Bluff)
+    CheckSkillGT(Player2,9,Bluff)
+    CheckSkillGT(Player3,9,Bluff)
+    CheckSkillGT(Player4,9,Bluff)
+    CheckSkillGT(Player5,9,Bluff)
+    CheckSkillGT(Player6,9,Bluff)
+THEN
+  RESPONSE #100
+    SetGlobal("MaxArchonBluffs","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("MaxArchonBluffs","MYAREA",-1)
+  Or(6)
+    CheckSkillGT(Player1,4,Bluff)
+    CheckSkillGT(Player2,4,Bluff)
+    CheckSkillGT(Player3,4,Bluff)
+    CheckSkillGT(Player4,4,Bluff)
+    CheckSkillGT(Player5,4,Bluff)
+    CheckSkillGT(Player6,4,Bluff)
+THEN
+  RESPONSE #100
+    SetGlobal("MaxArchonBluffs","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MaxArchonBluffs","MYAREA",-1)
+THEN
+  RESPONSE #100
+    SetGlobal("MaxArchonBluffs","MYAREA",0)
+    Continue()
+END
+
+IF
+  Global("6104Visited","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("61CurrentDay","GLOBAL",4)
+    HideCreature("Ziltyor",TRUE)
+    HideCreature("04_Efreeti_01",TRUE)
+    HideCreature("04_LavaMephit_02",TRUE)
+    HideCreature("04_LavaMephit_03",TRUE)
+    HideCreature("04_LavaMephit_04",TRUE)
+    HideCreature("04_LavaMephit_05",TRUE)
+    HideCreature("04_LavaMephit_06",TRUE)
+    HideCreature("04_LavaMephit_07",TRUE)
+    HideCreature("04_FireElemental_08",TRUE)
+    HideCreature("04_FireElemental_09",TRUE)
+    HideCreature("04_FireElemental_10",TRUE)
+    HideCreature("04_FireElemental_11",TRUE)
+    HideCreature("04_FireElemental_12",TRUE)
+    HideCreature("04_FireElemental_13",TRUE)
+    HideCreature("04_FireElemental_14",TRUE)
+    HideCreature("04_FireElemental_15",TRUE)
+    HideCreature("04_HellHound_20",TRUE)
+    HideCreature("04_HellHound_21",TRUE)
+    HideCreature("04_HellHound_22",TRUE)
+    HideCreature("04_HellHound_23",TRUE)
+    HideCreature("04_HellHound_24",TRUE)
+    HideCreature("04_HellHound_25",TRUE)
+    HideCreature("04_Troll_16",TRUE)
+    HideCreature("04_Troll_17",TRUE)
+    HideCreature("04_Troll_18",TRUE)
+    HideCreature("04_Troll_19",TRUE)
+    HideCreature("61Throne",TRUE)
+    HideCreature("61Amphitheatre",TRUE)
+    HideCreature("61Embassy",TRUE)
+    HideCreature("61Palace",TRUE)
+    HideCreature("61Citadel",TRUE)
+    HideCreature("61Bridge",TRUE)
+    HideCreature("05_AbominationPriest_01",TRUE)
+    HideCreature("05_AbominationArcher_02",TRUE)
+    HideCreature("05_AbominationArcher_03",TRUE)
+    HideCreature("05_AbominationChampion_04",TRUE)
+    HideCreature("05_AbominationChampion_05",TRUE)
+    HideCreature("05_ArmoredSkeleton_06",TRUE)
+    HideCreature("05_ArmoredSkeleton_07",TRUE)
+    HideCreature("05_IronGolem_08",TRUE)
+    HideCreature("05_HalfBreedPriestess_09",TRUE)
+    HideCreature("05_HalfBreedPriestess_10",TRUE)
+    HideCreature("05_HalfBreedSorceress_11",TRUE)
+    HideCreature("05_HalfBreedSorceress_12",TRUE)
+    HideCreature("05_EliteLizardman_13",TRUE)
+    HideCreature("05_LizardShaman_14",TRUE)
+    HideCreature("05_LizardMan_15",TRUE)
+    HideCreature("05_Wyvern_16",TRUE)
+    HideCreature("05_PurebloodWarrior_17",TRUE)
+    HideCreature("05_PurebloodWarrior_18",TRUE)
+    HideCreature("05_PurebloodThief_19",TRUE)
+    HideCreature("05_PurebloodThief_20",TRUE)
+    HideCreature("05_FrostSalamander_21",TRUE)
+    HideCreature("DeadPyros",FALSE)
+    HideCreature("DeadLothar",FALSE)
+    HideCreature("Dead_01",FALSE)
+    HideCreature("Dead_02",FALSE)
+    HideCreature("Dead_03",FALSE)
+    HideCreature("Dead_04",FALSE)
+    HideCreature("Dead_05",FALSE)
+    HideCreature("Dead_06",FALSE)
+    HideCreature("Dead_07",FALSE)
+    HideCreature("Dead_08",FALSE)
+    HideCreature("Dead_09",FALSE)
+    HideCreature("Dead_10",FALSE)
+    HideCreature("Dead_11",FALSE)
+    HideCreature("Dead_12",FALSE)
+    HideCreature("Dead_13",FALSE)
+    HideCreature("Dead_14",FALSE)
+    HideCreature("Dead_15",FALSE)
+    HideCreature("Dead_16",FALSE)
+    HideCreature("Dead_17",FALSE)
+    HideCreature("Dead_18",FALSE)
+    HideCreature("Dead_19",FALSE)
+    HideCreature("Dead_20",FALSE)
+    HideCreature("Dead_21",FALSE)
+    HideCreature("Dead_22",FALSE)
+    HideCreature("Dead_23",FALSE)
+    HideCreature("Dead_24",FALSE)
+    HideCreature("Dead_25",FALSE)
+    HideCreature("Dead_26",FALSE)
+    HideCreature("Dead_27",FALSE)
+    HideCreature("Dead_28",FALSE)
+    HideCreature("Dead_29",FALSE)
+    HideCreature("Dead_30",FALSE)
+    TransferInventory("Izbelah3","EmbassyShelf")
+    ActionOverride("EmbassyShelf",DestroyItem("00SWDC96"))  // ~Scimitar +4~
+    SetCriticalPathObject("Jasper5",TRUE)
+    Deactivate("creatures_in_theatre")
+    TriggerActivation("FalloutTrap1",TRUE)
+    TriggerActivation("FalloutTrap2",TRUE)
+    TriggerActivation("FalloutTrap3",TRUE)
+    TriggerActivation("FalloutTrap4",TRUE)
+    TriggerActivation("FalloutTrap5",TRUE)
+    ChangeSpecifics("61Embassy",254)
+    ChangeSpecifics("61Palace",253)
+    ChangeSpecifics("61Citadel",253)
+    ChangeSpecifics("61Amphitheatre",253)
+    ChangeSpecifics("61Throne",253)
+    ChangeSpecifics("61Bridge",253)
+    AllowAreaResting(FALSE)
+    SetGlobal("6104Visited","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("RopeCount","MYAREA",0)
+THEN
+  RESPONSE #100
+    PlaySequence("BridgeLeft",ATTACK)
+    PlaySequence("BridgeRight",ATTACK)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("RopeCount","MYAREA",1)
+THEN
+  RESPONSE #100
+    PlaySequence("BridgeLeft",AWAKE)
+    PlaySequence("BridgeRight",AWAKE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("RopeCount","MYAREA",2)
+THEN
+  RESPONSE #100
+    PlaySequence("BridgeLeft",CAST)
+    PlaySequence("BridgeRight",CAST)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("RopeCount","MYAREA",3)
+THEN
+  RESPONSE #100
+    PlaySequence("BridgeLeft",CONJURE)
+    PlaySequence("BridgeRight",CONJURE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("RopeCount","MYAREA",4)
+THEN
+  RESPONSE #100
+    PlaySequence("BridgeLeft",DAMAGE)
+    PlaySequence("BridgeRight",DAMAGE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("61CurrentDay","GLOBAL",4)
+THEN
+  RESPONSE #100
+    PlaySequence("Torch_10",DAMAGE)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",DAMAGE)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",DAMAGE)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",DAMAGE)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",DAMAGE)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",DAMAGE)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",DAMAGE)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",DAMAGE)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",DAMAGE)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",DAMAGE)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",DAMAGE)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",DAMAGE)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",DAMAGE)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",DAMAGE)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",DAMAGE)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",DAMAGE)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",DAMAGE)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",DAMAGE)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",DAMAGE)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",DAMAGE)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",DAMAGE)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",DAMAGE)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",DAMAGE)
+    Activate("Torch_23")
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("61CurrentDay","GLOBAL",3)
+THEN
+  RESPONSE #100
+    PlaySequence("Torch_10",CONJURE)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",CONJURE)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",CONJURE)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",CONJURE)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",CONJURE)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",CONJURE)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",CONJURE)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",CONJURE)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",CONJURE)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",CONJURE)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",CONJURE)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",CONJURE)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",CONJURE)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",CONJURE)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",CONJURE)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",CONJURE)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",CONJURE)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",CONJURE)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",CONJURE)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",CONJURE)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",CONJURE)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",CONJURE)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",CONJURE)
+    Activate("Torch_23")
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("61CurrentDay","GLOBAL",2)
+THEN
+  RESPONSE #100
+    PlaySequence("Torch_10",CAST)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",CAST)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",CAST)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",CAST)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",CAST)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",CAST)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",CAST)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",CAST)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",CAST)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",CAST)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",CAST)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",CAST)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",CAST)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",CAST)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",CAST)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",CAST)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",CAST)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",CAST)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",CAST)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",CAST)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",CAST)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",CAST)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",CAST)
+    Activate("Torch_23")
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("61CurrentDay","GLOBAL",1)
+THEN
+  RESPONSE #100
+    PlaySequence("Torch_10",AWAKE)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",AWAKE)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",AWAKE)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",AWAKE)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",AWAKE)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",AWAKE)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",AWAKE)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",AWAKE)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",AWAKE)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",AWAKE)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",AWAKE)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",AWAKE)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",AWAKE)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",AWAKE)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",AWAKE)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",AWAKE)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",AWAKE)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",AWAKE)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",AWAKE)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",AWAKE)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",AWAKE)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",AWAKE)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",AWAKE)
+    Activate("Torch_23")
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("61CurrentDay","GLOBAL",0)
+THEN
+  RESPONSE #100
+    PlaySequence("Torch_10",ATTACK)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",ATTACK)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",ATTACK)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",ATTACK)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",ATTACK)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",ATTACK)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",ATTACK)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",ATTACK)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",ATTACK)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",ATTACK)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",ATTACK)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",ATTACK)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",ATTACK)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",ATTACK)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",ATTACK)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",ATTACK)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",ATTACK)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",ATTACK)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",ATTACK)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",ATTACK)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",ATTACK)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",ATTACK)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",ATTACK)
+    Activate("Torch_23")
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("41NickHelp","GLOBAL",6)
+THEN
+  RESPONSE #100
+    TriggerActivation("To4102",FALSE)
+    TriggerActivation("To6200",TRUE)
+    SetGlobal("41NickHelp","GLOBAL",7)
+    Continue()
+END
+
+IF
+  Global("NewDay","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1","MYAREA",0)
+    SetGlobal("TEAM_2","MYAREA",0)
+    SetGlobal("TEAM_3","MYAREA",0)
+    SetGlobal("TEAM_4","MYAREA",0)
+    SetGlobal("TEAM_5","MYAREA",0)
+    SetGlobal("TEAM_6","MYAREA",0)
+    IncrementGlobal("61CurrentDay","GLOBAL",-1)
+    SetGlobal("NewDay","MYAREA",2)
+END
+
+IF
+  Global("NewDay","MYAREA",2)
+THEN
+  RESPONSE #100
+    RestParty()
+    RestParty()
+    RestParty()
+    DayNight(DAWN_START)
+    UndoExplore()
+    OpenDoor("AR6104_South_Bridge")
+    TriggerActivation("InfoBridgeDamaged",FALSE)
+    TriggerActivation("InfoBridgeUnsafe",FALSE)
+    TriggerActivation("InfoBridgeFixed",TRUE)
+    TriggerActivation("BridgeRepair",FALSE)
+    ActionOverride("Bridge",DestroyItem("50Misc38"))  // ~Hemp Rope~
+    SetGlobal("RopeCount","MYAREA",4)
+    PlaySequence("BridgeLeft",DAMAGE)
+    PlaySequence("BridgeRight",DAMAGE)
+    SetHP("61Bridge",100)
+    HideCreature("61Bridge",FALSE)
+    CloseDoor("AR6104_Throne")
+    TriggerActivation("InfoThroneDamaged",FALSE)
+    TriggerActivation("InfoThroneFixed",TRUE)
+    HideCreature("61Throne",FALSE)
+    SetHP("61Throne",100)
+    CloseDoor("AR6104_Ruins1")
+    TriggerActivation("InfoAmphitheatreDamaged",FALSE)
+    TriggerActivation("InfoAmphitheatreFixed",TRUE)
+    HideCreature("61Amphitheatre",FALSE)
+    SetHP("61Amphitheatre",100)
+    CloseDoor("AR6104_Ruins2")
+    TriggerActivation("InfoEmbassyDamaged",FALSE)
+    TriggerActivation("InfoEmbassyFixed",TRUE)
+    HideCreature("61Embassy",FALSE)
+    SetHP("61Embassy",100)
+    CloseDoor("AR6104_Ruins3")
+    TriggerActivation("InfoPalaceDamaged",FALSE)
+    TriggerActivation("InfoPalaceFixed",TRUE)
+    HideCreature("61Palace",FALSE)
+    SetHP("61Palace",100)
+    CloseDoor("AR6104_Ruins4")
+    TriggerActivation("InfoCitadelDamaged",FALSE)
+    TriggerActivation("InfoCitadelFixed",TRUE)
+    HideCreature("61Citadel",FALSE)
+    SetHP("61Citadel",100)
+    OpenDoor("AR6104_West_Rocks")
+    TriggerActivation("Avalanche",TRUE)
+    OpenDoor("AR6104_East_Rocks")
+    ClearActions("Efreeti_01")
+    SpellHitEffectSprite("Efreeti_01","Efreeti_01",ALTERATION,0)
+    ActionOverride("Efreeti_01",DestroySelf())
+    ClearActions("Flamewalker_02")
+    SpellHitEffectSprite("Flamewalker_02","Flamewalker_02",ALTERATION,0)
+    ActionOverride("Flamewalker_02",DestroySelf())
+    ClearActions("Flamewalker_03")
+    SpellHitEffectSprite("Flamewalker_03","Flamewalker_03",ALTERATION,0)
+    ActionOverride("Flamewalker_03",DestroySelf())
+    ClearActions("Flamewalker_04")
+    SpellHitEffectSprite("Flamewalker_04","Flamewalker_04",ALTERATION,0)
+    ActionOverride("Flamewalker_04",DestroySelf())
+    ClearActions("Flamewalker_05")
+    SpellHitEffectSprite("Flamewalker_05","Flamewalker_05",ALTERATION,0)
+    ActionOverride("Flamewalker_05",DestroySelf())
+    ClearActions("Flamewalker_06")
+    SpellHitEffectSprite("Flamewalker_06","Flamewalker_06",ALTERATION,0)
+    ActionOverride("Flamewalker_06",DestroySelf())
+    ClearActions("Flamewalker_07")
+    SpellHitEffectSprite("Flamewalker_07","Flamewalker_07",ALTERATION,0)
+    ActionOverride("Flamewalker_07",DestroySelf())
+    ClearActions("Troll_08")
+    SpellHitEffectSprite("Troll_08","Troll_08",ALTERATION,0)
+    ActionOverride("Troll_08",DestroySelf())
+    ClearActions("Troll_09")
+    SpellHitEffectSprite("Troll_09","Troll_09",ALTERATION,0)
+    ActionOverride("Troll_09",DestroySelf())
+    ClearActions("Troll_10")
+    SpellHitEffectSprite("Troll_10","Troll_10",ALTERATION,0)
+    ActionOverride("Troll_10",DestroySelf())
+    ClearActions("Troll_11")
+    SpellHitEffectSprite("Troll_11","Troll_11",ALTERATION,0)
+    ActionOverride("Troll_11",DestroySelf())
+    ClearActions("Troll_12")
+    SpellHitEffectSprite("Troll_12","Troll_12",ALTERATION,0)
+    ActionOverride("Troll_12",DestroySelf())
+    ClearActions("HellHound_13")
+    SpellHitEffectSprite("HellHound_13","HellHound_13",ALTERATION,0)
+    ActionOverride("HellHound_13",DestroySelf())
+    ClearActions("HellHound_14")
+    SpellHitEffectSprite("HellHound_14","HellHound_14",ALTERATION,0)
+    ActionOverride("HellHound_14",DestroySelf())
+    ClearActions("HellHound_15")
+    SpellHitEffectSprite("HellHound_15","HellHound_15",ALTERATION,0)
+    ActionOverride("HellHound_15",DestroySelf())
+    ClearActions("HellHound_16")
+    SpellHitEffectSprite("HellHound_16","HellHound_16",ALTERATION,0)
+    ActionOverride("HellHound_16",DestroySelf())
+    ClearActions("HellHound_17")
+    SpellHitEffectSprite("HellHound_17","HellHound_17",ALTERATION,0)
+    ActionOverride("HellHound_17",DestroySelf())
+    ClearActions("LavaMephit_18")
+    SpellHitEffectSprite("LavaMephit_18","LavaMephit_18",ALTERATION,0)
+    ActionOverride("LavaMephit_18",DestroySelf())
+    ClearActions("LavaMephit_19")
+    SpellHitEffectSprite("LavaMephit_19","LavaMephit_19",ALTERATION,0)
+    ActionOverride("LavaMephit_19",DestroySelf())
+    ClearActions("LavaMephit_20")
+    SpellHitEffectSprite("LavaMephit_20","LavaMephit_20",ALTERATION,0)
+    ActionOverride("LavaMephit_20",DestroySelf())
+    CreateCreature("61xEfree","Efreeti_01",[1050.2010],14)  // ~Efreeti~
+    CreateCreature("61xFirpe","Flamewalker_02",[2640.1216],0)  // ~Flamewalker~
+    CreateCreature("61xFirpe","Flamewalker_03",[2560.1410],0)  // ~Flamewalker~
+    CreateCreature("61xFirpe","Flamewalker_04",[2530.1480],0)  // ~Flamewalker~
+    CreateCreature("61xFirpe","Flamewalker_05",[2430.1480],0)  // ~Flamewalker~
+    CreateCreature("61xFirpe","Flamewalker_06",[2350.1530],0)  // ~Flamewalker~
+    CreateCreature("61xFirpe","Flamewalker_07",[2980.1340],0)  // ~Flamewalker~
+    CreateCreature("61xTroll","Troll_08",[1085.1795],0)  // ~Troll~
+    CreateCreature("61xTroll","Troll_09",[1420.1960],0)  // ~Troll~
+    CreateCreature("61xTroll","Troll_10",[1710.1380],0)  // ~Troll~
+    CreateCreature("61xTroll","Troll_11",[1090.1670],0)  // ~Troll~
+    CreateCreature("61xTroll","Troll_12",[1500.1890],0)  // ~Troll~
+    CreateCreature("61xHelho","HellHound_13",[1060.2130],0)  // ~Hell Hound~
+    CreateCreature("61xHelho","HellHound_14",[1220.2140],0)  // ~Hell Hound~
+    CreateCreature("61xHelho","HellHound_15",[1360.2195],0)  // ~Hell Hound~
+    CreateCreature("61xHelho","HellHound_16",[1700.960],10)  // ~Hell Hound~
+    CreateCreature("61xHelho","HellHound_17",[1925.970],8)  // ~Hell Hound~
+    CreateCreature("61xMepLa","LavaMephit_18",[520.570],0)  // ~Lava Mephit~
+    CreateCreature("61xMepLa","LavaMephit_19",[3250.2330],0)  // ~Lava Mephit~
+    CreateCreature("61xMepLa","LavaMephit_20",[1925.1775],0)  // ~Lava Mephit~
+    SetGlobal("TEAM_1","MYAREA",0)
+    SetGlobal("TEAM_2","MYAREA",0)
+    SetGlobal("TEAM_3","MYAREA",0)
+    SetGlobal("TEAM_4","MYAREA",0)
+    SetGlobal("TEAM_5","MYAREA",0)
+    SetGlobal("TEAM_6","MYAREA",0)
+    SetGlobal("PlayerCanRequestExit","MYAREA",0)
+    TriggerActivation("To6200False",FALSE)
+    TriggerActivation("Avalanche",TRUE)
+    SetGlobal("ResetArchon","MYAREA",1)
+    SetGlobal("LotharOnPatrol","MYAREA",0)
+    SetGlobal("NewDay","MYAREA",3)
+END
+
+IF
+  Global("NewDay","MYAREA",3)
+  Global("61CurrentDay","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Activate("creatures_in_theatre")
+    SetGlobal("Pyros4_dead","GLOBAL",0)
+    PlaySequence("Torch_10",CONJURE)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",CONJURE)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",CONJURE)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",CONJURE)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",CONJURE)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",CONJURE)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",CONJURE)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",CONJURE)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",CONJURE)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",CONJURE)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",CONJURE)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",CONJURE)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",CONJURE)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",CONJURE)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",CONJURE)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",CONJURE)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",CONJURE)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",CONJURE)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",CONJURE)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",CONJURE)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",CONJURE)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",CONJURE)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",CONJURE)
+    Activate("Torch_23")
+    ClearActions("VenominSuicide")
+    SpellHitEffectSprite("VenominSuicide","VenominSuicide",ALTERATION,0)
+    ActionOverride("VenominSuicide",DestroySelf())
+    ClearActions("Jasper5")
+    SpellHitEffectSprite("Jasper5","Jasper5",ALTERATION,0)
+    ActionOverride("Jasper5",DestroySelf())
+    HideCreature("Lothar4",FALSE)
+    HideCreature("Jasper4",FALSE)
+    SetCriticalPathObject("Lothar4",TRUE)
+    SetCriticalPathObject("Jasper4",TRUE)
+    SetCriticalPathObject("Venomin4",TRUE)
+    HideCreature("61Embassy",TRUE)
+    SpellHitEffectPoint("INVISIBLE",[1920.1310],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge2")
+    SetGlobal("PlayerKnowsPyrosDead","MYAREA",0)
+    Lock("EmbassyShelf")
+    SetGlobal("NewDay","MYAREA",4)
+END
+
+IF
+  Global("NewDay","MYAREA",3)
+  Global("61CurrentDay","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Activate("creatures_in_theatre")
+    SetGlobal("Pyros4_dead","GLOBAL",0)
+    ChangeEnemyAlly("61Amphitheatre",NEUTRAL)
+    ChangeEnemyAlly("61Bridge",NEUTRAL)
+    ChangeEnemyAlly("61Citadel",NEUTRAL)
+    ChangeEnemyAlly("61Embassy",NEUTRAL)
+    ChangeEnemyAlly("61Palace",NEUTRAL)
+    ChangeEnemyAlly("61Throne",NEUTRAL)
+    PlaySequence("Torch_10",CAST)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",CAST)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",CAST)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",CAST)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",CAST)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",CAST)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",CAST)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",CAST)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",CAST)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",CAST)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",CAST)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",CAST)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",CAST)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",CAST)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",CAST)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",CAST)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",CAST)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",CAST)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",CAST)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",CAST)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",CAST)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",CAST)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",CAST)
+    Activate("Torch_23")
+    ClearActions("Lothar4")
+    SpellHitEffectSprite("Lothar4","Lothar4",ALTERATION,0)
+    ActionOverride("Lothar4",DestroySelf())
+    ClearActions("Jasper4")
+    SpellHitEffectSprite("Jasper4","Jasper4",ALTERATION,0)
+    ActionOverride("Jasper4",DestroySelf())
+    ClearActions("Venomin4")
+    SpellHitEffectSprite("Venomin4","Venomin4",ALTERATION,0)
+    ActionOverride("Venomin4",DestroySelf())
+    HideCreature("Venomin3",FALSE)
+    HideCreature("Pyros3",FALSE)
+    HideCreature("Lothar3",FALSE)
+    HideCreature("Jasper3",FALSE)
+    HideCreature("Izbelah3",FALSE)
+    SetCriticalPathObject("Flamewalker_02",TRUE)
+    SetCriticalPathObject("Flamewalker_03",TRUE)
+    SetCriticalPathObject("Flamewalker_04",TRUE)
+    SetCriticalPathObject("Flamewalker_05",TRUE)
+    SetCriticalPathObject("Flamewalker_06",TRUE)
+    SetCriticalPathObject("Flamewalker_07",TRUE)
+    SetCriticalPathObject("Lothar3",TRUE)
+    SetCriticalPathObject("Jasper3",TRUE)
+    SetCriticalPathObject("Venomin3",TRUE)
+    SetCriticalPathObject("Pyros3",TRUE)
+    SetCriticalPathObject("Izbelah3",TRUE)
+    CloseDoor("AR6104_Cage")
+    Lock("AR6104_Cage")
+    TriggerActivation("InfoCageOpen",FALSE)
+    TriggerActivation("InfoCageClosed",TRUE)
+    SpellHitEffectPoint("INVISIBLE",[1088.1375],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge1")
+    SpellHitEffectPoint("INVISIBLE",[2975.1440],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge6")
+    SetGlobal("MephitLairSpawn","MYAREA",1)
+    AddJournalEntry(36734)
+    SetGlobal("NewDay","MYAREA",4)
+END
+
+IF
+  Global("NewDay","MYAREA",3)
+  Global("61CurrentDay","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Activate("creatures_in_theatre")
+    SetGlobal("Pyros4_dead","GLOBAL",0)
+    ChangeEnemyAlly("61Amphitheatre",NEUTRAL)
+    ChangeEnemyAlly("61Bridge",NEUTRAL)
+    ChangeEnemyAlly("61Citadel",NEUTRAL)
+    ChangeEnemyAlly("61Embassy",NEUTRAL)
+    ChangeEnemyAlly("61Palace",NEUTRAL)
+    ChangeEnemyAlly("61Throne",NEUTRAL)
+    SetGlobal("SetNightSequence","MYAREA",0)
+    PlaySequence("Torch_10",AWAKE)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",AWAKE)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",AWAKE)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",AWAKE)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",AWAKE)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",AWAKE)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",AWAKE)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",AWAKE)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",AWAKE)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",AWAKE)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",AWAKE)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",AWAKE)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",AWAKE)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",AWAKE)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",AWAKE)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",AWAKE)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",AWAKE)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",AWAKE)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",AWAKE)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",AWAKE)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",AWAKE)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",AWAKE)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",AWAKE)
+    Activate("Torch_23")
+    ClearActions("Lothar3")
+    SpellHitEffectSprite("Lothar3","Lothar3",ALTERATION,0)
+    ActionOverride("Lothar3",DestroySelf())
+    ClearActions("Jasper3")
+    SpellHitEffectSprite("Jasper3","Jasper3",ALTERATION,0)
+    ActionOverride("Jasper3",DestroySelf())
+    ClearActions("Venomin3")
+    SpellHitEffectSprite("Venomin3","Venomin3",ALTERATION,0)
+    ActionOverride("Venomin3",DestroySelf())
+    ClearActions("Pyros3")
+    SpellHitEffectSprite("Pyros3","Pyros3",ALTERATION,0)
+    ActionOverride("Pyros3",DestroySelf())
+    ClearActions("Izbelah3")
+    SpellHitEffectSprite("Izbelah3","Izbelah3",ALTERATION,0)
+    ActionOverride("Izbelah3",DestroySelf())
+    HideCreature("Venomin2",FALSE)
+    HideCreature("Pyros2",FALSE)
+    HideCreature("Lothar2",FALSE)
+    HideCreature("Izbelah2",FALSE)
+    SetCriticalPathObject("Lothar2",TRUE)
+    SetCriticalPathObject("Venomin2",TRUE)
+    SetCriticalPathObject("Pyros2",TRUE)
+    SetCriticalPathObject("Izbelah2",TRUE)
+    ActionOverride("Izbelah2",DestroyItem("00SWDC96"))  // ~Scimitar +4~
+    ActionOverride("Izbelah2",DestroyItem("00WAND36"))  // ~Hold Person Wand~
+    ActionOverride("Izbelah2",DestroyItem("00GEM01"))  // ~Fire Agate Gem~
+    ActionOverride("Izbelah2",DestroyItem("SPWI711Z"))  // ~Suffocate~
+    ActionOverride("Izbelah2",DestroyItem("00POTN07"))  // ~Spirit Essence~
+    GiveItemCreate("00CWSwdC","Izbelah2",0,0,0)  // ~Longsword +1~
+    CloseDoor("AR6104_Cage")
+    Lock("AR6104_Cage")
+    TriggerActivation("InfoCageOpen",FALSE)
+    TriggerActivation("InfoCageClosed",TRUE)
+    SpellHitEffectPoint("INVISIBLE",[1920.1570],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge3")
+    SetGlobal("MephitLairSpawn","MYAREA",1)
+    SetGlobal("NewDay","MYAREA",4)
+END
+
+IF
+  Global("NewDay","MYAREA",3)
+  Global("61CurrentDay","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Deactivate("creatures_in_theatre")
+    SetGlobal("Pyros4_dead","GLOBAL",0)
+    SetGlobal("LotharOnPatrol","MYAREA",1)
+    ChangeEnemyAlly("61Amphitheatre",NEUTRAL)
+    ChangeEnemyAlly("61Bridge",NEUTRAL)
+    ChangeEnemyAlly("61Citadel",NEUTRAL)
+    ChangeEnemyAlly("61Embassy",NEUTRAL)
+    ChangeEnemyAlly("61Palace",NEUTRAL)
+    ChangeEnemyAlly("61Throne",NEUTRAL)
+    PlaySequence("Torch_10",ATTACK)
+    Activate("Torch_10")
+    PlaySequence("Torch_11",ATTACK)
+    Activate("Torch_11")
+    PlaySequence("Torch_01",ATTACK)
+    Activate("Torch_01")
+    PlaySequence("Torch_02",ATTACK)
+    Activate("Torch_02")
+    PlaySequence("Torch_03",ATTACK)
+    Activate("Torch_03")
+    PlaySequence("Torch_04",ATTACK)
+    Activate("Torch_04")
+    PlaySequence("Torch_05",ATTACK)
+    Activate("Torch_05")
+    PlaySequence("Torch_06",ATTACK)
+    Activate("Torch_06")
+    PlaySequence("Torch_07",ATTACK)
+    Activate("Torch_07")
+    PlaySequence("Torch_08",ATTACK)
+    Activate("Torch_08")
+    PlaySequence("Torch_09",ATTACK)
+    Activate("Torch_09")
+    PlaySequence("Torch_12",ATTACK)
+    Activate("Torch_12")
+    PlaySequence("Torch_13",ATTACK)
+    Activate("Torch_13")
+    PlaySequence("Torch_14",ATTACK)
+    Activate("Torch_14")
+    PlaySequence("Torch_15",ATTACK)
+    Activate("Torch_15")
+    PlaySequence("Torch_16",ATTACK)
+    Activate("Torch_16")
+    PlaySequence("Torch_17",ATTACK)
+    Activate("Torch_17")
+    PlaySequence("Torch_18",ATTACK)
+    Activate("Torch_18")
+    PlaySequence("Torch_19",ATTACK)
+    Activate("Torch_19")
+    PlaySequence("Torch_20",ATTACK)
+    Activate("Torch_20")
+    PlaySequence("Torch_21",ATTACK)
+    Activate("Torch_21")
+    PlaySequence("Torch_22",ATTACK)
+    Activate("Torch_22")
+    PlaySequence("Torch_23",ATTACK)
+    Activate("Torch_23")
+    ClearActions("Izbelah2")
+    SpellHitEffectSprite("Izbelah2","Izbelah2",ALTERATION,0)
+    ActionOverride("Izbelah2",DestroySelf())
+    ClearActions("Lothar2")
+    SpellHitEffectSprite("Lothar2","Lothar2",ALTERATION,0)
+    ActionOverride("Lothar2",DestroySelf())
+    ClearActions("Venomin2")
+    SpellHitEffectSprite("Venomin2","Venomin2",ALTERATION,0)
+    ActionOverride("Venomin2",DestroySelf())
+    ClearActions("Pyros2")
+    SpellHitEffectSprite("Pyros2","Pyros2",ALTERATION,0)
+    ActionOverride("Pyros2",DestroySelf())
+    HideCreature("Pyros1",FALSE)
+    HideCreature("Lothar1",FALSE)
+    HideCreature("Izbelah1",FALSE)
+    SetGlobal("IzbelahCastSpell","MYAREA",1)
+    CloseDoor("AR6104_Cage")
+    Lock("AR6104_Cage")
+    TriggerActivation("InfoCageOpen",FALSE)
+    TriggerActivation("InfoCageClosed",TRUE)
+    SpellHitEffectPoint("INVISIBLE",[1630.1800],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge4")
+    SpellHitEffectPoint("INVISIBLE",[2110.1660],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge5")
+    SetGlobal("MephitLairSpawn","MYAREA",1)
+    SetGlobal("NewDay","MYAREA",4)
+END
+
+IF
+  Global("NewDay","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetGlobal("61LavaMephitDied","GLOBAL",1)
+    SetGlobal("NewDay","MYAREA",0)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",4)
+  Global("Ziltyor_dead","GLOBAL",1)
+  CreatureHidden("04_Efreeti_01")  // 04_Efreeti_01
+THEN
+  RESPONSE #100
+    SpellHitEffectPoint("INVISIBLE",[1920.1310],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge2")
+    HideCreature("04_Efreeti_01",FALSE)
+    HideCreature("04_LavaMephit_02",FALSE)
+    HideCreature("04_LavaMephit_03",FALSE)
+    HideCreature("04_LavaMephit_04",FALSE)
+    HideCreature("04_LavaMephit_05",FALSE)
+    HideCreature("04_LavaMephit_06",FALSE)
+    HideCreature("04_LavaMephit_07",FALSE)
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",4)
+  Global("Ziltyor_dead","GLOBAL",1)
+  CreatureHidden("04_FireElemental_09")  // 04_FireElemental_09
+THEN
+  RESPONSE #100
+    HideCreature("04_FireElemental_08",FALSE)
+    HideCreature("04_FireElemental_09",FALSE)
+    HideCreature("04_FireElemental_10",FALSE)
+    HideCreature("04_FireElemental_11",FALSE)
+    HideCreature("04_FireElemental_12",FALSE)
+    HideCreature("04_FireElemental_13",FALSE)
+    HideCreature("04_FireElemental_14",FALSE)
+    HideCreature("04_FireElemental_15",FALSE)
+    FloatMessage("04_FireElemental_08",41374)  // ~"Forgive me."~
+    FloatMessage("04_FireElemental_09",41374)  // ~"Forgive me."~
+    FloatMessage("04_FireElemental_10",41374)  // ~"Forgive me."~
+    FloatMessage("04_FireElemental_11",41374)  // ~"Forgive me."~
+    FloatMessage("04_FireElemental_12",41374)  // ~"Forgive me."~
+    FloatMessage("04_FireElemental_13",41374)  // ~"Forgive me."~
+    FloatMessage("04_FireElemental_14",41374)  // ~"Forgive me."~
+END
+
+IF
+  GlobalLT("61CurrentDay","GLOBAL",4)
+  OpenState("AR6104_Ruins2",TRUE)  // AR6104_Ruins2
+  OpenState("AR6104_East_Rocks",FALSE)  // AR6104_East_Rocks
+  CreatureHidden("05_AbominationPriest_01")  // 05_AbominationPriest_01
+  GlobalTimerExpired("YuantiAttackTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite("05_AbominationPriest_01","05_AbominationPriest_01",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_AbominationArcher_02","05_AbominationArcher_02",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_AbominationArcher_03","05_AbominationArcher_03",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_AbominationChampion_04","05_AbominationChampion_04",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_AbominationChampion_05","05_AbominationChampion_05",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_ArmoredSkeleton_06","05_ArmoredSkeleton_06",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_ArmoredSkeleton_07","05_ArmoredSkeleton_07",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_IronGolem_08","05_IronGolem_08",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_HalfBreedPriestess_09","05_HalfBreedPriestess_09",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_HalfBreedPriestess_10","05_HalfBreedPriestess_10",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_HalfBreedSorceress_11","05_HalfBreedSorceress_11",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_HalfBreedSorceress_12","05_HalfBreedSorceress_12",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_EliteLizardman_13","05_EliteLizardman_13",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_LizardShaman_14","05_LizardShaman_14",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_LizardMan_15","05_LizardMan_15",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_Wyvern_16","05_Wyvern_16",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_PurebloodWarrior_17","05_PurebloodWarrior_17",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_PurebloodWarrior_18","05_PurebloodWarrior_18",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_PurebloodThief_19","05_PurebloodThief_19",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_PurebloodThief_20","05_PurebloodThief_20",MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectSprite("05_FrostSalamander_21","05_FrostSalamander_21",MONSTER_SUMMONING_CIRCLE,0)
+    HideCreature("05_AbominationPriest_01",FALSE)
+    HideCreature("05_AbominationArcher_02",FALSE)
+    HideCreature("05_AbominationArcher_03",FALSE)
+    HideCreature("05_AbominationChampion_04",FALSE)
+    HideCreature("05_AbominationChampion_05",FALSE)
+    HideCreature("05_ArmoredSkeleton_06",FALSE)
+    HideCreature("05_ArmoredSkeleton_07",FALSE)
+    HideCreature("05_IronGolem_08",FALSE)
+    HideCreature("05_HalfBreedPriestess_09",FALSE)
+    HideCreature("05_HalfBreedPriestess_10",FALSE)
+    HideCreature("05_HalfBreedSorceress_11",FALSE)
+    HideCreature("05_HalfBreedSorceress_12",FALSE)
+    HideCreature("05_EliteLizardman_13",FALSE)
+    HideCreature("05_LizardShaman_14",FALSE)
+    HideCreature("05_LizardMan_15",FALSE)
+    HideCreature("05_Wyvern_16",FALSE)
+    HideCreature("05_PurebloodWarrior_17",FALSE)
+    HideCreature("05_PurebloodWarrior_18",FALSE)
+    HideCreature("05_PurebloodThief_19",FALSE)
+    HideCreature("05_PurebloodThief_20",FALSE)
+    HideCreature("05_FrostSalamander_21",FALSE)
+    SetGlobal("TEAM_5","MYAREA",1)
+    SetGlobal("TEAM_1","MYAREA",0)
+    SetGlobal("TEAM_2","MYAREA",0)
+    SetGlobal("TEAM_3","MYAREA",0)
+    SetGlobal("TEAM_6","MYAREA",0)
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",1)
+  OpenState("AR6104_Lava_Bridge5",TRUE)  // AR6104_Lava_Bridge5
+  NearLocation(NearestPC,2080,1700,15)
+THEN
+  RESPONSE #100
+    SpellHitEffectPoint("INVISIBLE",[2110.1660],ALTERATION,0)
+    CloseDoor("AR6104_Lava_Bridge5")
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",4)
+  Global("Ziltyor_dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayerCanRequestExit","MYAREA",1)
+    TriggerActivation("To6200False",TRUE)
+    SetCriticalPathObject("Lothar4",FALSE)
+    SetCriticalPathObject("Lothar3",FALSE)
+    SetCriticalPathObject("Lothar2",FALSE)
+    SetCriticalPathObject("Jasper5",FALSE)
+    SetCriticalPathObject("Jasper4",FALSE)
+    SetCriticalPathObject("Jasper3",FALSE)
+    SetCriticalPathObject("Venomin4",FALSE)
+    SetCriticalPathObject("Venomin3",FALSE)
+    SetCriticalPathObject("Venomin2",FALSE)
+    SetCriticalPathObject("Pyros3",FALSE)
+    SetCriticalPathObject("Pyros2",FALSE)
+    SetCriticalPathObject("Izbelah2",FALSE)
+    SetGlobal("Ziltyor_dead","GLOBAL",2)
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",3)
+  Global("PlayerCanRequestExit","MYAREA",0)
+  Global("PlayerKnowsTimeRecedes","MYAREA",1)
+  Global("Pyros4_dead","GLOBAL",1)
+  OpenState("AR6104_Ruins2",TRUE)  // AR6104_Ruins2
+  !CreatureHidden("05_AbominationPriest_01")  // 05_AbominationPriest_01
+THEN
+  RESPONSE #100
+    SetGlobal("PlayerCanRequestExit","MYAREA",1)
+    TriggerActivation("To6200False",TRUE)
+    SetCriticalPathObject("Lothar4",FALSE)
+    SetCriticalPathObject("Lothar3",FALSE)
+    SetCriticalPathObject("Lothar2",FALSE)
+    SetCriticalPathObject("Jasper5",FALSE)
+    SetCriticalPathObject("Jasper4",FALSE)
+    SetCriticalPathObject("Jasper3",FALSE)
+    SetCriticalPathObject("Venomin4",FALSE)
+    SetCriticalPathObject("Venomin3",FALSE)
+    SetCriticalPathObject("Venomin2",FALSE)
+    SetCriticalPathObject("Pyros3",FALSE)
+    SetCriticalPathObject("Pyros2",FALSE)
+    SetCriticalPathObject("Izbelah2",FALSE)
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",0)
+  Global("Izbelah1_dead","GLOBAL",1)
+  Global("61VolcanoStatus","GLOBAL",0)
+  Global("41NickHelp","GLOBAL",3)
+  Global("Nickademus_dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("To4102",TRUE)
+    SetGlobal("41NickHelp","GLOBAL",4)
+    Continue()
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",0)
+  Global("Izbelah1_dead","GLOBAL",1)
+  Global("61VolcanoStatus","GLOBAL",0)
+  Or(2)
+    GlobalLT("41NickHelp","GLOBAL",3)
+    Global("Nickademus_dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    TriggerActivation("To6200",TRUE)
+    Continue()
+END
+
+IF
+  Global("61CurrentDay","GLOBAL",0)
+  Global("Izbelah1_dead","GLOBAL",1)
+  Global("61VolcanoStatus","GLOBAL",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("To6200False",FALSE)
+    SetGlobal("PlayerCanRequestExit","MYAREA",1)
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    SetGlobalTimer("EruptionTimer","GLOBAL",300)
+    SetGlobal("61VolcanoStatus","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",1)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    HideCreature("61Embassy",TRUE)
+    DisplayString("61Embassy",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins2")
+    TriggerActivation("InfoEmbassyDamaged",TRUE)
+    TriggerActivation("InfoEmbassyFixed",FALSE)
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",2)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    HideCreature("61Palace",TRUE)
+    DisplayString("61Palace",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins3")
+    TriggerActivation("InfoPalaceDamaged",TRUE)
+    TriggerActivation("InfoPalaceFixed",FALSE)
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",3)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    HideCreature("61Citadel",TRUE)
+    DisplayString("61Citadel",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins4")
+    TriggerActivation("InfoCitadelDamaged",TRUE)
+    TriggerActivation("InfoCitadelFixed",FALSE)
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",4)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    HideCreature("61Amphitheatre",TRUE)
+    DisplayString("61Amphitheatre",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins1")
+    TriggerActivation("InfoAmphitheatreDamaged",TRUE)
+    TriggerActivation("InfoAmphitheatreFixed",FALSE)
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",5)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    DropInventoryEX("61Throne")
+    HideCreature("61Throne",TRUE)
+    DisplayString("61Throne",37293)  // ~Destroyed~
+    ScreenShake(25,16,12)
+    OpenDoor("AR6104_Throne")
+    TriggerActivation("InfoThroneDamaged",TRUE)
+    TriggerActivation("InfoThroneFixed",FALSE)
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",7)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    ScreenShake(50,16,12)
+    CloseDoor("AR6104_West_Rocks")
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",8)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    ScreenShake(50,16,12)
+    CloseDoor("AR6104_East_Rocks")
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",6)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("RopeCount","MYAREA",0)
+    PlaySequence("BridgeLeft",ATTACK)
+    PlaySequence("BridgeRight",ATTACK)
+    HideCreature("61Bridge",TRUE)
+    DisplayString("61Bridge",37293)  // ~Destroyed~
+    ActionOverride("Bridge",DestroyItem("50Misc38"))  // ~Hemp Rope~
+    TriggerActivation("InfoBridgeDamaged",TRUE)
+    TriggerActivation("InfoBridgeUnsafe",FALSE)
+    TriggerActivation("InfoBridgeFixed",FALSE)
+    TriggerActivation("BridgeRepair",TRUE)
+    ScreenShake(50,16,12)
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    IncrementGlobal("61VolcanoStatus","GLOBAL",1)
+END
+
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ScreenShake(15,4,3)
+    Continue()
+END
+
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+  See([ANYONE][0.0.10000.10000],0)
+  !InParty(LastMarkedObject)
+  CheckStatLT(LastMarkedObject,100,RESISTFIRE)
+THEN
+  RESPONSE #100
+    ApplySpell(LastMarkedObject,2099)
+    Continue()
+END
+
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    ScreenShake(75,40,30)
+    ApplySpell(Player1,2099)
+    ApplySpell(Player2,2099)
+    ApplySpell(Player3,2099)
+    ApplySpell(Player4,2099)
+    ApplySpell(Player5,2099)
+    ApplySpell(Player6,2099)
+    Continue()
+END
+
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+  GlobalTimerExpired("EruptionTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("61VolcanoStatus","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+  !AreaRestDisabled()
+THEN
+  RESPONSE #100
+    AllowAreaResting(FALSE)
+    Continue()
+END
+
+IF
+  Global("61VolcanoStatus","GLOBAL",-1)
+  AreaRestDisabled()
+THEN
+  RESPONSE #100
+    AllowAreaResting(TRUE)
+    Continue()
+END
+
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+  GlobalTimerExpired("LocalEruptionTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("LocalEruptionTimer","MYAREA",7)
+    Continue()
+END
+

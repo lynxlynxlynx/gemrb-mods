@@ -1,0 +1,135 @@
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",1,OR)
+    FloatMessage(Myself,11271)  // ~"Guards!  Assist me!"~
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,11271)  // ~"Guards!  Assist me!"~
+    Continue()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,5,15)
+    Continue()
+END
+
+IF
+  Global("HIGH_TORT_FLOAT","MYAREA",1)
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,11281)  // ~"Hmm, hmm.  Clean the tools, clean the tools."~
+    StartRandomTimer(24,5,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,11282)  // ~"Excellent instrument.  Excellent."~
+    StartRandomTimer(24,5,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,11300)  // ~"So, so much to do."~
+    StartRandomTimer(24,5,15)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SYMBOL_OF_PAIN)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+    Wait(2)
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+    Wait(2)
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(LastSeenBy(Myself),CLERIC_STATIC_CHARGE)
+    Wait(2)
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",8,OR)
+    Spell(Myself,CLERIC_STRENGTH_OF_ONE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",1,OR)
+    FloatMessage(Myself,11271)  // ~"Guards!  Assist me!"~
+    Enemy()
+    Continue()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    Dialogue([PC])
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  ActionListEmpty()
+  !NearSavedLocation(120)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  ActionListEmpty()
+  !TargetUnreachable([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+
+IF
+  !BitGlobal("MYAREA:AREA_VAR","",1,AND)
+  !Global("YXUN_ATTACK","MYAREA",0)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",1,OR)
+END
+

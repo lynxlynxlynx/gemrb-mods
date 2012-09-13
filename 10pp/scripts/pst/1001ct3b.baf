@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Pillar")  // 
+    Wait(3)
+    Dialogue([PC])
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Morte")  // 
+    RunToObject("Nameless")
+    JoinPartyEx(TRUE)
+    FaceObject("Pillar")
+END
+

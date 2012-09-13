@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    RunToPoint([517.703])
+    PlaySequence(ANIM_STANDFIDGET1)
+    RunToPoint([638.801])
+    FaceObject("Kellera")
+    PlaySequence(ANIM_STANDFIDGET2)
+    Wait(3)
+    FloatMessage("Kellera",17027)  // ~"See that it doesn't happen again."~
+    Wait(3)
+    ForceAIScript("0512klwk","Kellera",DEFAULT)
+    ChangeAIScript("0512fac2",DEFAULT)
+END
+

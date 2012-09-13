@@ -1,0 +1,14 @@
+IF
+  !Global("63Thayvian_Ruse","GLOBAL",1)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("63Thayvian_Ruse","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

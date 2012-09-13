@@ -1,0 +1,56 @@
+IF
+  IsOverMe([ANYONE])
+  Global("CircleOfMagic","AR1514",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CircleOfMagic","AR1514",1)
+END
+
+IF
+  !IsOverMe([ANYONE])
+  Global("CircleOfMagic","AR1514",1)
+THEN
+  RESPONSE #100
+    SetGlobal("CircleOfMagic","AR1514",0)
+END
+
+IF
+  IsOverMe([ANYONE])
+  Global("CircleOfMagic","AR1514",1)
+  Global("SlowOrb","AR1514",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SlowOrb","AR1514",0)
+    ReallyForceSpell(LastTrigger,WIZARD_SLOW)
+END
+
+IF
+  IsOverMe([ANYONE])
+  Global("CircleOfMagic","AR1514",1)
+  Global("HealOrb","AR1514",1)
+THEN
+  RESPONSE #100
+    SetGlobal("HealOrb","AR1514",0)
+    ReallyForceSpell(LastTrigger,CLERIC_CURE_MEDIUM_WOUNDS)
+END
+
+IF
+  IsOverMe([ANYONE])
+  Global("CircleOfMagic","AR1514",1)
+  Global("HasteOrb","AR1514",1)
+THEN
+  RESPONSE #100
+    SetGlobal("HasteOrb","AR1514",0)
+    ActionOverride(LastTrigger,ReallyForceSpell(Myself,WIZARD_HASTE))
+END
+
+IF
+  IsOverMe([ANYONE])
+  Global("CircleOfMagic","AR1514",1)
+  Global("LightningOrb","AR1514",1)
+THEN
+  RESPONSE #100
+    SetGlobal("LightningOrb","AR1514",0)
+    ReallyForceSpell(LastTrigger,WIZARD_LIGHTNING_BOLT)
+END
+

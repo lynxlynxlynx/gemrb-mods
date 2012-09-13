@@ -1,0 +1,60 @@
+IF
+  HPPercentLT(Myself,50)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.DUSTMAN])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    Face(4)
+    Wait(1)
+    Face(6)
+    Wait(1)
+    Face(8)
+    Wait(1)
+    Face(6)
+    MoveToPoint([3537.1908])
+    Face(4)
+    Wait(5)
+    Face(6)
+    Wait(1)
+    Face(4)
+    Wait(1)
+    Face(2)
+    Wait(1)
+    Face(4)
+    Wait(5)
+    MoveToPoint([2884.1801])
+    Face(6)
+END
+

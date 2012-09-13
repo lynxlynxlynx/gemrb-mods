@@ -1,0 +1,11 @@
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("SaemonPlot","GLOBAL",1)
+    ReallyForceSpell("AMSAEMON",DRYAD_TELEPORT)
+    Enemy()
+    ActionOverride("AMMERC02",Enemy())
+END
+

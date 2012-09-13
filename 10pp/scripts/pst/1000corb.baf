@@ -1,0 +1,24 @@
+IF
+  OnCreation()
+  Global("Cornugon_Buddy_Spawn","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Cornugon_Buddy_Spawn","GLOBAL",0)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+

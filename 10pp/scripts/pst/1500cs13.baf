@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hargrim")  // 
+    Dialogue([PC])
+    DebugOutput("--------------------")
+    DebugOutput("-ERRORERROR...DIALOGUERETURNED-")
+END
+

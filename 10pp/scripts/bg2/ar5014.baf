@@ -1,0 +1,61 @@
+IF
+  Global("DeactivateSwitches","AR5014",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DeactivateSwitches","AR5014",1)
+    TriggerActivation("Switch1",FALSE)
+    TriggerActivation("Switch2",FALSE)
+    TriggerActivation("Switch3",FALSE)
+END
+
+IF
+  Global("INFORMPLOTCUTACTIVE","GLOBAL",2)
+  Global("ActivateSwitches","AR5014",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ActivateSwitches","AR5014",1)
+    TriggerActivation("Switch1",TRUE)
+    TriggerActivation("Switch2",TRUE)
+    TriggerActivation("Switch3",TRUE)
+END
+
+IF
+  Global("DoorSwitch5014","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("DoorSwitch5014","GLOBAL",4)
+    DisplayStringHead(Player1,72523)  // ~As you flick the final switch, you hear a door open.~
+    Unlock("Door02")
+    OpenDoor("Door02")
+END
+
+IF
+  OR(2)
+    OpenState("DOOR02",TRUE)  // DOOR02
+    Global("ErrardJob","GLOBAL",2)
+  !Dead("sarkis01")  // ~Kiser Jhaeri~
+  GlobalLT("KiserJob","GLOBAL",2)
+  Global("KiserSpawn5014","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+    CreateCreature("SARKIS04",[601.459],0)  // ~Kiser Jhaeri~
+    OpenDoor("Door02")
+    SetGlobal("KiserSpawn5014","GLOBAL",1)
+END
+
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+END
+

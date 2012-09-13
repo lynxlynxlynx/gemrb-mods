@@ -1,0 +1,35 @@
+IF
+  !GlobalTimerNotExpired("ChaosChangeTimer","GLOBAL")
+THEN
+  RESPONSE #10
+    Polymorph(SHAMBLING_MOUND)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    Polymorph(IC_SKELETONA)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    Polymorph(OTYUGH)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    Polymorph(ELEMENTAL_FIRE)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    Polymorph(SHADOW)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    Polymorph(BEHOLDER)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    PolymorphCopy(Player1)
+    SetName(48916)  // ~Chaos ~
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    Polymorph(BODHI)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #10
+    Polymorph(VAMPIRE_FEMALE)
+    SetGlobalTimer("ChaosChangeTimer","GLOBAL",2)
+  RESPONSE #70
+    Continue()
+END
+

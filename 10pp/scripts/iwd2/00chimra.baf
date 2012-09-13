@@ -1,0 +1,20 @@
+IF
+  !TimerActive(99)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    StartTimer(99,28)
+    EquipRanged()
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

@@ -1,0 +1,110 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    Continue()
+END
+
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,AND)
+THEN
+  RESPONSE #85
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,XOR)
+    FloatMessage(Myself,16835)  // ~"For blade and faith."~
+    Continue()
+  RESPONSE #85
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,XOR)
+    FloatMessage(Myself,16836)  // ~"My duty is clear."~
+    Continue()
+  RESPONSE #85
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,XOR)
+    FloatMessage(Myself,16837)  // ~"The needs of the many..."~
+    Continue()
+  RESPONSE #60
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,XOR)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1127,928,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1127.928])
+    MoveToPoint([1127.928])
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",2)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+  !NearSavedLocation(2)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+END
+

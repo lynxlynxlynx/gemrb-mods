@@ -1,0 +1,18 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,TRAP_GLYPH_OF_WARDING)
+    Wait(2)
+END
+
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,TRAP_GLYPH_OF_WARDING)
+    Wait(2)
+END
+

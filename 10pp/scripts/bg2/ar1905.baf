@@ -1,0 +1,9 @@
+IF
+  Global("Drush","GLOBAL",1)
+  Global("SpawnDrush","AR1905",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDrush","AR1905",1)
+    CreateCreature("DRUSH",[424.307],2)  // ~Drush~
+END
+

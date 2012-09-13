@@ -1,0 +1,101 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PedBDone","AR3019",0)
+  !PartyHasItem("PLOT05B")  // ~Mind Key~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,70452)  // ~There is a large keyhole in the pedestal next to the seal.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PedBDone","AR3019",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,70896)  // ~There is nothing more that you can do with this.~
+END
+
+IF
+  PartyHasItem("PLOT05b")  // ~Mind Key~
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PedBDone","AR3019",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PedBDone","AR3019",1)
+    DisplayString(LastTrigger,72713)  // ~You place the key into the lock. Click again to turn the key and unleash whatever guardians await you.~
+    AddXP2DA("PLOT5B")
+    TakePartyItem("PLOT05B")
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PedBDone","AR3019",1)
+  GlobalLT("SealOpen","AR3019",2)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    MoveViewPoint([2277.1866],VERY_FAST)
+    IncrementGlobal("SealOpen","AR3019",1)
+    SetGlobal("PedBDone","AR3019",2)
+    DisplayString(Myself,70453)  // ~The key turns easily. This lock is now open.~
+    Wait(1)
+    CreateVisualEffect("spraised",[2115.1597])
+    CreateVisualEffect("spraised",[2168.2067])
+    CreateVisualEffect("spraised",[2395.1598])
+    CreateVisualEffect("spraised",[2564.1846])
+    CreateVisualEffect("spraised",[2003.1847])
+    CreateVisualEffect("spraised",[2463.2061])
+    Wait(2)
+    CreateCreature("GORGUA01",[2115.1597],4)  // ~Aurumach Rilmani~
+    CreateCreature("GORGUA02",[2168.2067],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2395.1598],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2564.1846],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2003.1847],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2463.2061],4)  // ~Ferrumach Rilmani~
+    EndCutSceneMode()
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PedBDone","AR3019",1)
+  Global("SealOpen","AR3019",2)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    DisplayString(Player1,72711)  // ~The final guardians of the seal are awakened and you know that you must defeat them with ease if you are ever to face the Imprisoned One and survive.~
+    MoveViewPoint([2277.1866],VERY_FAST)
+    IncrementGlobal("SealOpen","AR3019",1)
+    SetGlobal("PedBDone","AR3019",2)
+    DisplayString(Myself,63799)  // ~The final lock has been opened. The wheel can now be turned to open the Seal.~
+    Wait(1)
+    CreateVisualEffect("spraised",[2115.1597])
+    CreateVisualEffect("spraised",[2168.2067])
+    CreateVisualEffect("spraised",[2395.1598])
+    CreateVisualEffect("spraised",[2564.1846])
+    CreateVisualEffect("spraised",[2003.1847])
+    CreateVisualEffect("spraised",[2463.2061])
+    Wait(4)
+    CreateCreature("GORGUA01",[2115.1597],4)  // ~Aurumach Rilmani~
+    CreateCreature("GORGUA02",[2168.2067],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2395.1598],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2564.1846],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2003.1847],4)  // ~Ferrumach Rilmani~
+    CreateCreature("GORGUA02",[2463.2061],4)  // ~Ferrumach Rilmani~
+    EndCutSceneMode()
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

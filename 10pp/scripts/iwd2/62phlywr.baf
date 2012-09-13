@@ -1,0 +1,12 @@
+IF
+  Global("62cHlyWr_Started","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("62cHlyWr_Started","MYAREA",1)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("62cHlyW0")
+END
+

@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("hgnya01")  // 
+    MoveViewObject(Myself,INSTANT)
+    CreateVisualEffectObject("SPUSEANY",Myself)
+    Wait(3)
+    StartDialogNoSet([PC])
+END
+

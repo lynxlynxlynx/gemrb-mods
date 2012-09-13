@@ -1,0 +1,55 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedCandleKeep","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Global("AttackedCandleKeep","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),150)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+  RESPONSE #20
+    MoveToOffset([3.0])
+    Wait(3)
+    MoveToOffset([-3.0])
+  RESPONSE #20
+    MoveToOffset([-3.0])
+    Wait(3)
+    MoveToOffset([3.0])
+  RESPONSE #20
+    MoveToOffset([2.3])
+    Wait(3)
+    MoveToOffset([-2.-3])
+  RESPONSE #20
+    MoveToOffset([3.-2])
+    Wait(3)
+    MoveToOffset([-3.2])
+  RESPONSE #20
+    MoveToOffset([-1.-3])
+    Wait(3)
+    MoveToOffset([1.3])
+  RESPONSE #20
+    MoveToOffset([-2.4])
+    Wait(3)
+    MoveToOffset([2.-4])
+END
+

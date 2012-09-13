@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    DisplayString(Player1,53778)  // ~The odd device overwhelms you, causing you to become the slayer once more...and forcing upon you an urge, a desire...the elder brain is calling you...~
+    CreateVisualEffectObject("SPDIMNDR",Player1)
+    Wait(2)
+    FadeToColor([20.0],0)
+    JumpToPoint([953.1342])
+    MoveViewObject(Player1,100)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    Unlock("DOOR22")
+    OpenDoor("DOOR22")
+    OpenDoor("DOOR01")
+    Wait(1)
+    MoveToPointNoInterrupt([893.1117])
+    MoveViewPoint([893.1117],100)
+    MoveToPointNoInterrupt([823.1010])
+    MoveViewPoint([823.1010],100)
+    MoveToPointNoInterrupt([724.852])
+    MoveViewPoint([724.852],100)
+    ActionOverride(Player1,Attack("udmaster"))
+    EndCutSceneMode()
+END
+

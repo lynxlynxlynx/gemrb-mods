@@ -1,0 +1,54 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("TreeNuts","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,54411)  // ~The tree shimmers slightly as you look at it. A palpable feeling of magic emanates from it. The unusually large nuts in the branches above are a tempting sight. You could pick them if you wish to.~
+    SetGlobal("TreeNuts","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("TreeNuts","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57861)  // ~As soon as you touch the first nut, a shock runs through your hand and all of the nuts fall to your feet.~
+    CreateVisualEffect("shacid",[1330.677])
+    CreateVisualEffect("shacid",[1375.622])
+    CreateVisualEffect("shacid",[1470.550])
+    CreateVisualEffect("shacid",[1280.554])
+    Wait(4)
+    DisplayString(Myself,57862)  // ~You gather all of the nuts. There seems to be two distinct types of them: a smaller type that does not open no matter how hard you pry, and a larger group that opens to allow access to the edible nut within.~
+    Wait(4)
+    FadeToColor([20.0],0)
+    Wait(2)
+    GiveItemCreate("miscbq",LastTrigger,4,1,0)  // ~Tree of Life Nuts~
+    GiveItemCreate("miscb4",LastTrigger,0,0,0)  // ~Tree of Life Nuts~
+    GiveItemCreate("miscb4",LastTrigger,0,0,0)  // ~Tree of Life Nuts~
+    GiveItemCreate("miscb4",LastTrigger,0,0,0)  // ~Tree of Life Nuts~
+    GiveItemCreate("miscb4",LastTrigger,0,0,0)  // ~Tree of Life Nuts~
+    OpenDoor("Tree01")
+    Wait(1)
+    FadeFromColor([20.0],0)
+    SetGlobal("TreeNuts","GLOBAL",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("TreeNuts","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57865)  // ~The tree bears no more fruit.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

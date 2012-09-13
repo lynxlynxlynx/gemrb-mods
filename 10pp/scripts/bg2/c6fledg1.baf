@@ -1,0 +1,18 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_GAS_FORM_CHANGE)
+END
+
+IF
+  Global("ValenFight","AR0808",1)
+  Global("Move","LOCALS",0)
+THEN
+  RESPONSE #100
+    Unlock("DOOR05")
+    OpenDoor("DOOR05")
+    MoveToPoint([961.1347])
+    SetGlobal("Move","LOCALS",1)
+END
+

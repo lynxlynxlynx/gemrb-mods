@@ -1,0 +1,28 @@
+IF
+  Detect([PC])
+  Global("TalkedOnce","LOCALS",0)
+THEN
+  RESPONSE #50
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("TalkedOnce","LOCALS",1)
+    SetGlobalTimer("BandintsSpawnTimer","LOCALS",30)
+    DisplayStringHead(Myself,72777)  // ~Onward, ho and so on! Kill them my noble brigands!~
+END
+
+IF
+  Detect([PC])
+  !GlobalTimerNotExpired("BandintsSpawnTimer","LOCALS")
+  Global("SpawnBandits","LOCALS",0)
+THEN
+  RESPONSE #50
+    FaceObject(LastSeenBy(Myself))
+    DisplayStringHead(Myself,72778)  // ~Reinforcements! Forward!~
+    SetGlobal("SpawnBandits","LOCALS",1)
+    CreateCreatureOffScreen("tobban02",0)  // ~Orc Archer~
+    CreateCreatureOffScreen("tobban02",0)  // ~Orc Archer~
+    CreateCreatureOffScreen("tobban03",0)  // ~Orc~
+    CreateCreatureOffScreen("tobban03",0)  // ~Orc~
+    CreateCreatureOffScreen("tobban04",0)  // ~Orog~
+    CreateCreatureOffScreen("tobban04",0)  // ~Orog~
+END
+

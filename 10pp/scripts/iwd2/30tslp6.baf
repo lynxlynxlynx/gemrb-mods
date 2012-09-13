@@ -1,0 +1,111 @@
+IF
+  Global("TEAM_7","MYAREA",0)
+  Or(2)
+    AttackedBy([GOODCUTOFF],0)
+    PickLockFailed([GOODCUTOFF])
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_7","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("TEAM_7","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Or(2)
+    Global("TEAM_7","MYAREA",0)
+    Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  !Sequence(Myself,SLEEP)
+  See(NearestEnemyOf(Myself),0)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_6_AWAKE","MYAREA",1)
+    SetGlobal("TEAM_7","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  AttackedBy([ENEMY],0)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_6_AWAKE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  Sequence(Myself,SLEEP)
+  Or(2)
+    Heard([ANYONE],66)
+    Heard([ANYONE],77)
+  See(LastHeardBy(Myself),0)
+  !Sequence(LastHeardBy(Myself),SLEEP)
+  !Dead(Myself)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_6_AWAKE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  !Global("TEAM_7","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SLEEP_TEAM_6_AWAKE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  Global("TEAM_7","MYAREA",0)
+  !Sequence(Myself,SLEEP)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,SLEEP)
+    Wait(1)
+END
+
+IF
+  Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  GlobalTimerExpired("TEAM_SLEEP_6_SNORE","MYAREA")
+  Global("TEAM_7","MYAREA",0)
+  Sequence(Myself,SLEEP)
+THEN
+  RESPONSE #20
+    Shout(66)
+    FloatMessage(Myself,1015)  // ~"Zzzzzzz..."~
+    SetGlobalTimerRandom("TEAM_SLEEP_6_SNORE","MYAREA",2,7)
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  Global("TEAM_7","MYAREA",0)
+  Sequence(Myself,SLEEP)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("SLEEP_TEAM_6_AWAKE","MYAREA",0)
+  Sequence(Myself,SLEEP)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,AWAKE)
+    Wait(1)
+END
+

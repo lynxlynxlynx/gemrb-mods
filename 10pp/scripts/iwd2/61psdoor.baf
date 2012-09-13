@@ -1,0 +1,16 @@
+IF
+  Global("61BrazierTally","GLOBAL",31)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+    TriggerActivation("To6102b",TRUE)
+    TriggerActivation("InfoStatue",FALSE)
+END
+
+IF
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

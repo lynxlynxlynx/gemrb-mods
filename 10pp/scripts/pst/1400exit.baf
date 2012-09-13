@@ -1,0 +1,8 @@
+IF
+  HarmlessEntered("Nordom")  // ~Modron~
+THEN
+  RESPONSE #100
+    PlaySound("Nor196")
+    Continue()
+END
+

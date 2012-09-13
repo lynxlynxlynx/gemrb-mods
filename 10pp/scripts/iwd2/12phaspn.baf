@@ -1,0 +1,39 @@
+IF
+  CreatureHidden(Myself)
+  !Global("1200_BATTLE_SETUP","GLOBAL",0)
+  GlobalTimerExpired("PHAEN_SPAWN_TIMER","MYAREA")
+  Or(2)
+    !Global("PHAEN_GROUP_SPAWN","MYAREA",0)
+    AnyPCOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("PHAEN_GROUP_SPAWN","MYAREA",1)
+    FaceObject(NearestPC)
+    SetGlobal("TEAM_8","MYAREA",1)
+    SpellHitEffectSprite(Myself,Myself,CONJURATION,0)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("Phaen_of_the_Rags_Dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

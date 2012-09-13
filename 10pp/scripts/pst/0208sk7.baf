@@ -1,0 +1,39 @@
+IF
+  TimerActive(1)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_STANDFIDGET1)
+  RESPONSE #100
+    PlaySequence(ANIM_STANDFIDGET2)
+  RESPONSE #100
+    PlaySequence(ANIM_STANCEFIDGET2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequenceTimed(ANIM_ATTACK,5)
+    MoveToPoint([3052.1040])
+    Face(14)
+    PlaySequenceTimed(ANIM_ATTACK,8)
+    MoveToPoint([3129.968])
+    Face(0)
+    PlaySequenceTimed(ANIM_ATTACK,7)
+    MoveToPoint([3047.968])
+    Face(14)
+    PlaySequenceTimed(ANIM_ATTACK,6)
+    MoveToPoint([3164.1041])
+    MoveToPoint([3047.968])
+    Face(14)
+    PlaySequenceTimed(ANIM_ATTACK,6)
+    MoveToPoint([3129.968])
+    Face(0)
+    PlaySequenceTimed(ANIM_ATTACK,9)
+    MoveToPoint([3052.1040])
+    Face(14)
+    PlaySequenceTimed(ANIM_ATTACK,8)
+    MoveToPoint([3164.1041])
+    Face(0)
+END
+

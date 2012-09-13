@@ -1,0 +1,92 @@
+IF
+  Global("INITIALIZED_41ACOLYT","LOCALS",0)
+THEN
+  RESPONSE #100
+    DialogInterrupt(FALSE)
+    SetGlobal("INITIALIZED_41ACOLYT","LOCALS",1)
+    Continue()
+END
+
+IF
+  !TimerActive(21)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,32472)  // ~"We're sorry!"~
+    StartRandomTimer(21,5,15)
+  RESPONSE #50
+    FloatMessage(Myself,32473)  // ~"We didn't mean to crash your ship!"~
+    StartRandomTimer(21,5,15)
+  RESPONSE #50
+    FloatMessage(Myself,32474)  // ~"Don't kill us!"~
+    StartRandomTimer(21,5,15)
+  RESPONSE #50
+    FloatMessage(Myself,32475)  // ~"Save us great Auril - save us!"~
+    StartRandomTimer(21,5,15)
+  RESPONSE #50
+    FloatMessage(Myself,32476)  // ~"We surrender!"~
+    StartRandomTimer(21,5,15)
+  RESPONSE #250
+    StartRandomTimer(21,5,15)
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,2430,1090,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2430.1090])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([2430.1090])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1887,1823,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1887.1823])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1887.1823])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,415,2655,4)
+THEN
+  RESPONSE #100
+    SetStartPos([415.2655])
+    SetGlobal("ML_0","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([415.2655])
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

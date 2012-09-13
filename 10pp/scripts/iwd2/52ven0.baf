@@ -1,0 +1,20 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Or(2)
+    !Global("52Ven_Leaves","GLOBAL",0)
+    Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ForceHide(Myself)
+    Wait(1)
+    DestroySelf()
+END
+

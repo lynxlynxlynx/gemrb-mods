@@ -1,0 +1,309 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,COLLECTOR)
+    Continue()
+END
+
+IF
+  See([0.0.TEAM_11])
+THEN
+  RESPONSE #100
+    GlobalSet("Collector_Couple","AR0109",1)
+    MoveToObjectEx([0.0.TEAM_11],0)
+    FloatMessage(Myself,32218)  // ~"Would the two of ya be considerin' making your love eternal?  I could be of assistance, yes..."~
+    GlobalSet("Collector_Couple","AR0109",2)
+    Wait(5)
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([3339.2854])
+    Face(8)
+    Wait(3)
+    IncrementGlobal("Collector_Wander","AR0109",1)
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8164)  // ~"Deaders? 'Ullo?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8165)  // ~"Deaders? Come out, come out!"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8163)  // ~"Deaders? Where ye be?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8161)  // ~"Deaders?"~
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",1)
+THEN
+  RESPONSE #100
+    WaitRandom(1,3)
+    MoveToPoint([3093.2657])
+    Face(4)
+    Wait(3)
+    IncrementGlobal("Collector_Wander","AR0109",1)
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8164)  // ~"Deaders? 'Ullo?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8165)  // ~"Deaders? Come out, come out!"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8163)  // ~"Deaders? Where ye be?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8161)  // ~"Deaders?"~
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",2)
+THEN
+  RESPONSE #100
+    WaitRandom(1,3)
+    MoveToPoint([3093.2522])
+    MoveToPoint([2835.2402])
+    Face(6)
+    Wait(3)
+    MoveToPoint([2835.2402])
+    Face(12)
+    Wait(3)
+    FloatMessage(Myself,32414)  // ~"Lookin' for a job are ya?  I've a task you could perform...provided you don't mind dealing with deaders."~
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",3)
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    MoveToPoint([3040.2197])
+    Face(8)
+    WaitRandom(3,5)
+    IncrementGlobal("Collector_Wander","AR0109",1)
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",4)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8164)  // ~"Deaders? 'Ullo?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8165)  // ~"Deaders? Come out, come out!"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8163)  // ~"Deaders? Where ye be?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8161)  // ~"Deaders?"~
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",4)
+THEN
+  RESPONSE #100
+    WaitRandom(1,3)
+    MoveToPoint([3458.1777])
+    Face(0)
+    WaitRandom(1,3)
+    IncrementGlobal("Collector_Wander","AR0109",1)
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",5)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8164)  // ~"Deaders? 'Ullo?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8165)  // ~"Deaders? Come out, come out!"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8163)  // ~"Deaders? Where ye be?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8161)  // ~"Deaders?"~
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",5)
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    MoveToPoint([3068.1391])
+    Face(10)
+    WaitRandom(3,5)
+    FloatMessage(Myself,32416)  // ~"I'll not being going in there without any jink..."~
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",6)
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    MoveToPoint([2749.1390])
+    MoveToPoint([2488.1129])
+    MoveToPoint([2250.1129])
+    MoveToPoint([2250.1211])
+    Face(14)
+    WaitRandom(1,3)
+    IncrementGlobal("Collector_Wander","AR0109",1)
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",7)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8164)  // ~"Deaders? 'Ullo?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8165)  // ~"Deaders? Come out, come out!"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8163)  // ~"Deaders? Where ye be?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8161)  // ~"Deaders?"~
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",7)
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    MoveToPoint([1905.1211])
+    Face(8)
+    Wait(3)
+    FloatMessage(Myself,32230)  // ~"Any of you wish to wager your shells?"~
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",8)
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    MoveToPoint([1652.1464])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",9)
+THEN
+  RESPONSE #100
+    MoveToPoint([1467.1464])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",10)
+THEN
+  RESPONSE #100
+    MoveToPoint([1375.1553])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",11)
+THEN
+  RESPONSE #100
+    MoveToPoint([1375.1739])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",12)
+THEN
+  RESPONSE #100
+    MoveToPoint([1595.1969])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",13)
+THEN
+  RESPONSE #100
+    MoveToPoint([3003.1969])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",14)
+THEN
+  RESPONSE #100
+    MoveToPoint([3309.2272])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",15)
+THEN
+  RESPONSE #100
+    MoveToPoint([3309.2746])
+    IncrementGlobal("Collector_Wander","AR0109",1)
+END
+
+IF
+  Global("Collector_Wander","AR0109",16)
+THEN
+  RESPONSE #100
+    MoveToPoint([3542.2746])
+    Face(10)
+    WaitRandom(3,5)
+    IncrementGlobal("Collector_Wander","AR0109",1)
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",17)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8164)  // ~"Deaders? 'Ullo?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8165)  // ~"Deaders? Come out, come out!"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8163)  // ~"Deaders? Where ye be?"~
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8161)  // ~"Deaders?"~
+    Continue()
+END
+
+IF
+  Global("Collector_Wander","AR0109",17)
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    MoveToPoint([3527.3002])
+    GlobalSet("Collector_Wander","AR0109",0)
+END
+

@@ -1,0 +1,59 @@
+IF
+  Global("UNCRITICAL","LOCALS",0)
+  !Global("LIHMA_OUTSIDE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetCriticalPathObject(Myself,FALSE)
+    SetGlobal("UNCRITICAL","LOCALS",1)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  NearLocation(Myself,622,380,2)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  !CreatureHidden(Myself)
+  Allegiance(Myself,ENEMY)
+  !NearLocation(Myself,622,380,2)
+THEN
+  RESPONSE #100
+    MoveToPoint([622.380])
+END
+
+IF
+  CreatureHidden(Myself)
+  !NearLocation(Myself,622,380,2)
+THEN
+  RESPONSE #100
+    MoveToPoint([622.380])
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !TimerActive(21)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,17889)  // ~"So quiet... so peaceful."~
+    StartRandomTimer(21,5,10)
+  RESPONSE #50
+    FloatMessage(Myself,17890)  // ~"Ahhh... this is my favorite clearing in the forest!"~
+    StartRandomTimer(21,5,10)
+  RESPONSE #50
+    FloatMessage(Myself,17891)  // ~"I'm quite happy that mortals avoid these woods."~
+    StartRandomTimer(21,5,10)
+  RESPONSE #150
+    StartRandomTimer(21,5,10)
+END
+

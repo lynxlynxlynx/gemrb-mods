@@ -1,0 +1,11 @@
+IF
+  Global("TEAM_9","MYAREA",1)
+  !Global("AR5101_IN_SUB_AREA","GLOBAL",0)
+  Exists(NearestPC)
+  !See(NearestPC,0)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+    MoveToObject(NearestPC)
+END
+

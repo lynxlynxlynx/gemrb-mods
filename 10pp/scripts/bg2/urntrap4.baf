@@ -1,0 +1,8 @@
+IF
+  Global("UrnTrap4","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ForceSpell([PC],TRAP_LIGHTNING_BOLT)
+    SetGlobal("UrnTrap4","GLOBAL",0)
+END
+

@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Protagonist)  // 
+    OpenDoor("ar1500d2")
+    MoveToPoint([2700.3040])
+    EndCutSceneMode()
+END
+

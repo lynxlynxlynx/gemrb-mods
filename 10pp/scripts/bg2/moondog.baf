@@ -1,0 +1,26 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(NON_DETECTION_SELF)
+THEN
+  RESPONSE #100
+    Spell(Myself,NON_DETECTION_SELF)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Alignment(NearestEnemyOf(Myself),MASK_EVIL)
+  Global("MoonPrep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,MOON_DOG_FEAR)
+    SetGlobal("MoonPrep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(HASTE_SELF)
+THEN
+  RESPONSE #100
+    Spell(Myself,HASTE_SELF)
+END
+

@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CORNUGON_1")  // 
+    MoveToPoint([783.503])
+    FaceObject([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CORNUGON_2")  // 
+    MoveToPoint([529.555])
+    FaceObject([PC])
+END
+

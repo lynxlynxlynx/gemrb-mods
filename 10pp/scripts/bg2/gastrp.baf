@@ -1,0 +1,14 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    SetGlobal("GasChamber","AR0202",1)
+    DisplayString(Myself,27929)  // ~As you near the center of the room, the doors clang shut and you hear the hiss of gas. An orange cloud begins to fill the now sealed chamber.~
+    CloseDoor("DOOR01")
+    CloseDoor("DOOR02")
+    Lock("DOOR01")
+    Lock("DOOR02")
+    CreateCreature("MISTVA01",[2766.1925],12)  // ~Vampiric Mist~
+    CreateCreature("MISTVA01",[2980.2057],10)  // ~Vampiric Mist~
+END
+

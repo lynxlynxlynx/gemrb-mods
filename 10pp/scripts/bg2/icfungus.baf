@@ -1,0 +1,28 @@
+IF
+  AreaCheck("AR2100")
+  Global("SolaufeinJob","GLOBAL",6)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Delay(10)
+  See(NearestEnemyOf(Myself))
+  Global("Mushroom","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Mushroom","LOCALS",1)
+    ForceSpell(Myself,SUMMON_FUNGUS)
+END
+
+IF
+  Delay(20)
+  See(NearestEnemyOf(Myself))
+  GlobalLT("MushroomSummon","LOCALS",5)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MushroomSummon","LOCALS",1)
+    ForceSpell(Myself,SUMMON_FUNGUS)
+END
+

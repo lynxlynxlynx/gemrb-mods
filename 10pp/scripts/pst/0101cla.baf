@@ -1,0 +1,93 @@
+IF
+  HPPercentLT(Myself,50)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(12)
+    WaitRandom(10,12)
+    Face(10)
+    WaitRandom(10,12)
+    Face(8)
+    WaitRandom(10,12)
+    MoveToPoint([1224.1678])
+    Face(0)
+    WaitRandom(10,12)
+    Face(14)
+    WaitRandom(10,12)
+    Face(0)
+    WaitRandom(10,12)
+    Face(2)
+    WaitRandom(10,12)
+    MoveToPoint([1066.1636])
+    Face(4)
+    WaitRandom(10,12)
+    Face(2)
+    WaitRandom(10,12)
+    Face(4)
+    WaitRandom(10,12)
+    Face(6)
+    WaitRandom(10,12)
+    MoveToPoint([1066.1540])
+    Face(10)
+    WaitRandom(10,12)
+    Face(12)
+    WaitRandom(10,12)
+    MoveToPoint([1012.1539])
+    MoveToPoint([900.1429])
+    Face(4)
+    WaitRandom(10,12)
+    Face(6)
+    WaitRandom(10,12)
+    Face(8)
+    WaitRandom(10,12)
+    MoveToPoint([1012.1539])
+    MoveToPoint([1066.1540])
+    Face(10)
+    WaitRandom(10,12)
+    Face(12)
+    WaitRandom(10,12)
+    MoveToPoint([1066.1636])
+    Face(4)
+    WaitRandom(10,12)
+    Face(2)
+    WaitRandom(10,12)
+    Face(4)
+    WaitRandom(10,12)
+    Face(6)
+    WaitRandom(10,12)
+    MoveToPoint([1224.1678])
+    Face(0)
+    WaitRandom(10,12)
+    Face(14)
+    WaitRandom(10,12)
+    Face(0)
+    WaitRandom(10,12)
+    Face(2)
+    WaitRandom(10,12)
+    MoveToPoint([1327.1639])
+END
+

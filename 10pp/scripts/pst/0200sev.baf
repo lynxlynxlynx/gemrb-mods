@@ -1,0 +1,17 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(6)
+    Wait(10)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,26622)  // ~"Me poor sisters..."~
+END
+

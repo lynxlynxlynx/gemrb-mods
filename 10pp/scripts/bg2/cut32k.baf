@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobalTimer("KPPlotTime","GLOBAL",300)
+    SetGlobal("KeepPlot","GLOBAL",9)
+    OpenDoor("DOOR06")
+    FadeToColor([20.0],0)
+    Wait(1)
+    JumpToPoint([1065.852])
+    ActionOverride(Player2,JumpToPoint([1213.920]))
+    ActionOverride(Player3,JumpToPoint([1265.940]))
+    ActionOverride(Player4,JumpToPoint([1087.997]))
+    ActionOverride(Player5,JumpToPoint([1123.1019]))
+    ActionOverride(Player6,JumpToPoint([1078.1041]))
+    Face(0)
+    ActionOverride(Player2,Face(6))
+    ActionOverride(Player3,Face(6))
+    ActionOverride(Player4,Face(6))
+    ActionOverride(Player5,Face(6))
+    ActionOverride(Player6,Face(6))
+    CreateCreature("KPCAPT02",[1122.902],6)  // ~Captain Cernick~
+    CreateCreature("KPSOLD03",[1088.933],6)  // ~de'Arnise Guard~
+    CreateCreature("KPSOLD04",[1143.980],6)  // ~de'Arnise Guard~
+    FadeFromColor([20.0],0)
+    Wait(1)
+    ActionOverride("kpcapt02",StartDialogNoSet(Player1))
+END
+

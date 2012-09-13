@@ -1,0 +1,10 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("ETTER01",[3332.704],0)  // ~Ettercap~
+    CreateCreature("ETTER01",[3413.643],0)  // ~Ettercap~
+    CreateCreature("ETTER01",[3638.762],0)  // ~Ettercap~
+    CreateCreature("ETTER01",[3557.831],0)  // ~Ettercap~
+END
+

@@ -1,0 +1,146 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trig1")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trig2")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trig3")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("crstm")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("lowctf")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("crstf")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("toww")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("lowctm")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("colt")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("lowctm2")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("uppctf")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("bariaur")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("tiefm")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("tieff")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("lowctm3")  // 
+    Activate(Myself)
+    SetAnimState(Myself,ANIM_MIMEDIE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([2335.2548],INSTANT)
+    Face(0)
+    JumpToPoint([2335.2548])
+    Wait(1)
+    FadeFromBlack()
+    Wait(4)
+    EndCutSceneMode()
+END
+

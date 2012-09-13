@@ -1,0 +1,7 @@
+IF
+  !Global("Foundry_Death_Cutscene","AR0502",1)
+THEN
+  RESPONSE #100
+    PlaySound("ar_0502_a")
+END
+

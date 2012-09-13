@@ -1,0 +1,48 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Gorion")  // 
+    SetDialog("cutgor")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Sarevok")  // 
+    MoveToPoint([3280.1330])
+    StartDialog("cutsar",Player1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Tamoko")  // 
+    MoveToPoint([3241.1272])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ogre")  // 
+    MoveToPoint([3173.1281])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ogre02")  // 
+    MoveToPoint([3298.1410])
+END
+

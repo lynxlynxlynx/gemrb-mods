@@ -1,0 +1,17 @@
+IF
+  Global("KamirWard","GLOBAL",3)
+  Exists("Kamir")  // ~Kamir~
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("Kamir")
+END
+
+IF
+  Global("KamirWard","GLOBAL",3)
+  !Exists("Kamir")  // ~Kamir~
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1805.2103])
+    DestroySelf()
+END
+

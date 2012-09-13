@@ -1,0 +1,19 @@
+IF
+  Specifics(Myself,0)
+THEN
+  RESPONSE #100
+    Wait(2)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_ATTACK1)
+    PlaySequence(ANIM_ATTACK1)
+    PlaySequence(ANIM_ATTACK1)
+    PlaySequence(ANIM_ATTACK1)
+    ChangeAIScript("0500noop",DEFAULT)
+END
+

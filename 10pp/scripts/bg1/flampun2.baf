@@ -1,0 +1,7 @@
+IF
+  Heard("BountyHunter",1)  // BountyHunter
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

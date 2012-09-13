@@ -1,0 +1,25 @@
+IF
+  Global("Move","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Move","LOCALS",1)
+    SetGlobalTimer("TrollsDead","AR1300",10)
+END
+
+IF
+  GlobalTimerExpired("TrollsDead","AR1300")
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+  !See("kpsold03")  // ~de'Arnise Guard~
+  !Dead("kpsold03")  // ~de'Arnise Guard~
+  Global("Move","LOCALS",1)
+THEN
+  RESPONSE #100
+    AttackReevaluate("kpsold03",45)
+END
+

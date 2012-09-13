@@ -1,0 +1,14 @@
+IF
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    FaceObject("Lyros")
+    ActionOverride("Lyros",FaceObject("Harpass1"))
+    Wait(1)
+    ActionOverride("Lyros",StartDialogNoSet([PC]))
+    Wait(1)
+    Kill("Lyros")
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

@@ -1,0 +1,194 @@
+IF
+  Global("Thorncombe","GLOBAL",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([1775.1600])
+    GlobalSet("Thorncombe","GLOBAL",4)
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,2)
+THEN
+  RESPONSE #100
+    Wait(1)
+    Spell(NearestEnemyOf(Myself),WIZARD_ELYSIUMS_TEARS)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,3)
+THEN
+  RESPONSE #100
+    Wait(3)
+    Spell(NearestEnemyOf(Myself),WIZARD_BALL_LIGHTNING)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,4)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ADDERS_KISS)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,5)
+THEN
+  RESPONSE #100
+    Wait(2)
+    Spell(NearestEnemyOf(Myself),WIZARD_ADDERS_KISS)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,6)
+THEN
+  RESPONSE #100
+    Wait(2)
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,7)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    IncInternal(Myself,INTERNAL_0,1)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  InternalGT(Myself,INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  InternalGT(Myself,INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  Help([0.SENSATE])
+  InternalGT(Myself,INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx(NearestEnemyOf(LastHelp),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    FaceObject(LastAttackerOf(Myself))
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Help([0.SENSATE])
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    FaceObject(NearestEnemyOf(LastHelp))
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  True()
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Face(0)
+    Wait(30)
+    MoveToPoint([1396.390])
+    MoveToPoint([1394.637])
+    MoveToPoint([1320.710])
+    MoveToPoint([1023.710])
+    MoveToPoint([878.852])
+    MoveToPoint([376.852])
+    MoveToPoint([326.801])
+    Face(12)
+    Wait(30)
+    MoveToPoint([376.852])
+    MoveToPoint([878.852])
+    MoveToPoint([878.928])
+    MoveToPoint([1081.1138])
+    MoveToPoint([2026.1135])
+    MoveToPoint([2094.1226])
+    Face(4)
+    Wait(30)
+    MoveToPoint([2026.1135])
+    MoveToPoint([1081.1138])
+    MoveToPoint([878.928])
+    MoveToPoint([878.852])
+    MoveToPoint([376.852])
+    MoveToPoint([326.801])
+    Face(12)
+    Wait(30)
+    MoveToPoint([376.852])
+    MoveToPoint([878.852])
+    MoveToPoint([1023.710])
+    MoveToPoint([1320.710])
+    MoveToPoint([1394.637])
+    MoveToPoint([1396.390])
+    MoveToPoint([1500.287])
+END
+

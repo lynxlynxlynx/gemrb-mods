@@ -1,0 +1,208 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  Global("Mertwyn","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([798.790])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(6)
+    MoveToPoint([648.639])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1109.639])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([941.806])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1194.1059])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1194.714])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1394.714])
+    MoveToPoint([1671.435])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1607.435])
+    MoveToPoint([1607.344])
+    MoveToPoint([1529.344])
+    MoveToPoint([1477.279])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1238.520])
+    MoveToPoint([1154.437])
+    FloatMessage(Myself,29265)  // ~*BONK*~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySound("AM_Heada")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM_Headb")
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([798.790])
+END
+

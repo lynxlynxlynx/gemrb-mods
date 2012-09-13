@@ -1,0 +1,9 @@
+IF
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("SawPlayer","LOCALS",1)
+    SetGlobal("41PlayerSawTopAltar","GLOBAL",1)
+    ChangeCurrentScript("")
+END
+

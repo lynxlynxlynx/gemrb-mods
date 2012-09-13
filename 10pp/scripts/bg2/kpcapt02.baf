@@ -1,0 +1,52 @@
+IF
+  Global("KeepPlot","GLOBAL",14)
+  AreaCheck("AR1304")
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  AreaCheck("AR1304")
+  See([PC])
+  Global("Move","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([2494.1914])
+    SetGlobal("Move","LOCALS",1)
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  AreaCheck("AR1304")
+  See([PC])
+  Global("Move","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([2814.2144])
+    SetGlobal("Move","LOCALS",2)
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  AreaCheck("AR1304")
+  See([PC])
+  Global("Move","LOCALS",2)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([3267.2442])
+    SetGlobal("Move","LOCALS",3)
+END
+
+IF
+  Global("KeepPlot","GLOBAL",11)
+  AreaCheck("AR1304")
+  See([PC])
+  Global("Move","LOCALS",3)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([3631.2758])
+    SetGlobal("Move","LOCALS",4)
+END
+

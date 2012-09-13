@@ -1,0 +1,69 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    JumpToPoint([774.929])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    JumpToPoint([874.929])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    JumpToPoint([824.879])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    JumpToPoint([824.979])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    JumpToPoint([774.879])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Soego2")  // 
+    JumpToPoint([2695.950])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(3)
+    CreateCreature("Hargri",[2500.800])  // ~Skeleton Priest~
+    MoveViewPoint([2500.800],INSTANT)
+    JumpToPoint([2370.720])
+    Face(14)
+    FadeFromBlack()
+    Wait(3)
+    StartCutScene("1500cs6")
+END
+

@@ -1,0 +1,52 @@
+IF
+  !Global("Current_Area","GLOBAL",1500)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1500)
+    Continue()
+END
+
+IF
+  GlobalLT("AR1500_Visited","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CreateCreature("Hagrim",[2660.3000])  // Hagrim
+    CreateCreature("DN_Skel",[2650.2943])  // ~Skeleton~
+    CreateCreature("DN_Skel",[2591.2980])  // ~Skeleton~
+    CreateCreature("GhoulM",[2560.3177])  // ~Ghoul~
+    CreateCreature("GhoulM",[2534.3130])  // ~Ghoul~
+    CreateCreature("GhoulM",[2476.3129])  // ~Ghoul~
+    CreateCreature("GhoulM",[2555.3092])  // ~Ghoul~
+    CreateCreature("GhoulM",[2604.3064])  // ~Ghoul~
+    CreateCreature("GhoulM",[2575.3028])  // ~Ghoul~
+    CreateCreature("GhoulM",[2526.2991])  // ~Ghoul~
+    CreateCreature("GhoulM",[2573.2939])  // ~Ghoul~
+    CreateCreature("GhoulM",[2644.2892])  // ~Ghoul~
+    CreateCreature("GhoulM",[2698.2845])  // ~Ghoul~
+    CreateCreature("GhoulM",[2736.2951])  // ~Ghoul~
+    CreateCreature("GhoulM",[2752.2918])  // ~Ghoul~
+    CreateCreature("GhoulM",[2851.2873])  // ~Ghoul~
+    CreateCreature("GhoulM",[2827.2962])  // ~Ghoul~
+    CreateCreature("GhoulM",[2843.3015])  // ~Ghoul~
+    CreateCreature("GhoulM",[2436.3010])  // ~Ghoul~
+    CreateCreature("GhoulM",[2386.3049])  // ~Ghoul~
+    CreateCreature("GhoulM",[2620.2826])  // ~Ghoul~
+    CreateCreature("GhoulM",[2418.2917])  // ~Ghoul~
+    CreateCreature("GhoulF",[2508.3048])  // ~Ghoul~
+    CreateCreature("GhoulF",[2779.2972])  // ~Ghoul~
+    CreateCreature("GhoulF",[2459.3081])  // ~Ghoul~
+    CreateCreature("GhoulF",[2777.2840])  // ~Ghoul~
+    CreateCreature("GhoulF",[2500.2910])  // ~Ghoul~
+    StartCutSceneMode()
+    MoveViewPoint([3000.3300],VERY_FAST)
+    StartCutScene("1500dead")
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR1500_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR1500_Visited","GLOBAL",1)
+END
+

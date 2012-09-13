@@ -1,0 +1,19 @@
+IF
+  OnCreation()
+  Global("DisableExit","AR2902",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DisableExit","AR2902",1)
+    TriggerActivation("Tran2900",FALSE)
+END
+
+IF
+  Global("DisableExit","AR2902",1)
+  PartyHasItem("MISCB8")  // ~Tears of Bhaal~
+THEN
+  RESPONSE #100
+    SetGlobal("DisableExit","AR2902",2)
+    TriggerActivation("Tran2900",TRUE)
+    TriggerActivation("Test",FALSE)
+END
+

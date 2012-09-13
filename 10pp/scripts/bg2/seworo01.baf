@@ -1,0 +1,11 @@
+IF
+  Detect([PC])
+  !Dead("sewdue01")  // ~Duergar Sapper~
+  Global("SewerCutScene","AR5013",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SewerCutScene","AR5013",1)
+    StartCutSceneMode()
+    StartCutScene("cut247a")
+END
+

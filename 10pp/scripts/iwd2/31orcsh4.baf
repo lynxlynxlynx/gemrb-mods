@@ -1,0 +1,96 @@
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2306",LastMarkedObject,3)
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("1319",Myself,3)
+      // CLERIC_CIRCLE_OF_BONES
+    MarkSpellAndObject("1325",LastMarkedObject,3)
+      // CLERIC_UNHOLY_BLIGHT
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("1111110511021204",LastMarkedObject,7)
+      // CLERIC_BANE
+      // CLERIC_ENTANGLE
+      // CLERIC_COMMAND
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1102",[PC],SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1111110511021204",LastMarkedObject,7)
+      // CLERIC_BANE
+      // CLERIC_ENTANGLE
+      // CLERIC_COMMAND
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1102",[PC],SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1102",[PC],SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("1111110511021204",LastMarkedObject,7)
+      // CLERIC_BANE
+      // CLERIC_ENTANGLE
+      // CLERIC_COMMAND
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1101",Myself,7)
+      // CLERIC_BLESS
+    MarkSpellAndObject("1111110511021204",LastMarkedObject,7)
+      // CLERIC_BANE
+      // CLERIC_ENTANGLE
+      // CLERIC_COMMAND
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1102",[PC],SPELLCAST_RANDOM)
+      // CLERIC_COMMAND
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

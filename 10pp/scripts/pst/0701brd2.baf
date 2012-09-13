@@ -1,0 +1,72 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,DUELER_2)
+    Continue()
+END
+
+IF
+  InternalLT([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,16)
+  !Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,4)
+  !Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,7)
+  !Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,11)
+THEN
+  RESPONSE #50
+    PlaySequence(ANIM_ATTACK)
+    Continue()
+  RESPONSE #50
+    Continue()
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68007)  // ~*hisssssss*~
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,2)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,4)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_DAMAGE)
+    Wait(3)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,7)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_ATTACK)
+    PlaySequence(ANIM_ATTACK)
+    Wait(3)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,11)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_DAMAGE)
+    PlaySequence(ANIM_ATTACK)
+    Wait(3)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,16)
+THEN
+  RESPONSE #100
+    MoveToObjectEx([0.0.0.0.0.0.PERSON_5],0)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,18)
+THEN
+  RESPONSE #100
+    MoveToPoint([1499.3277])
+    Face(4)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,0)
+END
+

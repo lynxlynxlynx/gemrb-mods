@@ -1,0 +1,304 @@
+IF
+  !TimerActive(18)
+  Global("Goblin_Palisade_Quest","GLOBAL",0)
+THEN
+  RESPONSE #20
+    FloatMessage(Myself,16348)  // ~"I can't believe we built the Palisade in four months..."~
+    StartRandomTimer(18,25,35)
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,8515)  // ~"I'm freezing my stones off here."~
+    StartRandomTimer(18,25,35)
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,8516)  // ~"The devils' own chill is coming down outta the North."~
+    StartRandomTimer(18,25,35)
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,8517)  // ~"Damn wind."~
+    StartRandomTimer(18,25,35)
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,8518)  // ~"A fire and a warm meal would suit me fine right now."~
+    StartRandomTimer(18,25,35)
+    Continue()
+  RESPONSE #400
+    StartRandomTimer(18,25,35)
+    Continue()
+END
+
+IF
+  Global("FL_1","LOCALS",0)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Global("Shaengarne_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36716)  // ~"We could build another Palisade out of the goblin bodies you've slain."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_1","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_1","LOCALS",1)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Global("Shaengarne_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36717)  // ~"I wish all our mercenary companies had your courage."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_1","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_1","LOCALS",2)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Global("Shaengarne_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36718)  // ~"Your bravery at the Palisade is an example to us all."~
+    StartRandomTimer(18,10,15)
+    SetGlobal("FL_1","LOCALS",0)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_2","LOCALS",0)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Shaengarne_Quest","GLOBAL",1)
+  Global("Shaengarne_Bridge_Cleared","GLOBAL",1)
+  Global("Fortress_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36719)  // ~"Did you kill any more goblins?"~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_2","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_2","LOCALS",1)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Shaengarne_Quest","GLOBAL",1)
+  Global("Shaengarne_Bridge_Cleared","GLOBAL",1)
+  Global("Fortress_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36720)  // ~"I'll bet the horde won't try to take Shaengarne again."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_2","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_2","LOCALS",2)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Shaengarne_Quest","GLOBAL",1)
+  Global("Shaengarne_Bridge_Cleared","GLOBAL",1)
+  Global("Fortress_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36721)  // ~"You sure taught the horde a lesson at Shaengarne."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_2","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_2","LOCALS",3)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Shaengarne_Quest","GLOBAL",1)
+  Global("Shaengarne_Bridge_Cleared","GLOBAL",1)
+  Global("Fortress_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36722)  // ~"Thanks for stopping those goblins at the dam."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_2","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_2","LOCALS",4)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  !Global("Shaengarne_Quest","GLOBAL",1)
+  Global("Shaengarne_Bridge_Cleared","GLOBAL",1)
+  Global("Fortress_Quest","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36723)  // ~"The Shaengarne is running with orc blood, thanks to you."~
+    StartRandomTimer(18,10,15)
+    SetGlobal("FL_2","LOCALS",0)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_3","LOCALS",0)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  Global("Fortress_Quest","GLOBAL",1)
+  Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36724)  // ~"Good fortune at the fortress - may your blades drink deep of goblin blood."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_3","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_3","LOCALS",1)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  Global("Fortress_Quest","GLOBAL",1)
+  Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36725)  // ~"We appreciate all you're doing for us - thank you."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_3","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_3","LOCALS",2)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  Global("Fortress_Quest","GLOBAL",1)
+  Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36726)  // ~"Every day, you drive another hole in the horde's defenses."~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_3","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_3","LOCALS",3)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  Global("Fortress_Quest","GLOBAL",1)
+  Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36727)  // ~"With you by our side, the horde will fall."~
+    StartRandomTimer(18,10,15)
+    SetGlobal("FL_3","LOCALS",0)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_4","LOCALS",0)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  GlobalGT("Fortress_Quest","GLOBAL",0)
+  !Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36728)  // ~"You've saved us!  The horde is broken!"~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_4","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_4","LOCALS",1)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  GlobalGT("Fortress_Quest","GLOBAL",0)
+  !Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36729)  // ~"Guthma is dead!  The beast is dead!"~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_4","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_4","LOCALS",2)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  GlobalGT("Fortress_Quest","GLOBAL",0)
+  !Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36730)  // ~"You have saved all our lives!"~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_4","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_4","LOCALS",3)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  GlobalGT("Fortress_Quest","GLOBAL",0)
+  !Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36731)  // ~"We heard about you slaying Guthma - the horde'll scatter now!"~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_4","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_4","LOCALS",4)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  GlobalGT("Fortress_Quest","GLOBAL",0)
+  !Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36732)  // ~"The gods be blessed!  You've saved Targos!"~
+    StartRandomTimer(18,10,15)
+    IncrementGlobal("FL_4","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  Global("FL_4","LOCALS",5)
+  !TimerActive(18)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+  GlobalGT("Fortress_Quest","GLOBAL",0)
+  !Global("31bugGut_Dead","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,36733)  // ~"You are our saviors... thank you, thank you for everything."~
+    StartRandomTimer(18,10,15)
+    SetGlobal("FL_4","LOCALS",0)
+    FaceObject(LastSeenBy(Myself))
+END
+

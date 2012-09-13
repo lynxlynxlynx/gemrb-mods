@@ -1,0 +1,9 @@
+IF
+  OR(2)
+    Global("KiserSpawn5014","GLOBAL",1)
+    Global("ErrardJob","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

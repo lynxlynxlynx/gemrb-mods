@@ -1,0 +1,82 @@
+IF
+  Global("ReduceDemons","AR3013",1)
+  AreaCheck("AR3013")
+  Exists(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See([0.0.0.TANARI])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.0.TANARI],30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(2)
+    HPPercentLT(Myself,100)
+    Range(LastSeenBy(Myself),15)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),15)
+  !DifficultyLT(NORMAL)
+  HasBounceEffects(LastSeenBy(Myself))
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("Breach","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Breach","LOCALS",30)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_BREACH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !HasBounceEffects(LastSeenBy(Myself))
+  !Range(NearestEnemyOf(Myself),15)
+  RandomNum(3,1)
+  !GlobalTimerNotExpired("Barrage","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_POWER_WORD_SLEEP)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_DEAFNESS)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+  RESPONSE #100
+    SetGlobalTimer("Barrage","LOCALS",12)
+    SpellNoDec(NearestEnemyOf(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  Range(NearestEnemyOf(Myself),15)
+  OR(2)
+    StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+    StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

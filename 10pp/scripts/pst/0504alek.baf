@@ -1,0 +1,96 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #20
+    FloatMessage(Myself,27444)  // ~"HELP! GUARDS!"~
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,66799)  // ~"THIEF!!"~
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Die()
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Sarge",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Sarge",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    Help()
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  !NearLocation(Myself,[682.1405],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([682.1405])
+    Face(6)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,31492)  // ~"Too much jink in yer pocket?"~
+    WaitRandom(3,5)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,31967)  // ~"Let me help ya solve that problem!"~
+    WaitRandom(3,5)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,31968)  // ~"I be havin' some of the best prices to be found in the wards!"~
+    WaitRandom(3,5)
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,31969)  // ~"You'd be clueless to go elsewhere, berk!"~
+    WaitRandom(3,5)
+END
+

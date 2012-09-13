@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("alynar")  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    JumpToPoint([1534.1882])
+    ActionOverride(Player1,JumpToPoint([1510.1760]))
+    ActionOverride(Player2,JumpToPoint([1482.1855]))
+    ActionOverride(Player3,JumpToPoint([1487.1910]))
+    ActionOverride(Player4,JumpToPoint([1381.1792]))
+    ActionOverride(Player5,JumpToPoint([1398.1855]))
+    ActionOverride(Player6,JumpToPoint([1463.1802]))
+    MoveViewPoint([1463.1802],INSTANT)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

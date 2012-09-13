@@ -1,0 +1,79 @@
+IF
+  !CurrentAreaIs(Myself,6001)
+  Global("60Gerbash_Better","GLOBAL",0)
+  Global("60Gerbash_Prep","LOCALS",0)
+  !HP(Myself,10)
+THEN
+  RESPONSE #100
+    SetGlobal("60Gerbash_Prep","LOCALS",1)
+    SetHP(Myself,10)
+END
+
+IF
+  !CurrentAreaIs(Myself,6010)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("00aAtGN")
+END
+
+IF
+  !TimerActive(21)
+  !Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  Global("60Gerbash_Better","GLOBAL",0)
+  !CurrentAreaIs(Myself,6001)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,38789)  // ~::Hhrnnn::~
+    StartTimer(21,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,38790)  // ~::Ennh::~
+    StartTimer(21,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,38791)  // ~"Damn yuan-ti..."~
+    StartTimer(21,15)
+    Continue()
+END
+
+IF
+  !TimerActive(21)
+  !Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  Global("60Gerbash_Better","GLOBAL",1)
+  !CurrentAreaIs(Myself,6001)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,38786)  // ~"I'm feeling better, I am."~
+    StartTimer(21,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,38787)  // ~"What are ye stickin' round here for?"~
+    StartTimer(21,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,38788)  // ~"Damn yuan-ti..."~
+    StartTimer(21,15)
+    Continue()
+END
+
+IF
+  Global("60Gerbash_Better","GLOBAL",0)
+  HPGT(Myself,10)
+THEN
+  RESPONSE #100
+    SetGlobal("60Gerbash_Better","GLOBAL",1)
+    AddXPVar("Level_12_Easy",38785)  // ~You have healed Gerbash.~
+    Continue()
+END
+
+IF
+  Global("60Gerbash_Better","GLOBAL",0)
+  !HP(Myself,10)
+THEN
+  RESPONSE #100
+    SetHP(Myself,10)
+    Continue()
+END
+

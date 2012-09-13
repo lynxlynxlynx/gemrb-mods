@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ClearAllActions()
+    FadeToColor([20.0],0)
+    MoveViewPoint([1434.165],INSTANT)
+    CreateCreature("cutspy",[1434.165],0)  // <Invalid Strref -1>
+    FadeFromColor([20.0],0)
+    Wait(2)
+    PlaySound("EFF_M36B")
+    CreateVisualEffect("SPPOWRRD",[1423.111])
+    CreateVisualEffect("SPPOWRRD",[1492.162])
+    SmallWait(5)
+    Unlock("Door01")
+    OpenDoor("Door01")
+    Wait(1)
+    DisplayStringNoNameHead("cutspy",71648)  // ~With the death of the disguised drow captain, an illusion hiding the entrance to Sendai's enclave has been dispelled.~
+    SetGlobal("SendaiDoorXP","AR6100",1)
+    Wait(4)
+    FadeToColor([20.0],0)
+    MoveViewObject(Player1,INSTANT)
+    ActionOverride("cutspy",DestroySelf())
+    FadeFromColor([20.0],0)
+    AddMapNote([1492.99],73827)  // ~Entrance to Sendai's Enclave~
+    EndCutSceneMode()
+END
+

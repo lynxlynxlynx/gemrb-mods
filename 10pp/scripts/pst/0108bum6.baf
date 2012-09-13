@@ -1,0 +1,96 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+END
+
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See([0.0.0.0.0.0.MORTE])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+
+IF
+  See([0.0.0.0.0.0.ANNAH])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+
+IF
+  See([ANYONE])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+
+IF
+  See([0.0.0.0.0.0.FALL_FROM_GRACE])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+
+IF
+  See([0.0.0.0.0.0.IGNUS])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+
+IF
+  See([0.0.0.0.0.0.NORDOM])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+
+IF
+  See([0.0.0.0.0.0.VHAILOR])
+THEN
+  RESPONSE #100
+    SmallWait(1)
+END
+
+IF
+  See([0.0.0.0.0.0.NAMELESS_ONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(Protagonist)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #33
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,5134)  // ~"Cool yer heels here, cutter."~
+    Wait(20)
+  RESPONSE #33
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,5135)  // ~"Seekin' company, cutter?"~
+    Wait(20)
+  RESPONSE #33
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,5136)  // ~"Come chat wit' me a bit, love."~
+    Wait(20)
+END
+

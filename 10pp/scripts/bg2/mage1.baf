@@ -1,0 +1,31 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ARMOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_COLOR_SPRAY)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_COLOR_SPRAY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

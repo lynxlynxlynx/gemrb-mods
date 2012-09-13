@@ -1,0 +1,54 @@
+IF
+  Or(2)
+    OpenState(Myself,TRUE)
+    !CheckDoorFlags(Myself,DOORLOCKED)
+  Or(3)
+    Global("WATCHING_PLAYER","MYAREA",0)
+    !Global("52Morohem_Master","GLOBAL",4)
+    Dead("07_52MNKCL_03")  // 
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+    CloseDoor(Myself)
+    Lock(Myself)
+END
+
+IF
+  Or(3)
+    Global("WATCHING_PLAYER","MYAREA",0)
+    !Global("52Morohem_Master","GLOBAL",4)
+    Dead("07_52MNKCL_03")  // 
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  OpenState(Myself,TRUE)
+  HPPercentGT("07_52MNKCL_03",50)  // 07_52MNKCL_03
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    Lock(Myself)
+END
+
+IF
+  Closed([PC])
+THEN
+  RESPONSE #100
+    ClearActions("07_52MNKCL_03")
+    SpellHitEffectSprite("07_52MNKCL_03","07_52MNKCL_03",ELECTRICITY,10)
+    ActionOverride("07_52MNKCL_03",DestroyItem("00CIMHP1"))  // <Invalid Strref -1>
+    ChunkCreature("07_52MNKCL_03")
+END
+
+IF
+  OpenState(Myself,FALSE)
+  HPPercentLT("07_52MNKCL_03",50)  // 07_52MNKCL_03
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+    OpenDoor(Myself)
+    SpellHitEffectSprite("C4_SWITCH_3_EFF","C4_SWITCH_3_EFF",ELECTRICITY,0)
+END
+

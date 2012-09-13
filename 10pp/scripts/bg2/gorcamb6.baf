@@ -1,0 +1,67 @@
+IF
+  Dead("GorCamb")  // ~Aesgareth~
+  Dead("GorCamb2")  // ~Tiefling~
+  Dead("GorCamb3")  // ~Tiefling~
+  Dead("GorCamb4")  // ~Tiefling~
+  Dead("GorCamb5")  // ~Tiefling~
+  OR(3)
+    !See([0.WEAPON])
+    Global("PostCombatReinit","GLOBAL",3)
+    Global("PostCombatReinit","GLOBAL",2)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  OR(3)
+    See([0.WEAPON])
+    Global("PostCombatReinit","GLOBAL",1)
+    Global("PostCombatReinit","GLOBAL",2)
+  Global("shutup","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("shutup","LOCALS",1)
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  Global("PostCombatReinit","GLOBAL",4)
+  Global("shutup","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("shutup","LOCALS",0)
+    DialogueInterrupt(TRUE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+    Continue()
+END
+
+IF
+  See([0.WEAPON])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.WEAPON],30)
+    Continue()
+END
+
+IF
+  OR(2)
+    Heard("GorCamb",153)  // ~Aesgareth~
+    HPPercentLT("GorCamb",33)  // ~Aesgareth~
+  See(LastAttackerOf("GorCamb"))  // ~Aesgareth~
+  !Dead("astAttackerOf(")  // astAttackerOf(
+  !Dead("GorCamb")  // ~Aesgareth~
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf("GorCamb"))
+    Continue()
+END
+

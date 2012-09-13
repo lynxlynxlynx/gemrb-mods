@@ -1,0 +1,57 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Shout(100)
+    EscapeArea()
+END
+
+IF
+  Dead("sudemon2")  // ~Balor~
+  Dead("suelfw7")  // ~Elven Warrior~
+  Dead("suelfw8")  // ~Elven Warrior~
+  Dead("suelfw3")  // ~Elven Warrior~
+  Global("Scene4","AR2800",2)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("Scene4","AR2800",3)
+    DisplayStringHead(Myself,4220)  // ~For the Queen! Let us find what survivors we can!~
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  Dead("sudemon2")  // ~Balor~
+  Global("Scene4","AR2800",3)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  See([ENEMY])
+  Global("Scene4","AR2800",2)
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY],45)
+END
+

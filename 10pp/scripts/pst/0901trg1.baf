@@ -1,0 +1,7 @@
+IF
+  HarmlessEntered([PC])
+THEN
+  RESPONSE #100
+    GlobalSet("Sohmien_Pack_Two","AR0901",1)
+END
+

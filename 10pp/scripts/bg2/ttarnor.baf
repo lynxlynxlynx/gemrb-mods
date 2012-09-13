@@ -1,0 +1,8 @@
+IF
+  Clicked([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("TARNOR",[-1.-1],0)  // ~Tarnor the Hatchetman~
+    TriggerActivation("Tarnortrap",FALSE)
+END
+

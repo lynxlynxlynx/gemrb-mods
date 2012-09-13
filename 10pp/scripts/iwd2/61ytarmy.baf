@@ -1,0 +1,41 @@
+IF
+  !Global("61CurrentDay","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite("INVISIBLE",Myself,ALTERATION,0)
+    DestroySelf()
+END
+
+IF
+  Global("INITIALIZED_61YTARMY","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,254)
+    Enemy()
+    SetGlobal("INITIALIZED_61YTARMY","LOCALS",1)
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],0)
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastMarkedObject,3)
+    AttackReevaluate(LastMarkedObject,45)
+END
+
+IF
+  Or(3)
+    IsWeaponRanged(Myself)
+    ClassEx(Myself,FIGHTER)
+    Range(LastMarkedObject,5,LESS_THAN)
+  Or(3)
+    See([GOODCUTOFF],0)
+    See([NEUTRAL],0)
+    See([0.0.ELEMENTAL],0)
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastMarkedObject,3)
+    AttackReevaluate(LastMarkedObject,45)
+END
+

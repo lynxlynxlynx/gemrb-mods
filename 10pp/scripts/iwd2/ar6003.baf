@@ -1,0 +1,159 @@
+IF
+  Global("6001_Fight","GLOBAL",1)
+  !Global("6003_RestingDisabled","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("6003_RestingDisabled","MYAREA",1)
+    AllowAreaResting(FALSE)
+    DisplayMessage(35287)  // ~You hear the sounds of battle - you don't think you will be able to rest until the forces in Kuldahar are defeated. ~
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalGT("6001_Fight","GLOBAL",1)
+  !Global("6003_RestingDisabled","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("6003_RestingDisabled","MYAREA",2)
+    AllowAreaResting(TRUE)
+    Continue()
+END
+
+IF
+  Global("Kuldahar_6003_UndeadKilled","GLOBAL",0)
+  !Global("6001_Fight","GLOBAL",1)
+  Dead("Hiepherus")  // 
+  !Global("TEAM_1","MYAREA",0)
+  !Exists([ENEMY.UNDEAD][0.0.10000.10000])
+  !Exists([ENEMY.0.ORC][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_6003_UndeadKilled","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Kuldahar_6000_UndeadKilled","GLOBAL",1)
+  Global("Kuldahar_6002_UndeadKilled","GLOBAL",1)
+  Global("Kuldahar_6003_UndeadKilled","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_Undead_Cleared","GLOBAL",1)
+    SetGlobal("Kuldahar_6000_UndeadKilled","GLOBAL",2)
+    SetGlobal("Kuldahar_6002_UndeadKilled","GLOBAL",2)
+    SetGlobal("Kuldahar_6003_UndeadKilled","GLOBAL",2)
+    AddXPVar("Level_12_Hard",34094)  // ~You have cleansed the Kuldahar Valley of the forces of evil. ~
+    Continue()
+END
+
+IF
+  Global("Kuldahar_HiepherusKilled","MYAREA",0)
+  Dead("Hiepherus")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusKilled","MYAREA",1)
+    AddXPVar("Level_12_Easy",33534)  // ~You have slain Hiepherus, priest of Bane. ~
+    Continue()
+END
+
+IF
+  Global("Kuldahar_HiepherusKilled","MYAREA",1)
+  Global("Kuldahar_HiepherusPlayer1","MYAREA",0)
+  Kit(Player1,CLERIC_BANE)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusPlayer1","MYAREA",1)
+    ActionOverride(Player1,ChangeStat(Player1,MAXHITPOINTS,5,ADD))
+    ActionOverride(Player1,ChangeStat(Player1,WIS,2,ADD))
+    Continue()
+END
+
+IF
+  Global("Kuldahar_HiepherusKilled","MYAREA",1)
+  Global("Kuldahar_HiepherusPlayer2","MYAREA",0)
+  Kit(Player2,CLERIC_BANE)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusPlayer2","MYAREA",1)
+    ActionOverride(Player2,ChangeStat(Player2,MAXHITPOINTS,5,ADD))
+    ActionOverride(Player2,ChangeStat(Player2,WIS,2,ADD))
+    Continue()
+END
+
+IF
+  Global("Kuldahar_HiepherusKilled","MYAREA",1)
+  Global("Kuldahar_HiepherusPlayer3","MYAREA",0)
+  Kit(Player3,CLERIC_BANE)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusPlayer3","MYAREA",1)
+    ActionOverride(Player3,ChangeStat(Player3,MAXHITPOINTS,5,ADD))
+    ActionOverride(Player3,ChangeStat(Player3,WIS,2,ADD))
+    Continue()
+END
+
+IF
+  Global("Kuldahar_HiepherusKilled","MYAREA",1)
+  Global("Kuldahar_HiepherusPlayer4","MYAREA",0)
+  Kit(Player4,CLERIC_BANE)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusPlayer4","MYAREA",1)
+    ActionOverride(Player4,ChangeStat(Player4,MAXHITPOINTS,5,ADD))
+    ActionOverride(Player4,ChangeStat(Player4,WIS,2,ADD))
+    Continue()
+END
+
+IF
+  Global("Kuldahar_HiepherusKilled","MYAREA",1)
+  Global("Kuldahar_HiepherusPlayer5","MYAREA",0)
+  Kit(Player5,CLERIC_BANE)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusPlayer5","MYAREA",1)
+    ActionOverride(Player5,ChangeStat(Player5,MAXHITPOINTS,5,ADD))
+    ActionOverride(Player5,ChangeStat(Player5,WIS,2,ADD))
+    Continue()
+END
+
+IF
+  Global("Kuldahar_HiepherusKilled","MYAREA",1)
+  Global("Kuldahar_HiepherusPlayer6","MYAREA",0)
+  Kit(Player6,CLERIC_BANE)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusPlayer6","MYAREA",1)
+    ActionOverride(Player6,ChangeStat(Player6,MAXHITPOINTS,5,ADD))
+    ActionOverride(Player6,ChangeStat(Player6,WIS,2,ADD))
+    Continue()
+END
+
+IF
+  Or(6)
+    Global("Kuldahar_HiepherusPlayer1","MYAREA",1)
+    Global("Kuldahar_HiepherusPlayer2","MYAREA",1)
+    Global("Kuldahar_HiepherusPlayer3","MYAREA",1)
+    Global("Kuldahar_HiepherusPlayer4","MYAREA",1)
+    Global("Kuldahar_HiepherusPlayer5","MYAREA",1)
+    Global("Kuldahar_HiepherusPlayer6","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_HiepherusPlayer1","MYAREA",2)
+    SetGlobal("Kuldahar_HiepherusPlayer2","MYAREA",2)
+    SetGlobal("Kuldahar_HiepherusPlayer3","MYAREA",2)
+    SetGlobal("Kuldahar_HiepherusPlayer4","MYAREA",2)
+    SetGlobal("Kuldahar_HiepherusPlayer5","MYAREA",2)
+    SetGlobal("Kuldahar_HiepherusPlayer6","MYAREA",2)
+    DisplayMessage(34284)  // ~You have slain a priest of Bane who strayed from the path of the Black Hand. Good work, Dreadmaster... Bane is pleased.~
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

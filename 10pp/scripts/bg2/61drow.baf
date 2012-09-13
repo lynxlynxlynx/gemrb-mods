@@ -1,0 +1,82 @@
+IF
+  OR(2)
+    Dead("sengua01")  // ~Woodcutter~
+    AttackedBy([ANYONE],DEFAULT)
+  Global("DrowRevealed","AR6100",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("DrowRevealed","AR6100",1)
+END
+
+IF
+  Global("DrowRevealed","AR6100",1)
+  Name("sengua01",Myself)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("Change","LOCALS",1)
+    SetName(52583)  // ~Drow Warrior~
+END
+
+IF
+  Global("DrowRevealed","AR6100",1)
+  Name("senani01",Myself)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("Change","LOCALS",1)
+    SetName(52583)  // ~Drow Warrior~
+    Polymorph(DROW)
+END
+
+IF
+  Global("DrowRevealed","AR6100",1)
+  Name("senani02",Myself)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("Change","LOCALS",1)
+    SetName(52916)  // ~Drow Wizard~
+    Polymorph(DROW_FEMALE)
+END
+
+IF
+  Global("DrowRevealed","AR6100",1)
+  Name("senani03",Myself)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("Change","LOCALS",1)
+    SetName(52583)  // ~Drow Warrior~
+    Polymorph(DROW_FEMALE)
+END
+
+IF
+  Global("DrowRevealed","AR6100",1)
+  Name("senani04",Myself)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("Change","LOCALS",1)
+    SetName(52583)  // ~Drow Warrior~
+    Polymorph(DROW)
+END
+
+IF
+  Global("DrowRevealed","AR6100",1)
+  Name("senani05",Myself)
+  Global("Change","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("Change","LOCALS",1)
+    SetName(52583)  // ~Drow Warrior~
+    Polymorph(DROW)
+END
+

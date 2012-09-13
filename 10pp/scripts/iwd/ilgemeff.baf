@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    ClearAllActions()
+    MultiPlayerSync()
+    SetGlobal("GEM_TRIGGERED","MYAREA",1)
+    MoveViewObject([166.243],INSTANT)
+    MultiPlayerSync()
+    ActionOverride(LastTrigger(Myself),FaceObject("AR9603_ATTACK_ME"))
+    Wait(1)
+    MultiPlayerSync()
+    PlaySequence(LastTrigger(Myself),ATTACK)
+    SmallWait(8)
+    EndCutSceneMode()
+    ReallyForceSpell(Myself,WIZARD_SNILLOCS_SNOWBALL_SWARM)
+    OpenDoor("AR9603_GEM")
+    Wait(1)
+    MultiPlayerSync()
+    AddexperienceParty(10000)
+    MultiPlayerSync()
+    TomsStringDisplayer(26824)  // ~You destroyed the preservation ward on the young dragon body, allowing it to die.~
+    MultiPlayerSync()
+    Wait(1)
+END
+

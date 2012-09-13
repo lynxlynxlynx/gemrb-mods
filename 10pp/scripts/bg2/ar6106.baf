@@ -1,0 +1,56 @@
+IF
+  Global("SendaiCutScene3","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("SendaiCutScene3","GLOBAL",2)
+    StartCutSceneMode()
+    StartCutScene("cut238a")
+END
+
+IF
+  Global("EnteredArea","AR6106",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR6106",1)
+    PlaySound("am6106s")
+END
+
+IF
+  Dead("sengua03")  // ~Captain Egeissag~
+  Global("TurnHostile","AR6106",0)
+  Global("BeholderGaesEffect","AR6106",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BeholderGaesEffect","AR6106",1)
+    ActionOverride("senbeh01",DialogueInterrupt(TRUE))
+    StartCutSceneMode()
+    StartCutScene("cut232g")
+END
+
+IF
+  Global("TurnHostile","AR6106",1)
+  Global("SpectatorFlee","AR6106",0)
+THEN
+  RESPONSE #100
+    ActionOverride("senbeh01",ForceSpell(Myself,DRYAD_TELEPORT))
+    SetGlobal("SpectatorFlee","AR6106",1)
+END
+
+IF
+  Dead("sengua03")  // ~Captain Egeissag~
+  Global("TurnHostile","AR6106",1)
+  CombatCounter(0)
+  Global("RespawnSpectator","AR6106",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RespawnSpectator","AR6106",1)
+    ClearAllActions()
+    ActionOverride("senbeh01",DialogueInterrupt(TRUE))
+    CreateVisualEffect("spdimndr",[922.466])
+    Wait(2)
+    CreateCreature("senbeh01",[922.466],2)  // ~Spectator~
+    StartCutSceneMode()
+    StartCutScene("cut232i")
+END
+

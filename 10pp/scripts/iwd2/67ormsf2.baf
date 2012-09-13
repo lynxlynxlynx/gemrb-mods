@@ -1,0 +1,32 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(18)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,27610)  // ~"Stillness of mind...  balance the elements"~
+    StartRandomTimer(18,10,30)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27611)  // ~"Maintain balance and the body will follow."~
+    StartRandomTimer(18,10,30)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27612)  // ~"Oooaaahhhmmm...!"~
+    StartRandomTimer(18,10,30)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27613)  // ~"Gentle as the breeze, yet deadly as the tornado."~
+    StartRandomTimer(18,10,30)
+    Continue()
+  RESPONSE #200
+    StartRandomTimer(18,10,30)
+    Continue()
+END
+

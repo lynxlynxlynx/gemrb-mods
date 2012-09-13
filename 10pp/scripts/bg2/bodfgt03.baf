@@ -1,0 +1,29 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([595.758])
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Dead("Jaylos")  // ~Jaylos~
+  Range("Jaylos",10)  // ~Jaylos~
+  !Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate("Jaylos",30)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Dead("Caehan")  // ~Caehan~
+  Range("Caehan",10)  // ~Caehan~
+  !Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate("Caehan",30)
+END
+

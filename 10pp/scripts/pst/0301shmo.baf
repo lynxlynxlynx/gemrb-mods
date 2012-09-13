@@ -1,0 +1,48 @@
+IF
+  Global("RW","GLOBAL",3)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("BR_RW","GLOBAL",2)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Range([PC],32)
+  Global("Paid_DAS","AR0301",0)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  Global("Paid_DAS","AR0301",0)
+  LOS([PC],64)
+  NumTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,33498)  // ~"You there!"~
+    WaitRandom(5,10)
+  RESPONSE #100
+    FloatMessage(Myself,33533)  // ~"Stop!"~
+    WaitRandom(5,10)
+END
+
+IF
+  Global("Paid_DAS","AR0301",0)
+  LOS([PC],64)
+  NumTimesTalkedToGT(0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,33536)  // ~"Why hello again, berk!"~
+    WaitRandom(5,10)
+  RESPONSE #100
+    FloatMessage(Myself,32686)  // ~"Well, well, well..."~
+    WaitRandom(5,10)
+END
+

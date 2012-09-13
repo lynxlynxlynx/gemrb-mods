@@ -1,0 +1,19 @@
+IF
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_2_CHECK_SUMMON","MYAREA",0)
+    SetGlobal("AR3000_DRUM_SUMMON","GLOBAL",0)
+    ChangeCurrentScript("")
+END
+
+IF
+  OpenState(Myself,FALSE)
+  Dead("DRUM_2")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_2_CHECK_SUMMON","MYAREA",0)
+    SetGlobal("AR3000_DRUM_SUMMON","GLOBAL",0)
+    OpenDoor(Myself)
+END
+

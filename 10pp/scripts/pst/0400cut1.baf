@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Annah")  // 
+    MoveToObjectEx(Protagonist,0)
+    Dialogue([PC])
+    EndCutSceneMode()
+END
+

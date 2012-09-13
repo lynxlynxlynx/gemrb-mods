@@ -1,0 +1,20 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    MoveToPoint([3628.2105])
+    Face(6)
+    Wait(10)
+    MoveToPoint([3786.1952])
+    Face(10)
+END
+

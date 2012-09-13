@@ -1,0 +1,48 @@
+IF
+  !CreatureHidden(Myself)
+  Global("GroupBuff2TimerStarted","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GroupBuff2TimerStarted","MYAREA",1)
+    SetGlobalTimer("GroupBuff2Timer","MYAREA",21)
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("6001_Dead_BattleGroup1","MYAREA",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !CreatureHidden(Myself)
+  GlobalGT("GroupBuff2TimerStarted","MYAREA",0)
+  Or(3)
+    GlobalTimerExpired("GroupBuff2Timer","MYAREA")
+    !ClassEx(Myself,FIGHTER)
+    AttackedBy([ANYONE],0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("GroupBuff2TimerStarted","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("GroupBuff2TimerStarted","MYAREA",2)
+    SetGlobalTimer("GroupBuff2Timer","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

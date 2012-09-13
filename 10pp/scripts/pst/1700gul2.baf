@@ -1,0 +1,38 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Ghoul_Pissed_A","AR1700",1)
+END
+
+IF
+  See([PC])
+  Global("Ghoul_Pissed_A","AR1700",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,25828)  // ~"Ssss... boredom setss in..."~
+    WaitRandom(10,20)
+    Continue()
+  RESPONSE #100
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,25829)  // ~"New homesss, new lairs... new flesssh..."~
+    WaitRandom(10,20)
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

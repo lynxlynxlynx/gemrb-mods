@@ -1,0 +1,18 @@
+IF
+  GlobalTimerExpired("ActonGuards","GLOBAL")
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  GlobalTimerExpired("ActonGuards","GLOBAL")
+  Global("NewGuardsComeIn","AR0506",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NewGuardsComeIn","AR0506",1)
+    CreateCreature("HACTONG",[726.550],6)  // ~Amnish Bodyguard~
+    CreateCreature("HACTONG",[873.392],3)  // ~Amnish Bodyguard~
+END
+

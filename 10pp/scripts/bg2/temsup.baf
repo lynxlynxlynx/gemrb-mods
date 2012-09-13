@@ -1,0 +1,115 @@
+IF
+  Dead("Barl")  // ~Barl~
+  Dead("Mazzy")  // Mazzy
+  !InPartyAllowDead("Mazzy")  // Mazzy
+  Global("TemsupMovesToBarl","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TemsupMovesToBarl","LOCALS",1)
+    MoveToObject("Barl")
+END
+
+IF
+  CombatCounter(0)
+  Global("Pala","GLOBAL",3)
+  Global("PalaCureFound","GLOBAL",0)
+  Global("OvergoldRessurects","LOCALS",0)
+  Dead("Barl")  // ~Barl~
+  Dead("Mazzy")  // Mazzy
+  InPartyAllowDead("Mazzy")  // Mazzy
+THEN
+  RESPONSE #100
+    SetGlobal("OvergoldRessurects","LOCALS",1)
+    ForceSpell(Myself,DO_NOTHING)
+    Wait(1)
+    ApplySpell("Mazzy",CLERIC_RESURRECTION)
+END
+
+IF
+  See([PC])
+  Global("MazzyDeadAllFailed","GLOBAL",1)
+  Global("TemsupSpeaks","LOCALS",0)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobal("TemsupSpeaks","LOCALS",1)
+    Wait(1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(3)
+    GlobalGT("PalaCureFound","GLOBAL",1)
+    Global("MazzyDeadAllFailed","GLOBAL",1)
+    Global("Pala","GLOBAL",10)
+  Global("TemsupMovesBack","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TemsupMovesBack","LOCALS",1)
+    Wait(3)
+    MoveToPoint([550.344])
+    Face(0)
+END
+
+IF
+  Global("PalaCureFound","GLOBAL",0)
+  Global("Pala","GLOBAL",3)
+  See("Mazzy")  // Mazzy
+  StateCheck("Mazzy",STATE_POISONED)  // Mazzy
+  !Dead("Mazzy")  // Mazzy
+  !Dead("Barl")  // ~Barl~
+THEN
+  RESPONSE #100
+    SpellNoDec("Mazzy",CLERIC_SLOW_POISON)
+    Continue()
+END
+
+IF
+  Global("PalaCureFound","GLOBAL",0)
+  Global("Pala","GLOBAL",3)
+  See("Mazzy")  // Mazzy
+  HPPercentLT("Mazzy",25)  // Mazzy
+  !Dead("Mazzy")  // Mazzy
+  !Dead("Barl")  // ~Barl~
+THEN
+  RESPONSE #100
+    SpellNoDec("Mazzy",CLERIC_CURE_CRITICAL_WOUNDS)
+    Continue()
+END
+
+IF
+  Global("PalaCureFound","GLOBAL",0)
+  Global("Pala","GLOBAL",3)
+  See([PC])
+  HPPercentLT([PC],25)
+  !Dead("PC])")  // PC])
+  !Dead("Barl")  // ~Barl~
+THEN
+  RESPONSE #100
+    SpellNoDec([PC],CLERIC_CURE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  Global("PalaCureFound","GLOBAL",0)
+  Global("Pala","GLOBAL",3)
+  See([PC])
+  StateCheck([PC],STATE_POISONED)
+  !Dead("Mazzy")  // Mazzy
+  !Dead("Barl")  // ~Barl~
+THEN
+  RESPONSE #100
+    SpellNoDec([PC],CLERIC_SLOW_POISON)
+    Continue()
+END
+
+IF
+  HPLT(Myself,10)
+  Global("PalaCureFound","GLOBAL",0)
+  Global("Pala","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SpellNoDec(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    Continue()
+END
+

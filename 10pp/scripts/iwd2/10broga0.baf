@@ -1,0 +1,216 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  See([PC],0)
+  Range(LastSeenBy(Myself),15,LESS_THAN)
+THEN
+  RESPONSE #100
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  !TimerActive(18)
+  !See([ENEMY.0.GOBLIN],0)
+  Global("Brogan_Leave","GLOBAL",0)
+THEN
+  RESPONSE #20
+    FloatMessage(Myself,1666)  // ~"Hope there's no other goblins about..."~
+    StartRandomTimer(18,10,15)
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,1667)  // ~"How the goblins got to the docks, I'll never know..."~
+    StartRandomTimer(18,10,15)
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,1668)  // ~"Where are the rest of the damned guards?!"~
+    StartRandomTimer(18,10,15)
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,1669)  // ~"Iron Collar bastards..."~
+    StartRandomTimer(18,10,15)
+    Continue()
+  RESPONSE #320
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,1747,524,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1747.524])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1747.524])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,1530,781,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1530.781])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1530.781])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,1241,940,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1241.940])
+    SetGlobal("ML_0","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1241.940])
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,910,1053,4)
+THEN
+  RESPONSE #100
+    SetStartPos([910.1053])
+    SetGlobal("ML_0","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([910.1053])
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  ActionListEmpty()
+  NearLocation(Myself,559,884,4)
+THEN
+  RESPONSE #100
+    SetStartPos([559.884])
+    SetGlobal("ML_0","LOCALS",5)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([559.884])
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  ActionListEmpty()
+  NearLocation(Myself,315,625,4)
+THEN
+  RESPONSE #100
+    SetStartPos([315.625])
+    SetGlobal("ML_0","LOCALS",6)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([315.625])
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  ActionListEmpty()
+  NearLocation(Myself,229,392,4)
+THEN
+  RESPONSE #100
+    SetStartPos([229.392])
+    SetGlobal("ML_0","LOCALS",7)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([229.392])
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  ActionListEmpty()
+  NearLocation(Myself,217,184,4)
+THEN
+  RESPONSE #100
+    SetStartPos([217.184])
+    SetGlobal("ML_0","LOCALS",8)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([217.184])
+END
+
+IF
+  Global("ML_0","LOCALS",8)
+  ActionListEmpty()
+  NearLocation(Myself,151,20,4)
+THEN
+  RESPONSE #100
+    SetStartPos([151.20])
+    SetGlobal("ML_0","LOCALS",9)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",8)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([151.20])
+END
+
+IF
+  Global("ML_0","LOCALS",9)
+  Global("BROGAN_LEAVE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("BROGAN_LEAVE","GLOBAL",2)
+    SetGlobal("ML_0","LOCALS",0)
+END
+

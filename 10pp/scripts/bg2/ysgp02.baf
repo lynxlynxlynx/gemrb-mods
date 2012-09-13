@@ -1,0 +1,39 @@
+IF
+  Global("ysgpbegin","GLOBAL",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  GlobalTimerExpired("ysgpend","GLOBAL")
+  Global("runrun","LOCALS",0)
+  !Dead("yself)")  // yself)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #50
+    DisplayStringHead(Myself,71149)  // ~Run!  Run!  They're too much!!~
+    DropInventory()
+    AddexperienceParty(7500)
+    SetGlobal("runrun","LOCALS",1)
+    EscapeArea()
+  RESPONSE #100
+    DisplayStringHead(Myself,71150)  // ~Let's get out of here!!  Run, my furry brothers!  RUN!!~
+    DropInventory()
+    AddexperienceParty(7500)
+    SetGlobal("runrun","LOCALS",1)
+    EscapeArea()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !GlobalTimerNotExpired("invis","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("invis","LOCALS",15)
+    ApplySpell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+    Continue()
+END
+

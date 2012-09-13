@@ -1,0 +1,39 @@
+IF
+  Global("Locked","LOCALS",1)
+  Or(2)
+    !CheckDoorFlags(Myself,DOORLOCKED)
+    CheckDoorFlags(Myself,DOOROPEN)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    Lock(Myself)
+END
+
+IF
+  Global("Locked","LOCALS",0)
+  Global("SetLockedOnce","LOCALS",0)
+  Global("SH_Teleported_To_6303","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SetLockedOnce","LOCALS",1)
+    SetGlobal("Locked","LOCALS",1)
+END
+
+IF
+  Global("Locked","LOCALS",1)
+  Global("SetLockedOnce","LOCALS",1)
+  Global("SH_FirstHalf_FinalBattle_Over","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SetLockedOnce","LOCALS",2)
+    SetGlobal("Locked","LOCALS",0)
+END
+
+IF
+  Global("Locked","LOCALS",0)
+  CheckDoorFlags(Myself,DOORLOCKED)
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+END
+

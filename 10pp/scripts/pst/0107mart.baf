@@ -1,0 +1,40 @@
+IF
+  GlobalGT("Ravel","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx(LastAttackerOf(Myself),100,TRUE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(LastAttackerOf(Myself),100,TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(12)
+    MoveToPoint([812.934])
+    Face(0)
+    Wait(12)
+    MoveToPoint([756.791])
+    Face(6)
+    Wait(12)
+    MoveToPoint([984.713])
+    Face(10)
+    Wait(12)
+    MoveToPoint([911.836])
+    Face(14)
+END
+

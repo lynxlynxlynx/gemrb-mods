@@ -1,0 +1,46 @@
+IF
+  Global("VERA_DEAD","GLOBAL",0)
+  Global("BETRAY_VERA","GLOBAL",4)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  See("VERA")  // ~Slave~
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  Global("BETRAY_VERA","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([411.1415])
+    SetGlobal("BETRAY_VERA","GLOBAL",2)
+END
+
+IF
+  Global("BETRAY_VERA","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([259.1283])
+    SetGlobal("BETRAY_VERA","GLOBAL",3)
+END
+
+IF
+  Global("BETRAY_VERA","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Wait(2)
+    SetGlobal("BETRAY_VERA","GLOBAL",4)
+END
+
+IF
+  Global("BETRAY_VERA","GLOBAL",4)
+THEN
+  RESPONSE #100
+    MoveToObject("VERA")
+END
+

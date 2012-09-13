@@ -1,0 +1,66 @@
+IF
+  Global("FinalFight","AR6200",5)
+  Global("ChangeScript1","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ChangeScript1","LOCALS",1)
+    ChangeAIScript("meliss02",DEFAULT)
+END
+
+IF
+  Global("FinalFight","AR6200",7)
+  Global("ChangeScript1","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ChangeScript1","LOCALS",2)
+    ChangeAIScript("meliss03",DEFAULT)
+END
+
+IF
+  Global("EnteredArea","AR6200",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR6200",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("FinalFight","AR6200",1)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("FinalFight","AR6200",2)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("FinalFight","AR6200",3)
+  HPLT(Myself,20)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("FinalFight","AR6200",4)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("FinalFight","AR6200",5)
+  HPLT(Myself,20)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut233f")
+END
+
+IF
+  Global("FinalFight","AR6200",7)
+  HPLT(Myself,20)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut233g")
+END
+

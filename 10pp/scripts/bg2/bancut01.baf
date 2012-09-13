@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  True()
+THEN
+    LeaveAreaLUAPanic("AR1900","trcarvan",[1095.1380],10)
+    ActionOverride("Raiken",DestroySelf())
+    LeaveAreaLUA("AR1900","trcarvan",[1095.1380],10)
+    MultiPlayerSync()
+    ActionOverride("Raiken",SetNumTimesTalkedTo(1))
+    MultiPlayerSync()
+    ActionOverride("Tazok",SetNumTimesTalkedTo(1))
+    ActionOverride("Tazok",Wait(1))
+    ActionOverride("Tazok",SmallWait(6))
+    ActionOverride("Tazok",MoveToPoint([1244.1347]))
+    ActionOverride("Banditcr",SetDialogue("Bandcr"))
+    Wait(3)
+    ActionOverride("Banditcr",Dialog([PC]))
+END
+
+IF
+  True()
+THEN
+    LeaveAreaLUA("AR1900","trcarvan",[1085.1385],10)
+END
+
+IF
+  True()
+THEN
+    LeaveAreaLUA("AR1900","trcarvan",[1075.1375],10)
+END
+
+IF
+  True()
+THEN
+    LeaveAreaLUA("AR1900","trcarvan",[1085.1375],10)
+END
+
+IF
+  True()
+THEN
+    LeaveAreaLUA("AR1900","trcarvan",[1075.1385],10)
+END
+
+IF
+  True()
+THEN
+    LeaveAreaLUA("AR1900","trcarvan",[1085.1380],10)
+END
+
+
+END

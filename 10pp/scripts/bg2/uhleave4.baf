@@ -1,0 +1,18 @@
+IF
+  Global("CrowdDisperse","AR1100",1)
+  AreaCheck("AR1100")
+  See([PC])
+THEN
+  RESPONSE #100
+    EscapeAreaMove("AR1104",675,387,0)
+END
+
+IF
+  Global("CrowdDisperse","AR1100",1)
+  AreaCheck("AR1100")
+  !See([PC])
+THEN
+  RESPONSE #100
+    EscapeAreaMove("AR1104",675,387,0)
+END
+

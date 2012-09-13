@@ -1,0 +1,15 @@
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("Infected","GLOBAL",1)
+END
+
+IF
+  Global("Infected","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,GREATER_WOLFWERE_CHANGE)
+END
+

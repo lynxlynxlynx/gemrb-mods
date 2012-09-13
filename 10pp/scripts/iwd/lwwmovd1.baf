@@ -1,0 +1,102 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("MERCWAR1")  // 
+    Enemy()
+    SetSavedLocationPoint(2260,1207,NW)
+    Wait(0)
+    MoveToPoint([2399.1295])
+    Face(E)
+    Wait(11)
+    MoveToPoint([2260.1207])
+    ReturnToSavedLocationDelete()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("MERCWAR2")  // 
+    Enemy()
+    SetSavedLocationPoint(2260,1207,NW)
+    Wait(0)
+    MoveToPoint([2332.1345])
+    Face(SW)
+    Wait(12)
+    MoveToPoint([2260.1207])
+    ReturnToSavedLocationDelete()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ALPHEUS")  // 
+    Enemy()
+    SetSavedLocationPoint(2260,1207,NW)
+    Wait(6)
+    MoveToPoint([2382.1356])
+    Face(NW)
+    Wait(2)
+    MoveToPoint([2260.1207])
+    ReturnToSavedLocationDelete()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PSHAR")  // 
+    Enemy()
+    SetSavedLocationPoint(2260,1207,NW)
+    Wait(1)
+    MoveToPoint([2260.1207])
+    Face(NW)
+    Wait(0)
+    MoveToPoint([2260.1207])
+    ReturnToSavedLocationDelete()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("MERCTHF")  // 
+    Enemy()
+    SetSavedLocationPoint(2260,1207,NW)
+    Wait(3)
+    MoveToPoint([2260.1207])
+    Face(NW)
+    Wait(0)
+    MoveToPoint([2260.1207])
+    ReturnToSavedLocationDelete()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("VAARGLAN")  // 
+    Enemy()
+    SetSavedLocationPoint(2260,1207,NW)
+    Wait(6)
+    MoveToPoint([2388.1319])
+    Face(NW)
+    Wait(1)
+    MoveToPoint([2260.1207])
+    ReturnToSavedLocationDelete()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ALPHEUSD")  // 
+    SetGlobal("KIERAN_BETRAYED","GLOBAL",1)
+    SetGlobal("WIZWAR_INSIDE","GLOBAL",1)
+    Wait(19)
+    CloseDoor("AR9100_DOOR1_TO9101")
+    StartCutScene("LWALPKIL")
+END
+

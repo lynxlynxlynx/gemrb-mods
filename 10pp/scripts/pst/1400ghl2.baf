@@ -1,0 +1,49 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Attack([PC])
+END
+
+IF
+  Help([0.0.0.0.GHOUL])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(1)
+    Face(8)
+    WaitRandom(3,5)
+    Face(12)
+    WaitRandom(3,5)
+    Face(0)
+    MoveToPoint([2967.686])
+    WaitRandom(3,5)
+    Face(4)
+    MoveToPoint([2871.683])
+    WaitRandom(3,5)
+    Face(0)
+    MoveToPoint([2871.833])
+    Face(12)
+    WaitRandom(3,5)
+    Face(2)
+    MoveToPoint([2835.872])
+    Face(0)
+    WaitRandom(3,5)
+    MoveToPoint([2968.572])
+    Face(4)
+END
+

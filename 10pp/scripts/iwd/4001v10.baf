@@ -1,0 +1,18 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+END
+
+IF
+  Global("LKingDead","GLOBAL",0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,1846)  // ~"We might as well just lie down and die."~
+    StartRandomTimer(1,30,45)
+  RESPONSE #100
+    FloatMessage(Myself,1847)  // ~"No one's going to save us.."~
+    StartRandomTimer(1,30,45)
+END
+

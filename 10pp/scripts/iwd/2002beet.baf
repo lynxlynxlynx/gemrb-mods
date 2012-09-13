@@ -1,0 +1,52 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,0)
+END
+
+IF
+  Internal(Myself,0,1)
+THEN
+  RESPONSE #100
+    Attack([PC])
+END
+
+IF
+  TimerExpired(1)
+  Range([PC],5)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,1)
+END
+
+IF
+  !TimerActive(1)
+  Range([PC],5)
+THEN
+  RESPONSE #100
+    StartTimer(1,3)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  Internal(Myself,0,0)
+  NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,1708)  // ~*burp*~
+    WaitRandom(10,25)
+  RESPONSE #100
+    FloatMessage(Myself,1758)  // ~*chomp*~
+    WaitRandom(10,25)
+  RESPONSE #100
+    FloatMessage(Myself,1759)  // ~*crunch*~
+    WaitRandom(10,25)
+END
+

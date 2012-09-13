@@ -1,0 +1,42 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISCBE")  // ~Gilded Rope~
+  Global("LichRope","GLOBAL",0)
+  !GlobalTimerExpired("JarlaxleTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57466)  // ~The Rope seems to nullify the wards. You may enter if you wish.~
+    SetGlobal("LichRope","GLOBAL",1)
+    TriggerActivation("Tran2207",TRUE)
+    TriggerActivation("LichRope",FALSE)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISCBE")  // ~Gilded Rope~
+  !GlobalTimerExpired("JarlaxleTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57424)  // ~The way is blocked by powerful and bizarre wards. You shall have to find some way to deactivate them if you wish to enter.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,61363)  // ~To examine this doorway, move closer.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  GlobalTimerExpired("JarlaxleTimer","GLOBAL")
+  Global("StopJarTimer","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57478)  // ~The Rope no longers seems to deactivate the wards. It looks as if Jarlaxle tired of waiting for you.~
+END
+

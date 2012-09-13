@@ -1,0 +1,73 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("Stinger_Sound_101","GLOBAL",0)
+END
+
+IF
+  TimerExpired(2)
+THEN
+  RESPONSE #100
+    PlaySound("ST_0101")
+    Continue()
+END
+
+IF
+  Global("Stinger_Sound_101","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Stinger_Sound_101","GLOBAL",1)
+    StartTimer(2,2)
+    Continue()
+END
+
+IF
+  Dead("Vlask")  // ~Vlask~
+  Global("Current_Area","GLOBAL",3006)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",101)
+    StartCutSceneMode()
+    StartCutScene("0101cut1")
+END
+
+IF
+  Global("RP_Portal","Global",5)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    StartTimer(1,15)
+    Continue()
+END
+
+IF
+  TimerExpired(1)
+  Global("RP_Portal","Global",5)
+THEN
+  RESPONSE #100
+    GlobalSet("RP_Portal","Global",6)
+    ActivatePortalCursor("To_Portal",0)
+    ActivatePortalCursor("From_Portal",0)
+    EnablePortalTravel("To_Portal",0)
+    EnablePortalTravel("From_Portal",0)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",101)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",101)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0101_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0101_Visited","GLOBAL",1)
+    Continue()
+END
+

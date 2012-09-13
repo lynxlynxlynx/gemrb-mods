@@ -1,0 +1,416 @@
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType)
+  Global("Preparation","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,CLERIC_REGENERATE)
+    ApplySpell(Myself,CLERIC_DEATH_WARD)
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_DEFENSIVE_HARMONY)
+    SetGlobal("Preparation","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(NPC_BLADE_BARRIER)
+  RandomNum(2,1)
+  Global("BladeBarrier","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,NPC_BLADE_BARRIER)
+    SetGlobal("BladeBarrier","LOCALS",1)
+END
+
+IF
+  See([GOODCUTOFF.0.SKELETON.0.0.SUMMONED])
+  HaveSpell(CLERIC_SUNRAY)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SUNRAY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HitBy([ANYONE],CRUSHING)
+  HaveSpell(CLERIC_IRONSKIN)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_IRONSKIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FREE_ACTION)
+  See(NearestMyGroupOfType)
+  StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_FREE_ACTION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType)
+  HaveSpell(CLERIC_MASS_CURE)
+  HPPercentLT(Myself,80)
+  OR(3)
+    HPPercentLT(LastSeenBy(Myself),80)
+    HPPercentLT(SecondNearestMyGroupOfType,80)
+    HPPercentLT(ThirdNearestMyGroupOfType,80)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_MASS_CURE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CHANT)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CHANT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See(NearestMyGroupOfType)
+  HPPercentLT(LastSeenBy(Myself),10)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,10)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_HEAL)
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  Heard([ANYONE],153)
+  HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastHeardBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CONJURE_FIRE_ELEMENTAL)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CONJURE_FIRE_ELEMENTAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CONJURE_EARTH_ELEMENTAL)
+  RandomNum(2,2)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CONJURE_EARTH_ELEMENTAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_AERIAL_SERVANT)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_FOOT)
+  OR(2)
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CHARM_PERSON)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CHARM_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CLOAK_OF_FEAR)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CLOAK_OF_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_PHYSICAL_MIRROR)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PHYSICAL_MIRROR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  StateCheck(Myself,STATE_SILENCED)
+  HaveSpell(WIZARD_VOCALIZE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  !HaveSpell(WIZARD_TRUE_SIGHT)
+  Delay(10)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Preparation","LOCALS",1)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_TURNING)
+    SetGlobal("Preparation","LOCALS",2)
+END
+
+IF
+  !HasBounceEffects(Myself)
+  !HasImmunityEffects(Myself)
+  HaveSpell(WIZARD_SPELL_TURNING)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_TURNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  TookDamage()
+  Global("Preparation2","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,43050)  // ~Chain Contingency - Improved Mantle~
+    ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)
+    DisplayString(Myself,3302)  // ~Chain Contingency - Spell Turning~
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    DisplayString(Myself,40240)  // ~Chain Contingency - Mislead~
+    ApplySpell(Myself,WIZARD_MISLEAD)
+    SetGlobal("Preparation2","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  TookDamage()
+  Global("Preparation2","LOCALS",1)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,40252)  // ~Contingency - Protection from Magical Weapons~
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    SetGlobal("Preparation2","LOCALS",2)
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  Global("Summon","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+    SetGlobal("Summon","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_TIME_STOP)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TIME_STOP)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_STUN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_FEAR)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_WAIL_OF_THE_BANSHEE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SUN_FIRE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_SUN_FIRE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FINGER_OF_DEATH)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_PRISMATIC_SPRAY)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_PRISMATIC_SPRAY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SUMMON_EFREET)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SUMMON_EFREET)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAZE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAZE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FLESH_TO_STONE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DISINTEGRATE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DOMINATION)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DOMINATION)
+END
+
+IF
+  HPPercentLT(Myself,25)
+  HPGT(Myself,1)
+  !Dead("yself)")  // yself)
+  Global("Whined","LOCALS",0)
+  See(NearestMyGroupOfType)
+  Allegiance(Myself,ENEMY)
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("Whined","LOCALS",1)
+    Shout(153)
+    DisplayStringHead(Myself,46151)  // ~help!~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

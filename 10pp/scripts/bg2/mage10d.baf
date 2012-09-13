@@ -1,0 +1,163 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+  !Class(Myself,INNOCENT)
+  See([PC])
+  OR(31)
+    SpellCastPriest([PC],CLERIC_BLESS)
+    SpellCastPriest([PC],0)
+    SpellCastPriest([PC],CLERIC_SANCTUARY)
+    SpellCastPriest([PC],CLERIC_CHANT)
+    SpellCastPriest([PC],CLERIC_FLAME_BLADE)
+    SpellCastPriest([PC],CLERIC_DRAW_UPON_HOLY_MIGHT)
+    SpellCastPriest([PC],CLERIC_INVISIBILITY_PURGE)
+    SpellCastPriest([PC],CLERIC_STRENGTH_OF_ONE)
+    SpellCastPriest([PC],CLERIC_DEATH_WARD)
+    SpellCastPriest([PC],CLERIC_CHAMPIONS_STRENGTH)
+    SpellCastPriest([PC],CLERIC_BLADE_BARRIER)
+    SpellCast([PC],WIZARD_PROTECTION_FROM_EVIL)
+    SpellCast([PC],WIZARD_INVISIBILITY)
+    SpellCast([PC],WIZARD_INVISIBILITY_10_FOOT)
+    SpellCast([PC],WIZARD_GHOST_ARMOR)
+    SpellCast([PC],WIZARD_PROTECTION_FROM_NORMAL_WEAPONS)
+    SpellCast([PC],WIZARD_SPIRIT_ARMOR)
+    SpellCast([PC],WIZARD_IMPROVED_INVISIBILITY)
+    SpellCast([PC],WIZARD_SHADOW_DOOR)
+    SpellCast([PC],WIZARD_MINOR_SPELL_TURNING)
+    SpellCast([PC],WIZARD_IMPROVED_HASTE)
+    SpellCast([PC],WIZARD_HASTE)
+    SpellCast([PC],WIZARD_NON_DETECTION)
+    SpellCast([PC],WIZARD_SPELL_TURNING)
+    SpellCast([PC],WIZARD_MASS_INVISIBILITY)
+    SpellCast([PC],WIZARD_SIMULACRUM)
+    SpellCast([PC],WIZARD_FIRE_SHIELD_RED)
+    SpellCast([PC],WIZARD_FIRE_SHIELD_BLUE)
+    SpellCast([PC],WIZARD_SPELL_TRAP)
+    SpellCast([PC],WIZARD_BLACK_BLADE_OF_DISASTER)
+    SpellCast([PC],WIZARD_SHAPECHANGE)
+THEN
+  RESPONSE #100
+    Shout(154)
+    DisplayStringHead(Myself,49860)  // ~Do not think to attack me.  Cast your spells elsewhere.~
+    SetGlobal("PCCasting","LOCALS",1)
+    IncrementGlobal("PCHasCast","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  !Class(Myself,INNOCENT)
+  See([PC])
+  Global("PCCasting","LOCALS",1)
+THEN
+  RESPONSE #50
+    SpellNoDec(Myself,WIZARD_HASTE)
+    SetGlobal("PCCasting","LOCALS",0)
+  RESPONSE #50
+    SpellNoDec(Myself,WIZARD_INVISIBILITY)
+    SetGlobal("PCCasting","LOCALS",0)
+  RESPONSE #50
+    SpellNoDec(Myself,WIZARD_PROTECTION_FROM_EVIL)
+    SetGlobal("PCCasting","LOCALS",0)
+END
+
+IF
+  GlobalGT("PCHasCast","LOCALS",6)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,49866)  // ~You've been warned...now suffer the consequences.~
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SHADOW_DOOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SHADOW_DOOR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(SecondNearestEnemyOf(Myself),5)
+  HaveSpell(WIZARD_FIREBALL)
+THEN
+  RESPONSE #100
+    Spell(SecondNearestEnemyOf(Myself),WIZARD_FIREBALL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CONE_OF_COLD)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CONE_OF_COLD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DISPEL_MAGIC)
+  !Range(NearestEnemyOf(Myself),12)
+  See([PC.0.0.MAGE])
+THEN
+  RESPONSE #100
+    Spell([PC.0.0.MAGE],WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DISPEL_MAGIC)
+  !Range(NearestEnemyOf(Myself),12)
+  See([PC.0.0.CLERIC_MAGE])
+THEN
+  RESPONSE #100
+    Spell([PC.0.0.CLERIC_MAGE],WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_STINKING_CLOUD)
+  !Range(SecondNearestEnemyOf(Myself),8)
+THEN
+  RESPONSE #100
+    Spell(SecondNearestEnemyOf(Myself),WIZARD_STINKING_CLOUD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

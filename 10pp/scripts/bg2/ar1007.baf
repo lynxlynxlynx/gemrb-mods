@@ -1,0 +1,40 @@
+IF
+  Global("PlantedEvidence","GLOBAL",1)
+  Dead("VULOVA")  // ~Senior Armagaran Vulova~
+  Global("VulovaJournalEntry","AR1007",0)
+THEN
+  RESPONSE #100
+    SetGlobal("VulovaJournalEntry","AR1007",1)
+    AddJournalEntry(6955,QUEST)
+END
+
+IF
+  Global("BodhiJob","GLOBAL",2)
+  Global("VulovaSpawn","AR1007",0)
+THEN
+  RESPONSE #100
+    SetGlobal("VulovaSpawn","AR1007",1)
+    CreateCreature("VULOVA",[617.607],10)  // ~Senior Armagaran Vulova~
+    CreateCreature("VULFGT01",[609.518],12)  // ~Laen Torg~
+    CreateCreature("VULFGT02",[528.893],12)  // ~Vulova Wizard~
+END
+
+IF
+  Contains("CLCK28","Fountain")  // Fountain
+  Contains("DAGG18","Fountain")  // Fountain
+  Global("PlantedEvidence","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PlantedEvidence","GLOBAL",1)
+END
+
+IF
+  OR(2)
+    !Contains("CLCK28","Fountain")  // Fountain
+    !Contains("DAGG18","Fountain")  // Fountain
+  Global("PlantedEvidence","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("PlantedEvidence","GLOBAL",0)
+END
+

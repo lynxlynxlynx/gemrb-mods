@@ -1,0 +1,156 @@
+IF
+  Global("Lothar_Mad","AR0508",1)
+  Internal(Myself,INTERNAL_0,0)
+  See([PC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,64211)  // ~"Step away from that or suffer the consequences."~
+    MoveToObjectEx("Nameless",0)
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Lothar_Mad","AR0508",0)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",1)
+  Internal(Myself,INTERNAL_0,0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SinisterPoof("EF01TPRT",[1103.629],1)
+    JumpToPoint([1103.629])
+    FloatMessage(Myself,64211)  // ~"Step away from that or suffer the consequences."~
+    MoveToObjectEx("Nameless",0)
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Lothar_Mad","AR0508",0)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",2)
+  Internal(Myself,INTERNAL_0,0)
+  See([PC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,64211)  // ~"Step away from that or suffer the consequences."~
+    MoveToObjectEx("Nameless",0)
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Lothar_Mad","AR0508",0)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",2)
+  Internal(Myself,INTERNAL_0,0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SinisterPoof("EF01TPRT",[2846.593],1)
+    JumpToPoint([2846.593])
+    FloatMessage(Myself,64211)  // ~"Step away from that or suffer the consequences."~
+    MoveToObjectEx("Nameless",0)
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Lothar_Mad","AR0508",0)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",3)
+  Internal(Myself,INTERNAL_0,0)
+  See([PC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,64211)  // ~"Step away from that or suffer the consequences."~
+    MoveToObjectEx("Nameless",0)
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Lothar_Mad","AR0508",0)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",3)
+  Internal(Myself,INTERNAL_0,0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Mad","AR0508",0)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",1)
+  Internal(Myself,INTERNAL_0,1)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject("Nameless")
+    PlaySequence(ANIM_CONJURE)
+    GlobalSet("Game_Over","GLOBAL",1)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",1)
+  Internal(Myself,INTERNAL_0,1)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SinisterPoof("EF01TPRT",[1103.629],1)
+    JumpToPoint([1103.629])
+    FaceObject("Nameless")
+    PlaySequence(ANIM_CONJURE)
+    GlobalSet("Game_Over","GLOBAL",1)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",2)
+  Internal(Myself,INTERNAL_0,1)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject("Nameless")
+    PlaySequence(ANIM_CONJURE)
+    GlobalSet("Game_Over","GLOBAL",1)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",2)
+  Internal(Myself,INTERNAL_0,1)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SinisterPoof("EF01TPRT",[2846.593],1)
+    JumpToPoint([2846.593])
+    FaceObject("Nameless")
+    PlaySequence(ANIM_CONJURE)
+    GlobalSet("Game_Over","GLOBAL",1)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",3)
+  Internal(Myself,INTERNAL_0,1)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject("Nameless")
+    PlaySequence(ANIM_CONJURE)
+    GlobalSet("Game_Over","GLOBAL",1)
+END
+
+IF
+  Global("Lothar_Mad","AR0508",3)
+  Internal(Myself,INTERNAL_0,0)
+  !See([PC])
+THEN
+  RESPONSE #100
+    GlobalSet("Lothar_Mad","AR0508",0)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_CONJURE)
+    Kill("Nameless")
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+

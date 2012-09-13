@@ -1,0 +1,39 @@
+IF
+  HPPercentLT(Myself,50)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(10,20)
+    Face(0)
+    MoveToPoint([1279.747])
+    MoveToPoint([608.1417])
+    MoveToPoint([608.1463])
+    MoveToPoint([258.1813])
+    MoveToPoint([0.1813])
+    ChangeAIScript("0400tf2a",GENERAL)
+END
+

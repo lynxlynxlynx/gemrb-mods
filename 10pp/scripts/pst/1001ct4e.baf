@@ -1,0 +1,35 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Cornugon")  // 
+    Wait(1)
+    FadeFromBlack()
+    Wait(3)
+    FloatMessage(Myself,53241)  // ~"Now, miserable thing: wheeere?"~
+    Wait(2)
+    FloatMessage("Pillar",53670)  // ~"THEY CAME FROM ONE YOU KNOW, AND THUS MUST RETURN TO HIM:"~
+    Wait(3)
+    FloatMessage("Pillar",53671)  // ~"FHJULL FORKED-TONGUE. HE HIDES IN THE OUTLANDS EVEN NOW, WHERE THE GREAT FIEND WAS LAID LOW IN THE CRATER WAR."~
+    Wait(5)
+    FloatMessage(Myself,53672)  // ~"Ahhhh... to Fhjull, then, minions miiine!"~
+    Wait(3)
+    StartCutScene("1001ct4f")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure1")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Lemure8")  // 
+    DestroySelf()
+END
+

@@ -1,0 +1,276 @@
+IF
+  Global("Ravel_Curst_Portal","GLOBAL",2)
+THEN
+  RESPONSE #100
+    TeleportParty("AR0700",[2590.1977],6)
+END
+
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("Stinger_Sound_610","GLOBAL",0)
+END
+
+IF
+  TimerExpired(4)
+THEN
+  RESPONSE #100
+    PlaySoundNotRanged("ST_0610")
+    Continue()
+END
+
+IF
+  Global("Stinger_Sound_610","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Stinger_Sound_610","GLOBAL",1)
+    StartTimer(4,2)
+    Continue()
+END
+
+IF
+  Global("AR1900_Visited","GLOBAL",1)
+  GlobalGT("Lady","GLOBAL",49)
+THEN
+  RESPONSE #100
+    GlobalSet("Lady","GLOBAL",49)
+    Continue()
+END
+
+IF
+  Global("Ravel_Curst_Portal","GLOBAL",1)
+  GlobalLT("Ravel_Teach","GLOBAL",2)
+  Global("Trigit_Summon_Once","AR0610",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Trigit_Summon_Once","AR0610",1)
+    StartCutSceneMode()
+    StartCutScene("0610cutA")
+    Continue()
+END
+
+IF
+  Global("Ravel_Curst_Portal","GLOBAL",1)
+  Global("Ravel_Teach","GLOBAL",2)
+  Global("Trigit_Summon_Once","AR0610",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Trigit_Summon_Once","AR0610",1)
+    StartCutSceneMode()
+    StartCutScene("0610cutB")
+    Continue()
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("to0610A",0)
+    EnablePortalTravel("to0610A",0)
+    GlobalSet("to0610A_Active","AR0610",0)
+    Continue()
+END
+
+IF
+  TimerExpired(2)
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("to0610B",0)
+    EnablePortalTravel("to0610B",0)
+    GlobalSet("to0610B_Active","AR0610",0)
+    Continue()
+END
+
+IF
+  TimerExpired(3)
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("to0700",0)
+    EnablePortalTravel("to0700",0)
+    GlobalSet("to0700_Active","AR0610",0)
+    Continue()
+END
+
+IF
+  !TimerActive(1)
+  Global("to0610A_Active","AR0610",1)
+THEN
+  RESPONSE #100
+    StartTimer(1,10)
+    Continue()
+END
+
+IF
+  !TimerActive(2)
+  Global("to0610B_Active","AR0610",1)
+THEN
+  RESPONSE #100
+    StartTimer(2,10)
+    Continue()
+END
+
+IF
+  !TimerActive(3)
+  Global("to0700_Active","AR0610",1)
+THEN
+  RESPONSE #100
+    StartTimer(3,10)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",610)
+THEN
+  RESPONSE #100
+    GlobalSet("Modron_Cube","GLOBAL",0)
+    GlobalSet("Current_Area","GLOBAL",610)
+    GlobalSet("Doll_Switch","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  Global("AR0610_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0610_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Trigit_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("SWExit",1)
+    EnablePortalTravel("SWExit",1)
+    ActivatePortalCursor("NWExit",1)
+    EnablePortalTravel("NWExit",1)
+    GlobalSet("Trigit_Attack","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("to0700_Active","AR0610",0)
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("NEExit",1)
+    EnablePortalTravel("NEExit",1)
+    GlobalSet("to0700_Active","AR0610",2)
+    Continue()
+END
+
+IF
+  Global("Shadow_Spawn","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Alpha","GLOBAL",1)
+    GlobalSet("Spawn_Beta","GLOBAL",1)
+    GlobalSet("Spawn_Charlie","GLOBAL",1)
+    GlobalSet("Spawn_Delta","GLOBAL",1)
+    GlobalSet("Spawn_Echo","GLOBAL",1)
+    GlobalSet("Shadow_Spawn","GLOBAL",2)
+    Continue()
+END
+
+IF
+  !Exists("alpha1")  // alpha1
+  !Exists("alpha2")  // alpha2
+  !Exists("alpha3")  // alpha3
+  GlobalGT("Shadow_Spawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Alpha","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("alpha1")  // alpha1
+  Exists("alpha2")  // alpha2
+  Exists("alpha3")  // alpha3
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Alpha","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Exists("beta1")  // beta1
+  !Exists("beta2")  // beta2
+  !Exists("beta3")  // beta3
+  GlobalGT("Shadow_Spawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Beta","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("beta1")  // beta1
+  Exists("beta2")  // beta2
+  Exists("beta3")  // beta3
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Beta","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Exists("charlie1")  // charlie1
+  !Exists("charlie2")  // charlie2
+  !Exists("charlie3")  // charlie3
+  GlobalGT("Shadow_Spawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Charlie","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("charlie1")  // charlie1
+  Exists("charlie2")  // charlie2
+  Exists("charlie3")  // charlie3
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Charlie","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Exists("delta1")  // delta1
+  !Exists("delta2")  // delta2
+  GlobalGT("Shadow_Spawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Delta","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("delta1")  // delta1
+  Exists("delta2")  // delta2
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Delta","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Exists("echo1")  // echo1
+  !Exists("echo2")  // echo2
+  GlobalGT("Shadow_Spawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Echo","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("echo1")  // echo1
+  Exists("echo2")  // echo2
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Echo","GLOBAL",0)
+    Continue()
+END
+

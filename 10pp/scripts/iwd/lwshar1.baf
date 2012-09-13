@@ -1,0 +1,86 @@
+IF
+  !HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ATTACK_STATE","GLOBAL",1)
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("FRIENDS_DEAD","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  HaveSpell(CLERIC_HEAL)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_HEAL)
+  See("VAARGLAN")  // ~Robed Man~
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_HEAL)
+  See("ALPHEUS")  // ~Mage~
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_HEAL)
+  See("MERCWAR1")  // ~Mercenary Warrior~
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_HEAL)
+  See("MERCWAR2")  // ~Mercenary Warrior~
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_HEAL)
+  See("MERCTHF")  // ~Mercenary Thief~
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HEAL)
+    Wait(3)
+    Continue()
+END
+

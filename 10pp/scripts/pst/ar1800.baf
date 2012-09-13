@@ -1,0 +1,24 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",1800)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1800)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    EndCutSceneMode()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR1800_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR1800_Visited","GLOBAL",1)
+END
+

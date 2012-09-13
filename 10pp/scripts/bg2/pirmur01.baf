@@ -1,0 +1,18 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Dead("pirmur07")  // ~Vadek~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Dead("pirmur07")  // ~Vadek~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

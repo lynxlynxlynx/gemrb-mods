@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequenceTimed(ANIM_ATTACK,5)
+    MoveToPoint([3214.1227])
+    Face(14)
+    PlaySequenceTimed(ANIM_ATTACK,5)
+    MoveToPoint([3272.1288])
+    Face(6)
+    PlaySequenceTimed(ANIM_ATTACK,7)
+    MoveToPoint([3271.1169])
+END
+

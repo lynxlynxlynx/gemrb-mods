@@ -1,0 +1,101 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    DisplayString(Myself,39968)  // ~Spell Trigger - Fired~
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_NORMAL_MISSILES)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(WIZARD_IMPROVED_INVISIBILITY)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_HASTED)
+  HaveSpell(WIZARD_IMPROVED_HASTE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_HASTE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),15)
+  !HasBounceEffects(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Alignment(LastSeenBy(Myself),MASK_EVIL)
+  HaveSpell(WIZARD_PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_PROTECTION_FROM_EVIL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DOMINATION)
+  !Range(NearestEnemyOf(Myself),15)
+  !HasBounceEffects(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_DOMINATION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MINOR_SPELL_TURNING)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MINOR_SPELL_TURNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(Myself,STATE_INVISIBLE)
+    StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+    HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),15)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),15)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+

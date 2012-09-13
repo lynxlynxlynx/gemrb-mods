@@ -1,0 +1,7 @@
+IF
+  Global("Challenge","GLOBAL",7)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

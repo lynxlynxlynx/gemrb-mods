@@ -1,0 +1,29 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(30,40)
+    MoveToPoint([2049.906])
+    MoveToPoint([1848.706])
+    MoveToPoint([1362.706])
+    MoveToPoint([610.1458])
+    MoveToPoint([610.1919])
+    Face(8)
+    ChangeAIScript("0100ba2a",GENERAL)
+END
+

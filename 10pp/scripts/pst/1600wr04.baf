@@ -1,0 +1,112 @@
+IF
+  Global("WOT_Rats","AR1600",1)
+THEN
+  RESPONSE #100
+    Face(12)
+    MoveToPoint([2114.2167])
+    Face(14)
+    MoveToPoint([2132.2188])
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",2)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",2)
+THEN
+  RESPONSE #100
+    Face(10)
+    MoveToPoint([2183.2137])
+    Face(12)
+    MoveToPoint([2307.2137])
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",3)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",3)
+THEN
+  RESPONSE #100
+    Face(4)
+    MoveToPoint([2307.2137])
+    Face(8)
+    MoveToPoint([2179.2096])
+    Face(10)
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",4)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",4)
+THEN
+  RESPONSE #100
+    Face(6)
+    MoveToPoint([2090.2011])
+    Face(8)
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",5)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",5)
+THEN
+  RESPONSE #100
+    Face(4)
+    MoveToPoint([1967.2009])
+    Face(8)
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",6)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",6)
+THEN
+  RESPONSE #100
+    Face(4)
+    MoveToPoint([1913.2010])
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",7)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",7)
+THEN
+  RESPONSE #100
+    Face(2)
+    MoveToPoint([1785.2121])
+    Face(6)
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",8)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",8)
+THEN
+  RESPONSE #100
+    Face(0)
+    MoveToPoint([1785.2278])
+    Face(12)
+    MoveToPoint([1926.2276])
+    Face(0)
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",9)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",9)
+THEN
+  RESPONSE #100
+    MoveToPoint([1975.2163])
+    Face(4)
+    Wait(10)
+    GlobalSet("Wot_Rats","AR1600",1)
+    ForceAIScript("1600wr05",[0.0.0.0.0.0.PERSON_5],DEFAULT)
+END
+

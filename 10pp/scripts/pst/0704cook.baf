@@ -1,0 +1,16 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    Continue()
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68002)  // ~"Get out of my kitchen! Out!"~
+    StartRandomTimer(1,5,10)
+END
+

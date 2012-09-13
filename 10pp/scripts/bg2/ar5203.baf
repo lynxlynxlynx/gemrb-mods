@@ -1,0 +1,126 @@
+IF
+  GlobalGT("YagaShuraHeart","GLOBAL",0)
+  Global("PlayTextScreen","AR5203",0)
+THEN
+  RESPONSE #100
+    TextScreen("SCRSARA")
+    SetGlobal("EnteredArea5203","GLOBAL",1)
+    SetGlobal("PlayTextScreen","AR5203",1)
+END
+
+IF
+  Global("RevealYaga","AR5203",0)
+THEN
+  RESPONSE #100
+    CreateCreature("YSPEAS01",[2915.942],10)  // ~Peasant~
+    CreateCreature("YSPEAS02",[2853.1019],10)  // ~Peasant~
+    CreateCreature("YSPEAS02",[2858.920],10)  // ~Peasant~
+    CreateCreature("YSPEAS03",[2787.994],10)  // ~Peasant~
+    CreateCreature("YSGRUNT",[2683.1074],10)  // ~Yaga-Shura Soldier~
+    CreateCreature("YSGRUNT",[2608.1190],10)  // ~Yaga-Shura Soldier~
+    CreateCreature("YSGRUNT",[2504.1146],10)  // ~Yaga-Shura Soldier~
+    SetGlobal("RevealYaga","AR5203",1)
+END
+
+IF
+  GlobalTimerExpired("YagaReturnTimer","AR5203")
+  Global("YagaShuraSpawn","AR5203",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YagaShuraSpawn","AR5203",1)
+    CreateCreatureObjectOffScreen("YAGA01",Player1,0,0,0)  // ~Yaga-Shura~
+    CreateCreatureObjectOffScreen("YAGA02",Player1,0,0,0)  // ~Lieutenant Mage~
+    CreateCreatureObjectOffScreen("YAGA03",Player1,0,0,0)  // ~Lieutenant Fighter~
+    CreateCreatureObjectOffScreen("YAGA04",Player1,0,0,0)  // ~Lieutenant Cleric~
+    CreateCreatureObjectOffScreen("YAGA05",Player1,0,0,0)  // ~Lieutenant Thief~
+END
+
+IF
+  Dead("Yaga01")  // ~Yaga-Shura~
+  Global("HadBhaal25Dream1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SaveGame(0)
+    Wait(1)
+    SetGlobal("HadBhaal25Dream1","GLOBAL",1)
+    AmbientActivate("Firepit1",FALSE)
+    AmbientActivate("Firepit2",FALSE)
+    AmbientActivate("Firepit3",FALSE)
+    StartCutSceneMode()
+    StartCutScene("cut217a")
+END
+
+IF
+  Global("HadBhaal25Dream1","GLOBAL",1)
+  Global("SpawnSarMel01","AR5203",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnSarMel01","AR5203",1)
+    AddXP2DA("YAGA")
+    CreateCreatureObjectOffScreen("MEL01",Player1,0,0,0)  // ~Melissan~
+END
+
+IF
+  Delay(6)
+  Global("SpawnStart","AR5203",1)
+  GlobalLT("MaxSpawn","AR5203",35)
+  !Dead("Yaga01")  // ~Yaga-Shura~
+  GlobalLT("EXTRACOUNT","MYAREA",4)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #50
+    IncrementGlobal("MaxSpawn","AR5203",1)
+    CreateCreatureObjectOffScreen("YSSOLD01",Player1,0,0,0)  // ~Yaga-Shura Soldier~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+    Continue()
+  RESPONSE #50
+    IncrementGlobal("MaxSpawn","AR5203",1)
+    CreateCreatureObjectOffScreen("YSSOLD02",Player1,0,0,0)  // ~Yaga-Shura Soldier~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+    Continue()
+END
+
+IF
+  Delay(6)
+  Global("SpawnStart","AR5203",1)
+  GlobalLT("MaxSpawn","AR5203",35)
+  !Dead("Yaga01")  // ~Yaga-Shura~
+  GlobalLT("EXTRACOUNT2","MYAREA",2)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #30
+    IncrementGlobal("MaxSpawn","AR5203",1)
+    CreateCreatureObjectOffScreen("YSSOLD03",Player1,0,0,0)  // ~Yaga-Shura Officer~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+    Continue()
+  RESPONSE #30
+    IncrementGlobal("MaxSpawn","AR5203",1)
+    CreateCreatureObjectOffScreen("YSFIRE01",Player1,0,0,0)  // ~Fire Giant~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+    Continue()
+END
+
+IF
+  Delay(6)
+  Global("SpawnStart","AR5203",1)
+  GlobalLT("MaxSpawn","AR5203",35)
+  !Dead("Yaga01")  // ~Yaga-Shura~
+  GlobalLT("EXTRACOUNT2","MYAREA",1)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #30
+    IncrementGlobal("MaxSpawn","AR5203",1)
+    CreateCreatureObjectOffScreen("YSSOLD04",Player1,0,0,0)  // ~Yaga-Shura Elite~
+    IncrementGlobal("EXTRACOUNT3","MYAREA",1)
+    Continue()
+  RESPONSE #30
+    IncrementGlobal("MaxSpawn","AR5203",1)
+    CreateCreatureObjectOffScreen("YSFIRE02",Player1,0,0,0)  // ~Fire Giant~
+    IncrementGlobal("EXTRACOUNT3","MYAREA",1)
+    Continue()
+END
+

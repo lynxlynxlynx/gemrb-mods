@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ammerc04")  // 
+    MoveToObject("amasana")
+    AttackOneRound("amasana")
+    Kill("amasana")
+    ReputationInc(-1)
+    Wait(1)
+    ActionOverride("ammerc03",StartDialogNoSet(Player1))
+END
+

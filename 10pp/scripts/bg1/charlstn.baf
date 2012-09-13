@@ -1,0 +1,7 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    TriggerActivation("Door4101a",TRUE)
+END
+

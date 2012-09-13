@@ -1,0 +1,17 @@
+IF
+  Global("Fight","LOCALS",1)
+  !Dead("trfued10")  // ~Alibakkar Guard~
+THEN
+  RESPONSE #100
+    Attack("trfued10")
+END
+
+IF
+  Detect([PC])
+  Global("talkedNow","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("talkedNow","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+

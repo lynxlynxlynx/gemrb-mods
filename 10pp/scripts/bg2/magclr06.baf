@@ -1,0 +1,26 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,10)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_HASTE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_HASTE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SHOCKING_GRASP)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SHOCKING_GRASP)
+END
+

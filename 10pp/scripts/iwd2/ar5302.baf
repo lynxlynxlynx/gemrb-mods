@@ -1,0 +1,236 @@
+IF
+  Global("MindHack","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MindHack","MYAREA",1)
+    SetCreatureAreaFlag("Abdoshanheth",IGNORE_AI_INHIBIT,TRUE)
+    SetCreatureAreaFlag("Zephulp_Maress",IGNORE_AI_INHIBIT,TRUE)
+    SetCreatureAreaFlag("Oolay",IGNORE_AI_INHIBIT,TRUE)
+    SetCreatureAreaFlag("Galoombethshe",IGNORE_AI_INHIBIT,TRUE)
+    SetCreatureAreaFlag("Ecktarrilsenularr",IGNORE_AI_INHIBIT,TRUE)
+    Continue()
+END
+
+IF
+  Global("ElderBrain_Sequence","MYAREA",0)
+  HPPercentLT("Elder_Brain",50)  // Elder_Brain
+  !Dead("Elder_Brain")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("ElderBrain_Sequence","MYAREA",1)
+    PlaySequence("5302MS1",AWAKE)
+    PlaySequence("5302MS3",AWAKE)
+    Deactivate("Elder_Brain_Loop")
+    Activate("Elder_Brain_Wiggle")
+    PlaySoundPoint("am5302e",[1997.1436])
+END
+
+IF
+  !Global("ElderBrain_Sequence","MYAREA",2)
+  Dead("Elder_Brain")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("ElderBrain_Sequence","MYAREA",2)
+    Deactivate("Elder_Brain_Wiggle")
+    PlaySoundPoint("am5302e",[1997.1436])
+    PlaySequence("5302MS1",CAST)
+    PlaySequence("5302MS3",CAST)
+    ActionOverride("Abdoshanheth",ApplySpell("Abdoshanheth",WIZARD_POWER_WORD_STUN))
+    ActionOverride("Abdoshanheth",ApplySpell("Zephulp_Maress",WIZARD_POWER_WORD_STUN))
+    ActionOverride("Abdoshanheth",ApplySpell("Oolay",WIZARD_POWER_WORD_STUN))
+    ActionOverride("Abdoshanheth",ApplySpell("Galoombethshe",WIZARD_POWER_WORD_STUN))
+    ActionOverride("Abdoshanheth",ApplySpell("Ecktarrilsenularr",WIZARD_POWER_WORD_STUN))
+END
+
+IF
+  Global("ElderBrain_Sequence","MYAREA",1)
+  Or(4)
+    !Sequence("5302MS1",AWAKE)  // 5302MS1
+    !Sequence("5302MS3",AWAKE)  // 5302MS3
+    IsActive("Elder_Brain_Loop")  // Elder_Brain_Loop
+    !IsActive("Elder_Brain_Wiggle")  // Elder_Brain_Wiggle
+THEN
+  RESPONSE #100
+    PlaySequence("5302MS1",AWAKE)
+    PlaySequence("5302MS3",AWAKE)
+    Deactivate("Elder_Brain_Loop")
+    Activate("Elder_Brain_Wiggle")
+    Continue()
+END
+
+IF
+  Global("ElderBrain_Sequence","MYAREA",2)
+  Or(4)
+    !Sequence("5302MS1",CAST)  // 5302MS1
+    !Sequence("5302MS3",CAST)  // 5302MS3
+    IsActive("Elder_Brain_Loop")  // Elder_Brain_Loop
+    IsActive("Elder_Brain_Wiggle")  // Elder_Brain_Wiggle
+THEN
+  RESPONSE #100
+    PlaySequence("5302MS1",CAST)
+    PlaySequence("5302MS3",CAST)
+    Deactivate("Elder_Brain_Loop")
+    Deactivate("Elder_Brain_Wiggle")
+    Continue()
+END
+
+IF
+  Global("Unlock_Exits","MYAREA",0)
+  Or(2)
+    !Global("53ElderB_Dead","GLOBAL",0)
+    Global("53ElderB_Permission","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Unlock_Exits","MYAREA",1)
+    Unlock("AR5302_Door1")
+    Unlock("AR5302_Door2")
+    DisplayMessage(36871)  // ~The psychic force that seals Z'hinda Citadel's rear gates has been broken.~
+    Continue()
+END
+
+IF
+  Global("Disarm_LG1","MYAREA",0)
+  Or(2)
+    !HPGT("Lightning_Gens11",0)  // Lightning_Gens11
+    !CheckDoorFlags("LightningGeneratorDisarm1",DOORLOCKED)  // LightningGeneratorDisarm1
+THEN
+  RESPONSE #100
+    SetGlobal("Disarm_LG1","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Disarm_LG1","MYAREA",1)
+  IsActive("5302MS2_1")  // 5302MS2_1
+THEN
+  RESPONSE #100
+    ActionOverride("Lightning_Gens1",DestroySelf())
+    AddExperiencePartyCR(4)
+    Unlock("5302MS2_1")
+    Deactivate("5302MS2_1")
+    Continue()
+END
+
+IF
+  Global("Disarm_LG2","MYAREA",0)
+  Or(2)
+    !HPGT("Lightning_Gens12",0)  // Lightning_Gens12
+    !CheckDoorFlags("LightningGeneratorDisarm2",DOORLOCKED)  // LightningGeneratorDisarm2
+THEN
+  RESPONSE #100
+    SetGlobal("Disarm_LG2","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Disarm_LG2","MYAREA",1)
+  IsActive("5302MS2_2")  // 5302MS2_2
+THEN
+  RESPONSE #100
+    ActionOverride("Lightning_Gens2",DestroySelf())
+    AddExperiencePartyCR(4)
+    Unlock("5302MS2_2")
+    Deactivate("5302MS2_2")
+    Continue()
+END
+
+IF
+  Global("Disarm_LG3","MYAREA",0)
+  Or(2)
+    !HPGT("Lightning_Gens13",0)  // Lightning_Gens13
+    !CheckDoorFlags("LightningGeneratorDisarm3",DOORLOCKED)  // LightningGeneratorDisarm3
+THEN
+  RESPONSE #100
+    SetGlobal("Disarm_LG3","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Disarm_LG3","MYAREA",1)
+  IsActive("5302MS2_3")  // 5302MS2_3
+THEN
+  RESPONSE #100
+    ActionOverride("Lightning_Gens3",DestroySelf())
+    AddExperiencePartyCR(4)
+    Unlock("5302MS2_3")
+    Deactivate("5302MS2_3")
+    Continue()
+END
+
+IF
+  Global("Disarm_LG4","MYAREA",0)
+  Or(2)
+    !HPGT("Lightning_Gens14",0)  // Lightning_Gens14
+    !CheckDoorFlags("LightningGeneratorDisarm4",DOORLOCKED)  // LightningGeneratorDisarm4
+THEN
+  RESPONSE #100
+    SetGlobal("Disarm_LG4","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Disarm_LG4","MYAREA",1)
+  IsActive("5302MS2_4")  // 5302MS2_4
+THEN
+  RESPONSE #100
+    ActionOverride("Lightning_Gens4",DestroySelf())
+    AddExperiencePartyCR(4)
+    Unlock("5302MS2_4")
+    Deactivate("5302MS2_4")
+    Continue()
+END
+
+IF
+  Global("Disarm_LG5","MYAREA",0)
+  Or(2)
+    !HPGT("Lightning_Gens15",0)  // Lightning_Gens15
+    !CheckDoorFlags("LightningGeneratorDisarm5",DOORLOCKED)  // LightningGeneratorDisarm5
+THEN
+  RESPONSE #100
+    SetGlobal("Disarm_LG5","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Disarm_LG5","MYAREA",1)
+  IsActive("5302MS2_5")  // 5302MS2_5
+THEN
+  RESPONSE #100
+    ActionOverride("Lightning_Gens5",DestroySelf())
+    AddExperiencePartyCR(4)
+    Unlock("5302MS2_5")
+    Deactivate("5302MS2_5")
+    Continue()
+END
+
+IF
+  Global("Disarm_LG6","MYAREA",0)
+  Or(2)
+    !HPGT("Lightning_Gens16",0)  // Lightning_Gens16
+    !CheckDoorFlags("LightningGeneratorDisarm6",DOORLOCKED)  // LightningGeneratorDisarm6
+THEN
+  RESPONSE #100
+    SetGlobal("Disarm_LG6","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("Disarm_LG6","MYAREA",1)
+  IsActive("5302MS2_6")  // 5302MS2_6
+THEN
+  RESPONSE #100
+    ActionOverride("Lightning_Gens6",DestroySelf())
+    AddExperiencePartyCR(4)
+    Unlock("5302MS2_6")
+    Deactivate("5302MS2_6")
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

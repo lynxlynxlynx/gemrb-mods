@@ -1,0 +1,9 @@
+IF
+  Global("JanLissaPlot","GLOBAL",20)
+  Global("JanSpawn","AR0401",0)
+THEN
+  RESPONSE #100
+    SetGlobal("JanSpawn","AR0401",1)
+    MoveGlobal("AR0401","Jan",[392.343])
+END
+

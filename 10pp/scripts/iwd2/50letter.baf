@@ -1,0 +1,49 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ingrath")  // 
+    MultiPlayerSync()
+    HideGUI()
+    MoveToPoint([1200.500])
+    MoveViewObject(Myself,VERY_FAST)
+    Wait(10)
+    ActionOverride("Ingrath",ForceSpell(Myself,2090))
+    SetGlobal("41Rahm","GLOBAL",1)
+    Enemy()
+    UnhideGUI()
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("11_Neverwinter_Soldier_01")  // 
+    MoveToPoint([1170.500])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("11_Neverwinter_Soldier_02")  // 
+    MoveToPoint([1230.500])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("11_Neverwinter_Soldier_03")  // 
+    MoveToPoint([1200.470])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("11_Neverwinter_Soldier_04")  // 
+    MoveToPoint([1200.530])
+END
+

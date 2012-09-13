@@ -1,0 +1,12 @@
+IF
+  Dead("VVSHAD7")  // ~Shadow Thief~
+  Dead("VVSHAD8")  // ~Shadow Thief~
+  Dead("VVSHAD9")  // ~Shadow Thief~
+  Dead("VVSHAD10")  // ~Shadow Thief~
+  Dead("VVSHAD11")  // ~Shadow Thief~
+  Dead("VVSHAD12")  // ~Shadow Thief~
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+

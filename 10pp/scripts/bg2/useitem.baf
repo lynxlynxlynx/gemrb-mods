@@ -1,0 +1,208 @@
+IF
+  HPPercentLT(Myself,50)
+  HasItem("potn55",Myself)  // ~Potion of Superior Healing~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn55",Myself)  // ~Potion of Superior Healing~
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HasItem("potn52",Myself)  // ~Potion of Extra Healing~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn52",Myself)  // ~Potion of Extra Healing~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_HASTED)
+  HasItem("potn14",Myself)  // ~Oil of Speed~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn14",Myself)  // ~Oil of Speed~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  HasItem("potn10",Myself)  // ~Potion of Invisibility~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn10",Myself)  // ~Potion of Invisibility~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,18,STR)
+  HasItem("potn03",Myself)  // ~Potion of Hill Giant Strength~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn03",Myself)  // ~Potion of Hill Giant Strength~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,18,STR)
+  HasItem("potn04",Myself)  // ~Potion of Frost Giant Strength~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn04",Myself)  // ~Potion of Frost Giant Strength~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,18,STR)
+  HasItem("potn04",Myself)  // ~Potion of Frost Giant Strength~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn03",Myself)  // ~Potion of Hill Giant Strength~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,18,STR)
+  HasItem("potn12",Myself)  // ~Potion of Stone Giant Strength~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("potn12",Myself)  // ~Potion of Stone Giant Strength~
+    Continue()
+END
+
+IF
+  OR(2)
+    Class(Myself,MAGE_ALL)
+    Class(Myself,BARD_ALL)
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_PANIC)
+  !HasBounceEffects(LastSeenBy(Myself))
+  !LevelGT(LastSeenBy(Myself),10)
+  HasItem("wand02",Myself)  // ~Wand of Fear~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,31971)  // ~uses a wand~
+    UseItem("wand02",NearestEnemyOf(Myself))  // ~Wand of Fear~
+    Continue()
+END
+
+IF
+  OR(2)
+    Class(Myself,MAGE_ALL)
+    Class(Myself,BARD_ALL)
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  !HasBounceEffects(LastSeenBy(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HasItem("wand04",Myself)  // ~Wand of Paralyzation ~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,31971)  // ~uses a wand~
+    UseItem("wand04",NearestEnemyOf(Myself))  // ~Wand of Paralyzation ~
+    Continue()
+END
+
+IF
+  OR(2)
+    Class(Myself,MAGE_ALL)
+    Class(Myself,BARD_ALL)
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  !HasBounceEffects(LastSeenBy(Myself))
+  HasItem("wand06",Myself)  // ~Wand of Frost~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,31971)  // ~uses a wand~
+    UseItem("wand06",NearestEnemyOf(Myself))  // ~Wand of Frost~
+    Continue()
+END
+
+IF
+  OR(2)
+    Class(Myself,MAGE_ALL)
+    Class(Myself,BARD_ALL)
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
+  !HasBounceEffects(LastSeenBy(Myself))
+  !LevelGT(LastSeenBy(Myself),10)
+  HasItem("wand08",Myself)  // ~Wand of Sleep~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,31971)  // ~uses a wand~
+    UseItem("wand08",NearestEnemyOf(Myself))  // ~Wand of Sleep~
+    Continue()
+END
+
+IF
+  OR(2)
+    Class(Myself,MAGE_ALL)
+    Class(Myself,BARD_ALL)
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  !LevelGT(LastSeenBy(Myself),10)
+  !HasBounceEffects(LastSeenBy(Myself))
+  HasItem("wand09",Myself)  // ~Wand of Polymorphing~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,31971)  // ~uses a wand~
+    UseItem("wand09",NearestEnemyOf(Myself))  // ~Wand of Polymorphing~
+    Continue()
+END
+
+IF
+  OR(2)
+    Class(Myself,MAGE_ALL)
+    Class(Myself,BARD_ALL)
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  HasItem("wand10",Myself)  // ~Wand of Monster Summoning~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,31971)  // ~uses a wand~
+    UseItem("wand10",Myself)  // ~Wand of Monster Summoning~
+    Continue()
+END
+
+IF
+  Class(Myself,CLERIC_ALL)
+  See(NearestEnemyOf(Myself))
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  OR(2)
+    !CheckStatGT(LastSeenBy(Myself),50,RESISTMAGICFIRE)
+    !HasImmunityEffects(LastSeenBy(Myself))
+  HasItem("wand11",Myself)  // ~Wand of the Heavens~
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,31971)  // ~uses a wand~
+    UseItem("wand11",NearestEnemyOf(Myself))  // ~Wand of the Heavens~
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  HasItem("ring05",Myself)  // ~Ring of Invisibility ~
+THEN
+  RESPONSE #100
+    UseItem("ring05",Myself)  // ~Ring of Invisibility ~
+    Continue()
+END
+

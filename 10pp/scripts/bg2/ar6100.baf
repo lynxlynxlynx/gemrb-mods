@@ -1,0 +1,727 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  OnCreation()
+  Global("DROWITEMCHECKDONE","GLOBAL",1)
+THEN
+    SetGlobal("DROWITEMCHECKDONE","GLOBAL",0)
+END
+
+IF
+  Global("RevealDoor","AR6100",0)
+  CombatCounter(0)
+THEN
+    SetGlobal("RevealDoor","AR6100",1)
+    StartCutSceneMode()
+    StartCutScene("cut231a")
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  Global("AMReturnOfElminster","GLOBAL",0)
+THEN
+    ClearAllActions()
+    StartCutSceneMode()
+    CreateCreatureObjectEffect("AMELM01","SPFLESHS",Player1)
+    SetGlobal("AMReturnOfElminster","GLOBAL",1)
+    Wait(2)
+    EndCutSceneMode()
+END
+
+IF
+  Global("SendaiDoorXP","AR6100",1)
+THEN
+    SetGlobal("SendaiDoorXP","AR6100",2)
+    Wait(5)
+    AddXP2DA("Plot18A")
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWCHAN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWCHAN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWCHAN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWCHAN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWCHAN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWCHAN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWCHAN02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWCHAN02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWCHAN02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWCHAN02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWCHAN02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWCHAN02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWSW1H01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWSW1H01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWSW1H01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWSW1H01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWSW1H01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWSW1H01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWSW1H02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWSW1H02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWSW1H02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWSW1H02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWSW1H02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWSW1H02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWBLUN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWBLUN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWBLUN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWBLUN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWBLUN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWBLUN01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWHALB01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWHALB01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWHALB01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWHALB01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWHALB01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWHALB01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWSPER01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWSPER01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWSPER01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWSPER01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWSPER01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWSPER01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWXBOW01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWXBOW01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWXBOW01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWXBOW01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWXBOW01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWXBOW01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWSHLD01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWSHLD01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWSHLD01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWSHLD01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWSHLD01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWSHLD01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWCLCK01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWCLCK01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWCLCK01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWCLCK01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWCLCK01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWCLCK01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWBOLT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWBOLT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWBOLT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWBOLT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWBOLT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWBOLT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWBOLT02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWBOLT02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWBOLT02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWBOLT02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWBOLT02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWBOLT02")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWBOLT03")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWBOLT03")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWBOLT03")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWBOLT03")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWBOLT03")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWBOLT03")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    TakePartyItemAll("DWPLAT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+    TakePartyItemAll("DWPLAT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player3)
+THEN
+    TakePartyItemAll("DWPLAT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player4)
+THEN
+    TakePartyItemAll("DWPLAT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player5)
+THEN
+    TakePartyItemAll("DWPLAT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player6)
+THEN
+    TakePartyItemAll("DWPLAT01")
+    Continue()
+END
+
+IF
+  Global("DROWITEMCHECKDONE","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+    SetGlobal("DROWITEMCHECKDONE","GLOBAL",1)
+END
+
+
+END

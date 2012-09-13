@@ -1,0 +1,190 @@
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,650,610,4)
+THEN
+  RESPONSE #100
+    SetStartPos([650.610])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([650.610])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(NE)
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,1)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8590)  // ~"Hrm.  Hrrmm..."~
+    SetGlobal("ML_0","LOCALS",4)
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",5)
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  ActionListEmpty()
+  NearLocation(Myself,995,765,4)
+THEN
+  RESPONSE #100
+    SetStartPos([995.765])
+    SetGlobal("ML_0","LOCALS",6)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+THEN
+  RESPONSE #100
+    MoveToPoint([995.765])
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(NE)
+    SetGlobal("ML_0","LOCALS",7)
+END
+
+IF
+  Global("ML_0","LOCALS",7)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,1)
+    SetGlobal("ML_0","LOCALS",8)
+END
+
+IF
+  Global("ML_0","LOCALS",8)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18316)  // ~"Hrmph."~
+    SetGlobal("ML_0","LOCALS",9)
+END
+
+IF
+  Global("ML_0","LOCALS",9)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",10)
+END
+
+IF
+  Global("ML_0","LOCALS",10)
+  ActionListEmpty()
+  NearLocation(Myself,1120,860,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1120.860])
+    SetGlobal("ML_0","LOCALS",11)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",10)
+THEN
+  RESPONSE #100
+    MoveToPoint([1120.860])
+END
+
+IF
+  Global("ML_0","LOCALS",11)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(NE)
+    SetGlobal("ML_0","LOCALS",12)
+END
+
+IF
+  Global("ML_0","LOCALS",12)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,1)
+    SetGlobal("ML_0","LOCALS",13)
+END
+
+IF
+  Global("ML_0","LOCALS",13)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8590)  // ~"Hrm.  Hrrmm..."~
+    SetGlobal("ML_0","LOCALS",14)
+END
+
+IF
+  Global("ML_0","LOCALS",14)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,2)
+    SetGlobal("ML_0","LOCALS",15)
+END
+
+IF
+  Global("ML_0","LOCALS",15)
+  NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",16)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",15)
+  !TimerActive(19)
+  !NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+
+IF
+  Global("ML_0","LOCALS",16)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,3)
+    SetGlobal("ML_0","LOCALS",0)
+END
+

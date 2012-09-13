@@ -1,0 +1,8 @@
+IF
+  Entered([ANYONE])
+  GlobalLT("GraveClose","AR0800",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,26772)  // ~Nearby you see an open grave. A chill runs up your spine as you hear a sound emit from it. You shake your head and continue walking. The sound is clearer now. You are not imagining it.  Muffled cries for help are coming from the grave.~
+END
+

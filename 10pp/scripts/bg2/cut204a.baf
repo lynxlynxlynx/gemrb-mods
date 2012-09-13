@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(1)
+    CreateCreature("HEAD1",[1587.262],0)  // ~Forest Spirit~
+    CreateCreature("HEAD2",[2066.1311],0)  // ~Forest Spirit~
+    CreateCreature("HEAD3",[447.1470],0)  // ~Forest Spirit~
+    CreateCreature("HEAD4",[2078.307],0)  // ~Forest Spirit~
+    CreateCreature("HEAD5",[1047.1280],0)  // ~Forest Spirit~
+    SmallWait(5)
+    MoveViewObject("Head1",INSTANT)
+    Explore()
+    Wait(1)
+    FadeFromColor([30.0],0)
+    SmallWait(5)
+    ScreenShake([20.20],20)
+    PlaySound("am4000h")
+    Wait(2)
+    AmbientActivate("AMB_Head1L",TRUE)
+    AmbientActivate("AMB_Head1R",TRUE)
+    SmallWait(5)
+    StaticSequence("AMB_Head1L",1)
+    StaticSequence("AMB_Head1R",1)
+    ActionOverride("Head1",StartDialogNoSet(Player1))
+END
+

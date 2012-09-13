@@ -1,0 +1,15 @@
+IF
+  HPLT(Myself,10)
+  Global("Death","LOCALS",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #50
+    ReallyForceSpellDead(Myself,BODHI_MIST_FORM_CHANGE)
+END
+

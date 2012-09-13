@@ -1,0 +1,10 @@
+IF
+  Dead("Sendark")  // ~Dark Master~
+  Detect([PC])
+  Global("TalkedOnce","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("TalkedOnce","LOCALS",2)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

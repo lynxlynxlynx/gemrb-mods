@@ -1,0 +1,71 @@
+IF
+  Global("DeactivateTran3019","AR3025",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DeactivateTran3019","AR3025",1)
+    TriggerActivation("Tran3019",FALSE)
+END
+
+IF
+  Global("EnteredArea","AR3025",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR3025",1)
+    SetGlobalTimer("HordeTimer","AR3025",60)
+    SetGlobal("NumOfCreatures","AR3025",10)
+END
+
+IF
+  GlobalTimerNotExpired("HordeTimer","AR3025")
+  GlobalLT("NumOfCreatures","AR3025",10)
+THEN
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC01",[605.368],0)  // ~Orc~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC02",[783.472],0)  // ~Orc Archer~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC03",[789.633],0)  // ~Orc Mage~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC01",[416.554],0)  // ~Orc~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC02",[383.747],0)  // ~Orc Archer~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC02",[557.765],0)  // ~Orc Archer~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC03",[605.368],0)  // ~Orc Mage~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC01",[783.472],0)  // ~Orc~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC03",[789.633],0)  // ~Orc Mage~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC01",[416.554],0)  // ~Orc~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC02",[383.747],0)  // ~Orc Archer~
+  RESPONSE #10
+    IncrementGlobal("NumOfCreatures","AR3025",1)
+    CreateCreature("GORORC01",[557.765],0)  // ~Orc~
+END
+
+IF
+  GlobalTimerExpired("HordeTimer","AR3025")
+  Global("SpawnSpirit","AR3025",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnSpirit","AR3025",1)
+    TriggerActivation("Tran3019",TRUE)
+    CreateCreatureObjectEffect("FSSPIRA","SPFLESHS",Player1)
+    Wait(1)
+    ActionOverride("fsspira",StartDialogNoSet(Player1))
+END
+

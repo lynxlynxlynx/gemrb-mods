@@ -1,0 +1,17 @@
+IF
+  Global("ElvenAvatar","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Kill("suraksha")
+    Kill("suadsaan")
+    Kill("surakraj")
+    SetGlobal("killraksha","AR2801",1)
+END
+
+IF
+  Global("killraksha","AR2801",1)
+THEN
+  RESPONSE #100
+    Kill("suraksha")
+END
+

@@ -1,0 +1,113 @@
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("231121022212",Myself,SPELLCAST_IGNORE_SEE)
+      // WIZARD_PROTECTION_FROM_NORMAL_MISSILES
+      // WIZARD_ARMOR
+      // WIZARD_MIRROR_IMAGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Or(28)
+    See(NearestEnemyOf(Myself),0)
+    See("Soldier_2_NW_Catapult",0)  // Soldier_2_NW_Catapult
+    See("Soldier_3_Gate",0)  // Soldier_3_Gate
+    See("Merc_1_Gate",0)  // Merc_1_Gate
+    See("Merc_3_Gate",0)  // Merc_3_Gate
+    See("Soldier_2_N_Catapult",0)  // Soldier_2_N_Catapult
+    See("Soldier_1_N_Palisade",0)  // Soldier_1_N_Palisade
+    See("Soldier_2_N_Palisade",0)  // Soldier_2_N_Palisade
+    See("Soldier_1_NE_Palisade",0)  // Soldier_1_NE_Palisade
+    See("Archer_2_W_Wall",0)  // Archer_2_W_Wall
+    See("Recruit_5_W",0)  // Recruit_5_W
+    See("Trainee_2_S",0)  // Trainee_2_S
+    See("Drill_Sergeant_E",0)  // Drill_Sergeant_E
+    See("Recruit_1_W",0)  // Recruit_1_W
+    See("Recruit_1_E",0)  // Recruit_1_E
+    See("Trainee_1_S",0)  // Trainee_1_S
+    See("Recruit_2_E",0)  // Recruit_2_E
+    See("Recruit_2_W",0)  // Recruit_2_W
+    See("Recruit_3_E",0)  // Recruit_3_E
+    See("Trainee_3_S",0)  // Trainee_3_S
+    See("Recruit_4_E",0)  // Recruit_4_E
+    See("Recruit_3_W",0)  // Recruit_3_W
+    See("Recruit_5_E",0)  // Recruit_5_E
+    See("Weapon_Instructor",0)  // Weapon_Instructor
+    See("Niles",0)  // Niles
+    See("Recruit_4_W",0)  // Recruit_4_W
+    See("Archer_1_W_Wall",0)  // Archer_1_W_Wall
+    See("Drill_Sergeant_West",0)  // Drill_Sergeant_West
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2105211821192222",LastMarkedObject,3)
+      // WIZARD_COLOR_SPRAY
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_LARLOCHS_MINOR_DRAIN
+      // WIZARD_BLINDNESS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HaveSpell(WIZARD_HORROR)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_HORROR,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_HORROR)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(WIZARD_RAY_OF_ENFEEBLEMENT)
+  See([PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_RAY_OF_ENFEEBLEMENT,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_RAY_OF_ENFEEBLEMENT)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(WIZARD_HOLD_PERSON)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_HOLD_PERSON,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_HOLD_PERSON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+

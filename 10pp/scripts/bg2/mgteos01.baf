@@ -1,0 +1,52 @@
+IF
+  Detect([PC])
+  NumberOfTimesTalkedTo(0)
+  Global("onespeak","AR0411",0)
+THEN
+  RESPONSE #100
+    SetGlobal("onespeak","AR0411",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Detect([PC])
+  Global("GettingApprentices","GLOBAL",2)
+  Global("ApprentiDialogue","AR0411",0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    SetGlobal("ApprentiDialogue","AR0411",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("MageAmbush","GLOBAL",2)
+  Global("DoFight","AR0411",1)
+  Global("Hide","LOCALS",0)
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    Wait(1)
+    SetGlobal("Hide","LOCALS",1)
+    Deactivate(Myself)
+END
+
+IF
+  Detect([PC])
+  Dead("mgass01")  // ~Sergeant Natula~
+  Dead("mgass02")  // ~Tyrian~
+  Dead("mgass03")  // ~Vilhelm~
+  Dead("parmonk")  // ~Mahar~
+  Dead("parfig16")  // ~Jalin Tix~
+  Dead("pardru")  // ~Sorsha~
+  Dead("parthf")  // ~Alnarow~
+  Global("speakafter","LOCALS",0)
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    Activate(Myself)
+    Wait(3)
+    SetGlobal("speakafter","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

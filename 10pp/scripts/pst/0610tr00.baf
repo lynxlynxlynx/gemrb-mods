@@ -1,0 +1,52 @@
+IF
+  NearLocation(Myself,[2435.1790],30)
+THEN
+  RESPONSE #100
+    RunToSavedLocation()
+END
+
+IF
+  See([0.0.0.0.SHADOW_MARK_2])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([0.0.0.0.SHADOW_MARK_2])
+END
+
+IF
+  See([0.0.0.0.SHADOW_MARK_1])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([0.0.0.0.SHADOW_MARK_1])
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  Help([0.0.0.0.TRIGIT])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+

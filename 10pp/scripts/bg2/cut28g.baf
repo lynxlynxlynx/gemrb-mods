@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Dream2")  // 
+    Wait(1)
+    ApplySpell("Dream1",SURE_STONE_SHATTER)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(2)
+    FadeToColor([50.0],0)
+    PlayDead(45)
+    RestorePartyLocations()
+    MultiPlayerSync()
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+    RestParty()
+END
+

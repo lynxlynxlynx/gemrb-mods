@@ -1,0 +1,58 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,30,30)
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+
+IF
+  TimerExpired(24)
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,HEAD_TURN)
+    StartRandomTimer(24,30,30)
+END
+
+IF
+  ActionListEmpty()
+  NearSavedLocation(24)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(24)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    WaitRandom(10,20)
+END
+

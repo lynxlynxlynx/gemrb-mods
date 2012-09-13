@@ -1,0 +1,9 @@
+IF
+  OnCreation()
+  Global("DjinniDeactivated","AR0601",0)
+THEN
+  RESPONSE #100
+    Deactivate("Malaaq")
+    SetGlobal("DjinniDeactivated","AR0601",1)
+END
+

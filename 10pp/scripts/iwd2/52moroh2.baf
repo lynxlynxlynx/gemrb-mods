@@ -1,0 +1,334 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",2)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("52Moroh3")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Dead(Player1)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC2r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Dead(Player2)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC2r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Dead(Player3)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC2r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Dead(Player4)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC2r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Dead(Player5)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC2r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Dead(Player6)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC2r")
+END
+
+IF
+  GlobalGT("C2_MONK_DEAD","GLOBAL",0)
+  GlobalGT("CHAMBER_2_MONK_CNT","MYAREA",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("C2_MONK_DEAD","GLOBAL",-1)
+    IncrementGlobal("CHAMBER_2_MONK_CNT","MYAREA",-1)
+    Continue()
+END
+
+IF
+  GlobalGT("C2_MONK_DEAD","GLOBAL",0)
+  Global("CHAMBER_2_MONK_CNT","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("C2_MONK_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  GlobalLT("CHAMBER_2_MONK_CNT","MYAREA",5)
+  GlobalGT("CHAMBER_2_MONK_REQUEST","MYAREA",0)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  Global("52Morohem_Master","GLOBAL",2)
+THEN
+  RESPONSE #100
+    CreateCreature("52MNKSH","",[1086.1389],2)  // ~Shadow Monk~
+    SpellHitEffectSprite(LastMarkedObject,LastMarkedObject,DEATH_SPELL,0)
+    HideCreature(LastMarkedObject,FALSE)
+    IncrementGlobal("CHAMBER_2_MONK_REQUEST","MYAREA",-1)
+    IncrementGlobal("CHAMBER_2_MONK_CNT","MYAREA",1)
+END
+
+IF
+  Global("C_2_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",4)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_2_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player1)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player1,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",3)
+    Unlock("AR5202_Door3")
+    OpenDoor("AR5202_Door3")
+    AddXPVar("Level_10_Average",34471)  // ~You have mastered the Chamber of Shadows, second of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player1,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_2_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",4)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_2_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player2)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player2,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",3)
+    Unlock("AR5202_Door3")
+    OpenDoor("AR5202_Door3")
+    AddXPVar("Level_10_Average",34471)  // ~You have mastered the Chamber of Shadows, second of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player2,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_2_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",4)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_2_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player3)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player3,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",3)
+    Unlock("AR5202_Door3")
+    OpenDoor("AR5202_Door3")
+    AddXPVar("Level_10_Average",34471)  // ~You have mastered the Chamber of Shadows, second of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player3,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_2_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",4)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_2_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player4)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player4,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",3)
+    Unlock("AR5202_Door3")
+    OpenDoor("AR5202_Door3")
+    AddXPVar("Level_10_Average",34471)  // ~You have mastered the Chamber of Shadows, second of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player4,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_2_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",4)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_2_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player5)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player5,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",3)
+    Unlock("AR5202_Door3")
+    OpenDoor("AR5202_Door3")
+    AddXPVar("Level_10_Average",34471)  // ~You have mastered the Chamber of Shadows, second of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player5,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_2_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Global("CHAMBER_2_TERROR_LEVEL","MYAREA",4)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_2_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player6)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player6,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",3)
+    Unlock("AR5202_Door3")
+    OpenDoor("AR5202_Door3")
+    AddXPVar("Level_10_Average",34471)  // ~You have mastered the Chamber of Shadows, second of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player6,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

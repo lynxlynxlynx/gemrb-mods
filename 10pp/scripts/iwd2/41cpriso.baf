@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    StopJoinRequests()
+    SetGlobal("RJ_AR4101","GLOBAL",1)
+    CutSceneId(Protagonist)  // 
+    MultiPlayerSync()
+    SetGlobal("41PartyPrisonEntry","GLOBAL",2)
+    SetGlobal("41PartyPrisonSetup","GLOBAL",1)
+    SetGlobal("41SurrenderStep","GLOBAL",0)
+    FadeToColor([0.0],0)
+    ActionOverride(Player1,LeaveAreaLUA("AR4101","LOAD1000",[1119.1567],2))
+    ActionOverride(Player2,LeaveAreaLUA("AR4101","LOAD1000",[1119.1567],2))
+    ActionOverride(Player3,LeaveAreaLUA("AR4101","LOAD1000",[1119.1567],2))
+    ActionOverride(Player4,LeaveAreaLUA("AR4101","LOAD1000",[1119.1567],2))
+    ActionOverride(Player5,LeaveAreaLUA("AR4101","LOAD1000",[1119.1567],2))
+    ActionOverride(Player6,LeaveAreaLUA("AR4101","LOAD1000",[1119.1567],2))
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,51 @@
+IF
+  Global("Started_Cutscene","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Started_Cutscene","MYAREA",1)
+    SetGlobalTimer("StartCutsceneTimer","MYAREA",3)
+    Continue()
+END
+
+IF
+  Global("Started_Cutscene","MYAREA",1)
+  GlobalTimerExpired("StartCutsceneTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("Started_Cutscene","MYAREA",2)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("67cNalak")
+END
+
+IF
+  Global("SaveGame","MYAREA",0)
+  !Exists([ENEMY][0.0.10000.10000])
+  Dead("Nalakora")  // 
+  Dead("TrsoslMalign")  // 
+  Dead("HalfOrc1")  // 
+  Dead("HalfOrc2")  // 
+  Dead("RedWizard1")  // 
+  Dead("RedWizard2")  // 
+  Dead("HalfDragon1")  // 
+  Dead("HalfDragon2")  // 
+  Dead("NeoOrogShaman")  // 
+  Dead("SlayerKnightofXvi1")  // 
+  Dead("SlayerKnightofXvi2")  // 
+  Dead("RedHalfDragon")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("SaveGame","MYAREA",1)
+    SetGlobal("Unhide_Buvai","GLOBAL",1)
+    SaveGame(39401)  // ~Final Battle~
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

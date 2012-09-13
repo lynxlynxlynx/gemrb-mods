@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(NearestPC)  // 
+    MultiPlayerSync()
+    ActionOverride(Player1,LeaveAreaLUA("AR6102","LOAD6100",[2210.1820],6))
+    ActionOverride(Player2,LeaveAreaLUA("AR6102","LOAD6100",[2210.1820],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR6102","LOAD6100",[2210.1820],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR6102","LOAD6100",[2210.1820],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR6102","LOAD6100",[2210.1820],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR6102","LOAD6100",[2210.1820],6))
+    EndCutSceneMode()
+END
+

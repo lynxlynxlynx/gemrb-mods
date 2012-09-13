@@ -1,0 +1,7 @@
+IF
+  IsOverMe([PC])
+THEN
+  RESPONSE #100
+    ApplySpell(LastTrigger,WIZARD_MELF_ACID_ARROW)
+END
+

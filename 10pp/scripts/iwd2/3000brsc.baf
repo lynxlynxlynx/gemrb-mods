@@ -1,0 +1,160 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Global("BRASTON_PAUSED_STATE","GLOBAL",2)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("BRASTON_PAUSED_STATE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("BRASTON_KNOWS_ENELIA_DEAD","GLOBAL",0)
+  See("Ennelia",0)  // Ennelia
+  Dead("Ennelia")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("BRASTON_KNOWS_ENELIA_DEAD","GLOBAL",1)
+    FloatMessage(Myself,17051)  // ~"Ennelia!"~
+    Continue()
+END
+
+IF
+  HasItemInSlot("00swdL02",Myself,SLOT_WEAPON0)
+  HasItem("00swdL02",Myself)  // ~Masterwork Longsword~
+THEN
+  RESPONSE #100
+    XEquipItem("00swdL02",Myself,SLOT_WEAPON0,TRUE)
+    EquipMostDamagingMelee()
+END
+
+IF
+  Global("BRASTON_SAW_ENNELIA","MYAREA",0)
+  See("Ennelia",0)  // Ennelia
+THEN
+  RESPONSE #100
+    SetGlobal("ENNELIA_BRASTON_TEAM","MYAREA",1)
+    StartTimer(4,5)
+    SetGlobal("BRASTON_SAW_ENNELIA","MYAREA",1)
+    FloatMessage(Myself,17051)  // ~"Ennelia!"~
+END
+
+IF
+  Global("BRASTON_SAW_ENNELIA","MYAREA",0)
+  GlobalGT("30BRASTO_ESCAPE","GLOBAL",3)
+  !See("Ennelia",0)  // Ennelia
+THEN
+  RESPONSE #100
+    SetGlobal("ENNELIA_BRASTON_TEAM","MYAREA",1)
+    StartTimer(4,5)
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("BRASTON_SAW_ENNELIA","MYAREA",1)
+    FloatMessage(Myself,32199)  // ~"Ennelia! Where are you?"~
+END
+
+IF
+  Global("ENNELIA_BRASTON_TEAM","MYAREA",0)
+  !Global("BRASTON_SAW_ENNELIA","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ENNELIA_BRASTON_TEAM","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("SAW_ENEMY","LOCALS",0)
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,32099)  // ~"Incoming!"~
+    SetGlobal("SAW_ENEMY","LOCALS",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  !HasWeaponEquiped(Myself)
+  AttackedBy([ENEMY],0)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,90)
+END
+
+IF
+  !Global("SAW_ENEMY","LOCALS",0)
+  ActionListEmpty()
+  !HasWeaponEquiped(Myself)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+END
+
+IF
+  HasWeaponEquiped(Myself)
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  HasWeaponEquiped(Myself)
+  AttackedBy([ENEMY],0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Global("SAW_ENEMY","LOCALS",0)
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    SetGlobal("SAW_ENEMY","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("BRASTON_SAW_ENNELIA","MYAREA",1)
+  Global("SAW_ENEMY","LOCALS",0)
+  !TimerActive(4)
+  See("Ennelia",0)  // Ennelia
+THEN
+  RESPONSE #100
+    SetGlobal("BRASTON_SAW_ENNELIA","MYAREA",2)
+    StartTimer(4,5)
+    FloatMessage(Myself,17057)  // ~"Sweet Ennelia..."~
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Global("BRASTON_ENNELIA_LEAVE","GLOBAL",0)
+  !TimerActive(4)
+  Or(2)
+    Global("BRASTON_SAW_ENNELIA","MYAREA",2)
+    !Global("BRASTON_KNOWS_ENELIA_DEAD","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+

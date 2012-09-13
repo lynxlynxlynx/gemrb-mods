@@ -1,0 +1,10 @@
+IF
+  !TimerActive(22)
+  !See(NearestEnemyOf(Myself),0)
+  !Range(NearestPC,4,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+    StartTimer(22,5)
+END
+

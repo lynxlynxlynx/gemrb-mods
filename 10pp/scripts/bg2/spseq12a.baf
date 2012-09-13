@@ -1,0 +1,30 @@
+IF
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  CheckStatLT(Myself,1,STONESKINS)
+  Global("Contingency1","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Contingency1","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+    DisplayString(Myself,73139)  // ~Contingency - Fired~
+    ReallyForceSpell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  OR(3)
+    See(NearestEnemyOfType([0.0.0.BARD_ALL]))
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.SORCERER]))
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  Global("MinorSequencer1","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MinorSequencer1","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+    DisplayString(Myself,8635)  // ~Minor Sequencer Activated~
+    ReallyForceSpell(Myself,WIZARD_SHIELD)
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+END
+

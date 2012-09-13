@@ -1,0 +1,9 @@
+IF
+  See("kalwrk01")  // ~Circus Performer~
+  !Dead("kalwrk01")  // ~Circus Performer~
+  See([PC])
+THEN
+  RESPONSE #100
+    AttackReevaluate("kalwrk01",45)
+END
+

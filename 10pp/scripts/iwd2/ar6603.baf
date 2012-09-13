@@ -1,0 +1,24 @@
+IF
+  Global("PlayNiceSounds","MYAREA",0)
+  Global("SH_Perform_Illmater_Ritual","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("PlayNiceSounds","MYAREA",1)
+    OpenDoor("AR6603_Statue")
+    Deactivate("evil_whispers")
+    Deactivate("acid_loop")
+    Deactivate("evil_rodents")
+    Activate("happy_birds")
+    Activate("magic_tone")
+    Activate("pond_loop")
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

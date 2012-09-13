@@ -1,0 +1,37 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("LoversTrigger","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27204)  // ~The two skeletons lie entwined in each others arms, an eternal embrace. One of the skeletons is slightly smaller than the other. On its bony finger there is a golden ring. You could remove it if you wish to.~
+    SetGlobal("LoversTrigger","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("LoversTrigger","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27228)  // ~You remove the ring from the finger and it tingles in your palm. There is obviously something special about the ring. ~
+    GiveItemCreate("MISC5R",LastTrigger,0,0,0)  // ~The Lover's Ring~
+    SetGlobal("LoversTrigger","GLOBAL",2)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27233)  // ~There is nothing else that you can gain from these two poor souls. Whatever tale accompanied their demise in this pit may never be told.~
+END
+

@@ -1,0 +1,31 @@
+IF
+  PartyHasItem("misc6a")  // ~Tanner's Letter~
+  Global("FoundTheLetter","AR0502",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CreateFaelMerchant","GLOBAL",1)
+    SetGlobal("FoundTheLetter","AR0502",1)
+END
+
+IF
+  Global("TannerExposed","GLOBAL",0)
+  Global("TannerMove","GLOBAL",1)
+  Global("DidItByAccident","AR0502",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TannerExposed","GLOBAL",1)
+    SetGlobal("DidItByAccident","AR0502",1)
+END
+
+IF
+  Global("TannerMove","GLOBAL",1)
+  GlobalTimerExpired("TooLateTanner","GLOBAL")
+  !Global("TannerRunsAway","AR0502",1)
+  Global("TannerAlreadyGone","AR0502",0)
+  Exists("Tanner")  // ~Rejiek Hidesman~
+THEN
+  RESPONSE #100
+    SetGlobal("TannerAlreadyGone","AR0502",1)
+    ActionOverride("Tanner",DestroySelf())
+END
+

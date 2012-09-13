@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hargrim")  // 
+    DisableSpriteDither()
+    DisableFogDither()
+    SetCorpseEnabled("AR1501_N",1)
+    SetCorpseEnabled("AR1501_K",0)
+    FadeFromBlack()
+    Wait(3)
+    EnableSpriteDither()
+    EnableFogDither()
+    GlobalSet("Game_Over","GLOBAL",5)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    DestroySelf()
+END
+

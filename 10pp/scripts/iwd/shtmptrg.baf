@@ -1,0 +1,34 @@
+IF
+  GlobalLT("ASTROLAB","GLOBAL",4)
+  PartyHasItem("PIECE1")  // ~Piece of broken machinery~
+  PartyHasItem("PIECE2")  // ~Piece of broken machinery~
+  PartyHasItem("PIECE3")  // ~Piece of broken machinery~
+  PartyHasItem("PIECE4")  // ~Piece of broken machinery~
+  Entered([PC])
+THEN
+  RESPONSE #100
+    TakePartyItem("PIECE1")
+    TakePartyItem("PIECE2")
+    TakePartyItem("PIECE3")
+    TakePartyItem("PIECE4")
+    SetGlobal("ASTROLAB","GLOBAL",4)
+    AddXPVar("LEVEL_6_AVERAGE",9236)  // ~You combine your piece of machinery with this part of the astrolabe.~
+END
+
+IF
+  GlobalLT("ASTROLAB","GLOBAL",4)
+  PartyHasItem("PIECE1")  // ~Piece of broken machinery~
+  PartyHasItem("PIECE2")  // ~Piece of broken machinery~
+  PartyHasItem("PIECE3")  // ~Piece of broken machinery~
+  PartyHasItem("PIECE4")  // ~Piece of broken machinery~
+  Opened([PC])
+THEN
+  RESPONSE #100
+    TakePartyItem("PIECE1")
+    TakePartyItem("PIECE2")
+    TakePartyItem("PIECE3")
+    TakePartyItem("PIECE4")
+    SetGlobal("ASTROLAB","GLOBAL",4)
+    AddXPVar("LEVEL_6_AVERAGE",9236)  // ~You combine your piece of machinery with this part of the astrolabe.~
+END
+

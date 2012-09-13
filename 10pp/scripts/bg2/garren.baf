@@ -1,0 +1,111 @@
+IF
+  !Detect(Player1)
+  NumberOfTimesTalkedTo(0)
+  GlobalLT("DomainPaladinBattle","GLOBAL",4)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  Detect(Player1)
+  NumberOfTimesTalkedTo(0)
+  GlobalLT("DomainPaladinBattle","GLOBAL",4)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  NumberOfTimesTalkedTo(1)
+  Detect(Player1)
+  AreaCheck("ar1204")
+  Global("Kidnap","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  NumTimesTalkedToGT(1)
+  Detect(Player1)
+  AreaCheck("ar1204")
+  OR(2)
+    Global("Kidnap","GLOBAL",1)
+    Global("Kidnap","GLOBAL",2)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("FollowGarren","GLOBAL",1)
+  Global("DomainAlreadyTeleported","LOCALS",0)
+  Global("Kidnap","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DomainAlreadyTeleported","LOCALS",1)
+    EscapeAreaMove("ar1204",422,430,0)
+END
+
+IF
+  Global("FollowedGarren","GLOBAL",1)
+  Global("DomainAlreadyTeleported","LOCALS",0)
+  GlobalLT("DomainPaladinBattle","GLOBAL",4)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("DomainAlreadyTeleported","LOCALS",1)
+    StartCutSceneMode()
+    StartCutScene("Cut21a")
+END
+
+IF
+  Global("DomainPaladinBattle","GLOBAL",3)
+  Gender(Player1,MALE)
+THEN
+  RESPONSE #100
+    SetGlobal("DomainPaladinBattle","GLOBAL",4)
+    StartCutSceneMode()
+    StartCutScene("Cut20a")
+END
+
+IF
+  Global("StartKidnap","LOCALS",0)
+  OR(2)
+    Global("Kidnap","GLOBAL",1)
+    Global("Kidnap","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Face(0)
+END
+
+IF
+  Global("DomainPaladinBattle","GLOBAL",3)
+  Gender(Player1,FEMALE)
+THEN
+  RESPONSE #100
+    SetGlobal("DomainPaladinBattle","GLOBAL",4)
+    StartCutSceneMode()
+    StartCutScene("Cut20b")
+END
+
+IF
+  Global("DomainPaladinBattle","GLOBAL",5)
+THEN
+  RESPONSE #100
+    SetGlobal("DomainPaladinBattle","GLOBAL",6)
+    MoveToPointNoInterrupt([829.3184])
+    DestroySelf()
+END
+
+IF
+  OR(2)
+    Allegiance("garkid01",ENEMY)  // ~Iltha~
+    Allegiance("garkid02",ENEMY)  // ~Taar~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

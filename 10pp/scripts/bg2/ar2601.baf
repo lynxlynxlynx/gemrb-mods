@@ -1,0 +1,14 @@
+IF
+  OnCreation()
+  Global("DrizztEncounter","AR2601",0)
+THEN
+  RESPONSE #100
+    Explore()
+    SetGlobal("DrizztEncounter","AR2601",1)
+    CreateCreature("c6drizz",[692.332],2)  // ~Drizzt~
+    CreateCreature("c6wulf",[673.256],2)  // ~Wulfgar~
+    CreateCreature("c6catti",[752.294],2)  // ~Catti Brie~
+    CreateCreature("c6bruen",[790.337],2)  // ~Bruenor~
+    CreateCreature("c6regis",[741.225],2)  // ~Regis~
+END
+

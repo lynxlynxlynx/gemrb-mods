@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("pircor04")  // 
+    Wait(1)
+    MoveBetweenAreas("ar1609",[462.224],0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    FadeToColor([20.0],0)
+    Wait(2)
+    LeaveAreaLUAPanic("AR1609","",[416.263],14)
+    LeaveAreaLUA("AR1609","",[416.263],14)
+    ActionOverride(Player2,LeaveAreaLUA("AR1609","",[372.296],1))
+    ActionOverride(Player3,LeaveAreaLUA("AR1609","",[467.298],1))
+    ActionOverride(Player4,LeaveAreaLUA("AR1609","",[512.337],1))
+    ActionOverride(Player5,LeaveAreaLUA("AR1609","",[431.402],1))
+    ActionOverride(Player6,LeaveAreaLUA("AR1609","",[493.401],1))
+    MultiPlayerSync()
+    Wait(1)
+    FadeFromColor([20.0],0)
+    EndCutSceneMode()
+END
+

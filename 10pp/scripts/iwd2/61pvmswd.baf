@@ -1,0 +1,11 @@
+IF
+  Global("61PlayerFoundMandalSword","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    AddJournalEntry(35758)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+    SetGlobal("61PlayerFoundMandalSword","GLOBAL",1)
+END
+

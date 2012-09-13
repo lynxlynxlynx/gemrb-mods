@@ -1,0 +1,8 @@
+IF
+  See([PC])
+  Delay(45)
+THEN
+  RESPONSE #100
+    StartDialog("obe",[PC])
+END
+

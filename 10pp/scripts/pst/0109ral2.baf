@@ -1,0 +1,41 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Buried_Villagers","AR0109",-1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([657.556])
+    MoveToPoint([652.633])
+    MoveToPoint([1169.1151])
+    MoveToPoint([1456.1151])
+    MoveToPoint([1632.1331])
+    MoveToPoint([1632.1672])
+    MoveToPoint([1788.1672])
+    MoveToPoint([2023.1912])
+    MoveToPoint([2579.1912])
+    MoveToPoint([2579.1912])
+    MoveToPoint([2898.2071])
+    MoveToPoint([2898.1990])
+    MoveToPoint([3053.1831])
+    MoveToPoint([2870.1634])
+    MoveToPoint([2870.1509])
+    MoveToPoint([2780.1419])
+    MoveToPoint([2777.1369])
+    MoveToPoint([2498.1093])
+    MoveToPoint([2244.1093])
+    MoveToPoint([2138.1185])
+    MoveToPoint([1747.1185])
+    MoveToPoint([1665.1105])
+    MoveToPoint([1298.1105])
+    MoveToPoint([826.637])
+    MoveToPoint([700.607])
+    MoveToPoint([612.489])
+    IncrementGlobal("Buried_Villagers","AR0109",-1)
+    DestroySelf()
+END
+

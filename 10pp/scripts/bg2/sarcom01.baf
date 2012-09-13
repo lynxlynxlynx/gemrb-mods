@@ -1,0 +1,30 @@
+IF
+  Detect([PC])
+  Global("Display","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,71220)  // ~Their catapults have been bombarding us for weeks.~
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,71222)  // ~When will it end?~
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,71223)  // ~Why have we been forsaken?~
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,71225)  // ~The Bhaalspawn have doomed us all.~
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,71227)  // ~I wish all the Bhaalspawn were dead!~
+END
+
+IF
+  Detect([PC])
+  Global("Display","LOCALS",1)
+  Delay(20)
+THEN
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",0)
+END
+

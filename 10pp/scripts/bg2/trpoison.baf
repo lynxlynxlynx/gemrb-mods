@@ -1,0 +1,36 @@
+IF
+  Detect([GOODCUTOFF])
+  Global("FanOn","AR3016",1)
+  !GlobalTimerNotExpired("PoisonCloudTimer1","AR3016")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("PoisonCloudTimer1","AR3016",50)
+    ReallyForceSpell(Myself,POISONOUS_CLOUD)
+END
+
+IF
+  Detect([GOODCUTOFF])
+  Global("FanOn","AR3016",2)
+  OR(3)
+    OpenState("DOOR02",FALSE)  // DOOR02
+    OpenState("DOOR03",FALSE)  // DOOR03
+    OpenState("DOOR04",FALSE)  // DOOR04
+  !GlobalTimerNotExpired("PoisonCloudTimer1","AR3016")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("PoisonCloudTimer1","AR3016",50)
+    ReallyForceSpell(Myself,POISONOUS_CLOUD)
+END
+
+IF
+  Global("FanOn","AR3016",2)
+  OpenState("DOOR02",TRUE)  // DOOR02
+  OpenState("DOOR03",TRUE)  // DOOR03
+  OpenState("DOOR04",TRUE)  // DOOR04
+  GlobalTimerNotExpired("PoisonCloudTimer1","AR3016")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("PoisonCloudTimer1","AR3016",1)
+    ForceSpell(Myself,SPECIAL_SWEET_AIR)
+END
+

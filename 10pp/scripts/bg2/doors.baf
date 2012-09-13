@@ -1,0 +1,9 @@
+IF
+  IsOverMe([PC])
+  Global("ShowText","AR1401",0)
+THEN
+  RESPONSE #50
+    DisplayString(Myself,46059)  // ~You will need to obtain the Symbol of Amaunator to open this door. The inscription on the door says that the symbol has been broken into three parts so that the darkness will never escape this prison.~
+    SetGlobal("ShowText","AR1401",1)
+END
+

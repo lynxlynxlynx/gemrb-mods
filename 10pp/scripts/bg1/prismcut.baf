@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Greywolf")  // 
+    MoveToPoint([785.2742])
+    StartDialog("greywo",Player1)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,10 @@
+IF
+  Or(2)
+    Opened([PC])
+    Entered([PC])
+THEN
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,TRAP_ARROW_FIRE)
+END
+

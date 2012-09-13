@@ -1,0 +1,67 @@
+IF
+  Global("SpawnDGTrolls","AR1900",2)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([PC])
+  Global("SpawnDGTrolls","AR1900",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDGTrolls","AR1900",1)
+    CreateCreature("DGTROL01",[1850.1537],8)  // ~Troll~
+    CreateCreature("DGTROL01",[2002.1587],8)  // ~Troll~
+    CreateCreature("DGTROL01",[2095.1632],8)  // ~Troll~
+END
+
+IF
+  !See([ENEMY])
+  Dead("dgdru01")  // ~Druid~
+  Dead("dgmag01")  // ~Mage~
+  See([PC])
+  Global("SpawnDGTrolls","AR1900",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  See([0.0.TROLL.MAGE])
+  !StateCheck([0.0.TROLL.MAGE],STATE_DEAD)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate([0.0.TROLL.MAGE],15)
+END
+
+IF
+  See(SecondNearest([0.0.TROLL.MAGE]))
+  !StateCheck(SecondNearest([0.0.TROLL.MAGE]),STATE_DEAD)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate([0.0.TROLL.MAGE],15)
+END
+
+IF
+  See([0.0.TROLL])
+  Range([0.0.TROLL.FIGHTER],4)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate([0.0.TROLL.FIGHTER],15)
+END
+
+IF
+  See([0.0.TROLL.FIGHTER])
+  !Range([0.0.TROLL.FIGHTER],4)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate([0.0.TROLL.FIGHTER],15)
+END
+

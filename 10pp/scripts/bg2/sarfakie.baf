@@ -1,0 +1,36 @@
+IF
+  See("sargrd12")  // ~Militia Guard~
+  !GlobalTimerNotExpired("AttackWall","LOCALS")
+THEN
+  RESPONSE #20
+    ReallyForceSpellRES("jwsiege","sargrd12")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",20)
+  RESPONSE #80
+    ReallyForceSpellRES("jwarrow","sargrd12")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",3)
+END
+
+IF
+  See("sargrd13")  // ~Militia Guard~
+  !GlobalTimerNotExpired("AttackWall","LOCALS")
+THEN
+  RESPONSE #20
+    ReallyForceSpellRES("jwsiege","sargrd13")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",20)
+  RESPONSE #80
+    ReallyForceSpellRES("jwarrow","sargrd13")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",3)
+END
+
+IF
+  See("sargrd14")  // ~Militia Guard~
+  !GlobalTimerNotExpired("AttackWall","LOCALS")
+THEN
+  RESPONSE #20
+    ReallyForceSpellRES("jwsiege","sargrd14")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",20)
+  RESPONSE #80
+    ReallyForceSpellRES("jwarrow","sargrd14")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",3)
+END
+

@@ -1,0 +1,8 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("1800ptn4")
+END
+

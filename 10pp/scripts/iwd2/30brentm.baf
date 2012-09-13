@@ -1,0 +1,21 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  Or(2)
+    Global("ENNELIA_BRASTON_TEAM","MYAREA",2)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !Global("ENNELIA_BRASTON_TEAM","MYAREA",2)
+  !Global("ENNELIA_BRASTON_TEAM","MYAREA",0)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("ENNELIA_BRASTON_TEAM","MYAREA",2)
+    Continue()
+END
+

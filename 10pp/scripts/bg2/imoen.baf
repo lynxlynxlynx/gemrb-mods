@@ -1,0 +1,123 @@
+IF
+  Global("Rested","LOCALS",0)
+  PartyRested()
+THEN
+  RESPONSE #100
+    SetGlobal("Rested","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  HP(Myself,1)
+  Global("ImoenRunning","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenRunning","LOCALS",1)
+    StartDialogue("ImoenP",Player1)
+END
+
+IF
+  PartyHasItem("Misc4e")  // ~Energy Cells~
+  Global("Rielev","LOCALS",0)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  PartyHasItem("Misc4e")  // ~Energy Cells~
+  Global("Rielev","LOCALS",0)
+  InParty(Myself)
+  !Detect(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("Rielev","LOCALS",1)
+END
+
+IF
+  See("Ulene")  // Ulene
+  Global("ImoenDryad","AR0602",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenDryad","AR0602",2)
+    StartDialogNoSet(Myself)
+END
+
+IF
+  Dead("DuegarClanChief")  // DuegarClanChief
+  Global("ImoenIlyich","LOCALS",0)
+  CombatCounter(0)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenIlyich","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Dead("DuegarClanChief")  // DuegarClanChief
+  Global("ImoenIlyich","LOCALS",0)
+  !Detect(Player1)
+  CombatCounter(0)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenIlyich","LOCALS",2)
+END
+
+IF
+  Dead("Clone1")  // ~Escaped Clone~
+  Global("ImoenClone1","LOCALS",0)
+  CombatCounter(0)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenClone1","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Dead("Clone1")  // ~Escaped Clone~
+  Global("ImoenClone1","LOCALS",0)
+  !Detect(Player1)
+  CombatCounter(0)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenClone1","LOCALS",2)
+END
+
+IF
+  Global("SawKhalid","AR0603",1)
+  Global("ImoenKhalid","LOCALS",0)
+  See("Jaheira")  // Jaheira
+THEN
+  RESPONSE #100
+    StartDialogNoSet("Jaheira")
+END
+
+IF
+  Global("SawKhalid","AR0603",1)
+  Global("ImoenKhalid","LOCALS",0)
+  !See("Jaheira")  // Jaheira
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenKhalid","LOCALS",1)
+END
+
+IF
+  Global("ImoenEllesime","AR0602",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("ImoenEllesime","AR0602",1)
+  !Detect(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("ImoenEllesime","AR0602",2)
+END
+

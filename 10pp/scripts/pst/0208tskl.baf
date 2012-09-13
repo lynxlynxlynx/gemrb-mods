@@ -1,0 +1,21 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("0208_Trap_Spawn","GLOBAL",0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([4042.2503])
+END
+

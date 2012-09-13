@@ -1,0 +1,95 @@
+IF
+  Dead("Phaere")  // Phaere
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,4417)  // ~Fools! Phaere has died and all our lives are now forfeit as well.~
+    Enemy()
+END
+
+IF
+  Detect(Player1)
+  !Allegiance(Myself,ENEMY)
+  Range(LastSeenBy(Myself),10)
+  AreaCheck("AR2200")
+  Global("SolaufeinJob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  !See("Phaere")  // Phaere
+  AreaCheck("AR2100")
+  Detect([PC])
+  Global("udDrowPlot","GLOBAL",5)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("udMoveToBeholder","GLOBAL",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    CreateVisualEffectObject("SPDIMNDR","Phaere")
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    Wait(1)
+    ActionOverride("Phaere",JumpToPoint([4021.3390]))
+    JumpToPoint([3988.3304])
+    Wait(2)
+    ActionOverride("Phaere",MoveToPoint([4021.3390]))
+    MoveToPoint([3988.3304])
+    DialogueInterrupt(TRUE)
+    SetGlobal("udMoveToBeholder","GLOBAL",2)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Dead("udbeho01")  // ~Beholder~
+  GlobalLT("PhaereJob","GLOBAL",4)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("PhaereJob","GLOBAL",4)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Dead("udsvir08")  // ~Svirfneblin Leader~
+  !Allegiance(Myself,ENEMY)
+  NumDead("udsvir07",4)
+  Detect([PC])
+  Global("GnomePatrolDead","AR2100",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SolaufeinJob","GLOBAL",6)
+    SetGlobal("GnomePatrolDead","AR2100",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("SolaufeinJob","GLOBAL",8)
+  Global("removeScript","LOCALS",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("removeScript","LOCALS",1)
+    ChangeAIScript("",CLASS)
+END
+
+IF
+  Global("SolaufeinJob","GLOBAL",9)
+  Global("spokeTrigger","LOCALS",0)
+  !Allegiance(Myself,ENEMY)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    Wait(2)
+    StartDialogNoSet(LastSeenBy(Myself))
+    SetGlobal("spokeTrigger","LOCALS",1)
+END
+

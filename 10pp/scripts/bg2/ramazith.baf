@@ -1,0 +1,8 @@
+IF
+  GlobalTimerExpired("Ramazith","GLOBAL")
+  GlobalLT("RamazithMove","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+

@@ -1,0 +1,96 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MANTLE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MANTLE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_STUN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("cont","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("cont","LOCALS",1)
+    DisplayString(Myself,3302)  // ~Chain Contingency - Spell Turning~
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    DisplayString(Myself,40252)  // ~Contingency - Protection from Magical Weapons~
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_OTILUKES_RESILIENT_SPHERE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_OTILUKES_RESILIENT_SPHERE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_TELEPORT_FIELD)
+  !See("sahbeh01")  // ~Spectator~
+  !See("sahimp01")  // ~Imp~
+  !See("sahimp02")  // ~Imp~
+  !See("sahimp03")  // ~Elminster~
+  !See("sahimp04")  // ~Khelben~
+  !See("sahimp05")  // ~Alustriel~
+  !See("sahimp06")  // ~Piergeiron~
+  !See("sahimp07")  // ~Drizzt~
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TELEPORT_FIELD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FIRE_SHIELD_RED)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_FIRE_SHIELD_RED)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_IMPROVED_INVISIBILITY)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_INVISIBILITY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHAOS)
+  !See("sahbeh01")  // ~Spectator~
+  !See("sahimp01")  // ~Imp~
+  !See("sahimp02")  // ~Imp~
+  !See("sahimp03")  // ~Elminster~
+  !See("sahimp04")  // ~Khelben~
+  !See("sahimp05")  // ~Alustriel~
+  !See("sahimp06")  // ~Piergeiron~
+  !See("sahimp07")  // ~Drizzt~
+  GlobalGT("attacks","LOCALS",8)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHAOS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    IncrementGlobal("attacks","LOCALS",1)
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

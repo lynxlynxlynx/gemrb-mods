@@ -1,0 +1,32 @@
+IF
+  Global("PloyerMages","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("PloyerMages","GLOBAL",2)
+  !Dead("Ployer")  // Ployer
+  See("Ployer")  // Ployer
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    Wait(1)
+    MoveToObject("Ployer")
+    Kill("Ployer")
+    Wait(1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("TerreceSpawn","GLOBAL",2)
+  !Dead("Ployer")  // Ployer
+THEN
+  RESPONSE #100
+    Wait(1)
+    SetGlobal("TerreceSpawn","GLOBAL",3)
+    StartDialogNoSet([PC])
+END
+

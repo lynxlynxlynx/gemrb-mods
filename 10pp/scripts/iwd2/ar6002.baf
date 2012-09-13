@@ -1,0 +1,54 @@
+IF
+  Global("6001_Fight","GLOBAL",1)
+  !Global("6002_RestingDisabled","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("6002_RestingDisabled","MYAREA",1)
+    AllowAreaResting(FALSE)
+    DisplayMessage(35287)  // ~You hear the sounds of battle - you don't think you will be able to rest until the forces in Kuldahar are defeated. ~
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalGT("6001_Fight","GLOBAL",1)
+  !Global("6002_RestingDisabled","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("6002_RestingDisabled","MYAREA",2)
+    AllowAreaResting(TRUE)
+    Continue()
+END
+
+IF
+  Global("Kuldahar_6002_UndeadKilled","GLOBAL",0)
+  !Global("6001_Fight","GLOBAL",1)
+  !Exists([ENEMY.UNDEAD][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_6002_UndeadKilled","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Kuldahar_6000_UndeadKilled","GLOBAL",1)
+  Global("Kuldahar_6002_UndeadKilled","GLOBAL",1)
+  Global("Kuldahar_6003_UndeadKilled","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Kuldahar_Undead_Cleared","GLOBAL",1)
+    SetGlobal("Kuldahar_6000_UndeadKilled","GLOBAL",2)
+    SetGlobal("Kuldahar_6002_UndeadKilled","GLOBAL",2)
+    SetGlobal("Kuldahar_6003_UndeadKilled","GLOBAL",2)
+    AddXPVar("Level_12_Hard",34094)  // ~You have cleansed the Kuldahar Valley of the forces of evil. ~
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

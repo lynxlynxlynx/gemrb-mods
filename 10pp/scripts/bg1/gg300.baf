@@ -1,0 +1,8 @@
+IF
+  NumberOfTimesTalkedTo(30)
+THEN
+  RESPONSE #100
+    SetNumTimesTalkedTo(31)
+    GiveGoldForce(300)
+END
+

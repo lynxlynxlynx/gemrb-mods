@@ -1,0 +1,67 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("ServantsKilled","AR0205",1)
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("DisturbanceLevel","AR0205",1)
+    ChangeAIScript("0205made",OVERRIDE)
+END
+
+IF
+  Died([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("DisturbanceLevel","AR0205",1)
+    ChangeAIScript("0205made",OVERRIDE)
+END
+
+IF
+  Global("DisturbanceLevel","AR0205",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeAIScript("0205made",OVERRIDE)
+END
+
+IF
+  AttackedBy([PC],RANGED)
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("DisturbanceLevel","AR0205",1)
+    ChangeAIScript("0205made",OVERRIDE)
+END
+
+IF
+  HitBy([PC],MAGIC)
+THEN
+  RESPONSE #100
+    GlobalSet("DisturbanceLevel","AR0205",1)
+    Enemy()
+    ChangeAIScript("0205made",OVERRIDE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    ChangeAIScript("0205made",OVERRIDE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0205made",OVERRIDE)
+END
+

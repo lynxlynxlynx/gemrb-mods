@@ -1,0 +1,7 @@
+IF
+  Dead("sahpr1")  // ~Royal High Priestess Senityili~
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+

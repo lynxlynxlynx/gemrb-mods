@@ -1,0 +1,11 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SpawnZombies","LOCALS",0)
+THEN
+  RESPONSE #100
+    CreateCreatureOffScreen("ZOMBJU01",0)  // ~Zombie~
+    CreateCreatureOffScreen("ZOMBJU01",0)  // ~Zombie~
+    CreateCreatureOffScreen("ZOMBJU01",0)  // ~Zombie~
+    SetGlobal("SpawnZombies","LOCALS",1)
+END
+

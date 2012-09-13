@@ -1,0 +1,33 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("TriggeredCrushTrap","AR1512",1)
+    Kill(LastTrigger)
+    SmallWait(2)
+    OpenDoor("Trap01")
+    PlaySound("am1300d")
+    Wait(1)
+    CloseDoor("Trap01")
+    PlaySound("am1300d")
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Dead("astTrigger)")  // astTrigger)
+  Global("TriggeredCrushTrap","AR1512",1)
+THEN
+  RESPONSE #100
+    SetGlobal("TriggeredCrushTrap","AR1512",0)
+    Kill(LastTrigger)
+END
+
+IF
+  Dead("astTrigger)")  // astTrigger)
+  Global("TriggeredCrushTrap","AR1512",1)
+THEN
+  RESPONSE #100
+    SetGlobal("TriggeredCrushTrap","AR1512",0)
+END
+

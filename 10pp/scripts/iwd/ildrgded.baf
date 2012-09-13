@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GEM")  // 
+    MultiPlayerSync()
+    ClearAllActions()
+    MultiPlayerSync()
+    SetGlobal("GEM_ACTIVE","GLOBAL",1)
+    Kill("ICASARACHT")
+    SetVisualRange(50)
+    MoveViewPointUntilDone([943.839],VERY_FAST)
+    ReallyForceSpell(Myself,INNATE_DRAGON_GEM_EFFECTS)
+    Wait(2)
+    HideCreature(Myself,FALSE)
+    EquipItem("RING91",0)
+    Wait(3)
+    MoveViewObject([PC][0.0.10000.10000],INSTANT)
+    SetVisualRange(0)
+    Wait(1)
+    UnhideGUI()
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

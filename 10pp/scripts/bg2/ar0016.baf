@@ -1,0 +1,21 @@
+IF
+  OnCreation()
+  Global("Deactivation0016","AR0016",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivation0016","AR0016",1)
+    TriggerActivation("TRAN0017a",FALSE)
+    TriggerActivation("TRAN0017b",FALSE)
+    TriggerActivation("INFO0017a",TRUE)
+    TriggerActivation("INFO0017b",TRUE)
+END
+
+IF
+  Global("TUTFAM01","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,Face(0))
+    DisplayStringHead(Player1,62026)  // ~You may not cast the find familiar spell in the tutorial.~
+    SetGlobal("TUTFAM01","GLOBAL",0)
+END
+

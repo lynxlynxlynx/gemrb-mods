@@ -1,0 +1,7 @@
+IF
+  IsOverMe([PC])
+THEN
+  RESPONSE #100
+    ApplySpell(LastTrigger,WIZARD_FLAME_ARROW)
+END
+

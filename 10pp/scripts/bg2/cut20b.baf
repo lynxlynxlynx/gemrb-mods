@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("garren")  // 
+    MoveToPointNoInterrupt([486.424])
+    SetGlobal("ddSpawnGarrenKid","GLOBAL",1)
+    EndCutSceneMode()
+    Deactivate("garren")
+END
+

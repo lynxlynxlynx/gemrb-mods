@@ -1,0 +1,35 @@
+IF
+  !InParty(Myself)
+  HPGT(Myself,0)
+THEN
+  RESPONSE #100
+    SetLeavePartyDialogueFile()
+    Dialog(Player1)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  BreakingPoint()
+THEN
+  RESPONSE #100
+    SetGlobal("IHATEYOUALL","LOCALS",1)
+    SetLeavePartyDialogueFile()
+    Wait(1)
+    StartDialogNoSet(Player1)
+    ChangeAIScript("",DEFAULT)
+    SetGlobal("IHATEYOUALL","LOCALS",0)
+END
+
+IF
+  Global("IHATEYOUALL","LOCALS",1)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    SetLeavePartyDialogueFile()
+    Wait(1)
+    StartDialogNoSet(Player1)
+    ChangeAIScript("",DEFAULT)
+    LeaveParty()
+    SetGlobal("IHATEYOUALL","LOCALS",0)
+END
+

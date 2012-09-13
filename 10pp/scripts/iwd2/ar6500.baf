@@ -1,0 +1,49 @@
+IF
+  !Global("SH_BarracksGuardsReset","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SH_BarracksGuardsReset","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("RitualCutscene","MYAREA",0)
+  Global("SH_Perform_Illmater_Ritual","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CorrectStatuesTimer","MYAREA",100)
+    SetGlobal("RitualCutscene","MYAREA",1)
+    SetRestEncounterChance(0,0)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("65cStatu")
+END
+
+IF
+  Global("RitualCutscene","MYAREA",1)
+  GlobalTimerExpired("CorrectStatuesTimer","MYAREA")
+  Global("SH_Perform_Illmater_Ritual","GLOBAL",4)
+  OpenState("AR6500_Statues",FALSE)  // AR6500_Statues
+THEN
+  RESPONSE #100
+    OpenDoor("AR6500_Statues")
+END
+
+IF
+  Global("Explore","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Explore","MYAREA",1)
+    Explore()
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,26 @@
+IF
+  Global("areawarning","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobal("areawarning","LOCALS",0)
+END
+
+IF
+  Global("areawarning","LOCALS",1)
+  HasItem("WAND16",Myself)  // ~Potion of Icedust~
+THEN
+  RESPONSE #100
+    ClearActions(Myself)
+    SetGlobal("areawarning","LOCALS",2)
+    UseItem("WAND16",Myself)  // ~Potion of Icedust~
+END
+
+IF
+  Global("areawarning","LOCALS",1)
+  !HasItem("WAND16",Myself)  // ~Potion of Icedust~
+THEN
+  RESPONSE #100
+    SetGlobal("areawarning","LOCALS",0)
+    MoveToObject([PC])
+END
+

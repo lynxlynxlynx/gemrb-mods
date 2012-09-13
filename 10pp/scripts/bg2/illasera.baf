@@ -1,0 +1,127 @@
+IF
+  Global("IllaseraDead","GLOBAL",1)
+  Global("IllaseraDeadRun","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,66488)  // ~Let's get out of here!!!~
+    SetGlobal("IllaseraDeadRun","LOCALS",1)
+    EscapeArea()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("MirrorImage","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("MirrorImage","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SpellTrigger","LOCALS",0)
+  !Dead("yself)")  // yself)
+  LevelGT(Player1,21)
+  NumInPartyGT(1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39968)  // ~Spell Trigger - Fired~
+    DisplayString(Myself,43047)  // ~Spell Trigger - Fire Shield Red~
+    ReallyForceSpell(Myself,WIZARD_FIRE_SHIELD_RED)
+    SetGlobal("SpellTrigger","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  StateCheck(Myself,STATE_SILENCED)
+  HaveSpell(WIZARD_VOCALIZE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  Global("Summon","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+    SetGlobal("Summon","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("EasyIllaseraSpell","LOCALS",0)
+THEN
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MONSTER_SUMMONING_1)
+    SetGlobal("EasyIllaseraSpell","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("EasyIllaseraSpell","LOCALS",1)
+THEN
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_GREATER_MALISON)
+    SetGlobal("EasyIllaseraSpell","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("EasyIllaseraSpell","LOCALS",2)
+THEN
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_BLINDNESS)
+    SetGlobal("EasyIllaseraSpell","LOCALS",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("EasyIllaseraSpell","LOCALS",4)
+THEN
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_SLOW)
+    SetGlobal("EasyIllaseraSpell","LOCALS",5)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("EasyIllaseraSpell","LOCALS",5)
+THEN
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_SKULL_TRAP)
+    SetGlobal("EasyIllaseraSpell","LOCALS",6)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("IllaseraSpell","LOCALS",0)
+  LevelGT(Player1,18)
+  NumInPartyGT(1)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+    SetGlobal("IllaseraSpell","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("IllaseraSpell","LOCALS",1)
+  LevelGT(Player1,21)
+  NumInPartyGT(1)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+    SetGlobal("IllaseraSpell","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

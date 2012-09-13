@@ -1,0 +1,19 @@
+IF
+  Global("Leave","LOCALS",1)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    MoveToPointNoInterrupt([1866.1016])
+    SetGlobal("Leave","LOCALS",2)
+END
+
+IF
+  Global("Leave","LOCALS",2)
+THEN
+  RESPONSE #100
+    Polymorph(MAGE_FEMALE_HUMAN)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(2)
+    EscapeArea()
+END
+

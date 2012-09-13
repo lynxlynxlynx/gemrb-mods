@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    MoveToPoint([3178.2230])
+    Face(14)
+    MoveViewObject(Player1,VERY_FAST)
+    Wait(2)
+    CreateVisualEffect("SPPORTAL",[3330.2330])
+    CreateCreature("CHALCY01",[3330.2330],6)  // ~Cyric~
+    Wait(3)
+    ActionOverride("chalcy01",FaceObject(Player1))
+    Wait(1)
+    ActionOverride("chalcy01",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("KeepPlot","GLOBAL",13)
+    FadeToColor([30.0],0)
+    ActionOverride("kpcapt02",ChangeEnemyAlly(Myself,NEUTRAL))
+    ActionOverride("kpcapt02",MoveBetweenAreas("AR1306",[963.890],14))
+    Wait(1)
+    LeaveAreaLUAPanic("AR1306","",[1082.918],6)
+    LeaveAreaLUA("AR1306","",[1082.918],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR1306","",[1111.960],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR1306","",[1168.945],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR1306","",[1099.1005],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR1306","",[1166.1007],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR1306","",[1228.1005],6))
+    MultiPlayerSync()
+    FadeFromColor([30.0],0)
+    Wait(1)
+    ActionOverride("kpdomo01",StartDialogNoSet(Player1))
+END
+

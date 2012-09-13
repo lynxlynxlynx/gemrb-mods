@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("pircor06")  // 
+    MoveToPointNoInterrupt([460.360])
+    MoveViewPoint([460.360],VERY_FAST)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("pirmur05")  // 
+    Wait(3)
+    StartDialogNoSet([PC])
+END
+

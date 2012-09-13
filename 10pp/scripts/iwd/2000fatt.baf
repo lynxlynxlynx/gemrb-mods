@@ -1,0 +1,16 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,0)
+END
+
+IF
+  Internal(Myself,0,0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,2857)  // ~Shadowed Orc Shaman~
+    SetInternal(Myself,0,1)
+END
+

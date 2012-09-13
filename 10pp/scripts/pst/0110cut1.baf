@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Pharod")  // 
+    FadeToBlack()
+    StartSong(CHAR_ANNAH,[0.0],Normal)
+    CreateCreature("Annah",[800.1600])  // ~Tiefling~
+    DisableFogDither()
+    DisableSpriteDither()
+    MoveViewObject("Annah",INSTANT)
+    Wait(1)
+    StartCutScene("0110cut2")
+END
+

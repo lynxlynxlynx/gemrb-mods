@@ -1,0 +1,369 @@
+IF
+  !UnselectableVariable(0)
+  Global("Edwinfight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  UnselectableVariable(0)
+  See("Minsc")  // ~Minsc~
+  Global("Edwinfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MakeUnselectable(5000)
+END
+
+IF
+  UnselectableVariable(0)
+  See("Dynaheir")  // Dynaheir
+  Global("Edwinfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MakeUnselectable(5000)
+END
+
+IF
+  !UnselectableVariable(0)
+  Dead("Minsc")  // ~Minsc~
+  Dead("Dynaheir")  // Dynaheir
+  Global("Edwinfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Edwinfight","GLOBAL",0)
+    MakeUnselectable(0)
+END
+
+IF
+  !UnselectableVariable(0)
+  !See("Minsc")  // ~Minsc~
+  !See("Dynaheir")  // Dynaheir
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_ARMOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_LARLOCH_MINOR_DRAIN)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_MELF_ACID_ARROW)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_MELF_ACID_ARROW)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_FLAME_ARROW)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+THEN
+  RESPONSE #100
+    Attack("Dynaheir")
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_ARMOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_LARLOCH_MINOR_DRAIN)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_MELF_ACID_ARROW)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_MELF_ACID_ARROW)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_FLAME_ARROW)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_FLAME_ARROW)
+END
+
+IF
+  Global("Edwinfight","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  !Dead("Minsc")  // ~Minsc~
+THEN
+  RESPONSE #100
+    Attack("Minsc")
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+THEN
+  RESPONSE #100
+    DialogInterrupt(FALSE)
+    Continue()
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  Dead("Dynaheir")  // Dynaheir
+THEN
+  RESPONSE #100
+    DialogInterrupt(TRUE)
+    SetGlobal("Edwinfight2","GLOBAL",0)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_ARMOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_LARLOCH_MINOR_DRAIN)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_MELF_ACID_ARROW)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_MELF_ACID_ARROW)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell("Dynaheir",WIZARD_FLAME_ARROW)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Dynaheir")  // Dynaheir
+THEN
+  RESPONSE #100
+    Attack("Dynaheir")
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_ARMOR)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ARMOR)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_LARLOCH_MINOR_DRAIN)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_LARLOCH_MINOR_DRAIN)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_MELF_ACID_ARROW)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_MELF_ACID_ARROW)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+  HaveSpell(WIZARD_FLAME_ARROW)
+THEN
+  RESPONSE #100
+    Spell("Minsc",WIZARD_FLAME_ARROW)
+END
+
+IF
+  Global("Edwinfight2","GLOBAL",1)
+  See("Minsc")  // ~Minsc~
+THEN
+  RESPONSE #100
+    Attack("Minsc")
+END
+
+IF
+  GlobalTimerExpired("Edwin","GLOBAL")
+  Global("FindDynaheir","GLOBAL",0)
+  !Dead("Dynaheir")  // Dynaheir
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+
+IF
+  GlobalTimerExpired("Edwin","GLOBAL")
+  Global("FindDynaheir","GLOBAL",1)
+  !Dead("Dynaheir")  // Dynaheir
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

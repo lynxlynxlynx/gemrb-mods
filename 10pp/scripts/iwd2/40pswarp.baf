@@ -1,0 +1,10 @@
+IF
+  Or(2)
+    IsOverMe([0.0.BEETLE])
+    Entered([0.0.BEETLE])
+THEN
+  RESPONSE #100
+    IncrementGlobal("40BeetleSpawnRequests","GLOBAL",1)
+    ActionOverride(LastTrigger,DestroySelf())
+END
+

@@ -1,0 +1,125 @@
+IF
+  StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("prepspells","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_NORMAL_WEAPONS)
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_ELECTRICITY)
+    ApplySpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)
+    ForceSpell(Myself,WIZARD_SHADOW_DOOR)
+    SetGlobal("prepspells","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentLT(Myself,30)
+  !Dead("yself)")  // yself)
+  Global("prepspells","LOCALS",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("prepspells","LOCALS",2)
+END
+
+IF
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HaveSpell(WIZARD_CHAIN_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_CHAIN_LIGHTNING)
+END
+
+IF
+  HaveSpell(WIZARD_POWER_WORD_SILENCE)
+  Detect([PC.0.0.MAGE])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_SILENCE)
+END
+
+IF
+  HaveSpell(WIZARD_POWER_WORD_SILENCE)
+  Detect([PC.0.0.CLERIC_MAGE])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_SILENCE)
+END
+
+IF
+  HaveSpell(WIZARD_POWER_WORD_SILENCE)
+  Detect([PC.0.0.CLERIC])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_SILENCE)
+END
+
+IF
+  See([PC])
+  Allegiance(Myself,ENEMY)
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CHAOS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHAOS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_CONE_OF_COLD)
+  !Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CONE_OF_COLD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MONSTER_SUMMONING_3)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MONSTER_SUMMONING_3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

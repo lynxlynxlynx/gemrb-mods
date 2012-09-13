@@ -1,0 +1,21 @@
+IF
+  Global("GorfBystander","GLOBAL",1)
+  Range("gorf",2)  // ~Gorf the Squisher~
+THEN
+  RESPONSE #100
+    PlayDead(1)
+    Wait(1)
+    SetGlobal("GorfBystander","GLOBAL",2)
+    PlayDead(100)
+    EscapeArea()
+END
+
+IF
+  OR(2)
+    Global("GorfPlotOn","GLOBAL",2)
+    Dead("gorf")  // ~Gorf the Squisher~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

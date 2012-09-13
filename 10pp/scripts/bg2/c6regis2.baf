@@ -1,0 +1,60 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("AttackedDrizzt","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedDrizzt","GLOBAL",1)
+END
+
+IF
+  Global("AttackedDrizzt","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  OR(2)
+    Dead("C6Drizz2")  // ~Drizzt~
+    Dead("C6Catti2")  // ~Catti Brie~
+  Dead("C6Salia")  // ~Salia~
+  Dead("C6Mere")  // ~Meredath~
+THEN
+  RESPONSE #100
+    SetGlobal("C6DrizztHelp","GLOBAL",2)
+END
+
+IF
+  Global("C6DrizztHelp","GLOBAL",2)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Detect([PC])
+  Global("C6DrizztHelp","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("C6DrizztHelp","GLOBAL",1)
+END
+
+IF
+  Global("C6DrizztHelp","GLOBAL",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See([PC])
+  Dead("c6salia")  // ~Salia~
+  !Dead("c6drizz2")  // ~Drizzt~
+  Global("RegisHelpShout","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RegisHelpShout","GLOBAL",1)
+    SetGlobalTimer("BruenorShout","GLOBAL",4)
+    DisplayStringHead(Myself,54871)  // ~'Tis, hungry work, Drizzt. Can we eat after this?~
+END
+

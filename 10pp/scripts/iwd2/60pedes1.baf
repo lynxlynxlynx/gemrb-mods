@@ -1,0 +1,19 @@
+IF
+  Global("60PEDES1_Take_Stele","MYAREA",0)
+  PartyHasItem("60Stele1")  // ~Religious Stele~
+  OpenState("AR6050_IntPillar1",FALSE)  // AR6050_IntPillar1
+THEN
+  RESPONSE #100
+    SetGlobal("60PEDES1_Take_Stele","MYAREA",1)
+    TakePartyItem("60Stele1")
+    IncrementGlobal("Chult_Pedestals","GLOBAL",1)
+    Unlock(Myself)
+    CloseDoor(Myself)
+END
+
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+END
+

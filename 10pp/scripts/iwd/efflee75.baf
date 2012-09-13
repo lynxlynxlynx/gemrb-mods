@@ -1,0 +1,8 @@
+IF
+  HPPercentLT(Myself,75)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+

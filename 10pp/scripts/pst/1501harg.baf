@@ -1,0 +1,139 @@
+IF
+  Global("Took_Throne","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("1501_Leave","AR1501",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+    Help()
+    GlobalSet("DN_Prisoner","GLOBAL",2)
+    CreateItem("SkullHa",0,0,0)  // ~Hargrimm's Skull~
+    DropInventory()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("1501_Undead_Alert","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  HPPercentLT(Myself,25)
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),10)
+  HaveSpell(CLERIC_CURSE)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Spell(NearestEnemyOf(Myself),CLERIC_CURSE)
+    StartTimer(1,30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),20)
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+  !TimerActive(3)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Spell(NearestEnemyOf(Myself),CLERIC_CALL_LIGHTNING)
+    StartTimer(3,10)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SPIRITUAL_HAMMER)
+  Range(NearestEnemyOf(Myself),20)
+  !TimerActive(2)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Spell(NearestEnemyOf(Myself),CLERIC_SPIRITUAL_HAMMER)
+    StartTimer(2,15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !HaveSpell(CLERIC_CURSE)
+  !HaveSpell(CLERIC_SPIRITUAL_HAMMER)
+  !HaveSpell(CLERIC_CALL_LIGHTNING)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    RunAwayFromEx(NearestEnemyOf(Myself),ONE_AI_SECOND,FALSE)
+    SmallWait(1)
+    Face(0)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+    Help()
+    FaceObject(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+END
+

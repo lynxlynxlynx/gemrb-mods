@@ -1,0 +1,17 @@
+IF
+  IsOverMe([ANYONE])
+  Global("SolaufeinJob","GLOBAL",9)
+  Global("spawnSol2","AR2200",0)
+  Global("PhaereJob","GLOBAL",10)
+  Global("DrowCityHostile","GLOBAL",0)
+  !Dead("Solaufein")  // Solaufein
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    CreateCreatureDoor("udsola01",[4144.2457],4)
+    Wait(4)
+    SetGlobal("spawnSol2","AR2200",1)
+    ActionOverride("Solaufein",StartDialogNoSet([PC]))
+    EndCutSceneMode()
+END
+

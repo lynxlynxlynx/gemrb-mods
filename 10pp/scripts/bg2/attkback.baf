@@ -1,0 +1,7 @@
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),15)
+END
+

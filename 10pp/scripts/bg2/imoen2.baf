@@ -1,0 +1,22 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  AreaCheck("AR1512")
+  See(Player1)
+THEN
+  RESPONSE #100
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("DeathOfBodhi","LOCALS",0)
+  Global("BodhiDead","GLOBAL",1)
+  CombatCounter(0)
+  See(Player1)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

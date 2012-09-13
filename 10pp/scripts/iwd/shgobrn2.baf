@@ -1,0 +1,65 @@
+IF
+  BitGlobal("MYAREA:AREA_VAR","",2,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",2,AND)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",4,XOR)
+  !BitGlobal("MYAREA:AREA_VAR","",2,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetSavedLocationPoint(1274,478,S)
+    SetStartPos([1274.478])
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",4,OR)
+    ReturnToSavedLocation()
+END
+
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",4,XOR)
+  !BitGlobal("MYAREA:AREA_VAR","",2,AND)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    SetSavedLocationPoint(1274,478,S)
+    SetStartPos([1274.478])
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",4,OR)
+    ReturnToSavedLocation()
+END
+
+IF
+  BitGlobal("MYAREA:AREA_VAR","",2,AND)
+  ActionListEmpty()
+  !See([PC])
+  !TargetUnreachable([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",4,AND)
+  NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_VAR","",2,OR)
+END
+
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",4,AND)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

@@ -1,0 +1,27 @@
+IF
+  Global("TutorialLesson","GLOBAL",41)
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride("ttbelt",MoveBetweenAreas("AR0015",[808.465],2))
+    Wait(1)
+    ActionOverride(Player1,LeaveAreaLUAPanic("AR0015","",[759.518],0))
+    ActionOverride(Player1,LeaveAreaLUA("AR0015","",[759.518],10))
+    ActionOverride(Player2,LeaveAreaLUA("AR0015","",[799.569],10))
+    ActionOverride(Player3,LeaveAreaLUA("AR0015","",[735.550],10))
+    ActionOverride(Player4,LeaveAreaLUA("AR0015","",[688.512],10))
+    ActionOverride(Player5,LeaveAreaLUA("AR0015","",[649.475],10))
+    ActionOverride(Player6,LeaveAreaLUA("AR0015","",[682.569],10))
+    MultiPlayerSync()
+END
+
+IF
+  Global("TUTFAM01","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,Face(0))
+    DisplayStringHead(Player1,62026)  // ~You may not cast the find familiar spell in the tutorial.~
+    SetGlobal("TUTFAM01","GLOBAL",0)
+END
+

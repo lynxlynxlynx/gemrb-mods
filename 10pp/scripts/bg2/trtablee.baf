@@ -1,0 +1,54 @@
+IF
+  WalkedToTrigger([ANYONE])
+  Global("EastTableClicked","AR5509",0)
+  !GlobalTimerNotExpired("EastTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("EastTableTimer","AR5509",5)
+    SetGlobal("EastTableClicked","AR5509",1)
+    DisplayStringNoName(Myself,72144)  // ~The table gives off a foul odor, it looks as if you might be able to turn the table.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("EastTableClicked","AR5509",1)
+  !GlobalTimerNotExpired("EastTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    DisplayStringNoName(Myself,73852)  // ~You turn the table, disabling some of the traps on the platforms above.~
+    SetGlobalTimer("EastTableTimer","AR5509",5)
+    SetGlobal("EastTableClicked","AR5509",2)
+    CreateCreature("INVISABO",[727.596],0)  // <Invalid Strref -1>
+    ReallyForceSpellRES("jwacid","invisabo")  // <Invalid Strref -1>
+    SmallWait(5)
+    CreateCreature("SLIFIS02",[738.520],0)  // ~Fission Slime~
+    CreateCreature("SLIFIS02",[844.599],4)  // ~Fission Slime~
+    CreateCreature("SLIFIS02",[724.672],8)  // ~Fission Slime~
+    CreateCreature("SLIFIS02",[597.596],12)  // ~Fission Slime~
+    RemoveTraps("DOOR07")
+    ActionOverride("invisabo",DestroySelf())
+    EndCutSceneMode()
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("EastTableClicked","AR5509",2)
+  !GlobalTimerNotExpired("EastTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("EastTableTimer","AR5509",5)
+    DisplayStringNoName(Myself,70896)  // ~There is nothing more that you can do with this.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("EastTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

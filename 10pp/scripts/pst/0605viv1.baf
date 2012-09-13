@@ -1,0 +1,216 @@
+IF
+  !Internal(Myself,INTERNAL_3,1)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_3,1)
+    Continue()
+END
+
+IF
+  !Internal(Myself,INTERNAL_2,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_2,0)
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_1,3)
+THEN
+  RESPONSE #100
+    MoveToPoint([1009.422])
+    Face(0)
+    Wait(1)
+    OpenDoor("AR605d08")
+    MoveToPoint([1009.629])
+    Face(6)
+    CloseDoor("ar605d08")
+    ChangeAIScript("0605viv2",DEFAULT)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48053)  // ~"Might I be of any assistance?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48065)  // ~"Can I help you with something?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron1")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48053)  // ~"Might I be of any assistance?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48065)  // ~"Can I help you with something?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron1")
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron1",2)
+    FaceObject("BPatron1")
+    ChangeAIScript("0605viv3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron2")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48053)  // ~"Might I be of any assistance?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48065)  // ~"Can I help you with something?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron2")
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron2",2)
+    FaceObject("BPatron2")
+    ChangeAIScript("0605viv3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron3")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48053)  // ~"Might I be of any assistance?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48065)  // ~"Can I help you with something?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron3")
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron3",2)
+    FaceObject("BPatron3")
+    ChangeAIScript("0605viv3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  See("BPatron5")  // ~Brothel Patron~
+THEN
+  RESPONSE #100
+    FaceObject("BPatron5")
+    FloatMessage(Myself,48053)  // ~"Might I be of any assistance?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron5")
+    FloatMessage(Myself,48065)  // ~"Can I help you with something?"~
+    Wait(5)
+    Continue()
+  RESPONSE #100
+    FaceObject("BPatron5")
+    FloatMessage(Myself,48066)  // ~"Hello."~
+    Wait(5)
+    Continue()
+  RESPONSE #500
+    SendTrigger("BPatron5",2)
+    FaceObject("BPatron5")
+    ChangeAIScript("0605viv3",DEFAULT)
+    Continue()
+  RESPONSE #1000
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([894.422])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1009.422])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+THEN
+  RESPONSE #100
+    MoveToPoint([1150.281])
+    Face(2)
+    StartRandomTimer(1,5,10)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,3)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1009.422])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,4)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    MoveToPoint([894.422])
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,4)
+THEN
+  RESPONSE #100
+    MoveToPoint([838.364])
+    Face(14)
+    StartRandomTimer(1,5,10)
+    SetInternal(Myself,INTERNAL_0,0)
+    IncInternal(Myself,INTERNAL_1,1)
+END
+

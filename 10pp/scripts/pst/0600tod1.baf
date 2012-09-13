@@ -1,0 +1,45 @@
+IF
+  HPPercentLT(Myself,30)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.SARH_PARTY])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  Dead("Sarhava")  // ~Drunken Rake~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ProtectObject("Sarhava",32)
+END
+

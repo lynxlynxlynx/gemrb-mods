@@ -1,0 +1,76 @@
+IF
+  Global("ML_0","LOCALS",0)
+  Or(2)
+    !IsWeaponRanged(Myself)
+    HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,INVULNERABLE,TRUE)
+    SetGlobal("ML_0","LOCALS",1)
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,3090,448,4)
+THEN
+  RESPONSE #100
+    SetStartPos([3090.448])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  Or(2)
+    !IsWeaponRanged(Myself)
+    HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    MoveToPoint([3090.448])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  Or(2)
+    !IsWeaponRanged(Myself)
+    HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    JumpToPoint([3090.550])
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  Or(2)
+    !IsWeaponRanged(Myself)
+    HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    SetSavedLocation()
+    SetGlobal("ML_0","LOCALS",4)
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  Or(2)
+    !IsWeaponRanged(Myself)
+    HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,INVULNERABLE,FALSE)
+    SetGlobal("ML_0","LOCALS",5)
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  Or(2)
+    !IsWeaponRanged(Myself)
+    HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+    SetGlobal("ML_0","LOCALS",-1)
+END
+

@@ -1,0 +1,131 @@
+IF
+  !Global("62Saab2C_Talked_To_Player","MYAREA",1)
+  CurrentAreaIs(Myself,6201)
+THEN
+  RESPONSE #100
+END
+
+IF
+  GlobalGT("Action","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobal("Action","LOCALS",0)
+    Continue()
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",Myself,SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Range([PC],12,LESS_THAN)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1408161015071406",Myself,3)
+      // CLERIC_PROTECTION_FROM_EVIL_10_RADIUS
+      // CLERIC_CIRCLE_OF_BLADES
+      // CLERIC_CHAMPIONS_STRENGTH
+      // CLERIC_DEFENSIVE_HARMONY
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Or(2)
+    Global("Action","LOCALS",0)
+    CheckSpellState(Myself,BLADE_BARRIER)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1111250115032905",LastMarkedObject,7)
+      // CLERIC_BANE
+      // WIZARD_ANIMATE_DEAD
+      // CLERIC_FLAME_STRIKE
+      // WIZARD_GATE
+    MarkSpellAndObject("17221715",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_UNHOLY_WORD
+      // CLERIC_SYMBOL_OF_HOPELESSNESS
+    MarkSpellAndObject("2306",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_HOLD_PERSON
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("17221715",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_UNHOLY_WORD
+      // CLERIC_SYMBOL_OF_HOPELESSNESS
+    MarkSpellAndObject("2306",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("1111250115032905",LastMarkedObject,7)
+      // CLERIC_BANE
+      // WIZARD_ANIMATE_DEAD
+      // CLERIC_FLAME_STRIKE
+      // WIZARD_GATE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2306",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("1111250115032905",LastMarkedObject,7)
+      // CLERIC_BANE
+      // WIZARD_ANIMATE_DEAD
+      // CLERIC_FLAME_STRIKE
+      // WIZARD_GATE
+    MarkSpellAndObject("17221715",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_UNHOLY_WORD
+      // CLERIC_SYMBOL_OF_HOPELESSNESS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Action","LOCALS",1)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Action","LOCALS",1)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

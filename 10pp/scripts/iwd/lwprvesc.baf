@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    SetGlobal("THURLOW_MURDER","GLOBAL",2)
+    UseItem("POTN14",Myself)  // ~Oil of Speed~
+    Wait(2)
+    OpenDoor("AR9107_DOOR3")
+    StartCutScene("LWPRVFOL")
+    MoveToPoint([764.452])
+    MoveToPoint([490.589])
+    HideCreature(Myself,TRUE)
+    UnhideGUI()
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    EndCutSceneMode()
+    ClearAllActions()
+    DestroySelf()
+END
+

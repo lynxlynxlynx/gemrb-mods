@@ -1,0 +1,8 @@
+IF
+  Global("SES1_DEAD","GLOBAL",1)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+    SetGlobal("SES1_DEAD","GLOBAL",2)
+END
+

@@ -1,0 +1,77 @@
+IF
+  WalkedToTrigger([ANYONE])
+  Global("LeavingPocketPlane","AR4500",0)
+  GlobalGT("GavePocketPlane","GLOBAL",0)
+  !GlobalTimerNotExpired("Triggered","MYAREA")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SaveGame(0)
+    SmallWait(7)
+    SetGlobalTimer("Triggered","MYAREA",10)
+    SetGlobal("LeavingPocketPlane","AR4500",1)
+    StartCutSceneMode()
+    StartCutScene("cut220a")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Dead("balth")  // ~Balthazar~
+  Global("LeavingPocketPlane","AR4500",1)
+  GlobalGT("GavePocketPlane","GLOBAL",0)
+  !GlobalTimerNotExpired("Triggered","MYAREA")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("Triggered","MYAREA",10)
+    CreateCreature("PPGuy01",[1993.1116],0)  // <Invalid Strref -1>
+END
+
+IF
+  Global("EnteredArea5203","GLOBAL",0)
+  Global("MelissanYagaKillJob","GLOBAL",1)
+  WalkedToTrigger([ANYONE])
+  Global("LeavingPocketPlane","AR4500",1)
+  GlobalGT("GavePocketPlane","GLOBAL",0)
+  !GlobalTimerNotExpired("Triggered","MYAREA")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SaveGame(0)
+    SmallWait(7)
+    SetGlobalTimer("Triggered","MYAREA",10)
+    CreateCreature("PPGuy01",[1993.1116],0)  // <Invalid Strref -1>
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("LeavingPocketPlane","AR4500",1)
+  GlobalGT("GavePocketPlane","GLOBAL",0)
+  !GlobalTimerNotExpired("Triggered","MYAREA")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("Triggered","MYAREA",10)
+    StartCutSceneMode()
+    StartCutScene("cut221a")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("LeavingPocketPlane","AR4500",0)
+  Global("GavePocketPlane","GLOBAL",0)
+  !GlobalTimerNotExpired("Triggered","MYAREA")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    DisplayStringNoNameHead(LastTrigger,72785)  // ~You do not yet have the power to leave.  You must complete your first challenge.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("Triggered","MYAREA")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

@@ -1,0 +1,16 @@
+IF
+  !CheckDoorFlags(Myself,HIDDEN)
+  !Global("5100_AREA_CLEAR","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,HIDDEN,TRUE)
+END
+
+IF
+  OpenState("AR5100_Ropes",TRUE)  // AR5100_Ropes
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,TRAPRESET,FALSE)
+    OpenDoor(Myself)
+END
+

@@ -1,0 +1,46 @@
+IF
+  Global("PoisonIce","AR3016",1)
+  HasItem("INVULNER",Myself)  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    AddXP2DA("PLOT05C")
+    DestroyItem("INVULNER")  // <Invalid Strref -1>
+END
+
+IF
+  Global("PoisonIce","AR3016",1)
+  HasItem("MONHP80",Myself)  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    DestroyItem("MONHP80")  // <Invalid Strref -1>
+END
+
+IF
+  HP(Myself,1)
+  Global("KillIceGolem","AR3016",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    AddexperienceParty(25000)
+    DestroyItem("MONHP1")  // <Invalid Strref -1>
+    DropInventory()
+    SetGlobal("KillIceGolem","AR3016",1)
+    ReallyForceSpell(Myself,FROZEN_DEATH)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !Range("poisoncloud3",20)  // poisoncloud3
+THEN
+  RESPONSE #100
+    MoveToObject("poisoncloud3")
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(10)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_CONE_OF_COLD)
+END
+

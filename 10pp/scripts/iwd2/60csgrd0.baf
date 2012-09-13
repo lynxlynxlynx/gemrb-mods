@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Spell_FX")  // 
+    MultiPlayerSync()
+    HideGUI()
+    JumpToPoint([332.1676])
+    MoveViewPoint([430.1500],VERY_FAST)
+    MultiPlayerSync()
+    ScreenShake(79,10,10)
+    StartMusic(MISC0,QUICK_FADE)
+    SpellHitEffectPoint(Myself,[430.1500],ACID_STORM,0)
+    Wait(2)
+    SpellHitEffectPoint(Myself,[430.1500],ACID_STORM,0)
+    Wait(2)
+    SpellHitEffectPoint(Myself,[430.1500],ACID_STORM,0)
+    Wait(2)
+    Wait(1)
+    StartCutScene("60cSGrd1")
+END
+

@@ -1,0 +1,36 @@
+IF
+  Global("MALAVON_DOOR","GLOBAL",0)
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+THEN
+  RESPONSE #100
+    CloseDoor("AR8010HIDEME")
+    SetGlobal("MALAVON_DOOR","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("MALAVON_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("AR8010HIDEME")
+    Continue()
+END
+
+IF
+  Global("MALAVON_BADGE","GLOBAL",0)
+  PartyHasItem("MALAVON")  // ~Malavon's Badge~
+THEN
+  RESPONSE #100
+    SetGlobal("MALAVON_BADGE","GLOBAL",1)
+    AddXPVar("LEVEL_11_VERY_HARD",19560)  // ~You have retrieved Malavon's badge.~
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

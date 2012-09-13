@@ -1,0 +1,20 @@
+IF
+  AttackedBy([PC],DEFAULT)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+    Dialogue([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(10,15)
+    Face(0)
+    WaitRandom(10,15)
+    Face(14)
+    Continue()
+END
+

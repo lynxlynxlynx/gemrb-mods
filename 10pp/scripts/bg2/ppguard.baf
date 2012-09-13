@@ -1,0 +1,26 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+  OR(2)
+    See([0.0.0.0.150])
+    See([0.0.0.0.151])
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  See([0.0.0.0.150])
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  See([0.0.0.0.151])
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

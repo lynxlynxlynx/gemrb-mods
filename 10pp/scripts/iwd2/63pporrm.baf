@@ -1,0 +1,15 @@
+IF
+  Global("63PPORRM_StartCutscene","GLOBAL",0)
+  Global("StartCutscene_63cFB03","MYAREA",1)
+  Global("Activate_Trigger","MYAREA",1)
+  OpenState("AR6303_Door1",TRUE)  // AR6303_Door1
+THEN
+  RESPONSE #100
+    SetGlobal("63PPORRM_StartCutscene","GLOBAL",1)
+    SaveGame(39401)  // ~Final Battle~
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("63cFB04")
+END
+

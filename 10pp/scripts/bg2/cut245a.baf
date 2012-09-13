@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(2)
+    GiveItemCreate("aeriebab","aerie",0,0,0)  // ~Aerie's Baby~
+    Wait(2)
+    FadeFromColor([30.0],0)
+    Wait(2)
+    ActionOverride("Aerie",Interact(Player1))
+END
+

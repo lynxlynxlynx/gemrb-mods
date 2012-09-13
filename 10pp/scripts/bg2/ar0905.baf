@@ -1,0 +1,15 @@
+IF
+  OnCreation()
+  Global("KorganTomb","GLOBAL",1)
+  Global("PimlicoDead","GLOBAL",1)
+  Global("SpawnDeadPim","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDeadPim","GLOBAL",1)
+    ActionOverride("PIMLICO",Kill(Myself))
+    ActionOverride("korpimg1",DestroySelf())
+    CreateCreature("dpim",[288.511],9)  // ~Pimlico~
+    CreateCreature("dpimg1",[369.499],11)  // ~Pimlico Guard~
+    CreateCreature("dpimg1",[273.551],3)  // ~Pimlico Guard~
+END
+

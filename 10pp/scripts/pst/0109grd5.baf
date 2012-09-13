@@ -1,0 +1,53 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    Continue()
+END
+
+IF
+  Global("Catacomb_Guard_Conversation","AR0109",1)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,32184)  // ~"Had a bad go of it, didn't he?"~
+    IncrementGlobal("Catacomb_Guard_Conversation","AR0109",1)
+END
+
+IF
+  Global("Catacomb_Guard_Conversation","AR0109",3)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,32189)  // ~"Sounds like a deader."~
+    IncrementGlobal("Catacomb_Guard_Conversation","AR0109",1)
+END
+
+IF
+  Global("Catacomb_Guard_Conversation","AR0109",5)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,32200)  // ~"Hmmm?"~
+    IncrementGlobal("Catacomb_Guard_Conversation","AR0109",1)
+END
+
+IF
+  Global("Catacomb_Guard_Conversation","AR0109",7)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,32206)  // ~"Hahaha!  My pockets ARE a little lighter than usual."~
+    IncrementGlobal("Catacomb_Guard_Conversation","AR0109",1)
+END
+
+IF
+  Global("Catacomb_Guard_Conversation","AR0109",9)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,32215)  // ~"Especially for more copper in me pockets!"~
+    IncrementGlobal("Catacomb_Guard_Conversation","AR0109",1)
+END
+

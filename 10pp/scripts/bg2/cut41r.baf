@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetInterrupt(FALSE)
+    FadeToColor([20.0],0)
+    Wait(2)
+    CopyGroundPilesTo("AR2300",[170.833])
+    Wait(1)
+    LeaveAreaLUAPanic("AR2300","",[1328.235],10)
+    LeaveAreaLUA("AR2300","",[1328.235],10)
+    ActionOverride(Player2,LeaveAreaLUA("AR2300","",[1311.282],10))
+    ActionOverride(Player3,LeaveAreaLUA("AR2300","",[1274.294],10))
+    ActionOverride(Player4,LeaveAreaLUA("AR2300","",[1267.332],10))
+    ActionOverride(Player5,LeaveAreaLUA("AR2300","",[1227.341],10))
+    ActionOverride(Player6,LeaveAreaLUA("AR2300","",[1216.381],10))
+    MultiPlayerSync()
+    CreateCreature("SAHEXTRA",[1181.471],2)  // ~Royal Guard~
+    CreateCreature("SAHEXTRA",[1089.441],2)  // ~Royal Guard~
+    CreateCreature("SAHEXTRA",[975.518],2)  // ~Royal Guard~
+    CreateCreature("SAHEXTRA",[1170.618],2)  // ~Royal Guard~
+    TextScreen("SCRTXT03")
+    FadeFromColor([20.0],0)
+    Wait(3)
+    SetInterrupt(TRUE)
+    ActionOverride("sahpr1",StartDialogNoSet([PC]))
+END
+

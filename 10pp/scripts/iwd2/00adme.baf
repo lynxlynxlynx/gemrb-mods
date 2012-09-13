@@ -1,0 +1,10 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  Or(2)
+    AttackedBy([GOODCUTOFF],0)
+    PickPocketFailed([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

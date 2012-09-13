@@ -1,0 +1,51 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ravel")  // 
+    Wait(9)
+    MoveViewObject("Nameless",INSTANT)
+    GlobalSet("Trigit_Attack","GLOBAL",1)
+    EnableSpriteDither()
+    EnableFogDither()
+    SetInternal("Ravel",INTERNAL_0,0)
+    Dialogue([PC])
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("shadcut3")  // 
+    TimedMoveToPoint([1038.3208],45)
+    SetAnimState(Myself,ANIM_DIE)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("shadcut2")  // 
+    Wait(1)
+    TimedMoveToPoint([1081.3269],45)
+    SetAnimState(Myself,ANIM_DIE)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("shadcut1")  // 
+    Wait(4)
+    TimedMoveToPoint([1062.3237],45)
+    PlaySoundNotRanged("SHAM101")
+    SetAnimState(Myself,ANIM_DIE)
+    Wait(1)
+    DestroySelf()
+END
+

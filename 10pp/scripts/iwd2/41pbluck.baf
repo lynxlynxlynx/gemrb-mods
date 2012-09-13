@@ -1,0 +1,13 @@
+IF
+  Or(2)
+    Opened([PC])
+    Clicked([PC])
+THEN
+  RESPONSE #100
+    PlaySound("AM4102c")
+    ForceSpell(LastTrigger,2093)
+    PlaySequence("LeftMirror",AWAKE)
+    SetGlobal("MirrorContainerBroke","MYAREA",1)
+    ChangeCurrentScript("")
+END
+

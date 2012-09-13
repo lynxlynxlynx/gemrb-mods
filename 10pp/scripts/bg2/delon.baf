@@ -1,0 +1,55 @@
+IF
+  InParty("Minsc")  // Minsc
+  See("Minsc")  // Minsc
+  !Dead("Minsc")  // Minsc
+  !StateCheck("Minsc",STATE_SLEEPING)  // Minsc
+  CombatCounter(0)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Dialog("Minsc")
+END
+
+IF
+  OR(4)
+    !InParty("Minsc")  // Minsc
+    !See("Minsc")  // Minsc
+    Dead("Minsc")  // Minsc
+    StateCheck("Minsc",STATE_SLEEPING)  // Minsc
+  CombatCounter(0)
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  Delay(8)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,20820)  // ~I have an offer for you if you wish to hear it.~
+END
+
+IF
+  OR(4)
+    Global("Acceptance","GLOBAL",1)
+    Global("Villagesaved","GLOBAL",1)
+    Global("TalkedToMayor","GLOBAL",1)
+    InParty("Mazzy")  // Mazzy
+  AreaCheck("AR1000")
+  Global("DelonGoesHome","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DelonGoesHome","LOCALS",1)
+    EscapeArea()
+END
+
+IF
+  GlobalTimerExpired("MinscDelon","GLOBAL")
+  InParty("Minsc")  // Minsc
+  !Dead("Minsc")  // Minsc
+  AreaCheck("AR1000")
+  Global("DelonMoves","LOCALS",0)
+  Global("TalkedToDelon","GLOBAL",0)
+  Global("TalkedToMayor","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DelonMoves","LOCALS",1)
+    EscapeArea()
+END
+

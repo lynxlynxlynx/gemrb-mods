@@ -1,0 +1,40 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateCreature("CUTSPY",[1710.1923],0)  // <Invalid Strref -1>
+    Wait(1)
+    ReallyForceSpellRES("jwchnlgt","cutspy")  // <Invalid Strref -1>
+    MoveViewObject("cutspy",8)
+    Wait(2)
+    CreateVisualEffectObject("SPHOLY","cutspy")
+    Wait(2)
+    SetGlobal("OpenDoor4","AR4500",1)
+    SetGlobal("OpenRoom4","AR4500",0)
+    AmbientActivate("AMB_Door04",FALSE)
+    SoundActivate("EnergyBarrier3",FALSE)
+    OpenDoor("DOOR4")
+    CloseDoor("ROOM4")
+    DisplayStringNoNameHead("cutspy",71993)  // ~You suddenly know with a strange certainty that in the room beyond lies a challenge.  You somehow know that you must face an aspect of yourself or your fears...but not why or how.~
+    Wait(6)
+    MoveViewObject(Player1,INSTANT)
+    SetGlobal("Room4Align","AR4500",2)
+    Wait(3)
+    FadeToColor([30.0],0)
+    Wait(2)
+    ActionOverride(Player2,PlayDeadInterruptible(1))
+    ActionOverride(Player3,PlayDeadInterruptible(1))
+    ActionOverride(Player4,PlayDeadInterruptible(1))
+    ActionOverride(Player5,PlayDeadInterruptible(1))
+    ActionOverride(Player6,PlayDeadInterruptible(1))
+    ActionOverride("solar",DestroySelf())
+    ActionOverride("dreampc",DestroySelf())
+    ActionOverride("cutspy",DestroySelf())
+    Wait(1)
+    RestorePartyLocations()
+    MultiPlayerSync()
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+END
+

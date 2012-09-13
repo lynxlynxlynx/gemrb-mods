@@ -1,0 +1,10 @@
+IF
+  Dead("KalahIllusion")  // KalahIllusion
+  Global("teleka","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut86a")
+END
+

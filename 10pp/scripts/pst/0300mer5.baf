@@ -1,0 +1,41 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(0)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9526)  // ~"Observe the frolicking Lim-Lim!"~
+    WaitRandom(5,7)
+    Face(14)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9525)  // ~"Watch these delightful creatures dance and caper!"~
+    WaitRandom(5,7)
+    Face(12)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9524)  // ~"They can jump over fifteen feet when prodded with hot coals!"~
+    WaitRandom(5,7)
+    Face(14)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9519)  // ~"Jump Lim-Lim, jump!"~
+    WaitRandom(5,7)
+END
+

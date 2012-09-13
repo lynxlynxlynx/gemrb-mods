@@ -1,0 +1,46 @@
+IF
+  Global("GalvenaHostile","GLOBAL",0)
+  Global("SpawnCaptain","AR1613",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnCaptain","AR1613",1)
+    CreateCreature("pirmur05",[404.340],14)  // ~Guard Capt~
+END
+
+IF
+  Global("SleepingPotionPlot","GLOBAL",5)
+THEN
+  RESPONSE #100
+    SetGlobal("SleepingPotionPlot","GLOBAL",6)
+    StartCutSceneMode()
+    StartCutScene("Cut46d")
+END
+
+IF
+  GlobalLT("SleepingPotionPlot","GLOBAL",5)
+  Global("CaptainDialogue","AR1613",0)
+THEN
+  RESPONSE #100
+    ActionOverride("pirmur05",StartDialogNoSet([PC]))
+    SetGlobal("CaptainDialogue","AR1613",1)
+END
+
+IF
+  Global("GalvenaHostile","GLOBAL",1)
+  Exists("pirmur05")  // ~Guard Capt~
+  Global("DestroyCaptain","AR1613",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DestroyCaptain","AR1613",1)
+    ActionOverride("pirmur05",DestroySelf())
+END
+
+IF
+  Global("GalvenaHostile","GLOBAL",0)
+  Global("SpawnCaptain","AR1613",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnCaptain","AR1613",1)
+    CreateCreature("pirmur05",[404.340],14)  // ~Guard Capt~
+END
+

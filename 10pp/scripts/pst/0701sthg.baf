@@ -1,0 +1,62 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Caretaker","GLOBAL",3)
+END
+
+IF
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  !TimerActive(1)
+  RandomNum(3,0)
+  Range([PC],20)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    StartRandomTimer(1,15,30)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.0.BAD])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

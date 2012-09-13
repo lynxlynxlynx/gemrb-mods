@@ -1,0 +1,15 @@
+IF
+  Detect([PC])
+  !See([PC])
+THEN
+  RESPONSE #100
+    ClearActions(Myself)
+END
+
+IF
+  !Detect([PC])
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+

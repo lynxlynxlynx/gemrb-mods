@@ -1,0 +1,63 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    LeaveAreaLUAPanic("AR1900","trcarvan",[1095.1380],10)
+    ActionOverride("Teven",DestroySelf())
+    ChangeAIScript("bandct",OVERRIDE)
+    LeaveAreaLUA("AR1900","trcarvan",[1095.1380],10)
+    MultiPlayerSync()
+    CreateCreature("TEVEN",[1100.1390])  // ~Teven~
+    ActionOverride("Teven",SetNumTimesTalkedTo(1))
+    CreateCreature("TAZOK",[1696.1238])  // ~Tazok~
+    MultiPlayerSync()
+    ActionOverride("Tazok",SetNumTimesTalkedTo(1))
+    ActionOverride("Tazok",Wait(1))
+    ActionOverride("Tazok",SmallWait(6))
+    ActionOverride("Tazok",MoveToPoint([1244.1347]))
+    ActionOverride("Banditcr",SetDialog("Bandct"))
+    Wait(3)
+    ActionOverride("Banditcr",Dialogue([PC]))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    LeaveAreaLUA("AR1900","trcarvan",[1085.1385],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    LeaveAreaLUA("AR1900","trcarvan",[1075.1375],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    LeaveAreaLUA("AR1900","trcarvan",[1085.1375],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    LeaveAreaLUA("AR1900","trcarvan",[1075.1385],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    LeaveAreaLUA("AR1900","trcarvan",[1085.1380],10)
+END
+

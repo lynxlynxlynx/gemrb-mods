@@ -1,0 +1,22 @@
+IF
+  !See(NearestEnemyOf(Myself))
+  !TimerActive(1)
+  See([0.0.0.0.PERSON_1])
+  See([0.0.0.0.PERSON_2])
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.PERSON_1],1851)  // ~"Ipo cara nep ssseth maka."~
+    Wait(3)
+    FloatMessage([0.0.0.0.PERSON_2],1852)  // ~"Shiruni mala pen kivo ssepi."~
+    Wait(3)
+    FloatMessage([0.0.0.0.PERSON_1],1853)  // ~"Mipo?"~
+    Wait(3)
+    FloatMessage([0.0.0.0.PERSON_2],1854)  // ~"Tirizi kalo!"~
+    Wait(3)
+    FloatMessage([0.0.0.0.PERSON_1],1855)  // ~"HA HA HA HA!"~
+    FloatMessage([0.0.0.0.PERSON_2],1855)  // ~"HA HA HA HA!"~
+    Wait(3)
+    FloatMessage(Myself,1856)  // ~"Kaval hito sssep matol pesti chiruni!"~
+    StartTimer(1,45)
+END
+

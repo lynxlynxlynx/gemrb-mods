@@ -1,0 +1,14 @@
+IF
+  NearLocation(Myself,[325.1383],6)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0504gr1",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[811.381],6)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0504gr2",DEFAULT)
+END
+

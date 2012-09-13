@@ -1,0 +1,30 @@
+IF
+  CreatureHidden(Myself)
+  GlobalGT("SR_Emma_Revenge","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+END
+

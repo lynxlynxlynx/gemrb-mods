@@ -1,0 +1,31 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ARMOR_OF_FAITH)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ARMOR_OF_FAITH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DOOM)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_DOOM)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

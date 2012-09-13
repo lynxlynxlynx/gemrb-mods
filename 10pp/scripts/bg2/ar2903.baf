@@ -1,0 +1,27 @@
+IF
+  OnCreation()
+  Global("CloseDoorsFirstTime","AR2903",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CloseDoorsFirstTime","AR2903",1)
+    TriggerActivation("Tran2900",FALSE)
+END
+
+IF
+  Dead("hellgen")  // ~Enslaved Genie~
+  Global("Player1Greed","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Player1Greed","GLOBAL",2)
+END
+
+IF
+  PartyHasItem("miscb7")  // ~Tears of Bhaal~
+  Global("GreedTest","AR2903",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GreedTest","AR2903",1)
+    IncrementGlobal("BhaalTest","GLOBAL",1)
+    TriggerActivation("Tran2900",TRUE)
+END
+

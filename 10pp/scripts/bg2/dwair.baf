@@ -1,0 +1,15 @@
+IF
+  Die()
+  NumDeadLT("udair",11)
+THEN
+  RESPONSE #100
+    CreateCreature("udair",[842.2890],0)  // ~Air Elemental~
+END
+
+IF
+  See([ANYONE])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

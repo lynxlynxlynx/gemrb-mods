@@ -1,0 +1,26 @@
+IF
+  Dead("Prism")  // Prism
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),3)
+THEN
+  RESPONSE #75
+    SelectWeaponAbility(SLOT_WEAPON1,0)
+    Attack(NearestEnemyOf(Myself))
+  RESPONSE #25
+    RunAwayFrom(NearestEnemyOf(Myself),75)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SelectWeaponAbility(SLOT_AMMO0,0)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

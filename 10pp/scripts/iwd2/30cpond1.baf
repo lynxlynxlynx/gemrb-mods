@@ -1,0 +1,117 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ClearActions(Myself)
+    JumpToPoint([1960.1560])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    ClearActions(Myself)
+    JumpToPoint([2020.1550])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    ClearActions(Myself)
+    JumpToPoint([1960.1650])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    ClearActions(Myself)
+    JumpToPoint([2030.1660])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    ClearActions(Myself)
+    JumpToPoint([2090.1570])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    ClearActions(Myself)
+    JumpToPoint([2090.1640])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PONDMUK_WORG_1")  // 
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PONDMUK_WORG_2")  // 
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PONDMUK_WORG_3")  // 
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PONDMUK_WORG_4")  // 
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PONDMUK_WORG_5")  // 
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PONDMUK_WORG_6")  // 
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PONDMUK_WORG_C")  // 
+    HideCreature(Myself,FALSE)
+    FaceObject(NearestEnemyOf(Myself))
+END
+

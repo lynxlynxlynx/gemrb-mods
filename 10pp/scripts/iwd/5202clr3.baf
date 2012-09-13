@@ -1,0 +1,45 @@
+IF
+  HaveSpell(CLERIC_SILENCE_15_RADIUS)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_SILENCE_15_RADIUS)
+    Wait(3)
+END
+
+IF
+  HaveSpell(CLERIC_STRENGTH_OF_ONE)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_STRENGTH_OF_ONE)
+    Wait(3)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See(NearestEnemyOf(Myself))
+  HPPercent([ENEMY],50)
+THEN
+  RESPONSE #100
+    Spell([ENEMY],CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See(NearestEnemyOf(Myself))
+  HPPercentLT([ENEMY],75)
+THEN
+  RESPONSE #100
+    Spell([ENEMY],CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

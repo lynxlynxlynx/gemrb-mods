@@ -1,0 +1,21 @@
+IF
+  Detect([PC])
+  Global("mode","LOCALS",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,3419)  // ~My comrades...fallen...my last breaths are of rage~
+    SetGlobal("mode","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  Global("mode","LOCALS",1)
+THEN
+  RESPONSE #100
+    ActionOverride("ICMYC02",Attack("SLANDOR"))
+    AttackOneRound("ICMYC02")
+    AttackOneRound("ICMYC02")
+    AttackOneRound("ICMYC02")
+    Kill(Myself)
+END
+

@@ -1,0 +1,44 @@
+IF
+  !Global("Current_Area","GLOBAL",109)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",109)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0109_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0109_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Open_Door","AR0109",1)
+THEN
+  RESPONSE #100
+    SetDoorLocked("ar0109d4",FALSE)
+    OpenDoor("ar0109d4")
+    GlobalSet("Open_Door","AR0109",2)
+END
+
+IF
+  Vacant()
+  !Global("Gate_Guard","GLOBAL",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Gate_Guard","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    CloseDoor("ar0109d4")
+    GlobalSet("Open_Door","AR0109",0)
+    Continue()
+END
+

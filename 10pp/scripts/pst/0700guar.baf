@@ -1,0 +1,18 @@
+IF
+  OnCreation()
+  NearLocation(Myself,[622.1655],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([572.1683])
+    Face(14)
+    SavePlace()
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

@@ -1,0 +1,24 @@
+IF
+  GlobalTimerExpired("BodhiHunts","GLOBAL")
+  !Global("AsylumPlot","GLOBAL",100)
+  !Exists("ppbodhi4")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    CreateCreatureObject("ppbodhi4",Player1,0,0,0)  // ~Bodhi~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    FadeFromColor([20.0],0)
+    ActionOverride("ppbodhi4",StartDialogNoSet(Player1))
+END
+
+IF
+  Dead("icfung02")  // ~Spore Colony~
+  Global("ArbiterSpawn","AR1503",0)
+THEN
+  RESPONSE #100
+    Wait(3)
+    SetGlobal("ArbiterSpawn","AR1503",1)
+    CreateCreatureImpassable("ELEARB02",[842.295],2)
+END
+

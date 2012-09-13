@@ -1,0 +1,42 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("AddySpawn","GLOBAL",0)
+  !Exists("ADDY")  // ~Addy~
+THEN
+  RESPONSE #100
+    CreateCreature("ADDY",[2664.2874])  // ~Addy~
+    SetGlobal("AddySpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("Capture700","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Capture700","GLOBAL",1)
+    CreateCreature("FFHUNT",[1786.1437])  // ~Flaming Fist Enforcer~
+    CreateCreature("FFHUNT",[1786.1437])  // ~Flaming Fist Enforcer~
+END
+
+IF
+  Dead("Aldeth")  // ~Aldeth Sashenstar~
+  Global("SpawnDabron","GLOBAL",0)
+  !Exists("Dabron")  // ~Dabron Sashenstar~
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDabron","GLOBAL",1)
+    CreateCreature("DABRON",[788.1684])  // ~Dabron Sashenstar~
+END
+
+IF
+  Global("LothanderMove","GLOBAL",3)
+  !Exists("Lothander")  // Lothander
+  !Dead("Lothander")  // Lothander
+THEN
+  RESPONSE #100
+    CreateCreature("LOTHAN",[2361.1090])  // ~Lothander~
+    ActionOverride("Lothander",ChangeAIScript("INITDLG",CLASS))
+END
+

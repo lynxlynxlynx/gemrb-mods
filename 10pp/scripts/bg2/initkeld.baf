@@ -1,0 +1,26 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  See("Keldorn")  // Keldorn
+  InParty("Keldorn")  // Keldorn
+THEN
+  RESPONSE #100
+    Dialog("Keldorn")
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !See("Keldorn")  // Keldorn
+  InParty("Keldorn")  // Keldorn
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  !InParty("Keldorn")  // Keldorn
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

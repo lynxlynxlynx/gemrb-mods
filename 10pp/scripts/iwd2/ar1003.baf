@@ -1,0 +1,65 @@
+IF
+  Global("AR1003_BAR_CLEANUP","GLOBAL",0)
+  GlobalGT("Palisade_Iron_Collar_Quest","GLOBAL",1)
+  !AnyPCOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("AR1003_BAR_CLEANUP","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("AR1003_BAR_CLEANUP","GLOBAL",1)
+THEN
+  RESPONSE #100
+    HideCreature("BLACK_GEOFFREY",TRUE)
+    HideCreature("BLANCHARD",TRUE)
+    HideCreature("KICKSHAW",TRUE)
+    SetGlobal("AR1003_BAR_CLEANUP","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("TEAM_1","MYAREA",0)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("TARGOS_HOSTILE","GLOBAL",0)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TARGOS_HOSTILE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_0","MYAREA",0)
+  !Global("TARGOS_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

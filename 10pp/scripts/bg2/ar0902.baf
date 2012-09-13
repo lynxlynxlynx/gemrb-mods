@@ -1,0 +1,101 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    AmbientActivate("AM0902L2",TRUE)
+    AmbientActivate("AM0902L4",TRUE)
+    AmbientActivate("AM0902L1",TRUE)
+    AmbientActivate("AM0902L3",TRUE)
+END
+
+IF
+  Global("SainSpawn","GLOBAL",0)
+  OR(5)
+    Class(Player1,CLERIC)
+    Class(Player1,FIGHTER_CLERIC)
+    Class(Player1,CLERIC_MAGE)
+    Class(Player1,CLERIC_THIEF)
+    Class(Player1,FIGHTER_MAGE_CLERIC)
+  Alignment(Player1,MASK_GOOD)
+THEN
+  RESPONSE #100
+    SetGlobal("SainSpawn","GLOBAL",1)
+    CreateCreature("SCSAIN",[642.627],0)  // ~Dawnbringer Sain~
+END
+
+IF
+  Global("TelwynSent","GLOBAL",1)
+  Global("SainSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SainSpawn","GLOBAL",1)
+    CreateCreature("SCSAIN",[642.627],0)  // ~Dawnbringer Sain~
+    ActionOverride("scsain",SetNumTimesTalkedTo(1))
+END
+
+IF
+  GlobalTimerExpired("LatlaraReturn","GLOBAL")
+  Global("LatlaraEnd","GLOBAL",0)
+  !Exists("latlara")  // ~Acolyte Lara~
+  !Dead("latlara")  // ~Acolyte Lara~
+THEN
+  RESPONSE #100
+    CreateCreature("LATLARA",[1785.913],4)  // ~Acolyte Lara~
+    ActionOverride("latlara",SetNumTimesTalkedTo(1))
+END
+
+IF
+  Global("LatlaraEnd","GLOBAL",1)
+  Dead("clcoti01")  // ~Cotirso~
+  !Exists("latlara")  // ~Acolyte Lara~
+  !Dead("latlara")  // ~Acolyte Lara~
+THEN
+  RESPONSE #100
+    SetGlobal("LatlaraEnd","GLOBAL",2)
+    CreateCreature("LATLARA",[1785.913],4)  // ~Acolyte Lara~
+    ActionOverride("latlara",SetNumTimesTalkedTo(1))
+END
+
+IF
+  GlobalTimerExpired("Clglin01Return","GLOBAL")
+  Global("Clglin01Spawn","GLOBAL",0)
+  Global("JoinLathander","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Clglin01Spawn","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut81f")
+END
+
+IF
+  GlobalTimerExpired("Cltiva01Return","GLOBAL")
+  Global("Cltiva01Spawn","GLOBAL",0)
+  Global("JoinLathander","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("Cltiva01Spawn","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut81e")
+END
+
+IF
+  Global("JoinLathander","GLOBAL",1)
+  !Global("Stripped","GLOBAL",3)
+  Global("SetRest","AR0902",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SetRest","AR0902",1)
+    SetAreaRestFlag(1)
+END
+
+IF
+  Global("Stripped","GLOBAL",3)
+  Global("SetRest","AR0902",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SetRest","AR0902",2)
+    SetAreaRestFlag(0)
+END
+

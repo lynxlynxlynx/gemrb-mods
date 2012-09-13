@@ -1,0 +1,76 @@
+IF
+  HasItem("CDiseas",Myself)  // ~Contagion~
+  Global("Spell","LOCALS",1)
+  !TimerActive(98)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("Spell","LOCALS",0)
+    StartTimer(98,21)
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Global("Spell","LOCALS",1)
+  !TimerActive(98)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("21032222",LastMarkedObject,7)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_BLINDNESS
+    MarkSpellAndObject("1315",Myself,7)
+      // CLERIC_CAUSE_DISEASE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1315",Myself,7)
+      // CLERIC_CAUSE_DISEASE
+    MarkSpellAndObject("21032222",LastMarkedObject,7)
+      // WIZARD_BURNING_HANDS
+      // WIZARD_BLINDNESS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetGlobal("Spell","LOCALS",0)
+    StartTimer(98,21)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  Global("Spell","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("Spell","LOCALS",1)
+    Continue()
+END
+
+IF
+  !TimerActive(99)
+  See(NearestEnemyOf(Myself),0)
+  HasItem("00CWSHE3",Myself)  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    StartTimer(99,14)
+    EquipRanged()
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackOneRound(LastSeenBy(Myself))
+END
+

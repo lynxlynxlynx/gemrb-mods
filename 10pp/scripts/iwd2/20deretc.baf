@@ -1,0 +1,212 @@
+IF
+  HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)
+  Allegiance(Nearest(Myself),ENEMY)
+  General(Nearest(Myself),ANIMAL)
+  See(Nearest(Myself),0)
+  HPLostGT(LastSeenBy(Myself),64)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  Allegiance(Nearest(Myself),ENEMY)
+  General(Nearest(Myself),ANIMAL)
+  See(Nearest(Myself),0)
+  HPLostGT(LastSeenBy(Myself),51)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Global("Obj0_Once","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Obj0_Once","LOCALS",1)
+    Enemy()
+    ActionOverride("Sabrina",Enemy())
+    CreateCreature("20DerWlf","",[-1.-1],0)  // ~Wolf~
+    Wait(1)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  GlobalLT("Obj1_3SpellsOnly","LOCALS",3)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("14111221110515121510",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_PRODUCE_FIRE
+      // CLERIC_RAINSTORM
+      // CLERIC_ENTANGLE
+      // CLERIC_SPIKE_STONES
+      // CLERIC_INSECT_PLAGUE
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("14111221110515121510",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_PRODUCE_FIRE
+      // CLERIC_RAINSTORM
+      // CLERIC_ENTANGLE
+      // CLERIC_SPIKE_STONES
+      // CLERIC_INSECT_PLAGUE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Obj1_3SpellsOnly","LOCALS",1)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("150324251322",LastMarkedObject,7)
+      // CLERIC_FLAME_STRIKE
+      // CLERIC_CONTAGION
+      // CLERIC_MOLD_TOUCH
+    MarkSpellAndObject("2425",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // CLERIC_CONTAGION
+    MarkSpellAndObject("1221",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_RAINSTORM
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("150324251322",LastMarkedObject,7)
+      // CLERIC_FLAME_STRIKE
+      // CLERIC_CONTAGION
+      // CLERIC_MOLD_TOUCH
+    MarkSpellAndObject("2425",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // CLERIC_CONTAGION
+    MarkSpellAndObject("1221",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_RAINSTORM
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2425",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // CLERIC_CONTAGION
+    MarkSpellAndObject("1221",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_RAINSTORM
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("150324251322",LastMarkedObject,7)
+      // CLERIC_FLAME_STRIKE
+      // CLERIC_CONTAGION
+      // CLERIC_MOLD_TOUCH
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1221",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_RAINSTORM
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("150324251322",LastMarkedObject,7)
+      // CLERIC_FLAME_STRIKE
+      // CLERIC_CONTAGION
+      // CLERIC_MOLD_TOUCH
+    MarkSpellAndObject("2425",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // CLERIC_CONTAGION
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1204",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1302",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+    MarkSpellAndObject("150324251322",LastMarkedObject,7)
+      // CLERIC_FLAME_STRIKE
+      // CLERIC_CONTAGION
+      // CLERIC_MOLD_TOUCH
+    MarkSpellAndObject("2425",[PC.0.0.0.0.0.0.0.0.CLASSMASK_BARD],SPELLCAST_RANDOM)
+      // CLERIC_CONTAGION
+    MarkSpellAndObject("1221",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // CLERIC_RAINSTORM
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HasItem("00CWBER1",Myself)  // <Invalid Strref -1>
+  Allegiance(Myself,ENEMY)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("12023107",Myself,3)
+      // CLERIC_BARKSKIN
+      // INNATE_DRUID_SHAPESHIFT_POLAR_BEAR
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

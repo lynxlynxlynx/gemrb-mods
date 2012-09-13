@@ -1,0 +1,191 @@
+IF
+  Global("OfferAbused","LOCALS",1)
+THEN
+  RESPONSE #100
+    FadeToColor([0.0],0)
+    MoveViewPoint([880.2240],INSTANT)
+    ActionOverride(Protagonist,JumpToPoint([880.2240]))
+    ActionOverride("Odea",JumpToPoint([1425.1560]))
+    MoveToPoint([2326.532])
+    FadeFromColor([0.0],0)
+    SetGlobal("OfferAbused","LOCALS",0)
+END
+
+IF
+  Global("INITIALIZED_40ILLIUM","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetSavedLocationPoint(1933,323,SE)
+    SetGlobal("INITIALIZED_40ILLIUM","LOCALS",1)
+    Continue()
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  HPLostGT(Myself,37)
+  IsSpellTargetValid(Myself,CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_STORM_SHELL)
+  Or(2)
+    HitBy([ANYONE],FIRE)
+    HitBy([ANYONE],ELECTRICITY)
+  HPPercentLT(Myself,75)
+  IsSpellTargetValid(Myself,CLERIC_STORM_SHELL,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_STORM_SHELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_NEUTRALIZE_POISON)
+  StateCheck(Myself,STATE_POISONED)
+  HPPercentLT(Myself,75)
+  IsSpellTargetValid(Myself,CLERIC_NEUTRALIZE_POISON,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_NEUTRALIZE_POISON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("OBJ_SP_40ILLIUM_0","LOCALS",-1)
+  Allegiance(Myself,ENEMY)
+  !Global("OBJ_SP_40ILLIUM_0","LOCALS",-1)
+  RandomNum(5,1)
+  See(FarthestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("13021520",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+      // CLERIC_IRON_SKINS
+    MarkSpellAndObject("1410140215011602",LastMarkedObject,7)
+      // CLERIC_GIANT_INSECT
+      // CLERIC_SUMMON_NATURES_ALLY_4
+      // CLERIC_SUMMON_NATURES_ALLY_5
+      // CLERIC_SUMMON_NATURES_ALLY_6
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1410140215011602",LastMarkedObject,7)
+      // CLERIC_GIANT_INSECT
+      // CLERIC_SUMMON_NATURES_ALLY_4
+      // CLERIC_SUMMON_NATURES_ALLY_5
+      // CLERIC_SUMMON_NATURES_ALLY_6
+    MarkSpellAndObject("13021520",Myself,7)
+      // CLERIC_CALL_LIGHTNING
+      // CLERIC_IRON_SKINS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  !Global("OBJ_SP_40ILLIUM_0","LOCALS",-1)
+  !HaveSpell(CLERIC_CALL_LIGHTNING)
+  !HaveSpell(CLERIC_GIANT_INSECT)
+  !HaveSpell(CLERIC_IRON_SKINS)
+  !HaveSpell(CLERIC_SUMMON_NATURES_ALLY_4)
+  !HaveSpell(CLERIC_SUMMON_NATURES_ALLY_5)
+  !HaveSpell(CLERIC_SUMMON_NATURES_ALLY_6)
+THEN
+  RESPONSE #100
+    SetGlobal("OBJ_SP_40ILLIUM_0","LOCALS",-1)
+    Continue()
+END
+
+IF
+  !TimerActive(22)
+  !NearSavedLocation(0)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(22,5)
+END
+
+IF
+  !TimerActive(22)
+  NearSavedLocation(0)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(22,5)
+END
+
+IF
+  NumTimesTalkedToLT(2)
+  Global("CanSeePlayer","LOCALS",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    FaceObject(LastMarkedObject)
+    SetDialogueRange(300)
+    SetGlobal("CanSeePlayer","LOCALS",1)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Global("CanSeePlayer","LOCALS",1)
+  !See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("CanSeePlayer","LOCALS",0)
+END
+

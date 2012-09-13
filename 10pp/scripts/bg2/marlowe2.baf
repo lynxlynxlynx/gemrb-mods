@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    SetGlobal("LichJob","GLOBAL",4)
+    ActionOverride("amlich01",ForceSpell("marlowe",FLASHY_4))
+    Wait(1)
+    CreateVisualEffectObject("SPDEATH3","marlowe")
+    CreateVisualEffectObject("SPROTECT","amlich01")
+    Wait(1)
+    ActionOverride("marlowe",ApplySpell(Myself,FLASHY_DEATH_YEAH))
+    AddXP2DA("PLOT14C")
+    Wait(2)
+    ActionOverride("amlich01",StartDialogNoSet(Player1))
+END
+

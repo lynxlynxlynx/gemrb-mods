@@ -1,0 +1,47 @@
+IF
+  Global("SAW_PC","LOCALS",0)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    FloatMessage(Myself,2060)  // ~"I don't know how you got in here, but I don't even care.  Heh."~
+    SetGlobal("SAW_PC","LOCALS",1)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  Dead("06_Bug_01")  // 
+  Dead("06_Bug_02")  // 
+  Dead("06_Bug_03")  // 
+  Dead("06_Bug_04")  // 
+THEN
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !TimerActive(21)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,2061)  // ~"I'm old, but not too old to take you snaps."~
+    StartRandomTimer(21,4,8)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,2064)  // ~"I was taking swine like you back when your mamas were wiping you up."~
+    StartRandomTimer(21,4,8)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+

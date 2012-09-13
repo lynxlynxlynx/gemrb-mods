@@ -1,0 +1,33 @@
+IF
+  CreatureHidden(Myself)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Global("Lumber_Quest_Aborted","GLOBAL",0)
+  Global("GOBLIN_TEAM_5_STATE","MYAREA",2)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("12cSpn3a")
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("Goblins_Attack_Palisade","GLOBAL",0)
+  !Global("Lumber_Quest_Aborted","GLOBAL",0)
+  Global("GOBLIN_TEAM_7_STATE","MYAREA",2)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("12cSpn3a")
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

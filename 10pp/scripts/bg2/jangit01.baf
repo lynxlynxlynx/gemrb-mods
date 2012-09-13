@@ -1,0 +1,61 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(89)
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DISPEL_MAGIC)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SwordSpell","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_MORDENKAINENS_SWORD)
+    SetGlobal("SwordSpell","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #30
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+  RESPONSE #70
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SwordSpell","LOCALS",1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_PHANTOM_BLADE)
+    SetGlobal("SwordSpell","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

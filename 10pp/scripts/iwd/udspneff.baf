@@ -1,0 +1,26 @@
+IF
+  !Global("KILL_LICH_MINIONS","MYAREA",0)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    IncrementGlobal("UD_LICH_SPAWN_CNT","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("LICH_MINIONS_FOLLOW","MYAREA",0)
+  !See(NearestEnemyOf(Myself))
+  ActionListEmpty()
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+END
+

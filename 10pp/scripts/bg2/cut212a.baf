@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("amasana")  // 
+    SetGlobal("MayorCutscene","AR5500",1)
+    MoveViewPoint([2251.1261],INSTANT)
+    StartDialogNoSet([PC])
+END
+

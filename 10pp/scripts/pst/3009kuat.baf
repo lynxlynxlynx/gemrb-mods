@@ -1,0 +1,50 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunToPoint([1110.955])
+    DestroySelf()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    RunToPoint([1110.955])
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(3)
+    MoveToPoint([818.473])
+    Face(8)
+    Wait(3)
+    MoveToPoint([800.589])
+    Face(4)
+    Wait(3)
+    MoveToPoint([830.686])
+    Face(14)
+    Wait(3)
+    MoveToPoint([469.651])
+    Face(4)
+    Wait(3)
+    MoveToPoint([508.489])
+    Face(10)
+    Wait(3)
+    MoveToPoint([520.702])
+    MoveToPoint([850.902])
+    MoveToPoint([979.819])
+    Face(14)
+    Wait(3)
+    MoveToPoint([1109.684])
+    MoveToPoint([1174.462])
+    Face(6)
+    MoveToPoint([994.588])
+    MoveToPoint([688.399])
+    Face(8)
+END
+

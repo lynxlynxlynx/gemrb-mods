@@ -1,0 +1,9 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Global("EquipWeapon","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EquipWeapon","LOCALS",1)
+    EquipMostDamagingMelee()
+END
+

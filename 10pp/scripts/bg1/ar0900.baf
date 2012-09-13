@@ -1,0 +1,27 @@
+IF
+  GlobalGT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    ActionOverride("FLAMBRID",DestroySelf())
+    Continue()
+END
+
+IF
+  Global("Chapter","GLOBAL",5)
+  Global("Drawbridge","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Drawbridge","GLOBAL",1)
+    CloseDoor("DoorDraw")
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("SmugglersSpawn","GLOBAL",0)
+  !Exists("Smuggler")  // Smuggler
+THEN
+  RESPONSE #100
+    SetGlobal("SmugglersSpawn","GLOBAL",1)
+    CreateCreature("SMUGGL",[4373.3412])  // ~Smuggler~
+END
+

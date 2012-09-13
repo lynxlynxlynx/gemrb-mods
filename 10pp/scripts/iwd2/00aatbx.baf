@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBB")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBC")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBD")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBF")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBH")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBM")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBP")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBR")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBS")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBT")
+  RESPONSE #100
+    ChangeCurrentScript("00aAtBW")
+END
+

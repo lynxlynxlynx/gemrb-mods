@@ -1,0 +1,28 @@
+IF
+  Global("Started_Cutscene","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Started_Cutscene","MYAREA",1)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("65cBrut0")
+END
+
+IF
+  Global("6502_SeeParty","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("6502_SeeParty","GLOBAL",0)
+    SetGlobal("6502_SeeParty_Time","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

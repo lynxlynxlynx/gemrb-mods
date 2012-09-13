@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ppdesh2")  // 
+    SetGlobal("AsylumPlot","GLOBAL",76)
+    MoveToObject("ppgirl")
+    AttackOneRound("ppgirl")
+    Kill("ppgirl")
+    Wait(2)
+    StartDialogNoSet(Player1)
+    EndCutSceneMode()
+END
+

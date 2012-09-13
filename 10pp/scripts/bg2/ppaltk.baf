@@ -1,0 +1,24 @@
+IF
+  Dead("PPGUARD1")  // ~Kobold~
+  Dead("PPGUARD2")  // ~Kobold~
+  Dead("PPGUARD3")  // ~Kobold~
+  Dead("PPGUARD4")  // ~Kobold Witch Doctor~
+  Global("Run","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Run","LOCALS",1)
+    DisplayStringHead(Myself,53763)  // ~Master! Nooooo!!~
+END
+
+IF
+  Dead("PPGUARD1")  // ~Kobold~
+  Dead("PPGUARD2")  // ~Kobold~
+  Dead("PPGUARD3")  // ~Kobold~
+  Dead("PPGUARD4")  // ~Kobold Witch Doctor~
+  Global("Run","LOCALS",1)
+THEN
+  RESPONSE #100
+    RunAwayFromNoInterrupt(NearestEnemyOf(Myself),30)
+    Kill(Myself)
+END
+

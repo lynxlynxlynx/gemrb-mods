@@ -1,0 +1,8 @@
+IF
+  Clicked([ANYONE])
+  Global("Viking","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Viking","GLOBAL",1)
+END
+

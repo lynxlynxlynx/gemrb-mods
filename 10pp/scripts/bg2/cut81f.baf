@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    MoveViewPoint([1744.942],INSTANT)
+    JumpToPoint([1744.942])
+    ActionOverride(Player2,JumpToPoint([1610.727]))
+    ActionOverride(Player3,JumpToPoint([1571.701]))
+    ActionOverride(Player4,JumpToPoint([1528.693]))
+    ActionOverride(Player5,JumpToPoint([1485.708]))
+    ActionOverride(Player6,JumpToPoint([1462.745]))
+    CreateCreature("CLGLIN01",[1701.894],14)  // ~Glinden~
+    Face(6)
+    ActionOverride(Player2,Face(2))
+    ActionOverride(Player3,Face(2))
+    ActionOverride(Player4,Face(0))
+    ActionOverride(Player5,Face(14))
+    ActionOverride(Player6,Face(12))
+    FadeFromColor([20.0],0)
+    Wait(1)
+    ActionOverride("clglin01",SetNumTimesTalkedTo(1))
+    ActionOverride("clglin01",Dialog(Player1))
+END
+

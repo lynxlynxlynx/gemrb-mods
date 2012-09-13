@@ -1,0 +1,643 @@
+IF
+  !InParty(Myself)
+  Global("AnomenVampire","GLOBAL",4)
+THEN
+  RESPONSE #100
+    Wait(1)
+    SetGlobal("AnomenVampire","GLOBAL",5)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  Global("AnomenIsNotKnight","GLOBAL",1)
+  Global("AnomenUpset","GLOBAL",1)
+  Global("AnomenSpeaksAfterTrial","LOCALS",0)
+  !AreaCheck("AR0903")
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenSpeaksAfterTrial","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  Global("AnomenIsKnight","GLOBAL",1)
+  Global("AnomenBanter","GLOBAL",0)
+  Global("AnomenSpeaksAfterTrial","LOCALS",0)
+  !AreaCheck("AR0903")
+  AreaType(OUTDOOR)
+  TimeGT(DAWN_START)
+  TimeLT(17)
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenSpeaksAfterTrial","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  Global("DomainPaladinBattle","GLOBAL",1)
+  Global("AnomenMonsters","LOCALS",0)
+  AreaCheck("ar1200")
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet(Player1)
+    SetGlobal("AnomenMonsters","LOCALS",1)
+END
+
+IF
+  InParty(Myself)
+  Global("AnomenMonsters","LOCALS",1)
+  Global("Kidnap","GLOBAL",3)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+    SetGlobal("AnomenMonsters","LOCALS",2)
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("AnomenJoined","GLOBAL")
+  Global("SaerkPlot","GLOBAL",0)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  !AreaCheck("AR1900")
+  !AreaCheck("AR1100")
+  !AreaCheck("AR1300")
+  !AreaCheck("AR1400")
+  !AreaCheck("AR1404")
+  !AreaCheck("AR2500")
+  !AreaCheck("AR2600")
+  AreaType(OUTDOOR)
+  !Exists("Terl")  // ~Terl~
+  OR(2)
+    Global("AnomenRomanceActive","GLOBAL",0)
+    Global("AnomenRomanceActive","GLOBAL",3)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectOffScreen("TERL",Myself,0,0,0)  // ~Terl~
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("AnomenJoined","GLOBAL")
+  Global("SaerkPlot","GLOBAL",0)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  !AreaCheck("AR1100")
+  !AreaCheck("AR1300")
+  !AreaCheck("AR1400")
+  !AreaCheck("AR1404")
+  !AreaCheck("AR1900")
+  !AreaCheck("AR2500")
+  !AreaCheck("AR2600")
+  AreaType(OUTDOOR)
+  !Exists("Terl")  // ~Terl~
+  OR(2)
+    Global("AnomenRomanceActive","GLOBAL",1)
+    Global("AnomenRomanceActive","GLOBAL",2)
+  Global("LoveTalk","LOCALS",15)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectOffScreen("TERL",Myself,0,0,0)  // ~Terl~
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("SpawnTerl","GLOBAL")
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  See("Terl")  // ~Terl~
+  AreaType(OUTDOOR)
+  Global("RomancePartFour","GLOBAL",0)
+  !See([ENEMY])
+  OR(2)
+    Global("AnomenRomanceActive","GLOBAL",1)
+    Global("AnomenRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("SpawnTerl","GLOBAL")
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  !AreaCheck("AR1900")
+  !AreaCheck("AR2500")
+  !AreaCheck("AR2600")
+  AreaType(OUTDOOR)
+  !Exists("Terl")  // ~Terl~
+  OR(2)
+    Global("AnomenRomanceActive","GLOBAL",1)
+    Global("AnomenRomanceActive","GLOBAL",2)
+  Global("RomancePartFour","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectOffScreen("TERL",Myself,0,0,0)  // ~Terl~
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("AnomenHome","GLOBAL")
+  GlobalLT("AnomenComplain","LOCALS",2)
+  Global("TalkedToCor","GLOBAL",0)
+  CombatCounter(0)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(OUTDOOR)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("AnomenKnight","GLOBAL")
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  Global("KnightPlot","GLOBAL",0)
+  AreaType(OUTDOOR)
+  AreaType(CITY)
+  Global("TalkedToKayl","GLOBAL",0)
+  !Exists("Kayl1")  // ~Sir Ryan Trawl~
+  OR(2)
+    Global("SaerkPlot","GLOBAL",2)
+    Global("KillSaerk","GLOBAL",2)
+  OR(2)
+    Global("AnomenRomanceActive","GLOBAL",0)
+    Global("AnomenRomanceActive","GLOBAL",3)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectOffScreen("KAYL1",Myself,0,0,0)  // ~Sir Ryan Trawl~
+END
+
+IF
+  InParty(Myself)
+  Global("AnomenIsKnight","GLOBAL",0)
+  Global("AnomenIsNotKnight","GLOBAL",0)
+  GlobalTimerExpired("AnomenKnight","GLOBAL")
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(OUTDOOR)
+  AreaType(CITY)
+  Global("KnightPlot","GLOBAL",0)
+  Global("TalkedToKayl","GLOBAL",0)
+  !Exists("Kayl1")  // ~Sir Ryan Trawl~
+  OR(2)
+    Global("SaerkPlot","GLOBAL",2)
+    Global("KillSaerk","GLOBAL",2)
+  OR(2)
+    Global("AnomenRomanceActive","GLOBAL",1)
+    Global("AnomenRomanceActive","GLOBAL",2)
+  Global("LoveTalk","LOCALS",27)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectOffScreen("KAYL1",Myself,0,0,0)  // ~Sir Ryan Trawl~
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("AnomenTrial","GLOBAL")
+  GlobalLT("AnomenComplainKnight","LOCALS",2)
+  Global("AnomenGoesTrial","GLOBAL",1)
+  Global("AnomenTrialOnOwn","GLOBAL",0)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  !AreaType(DUNGEON)
+  CombatCounter(0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("AnomenTrialOnOwn","GLOBAL",1)
+  Global("AnomenIsKnight","GLOBAL",0)
+  Global("AnomenIsNotKnight","GLOBAL",0)
+  AreaCheck("AR0903")
+  !Dead("Saerk")  // ~Saerk Farrahd~
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenTrialOnOwn","GLOBAL",2)
+    SetGlobal("AnomenIsKnight","GLOBAL",1)
+    ChangeAIScript("SHT0903",CLASS)
+    ReallyForceSpell(Myself,ANOMEN_TITLE)
+END
+
+IF
+  Global("AnomenTrialOnOwn","GLOBAL",1)
+  Global("AnomenIsKnight","GLOBAL",0)
+  Global("AnomenIsNotKnight","GLOBAL",0)
+  AreaCheck("AR0903")
+  Dead("Saerk")  // ~Saerk Farrahd~
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenTrialOnOwn","GLOBAL",2)
+    SetGlobal("AnomenIsNotKnight","GLOBAL",1)
+    ChangeAIScript("SHT0903",CLASS)
+END
+
+IF
+  InParty(Myself)
+  AreaCheck("AR0505")
+  Global("KillSaerk","GLOBAL",1)
+  Global("AnomenDecide","GLOBAL",2)
+  CombatCounter(0)
+  Dead("Saerk")  // ~Saerk Farrahd~
+  !Dead("Cor")  // ~Cor Delryn~
+  Global("SaerkRevengeDone","LOCALS",0)
+  Global("TheBadManIsDead","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TheBadManIsDead","LOCALS",1)
+    ActionOverride("Anomen",StartDialogNoSet([PC]))
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("ddKidnapTimer","GLOBAL")
+  Global("ddAnomenWhine","LOCALS",0)
+  !GlobalGT("Kidnap","GLOBAL",3)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+    SetGlobal("ddAnomenWhine","LOCALS",1)
+    SetGlobalTimer("ddKidnapTimer","GLOBAL",THREE_DAYS)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AnomenRomance","GLOBAL")
+  PartyRested()
+  !Global("AnomenRomanceActive","GLOBAL",0)
+  !Global("AnomenRomanceActive","GLOBAL",3)
+  Global("AnomenMatch","GLOBAL",1)
+  !AreaType(DUNGEON)
+  See(Player1)
+  CombatCounter(0)
+  OR(16)
+    Global("LoveTalk","LOCALS",1)
+    Global("LoveTalk","LOCALS",3)
+    Global("LoveTalk","LOCALS",5)
+    Global("LoveTalk","LOCALS",7)
+    Global("LoveTalk","LOCALS",9)
+    Global("LoveTalk","LOCALS",11)
+    Global("LoveTalk","LOCALS",13)
+    Global("LoveTalk","LOCALS",15)
+    Global("LoveTalk","LOCALS",17)
+    Global("LoveTalk","LOCALS",19)
+    Global("LoveTalk","LOCALS",21)
+    Global("LoveTalk","LOCALS",23)
+    Global("LoveTalk","LOCALS",25)
+    Global("LoveTalk","LOCALS",27)
+    Global("LoveTalk","LOCALS",29)
+    Global("LoveTalk","LOCALS",33)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("AnomenRomance","GLOBAL",10)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AnomenRomance","GLOBAL")
+  !Global("AnomenRomanceActive","GLOBAL",0)
+  !Global("AnomenRomanceActive","GLOBAL",3)
+  Global("AnomenMatch","GLOBAL",1)
+  !AreaCheck("AR1300")
+  !AreaType(DUNGEON)
+  See(Player1)
+  CombatCounter(0)
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+  OR(14)
+    Global("LoveTalk","LOCALS",1)
+    Global("LoveTalk","LOCALS",3)
+    Global("LoveTalk","LOCALS",5)
+    Global("LoveTalk","LOCALS",7)
+    Global("LoveTalk","LOCALS",9)
+    Global("LoveTalk","LOCALS",11)
+    Global("LoveTalk","LOCALS",13)
+    Global("LoveTalk","LOCALS",17)
+    Global("LoveTalk","LOCALS",19)
+    Global("LoveTalk","LOCALS",21)
+    Global("LoveTalk","LOCALS",23)
+    Global("LoveTalk","LOCALS",25)
+    Global("LoveTalk","LOCALS",29)
+    Global("LoveTalk","LOCALS",33)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    PlaySong(35)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("AnomenRomance","GLOBAL")
+  Global("AnomenMatch","GLOBAL",1)
+  OR(18)
+    Global("LoveTalk","LOCALS",2)
+    Global("LoveTalk","LOCALS",4)
+    Global("LoveTalk","LOCALS",6)
+    Global("LoveTalk","LOCALS",8)
+    Global("LoveTalk","LOCALS",10)
+    Global("LoveTalk","LOCALS",12)
+    Global("LoveTalk","LOCALS",14)
+    Global("LoveTalk","LOCALS",16)
+    Global("LoveTalk","LOCALS",18)
+    Global("LoveTalk","LOCALS",20)
+    Global("LoveTalk","LOCALS",22)
+    Global("LoveTalk","LOCALS",24)
+    Global("LoveTalk","LOCALS",26)
+    Global("LoveTalk","LOCALS",28)
+    Global("LoveTalk","LOCALS",30)
+    Global("LoveTalk","LOCALS",32)
+    Global("LoveTalk","LOCALS",34)
+    Global("LoveTalk","LOCALS",36)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    RealSetGlobalTimer("AnomenRomance","GLOBAL",3600)
+END
+
+IF
+  InParty(Myself)
+  Global("FirstRomanceDelay","LOCALS",0)
+  Global("AnomenMatch","GLOBAL",1)
+  Global("TalkedCor","GLOBAL",1)
+  Global("LoveTalk","LOCALS",15)
+THEN
+  RESPONSE #100
+    SetGlobal("FirstRomanceDelay","LOCALS",1)
+    RealSetGlobalTimer("AnomenRomance","GLOBAL",2000)
+END
+
+IF
+  InParty(Myself)
+  Global("FirstRomanceDelay","LOCALS",1)
+  RealGlobalTimerExpired("AnomenRomance","GLOBAL")
+  Global("AnomenMatch","GLOBAL",1)
+  OR(2)
+    Global("KillSaerk","GLOBAL",2)
+    Global("SaerkPlot","GLOBAL",2)
+  Global("LoveTalk","LOCALS",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  Global("SecondRomanceDelay","LOCALS",0)
+  Global("AnomenMatch","GLOBAL",1)
+  OR(2)
+    Global("AnomenIsKnight","GLOBAL",1)
+    Global("AnomenIsNotKnight","GLOBAL",1)
+  Global("LoveTalk","LOCALS",27)
+THEN
+  RESPONSE #100
+    SetGlobal("SecondRomanceDelay","LOCALS",1)
+    RealSetGlobalTimer("AnomenRomance","GLOBAL",3600)
+END
+
+IF
+  InParty(Myself)
+  Global("SecondRomanceDelay","LOCALS",1)
+  RealGlobalTimerExpired("AnomenRomance","GLOBAL")
+  Global("AnomenMatch","GLOBAL",1)
+  OR(2)
+    Global("AnomenIsKnight","GLOBAL",1)
+    Global("AnomenIsNotKnight","GLOBAL",1)
+  Global("LoveTalk","LOCALS",27)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  Global("AnomenHatesKeldorn","GLOBAL",1)
+  InParty("Keldorn")  // Keldorn
+  See("Keldorn")  // Keldorn
+  !Dead("Keldorn")  // Keldorn
+  HPPercentGT(Myself,75)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",DEFAULT)
+    SetLeavePartyDialogueFile()
+    SetGlobal("KickedOut","LOCALS",1)
+    LeaveParty()
+    Attack("Keldorn")
+    ActionOverride("Keldorn",Attack("Anomen"))
+END
+
+IF
+  InParty(Myself)
+  PartyRested()
+  AreaType(0)
+  !AreaType(CITY)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+  CombatCounter(0)
+  Global("BAnomen4","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact(Player1)
+END
+
+IF
+  Global("AnomenIsEnemy","GLOBAL",1)
+  Global("AnomenMoves","LOCALS",0)
+THEN
+  RESPONSE #100
+    EscapeAreaMove("AR1001",677,487,14)
+    SetGlobal("AnomenMoves","LOCALS",1)
+END
+
+IF
+  Global("AnomenIsEnemy","GLOBAL",1)
+  Global("AnomenMoves","LOCALS",1)
+  Global("AnomenAllies","LOCALS",0)
+  AreaCheck("AR1001")
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("AnomenAllies","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  InParty(Myself)
+  Global("TannerWarning","AR0502",0)
+  AreaCheck("AR0502")
+THEN
+  RESPONSE #100
+    SetGlobal("TannerWarning","AR0502",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  InParty(Myself)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+  OR(3)
+    !InParty("Keldorn")  // Keldorn
+    Dead("Keldorn")  // Keldorn
+    StateCheck("Keldorn",STATE_SLEEPING)  // Keldorn
+  Global("FoundAegis","GLOBAL",0)
+  Global("FoundAegis2","LOCALS",0)
+  Delay(10)
+  PartyHasItem("misc5m")  // ~Inspector's Body~
+THEN
+  RESPONSE #100
+    SetGlobal("FoundAegis2","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  OR(2)
+    Dead("cor")  // ~Cor Delryn~
+    Allegiance("cor",ENEMY)  // ~Cor Delryn~
+  InParty(Myself)
+  !Alignment(Myself,CHAOTIC_NEUTRAL)
+  Global("YouKilledMyFather","LOCALS",0)
+  Global("RomancePartFour","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YouKilledMyFather","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+    DisplayStringHead(Myself,56235)  // ~No! What are you doing?!~
+    LeaveParty()
+    Enemy()
+END
+
+IF
+  OR(2)
+    Dead("cor")  // ~Cor Delryn~
+    Allegiance("cor",ENEMY)  // ~Cor Delryn~
+  Allegiance(Myself,NEUTRAL)
+  !InParty(Myself)
+  !Alignment(Myself,CHAOTIC_NEUTRAL)
+  Global("RomancePartFour","GLOBAL",0)
+  Global("YouKilledMyFather","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YouKilledMyFather","LOCALS",1)
+    DisplayStringHead(Myself,56235)  // ~No! What are you doing?!~
+    Enemy()
+END
+
+IF
+  Global("TempleShout0903","GLOBAL",1)
+  !Alignment(Myself,CHAOTIC_NEUTRAL)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    LeaveParty()
+    Enemy()
+END
+
+IF
+  Global("TempleShout0903","GLOBAL",1)
+  !InParty(Myself)
+  !Allegiance(Myself,ENEMY)
+  !Alignment(Myself,CHAOTIC_NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("AnomenFinalFight","GLOBAL",1)
+  Global("HopToItAnomen","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HopToItAnomen","LOCALS",1)
+    SetDialogue("")
+    ChangeAIScript("anomx",SPECIFICS)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,GOODBUTBLUE)
+  Global("AnomenFinalFight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  InParty(Myself)
+  Global("AnomenKeldornFight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetLeavePartyDialogueFile()
+    LeaveParty()
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("anvskel",SPECIFICS)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("anomx",SPECIFICS)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("anomx",SPECIFICS)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",SPECIFICS)
+    Continue()
+END
+

@@ -1,0 +1,243 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Prepare","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("Prepare","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("SpellTrigger","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39968)  // ~Spell Trigger - Fired~
+    DisplayString(Myself,43046)  // ~Spell Trigger - Mislead~
+    ReallyForceSpell(Myself,WIZARD_MISLEAD)
+    DisplayString(Myself,43047)  // ~Spell Trigger - Fire Shield Red~
+    ReallyForceSpell(Myself,WIZARD_FIRE_SHIELD_RED)
+    DisplayString(Myself,40245)  // ~Spell Trigger - Globe of Invulnerability~
+    ReallyForceSpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)
+    SetGlobal("SpellTrigger","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  StateCheck(Myself,STATE_SILENCED)
+  HaveSpell(WIZARD_VOCALIZE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  !HaveSpell(WIZARD_TRUE_SIGHT)
+  Delay(10)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("Prepare","LOCALS",1)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_TURNING)
+    SetGlobal("Prepare","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !HasBounceEffects(Myself)
+  !HasImmunityEffects(Myself)
+  HaveSpell(WIZARD_SPELL_TURNING)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_TURNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  TookDamage()
+  Global("Prepare2","LOCALS",0)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,43050)  // ~Chain Contingency - Improved Mantle~
+    ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)
+    DisplayString(Myself,3302)  // ~Chain Contingency - Spell Turning~
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    DisplayString(Myself,40240)  // ~Chain Contingency - Mislead~
+    ApplySpell(Myself,WIZARD_MISLEAD)
+    SetGlobal("Prepare2","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  TookDamage()
+  Global("Prepare2","LOCALS",1)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,40252)  // ~Contingency - Protection from Magical Weapons~
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    SetGlobal("Prepare2","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  Global("Summon","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+    SetGlobal("Summon","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_TIME_STOP)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TIME_STOP)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_STUN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_NPC_SYMBOL_FEAR)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_WAIL_OF_THE_BANSHEE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SUN_FIRE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_SUN_FIRE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FINGER_OF_DEATH)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_PRISMATIC_SPRAY)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_PRISMATIC_SPRAY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SUMMON_EFREET)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SUMMON_EFREET)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAZE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAZE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_FLESH_TO_STONE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DISINTEGRATE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_DOMINATION)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DOMINATION)
+END
+
+IF
+  HPPercentLT(Myself,25)
+  HPGT(Myself,1)
+  !Dead("yself)")  // yself)
+  Global("Whined","LOCALS",0)
+  See(NearestMyGroupOfType)
+  Allegiance(Myself,ENEMY)
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("Whined","LOCALS",1)
+    Shout(153)
+    DisplayStringHead(Myself,46151)  // ~help!~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

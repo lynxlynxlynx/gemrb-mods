@@ -1,0 +1,9 @@
+IF
+  Global("DisplayPPString","AR6400",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    DisplayStringHead(Player1,71789)  // ~The magic of the pocket plane has placed you in the wilderness on the road to Yaga Shura's home. Your map has been updated and you shall have to make your way to Yaga Shura's areas and discover the source of his invulnerability.~
+    SetGlobal("DisplayPPString","AR6400",1)
+END
+

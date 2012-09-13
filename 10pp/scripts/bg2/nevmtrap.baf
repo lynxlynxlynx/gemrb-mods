@@ -1,0 +1,26 @@
+IF
+  Entered([ANYONE])
+  Global("SpawnTomb","AR0802",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnTomb","AR0802",1)
+    CreateCreature("NEVM5",[733.165],2)  // ~Zombie~
+    OpenDoor("Door01")
+    CreateCreature("NEVM1",[885.246],2)  // ~Wight~
+    OpenDoor("Door02")
+    CreateCreature("NEVM2",[1003.348],2)  // ~Skeleton Warrior~
+    OpenDoor("Door04")
+    CreateCreature("NEVM4",[1301.551],4)  // ~Vampyre~
+    OpenDoor("Door05")
+    CreateCreature("NEVM1",[420.389],10)  // ~Wight~
+    OpenDoor("Door07")
+    CreateCreature("NEVM2",[664.567],8)  // ~Skeleton Warrior~
+    Wait(1)
+    OpenDoor("Door03")
+    CreateCreature("NEVM3",[1137.445],4)  // ~Ghast~
+    OpenDoor("Door06")
+    CreateCreature("NEVM5",[542.481],10)  // ~Zombie~
+    OpenDoor("Door08")
+    CreateCreature("NEVM3",[804.662],8)  // ~Ghast~
+END
+

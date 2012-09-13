@@ -1,0 +1,36 @@
+IF
+  Disarmed([PC])
+THEN
+  RESPONSE #100
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+
+IF
+  OpenState("AR6103_Spike3",TRUE)  // AR6103_Spike3
+  !TimerActive(100)
+  Or(2)
+    Entered([GOODCUTOFF])
+    IsOverMe([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,CLERIC_CIRCLE_OF_BLADES)
+    Continue()
+END
+
+IF
+  OpenState("AR6103_Spike3",TRUE)  // AR6103_Spike3
+  !TimerActive(100)
+THEN
+  RESPONSE #100
+    CloseDoor("AR6103_Spike3")
+END
+
+IF
+  OpenState("AR6103_Spike3",FALSE)  // AR6103_Spike3
+THEN
+  RESPONSE #100
+    StartRandomTimer(100,0,3)
+    OpenDoor("AR6103_Spike3")
+END
+

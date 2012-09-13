@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Mantuok")  // 
+    ClearAllActions()
+    FadeToBlack()
+    Wait(1)
+    GlobalSet("1601_Mantuok_Respawn","GLOBAL",1)
+    BitSet("1600_Status","AR1600",BIT3)
+    TeleportParty("AR1601",[1081.1121],10)
+    EndCutSceneMode()
+END
+

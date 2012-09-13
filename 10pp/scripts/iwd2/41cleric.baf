@@ -1,0 +1,201 @@
+IF
+  HitBy([ANYONE],FIRE)
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Or(2)
+    HitBy([ANYONE],ELECTRICITY)
+    GlobalGT("41PrismFire","MYAREA",0)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PROTECTION_FROM_LIGHTNING)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)
+  HitBy([ANYONE],FIRE)
+  IsSpellTargetValid(Myself,CLERIC_PROTECTION_FROM_FIRE,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)
+  Or(2)
+    HitBy([ANYONE],ELECTRICITY)
+    GlobalGT("41PrismFire","MYAREA",0)
+  IsSpellTargetValid(Myself,CLERIC_PROTECTION_FROM_LIGHTNING,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PROTECTION_FROM_LIGHTNING)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_RADIUS)
+  See(FarthestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_SILENCE_15_RADIUS,0)
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  Or(5)
+    LevelInClassGT(LastMarkedObject,3,BARD)
+    LevelInClassGT(LastMarkedObject,3,CLERIC)
+    LevelInClassGT(LastMarkedObject,3,DRUID)
+    LevelInClassGT(LastMarkedObject,3,SORCERER)
+    LevelInClassGT(LastMarkedObject,3,MAGE)
+  Range(LastMarkedObject,9,GREATER_THAN)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_SILENCE_15_RADIUS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Or(2)
+    HasItem("CMDamag",Myself)  // ~Inflict Moderate Wounds~
+    HasItem("IBlade",Myself)  // ~Ice Blade~
+  See(NearestEnemyOf(Myself),0)
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  Range(LastMarkedObject,4,LESS_THAN)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  Range(LastMarkedObject,4,LESS_THAN)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("131912181428",Myself,7)
+      // CLERIC_CIRCLE_OF_BONES
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_ICE_BLADE
+    MarkSpellAndObject("1117",LastMarkedObject,7)
+      // CLERIC_FROST_FINGERS
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1117",LastMarkedObject,7)
+      // CLERIC_FROST_FINGERS
+    MarkSpellAndObject("131912181428",Myself,7)
+      // CLERIC_CIRCLE_OF_BONES
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_ICE_BLADE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  Or(4)
+    HasItem("SHammr",Myself)  // ~Spiritual Weapon~
+    HasItem("SHamme1",Myself)  // ~Spiritual Weapon~
+    HasItem("SHamme2",Myself)  // ~Spiritual Weapon~
+    HasItem("SHamme3",Myself)  // ~Spiritual Weapon~
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("11021111111423062501132524071311",LastMarkedObject,7)
+      // CLERIC_COMMAND
+      // CLERIC_BANE
+      // CLERIC_DOOM
+      // WIZARD_HOLD_PERSON
+      // WIZARD_ANIMATE_DEAD
+      // CLERIC_UNHOLY_BLIGHT
+      // WIZARD_SUMMON_MONSTER_IV
+      // CLERIC_RIGID_THINKING
+    MarkSpellAndObject("1213",Myself,7)
+      // CLERIC_SPIRITUAL_HAMMER
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1213",Myself,7)
+      // CLERIC_SPIRITUAL_HAMMER
+    MarkSpellAndObject("11021111111423062501132524071311",LastMarkedObject,7)
+      // CLERIC_COMMAND
+      // CLERIC_BANE
+      // CLERIC_DOOM
+      // WIZARD_HOLD_PERSON
+      // WIZARD_ANIMATE_DEAD
+      // CLERIC_UNHOLY_BLIGHT
+      // WIZARD_SUMMON_MONSTER_IV
+      // CLERIC_RIGID_THINKING
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

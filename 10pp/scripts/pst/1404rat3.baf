@@ -1,0 +1,10 @@
+IF
+  LOS([PC],22)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    Wait(1)
+    RunToPoint([474.949])
+    DestroySelf()
+END
+

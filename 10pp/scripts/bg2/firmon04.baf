@@ -1,0 +1,21 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("firmon04attack","LOCALS",0)
+THEN
+  RESPONSE #50
+    ForceSpell(NearestEnemyOf(Myself),POWERWORD_STUN)
+    SetGlobal("firmon04attack","LOCALS",1)
+  RESPONSE #50
+    ForceSpell(NearestEnemyOf(Myself),FEAR)
+    SetGlobal("firmon04attack","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("firmon04attack","LOCALS",1)
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+    SetGlobal("firmon04attack","LOCALS",0)
+END
+

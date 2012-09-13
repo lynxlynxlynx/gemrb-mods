@@ -1,0 +1,13 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("OBSSAH01",[2399.1493],0)  // ~Sahuagin Baron~
+    CreateCreature("OBSSAH02",[2317.1520],0)  // ~Sahuagin Priestess~
+    CreateCreature("OBSSAH02",[2514.1527],0)  // ~Sahuagin Priestess~
+    CreateCreature("OBSSAH03",[2637.1608],0)  // ~Baronial Guard~
+    CreateCreature("OBSSAH03",[2174.1592],0)  // ~Baronial Guard~
+    CreateCreature("OBSSAH04",[2578.1673],0)  // ~Sahuagin~
+    CreateCreature("OBSSAH05",[2287.1655],0)  // ~Sahuagin~
+END
+

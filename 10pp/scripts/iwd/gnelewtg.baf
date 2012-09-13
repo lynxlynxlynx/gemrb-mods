@@ -1,0 +1,34 @@
+IF
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,AND)
+  HasItem("SHLDBCH",LastAttackerOf(Myself))  // ~The Bitch Queen's Envoy~
+  AttackedBy([ANYTHING],DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",32,OR)
+    Continue()
+END
+
+IF
+  !HasItem("SHLDBCH",NearestEnemyOf(Myself))  // ~The Bitch Queen's Envoy~
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  !HasItem("SHLDBCH",SecondNearestEnemyOf(Myself))  // ~The Bitch Queen's Envoy~
+  See(SecondNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+

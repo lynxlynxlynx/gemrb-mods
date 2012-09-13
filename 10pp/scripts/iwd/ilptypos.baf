@@ -1,0 +1,66 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MoveToPoint([1865.913])
+    Face(SW)
+    SmallWait(22)
+    Face(SE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    MoveToPoint([1864.846])
+    Face(W)
+    SmallWait(18)
+    Face(SW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    MoveToPoint([1931.914])
+    Face(W)
+    SmallWait(12)
+    Face(S)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    MoveToPoint([1927.831])
+    Face(N)
+    SmallWait(15)
+    Face(NW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    MoveToPoint([1993.904])
+    Face(W)
+    SmallWait(18)
+    Face(NE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    MoveToPoint([1992.834])
+    Face(SE)
+    SmallWait(11)
+    Face(SW)
+END
+

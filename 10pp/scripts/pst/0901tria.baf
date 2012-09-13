@@ -1,0 +1,358 @@
+IF
+  See([PC])
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    StartSong(CHAR_TRIAS,[0.0],Normal)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Hard_Trias","GLOBAL",0)
+    GlobalSet("Spawn_Medium_Trias","GLOBAL",0)
+    GlobalSet("Spawn_Easy_Trias","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("Trias_Defeated","GLOBAL",1)
+  Global("Evil_Trias_2","GLOBAL",0)
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Trias_Redeem","GLOBAL",0)
+    IncrementGlobal("Good","GLOBAL",-10)
+    GlobalSet("Trias_Curse","GLOBAL",1)
+    IncrementGlobalOnce("Evil_Trias_2","GLOBAL","Good","GLOBAL",-1)
+    Enemy()
+    Damage(Myself,SET,50)
+END
+
+IF
+  Global("Trias_Defeated","GLOBAL",1)
+  Global("Evil_Trias_2","GLOBAL",0)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+
+IF
+  GlobalLT("Curst_Counter","GLOBAL",3)
+  HPLT(Myself,9770)
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    GlobalSet("Trias_Defeated","GLOBAL",1)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    Dialogue([PC])
+END
+
+IF
+  GlobalGT("Curst_Counter","GLOBAL",2)
+  GlobalLT("Curst_Counter","GLOBAL",6)
+  HPLT(Myself,9792)
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    GlobalSet("Trias_Defeated","GLOBAL",1)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    Dialogue([PC])
+END
+
+IF
+  GlobalGT("Curst_Counter","GLOBAL",5)
+  HPLT(Myself,9810)
+  Internal(Myself,INTERNAL_1,0)
+THEN
+  RESPONSE #100
+    GlobalSet("Trias_Defeated","GLOBAL",1)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    Dialogue([PC])
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_GUARDIAN_MANTLE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,2)
+  HaveSpell(WIZARD_CONE_OF_COLD)
+  NotStateCheck([PC],CGAMESPRITE_STATE_HELPLESS)
+  NotStateCheck(Myself,CGAMESPRITE_STATE_ANTIMAGIC)
+  Range([PC],3)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CONE_OF_COLD)
+    Wait(1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,6)
+  HaveSpell(WIZARD_AX_OF_TORMENT)
+  NotStateCheck(Myself,CGAMESPRITE_STATE_ANTIMAGIC)
+  Range([PC],3)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_AX_OF_TORMENT)
+    Wait(1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,6)
+  HaveSpell(WIZARD_ELYSIUMS_TEARS)
+  NotStateCheck(Myself,CGAMESPRITE_STATE_ANTIMAGIC)
+  Range([PC],3)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ELYSIUMS_TEARS)
+    Wait(1)
+END
+
+IF
+  See([PC])
+  InternalGT(Myself,INTERNAL_0,8)
+  HaveSpell(WIZARD_FORCE_MISSILES)
+  NotStateCheck(Myself,CGAMESPRITE_STATE_ANTIMAGIC)
+  !Range([PC],10)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_FORCE_MISSILES)
+    Wait(1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+  !HaveSpell(WIZARD_POWER_WORD_BLIND)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,3)
+    Continue()
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,2)
+  HaveSpell(WIZARD_POWER_WORD_BLIND)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_BLIND)
+    Wait(1)
+    SetInternal(Myself,INTERNAL_0,3)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,3)
+  !HaveSpell(WIZARD_ELYSIUMS_FIRES)
+  !TimerActive(2)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,4)
+    Continue()
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,3)
+  HaveSpell(WIZARD_ELYSIUMS_FIRES)
+THEN
+  RESPONSE #100
+    StartTimer(2,10)
+    Spell([PC],WIZARD_ELYSIUMS_FIRES)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,4)
+  !HaveSpell(WIZARD_DEATHBOLT)
+  !TimerActive(2)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,5)
+    Continue()
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,4)
+  HaveSpell(WIZARD_DEATHBOLT)
+THEN
+  RESPONSE #100
+    StartTimer(2,9)
+    Spell([PC],WIZARD_DEATHBOLT)
+END
+
+IF
+  Internal(Myself,INTERNAL_2,1)
+THEN
+  RESPONSE #100
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+    SetInternal(Myself,INTERNAL_2,2)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,5)
+  Internal(Myself,INTERNAL_2,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_2,1)
+    Spell([PC],WIZARD_BLADESTORM)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,6)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CHAIN_LIGHTNING_STORM)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,7)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CLOUDKILL)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BLADESTORM)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,9)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BALL_LIGHTNING)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,10)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CLOUDKILL)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,11)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_BALL_LIGHTNING)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,12)
+THEN
+  RESPONSE #100
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,13)
+  HaveSpell(WIZARD_CONE_OF_COLD)
+  NotStateCheck([PC],CGAMESPRITE_STATE_HELPLESS)
+THEN
+  RESPONSE #100
+    Spell([PC],WIZARD_CONE_OF_COLD)
+    Wait(1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,13)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_STRENGTH)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  Internal(Myself,INTERNAL_0,14)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ANTIMAGIC_SHELL)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([PC])
+  InternalGT(Myself,INTERNAL_0,14)
+  CheckStatLT(Myself,18,STR)
+  HaveSpell(WIZARD_IMPROVED_STRENGTH)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_STRENGTH)
+    Wait(1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,14)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Spawn_Trias_Friends","GLOBAL",1)
+END
+
+IF
+  Range("Nameless",40)  // ~Nameless One~
+  See([PC])
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Spawn_Trias_Friends","GLOBAL",1)
+    Dialogue([PC])
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetInternal(Myself,INTERNAL_0,1)
+    GlobalSet("Spawn_Trias_Friends","GLOBAL",1)
+END
+

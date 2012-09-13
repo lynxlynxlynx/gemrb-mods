@@ -1,0 +1,16 @@
+IF
+  Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+  Opened([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+END
+

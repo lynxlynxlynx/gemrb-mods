@@ -1,0 +1,15 @@
+IF
+  Global("ElhanFinishedSpeaking","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeAreaNoSee()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Global("GoodElfKill","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GoodElfKill","GLOBAL",2)
+END
+

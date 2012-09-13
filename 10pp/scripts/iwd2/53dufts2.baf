@@ -1,0 +1,17 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,INNATE_INVISIBILITY_NO_FEEDBACK)
+    Wait(1)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

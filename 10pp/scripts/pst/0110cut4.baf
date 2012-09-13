@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Annah")  // 
+    GlobalSet("Annah_AR0400_Cut_Scene","GLOBAL",1)
+    JoinPartyEx(TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    Wait(1)
+    TeleportParty("AR0400",[3575.921],8)
+END
+

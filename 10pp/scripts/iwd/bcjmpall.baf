@@ -1,0 +1,108 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    JumpToPoint([568.358])
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    JumpToPoint([552.416])
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    JumpToPoint([504.358])
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    JumpToPoint([488.404])
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    JumpToPoint([431.346])
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    JumpToPoint([420.404])
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_1")  // 
+    JumpToPoint([348.310])
+    Face(SE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_2")  // 
+    JumpToPoint([339.395])
+    Face(E)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_3")  // 
+    JumpToPoint([503.282])
+    Face(S)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_4")  // 
+    JumpToPoint([603.328])
+    Face(N)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_5")  // 
+    JumpToPoint([442.455])
+    Face(SW)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_6")  // 
+    JumpToPoint([559.463])
+    Face(NW)
+END
+

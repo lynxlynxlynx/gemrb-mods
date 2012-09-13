@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride("SenMonk",ForceSpell(Myself,DRYAD_TELEPORT))
+    Wait(2)
+    CreateCreature("sengua02",[322.617],12)  // ~Guard Captain~
+    ActionOverride("sengua02",MoveToPointNoInterrupt([562.664]))
+    Wait(4)
+    ActionOverride("sengua02",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

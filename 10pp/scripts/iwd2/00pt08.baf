@@ -1,0 +1,11 @@
+IF
+  Global("TEAM_8","MYAREA",0)
+  Or(2)
+    Opened([PC])
+    Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_8","MYAREA",1)
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+END
+

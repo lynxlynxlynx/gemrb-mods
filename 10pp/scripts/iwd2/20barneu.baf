@@ -1,0 +1,33 @@
+IF
+  CreatureHidden(Myself)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  See([ENEMY],0)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !See([ENEMY],0)
+  Allegiance(Myself,ENEMY)
+  LOS([GOODCUTOFF],30)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(7)
+END
+

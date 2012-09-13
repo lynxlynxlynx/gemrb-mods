@@ -1,0 +1,31 @@
+IF
+  Global("Brothel_Guards","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Brothel_Guards","GLOBAL",0)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunToObject(NearestEnemyOf(Myself))
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    RunToObject(LastAttackerOf(Myself))
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RunToObject(Protagonist)
+END
+

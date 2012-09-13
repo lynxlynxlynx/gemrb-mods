@@ -1,0 +1,9 @@
+IF
+  HarmlessEntered("Nameless")  // ~Nameless One~
+  Global("Trigit_Attack","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("0610in3a")
+END
+

@@ -1,0 +1,96 @@
+IF
+  Global("Curst_Slavers","AR0900",3)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,44977)  // ~*Grunt*~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",4)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",7)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,44977)  // ~*Grunt*~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",8)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",11)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,44977)  // ~*Grunt*~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",12)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",15)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,53285)  // ~::GruntGruntGrunt::~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",16)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",16)
+THEN
+  RESPONSE #100
+    SetAnimState(Myself,ANIM_STANDTOSTANCE)
+    PlaySequenceTimed(ANIM_MIMESTANCE,5)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",18)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_ATTACK1)
+    PlaySequence(ANIM_STANCETOSTAND)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",20)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,53285)  // ~::GruntGruntGrunt::~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",21)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",25)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",26)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",27)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,53285)  // ~::GruntGruntGrunt::~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",28)
+END
+
+IF
+  GlobalGT("Curst_Slavers","AR0900",24)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+
+IF
+  GlobalGT("Curst_Slavers","AR0900",16)
+  GlobalLT("Curst_Slavers","AR0900",19)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_MIMESTANCE)
+END
+

@@ -1,0 +1,10 @@
+IF
+  LOS([PC],30)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+

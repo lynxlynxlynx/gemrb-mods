@@ -1,0 +1,14 @@
+IF
+  See([PC])
+  Global("Display","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    DisplayStringHead(Myself,72246)  // ~Draconis has fallen! Lock down the enclave! They must not reach Lord Abazigal!~
+    Wait(1)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    SetName(72293)  // ~Greater Werewyvern~
+    Polymorph(WYVERN_BIG)
+    Enemy()
+END
+

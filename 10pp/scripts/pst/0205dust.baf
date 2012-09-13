@@ -1,0 +1,34 @@
+IF
+  Global("0205_Angry","AR0205",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("0205_Angry","AR0205",1)
+    Help()
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx([PC],0,FALSE)
+END
+

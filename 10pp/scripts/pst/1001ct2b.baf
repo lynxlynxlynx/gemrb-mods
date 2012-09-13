@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Pillar")  // 
+    Wait(1)
+    MoveViewObject(Myself,INSTANT)
+    Wait(1)
+    Dialogue([PC])
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Grace")  // 
+    DestroySelf()
+END
+

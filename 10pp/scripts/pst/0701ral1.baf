@@ -1,0 +1,18 @@
+IF
+  Team(Myself,TEAM_7)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0701atta",GENERAL)
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([2634.2226])
+    MoveToPoint([2508.2209])
+    DestroySelf()
+END
+

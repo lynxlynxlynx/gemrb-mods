@@ -1,0 +1,21 @@
+IF
+  !Range("rway1",2)  // rway1
+THEN
+  RESPONSE #100
+    MoveToObject("rway1")
+    Continue()
+END
+
+IF
+  Range("rway1",2)  // rway1
+THEN
+  RESPONSE #5
+    DisplayStringHead(Myself,73813)  // ~There are just too many of them!~
+  RESPONSE #5
+    DisplayStringHead(Myself,73814)  // ~They are too strong!~
+  RESPONSE #10
+    DisplayStringHead(Myself,73815)  // ~We must keep fighting!~
+  RESPONSE #80
+    AttackReevaluate("sarfaki2",45)
+END
+

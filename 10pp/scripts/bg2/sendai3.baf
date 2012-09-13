@@ -1,0 +1,84 @@
+IF
+  HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN55",Myself)  // ~Potion of Superior Healing~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN55",Myself)  // ~Potion of Superior Healing~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HitBy([ANYONE],CRUSHING)
+THEN
+  RESPONSE #10
+    ForceSpell(Myself,GAROCK_TELEPORT)
+    JumpToPoint([394.418])
+  RESPONSE #10
+    ForceSpell(Myself,GAROCK_TELEPORT)
+    JumpToPoint([646.354])
+  RESPONSE #10
+    ForceSpell(Myself,GAROCK_TELEPORT)
+    JumpToPoint([902.418])
+  RESPONSE #10
+    ForceSpell(Myself,GAROCK_TELEPORT)
+    JumpToPoint([1004.595])
+  RESPONSE #10
+    ForceSpell(Myself,GAROCK_TELEPORT)
+    JumpToPoint([902.773])
+  RESPONSE #10
+    ForceSpell(Myself,GAROCK_TELEPORT)
+    JumpToPoint([652.860])
+  RESPONSE #10
+    ForceSpell(Myself,GAROCK_TELEPORT)
+    JumpToPoint([390.788])
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Allegiance(Myself,ENEMY)
+  Global("HastePotion","LOCALS",0)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN14",Myself)  // ~Oil of Speed~
+THEN
+  RESPONSE #100
+    SetGlobal("HastePotion","LOCALS",1)
+    SetGlobalTimer("SawEnemy","LOCALS",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Allegiance(Myself,ENEMY)
+  Global("HastePotion","LOCALS",1)
+  GlobalTimerExpired("SawEnemy","LOCALS")
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN14",Myself)  // ~Oil of Speed~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    SetGlobal("HastePotion","LOCALS",2)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN11",Myself)  // ~Potion of Invulnerability~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(ARCHER_CALL_SHOT)
+  !Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    Spell(Myself,ARCHER_CALL_SHOT)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

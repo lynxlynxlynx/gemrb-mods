@@ -1,0 +1,27 @@
+IF
+  Global("EnteredAR5001","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredAR5001","GLOBAL",1)
+    CreateCreature("GROMG14",[643.467],0)  // ~Il-Khan Soldier~
+    CreateCreature("GROMG13",[591.548],0)  // ~Il-Khan Battle Mage~
+    CreateCreature("GROMG12",[667.608],2)  // ~Il-Khan Soldier~
+    CreateCreature("GROMG14",[606.670],0)  // ~Il-Khan Soldier~
+    CreateCreature("GROMG11",[543.629],14)  // ~Il-Khan Soldier~
+END
+
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5004S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+END
+

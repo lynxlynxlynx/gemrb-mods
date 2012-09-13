@@ -1,0 +1,7 @@
+IF
+  !BitCheck("0209_Status","AR0209",BIT2)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

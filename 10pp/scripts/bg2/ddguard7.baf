@@ -1,0 +1,22 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !HasItemEquiped("key20",[PC])
+  Range(LastSeenBy(Myself),10)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_SUN_FIRE)
+    Wait(6)
+END
+
+IF
+  HasItemEquiped("key20",[PC])
+  Global("RemoveRing","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RemoveRing","LOCALS",1)
+    CreateVisualEffectObject("yself","SPFLESHS")
+    Wait(1)
+    DestroyItem("firering")  // ~Ring of Invisibility ~
+    ChangeAIScript("wtasight",OVERRIDE)
+END
+

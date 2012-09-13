@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("VAARGLAN")  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    HideGUI()
+    MultiPlayerSync()
+    MoveViewPoint([2422.1386],INSTANT)
+    StartCutScene("LWWRPCTA")
+    Wait(5)
+    StartCutScene("LWSTPASD")
+    Wait(3)
+    StartCutScene("LWWMOVD1")
+END
+

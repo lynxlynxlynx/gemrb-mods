@@ -1,0 +1,9 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Wait(3)
+    StartDialogNoSet([PC])
+END
+

@@ -1,0 +1,24 @@
+IF
+  Heard("CATTACK",1)  // CATTACK
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(1)
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("CATTACK",2)  // CATTACK
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

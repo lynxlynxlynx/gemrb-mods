@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([1619.2916])
+    MoveToPoint([1525.2916])
+    MoveToPoint([1437.3003])
+    MoveToPoint([1250.3003])
+    MoveToPoint([1189.3062])
+    MoveToPoint([947.3062])
+    MoveToPoint([611.2723])
+    MoveToPoint([608.2459])
+    MoveToPoint([672.2395])
+    MoveToPoint([672.2211])
+    MoveToPoint([961.1918])
+    MoveToPoint([1315.1918])
+    MoveToPoint([1420.2022])
+    MoveToPoint([2424.2023])
+    MoveToPoint([2422.2409])
+    MoveToPoint([2226.2603])
+    MoveToPoint([2065.2523])
+    GlobalSet("0600_Rail_6","AR0600",0)
+    DestroySelf()
+END
+

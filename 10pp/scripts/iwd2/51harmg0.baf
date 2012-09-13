@@ -1,0 +1,96 @@
+IF
+  !Global("GONE_HAND_TO_HAND","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  Range(NearestEnemyOf(Myself),3,LESS_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("GONE_HAND_TO_HAND","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("GONE_HAND_TO_HAND","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  Range(NearestEnemyOf(Myself),3,LESS_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("GONE_HAND_TO_HAND","LOCALS",1)
+    Continue()
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("23172120",Myself,SPELLCAST_IGNORE_SEE)
+      // WIZARD_GHOST_ARMOR
+      // WIZARD_MINOR_MIRROR_IMAGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Global("GONE_HAND_TO_HAND","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([GOODCUTOFF.0.0.0.150],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("21122303",LastMarkedObject,7)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_FLAME_ARROW
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("GONE_HAND_TO_HAND","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("22272205",LastMarkedObject,7)
+      // WIZARD_GEDLEES_ELECTRIC_LOOP
+      // WIZARD_HORROR
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetGlobal("GONE_HAND_TO_HAND","LOCALS",2)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

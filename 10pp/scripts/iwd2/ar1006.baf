@@ -1,0 +1,35 @@
+IF
+  Global("TARGOS_HOSTILE","GLOBAL",0)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TARGOS_HOSTILE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_0","MYAREA",0)
+  !Global("TARGOS_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

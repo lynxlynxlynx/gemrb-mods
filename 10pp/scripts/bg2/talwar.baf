@@ -1,0 +1,8 @@
+IF
+  GlobalGT("TalonwarSpawn","GLOBAL",0)
+  AreaCheck("AR0900")
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+

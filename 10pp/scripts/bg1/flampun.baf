@@ -1,0 +1,10 @@
+IF
+  Heard("BountyHunter",1)  // BountyHunter
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetNumTimesTalkedTo(0)
+    Shout(1)
+    Enemy()
+END
+

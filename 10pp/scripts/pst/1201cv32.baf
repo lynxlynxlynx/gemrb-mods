@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("VhailF")  // 
+    FaceObject("Trans")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    MoveToPoint([4561.1028])
+    FaceObject("VhailF")
+    Wait(2)
+    PlaySoundNotRanged("Tra038C")
+    PlaySequence(ANIM_TALK2)
+    Wait(2)
+    PlaySoundNotRanged("Tra041")
+    PlaySequence(ANIM_MISC1)
+    Wait(2)
+    StartCutScene("1201CV33")
+END
+

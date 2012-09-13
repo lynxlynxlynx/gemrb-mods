@@ -1,0 +1,51 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.MERCHANTS])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(2)
+    Wait(3)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9332)  // ~"Hurry wit them crates!"~
+    WaitRandom(10,15)
+    Face(0)
+    Wait(3)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9331)  // ~"Louts..."~
+    WaitRandom(10,15)
+    Face(14)
+    Wait(3)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9384)  // ~"Sigil don't sleep, so make haste, ye laggards!"~
+    WaitRandom(10,15)
+    Face(0)
+    Wait(3)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9383)  // ~"Make sure them crates are secure, now!"~
+    WaitRandom(10,15)
+END
+

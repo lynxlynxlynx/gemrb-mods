@@ -1,0 +1,20 @@
+IF
+  Global("LathanPlot1","GLOBAL",1)
+  Global("TalkedToBrannel1","LOCALS",0)
+  Range(Player1,15)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Myself)
+END
+
+IF
+  Global("LathanPlot2","GLOBAL",1)
+  Global("TalkedToBrannel2","LOCALS",0)
+  Range(Player1,15)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Myself)
+END
+

@@ -1,0 +1,61 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Help()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_3)
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,50)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.TOWNSFOLK])
+THEN
+  RESPONSE #100
+    Enemy()
+    FaceObject(LastHelp)
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(2)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    Face(14)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+END
+

@@ -1,0 +1,77 @@
+IF
+  Detect(Player1)
+  !See("garren")  // ~Garren Windspear~
+  Global("Kidnap","GLOBAL",0)
+  Global("GarkidTalk","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GarkidTalk","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Detect([PC])
+  !See("garren")  // ~Garren Windspear~
+  !Allegiance(Myself,ENEMY)
+  Global("GarkidTalk","LOCALS",1)
+  Global("Kidnap","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("GarkidTalk","LOCALS",2)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  PartyHasItem("KEY09")  // ~Firkraag Prison Key~
+  OpenState("Door04",TRUE)  // Door04
+  !Allegiance(Myself,ENEMY)
+  Global("GarKidReleased","GLOBAL",0)
+THEN
+  RESPONSE #100
+    TakePartyItem("KEY09")
+    DestroyItem("KEY09")  // ~Firkraag Prison Key~
+    SetGlobal("GarKidReleased","GLOBAL",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  OR(2)
+    Allegiance(Myself,ENEMY)
+    Global("FirkraagDeal","GLOBAL",1)
+  HasItem("minhp1",Myself)  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    DestroyItem("minhp1")  // <Invalid Strref -1>
+END
+
+IF
+  Global("FirkraagDeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),50)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastAttackerOf(Myself),50)
+END
+
+IF
+  OR(2)
+    Dead("garren")  // ~Garren Windspear~
+    Allegiance("garren",ENEMY)  // ~Garren Windspear~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

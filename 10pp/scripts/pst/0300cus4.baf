@@ -1,0 +1,32 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(6)
+    WaitRandom(6,12)
+    MoveToPoint([1678.1340])
+    MoveToPoint([1612.1340])
+    MoveToPoint([1434.1161])
+    MoveToPoint([1314.1161])
+    Face(4)
+    WaitRandom(6,12)
+    MoveToPoint([1434.1161])
+    MoveToPoint([1612.1340])
+    MoveToPoint([1678.1340])
+    MoveToPoint([1704.1313])
+END
+

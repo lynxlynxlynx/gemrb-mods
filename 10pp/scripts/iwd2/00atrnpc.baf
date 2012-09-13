@@ -1,0 +1,7 @@
+IF
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+END
+

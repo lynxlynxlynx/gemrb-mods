@@ -1,0 +1,42 @@
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  HitBy([ANYONE],FIRE)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastAttackerOf(Myself),75)
+END
+
+IF
+  Delay(5)
+  See(NearestEnemyOf(Myself))
+  Class(NearestEnemyOf(Myself),DRUID)
+  NumCreatureGT([ENEMY],1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  Delay(5)
+  See(NearestEnemyOf(Myself))
+  Class(NearestEnemyOf(Myself),RANGER)
+  NumCreatureGT([ENEMY],1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

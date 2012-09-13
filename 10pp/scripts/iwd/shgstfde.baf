@@ -1,0 +1,14 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",131072,AND)
+  HP(Myself,1)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",131072,OR)
+    GiveItemCreate("RINGTOM",Myself,1,0,0)  // <Invalid Strref -1>
+    EquipItem("TRANS30",1)
+    EquipItem("RINGTOM",0)
+    DestroyItem("TRANS30")  // <Invalid Strref -1>
+    Wait(3)
+    Continue()
+END
+

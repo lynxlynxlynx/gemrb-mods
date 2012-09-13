@@ -1,0 +1,50 @@
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PROTECTION_FROM_EVIL)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+THEN
+  RESPONSE #100
+    Spell([PC],CLERIC_CURSE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,3)
+THEN
+  RESPONSE #100
+    Spell([PC],CLERIC_SPIRITUAL_HAMMER)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  InternalGT(Myself,INTERNAL_0,3)
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

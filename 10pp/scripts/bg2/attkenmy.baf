@@ -1,0 +1,8 @@
+IF
+  Detect([GOODCUTOFF])
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

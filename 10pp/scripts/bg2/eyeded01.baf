@@ -1,0 +1,50 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("ICRMPARI",Myself)
+    DestroySelf()
+END
+
+IF
+  See([GOODCUTOFF.0.SKELETON.0.0.SUMMONED])
+  HaveSpell(CLERIC_SUNRAY)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SUNRAY)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("PrepSpells","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,CLERIC_REGENERATE)
+    SetGlobal("PrepSpells","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ANIMATE_DEAD)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ANIMATE_DEAD)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  RandomNum(2,1)
+  HaveSpell(CLERIC_FINGER_OF_DEATH)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FINGER_OF_DEATH)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(6)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_VAMPIRIC_TOUCH)
+END
+

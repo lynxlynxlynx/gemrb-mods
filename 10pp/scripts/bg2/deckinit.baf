@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+    StartDialogNoSet(Player1)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+    StartDialogNoSet(Player2)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+    StartDialogNoSet(Player3)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+    StartDialogNoSet(Player4)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+    StartDialogNoSet(Player5)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+    StartDialogNoSet(Player6)
+END
+
+
+END

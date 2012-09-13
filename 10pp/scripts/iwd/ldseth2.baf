@@ -1,0 +1,106 @@
+IF
+  OnCreation()
+  !Global("SETH_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !Global("MARKETH_GONE","GLOBAL",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  Allegiance(Myself,ENEMY)
+  See([ANYONE])
+THEN
+  RESPONSE #100
+    ForceHide(Myself)
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    HideCreature(Myself,TRUE)
+    Continue()
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+    Continue()
+END
+
+IF
+  HasItem("POTN06",Myself)  // ~Potion of Cloud Giant Strength~
+  See(WeakestOf(GroupOf(Player1)))
+THEN
+  RESPONSE #100
+    UseItem("POTN06",Myself)  // ~Potion of Cloud Giant Strength~
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  HasItem("POTN06",Myself)  // ~Potion of Cloud Giant Strength~
+  AttackedBy(WeakestOf(GroupOf(Player1)),DEFAULT)
+THEN
+  RESPONSE #100
+    UseItem("POTN06",Myself)  // ~Potion of Cloud Giant Strength~
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+END
+

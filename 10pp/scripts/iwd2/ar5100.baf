@@ -1,0 +1,100 @@
+IF
+  Global("5005_INGRATH_VISIBLE","GLOBAL",1)
+  Global("50Ingrath_Attack","GLOBAL",0)
+  !Global("5100_AREA_CLEAR","MYAREA",0)
+THEN
+  RESPONSE #100
+    StartCutScene("51cIngV0")
+    SetGlobal("5005_INGRATH_VISIBLE","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("5100_AREA_CLEAR","MYAREA",0)
+  Dead("02_51DRAWY_01")  // 
+  Dead("02_50DRAWY_02")  // 
+  Dead("02_51WYRWH_01")  // 
+  Dead("02_51WYRWH_02")  // 
+  Dead("02_51WYRWH_03")  // 
+  Dead("02_51WYRWH_04")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("5100_AREA_CLEAR","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("5005_INGRATH_VISIBLE","GLOBAL",1)
+  !Global("50Ingrath_Attack","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("01_41INGRAT_01",DestroySelf())
+    ActionOverride("01_50NWSOLD_02",DestroySelf())
+    ActionOverride("01_50NWSOLD_03",DestroySelf())
+    ActionOverride("01_50NWSOLD_04",DestroySelf())
+    ActionOverride("01_50NWSOLD_05",DestroySelf())
+    ActionOverride("01_50NWSOLD_06",DestroySelf())
+    ActionOverride("01_50NWSOLD_07",DestroySelf())
+    SetGlobal("5005_INGRATH_VISIBLE","GLOBAL",3)
+    Continue()
+END
+
+IF
+  Global("5005_DRAGON_DEAD","GLOBAL",0)
+  Dead("02_51DRAWY_02")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("5005_DRAGON_DEAD","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("ROPE_STATUS","MYAREA",0)
+  OpenState("AR5100_Ropes",TRUE)  // AR5100_Ropes
+  Or(6)
+    !Dead("(02_51DRAWY_01")  // 
+    !Dead("(02_50DRAWY_02")  // 
+    !Dead("02_51WYRWH_01")  // 
+    !Dead("02_51WYRWH_02")  // 
+    !Dead("02_51WYRWH_03")  // 
+    !Dead("02_51WYRWH_04")  // 
+THEN
+  RESPONSE #100
+    DisplayMessage(29272)  // ~You can't risk trying to climb down until your enemies in this cave have been slain.~
+    SetGlobal("ROPE_STATUS","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("ROPE_STATUS","MYAREA",2)
+  Dead("(02_51DRAWY_01")  // 
+  Dead("(02_50DRAWY_02")  // 
+  Dead("02_51WYRWH_01")  // 
+  Dead("02_51WYRWH_02")  // 
+  Dead("02_51WYRWH_03")  // 
+  Dead("02_51WYRWH_04")  // 
+THEN
+  RESPONSE #100
+    TriggerActivation("To5101",TRUE)
+    SetGlobal("ROPE_STATUS","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("5100_DRAGONS_DEAD","GLOBAL",0)
+  Dead("02_51DRAWY_01")  // 
+  Dead("02_51DRAWY_02")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("5100_DRAGONS_DEAD","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

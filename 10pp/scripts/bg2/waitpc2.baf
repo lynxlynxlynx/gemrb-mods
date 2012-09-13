@@ -1,0 +1,36 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("stillWait","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("stillWait","LOCALS",1)
+    Continue()
+END
+
+IF
+  !Detect([PC])
+  Global("stillWait","LOCALS",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Detect([PC])
+  !Range(LastSeenBy(Myself),18)
+  Global("stillWait","LOCALS",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Detect([PC])
+  Range(LastSeenBy(Myself),18)
+  Global("stillWait","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("stillWait","LOCALS",1)
+    Continue()
+END
+

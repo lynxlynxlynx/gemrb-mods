@@ -1,0 +1,8 @@
+IF
+  See([PC])
+  Delay(10)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+

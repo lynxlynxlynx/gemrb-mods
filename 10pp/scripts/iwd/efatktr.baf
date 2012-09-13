@@ -1,0 +1,13 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Or(4)
+    See(NearestEnemyOf(Myself))
+    See([PC.0.0.RANGER_ALL])
+    See([PC.0.0.PALADIN_ALL])
+    See([PC.0.0.FIGHTER_ALL])
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastSeenBy(Myself),4)
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

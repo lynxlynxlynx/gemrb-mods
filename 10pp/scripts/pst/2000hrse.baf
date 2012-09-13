@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    RunToPoint([4547.2845])
+    RunToPoint([4319.2965])
+    OpenDoor("ar2000d5")
+    RunToPoint([4104.3055])
+    CloseDoor("ar2000d5")
+    RunToPoint([3597.3069])
+    RunToPoint([3500.2967])
+    RunToPoint([3500.2792])
+    RunToPoint([3751.2537])
+    RunToPoint([3926.2536])
+    RunToPoint([4127.2459])
+    RunToPoint([4373.2456])
+    RunToPoint([4745.2081])
+    RunToPoint([4747.2015])
+    RunToPoint([4886.1872])
+    RunToPoint([4861.1738])
+    OpenDoor("ar2000d4")
+    RunToPoint([4935.1365])
+    DestroySelf()
+END
+

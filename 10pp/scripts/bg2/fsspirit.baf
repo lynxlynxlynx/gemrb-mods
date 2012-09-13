@@ -1,0 +1,54 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("Plot05D")  // ~Warrior's Skull~
+  CombatCounter(0)
+  Global("StartSpiritMaze","AR3019",0)
+  Global("SpiritRoom","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SaveGame(0)
+    SmallWait(7)
+    StartCutSceneMode()
+    MoveViewObject(Myself,INSTANT)
+    DisplayString(Myself,71013)  // ~This altar bears inscriptions referring to the skull of a noble warrior.  You place the skull of the Eternal Warrior from your pack on the altar to activate its magic.   ~
+    TakePartyItem("PLOT05D")
+    Wait(5)
+    StartCutScene("Scut01")
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("StartSpiritMaze","AR3019",0)
+  !PartyHasItem("Plot05D")  // ~Warrior's Skull~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,70915)  // ~This altar bears inscriptions referring to the skull of a noble warrior but you can find no skull nearby. If the altar is to be of use, you shall need to find this Warrior's Skull.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  GlobalGT("StartSpiritMaze","AR3019",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,70896)  // ~There is nothing more that you can do with this.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+
+IF
+  Clicked([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,70887)  // ~You don't think it would be wise to touch this device while in combat.~
+END
+

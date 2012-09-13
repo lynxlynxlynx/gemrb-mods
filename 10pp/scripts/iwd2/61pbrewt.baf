@@ -1,0 +1,230 @@
+IF
+  Global("61NheeroMissionQuest","GLOBAL",5)
+  Global("Alchemist_dead","GLOBAL",0)
+  !HasItem("61GenMR",Myself)  // ~Mandrake Root~
+  !HasItem("61HFGnMR",Myself)  // ~Mandrake Root~
+  Or(2)
+    HasItem("61GenMM",Myself)  // ~Modified Mandrake Root~
+    HasItem("61HFGnMM",Myself)  // ~Modified Mandrake Root~
+THEN
+  RESPONSE #100
+    FloatMessage(NearestPC,35061)  // ~We have replaced the mandrake root used in the process of making the yuan-ti histachii brew with Nheero's modified version.  Now we need to wait until the weaker version of the brew is made.~
+    AddJournalEntry(35061)
+    FadeToColor([0.0],0)
+    SetGlobalTimer("AlchemistWaitTimer","MYAREA",0)
+    FadeFromColor([0.0],0)
+    SetGlobal("61NheeroMissionQuest","GLOBAL",6)
+END
+
+IF
+  Global("61NheeroMissionQuest","GLOBAL",5)
+  !Global("Alchemist_dead","GLOBAL",0)
+  !HasItem("61GenMR",Myself)  // ~Mandrake Root~
+  !HasItem("61HFGnMR",Myself)  // ~Mandrake Root~
+  Or(2)
+    HasItem("61GenMM",Myself)  // ~Modified Mandrake Root~
+    HasItem("61HFGnMM",Myself)  // ~Modified Mandrake Root~
+THEN
+  RESPONSE #100
+    FloatMessage(NearestPC,35061)  // ~We have replaced the mandrake root used in the process of making the yuan-ti histachii brew with Nheero's modified version.  Now we need to wait until the weaker version of the brew is made.~
+    AddJournalEntry(35061)
+    SetGlobal("61NheeroMissionQuest","GLOBAL",6)
+END
+
+IF
+  Global("PlayerMadeBrew","MYAREA",-1)
+  GlobalGT("61NheeroMissionQuest","GLOBAL",3)
+  GlobalLT("61NheeroMissionQuest","GLOBAL",8)
+  OpenState("AR6102_Lever2",TRUE)  // AR6102_Lever2
+  HasItem("61PotnSB",Myself)  // ~Sabotaged Histachii Brew~
+THEN
+  RESPONSE #100
+    FloatMessage(NearestPC,41362)  // ~We have replaced the modified root with the original one to maintain the deception.  Now we should bring the weaker brew to Nheero and inform him of our success.~
+    AddJournalEntry(41362)
+    AddXPVar("LEVEL_12_VERY_HARD",41302)  // ~You completed Mandal Graye's mission by manufacturing sabotaged histachii brew with Nheero's modified mandrake root.~
+    SetGlobal("61PlayerMadeBrew","GLOBAL",1)
+    SetGlobal("61NheeroMissionQuest","GLOBAL",8)
+END
+
+IF
+  Global("61NheeroMissionQuest","GLOBAL",6)
+  OpenState("AR6102_Lever2",TRUE)  // AR6102_Lever2
+  HasItem("61PotnSB",Myself)  // ~Sabotaged Histachii Brew~
+THEN
+  RESPONSE #100
+    FloatMessage(NearestPC,35062)  // ~The weaker version of the histachii brew has just been created.  Now we need to replace the modified root with the original one to maintain the deception.~
+    AddJournalEntry(35062)
+    SetGlobal("61NheeroMissionQuest","GLOBAL",7)
+END
+
+IF
+  Global("61NheeroMissionQuest","GLOBAL",7)
+  Or(2)
+    HasItem("61GenMR",Myself)  // ~Mandrake Root~
+    HasItem("61HFGnMR",Myself)  // ~Mandrake Root~
+  !HasItem("61GenMM",Myself)  // ~Modified Mandrake Root~
+  !HasItem("61HFGnMM",Myself)  // ~Modified Mandrake Root~
+THEN
+  RESPONSE #100
+    FloatMessage(NearestPC,41362)  // ~We have replaced the modified root with the original one to maintain the deception.  Now we should bring the weaker brew to Nheero and inform him of our success.~
+    AddJournalEntry(41362)
+    AddXPVar("LEVEL_12_VERY_HARD",35015)  // ~You completed Mandal Graye's mission to create sabotaged histachii brew with Nheero Fhutma's modified mandrake root.~
+    SetGlobal("61NheeroMissionQuest","GLOBAL",8)
+END
+
+IF
+  Global("BrewTime","MYAREA",1)
+  Or(2)
+    HasItem("61GenMR",Myself)  // ~Mandrake Root~
+    HasItem("61HFGnMR",Myself)  // ~Mandrake Root~
+THEN
+  RESPONSE #100
+    GiveItemCreate("61PotnHB",Myself,1,0,0)  // ~Histachii Brew~
+    IncrementGlobal("HistachiiBrewCount","MYAREA",1)
+    SetGlobal("CheckBrewExpiration","MYAREA",1)
+    SetGlobalTimer("HistachiiBrewSpoilTimer","MYAREA",2400)
+    SetGlobal("BrewTime","MYAREA",0)
+END
+
+IF
+  Global("BrewTime","MYAREA",1)
+  Or(2)
+    HasItem("61GenMM",Myself)  // ~Modified Mandrake Root~
+    HasItem("61HFGnMM",Myself)  // ~Modified Mandrake Root~
+THEN
+  RESPONSE #100
+    GiveItemCreate("61PotnSB",Myself,1,0,0)  // ~Sabotaged Histachii Brew~
+    SetGlobal("BrewTime","MYAREA",0)
+END
+
+IF
+  Global("WorkRoomActive","MYAREA",1)
+  Or(2)
+    HasItem("61DaggWS","PoisonTable")  // ~Wyvern Stinger~
+    HasItem("61HFDgWS","PoisonTable")  // ~Wyvern Stinger~
+THEN
+  RESPONSE #100
+    ActionOverride("PoisonTable",DestroyItem("61DaggWS"))  // ~Wyvern Stinger~
+    ActionOverride("PoisonTable",DestroyItem("61HFDgWS"))  // ~Wyvern Stinger~
+    GiveItemCreate("61GenWP","PoisonTable",1,0,0)  // ~Wyvern Poison~
+    IncrementGlobal("WyvernPoisonCount","MYAREA",1)
+END
+
+IF
+  Global("WorkRoomActive","MYAREA",1)
+  Global("61ExitTo6104Open","GLOBAL",1)
+  HasItem("61GenWP","PoisonTable")  // ~Wyvern Poison~
+THEN
+  RESPONSE #100
+    ActionOverride("PoisonTable",DestroyItem("61GenWP"))  // ~Wyvern Poison~
+    GiveItemCreate("00Potn10","PoisonTable",1,0,0)  // ~Antidote~
+END
+
+IF
+  GlobalGT("BrewTime","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BrewTime","MYAREA",0)
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+  HasItem("61PotnHB",Player1)  // ~Histachii Brew~
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,DestroyItem("61PotnHB"))  // ~Histachii Brew~
+    GiveItemCreate("61PotnUB",Player1,1,0,0)  // ~Unenchanted Histachii Brew~
+    Continue()
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+  HasItem("61PotnHB",Player2)  // ~Histachii Brew~
+THEN
+  RESPONSE #100
+    ActionOverride(Player2,DestroyItem("61PotnHB"))  // ~Histachii Brew~
+    GiveItemCreate("61PotnUB",Player2,1,0,0)  // ~Unenchanted Histachii Brew~
+    Continue()
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+  HasItem("61PotnHB",Player3)  // ~Histachii Brew~
+THEN
+  RESPONSE #100
+    ActionOverride(Player3,DestroyItem("61PotnHB"))  // ~Histachii Brew~
+    GiveItemCreate("61PotnUB",Player3,1,0,0)  // ~Unenchanted Histachii Brew~
+    Continue()
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+  HasItem("61PotnHB",Player4)  // ~Histachii Brew~
+THEN
+  RESPONSE #100
+    ActionOverride(Player4,DestroyItem("61PotnHB"))  // ~Histachii Brew~
+    GiveItemCreate("61PotnUB",Player4,1,0,0)  // ~Unenchanted Histachii Brew~
+    Continue()
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+  HasItem("61PotnHB",Player5)  // ~Histachii Brew~
+THEN
+  RESPONSE #100
+    ActionOverride(Player5,DestroyItem("61PotnHB"))  // ~Histachii Brew~
+    GiveItemCreate("61PotnUB",Player5,1,0,0)  // ~Unenchanted Histachii Brew~
+    Continue()
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+  HasItem("61PotnHB",Player6)  // ~Histachii Brew~
+THEN
+  RESPONSE #100
+    ActionOverride(Player6,DestroyItem("61PotnHB"))  // ~Histachii Brew~
+    GiveItemCreate("61PotnUB",Player6,1,0,0)  // ~Unenchanted Histachii Brew~
+    Continue()
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+  HasItem("61PotnHB",Myself)  // ~Histachii Brew~
+THEN
+  RESPONSE #100
+    ActionOverride(Myself,DestroyItem("61PotnHB"))  // ~Histachii Brew~
+    GiveItemCreate("61PotnUB",Myself,1,0,0)  // ~Unenchanted Histachii Brew~
+    Continue()
+END
+
+IF
+  Global("CheckBrewExpiration","MYAREA",1)
+  GlobalTimerExpired("HistachiiBrewSpoilTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("CheckBrewExpiration","MYAREA",0)
+END
+
+IF
+  Clicked([PC])
+  OpenState("AR6102_Lever2",FALSE)  // AR6102_Lever2
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,35372)  // ~A thin magical veil, composed of green sparkling particles, prevents you from accessing this piece of furniture. Small trails of these particles taper off in a westerly direction.~
+END
+
+IF
+  Clicked([PC])
+  !OpenState("AR6102_Lever2",FALSE)  // AR6102_Lever2
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

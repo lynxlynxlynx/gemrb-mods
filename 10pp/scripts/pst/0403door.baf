@@ -1,0 +1,17 @@
+IF
+  HarmlessOpened([PC])
+  Global("Sybil_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroyPartyItem("KeySybil",TRUE)
+END
+
+IF
+  HarmlessOpened([PC])
+  Global("Sybil_Quest","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroyPartyItem("KeySybil",TRUE)
+    GlobalSet("Sybil_Quest","GLOBAL",2)
+END
+

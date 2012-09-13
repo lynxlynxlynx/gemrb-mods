@@ -1,0 +1,9 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

@@ -1,0 +1,196 @@
+IF
+  GlobalGT("SPIN","LOCALS",1)
+THEN
+  RESPONSE #100
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    IncrementGlobal("SPIN","LOCALS",-1)
+END
+
+IF
+  GlobalLT("SPIN","LOCALS",-1)
+THEN
+  RESPONSE #100
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    IncrementGlobal("SPIN","LOCALS",1)
+END
+
+IF
+  !Global("SPIN","LOCALS",0)
+THEN
+  RESPONSE #200
+    SetGlobal("SPIN","LOCALS",0)
+    SetGlobal("DID_SPIN","LOCALS",1)
+  RESPONSE #100
+    SetGlobal("SPIN","LOCALS",0)
+    SetGlobal("DID_SPIN","LOCALS",1)
+    FloatMessage(Myself,17894)  // ~"Oer... I don't feel so..."~
+    TurnAMT(-1)
+    TurnAMT(-1)
+    TurnAMT(-1)
+    Wait(1)
+    PlaySequence(Myself,SLEEP)
+    Wait(5)
+    PlaySequence(Myself,AWAKE)
+  RESPONSE #100
+    SetGlobal("SPIN","LOCALS",0)
+    SetGlobal("DID_SPIN","LOCALS",1)
+    FloatMessage(Myself,17894)  // ~"Oer... I don't feel so..."~
+    TurnAMT(1)
+    TurnAMT(1)
+    TurnAMT(1)
+    Wait(1)
+    PlaySequence(Myself,SLEEP)
+    Wait(5)
+    PlaySequence(Myself,AWAKE)
+END
+
+IF
+  !Global("DID_SPIN","LOCALS",0)
+  !See("04_50HNT_01",0)  // 04_50HNT_01
+  !See("04_50HNT_02",0)  // 04_50HNT_02
+  !See("04_50HNT2_03",0)  // 04_50HNT2_03
+  !See("04_50HNT2_04",0)  // 04_50HNT2_04
+  !See("04_50HNT3_05",0)  // 04_50HNT3_05
+THEN
+  RESPONSE #100
+    SetGlobal("DID_SPIN","LOCALS",0)
+    SetGlobal("SPINNING_INSULT","MYAREA",0)
+    Continue()
+END
+
+IF
+  Global("SPINNING_INSULT","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("SPINNING_INSULT","MYAREA",0)
+    FloatMessage(Myself,17908)  // ~"N-N-NO!"~
+    Continue()
+END
+
+IF
+  Global("DID_SPIN","LOCALS",0)
+  Or(5)
+    See("04_50HNT_01",0)  // 04_50HNT_01
+    See("04_50HNT_02",0)  // 04_50HNT_02
+    See("04_50HNT2_03",0)  // 04_50HNT2_03
+    See("04_50HNT2_04",0)  // 04_50HNT2_04
+    See("04_50HNT3_05",0)  // 04_50HNT3_05
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    SetGlobal("SPIN","LOCALS",3)
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    SetGlobal("SPIN","LOCALS",-3)
+  RESPONSE #25
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    SetGlobal("DID_SPIN","LOCALS",1)
+    FloatMessage(Myself,17906)  // ~"Fine... just ignore me, ya buncha' *dung worms!*"~
+    Wait(1)
+    SetGlobal("SPINNING_INSULT","MYAREA",1)
+END
+
+IF
+  !Global("SPIN","LOCALS",0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,17892)  // ~"Hey!  Ho!  Look at me!  I'm spinnin'!"~
+    Wait(2)
+  RESPONSE #100
+    FloatMessage(Myself,17893)  // ~"I'm spinnin'!"~
+    Wait(2)
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,2060,865,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2060.865])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([2060.865])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,2060,1040,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2060.1040])
+    SetGlobal("ML_0","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2060.1040])
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,2115,1040,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2115.1040])
+    SetGlobal("ML_0","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([2115.1040])
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",0)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  !NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+

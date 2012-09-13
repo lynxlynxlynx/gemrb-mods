@@ -1,0 +1,214 @@
+IF
+  HasItem("00potn07",Myself)  // ~Spirit Essence~
+  See([ENEMY.HUMANOID],0)
+  HPPercentLT(LastSeenBy(Myself),75)
+  Specifics(LastMarkedObject,254)
+THEN
+  RESPONSE #100
+    UseItem("00potn07",LastSeenBy(Myself))  // ~Spirit Essence~
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See([ENEMY.HUMANOID],0)
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+  Specifics(LastMarkedObject,254)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See([ENEMY.HUMANOID],0)
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+  Specifics(LastMarkedObject,254)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  See([ENEMY.HUMANOID],0)
+  HPLostGT(LastSeenBy(Myself),7)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_AID,0)
+  Specifics(LastMarkedObject,254)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See([ENEMY.HUMANOID],0)
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+  Specifics(LastMarkedObject,254)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("00potn07",Myself)  // ~Spirit Essence~
+  HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    UseItem("00potn07",Myself)  // ~Spirit Essence~
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  HPLostGT(Myself,37)
+  IsSpellTargetValid(Myself,CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  HPLostGT(Myself,7)
+  IsSpellTargetValid(Myself,CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([GOODCUTOFF],0)
+  See([ENEMY.HUMANOID],0)
+  Specifics(LastMarkedObject,254)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("11151406",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_DEFENSIVE_HARMONY
+    MarkSpellAndObject("11011203131313061414",LastMarkedObject,7)
+      // CLERIC_BLESS
+      // CLERIC_CHANT
+      // CLERIC_PRAYER
+      // CLERIC_PROTECTION_FROM_FIRE
+      // CLERIC_RECITATION
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("11011203131313061414",LastMarkedObject,7)
+      // CLERIC_BLESS
+      // CLERIC_CHANT
+      // CLERIC_PRAYER
+      // CLERIC_PROTECTION_FROM_FIRE
+      // CLERIC_RECITATION
+    MarkSpellAndObject("11151406",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_DEFENSIVE_HARMONY
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HaveSpell(CLERIC_REMOVE_FEAR)
+  See([ENEMY.HUMANOID],0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_REMOVE_FEAR,0)
+  Specifics(LastMarkedObject,254)
+  StateCheck(LastMarkedObject,STATE_PANIC)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_REMOVE_FEAR)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SLOW_POISON)
+  See([ENEMY.HUMANOID],0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_SLOW_POISON,0)
+  Specifics(LastMarkedObject,254)
+  StateCheck(LastMarkedObject,STATE_POISONED)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_SLOW_POISON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_EXALTATION)
+  See([ENEMY.HUMANOID],0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_EXALTATION,0)
+  Specifics(LastMarkedObject,254)
+  Or(8)
+    StateCheck(LastMarkedObject,STATE_PANIC)
+    StateCheck(LastMarkedObject,STATE_SLEEPING)
+    StateCheck(LastMarkedObject,STATE_FEEBLEMINDED)
+    StateCheck(LastMarkedObject,STATE_STUNNED)
+    StateCheck(LastMarkedObject,STATE_HELPLESS)
+    StateCheck(LastMarkedObject,STATE_BERSERK)
+    StateCheck(LastMarkedObject,STATE_CONFUSED)
+    CheckSpellState(LastMarkedObject,HOPELESSNESS)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_EXALTATION)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+

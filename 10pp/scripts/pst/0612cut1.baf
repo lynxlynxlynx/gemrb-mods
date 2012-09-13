@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PK")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    FadeToBlack()
+    Wait(2)
+    CreateCreature("Pestle",[537.426])  // ~Clerk's Ward Merchant~
+    CreateCreature("Kiln",[701.305])  // ~Clerk's Ward Merchant~
+    Wait(2)
+    FadeFromBlack()
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,72 @@
+IF
+  See(NearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  Range(NearestEnemyOf(Myself),6,GREATER_THAN)
+  Range(LastSeenBy(Myself),20,LESS_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("TEAM_6","MYAREA",1)
+    UseItem("30ciwnd",LastSeenBy(Myself))  // <Invalid Strref -1>
+END
+
+IF
+  See(SecondNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  Range(NearestEnemyOf(Myself),6,GREATER_THAN)
+  Range(LastSeenBy(Myself),20,LESS_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("TEAM_6","MYAREA",1)
+    UseItem("30ciwnd",LastSeenBy(Myself))  // <Invalid Strref -1>
+END
+
+IF
+  See(ThirdNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  Range(NearestEnemyOf(Myself),6,GREATER_THAN)
+  Range(LastSeenBy(Myself),20,LESS_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("TEAM_6","MYAREA",1)
+    UseItem("30ciwnd",LastSeenBy(Myself))  // <Invalid Strref -1>
+END
+
+IF
+  See(FourthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  Range(NearestEnemyOf(Myself),6,GREATER_THAN)
+  Range(LastSeenBy(Myself),20,LESS_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("TEAM_6","MYAREA",1)
+    UseItem("30ciwnd",LastSeenBy(Myself))  // <Invalid Strref -1>
+END
+
+IF
+  See(FifthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  Range(NearestEnemyOf(Myself),6,GREATER_THAN)
+  Range(LastSeenBy(Myself),20,LESS_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("TEAM_6","MYAREA",1)
+    UseItem("30ciwnd",LastSeenBy(Myself))  // <Invalid Strref -1>
+END
+
+IF
+  See(SixthNearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  Range(NearestEnemyOf(Myself),6,GREATER_THAN)
+  Range(LastSeenBy(Myself),20,LESS_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    SetGlobal("TEAM_6","MYAREA",1)
+    UseItem("30ciwnd",LastSeenBy(Myself))  // <Invalid Strref -1>
+END
+

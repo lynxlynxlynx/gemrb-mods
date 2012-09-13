@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("arntra03")  // 
+    EquipRanged()
+    MoveViewPoint([2227.1300],VERY_FAST)
+    MoveToPointNoInterrupt([2227.1300])
+    CreateCreature("ARNTRA06",[2467.1186],2)  // ~Shadow Thief~
+    AttackOneRound("arntra06")
+    Wait(1)
+    Kill("arntra06")
+    Wait(1)
+    SetGlobal("arntra03Move","AR0307",2)
+    ActionOverride("pelanna",StartDialogNoSet([PC]))
+END
+

@@ -1,0 +1,42 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+END
+
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Bum_Rusha","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Bum_Rushb","GLOBAL",1)
+    FaceObject(Protagonist)
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,5134)  // ~"Cool yer heels here, cutter."~
+    Enemy()
+    ChangeAIScript("0108hate",GENERAL)
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(LastHelp))
+END
+

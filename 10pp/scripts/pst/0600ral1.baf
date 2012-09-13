@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([355.1110])
+    MoveToPoint([605.1110])
+    MoveToPoint([605.955])
+    MoveToPoint([740.820])
+    MoveToPoint([933.737])
+    MoveToPoint([900.676])
+    DestroySelf()
+    SetGlobalTimer("Rail_Break_1","AR0600",10)
+END
+

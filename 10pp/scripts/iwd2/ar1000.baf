@@ -1,0 +1,317 @@
+IF
+  OnCreation()
+  Global("HEALED_REIG","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetHP("Reig",3)
+    Continue()
+END
+
+IF
+  Global("AR1000_CHAPTER_SAVED","MYAREA",0)
+  Global("CHAPTER","GLOBAL",0)
+  !InCutsceneMode()
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("AR1000_CHAPTER_SAVED","MYAREA",1)
+    ResetJoinRequests()
+    MultiPlayerSync()
+    SaveGame(16202)  // ~Prologue~
+END
+
+IF
+  Global("CHAPTER","GLOBAL",-1)
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    EndCutSceneMode()
+    MultiPlayerSync()
+    IncrementChapter("")
+    MultiPlayerSync()
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("10cHedr0")
+END
+
+IF
+  Global("CHAPTER","GLOBAL",-1)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+END
+
+IF
+  Global("CHAPTER","GLOBAL",-1)
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+END
+
+IF
+  Global("AR1003_BAR_CLEANUP","GLOBAL",0)
+  GlobalGT("Palisade_Iron_Collar_Quest","GLOBAL",1)
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("AR1003_BAR_CLEANUP","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("1000_GOBLIN_CLEANUP","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("DEAD_GOBLIN_0",DestroySelf())
+    ActionOverride("DEAD_GOBLIN_1",DestroySelf())
+    ActionOverride("DEAD_GOBLIN_2",DestroySelf())
+    ActionOverride("DEAD_GOBLIN_3",DestroySelf())
+    ActionOverride("Dead_Goblin_J1",DestroySelf())
+    ActionOverride("Dead_Goblin_J2",DestroySelf())
+    ActionOverride("DEAD_GOBLIN_6",DestroySelf())
+    ActionOverride("DEAD_GOBLIN_7",DestroySelf())
+    ActionOverride("DEAD_TOWNSPERSON_0",DestroySelf())
+    ActionOverride("DEAD_TOWNSPERSON_1",DestroySelf())
+    ActionOverride("Dead_Townsperson_2",DestroySelf())
+    ActionOverride("BROHN_DEAD",DestroySelf())
+    ActionOverride("DEAD_SOLDIER_0",DestroySelf())
+    ActionOverride("DEAD_SOLDIER_1",DestroySelf())
+    ActionOverride("DEAD_SAILOR",DestroySelf())
+    SetGlobal("1000_GOBLIN_CLEANUP","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Exists("Brogan")  // Brogan
+  !Global("1000_CLEAN_UP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Brogan",DestroySelf())
+    Continue()
+END
+
+IF
+  Exists("Jon")  // Jon
+  !Global("1000_CLEAN_UP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Jon",DestroySelf())
+    Continue()
+END
+
+IF
+  Exists("Reig")  // Reig
+  !Global("1000_CLEAN_UP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Reig",DestroySelf())
+    Continue()
+END
+
+IF
+  Exists("Brohn_Dead")  // Brohn_Dead
+  !Global("1000_CLEAN_UP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Brohn_Dead",DestroySelf())
+    Continue()
+END
+
+IF
+  Exists("Crandall")  // Crandall
+  !Global("1000_CLEAN_UP","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ActionOverride("Crandall",DestroySelf())
+    Continue()
+END
+
+IF
+  Global("BROGAN_LEAVE","GLOBAL",2)
+  Exists("Brogan")  // Brogan
+THEN
+  RESPONSE #100
+    ActionOverride("Brogan",DestroySelf())
+    Continue()
+END
+
+IF
+  Global("BROGAN_LEAVE","GLOBAL",2)
+  !Exists("Brogan")  // Brogan
+THEN
+  RESPONSE #100
+    SetGlobal("BROGAN_LEAVE","GLOBAL",3)
+    Continue()
+END
+
+IF
+  Global("MAGDAR_LEAVE","GLOBAL",1)
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("AR1001_Goblin","GLOBAL",15)
+    SetGlobal("MAGDAR_LEAVE","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("Crane_Wheel","GLOBAL",1)
+  EntirePartyOnMap()
+THEN
+  RESPONSE #100
+    SetGlobal("Crane_Wheel","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("AR1000_GOBLINS_CLEAR","GLOBAL",0)
+  Dead([ENEMY.0.GOBLIN][0.0.10000.10000])  // 
+  Dead("1000_Goblin_01")  // 
+  Dead("1000_Goblin_02")  // 
+  Dead("1000_Goblin_03")  // 
+  Dead("1000_Goblin_04")  // 
+  Dead("1000_Goblin_05")  // 
+  Dead("1000_Goblin_06")  // 
+  Dead("1000_Goblin_Archer_01")  // 
+  Dead("1000_Goblin_07")  // 
+  Dead("1000_Goblin_19")  // 
+  Dead("1000_Goblin_Archer_02")  // 
+  Dead("1000_Goblin_08")  // 
+  Dead("1000_Goblin_Archer_03")  // 
+  Dead("1000_Goblin_09")  // 
+  Dead("1000_Goblin_10")  // 
+  Dead("1000_Goblin_Archer_04")  // 
+  Dead("1000_Goblin_11")  // 
+  Dead("1000_Goblin_12")  // 
+  Dead("1000_Goblin_Archer_05")  // 
+  Dead("1000_Goblin_Archer_06")  // 
+  Dead("1000_Goblin_Archer_07")  // 
+  Dead("1000_Goblin_Archer_08")  // 
+  Dead("1000_Goblin_13")  // 
+  Dead("1000_Goblin_14")  // 
+  Dead("1000_Goblin_15")  // 
+  Dead("1000_Goblin_Archer_09")  // 
+  Dead("1000_Goblin_16")  // 
+  Dead("1000_Goblin_17")  // 
+  Dead("1000_Goblin_18")  // 
+  Dead("1000_Goblin_Archer_10")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("AR1000_GOBLINS_CLEAR","GLOBAL",1)
+    Deactivate("Horn_Blow")
+    Continue()
+END
+
+IF
+  Global("Dock_Goblin_Quest","GLOBAL",0)
+  !Global("AR1000_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1002_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1004_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1005_GOBLINS_CLEAR","GLOBAL",0)
+  !Global("AR1007_GOBLINS_CLEAR","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddXPVar("Level_2_Very_Hard",26671)  // ~You have cleared the Targos Docks of goblins. ~
+    SetGlobal("Dock_Goblin_Quest","GLOBAL",1)
+    AddJournalEntry(27866)
+    Continue()
+END
+
+IF
+  Global("TARGOS_HOSTILE","GLOBAL",0)
+  !Global("TEAM_0","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TARGOS_HOSTILE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TEAM_0","MYAREA",0)
+  !Global("TARGOS_HOSTILE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_0","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+
+IF
+  !Global("AR1000_RESET_CUTSCENE","GLOBAL",0)
+  Or(2)
+    EntirePartyOnMap()
+    !InCutsceneMode()
+THEN
+  RESPONSE #100
+    EndCutSceneMode()
+    SetGlobal("AR1000_RESET_CUTSCENE","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("RJ_AR1000","GLOBAL",0)
+  !InCutsceneMode()
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("RJ_AR1000","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("1200_BATTLE_CLEANUP","GLOBAL",0)
+  !Global("Goblin_Palisade_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("1200_BATTLE_CLEANUP","GLOBAL",1)
+    Continue()
+END
+
+IF
+  IsActive("cat_singles_exterior")  // cat_singles_exterior
+  !Global("AR1004_CATS_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Deactivate("cat_singles_exterior")
+    Continue()
+END
+
+IF
+  IsActive("Horn_Blow")  // Horn_Blow
+  !Global("AR1000_GOBLINS_CLEAR","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Deactivate("Horn_Blow")
+    Continue()
+END
+
+IF
+  Global("Destroy_Shaengarne_Bridge","GLOBAL",0)
+  Global("Shaengarne_Award_XPVar","GLOBAL",0)
+  Global("AR2102_Visited","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Debug("CBN_SetFlag_Destroy_Shaengarne_Bridge")
+    SetGlobal("Destroy_Shaengarne_Bridge","GLOBAL",1)
+    Continue()
+END
+

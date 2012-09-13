@@ -1,0 +1,7 @@
+IF
+  Difficulty(EASIEST)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

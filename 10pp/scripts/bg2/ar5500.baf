@@ -1,0 +1,335 @@
+IF
+  OnCreation()
+  !Dead("balth")  // ~Balthazar~
+  Global("Enclave","GLOBAL",2)
+  OR(2)
+    GlobalGT("AmkMercCap","AR5500",0)
+    GlobalGT("AmkMonkCap","AR5500",0)
+  Global("ResetAmkMonkCap","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ResetAmkMonkCap","AR5500",1)
+    SetGlobal("AmkMonkCap","AR5500",0)
+    SetGlobal("AmkMercCap","AR5500",0)
+END
+
+IF
+  Dead("GateGuard5500")  // GateGuard5500
+  Global("METBAL","GLOBAL",0)
+  Global("SpawnKillMonks","AR5500",0)
+THEN
+  RESPONSE #100
+    CreateCreatureOffScreen("KILLMONK",0)  // ~Monk~
+    CreateCreatureOffScreen("KILLMONK",0)  // ~Monk~
+    CreateCreatureOffScreen("KILLMONK",0)  // ~Monk~
+    SetGlobal("SpawnKillMonks","AR5500",1)
+END
+
+IF
+  Global("EnteredArea","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR5500",1)
+    Explore()
+    SetGlobalTimer("AMmayorPlotTimer","AR5500",30)
+    SetGlobal("Chapter","GLOBAL",9)
+    AddJournalEntry(73258,INFO)
+    TriggerActivation("TRAN5509",FALSE)
+    TriggerActivation("INFO5509",TRUE)
+    TextScreen("CHPTXT9")
+END
+
+IF
+  Global("TalkedToMarlowe","GLOBAL",1)
+  Global("AddMarloweNote","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AddMarloweNote","AR5500",1)
+    AddMapNote([3657.332],73525)  // ~Marlowe's Home~
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  Global("SpawnGateGuard","AR5500",0)
+THEN
+  RESPONSE #100
+    CreateCreature("AMMGRD04",[973.1500],14)  // ~Guard Captain~
+    SetGlobal("SpawnGateGuard","AR5500",1)
+END
+
+IF
+  InMyArea(Player1)
+  GlobalTimerExpired("AMmayorPlotTimer","AR5500")
+  Global("SpawnAMmayor","AR5500",0)
+  !GlobalGT("Enclave","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnAMmayor","AR5500",1)
+    CreateCreature("AMMAYOR",[2251.1261],12)  // ~Omar Haraad~
+    CreateCreature("AMASANA",[2340.1256],0)  // ~Asana Haraad~
+    CreateCreature("AMMERC03",[2334.1300],8)  // ~Mercenary~
+    CreateCreature("AMMERC04",[2379.1266],8)  // ~Mercenary~
+END
+
+IF
+  Global("SpawnMonk","AR5500",0)
+  !GlobalGT("Enclave","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnMonk","AR5500",1)
+    CreateCreature("AMMONK01",[3127.2319],2)  // ~Monk~
+    CreateCreature("AMCLER01",[2974.2417],10)  // ~Priest of Waukeen~
+END
+
+IF
+  Global("SAEMONSPAWNED","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SAEMONSPAWNED","MYAREA",1)
+    CreateCreature("AMMERC01",[2695.1925],0)  // ~Mercenary~
+    CreateCreature("AMMERC02",[2610.1963],0)  // ~Mercenary~
+    CreateCreature("AMSAEMON",[2600.1916],0)  // ~Saemon Havarian~
+    ActionOverride("AMMERC01",FaceObject("AMSAEMON"))
+    ActionOverride("AMMERC02",FaceObject("AMSAEMON"))
+    ActionOverride("AMSAEMON",FaceObject("AMMERC01"))
+END
+
+IF
+  Global("MONKSPAWNEDSMUGGLERPLOT","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MONKSPAWNEDSMUGGLERPLOT","GLOBAL",2)
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  Global("SaemonLeave","GLOBAL",0)
+  PartyHasItem("PLOT17A")  // ~Monastery Gate Key~
+THEN
+  RESPONSE #100
+    SetGlobal("SaemonLeave","GLOBAL",1)
+END
+
+IF
+  OpenState("DOOR08",TRUE)  // DOOR08
+  OpenState("DOOR01",FALSE)  // DOOR01
+  Global("OpenBothDoors","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenBothDoors","AR5500",1)
+    Unlock("DOOR01")
+    OpenDoor("DOOR01")
+END
+
+IF
+  Dead("AMMGRD05")  // ~Monk~
+  Global("MarloweJob","GLOBAL",1)
+  Global("OpenUpCavern","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenUpCavern","AR5500",1)
+    TriggerActivation("INFO5509",FALSE)
+    TriggerActivation("TRAN5509",TRUE)
+END
+
+IF
+  Global("Enclave","GLOBAL",2)
+  Global("OpenUpCavern","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenUpCavern","AR5500",1)
+    TriggerActivation("INFO5509",FALSE)
+    TriggerActivation("TRAN5509",TRUE)
+END
+
+IF
+  !GlobalGT("Enclave","GLOBAL",1)
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_START)
+  GlobalLT("EXTRACOUNT","MYAREA",7)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    CreateCreature("AMBOY01",[2820.730],6)  // ~Boy~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMBOY01",[2721.1404],6)  // ~Boy~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMBOY01",[2618.2484],6)  // ~Boy~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMFEM01",[2820.730],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMFEM01",[2721.1404],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMFEM01",[3218.1438],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMFEM02",[2820.730],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMFEM02",[2721.1404],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMFEM02",[3218.1438],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMFEM02",[2618.2484],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMGIRL01",[2820.730],6)  // ~Girl~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMGIRL01",[2721.1404],6)  // ~Girl~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMGIRL01",[3218.1438],6)  // ~Girl~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMAN01",[2820.730],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMAN01",[2721.1404],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMAN01",[2618.2484],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMAN02",[2820.730],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMAN02",[3218.1438],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMAN02",[2618.2484],6)  // ~Commoner~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMSMUG02",[2820.730],6)  // ~Smuggler~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMSMUG02",[2820.730],6)  // ~Smuggler~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMSMUG02",[2721.1404],6)  // ~Smuggler~
+    IncrementGlobal("EXTRACOUNT","MYAREA",1)
+END
+
+IF
+  !GlobalGT("Enclave","GLOBAL",1)
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_START)
+  GlobalLT("EXTRACOUNT2","MYAREA",4)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    CreateCreature("AMMERC07",[1193.2367],12)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC07",[1258.2497],12)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC07",[861.1453],0)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC07",[2721.1404],3)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC08",[1193.2367],12)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC08",[1258.2497],12)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC08",[861.1453],0)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC08",[2721.1404],3)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+END
+
+IF
+  !GlobalGT("Enclave","GLOBAL",1)
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_START)
+  GlobalLT("EXTRACOUNT3","MYAREA",1)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    CreateCreature("AMDUEL01",[1193.2367],12)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT3","MYAREA",1)
+END
+
+IF
+  !GlobalGT("Enclave","GLOBAL",1)
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_START)
+  GlobalLT("EXTRACOUNT4","MYAREA",1)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    CreateCreature("AMDUEL02",[1258.2497],12)  // ~Mercenary~
+    IncrementGlobal("EXTRACOUNT4","MYAREA",1)
+END
+
+IF
+  !GlobalGT("Enclave","GLOBAL",1)
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_START)
+  GlobalLT("EXTRACOUNT5","MYAREA",1)
+  ActionListEmpty()
+  InActiveArea(Myself)
+  !Global("AmMonkEnemy","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreature("AMMGRD02",[861.1453],0)  // ~Monk~
+    IncrementGlobal("AmkMonkCap","AR5500",1)
+    IncrementGlobal("EXTRACOUNT5","MYAREA",1)
+END
+
+IF
+  GlobalGT("Enclave","GLOBAL",1)
+  !Dead("balth")  // ~Balthazar~
+  !GlobalGT("AmkMercCap","AR5500",25)
+  GlobalLT("EXTRACOUNT2","MYAREA",5)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    CreateCreature("AMMERC07",[1193.2367],12)  // ~Mercenary~
+    IncrementGlobal("AmkMercCap","AR5500",1)
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC07",[1258.2497],12)  // ~Mercenary~
+    IncrementGlobal("AmkMercCap","AR5500",1)
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC08",[1193.2367],12)  // ~Mercenary~
+    IncrementGlobal("AmkMercCap","AR5500",1)
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+  RESPONSE #100
+    CreateCreature("AMMERC08",[1258.2497],12)  // ~Mercenary~
+    IncrementGlobal("AmkMercCap","AR5500",1)
+    IncrementGlobal("EXTRACOUNT2","MYAREA",1)
+END
+
+IF
+  GlobalGT("Enclave","GLOBAL",1)
+  !Dead("balth")  // ~Balthazar~
+  !GlobalGT("AmkMonkCap","AR5500",18)
+  GlobalLT("EXTRACOUNT5","MYAREA",2)
+  ActionListEmpty()
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    CreateCreature("AMMGRD02",[861.1453],0)  // ~Monk~
+    IncrementGlobal("AmkMonkCap","AR5500",1)
+    IncrementGlobal("EXTRACOUNT5","MYAREA",1)
+END
+

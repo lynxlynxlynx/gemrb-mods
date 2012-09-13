@@ -1,0 +1,32 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !RandomNum(5,1)
+  Or(2)
+    See([0.0.GOBLIN])
+    See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToPoint([1685.1350])
+  RESPONSE #100
+    MoveToPoint([1960.1400])
+  RESPONSE #100
+    MoveToPoint([2020.1135])
+  RESPONSE #100
+    RandomWalk()
+END
+

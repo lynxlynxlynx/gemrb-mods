@@ -1,0 +1,43 @@
+IF
+  PartyHasItem("KALABAC")  // ~Kalabac's Journal~
+THEN
+  RESPONSE #100
+    SetGlobal("BANDOTH_QUEST","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("KRILAG_BADGE","GLOBAL",0)
+  PartyHasItem("KRILAG")  // ~Krilag's Badge~
+THEN
+  RESPONSE #100
+    SetGlobal("KRILAG_BADGE","GLOBAL",1)
+    AddXPVar("LEVEL_8_AVERAGE",19558)  // ~You have retrieved Kilrag's Badge.~
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetGlobal("UDSPAWNB","GLOBAL",0)
+    SetGlobal("UDSPAWNC","GLOBAL",0)
+    SetGlobal("UDSPAWNA","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("UDSPAWNA","GLOBAL",0)
+    SetGlobal("UDSPAWNC","GLOBAL",0)
+    SetGlobal("UDSPAWNB","GLOBAL",1)
+  RESPONSE #100
+    SetGlobal("UDSPAWNA","GLOBAL",0)
+    SetGlobal("UDSPAWNB","GLOBAL",0)
+    SetGlobal("UDSPAWNC","GLOBAL",1)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

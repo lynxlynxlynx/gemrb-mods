@@ -1,0 +1,9 @@
+IF
+  HitBy([PC],CRUSHING)
+  GlobalLT("TenyaHit","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("TenyaHit","GLOBAL",1)
+    Dialog([PC])
+END
+

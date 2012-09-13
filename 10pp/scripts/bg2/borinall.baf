@@ -1,0 +1,112 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  Global("TalosStrike","LOCALS",1)
+  NumInParty(6)
+THEN
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player2,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player3,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player4,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player5,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player6,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("TalosStrike","LOCALS",1)
+  NumInParty(5)
+THEN
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player2,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player3,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player4,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player5,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("TalosStrike","LOCALS",1)
+  NumInParty(4)
+THEN
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player2,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player3,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player4,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("TalosStrike","LOCALS",1)
+  NumInParty(3)
+THEN
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player2,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player3,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("TalosStrike","LOCALS",1)
+  NumInParty(2)
+THEN
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player2,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("TalosStrike","LOCALS",1)
+  NumInParty(1)
+THEN
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player1,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+END
+
+
+END

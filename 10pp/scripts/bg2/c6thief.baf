@@ -1,0 +1,50 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("AttackedShadow","GLOBAL",0)
+  !Dead("c6arkan")  // ~Arkanis~
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedShadow","GLOBAL",1)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("AttackedShadow","GLOBAL",0)
+  Dead("c6arkan")  // ~Arkanis~
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedShadow","GLOBAL",2)
+END
+
+IF
+  Global("AttackedShadow","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1413.1022])
+    EscapeArea()
+END
+
+IF
+  Dead("c6tanov")  // ~Tanova~
+  Dead("c6harei")  // ~Hareishan~
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1413.1022])
+    EscapeArea()
+END
+
+IF
+  !See([PC])
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  Global("AttackedShadow","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

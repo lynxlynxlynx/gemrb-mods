@@ -1,0 +1,38 @@
+IF
+  HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("GithHealTimer","LOCALS")
+  Range(NearestEnemyOf(Myself),10)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("GithHealTimer","LOCALS",10)
+    ForceSpell(NearestEnemyOf(Myself),PSIONIC_LIFE_DRAIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("mindblast","LOCALS",0)
+THEN
+  RESPONSE #60
+    ForceSpell(LastSeenBy(Myself),PSIONIC_MIND_BLAST)
+    SetGlobal("mindblast","LOCALS",1)
+  RESPONSE #40
+    SetGlobal("mindblast","LOCALS",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(12)
+THEN
+  RESPONSE #25
+    ForceSpell(LastSeenBy(Myself),PSIONIC_MIND_BLAST)
+  RESPONSE #25
+    ForceSpell(LastSeenBy(Myself),PSIONIC_INFLICT_PAIN)
+  RESPONSE #25
+    ForceSpell(LastSeenBy(Myself),PSIONIC_DISINTEGRATE)
+  RESPONSE #25
+    ForceSpell(LastSeenBy(Myself),PSIONIC_PROJECT_FORCE)
+  RESPONSE #75
+    Continue()
+END
+

@@ -1,0 +1,67 @@
+IF
+  Detect([GOODCUTOFF])
+  !GlobalTimerNotExpired("SlowFreezeTimer1","AR3016")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SlowFreezeTimer1","AR3016",3)
+    ReallyForceSpell(Myself,SLOW_FREEZE)
+END
+
+IF
+  Range("gorfir01",20)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir01",STATE_DEAD)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir01",STATE_FROZEN_DEATH)  // ~Greater Fire Elemental~
+THEN
+  RESPONSE #100
+    SetGlobal("gorfir01Dead","AR3016",1)
+    AddXP2DA("PLOT5D")
+    DisplayString("gorfir01",70884)  // ~The elemental freezes instantly from the cold of the room.~
+    ForceSpell("gorfir01",FROZEN_DEATH)
+END
+
+IF
+  Range("gorfir02",20)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir02",STATE_DEAD)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir02",STATE_FROZEN_DEATH)  // ~Greater Fire Elemental~
+THEN
+  RESPONSE #100
+    SetGlobal("gorfir02Dead","AR3016",1)
+    AddXP2DA("PLOT5D")
+    DisplayString("gorfir02",70884)  // ~The elemental freezes instantly from the cold of the room.~
+    ForceSpell("gorfir02",FROZEN_DEATH)
+END
+
+IF
+  Range("gorfir03",20)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir03",STATE_DEAD)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir03",STATE_FROZEN_DEATH)  // ~Greater Fire Elemental~
+THEN
+  RESPONSE #100
+    SetGlobal("gorfir03Dead","AR3016",1)
+    AddXP2DA("PLOT5D")
+    DisplayString("gorfir03",70884)  // ~The elemental freezes instantly from the cold of the room.~
+    ForceSpell("gorfir03",FROZEN_DEATH)
+END
+
+IF
+  Range("gorfir04",20)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir04",STATE_DEAD)  // ~Greater Fire Elemental~
+  !StateCheck("gorfir04",STATE_FROZEN_DEATH)  // ~Greater Fire Elemental~
+THEN
+  RESPONSE #100
+    SetGlobal("gorfir04Dead","AR3016",1)
+    AddXP2DA("PLOT5D")
+    DisplayString("gorfir04",70884)  // ~The elemental freezes instantly from the cold of the room.~
+    ForceSpell("gorfir04",FROZEN_DEATH)
+END
+
+IF
+  Range([0.0.0.ELEMENTAL_FIRE],15)
+  !StateCheck([0.0.0.ELEMENTAL_FIRE],STATE_DEAD)
+  !StateCheck([0.0.0.ELEMENTAL_FIRE],STATE_FROZEN_DEATH)
+THEN
+  RESPONSE #100
+    DisplayString([0.0.0.ELEMENTAL_FIRE],70884)  // ~The elemental freezes instantly from the cold of the room.~
+    ForceSpell([0.0.0.ELEMENTAL_FIRE],FROZEN_DEATH)
+END
+

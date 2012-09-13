@@ -1,0 +1,7 @@
+IF
+  !Global("Current_Area","GLOBAL",1401)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1401)
+END
+

@@ -1,0 +1,94 @@
+IF
+  Global("ALLOW_DIMENSION_DOOR","LOCALS",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("ALLOW_DIMENSION_DOOR","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ALLOW_SET_2","LOCALS",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("ALLOW_SET_2","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ATTACK_COUNT","LOCALS",0)
+  Or(2)
+    Global("ALLOW_DIMENSION_DOOR","LOCALS",0)
+    Global("ALLOW_SET_2","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACK_COUNT","LOCALS",2)
+    SetGlobal("ALLOW_DIMENSION_DOOR","LOCALS",1)
+    SetGlobal("ALLOW_SET_2","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("ATTACK_COUNT","LOCALS",3)
+    SetGlobal("ALLOW_DIMENSION_DOOR","LOCALS",1)
+    SetGlobal("ALLOW_SET_2","LOCALS",1)
+    Continue()
+END
+
+IF
+  !Global("ALLOW_DIMENSION_DOOR","LOCALS",0)
+  Range(LastSeenBy(Myself),7,GREATER_THAN)
+  Allegiance(Myself,ENEMY)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_DIMENSION_DOOR,SPELLCAST_IGNORE_HAS_CHECK)
+THEN
+  RESPONSE #100
+    SetGlobal("ALLOW_DIMENSION_DOOR","LOCALS",0)
+    ForceSpell(LastMarkedObject,WIZARD_DIMENSION_DOOR)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !Global("ATTACK_COUNT","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("ATTACK_COUNT","LOCALS",-1)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("ALLOW_SET_2","LOCALS",0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("24202104",LastMarkedObject,7)
+      // WIZARD_EMOTION_FEAR
+      // WIZARD_CHARM_PERSON
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetGlobal("ALLOW_SET_2","LOCALS",0)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

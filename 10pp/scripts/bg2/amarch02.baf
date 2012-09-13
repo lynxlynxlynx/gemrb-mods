@@ -1,0 +1,52 @@
+IF
+  Global("Enclave","GLOBAL",2)
+  Exists(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("AMARCHENEMY","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    SetGlobal("AMARCHENEMY","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("AMARCHENEMY","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    ApplySpell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  See([ENEMY.MONSTER.UMBERHULK])
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY.MONSTER.UMBERHULK],15)
+END
+

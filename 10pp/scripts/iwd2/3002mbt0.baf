@@ -1,0 +1,32 @@
+IF
+  !IsCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+END
+
+IF
+  !Global("OTYUGH_ESCAPE","MYAREA",0)
+  Heard([ANYONE],66)
+THEN
+  RESPONSE #100
+    MoveToObjectUntilSee(LastHeardBy(Myself))
+END
+
+IF
+  Dead("Fire_Beetle_Queen")  // 
+  Dead("03_Oty_01")  // 
+  Dead("03_Oty_02")  // 
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("00aMvW")
+END
+
+IF
+  !TimerActive(22)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartRandomTimer(22,3,11)
+END
+

@@ -1,0 +1,87 @@
+IF
+  OR(2)
+    Global("Enclave","GLOBAL",2)
+    Allegiance(Myself,ENEMY)
+  Global("AmMonkEnemy","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AmMonkEnemy","GLOBAL",1)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("AmMonkEnemy","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Metbal","GLOBAL",0)
+  Name("GateGuard5500",Myself)
+  !Allegiance(Myself,ENEMY)
+  GlobalLT("enclave","GLOBAL",2)
+  Global("GuardBroughtBalthazar","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("GuardBroughtBalthazar","GLOBAL",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OR(3)
+    Die()
+    AttackedBy([ANYONE],DEFAULT)
+    Allegiance(Myself,ENEMY)
+  Global("METBAL","GLOBAL",0)
+  Global("SpawnKillMonks","LOCALS",0)
+THEN
+  RESPONSE #100
+    CreateCreatureOffScreen("KILLMONK",0)  // ~Monk~
+    CreateCreatureOffScreen("KILLMONK",0)  // ~Monk~
+    CreateCreatureOffScreen("KILLMONK",0)  // ~Monk~
+    SetGlobal("SpawnKillMonks","LOCALS",1)
+END
+
+IF
+  Name("GateGuard5500",Myself)
+  Global("SpottedP1","AR5500",0)
+  Global("Enclave","GLOBAL",2)
+  See(Player1)
+THEN
+  RESPONSE #100
+    SetGlobal("SpottedP1","AR5500",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("reinforcement","LOCALS",0)
+  !GlobalGT("AmkMonkCap","AR5500",18)
+THEN
+  RESPONSE #150
+    SetGlobal("reinforcement","LOCALS",1)
+  RESPONSE #100
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMonkCap","AR5500",1)
+    DisplayStringHead(Myself,71781)  // ~It's <PRO_HIMHER>!  Destroy <PRO_HIMHER>, in the name of all that is righteous!!~
+    CreateCreatureOffScreen("AMMGRD01",0)  // ~Monk~
+  RESPONSE #100
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMonkCap","AR5500",1)
+    DisplayStringHead(Myself,71781)  // ~It's <PRO_HIMHER>!  Destroy <PRO_HIMHER>, in the name of all that is righteous!!~
+    CreateCreatureOffScreen("AMMGRD02",0)  // ~Monk~
+  RESPONSE #100
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMonkCap","AR5500",1)
+    DisplayStringHead(Myself,71781)  // ~It's <PRO_HIMHER>!  Destroy <PRO_HIMHER>, in the name of all that is righteous!!~
+    CreateCreatureOffScreen("AMMGRD03",0)  // ~Monk~
+  RESPONSE #100
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMonkCap","AR5500",2)
+    DisplayStringHead(Myself,71781)  // ~It's <PRO_HIMHER>!  Destroy <PRO_HIMHER>, in the name of all that is righteous!!~
+    CreateCreatureOffScreen("AMMGRD03",0)  // ~Monk~
+    CreateCreatureOffScreen("AMMGRD03",0)  // ~Monk~
+END
+

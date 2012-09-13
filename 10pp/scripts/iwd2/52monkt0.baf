@@ -1,0 +1,47 @@
+IF
+  !TimerActive(4)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    StartRandomTimer(4,1,3)
+    SetGlobal("FLOAT_NOISE","LOCALS",1)
+    PlaySequence(Myself,ATTACK)
+    Continue()
+  RESPONSE #100
+    StartRandomTimer(4,1,3)
+    SetGlobal("FLOAT_NOISE","LOCALS",1)
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Continue()
+  RESPONSE #100
+    StartRandomTimer(4,1,3)
+    SetGlobal("FLOAT_NOISE","LOCALS",1)
+    PlaySequence(Myself,ATTACK_JAB)
+    Continue()
+END
+
+IF
+  !Global("FLOAT_NOISE","LOCALS",0)
+THEN
+  RESPONSE #33
+    FloatMessage(Myself,20773)  // ~"*Ha-HNH!*"~
+    SetGlobal("FLOAT_NOISE","LOCALS",0)
+  RESPONSE #33
+    FloatMessage(Myself,20774)  // ~"*HAI!*"~
+    SetGlobal("FLOAT_NOISE","LOCALS",0)
+  RESPONSE #33
+    FloatMessage(Myself,20775)  // ~"*Hanh!*"~
+    SetGlobal("FLOAT_NOISE","LOCALS",0)
+  RESPONSE #201
+    SetGlobal("FLOAT_NOISE","LOCALS",0)
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(4)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(19,5)
+END
+

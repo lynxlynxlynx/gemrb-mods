@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("LeavingSahuagin","AR2300",2)
+    ActionOverride("sahcpt02",DestroySelf())
+    ActionOverride("sahkng01",MoveToPoint([4135.2997]))
+    ActionOverride("sahkng01",EscapeArea())
+    Wait(4)
+    CreateCreature("SAHPR4",[4313.3140],12)  // ~Senior Priestess Sallinithyl~
+    Wait(1)
+    ActionOverride("sahpr4",MoveToObject(Player1))
+    ActionOverride("sahpr4",Dialog([PC]))
+END
+

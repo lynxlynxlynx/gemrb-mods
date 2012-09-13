@@ -1,0 +1,11 @@
+IF
+  Global("PlantedItems","AR1512",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,51691)  // ~As you place your last item within its statue,the chest in the center of the chamber slams open. There is something within that was not there before.~
+    AddexperienceParty(20000)
+    CreateItem("Helm19",0,0,0)  // ~Dusty Rose Ioun Stone~
+    CreateItem("Misc8y",0,0,0)  // ~Sapphire Stone~
+    SetGlobal("PlantedItems","AR1512",2)
+END
+

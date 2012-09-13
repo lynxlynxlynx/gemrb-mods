@@ -1,0 +1,32 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Torak2")  // 
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    FadeToColor([0.0],0)
+    Wait(1)
+    MoveViewPoint([2430.1660],20)
+    ActionOverride(Player1,JumpToPoint([2440.1604]))
+    ActionOverride(Player1,MoveToPoint([2440.1604]))
+    ActionOverride(Player2,JumpToPoint([2360.1643]))
+    ActionOverride(Player2,MoveToPoint([2360.1643]))
+    ActionOverride(Player3,JumpToPoint([2361.1734]))
+    ActionOverride(Player3,MoveToPoint([2361.1734]))
+    ActionOverride(Player4,JumpToPoint([2447.1715]))
+    ActionOverride(Player4,MoveToPoint([2447.1715]))
+    ActionOverride(Player5,JumpToPoint([2499.1676]))
+    ActionOverride(Player5,MoveToPoint([2499.1676]))
+    ActionOverride(Player6,JumpToPoint([2509.1629]))
+    ActionOverride(Player6,MoveToPoint([2509.1629]))
+    Wait(1)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+

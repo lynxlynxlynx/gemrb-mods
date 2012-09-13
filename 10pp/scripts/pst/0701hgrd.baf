@@ -1,0 +1,64 @@
+IF
+  OnCreation()
+  NearLocation(Myself,[2493.1201],0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0701MERC",DEFAULT)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeTeam(Myself,TEAM_1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.TEAM_1])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  Help("Jasilya")  // ~Jasilya~
+THEN
+  RESPONSE #100
+    Enemy()
+    FaceObject([PC])
+END
+
+IF
+  See("Jasilya")  // ~Jasilya~
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Attack("Jasilya")
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

@@ -1,0 +1,9 @@
+IF
+  Die()
+  Dead("Pharod")  // ~Collector Boss~
+  GlobalLT("Know_Painted_Door","GLOBAL",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Game_Over","GLOBAL",3)
+END
+

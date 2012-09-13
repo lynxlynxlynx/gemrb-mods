@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride("SPY406",DestroySelf())
+    MoveViewObject(Myself,INSTANT)
+    Wait(1)
+    FadeFromColor([20.0],0)
+    ActionOverride("cpchick1",DestroySelf())
+    ActionOverride("cpchick2",DestroySelf())
+    Wait(1)
+    ActionOverride("Surly",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,8 @@
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Shaengarne_Pass_Blocked","GLOBAL",1)
+    FloatMessage(Myself,27520)  // ~A landslide has blocked the pass.  It appears to have been deliberately caused.  You see the bodies of goblins among the rubble.~
+END
+

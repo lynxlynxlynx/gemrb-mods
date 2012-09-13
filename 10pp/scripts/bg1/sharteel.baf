@@ -1,0 +1,52 @@
+IF
+  !UnselectableVariable(0)
+  Global("Eldothfight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  UnselectableVariable(0)
+  See("Eldoth")  // ~Eldoth~
+  Global("Eldothfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MakeUnselectable(5000)
+END
+
+IF
+  !UnselectableVariable(0)
+  Dead("Eldoth")  // ~Eldoth~
+  Global("Eldothfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Eldothfight","GLOBAL",0)
+    MakeUnselectable(0)
+END
+
+IF
+  !UnselectableVariable(0)
+  !See("Eldoth")  // ~Eldoth~
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  Global("Eldothfight","GLOBAL",1)
+  See("Eldoth")  // ~Eldoth~
+THEN
+  RESPONSE #100
+    EquipRanged()
+    Attack("Eldoth")
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,ALLY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

@@ -1,0 +1,69 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateVisualEffect("ICFIRSDI",[1573.1342])
+    CreateVisualEffect("ICFIRSDI",[1514.1491])
+    Wait(1)
+    CreateCreature("HGWRA03",[1454.1398],0)  // ~Devil Shade~
+    CreateCreature("HGMIS01",[1454.1398],0)  // ~Vampiric Wraith~
+    CreateCreature("HGMIS02",[1454.1398],0)  // ~Swamp Horror~
+    CreateCreature("HGWRA03",[1514.1491],0)  // ~Devil Shade~
+    CreateCreature("HGMIS01",[1514.1491],0)  // ~Vampiric Wraith~
+    CreateCreature("HGMIS02",[1514.1491],0)  // ~Swamp Horror~
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("hgwra01")  // 
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(1)
+    SetName(70034)  // ~Master Wraith~
+    ChangeAlignment(Myself,LAWFUL_EVIL)
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("loveone1")  // 
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(1)
+    ChangeAnimation("HGWRA02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("loveone2")  // 
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(1)
+    ChangeAnimation("HGWRA02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("loveone3")  // 
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(1)
+    ChangeAnimation("HGWRA02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("loveone4")  // 
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(1)
+    ChangeAnimation("HGWRA02")
+END
+

@@ -1,0 +1,45 @@
+IF
+  Global("Deactivate","AR0701",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","AR0701",1)
+    TriggerActivation("TRAN0202",FALSE)
+    TriggerActivation("EYEHALL",TRUE)
+END
+
+IF
+  GlobalGT("BeholderPlot","GLOBAL",0)
+  Global("Deactivate","AR0701",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","AR0701",2)
+    TriggerActivation("TRAN0202",TRUE)
+    TriggerActivation("EYEHALL",FALSE)
+END
+
+IF
+  OR(2)
+    PartyHasItem("MISC5C")  // ~Rift Device~
+    PartyHasItem("MISC5Z")  // ~Rift Device~
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    TakePartyItem("MISC5C")
+    TakePartyItem("MISC5Z")
+    ActionOverride(Player1,MoveToPoint([385.616]))
+    Wait(2)
+    DisplayStringHead(Player1,53006)  // ~As you were warned, attemtping to take the Rift Device from the dungeon has brought the full force of the curse down upon you. You die with much suffering.~
+    Wait(3)
+    EndCutSceneMode()
+    Kill(Player1)
+END
+
+IF
+  Global("MekrathMonsters","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MekrathMonsters","GLOBAL",2)
+    CreateCreature("MEKIMP01",[2531.2142],8)  // ~Imp~
+    CreateCreature("MEKEAR01",[2526.2235],8)  // ~Lesser Earth Elemental~
+END
+

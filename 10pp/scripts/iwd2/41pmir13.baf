@@ -1,0 +1,26 @@
+IF
+  GlobalTimerNotExpired("PrismFireDelay","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("41PrismFire","MYAREA",3)
+  OpenState("AR4102_Coffin1",TRUE)  // AR4102_Coffin1
+  OpenState("AR4102_Door13",TRUE)  // AR4102_Door13
+THEN
+  RESPONSE #100
+    SetGlobalTimer("PrismFireDelay","MYAREA",2)
+    TriggerActivation("Mirror16",TRUE)
+    Continue()
+END
+
+IF
+  Global("41PrismFire","MYAREA",3)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([159.1535],2092)
+    TriggerActivation(Myself,FALSE)
+END
+

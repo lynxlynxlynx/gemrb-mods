@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GEM")  // 
+    MultiPlayerSync()
+    Wait(2)
+    MoveViewPointUntilDone([943.839],VERY_FAST)
+    EquipItem("RING91",0)
+    Wait(3)
+    SetVisualRange(0)
+    MoveViewObject([PC][0.0.10000.10000],INSTANT)
+    Wait(1)
+    UnhideGUI()
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

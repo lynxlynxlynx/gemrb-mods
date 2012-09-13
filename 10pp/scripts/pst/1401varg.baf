@@ -1,0 +1,14 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("HC_Varg_Killed","GLOBAL",1)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Attack([PC])
+END
+

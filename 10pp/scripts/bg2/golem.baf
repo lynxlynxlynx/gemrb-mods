@@ -1,0 +1,146 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("GolemCreate","AR0411",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2174)  // ~This appears to be a control panel relating to the creation of an Iron Golem. A partially completed golem stands lifeless in the tube above the panel. The golem is missing an arm and a head.~
+    SetGlobal("GolemCreate","AR0411",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("misc6k")  // ~Golem Arm~
+  !PartyHasItem("misc6j")  // ~Golem Head~
+  OR(2)
+    Global("GolemCreate","AR0411",1)
+    Global("GolemCreate","AR0411",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2175)  // ~The golem arm that you have brought has been attached to the monster. ~
+    SetGlobal("TookArm","AR0411",1)
+    TakePartyItem("misc6k")
+    DestroyItem("misc6k")  // ~Golem Arm~
+    IncrementGlobal("GolemCreate","AR0411",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("TookArm","AR0411",1)
+  !PartyHasItem("misc6j")  // ~Golem Head~
+  GlobalLT("GolemCreate","AR0411",3)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,56055)  // ~The golem still requires a head.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("misc6j")  // ~Golem Head~
+  !PartyHasItem("misc6k")  // ~Golem Arm~
+  OR(2)
+    Global("GolemCreate","AR0411",1)
+    Global("GolemCreate","AR0411",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2178)  // ~The head that you have brought is connected to the golem by the machine.~
+    SetGlobal("TookHead","AR0411",1)
+    TakePartyItem("misc6j")
+    DestroyItem("misc6j")  // ~Golem Head~
+    IncrementGlobal("GolemCreate","AR0411",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Global("TookHead","AR0411",1)
+  !PartyHasItem("misc6k")  // ~Golem Arm~
+  GlobalLT("GolemCreate","AR0411",3)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,56057)  // ~The golem still requires an arm.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("misc6j")  // ~Golem Head~
+  PartyHasItem("misc6k")  // ~Golem Arm~
+  GlobalLT("PowerFurnace","GLOBAL",3)
+  OR(2)
+    Global("GolemCreate","AR0411",1)
+    Global("GolemCreate","AR0411",2)
+THEN
+  RESPONSE #100
+    TakePartyItem("misc6k")
+    TakePartyItem("misc6j")
+    DestroyItem("misc6k")  // ~Golem Arm~
+    DestroyItem("misc6j")  // ~Golem Head~
+    DisplayString(Myself,2180)  // ~The golem must now be activated. This machine seems to have no function that accomplishes that. You must look elsewhere.~
+    SetGlobal("GolemCreate","AR0411",3)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("misc6j")  // ~Golem Head~
+  PartyHasItem("misc6k")  // ~Golem Arm~
+  Global("PowerFurnace","GLOBAL",3)
+  OR(2)
+    Global("GolemCreate","AR0411",1)
+    Global("GolemCreate","AR0411",2)
+THEN
+  RESPONSE #100
+    TakePartyItem("misc6k")
+    TakePartyItem("misc6j")
+    DestroyItem("misc6k")  // ~Golem Arm~
+    DestroyItem("misc6j")  // ~Golem Head~
+    DisplayString(Myself,61440)  // ~The golem is now complete.  You may activate it, if you wish.~
+    SetGlobal("GolemCreate","AR0411",3)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("GolemCreate","AR0411",3)
+  GlobalLT("PowerFurnace","GLOBAL",3)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2180)  // ~The golem must now be activated. This machine seems to have no function that accomplishes that. You must look elsewhere.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("GolemCreate","AR0411",3)
+  Global("PowerFurnace","GLOBAL",3)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2182)  // ~The golem awakes and is transported out of the machine.~
+    AddexperienceParty(23500)
+    Wait(2)
+    TriggerActivation("GolemControlPanel",FALSE)
+    StartCutSceneMode()
+    StartCutScene("Cut22a")
+    SetGlobal("GolemCreate","AR0411",4)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  !Global("GolemCreate","AR0411",4)
+  Global("GolemCreate","AR0411",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,2174)  // ~This appears to be a control panel relating to the creation of an Iron Golem. A partially completed golem stands lifeless in the tube above the panel. The golem is missing an arm and a head.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

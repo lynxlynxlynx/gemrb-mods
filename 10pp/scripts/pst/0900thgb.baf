@@ -1,0 +1,94 @@
+IF
+  Die()
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Force_Spawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Die()
+  GlobalLT("Curst_Murder","GLOBAL",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Murder","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeSpecifics(Myself,THUGB)
+    Wait(2)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Thug_Dead","AR0900",1)
+END
+
+IF
+  Internal(Myself,INTERNAL_1,1)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  !Exists([0.0.0.0.0.0.PERSON_69][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Global("Thug_Dead","AR0900",3)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([0.0.0.0.0.0.THUGB])
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  !Range([0.0.0.0.0.0.PERSON_69],1)
+THEN
+  RESPONSE #100
+    WaitRandom(1,3)
+    MoveToObjectEx([0.0.0.0.0.0.PERSON_69],0)
+    WaitRandom(1,3)
+END
+
+IF
+  Range([0.0.0.0.0.0.PERSON_69],1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

@@ -1,0 +1,47 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    SetInternal(Myself,INTERNAL_1,0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Exists([PC][1338.1283.1738.1876])
+THEN
+  RESPONSE #100
+    Enemy()
+    FaceObject([PC])
+END
+
+IF
+  Internal(Myself,INTERNAL_1,0)
+  See([PC])
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+    SetInternal(Myself,INTERNAL_1,1)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("sahpr1")  // 
+    ForceSpell(Myself,DO_NOTHING)
+    PlaySound("CHA_SM06")
+    Wait(2)
+    ActionOverride("sahcpt02",StartDialogNoSet([PC]))
+END
+

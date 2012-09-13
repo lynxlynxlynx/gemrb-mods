@@ -1,0 +1,27 @@
+IF
+  !TimerActive(73)
+  RandomNumLT(99,10)
+  Or(2)
+    See([0.0.DROW],0)
+    See(NearestEnemyOf(Myself),0)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
+  !CheckSpellState(LastSeenBy(Myself),HELD)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+    PlaySequence(Myself,SHOOT)
+    SetInterrupt(FALSE)
+    Wait(1)
+    ReallyForceSpell(LastMarkedObject,INNATE_DRIDER_WEB)
+    StartTimer(73,6)
+    SetInterrupt(TRUE)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

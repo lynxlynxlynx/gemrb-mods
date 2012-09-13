@@ -1,0 +1,21 @@
+IF
+  !Global("Current_Area","GLOBAL",3006)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",3006)
+    ActivatePortalCursor("to0101",0)
+    EnablePortalTravel("to0101",0)
+    GlobalSet("Spawn_Vlask_Once","GLOBAL",1)
+    StartTimer(1,30)
+END
+
+IF
+  Global("Spawn_Vlask_Once","GLOBAL",1)
+  !TimerActive(1)
+  !Dead("Vlask")  // ~Vlask~
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Vlask_Once","GLOBAL",0)
+    GlobalSet("Spawn_Vlask","GLOBAL",1)
+END
+

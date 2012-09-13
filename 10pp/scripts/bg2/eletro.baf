@@ -1,0 +1,10 @@
+IF
+  See([PC])
+  AreaCheck("ar1506")
+  Global("EletroDisplay","AR1506",0)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,53344)  // ~Ssssacrifice... your bloody head will do...~
+    SetGlobal("EletroDisplay","AR1506",1)
+END
+

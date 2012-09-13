@@ -1,0 +1,21 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,FIREBALL_DEATH)
+END
+
+IF
+  Dead("DEATHK")  // DEATHK
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See("DEATHK")  // DEATHK
+THEN
+  RESPONSE #100
+    Attack("DEATHK")
+END
+

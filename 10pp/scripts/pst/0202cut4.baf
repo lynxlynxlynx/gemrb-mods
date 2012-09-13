@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Morte")  // 
+    MoveViewObject("Nameless",VERY_FAST)
+    Dialogue("Nameless")
+    EndCutSceneMode()
+END
+

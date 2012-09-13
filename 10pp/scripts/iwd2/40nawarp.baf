@@ -1,0 +1,46 @@
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,2590,160,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2590.160])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  !IsWeaponRanged(Myself)
+THEN
+  RESPONSE #100
+    MoveToPoint([2590.160])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !IsWeaponRanged(Myself)
+THEN
+  RESPONSE #100
+    JumpToPoint([3456.575])
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !IsWeaponRanged(Myself)
+THEN
+  RESPONSE #100
+    Face(SE)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  !IsWeaponRanged(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+    SetGlobal("ML_0","LOCALS",-1)
+END
+

@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GithAng")  // 
+    Dialogue([PC])
+    EndCutSceneMode()
+END
+

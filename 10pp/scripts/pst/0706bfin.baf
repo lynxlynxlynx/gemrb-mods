@@ -1,0 +1,77 @@
+IF
+  Die()
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[695.487])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[695.487])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[695.487])  // ~Harmonium Officer~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[695.487])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[695.487])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[695.487])  // ~Harmonium Officer~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  GlobalLT("Finam","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Wait(3)
+    FloatMessage(Myself,48815)  // ~"No, 'tis not here... where *is* that book?"~
+    MoveToPoint([495.280])
+    MoveToPoint([595.368])
+    MoveToPoint([707.365])
+    MoveToPoint([755.318])
+    Face(10)
+    Wait(3)
+    FloatMessage(Myself,48815)  // ~"No, 'tis not here... where *is* that book?"~
+    MoveToPoint([679.414])
+    MoveToPoint([468.411])
+    Face(4)
+    Wait(3)
+    FloatMessage(Myself,48815)  // ~"No, 'tis not here... where *is* that book?"~
+    MoveToPoint([495.227])
+END
+
+IF
+  Global("Finam","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([536.339])
+    Face(14)
+END
+

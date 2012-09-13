@@ -1,0 +1,16 @@
+IF
+  GlobalTimerNotExpired("PrismFireDelay","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("41PrismFire","MYAREA",3)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([384.1771],2092)
+    Unlock("AR4102_Door14")
+    TriggerActivation(Myself,FALSE)
+END
+

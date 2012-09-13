@@ -1,0 +1,243 @@
+IF
+  True()
+THEN
+  RESPONSE #20
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    Continue()
+  RESPONSE #10
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    CreateCreature("GeherlX",[2032.1141])  // ~Trelon~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    CreateCreature("Worm",[2032.1141])  // ~Larval Worm~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #20
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    Continue()
+  RESPONSE #10
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    CreateCreature("GeherlX",[3003.950])  // ~Trelon~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    CreateCreature("Worm",[3003.950])  // ~Larval Worm~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #20
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    Continue()
+  RESPONSE #10
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    CreateCreature("GeherlX",[2733.1895])  // ~Trelon~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    CreateCreature("Worm",[2733.1895])  // ~Larval Worm~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #20
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    Continue()
+  RESPONSE #10
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    CreateCreature("GeherlX",[2366.2668])  // ~Trelon~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    CreateCreature("Worm",[2366.2668])  // ~Larval Worm~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #20
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    Continue()
+  RESPONSE #10
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    CreateCreature("GeherlX",[1682.2962])  // ~Trelon~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    CreateCreature("Worm",[1682.2962])  // ~Larval Worm~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #20
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    Continue()
+  RESPONSE #10
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    Continue()
+  RESPONSE #20
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    CreateCreature("GeherlX",[522.1730])  // ~Trelon~
+    Continue()
+  RESPONSE #20
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    CreateCreature("Worm",[522.1730])  // ~Larval Worm~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Set","AR2000",0)
+    GlobalSet("Destroy_Cattys","AR2000",0)
+    ChangeAIScript("ar2000",DEFAULT)
+END
+

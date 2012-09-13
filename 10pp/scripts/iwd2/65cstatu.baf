@@ -1,0 +1,124 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Iyachtu_Xvim_Statue")  // 
+    TriggerActivation("Trigger_Corellon_Statue",FALSE)
+    TriggerActivation("Trigger_Illmater_Statue",FALSE)
+    TriggerActivation("Trigger_Iyachtu_Statue",FALSE)
+    TriggerActivation("Trigger_Silvanas_Statue",FALSE)
+    TriggerActivation("Trigger_Sune_Statue",FALSE)
+    MultiPlayerSync()
+    HideGUI()
+    MoveViewPoint([640.307],15)
+    SetVisualRange(99)
+    Wait(3)
+    ScreenShake(90,15,15)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    MultiPlayerSync()
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    MultiPlayerSync()
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    SpellHitEffectSprite(Myself,Myself,MALAVONS_RAGE_SPIKE_SWATH,0)
+    SpellHitEffectSprite(Myself,Myself,SUNRAY,0)
+    Wait(2)
+    MultiPlayerSync()
+    FadeToColor([0.0],0)
+    Wait(1)
+    SpellCastEffect(Myself,"","CAS_EN14","",NONE,1,ATTACK)
+    Wait(1)
+    DayNight(NOON)
+    DayNight(MIDNIGHT)
+    OpenDoor("AR6500_Statues")
+    SetVisualRange(0)
+    MultiPlayerSync()
+    UnhideGUI()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MoveViewPoint([640.680],15)
+    TriggerActivation("Trigger_Corellon_Statue",TRUE)
+    TriggerActivation("Trigger_Illmater_Statue",TRUE)
+    TriggerActivation("Trigger_Iyachtu_Statue",TRUE)
+    TriggerActivation("Trigger_Silvanas_Statue",TRUE)
+    TriggerActivation("Trigger_Sune_Statue",TRUE)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Illmater_Statue")  // 
+    Wait(2)
+    FaceObject("Iyachtu_Xvim_Statue")
+    SpellCastEffect(Myself,"CAS_PP8M","CAS_EN6","PRE_P02",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Silvanas_Statue")  // 
+    Wait(2)
+    FaceObject("Iyachtu_Xvim_Statue")
+    SpellCastEffect(Myself,"CAS_PP8M","CAS_EN6","PRE_P02",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Corellon_Statue")  // 
+    Wait(2)
+    FaceObject("Iyachtu_Xvim_Statue")
+    SpellCastEffect(Myself,"CAS_PP8F","CAS_EN2c","PRE_M04",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Sune_Statue")  // 
+    Wait(2)
+    FaceObject("Iyachtu_Xvim_Statue")
+    SpellCastEffect(Myself,"CAS_PP8F","CAS_EN2c","PRE_M04",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+END
+

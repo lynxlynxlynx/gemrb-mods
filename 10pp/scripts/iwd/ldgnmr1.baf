@@ -1,0 +1,671 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Allegiance([0.0.GNOME],ENEMY)
+  HelpEX(Myself,RACE)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  GlobalGT("8001_SALAMANDERS_DEAD","GLOBAL",20)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",0)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,3440,2440,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",1)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",0)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([3440.2440])
+    MoveToPoint([3440.2440])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",1)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,3270,2580,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",2)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",1)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([3270.2580])
+    MoveToPoint([3270.2580])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",2)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1825,2580,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",3)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",2)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1825.2580])
+    MoveToPoint([1825.2580])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",3)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1785,2540,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",4)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",3)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1785.2540])
+    MoveToPoint([1785.2540])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",4)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1665,2540,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",5)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",4)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1665.2540])
+    MoveToPoint([1665.2540])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",5)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1530,2400,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",6)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",5)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1530.2400])
+    MoveToPoint([1530.2400])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",6)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1530,2360,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",7)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",6)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1530.2360])
+    MoveToPoint([1530.2360])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",7)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1475,2310,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",8)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",7)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1475.2310])
+    MoveToPoint([1475.2310])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",8)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1405,2310,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",9)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",8)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1405.2310])
+    MoveToPoint([1405.2310])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",9)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1405,2145,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",10)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",9)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1405.2145])
+    MoveToPoint([1405.2145])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",10)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1670,1880,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",11)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",10)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1670.1880])
+    MoveToPoint([1670.1880])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",11)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1670,1645,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",12)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",11)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1670.1645])
+    MoveToPoint([1670.1645])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",12)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1270,1245,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",13)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",12)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1270.1245])
+    MoveToPoint([1270.1245])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",13)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1270,1070,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",14)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",13)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1270.1070])
+    MoveToPoint([1270.1070])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",14)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,980,780,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",15)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",14)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([980.780])
+    MoveToPoint([980.780])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",15)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,900,780,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",16)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",15)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([900.780])
+    MoveToPoint([900.780])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",16)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,980,780,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",17)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",16)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([980.780])
+    MoveToPoint([980.780])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",17)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1270,1070,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",18)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",17)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1270.1070])
+    MoveToPoint([1270.1070])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",18)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1270,1245,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",19)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",18)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1270.1245])
+    MoveToPoint([1270.1245])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",19)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1670,1645,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",20)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",19)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1670.1645])
+    MoveToPoint([1670.1645])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",20)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1670,1880,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",21)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",20)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1670.1880])
+    MoveToPoint([1670.1880])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",21)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1405,2145,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",22)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",21)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1405.2145])
+    MoveToPoint([1405.2145])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",22)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1405,2310,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",23)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",22)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1405.2310])
+    MoveToPoint([1405.2310])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",23)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1475,2310,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",24)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",23)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1475.2310])
+    MoveToPoint([1475.2310])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",24)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1530,2360,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",25)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",24)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1530.2360])
+    MoveToPoint([1530.2360])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",25)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1530,2400,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",26)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",25)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1530.2400])
+    MoveToPoint([1530.2400])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",26)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1665,2540,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",27)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",26)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1665.2540])
+    MoveToPoint([1665.2540])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",27)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1785,2540,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",28)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",27)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1785.2540])
+    MoveToPoint([1785.2540])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",28)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,1825,2580,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",29)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",28)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([1825.2580])
+    MoveToPoint([1825.2580])
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",29)
+  BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,AND)
+  NearLocation(Myself,3270,2580,8)
+THEN
+  RESPONSE #100
+    SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",0)
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,XOR)
+    Continue()
+END
+
+IF
+  Global("MOVEMENT_LIST_1_LOC","LOCALS",29)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",524288,OR)
+    SetStartPos([3270.2580])
+    MoveToPoint([3270.2580])
+END
+

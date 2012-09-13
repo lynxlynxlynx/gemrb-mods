@@ -1,0 +1,54 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SpellHitEffectSprite(Myself,Myself,CURE_SERIOUS_WOUNDS,30)
+    SetHPPercent(Myself,100,MAX_HP)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    SpellHitEffectSprite(Myself,Myself,CURE_SERIOUS_WOUNDS,30)
+    SetHPPercent(Myself,100,MAX_HP)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    SpellHitEffectSprite(Myself,Myself,CURE_SERIOUS_WOUNDS,30)
+    SetHPPercent(Myself,100,MAX_HP)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    SpellHitEffectSprite(Myself,Myself,CURE_SERIOUS_WOUNDS,30)
+    SetHPPercent(Myself,100,MAX_HP)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    SpellHitEffectSprite(Myself,Myself,CURE_SERIOUS_WOUNDS,30)
+    SetHPPercent(Myself,100,MAX_HP)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    SpellHitEffectSprite(Myself,Myself,CURE_SERIOUS_WOUNDS,30)
+    SetHPPercent(Myself,100,MAX_HP)
+END
+

@@ -1,0 +1,174 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    AmbientActivate("FALL3PT1",TRUE)
+    AmbientActivate("FALL3PT2",TRUE)
+    AmbientActivate("FALL3PT3",TRUE)
+    AmbientActivate("FALL4TOP",TRUE)
+    AmbientActivate("FALL4BTM",TRUE)
+END
+
+IF
+  Global("SahauginTravel","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SahauginTravel","GLOBAL",1)
+END
+
+IF
+  Contains("misc9m","CHEST1")  // CHEST1
+  Contains("misc9o","CHEST2")  // CHEST2
+  Contains("misc9n","CHEST3")  // CHEST3
+  Contains("misc9p","CHEST4")  // CHEST4
+  Contains("misc9q","CHEST5")  // CHEST5
+  Global("ImpsFled","GLOBAL",0)
+  Global("ImpRiddleSolved","AR2300",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ImpRiddle","GLOBAL",2)
+    SetGlobal("ImpRiddleSolved","AR2300",1)
+    ActionOverride("Sahimp01",StartDialogNoSet(Player1))
+END
+
+IF
+  PartyHasItem("key26")  // ~Sekolah's Tooth~
+  Global("SpectatorSpeaks","AR2300",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpectatorSpeaks","AR2300",1)
+    ActionOverride("Sahbeh01",StartDialogNoSet(Player1))
+END
+
+IF
+  Dead("sahbeh01")  // ~Spectator~
+  Global("SpectatorJournalErase","AR2300",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpectatorJournalErase","AR2300",1)
+    EraseJournalEntry(7242)  // ~A Spectator and his chest are rarely parted.I've encountered a peculiar Spectator Beholder, set to guard a particular chest for a lengthy time.  He doesn't seem malevolent, but if I want in that chest I guess I have no choice but to fight him.  Perhaps someone wiser might be able to talk him into helping us out, but I don't know.~
+    EraseJournalEntry(5014)  // ~A Spectator and his chest are rarely parted.The Spectator Beholder seems determined to guard his chest, though he would admit that he guards the chest itself and not what's inside.  That's all I could get out of him.  Perhaps someone wiser could convince him to help us out.~
+END
+
+IF
+  Dead("Sahoty01")  // ~Ettin~
+  Global("KilledSahoty01","AR2300",0)
+  Global("Hostilecity","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Unlock("Door03")
+    SetGlobal("KilledSahoty01","AR2300",1)
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride(Player1,JumpToPoint([298.829]))
+    ActionOverride(Player2,JumpToPoint([266.867]))
+    ActionOverride(Player3,JumpToPoint([225.901]))
+    ActionOverride(Player4,JumpToPoint([343.851]))
+    ActionOverride(Player5,JumpToPoint([307.882]))
+    ActionOverride(Player6,JumpToPoint([268.921]))
+    ActionOverride(Player1,Face(10))
+    ActionOverride(Player2,Face(10))
+    ActionOverride(Player3,Face(10))
+    ActionOverride(Player4,Face(10))
+    ActionOverride(Player5,Face(10))
+    ActionOverride(Player6,Face(10))
+    MoveViewPoint([429.887],INSTANT)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    ActionOverride("sahkng01",StartDialogNoSet(Player1))
+END
+
+IF
+  OR(2)
+    GlobalGT("villynatyjob","GLOBAL",0)
+    Dead("sahpr2")  // ~Prince Villynaty~
+  Global("SpawnPointsGone","AR2300",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnPointsGone","AR2300",1)
+    ActionOverride("sahpr1",Kill(Myself))
+    ActionOverride("sahpr3",Kill(Myself))
+    SpawnPtDeactivate("SpawnPoint1")
+    SpawnPtDeactivate("SpawnPoint2")
+    SpawnPtDeactivate("SpawnPoint3")
+    SpawnPtDeactivate("SpawnPoint4")
+    SpawnPtDeactivate("SpawnPoint5")
+    SpawnPtDeactivate("SpawnPoint6")
+    SpawnPtDeactivate("SpawnPoint7")
+    SpawnPtDeactivate("SpawnPoint8")
+END
+
+IF
+  Global("RebelsAttack","AR2300",1)
+  Global("PrinceArrives","AR2300",0)
+  GlobalTimerExpired("PrinceAttack","AR2300")
+THEN
+  RESPONSE #100
+    SetGlobal("PrinceArrives","AR2300",1)
+    CreateCreature("SAHRGR01",[1268.1778],4)  // ~Rebel~
+    CreateCreature("SAHRGR02",[819.1928],12)  // ~Rebel~
+    CreateCreature("SAHRGR01",[1450.753],2)  // ~Rebel~
+    CreateCreature("SAHRGR02",[1735.2066],6)  // ~Rebel~
+    CreateCreature("SAHREB02",[673.1033],4)  // ~Prince Villynaty~
+    ActionOverride("sahchf02",JumpToPoint([678.1033]))
+END
+
+IF
+  Global("NoAmbush","AR2300",1)
+  Global("StopAmbush","AR2300",0)
+THEN
+  RESPONSE #100
+    SetGlobal("StopAmbush","AR2300",1)
+    CreateCreature("SAHRGR02",[4288.2023],6)  // ~Rebel~
+    CreateCreature("SAHRGR02",[3933.1847],6)  // ~Rebel~
+END
+
+IF
+  OR(2)
+    Global("Hostilecity","GLOBAL",1)
+    GlobalGT("villynatyjob","GLOBAL",0)
+  Global("OpenPrinceDoor","AR2300",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenPrinceDoor","AR2300",1)
+    Unlock("DOOR02")
+END
+
+IF
+  Global("LeavingSahuagin","AR2300",1)
+  !Dead("sahpr1")  // ~Royal High Priestess Senityili~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut41zd")
+END
+
+IF
+  Global("LeavingSahuagin","AR2300",1)
+  Dead("sahpr1")  // ~Royal High Priestess Senityili~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut41ze")
+END
+
+IF
+  Global("villynatyjob","GLOBAL",1)
+  Global("ReplaceKing","AR2300",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ReplaceKing","AR2300",2)
+    CreateCreature("SAHKNG02",[179.772],0)  // ~King Ixilthetocal~
+    ActionOverride("sahkng01",SetNumTimesTalkedTo(2))
+END
+
+IF
+  Dead("sahkng01")  // ~King Ixilthetocal~
+  Global("villynatyjob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Hostilecity","GLOBAL",1)
+END
+

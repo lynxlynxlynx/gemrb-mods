@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("finsol01")  // 
+    FaceObject("finmel01")
+    MoveViewObject("finmel01",INSTANT)
+    CreateVisualEffect("SPPOWATK",[1288.1131])
+    Wait(1)
+    ActionOverride("finmel01",PlayDeadInterruptible(500000))
+    Wait(2)
+    FaceObject(Player1)
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+

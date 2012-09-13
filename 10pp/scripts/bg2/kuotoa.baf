@@ -1,0 +1,9 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  Delay(12)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,KOA_TRUE_SIGHT_NO_VIS)
+END
+

@@ -1,0 +1,36 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CORNUGON_1")  // 
+    EquipItem("SFLAIL",0)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("CORNUGON_2")  // 
+    EquipItem("SFLAIL",0)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("IRON_GOLEM_1")  // 
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("IRON_GOLEM_2")  // 
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+

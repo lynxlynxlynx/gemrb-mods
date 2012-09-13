@@ -1,0 +1,7 @@
+IF
+  HPLT(Myself,100)
+THEN
+  RESPONSE #100
+    SetHPPercent(Myself,100,MAX_HP)
+END
+

@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("RoenalControl","GLOBAL",1)
+    SetGlobal("KeepPlot","GLOBAL",12)
+    FadeToColor([30.0],0)
+    Wait(1)
+    LeaveAreaLUAPanic("AR1304","",[3373.2517],6)
+    LeaveAreaLUA("AR1304","",[3373.2517],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR1304","",[3432.2524],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR1304","",[3383.2568],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR1304","",[3429.2573],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR1304","",[3481.2567],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR1304","",[3467.2629],6))
+    MultiPlayerSync()
+    Wait(1)
+    CreateCreature("KPGATE02",[3306.2412],14)  // ~Guard~
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+END
+

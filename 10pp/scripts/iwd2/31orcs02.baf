@@ -1,0 +1,82 @@
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2302",LastMarkedObject,3)
+      // WIZARD_DISPEL_MAGIC
+    MarkSpellAndObject("21142212",Myself,3)
+      // WIZARD_SHIELD
+      // WIZARD_MIRROR_IMAGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2104",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_CHARM_PERSON
+    MarkSpellAndObject("21042112220522152118",LastMarkedObject,7)
+      // WIZARD_CHARM_PERSON
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_HORROR
+      // WIZARD_WEB
+      // WIZARD_CHROMATIC_ORB
+    MarkSpellAndObject("21122118",[PC],SPELLCAST_RANDOM)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_CHROMATIC_ORB
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("21042112220522152118",LastMarkedObject,7)
+      // WIZARD_CHARM_PERSON
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_HORROR
+      // WIZARD_WEB
+      // WIZARD_CHROMATIC_ORB
+    MarkSpellAndObject("21122118",[PC],SPELLCAST_RANDOM)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_CHROMATIC_ORB
+    MarkSpellAndObject("2104",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_CHARM_PERSON
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("21122118",[PC],SPELLCAST_RANDOM)
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_CHROMATIC_ORB
+    MarkSpellAndObject("2104",[PC.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_CHARM_PERSON
+    MarkSpellAndObject("21042112220522152118",LastMarkedObject,7)
+      // WIZARD_CHARM_PERSON
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_HORROR
+      // WIZARD_WEB
+      // WIZARD_CHROMATIC_ORB
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

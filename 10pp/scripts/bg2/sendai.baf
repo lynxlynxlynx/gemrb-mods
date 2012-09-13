@@ -1,0 +1,37 @@
+IF
+  Global("SendaiHostile","AR6108",1)
+  Global("TurnHostile","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetNumTimesTalkedTo(1)
+    SetGlobal("TurnHostile","LOCALS",1)
+END
+
+IF
+  HPLT(Myself,20)
+  Dead("sendai2")  // ~Sendai~
+  Dead("sendai3")  // ~Sendai~
+  Dead("sendai4")  // ~Sendai~
+  Dead("sendai5")  // ~Sendai~
+  Dead("sendai6")  // ~Sendai~
+  Dead("sendai7")  // ~Sendai~
+  Dead("sendai8")  // ~Sendai~
+  Global("Death","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Death","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("SendaiCutScene2","GLOBAL",3)
+  Global("SendaiCutScene3","GLOBAL",3)
+  Global("InitWithPlayer","AR6108",0)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("InitWithPlayer","AR6108",1)
+    StartDialogNoSet(Player1)
+END
+

@@ -1,0 +1,50 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,5,15)
+    Continue()
+END
+
+IF
+  Global("IDOL_DEAD","GLOBAL",0)
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,15477)  // ~"Come!  Come to the hallowed temple of suffering!"~
+    StartRandomTimer(24,5,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,15478)  // ~"The sins of the flesh must be purged!  Purged on an altar of fire!"~
+    StartRandomTimer(24,5,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,15479)  // ~"With your blood and bones, we will build an empire of living pain!"~
+    StartRandomTimer(24,5,15)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  !Dead("yself)")  // yself)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    SetDialogueRange(300)
+    MultiPlayerSync()
+    Dialogue([PC])
+END
+

@@ -1,0 +1,16 @@
+IF
+  HarmlessEntered("Nordom")  // ~Modron~
+THEN
+  RESPONSE #100
+    VerbalConstant("Nordom",NORDOM_PORTAL)
+    Continue()
+END
+
+IF
+  HarmlessEntered([PC])
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("ExitPortal",1)
+    EnablePortalTravel("ExitPortal",1)
+END
+

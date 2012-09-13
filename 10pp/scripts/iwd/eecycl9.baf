@@ -1,0 +1,79 @@
+IF
+  CreatureHidden(Myself)
+  !Global("EHSQUIRL_KILL_CNT","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !BitGlobal("LOCALS:SCRIPT_BIT_VAR","",1,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:SCRIPT_BIT_VAR","",1,OR)
+    StartTimer(0,2)
+END
+
+IF
+  TimerActive(0)
+  BitGlobal("LOCALS:SCRIPT_BIT_VAR","",1,AND)
+  AttackedBy(LastSeenBy(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    StartTimer(0,0)
+    Continue()
+END
+
+IF
+  !TimerActive(0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  AttackedBy([0.0.GIANT],DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,ATTACK_SLASH)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+END
+
+IF
+  Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+  ActionListEmpty()
+  GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",3)
+    SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+END
+

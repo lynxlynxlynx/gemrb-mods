@@ -1,0 +1,44 @@
+IF
+  Global("SHEEMISH_ESCAPE","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("SHEEMISH_ESCAPE","GLOBAL",2)
+    Continue()
+END
+
+IF
+  !Global("4001_SPAWN","GLOBAL",0)
+  !Global("HIGH_SUMMONER_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("4001_SPAWN","GLOBAL",0)
+    SetGlobal("4002_SPAWN","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("EGANIA_MOVE","GLOBAL",0)
+  !Global("EGENIA_TALKED","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EGANIA_MOVE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("TAL_DEL","GLOBAL",0)
+  GlobalGT("TALONITE_DEAD","GLOBAL",9)
+THEN
+  RESPONSE #100
+    SetGlobal("TAL_DEL","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

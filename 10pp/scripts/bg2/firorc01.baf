@@ -1,0 +1,11 @@
+IF
+  See([PC])
+  OR(2)
+    NumberOfTimesTalkedTo(0)
+    NumberOfTimesTalkedTo(1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+    Enemy()
+END
+

@@ -1,0 +1,134 @@
+IF
+  !TimerActive(18)
+  HaveSpell(WIZARD_LOWER_RESISTANCE)
+  CheckStatGT(NearestEnemyOf(Myself),15,RESISTMAGIC)
+THEN
+  RESPONSE #100
+    StartTimer(18,21)
+    Spell(NearestEnemyOf(Myself),WIZARD_LOWER_RESISTANCE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !TimerActive(17)
+  HaveSpell(WIZARD_MALAVONS_RAGE)
+  Range(ThirdNearestEnemyOf(Myself),15,LESS_THAN)
+THEN
+  RESPONSE #100
+    StartTimer(17,21)
+    Spell(ThirdNearestEnemyOf(Myself),WIZARD_MALAVONS_RAGE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !TimerActive(17)
+  HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)
+  Range(ThirdNearestEnemyOf(Myself),30,LESS_THAN)
+THEN
+  RESPONSE #100
+    StartTimer(17,21)
+    Spell(ThirdNearestEnemyOf(Myself),WIZARD_WAIL_OF_THE_BANSHEE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  !TimerActive(17)
+  HaveSpell(WIZARD_SUNFIRE)
+  Range(ThirdNearestEnemyOf(Myself),30,LESS_THAN)
+THEN
+  RESPONSE #100
+    StartTimer(17,21)
+    Spell(ThirdNearestEnemyOf(Myself),WIZARD_SUNFIRE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("24172118261226132902",LastMarkedObject,7)
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",ThirdNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("291023052405",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+      // WIZARD_HASTE
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2603",ThirdNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("291023052405",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+      // WIZARD_HASTE
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("24172118261226132902",LastMarkedObject,7)
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("291023052405",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+      // WIZARD_HASTE
+      // WIZARD_IMPROVED_INVISIBILITY
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("24172118261226132902",LastMarkedObject,7)
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",ThirdNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2424",[PC.0.0.0.0.0.0.0.0.221],SPELLCAST_RANDOM)
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("24172118261226132902",LastMarkedObject,7)
+      // WIZARD_BELTYNS_BURNING_BLOOD
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_OTILUKES_FREEZING_SPHERE
+      // WIZARD_SHADES
+      // WIZARD_SUMMON_MONSTER_IX
+    MarkSpellAndObject("2603",ThirdNearestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+    MarkSpellAndObject("291023052405",[ENEMY.0.0.0.0.0.0.0.0.CLASSMASK_GROUP_WARRIORS],SPELLCAST_RANDOM)
+      // WIZARD_EXECUTIONERS_EYES
+      // WIZARD_HASTE
+      // WIZARD_IMPROVED_INVISIBILITY
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

@@ -1,0 +1,34 @@
+IF
+  Global("RebelsHostile","AR2300",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([PC])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  Global("villynatyjob","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Hostilecity","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Global("Hostilecity","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

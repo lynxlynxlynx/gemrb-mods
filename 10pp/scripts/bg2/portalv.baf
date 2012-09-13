@@ -1,0 +1,8 @@
+IF
+  Global("EnterPortal","AR0510",1)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([915.470])
+    DestroySelf()
+END
+

@@ -1,0 +1,68 @@
+IF
+  GlobalTimerExpired("KidsRunOff","GLOBAL")
+  Global("ParentsUpset","GLOBAL",1)
+  !Global("rangerprotector","GLOBAL",2)
+  Global("SpawnKids","AR1106",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnKids","AR1106",1)
+    CreateCreature("UHKID01",[437.1059],12)  // ~Dirbert~
+    CreateCreature("UHKID02",[476.1120],9)  // ~Valsben~
+    CreateCreature("UHKID03",[569.1139],7)  // ~Neler~
+    CreateCreature("UHCREAT",[508.1054],2)  // ~Shadow~
+END
+
+IF
+  GlobalTimerExpired("KidsRunOff","GLOBAL")
+  Global("ParentsUpset","GLOBAL",2)
+  !Global("rangerprotector","GLOBAL",2)
+  Global("SpawnKids","AR1106",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnKids","AR1106",1)
+    CreateCreature("UHKID01",[896.529],12)  // ~Dirbert~
+    CreateCreature("UHKID02",[1078.512],3)  // ~Valsben~
+    CreateCreature("UHKID03",[993.624],6)  // ~Neler~
+END
+
+IF
+  GlobalTimerExpired("KidsRunOff","GLOBAL")
+  Global("ParentsUpset","GLOBAL",3)
+  !Global("rangerprotector","GLOBAL",2)
+  Global("SpawnKids","AR1106",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnKids","AR1106",1)
+    CreateCreature("UHKID01",[505.1026],10)  // ~Dirbert~
+    CreateCreature("UHKID02",[621.1092],8)  // ~Valsben~
+    CreateCreature("UHKID03",[763.1121],8)  // ~Neler~
+    CreateCreature("UHCREAT2",[754.845],2)  // ~Diseased Gibberling~
+END
+
+IF
+  Dead("jugmim01")  // ~Killer Mimic~
+  Global("ChestLocked","AR1106",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ChestLocked","AR1106",1)
+    Unlock("MimicChest")
+END
+
+IF
+  Dead("madulf")  // madulf
+  Global("OgronAttack","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("OgronAttack","GLOBAL",4)
+    ReputationInc(-1)
+END
+
+IF
+  Dead("madulf")  // madulf
+  Global("OgronAttack","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("OgronAttack","GLOBAL",4)
+    ReputationInc(-2)
+END
+

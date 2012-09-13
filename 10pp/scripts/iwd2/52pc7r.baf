@@ -1,0 +1,10 @@
+IF
+  Global("52Morohem_Master","GLOBAL",7)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  !CheckDoorFlags(Myself,DOORLOCKED)
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    Lock(Myself)
+END
+

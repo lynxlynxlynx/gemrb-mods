@@ -1,0 +1,8 @@
+IF
+  Exists("PATROL_1")  // PATROL_1
+  !Dead("PATROL_1")  // 
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("PATROL_1")
+END
+

@@ -1,0 +1,83 @@
+IF
+  HaveSpell(CLERIC_ARMOR_OF_FAITH)
+  !Global("TEAM_13","MYAREA",0)
+  IsSpellTargetValid(Myself,CLERIC_ARMOR_OF_FAITH,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ARMOR_OF_FAITH)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",Myself)  // ~Potion of Healing~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(CLERIC_MISCAST_MAGIC)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_MISCAST_MAGIC,0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(LastSeenBy(Myself),150)
+    Spell(LastMarkedObject,CLERIC_MISCAST_MAGIC)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("CLDamag",Myself)  // ~Inflict Light Wounds~
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([GOODCUTOFF.0.0.0.150],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(LastSeenBy(Myself),150)
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([GOODCUTOFF.0.0.0.150],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("23061322",LastMarkedObject,3)
+      // WIZARD_HOLD_PERSON
+      // CLERIC_MOLD_TOUCH
+    MarkSpellAndObject("1112",Myself,3)
+      // CLERIC_CAUSE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(LastSeenBy(Myself),150)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

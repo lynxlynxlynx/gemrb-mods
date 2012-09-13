@@ -1,0 +1,85 @@
+IF
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Or(2)
+    !Global("KEEP_TRAINING","GLOBAL",0)
+    !Dead("TRAINING_KEG")  // 
+  NearSavedLocation(1)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,16325)  // ~::Hhrrg::~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16326)  // ~::Hnnn::~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16328)  // ~"Hiiii-ya!"~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16329)  // ~::Nff::~
+    StartRandomTimer(18,5,10)
+    Continue()
+  RESPONSE #300
+    FaceSavedLocation(Myself)
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Global("KEEP_TRAINING","GLOBAL",0)
+  Dead("TRAINING_KEG")  // 
+  NearSavedLocation(1)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,16330)  // ~"Uh... what now?"~
+    StartRandomTimer(18,1,15)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16331)  // ~"Should... uh, we just attack the air?"~
+    StartRandomTimer(18,1,15)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16332)  // ~"Good thing that keg's broke.  My arms needed a rest."~
+    StartRandomTimer(18,1,15)
+    Continue()
+  RESPONSE #225
+    FaceSavedLocation(Myself)
+    Continue()
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(19,5)
+END
+
+IF
+  !TimerActive(19)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(19,5)
+END
+
+IF
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  Global("Goblin_Palisade_Quest","GLOBAL",0)
+  Or(2)
+    !Global("KEEP_TRAINING","GLOBAL",0)
+    !Dead("TRAINING_KEG")  // 
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    PlaySequence(Myself,ATTACK)
+    WaitRandom(3,5)
+END
+

@@ -1,0 +1,223 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,ILLUSION_DEATH)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),15)
+  Range(SecondNearestEnemyOf(Myself),15)
+  !GlobalTimerNotExpired("warcry","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("warcry","LOCALS",1000)
+    SpellNoDec(Myself,WARRIOR_WAR_CRY)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN55",Myself)  // ~Potion of Superior Healing~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN55",Myself)  // ~Potion of Superior Healing~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Range(NearestEnemyOf(Myself),8)
+  !GlobalTimerNotExpired("WhirlwindAttack","LOCALS")
+  GlobalLT("WhirlwindUsed","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WhirlwindAttack","LOCALS",6)
+    IncrementGlobal("WhirlwindUsed","LOCALS",1)
+    ReallyForceSpellRES("SPCL900",Myself)  // ~Whirlwind Attack~
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  Range(NearestEnemyOf(Myself),10)
+  !StateCheck(Myself,STATE_HASTED)
+  !CheckStatGT(Myself,4,NUMBEROFATTACKS)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN14",Myself)  // ~Oil of Speed~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN14",Myself)  // ~Oil of Speed~
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Heard(NearestMyGroupOfType(Myself),ASSIST)
+  !Dead("astHeardBy(Myself))")  // astHeardBy(Myself))
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_INVISIBLE)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_CHARMED)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_HELPLESS)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_SLEEPING)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_STUNNED)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_CONFUSED)
+  See(LastAttackerOf(LastHeardBy(Myself)))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Heard(NearestMyGroupOfType,ASSIST)
+  See(LastHeardBy(Myself))
+  !See(LastAttackerOf(LastHeardBy(Myself)))
+  !Dead("astHeardBy(Myself))")  // astHeardBy(Myself))
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_INVISIBLE)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_CHARMED)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_HELPLESS)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_SLEEPING)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_STUNNED)
+  !StateCheck(LastAttackerOf(LastHeardBy(Myself)),STATE_CONFUSED)
+  !HPPercentLT(Myself,50)
+  !Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  See(LastAttackerOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Range(NearestEnemyOf(Myself),4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject([GOODCUTOFF])
+END
+
+IF
+  OR(2)
+    !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+    !See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    SetGlobal("WhirlwindUsed","LOCALS",0)
+    SetGlobal("KaiUsed","LOCALS",0)
+    MoveToObject(Player1)
+END
+
+IF
+  GlobalLT("KaiUsed","LOCALS",5)
+  Range(LastSeenBy(Myself),6)
+  !GlobalTimerNotExpired("KaiAttack","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("KaiAttack","LOCALS",10)
+    IncrementGlobal("KaiUsed","LOCALS",1)
+    ReallyForceSpellRES("SPCL144",Myself)  // ~Kai~
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+  Range(LastSeenBy(Myself),10)
+  HPPercentLT(Myself,20)
+  OR(2)
+    HasItem("POTN55",Myself)  // ~Potion of Superior Healing~
+    Range(NearestMyGroupOfType,25)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    RunAwayFrom(LastSeenBy(Myself),45)
+    SetInterrupt(TRUE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+

@@ -1,0 +1,24 @@
+IF
+  GlobalTimerExpired("TraineeFightEnd","GLOBAL")
+  Exists(Myself)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("TraineeFight","AR0307",1)
+  HPGT("arntra02",1)  // ~Trainee~
+THEN
+  RESPONSE #100
+    AttackOneRound("arntra02")
+END
+

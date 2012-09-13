@@ -1,0 +1,10 @@
+IF
+  IsOverMe("Valygar")  // Valygar
+  Global("ValygarSeesOrb","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ValygarSeesOrb","GLOBAL",1)
+    StartCutSceneMode()
+    ActionOverride("Valygar",StartDialogNoSet(Player1))
+END
+

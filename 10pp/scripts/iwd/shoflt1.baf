@@ -1,0 +1,38 @@
+IF
+  BitGlobal("MYAREA:AREA_GROUP_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,17338)  // ~"You cannot barge in here like this!"~
+    ChangeCurrentScript("")
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartTimer(24,4)
+    Continue()
+END
+
+IF
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,17334)  // ~"Larrel has decreed that the dwarves are still not to be trusted."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,17335)  // ~"We will vote on the next measure shortly."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,17336)  // ~"Come to order."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,17337)  // ~"The time has come to make a decision."~
+    StartTimer(24,4)
+    Continue()
+END
+

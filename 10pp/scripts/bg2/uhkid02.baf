@@ -1,0 +1,22 @@
+IF
+  !GlobalGT("AdventureTime","AR1100",0)
+  !Range("uhkid01",5)  // ~Dirbert~
+THEN
+  RESPONSE #100
+    MoveToObjectFollow("uhkid01")
+END
+
+IF
+  OR(6)
+    Dead("uhkid01")  // ~Dirbert~
+    Allegiance("uhkid01",ENEMY)  // ~Dirbert~
+    Dead("uhkid02")  // ~Valsben~
+    Allegiance("uhkid02",ENEMY)  // ~Valsben~
+    Dead("uhkid03")  // ~Neler~
+    Allegiance("uhkid03",ENEMY)  // ~Neler~
+THEN
+  RESPONSE #100
+    Enemy()
+    EscapeArea()
+END
+

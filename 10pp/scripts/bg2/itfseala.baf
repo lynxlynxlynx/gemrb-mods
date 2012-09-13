@@ -1,0 +1,16 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,63789)  // ~The symbol of Helm carved into the floor appears to be some manner of seal, preventing exit or entry.  There are three large pedestals with keyholes in them surrounding it.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,15)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

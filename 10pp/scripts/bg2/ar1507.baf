@@ -1,0 +1,32 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+END
+
+IF
+  GlobalTimerExpired("BodhiHunts","GLOBAL")
+  !Global("AsylumPlot","GLOBAL",100)
+  !Exists("ppbodhi4")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    CreateCreatureObject("ppbodhi4",Player1,0,0,0)  // ~Bodhi~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    FadeFromColor([20.0],0)
+    ActionOverride("ppbodhi4",StartDialogNoSet(Player1))
+END
+
+IF
+  NumDeadGT("elehob01",2)
+  NumDeadGT("elekob01",2)
+  Global("ArbiterSpawn","AR1507",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ArbiterSpawn","AR1507",1)
+    TriggerActivation("Tran1514",FALSE)
+    CreateCreature("ELEARB01",[1107.535],4)  // ~Apparition~
+END
+

@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Fhjull")  // 
+    PlaySound("fft086")
+    Wait(2)
+    FloatMessage(Myself,56989)  // ~"You leave me no choice but to defend myself!"~
+    Wait(3)
+    EndCutSceneMode()
+    Attack("Corn")
+END
+

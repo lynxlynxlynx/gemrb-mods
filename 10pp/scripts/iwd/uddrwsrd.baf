@@ -1,0 +1,32 @@
+IF
+  HaveSpell(WIZARD_STONESKIN)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_STONESKIN)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+

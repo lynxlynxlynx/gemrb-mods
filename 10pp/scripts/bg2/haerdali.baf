@@ -1,0 +1,370 @@
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  Global("HaerDalisRomanceActive","GLOBAL",0)
+  !Global("AerieRomanceActive","GLOBAL",2)
+  Global("RomanceConflict","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HaerDalisRomanceActive","GLOBAL",1)
+    RealSetGlobalTimer("HaerDalisRomance","GLOBAL",3000)
+    SetGlobal("LoveTalk","LOCALS",1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  RealGlobalTimerExpired("HaerDalisRomance","GLOBAL")
+  !Global("HaerDalisRomanceActive","GLOBAL",0)
+  !Global("HaerDalisRomanceActive","GLOBAL",3)
+  See("Aerie")  // ~Aerie~
+  CombatCounter(0)
+  OR(9)
+    Global("LoveTalk","LOCALS",1)
+    Global("LoveTalk","LOCALS",3)
+    Global("LoveTalk","LOCALS",5)
+    Global("LoveTalk","LOCALS",7)
+    Global("LoveTalk","LOCALS",9)
+    Global("LoveTalk","LOCALS",11)
+    Global("LoveTalk","LOCALS",19)
+    Global("LoveTalk","LOCALS",21)
+    Global("LoveTalk","LOCALS",23)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    Interact("Aerie")
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  RealGlobalTimerExpired("HaerDalisRomance","GLOBAL")
+  RealGlobalTimerExpired("RomanceConflictStart","GLOBAL")
+  Global("AerieRomanceActive","GLOBAL",1)
+  Global("HaerDalisRomanceActive","GLOBAL",1)
+  See("Aerie")  // ~Aerie~
+  CombatCounter(0)
+  Global("LoveTalk","LOCALS",13)
+  Global("RomanceConflict","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  Global("DecideLove","GLOBAL",2)
+  Global("HaerDalisRomanceActive","GLOBAL",2)
+  RealGlobalTimerExpired("HaerDalisRomance","GLOBAL")
+  Global("AerieRomanceActive","GLOBAL",1)
+  OR(2)
+    Global("LoveTalk","LOCALS",17)
+    Global("LoveTalk","LOCALS",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  Global("LoveTalk","LOCALS",13)
+  Global("HaerDalisRomanceActive","GLOBAL",1)
+  OR(2)
+    Global("AerieRomanceActive","GLOBAL",0)
+    Global("AerieRomanceActive","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("LoveTalk","LOCALS",19)
+    RealSetGlobalTimer("HaerDalisRomance","GLOBAL",1500)
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  Global("HaerDalisRomanceActive","GLOBAL",2)
+  OR(2)
+    Global("AerieRomanceActive","GLOBAL",0)
+    Global("AerieRomanceActive","GLOBAL",3)
+  GlobalLT("LoveTalk","LOCALS",19)
+THEN
+  RESPONSE #100
+    SetGlobal("LoveTalk","LOCALS",19)
+    RealSetGlobalTimer("HaerDalisRomance","GLOBAL",1500)
+END
+
+IF
+  InParty(Myself)
+  RealGlobalTimerExpired("HaerDalisRomance","GLOBAL")
+  !Global("HaerDalisRomanceActive","GLOBAL",0)
+  !Global("HaerDalisRomanceActive","GLOBAL",3)
+  OR(12)
+    Global("LoveTalk","LOCALS",2)
+    Global("LoveTalk","LOCALS",4)
+    Global("LoveTalk","LOCALS",6)
+    Global("LoveTalk","LOCALS",8)
+    Global("LoveTalk","LOCALS",10)
+    Global("LoveTalk","LOCALS",12)
+    Global("LoveTalk","LOCALS",14)
+    Global("LoveTalk","LOCALS",16)
+    Global("LoveTalk","LOCALS",18)
+    Global("LoveTalk","LOCALS",20)
+    Global("LoveTalk","LOCALS",22)
+    Global("LoveTalk","LOCALS",24)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    RealSetGlobalTimer("HaerDalisRomance","GLOBAL",3000)
+END
+
+IF
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  !Global("HaerDalisRomanceActive","GLOBAL",0)
+  !Global("HaerDalisRomanceActive","GLOBAL",3)
+  See("Aerie")  // ~Aerie~
+  !Dead("Aerie")  // ~Aerie~
+  !StateCheck("Aerie",STATE_SLEEPING)  // ~Aerie~
+  CombatCounter(0)
+  Global("AsylumPlot","GLOBAL",55)
+  Global("LoveTalk","LOCALS",25)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    Interact("Aerie")
+END
+
+IF
+  InParty(Myself)
+  PartyHasItem("MISC6X")  // ~Portal Gem~
+  Global("HaerDalisGemQuest","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  InParty(Myself)
+  !AreaCheck("AR0705")
+  !PartyHasItem("MISC6X")  // ~Portal Gem~
+  Global("HaerDalisGemQuest","GLOBAL",1)
+  Global("HaerDalisLeaveGem","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HaerDalisLeaveGem","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  InParty(Myself)
+  !AreaCheck("AR0705")
+  !AreaCheck("AR0510")
+  GlobalTimerExpired("HaerDalisNoGem","GLOBAL")
+  GlobalLT("HaerDalisGemQuest","GLOBAL",2)
+  Global("RaelisHasGem","GLOBAL",0)
+  Global("HaerDalisPissedOff","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HaerDalisPissedOff","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  InParty(Myself)
+  PartyHasItem("MISC6X")  // ~Portal Gem~
+  OR(3)
+    Global("HaerDalisGemQuest","GLOBAL",2)
+    Global("HaerDalisGemQuest","GLOBAL",3)
+    Global("HaerDalisGemQuest","GLOBAL",4)
+  GlobalTimerExpired("HaerDalisHaveGem","GLOBAL")
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("EnterPortal","AR0510",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",DEFAULT)
+    LeaveParty()
+    MoveToPointNoInterrupt([915.470])
+    DestroySelf()
+END
+
+IF
+  OR(2)
+    Dead("Mekrath")  // Mekrath
+    Global("HaerDalisFree","GLOBAL",1)
+  Global("HaerDalisInitFree","LOCALS",0)
+  Detect([PC])
+  !Allegiance(Myself,ENEMY)
+  !Global("FightingTheTroupe","GLOBAL",1)
+  !Dead("Raelis")  // ~Raelis Shai~
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+    SetGlobal("HaerDalisInitFree","LOCALS",1)
+END
+
+IF
+  InParty(Myself)
+  CheckStatGT(Myself,5,FATIGUE)
+  OR(2)
+    Global("HaerDalisRomanceActive","GLOBAL",0)
+    Global("HaerDalisRomanceActive","GLOBAL",3)
+  InParty("Aerie")  // ~Aerie~
+  See("Aerie")  // ~Aerie~
+  !StateCheck("Aerie",STATE_SLEEPING)  // ~Aerie~
+  !Dead("Aerie")  // ~Aerie~
+  CombatCounter(0)
+  Global("BHaerDalis5","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact("Aerie")
+END
+
+IF
+  InParty(Myself)
+  PartyRested()
+  InParty("Edwin")  // Edwin
+  See("Edwin")  // Edwin
+  Gender("Edwin",MALE)  // Edwin
+  !StateCheck("Edwin",STATE_SLEEPING)  // Edwin
+  !Dead("Edwin")  // Edwin
+  CombatCounter(0)
+  Global("BHaerDalis6","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact("Edwin")
+END
+
+IF
+  InParty(Myself)
+  OR(2)
+    AreaCheck("AR0700")
+    AreaCheck("AR2000")
+  InParty("Jaheira")  // Jaheira
+  See("Jaheira")  // Jaheira
+  !StateCheck("Jaheira",STATE_SLEEPING)  // Jaheira
+  !Dead("Jaheira")  // Jaheira
+  CombatCounter(0)
+  Global("BHaerDalis8","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact("Jaheira")
+END
+
+IF
+  !InParty(Myself)
+  Global("RaelisOpenPortal","GLOBAL",1)
+  GlobalLT("PortalCreatures","AR0510",4)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeAIScript("Haerdax",SPECIFICS)
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  !InParty(Myself)
+  Global("PortalCreatures","AR0510",4)
+  Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  InParty(Myself)
+  Allegiance("Raelis",ENEMY)  // ~Raelis Shai~
+  Allegiance("FFActor1",ENEMY)  // ~Kirinaldo~
+  Allegiance("FFActor2",ENEMY)  // ~Lunisia~
+THEN
+  RESPONSE #100
+    LeaveParty()
+    Enemy()
+END
+
+IF
+  !InParty(Myself)
+  !Allegiance(Myself,ENEMY)
+  OR(5)
+    Global("FightingTheTroupe","GLOBAL",1)
+    Dead("Raelis")  // ~Raelis Shai~
+    Allegiance("Raelis",ENEMY)  // ~Raelis Shai~
+    Allegiance("FFActor1",ENEMY)  // ~Kirinaldo~
+    Allegiance("FFActor2",ENEMY)  // ~Lunisia~
+  OR(2)
+    Global("HaerDalisFree","GLOBAL",1)
+    Dead("Mekrath")  // Mekrath
+  See([PC])
+THEN
+  RESPONSE #100
+    ChangeAIScript("Haerdax",SPECIFICS)
+    DisplayStringHead(Myself,5380)  // ~No! The troupe... my friends! NO!!~
+    Enemy()
+END
+
+IF
+  InParty(Myself)
+  Allegiance("Aerie",ENEMY)  // ~Aerie~
+  Global("HaerDalisRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    LeaveParty()
+    Enemy()
+END
+
+IF
+  !InParty(Myself)
+  Allegiance("Aerie",ENEMY)  // ~Aerie~
+  !Allegiance(Myself,ENEMY)
+  Global("HaerDalisRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    ChangeAIScript("Haerdax",SPECIFICS)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("",DEFAULT)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("Haerdax",SPECIFICS)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("Haerdax",SPECIFICS)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",SPECIFICS)
+    Continue()
+END
+

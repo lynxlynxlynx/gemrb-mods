@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(30)
+    MoveToPoint([1866.3252])
+    Face(8)
+    Wait(12)
+    MoveToPoint([2337.2915])
+    Face(14)
+    WaitRandom(10,15)
+    MoveToPoint([3148.2296])
+    Face(10)
+    Wait(30)
+    MoveToPoint([1866.3252])
+    Face(8)
+    Wait(12)
+    MoveToPoint([2337.2915])
+    Face(14)
+    WaitRandom(10,15)
+    MoveToPoint([1294.3264])
+    Face(12)
+END
+

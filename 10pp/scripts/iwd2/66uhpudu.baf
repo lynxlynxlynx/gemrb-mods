@@ -1,0 +1,32 @@
+IF
+  IsScriptName("Pudu",Myself)
+  !CreatureHidden(Myself)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("Unhide_Pudu","GLOBAL",1)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

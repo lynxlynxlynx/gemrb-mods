@@ -1,0 +1,7 @@
+IF
+  HP(Myself,1)
+THEN
+  RESPONSE #100
+    StartDialogue("HAQUAT",Player1)
+END
+

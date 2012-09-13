@@ -1,0 +1,35 @@
+IF
+  GlobalTimerExpired("Bedai_Timer","GLOBAL")
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Bedai_Timer","GLOBAL",TWELVE_HOURS)
+    SetInternal(Myself,INTERNAL_0,1)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("Bedai_Timer","GLOBAL")
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+

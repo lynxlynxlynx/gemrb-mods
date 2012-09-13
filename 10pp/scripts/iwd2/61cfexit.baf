@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(LastTrigger)  // 
+    MultiPlayerSync()
+    ActionOverride(Player1,LeaveAreaLUA("AR6104","LOAD1000",[1920.450],0))
+    ActionOverride(Player2,LeaveAreaLUA("AR6104","LOAD1000",[1920.450],0))
+    ActionOverride(Player3,LeaveAreaLUA("AR6104","LOAD1000",[1920.450],0))
+    ActionOverride(Player4,LeaveAreaLUA("AR6104","LOAD1000",[1920.450],0))
+    ActionOverride(Player5,LeaveAreaLUA("AR6104","LOAD1000",[1920.450],0))
+    ActionOverride(Player6,LeaveAreaLUA("AR6104","LOAD1000",[1920.450],0))
+    SetGlobal("NewDay","MYAREA",1)
+    EndCutSceneMode()
+END
+

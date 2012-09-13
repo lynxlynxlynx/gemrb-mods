@@ -1,0 +1,47 @@
+IF
+  XPLT(Player1,400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("icsalfir",[-1.-1],0)  // ~Salamander~
+    CreateCreature("icsalcol",[-1.-1],0)  // ~Ice Salamander~
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("icsalfir",[-1.-1],0)  // ~Salamander~
+    CreateCreature("icsalcol",[-1.-1],0)  // ~Ice Salamander~
+    CreateCreature("icyuan03",[-1.-1],0)  // ~Yuan-Ti mage~
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("icmin01",[-1.-1],0)  // ~Minotaur~
+    CreateCreature("umbhul01",[-1.-1],0)  // ~Umber Hulk~
+    CreateCreature("umbhul01",[-1.-1],0)  // ~Umber Hulk~
+    CreateCreature("umbhul01",[-1.-1],0)  // ~Umber Hulk~
+    CreateCreature("umbhul01",[-1.-1],0)  // ~Umber Hulk~
+    CreateCreature("umbhul01",[-1.-1],0)  // ~Umber Hulk~
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("icyuan02",[-1.-1],0)  // ~Greater Yuan-Ti~
+    CreateCreature("icyuan01",[-1.-1],0)  // ~Yuan-Ti~
+    CreateCreature("icyuan01",[-1.-1],0)  // ~Yuan-Ti~
+    CreateCreature("icyuan03",[-1.-1],0)  // ~Yuan-Ti mage~
+    CreateCreature("icyuan03",[-1.-1],0)  // ~Yuan-Ti mage~
+    CreateCreature("icyuan03",[-1.-1],0)  // ~Yuan-Ti mage~
+END
+

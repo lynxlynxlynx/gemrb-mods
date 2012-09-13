@@ -1,0 +1,47 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(2)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9531)  // ~"Plates! Jugs! Cups! Tankards!"~
+    WaitRandom(10,12)
+    Face(0)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9530)  // ~"Drink from the goblets of the finest lords!"~
+    WaitRandom(10,12)
+    Face(14)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9529)  // ~"Eat from the place settings of noblemen!"~
+    WaitRandom(10,12)
+    Face(12)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9528)  // ~"Brass plates! Tin cups!"~
+    WaitRandom(10,12)
+    Face(14)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9527)  // ~"Pewter Tankards!"~
+    WaitRandom(10,12)
+    Face(0)
+END
+

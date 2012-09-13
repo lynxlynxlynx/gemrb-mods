@@ -1,0 +1,10 @@
+IF
+  HPLT(Myself,20)
+  See([PC])
+  Global("NearDeath","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NearDeath","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

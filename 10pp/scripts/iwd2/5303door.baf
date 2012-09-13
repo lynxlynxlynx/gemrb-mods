@@ -1,0 +1,19 @@
+IF
+  OpenState(Myself,FALSE)
+  OpenState(Myself,TRUE)
+  !Global("Unlock_Doors","MYAREA",1)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    Lock(Myself)
+END
+
+IF
+  OpenState(Myself,FALSE)
+  Global("Unlock_Doors","MYAREA",1)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+    Unlock(Myself)
+END
+

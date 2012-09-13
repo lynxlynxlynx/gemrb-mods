@@ -1,0 +1,72 @@
+IF
+  Heard("Hull",1)  // ~Hull~
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Criminal","GLOBAL",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedCandleKeep","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Global("AttackedCandleKeep","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Chapter","GLOBAL",0)
+THEN
+  RESPONSE #50
+    OpenDoor("DOOR2618")
+    MoveToPoint([1643.2518])
+    CloseDoor("DOOR2618")
+    Face(0)
+    Wait(30)
+    OpenDoor("DOOR2618")
+    MoveToPoint([1572.2453])
+    CloseDoor("DOOR2618")
+    DestroySelf()
+  RESPONSE #50
+    OpenDoor("DOOR2618")
+    MoveToPoint([1611.2722])
+    CloseDoor("DOOR2618")
+    MoveToPoint([2386.2968])
+    MoveToPoint([3015.2807])
+    MoveToPoint([3564.2270])
+    MoveToPoint([4063.1754])
+    MoveToPoint([3911.812])
+    MoveToPoint([3303.559])
+    MoveToPoint([1575.323])
+    MoveToPoint([644.1201])
+    MoveToPoint([943.2263])
+    MoveToPoint([1467.2580])
+    OpenDoor("DOOR2618")
+    MoveToPoint([1572.2453])
+    CloseDoor("DOOR2618")
+    DestroySelf()
+END
+

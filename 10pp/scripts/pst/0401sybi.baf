@@ -1,0 +1,27 @@
+IF
+  WasInDialog()
+  False()
+THEN
+  RESPONSE #100
+    BitSet("0401_Status","AR0401",BIT1)
+END
+
+IF
+  !BitCheck("0401_Status","AR0401",BIT1)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+    BitSet("0401_Status","AR0401",BIT1)
+END
+
+IF
+  BitCheck("0401_Status","AR0401",BIT1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1354.508])
+    OpenDoor("ar0401d1")
+    MoveToPoint([1350.448])
+    BitSet("0401_Status","AR0401",BIT2)
+    DestroySelf()
+END
+

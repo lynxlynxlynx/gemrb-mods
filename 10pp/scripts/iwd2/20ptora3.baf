@@ -1,0 +1,10 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("20cTorD3")
+END
+

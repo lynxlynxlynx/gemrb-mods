@@ -1,0 +1,19 @@
+IF
+  Global("EnteredAR2700","AR2700",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredAR2700","AR2700",1)
+    StartCutSceneMode()
+    StartCutScene("Cut71a")
+END
+
+IF
+  Dead("drslayer")  // ~Slayer~
+  Global("DefeatedSlayer","AR2700",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DefeatedSlayer","AR2700",1)
+    StartCutSceneMode()
+    StartCutScene("Cut72c")
+END
+

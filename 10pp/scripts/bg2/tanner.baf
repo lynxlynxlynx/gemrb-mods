@@ -1,0 +1,34 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("Attacked","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    SetGlobal("TannerExposed","GLOBAL",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("TannerMove","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TannerMove","GLOBAL",1)
+    SetGlobalTimer("TooLateTanner","GLOBAL",30)
+    MoveToPoint([274.276])
+    EscapeAreaMove("AR0502",307,444,0)
+END
+
+IF
+  Global("TannerMove","GLOBAL",1)
+  !GlobalTimerExpired("TooLateTanner","GLOBAL")
+  Global("TannerRunsAway","AR0502",0)
+  See([PC])
+  AreaCheck("AR0502")
+THEN
+  RESPONSE #100
+    SetGlobal("TannerRunsAway","AR0502",1)
+    MoveToPointNoInterrupt([500.416])
+    DestroySelf()
+END
+

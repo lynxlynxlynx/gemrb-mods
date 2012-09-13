@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    LeaveAreaLUAPanic("AR0028","",[2680.2104],6)
+    LeaveAreaLUA("AR0028","",[2680.2104],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR0028","",[713.2318],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR0028","",[789.2339],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR0028","",[848.2365],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR0028","",[738.2373],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR0028","",[861.2441],6))
+    MultiPlayerSync()
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    ActionOverride("ppdrimov",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,195 @@
+IF
+  InParty("Korgan")  // Korgan
+  AreaCheck("AR0900")
+  Global("AR0905UnlockDoor","LOCALS",0)
+THEN
+  RESPONSE #100
+    Unlock("Door0905")
+    SetGlobal("AR0905UnlockDoor","LOCALS",1)
+END
+
+IF
+  GlobalTimerExpired("KorganBook","GLOBAL")
+  GlobalLT("KorganComplain","LOCALS",2)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(OUTDOOR)
+  CombatCounter(0)
+  InParty(Myself)
+  See(Player1)
+  GlobalLT("KorganSeesCrypt","GLOBAL",2)
+  Global("PimDeadDialogue","LOCALS",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  GlobalTimerExpired("FindShagbag","GLOBAL")
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(OUTDOOR)
+  !Dead("korshag")  // ~Shagbag~
+  Global("ShagbagEscapeDialogue","GLOBAL",0)
+  InParty(Myself)
+  See(Player1)
+  Global("KorganWhineAboutShag","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KorganWhineAboutShag","GLOBAL",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Dead("mummy")  // ~Mummy~
+  Global("TombEmpty","LOCALS",0)
+  InParty(Myself)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Dead("korshag")  // ~Shagbag~
+  InParty(Myself)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+  CombatCounter(0)
+  Global("ShadDead","LOCALS",0)
+  Global("KorganNoKillShag","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  GlobalTimerExpired("AerieUpset","GLOBAL")
+  InParty(Myself)
+  InParty("Aerie")  // ~Aerie~
+  See("Aerie")  // ~Aerie~
+  !Dead("Aerie")  // ~Aerie~
+  !StateCheck("Aerie",STATE_SLEEPING)  // ~Aerie~
+  CombatCounter(0)
+  Global("BKorgan18","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact("Aerie")
+END
+
+IF
+  !InParty("VALYGAR")  // VALYGAR
+  !Dead("VALYGAR")  // VALYGAR
+  AreaType(OUTDOOR)
+  CombatCounter(0)
+  InParty(Myself)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+  GlobalTimerExpired("KorganContract","GLOBAL")
+  Global("KorMentionedContract","LOCALS",0)
+  Global("MentionsItOnce","LOCALS",0)
+  !Global("TalkedToMadeen","GLOBAL",1)
+  !Global("TalkedToTolgerias","GLOBAL",1)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+THEN
+  RESPONSE #100
+    SetGlobal("MentionsItOnce","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  !InParty("VALYGAR")  // VALYGAR
+  !Dead("VALYGAR")  // VALYGAR
+  GlobalTimerExpired("KorganRemindsMadeen","GLOBAL")
+  GlobalLT("KorReminder","LOCALS",2)
+  !Global("TalkedToMadeen","GLOBAL",1)
+  !Global("TalkedToTolgerias","GLOBAL",1)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(OUTDOOR)
+  !AreaCheck("AR1000")
+  CombatCounter(0)
+  InParty(Myself)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  !InParty("VALYGAR")  // VALYGAR
+  !Dead("VALYGAR")  // VALYGAR
+  Global("HiredByCowled","GLOBAL",1)
+  Global("KorganImpatient","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("KorganRemindsValygar","GLOBAL",TWO_DAYS)
+    SetGlobal("KorganImpatient","LOCALS",1)
+END
+
+IF
+  !InParty("VALYGAR")  // VALYGAR
+  !Dead("VALYGAR")  // VALYGAR
+  GlobalTimerExpired("KorganRemindsValygar","GLOBAL")
+  Global("KorReminder2","LOCALS",0)
+  !Global("BetrayedCowled","GLOBAL",1)
+  !InParty("Valygar")  // Valygar
+  !PartyHasItem("MISC7L")  // ~Valygar's Body~
+  !Global("BetrayedValygar","GLOBAL",1)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(OUTDOOR)
+  !AreaCheck("AR1100")
+  CombatCounter(0)
+  InParty(Myself)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("korganx",SPECIFICS)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("korganx",SPECIFICS)
+    ChangeAIScript("",GENERAL)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("",SPECIFICS)
+    Continue()
+END
+

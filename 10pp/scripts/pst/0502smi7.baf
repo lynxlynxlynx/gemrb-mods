@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    PlaySequence(ANIM_MISC1)
+    WaitRandom(3,5)
+    MoveToPoint([1552.1396])
+    Face(8)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_MISC1)
+    WaitRandom(3,5)
+    MoveToPoint([1780.1470])
+    Face(8)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_MISC1)
+    WaitRandom(3,5)
+    MoveToPoint([1647.1467])
+    Face(8)
+END
+

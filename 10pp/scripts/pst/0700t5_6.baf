@@ -1,0 +1,45 @@
+IF
+  Exists([ANYONE][0.0.1896.1636])
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  Exists([ANYONE][0.1636.3140.3040])
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  Help("Nameless")  // ~Nameless One~
+THEN
+  RESPONSE #100
+    Attack("Nameless")
+END
+
+IF
+  See("Nameless")  // ~Nameless One~
+  Range("Nameless",20)  // ~Nameless One~
+THEN
+  RESPONSE #100
+    RunAwayFromEx("Nameless",5,FALSE)
+END
+
+IF
+  See("Nameless")  // ~Nameless One~
+  Range("Nameless",50)  // ~Nameless One~
+THEN
+  RESPONSE #100
+    MoveToObjectEx("Nameless",0)
+END
+
+IF
+  !See("Nameless")  // ~Nameless One~
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

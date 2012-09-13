@@ -1,0 +1,8 @@
+IF
+  IsOverMe([ANYONE])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,ARCHER_PROTECTION)
+    Wait(6)
+END
+

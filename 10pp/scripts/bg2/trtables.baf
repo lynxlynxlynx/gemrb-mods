@@ -1,0 +1,54 @@
+IF
+  WalkedToTrigger([ANYONE])
+  Global("SouthTableClicked","AR5509",0)
+  !GlobalTimerNotExpired("SouthTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("SouthTableTimer","AR5509",5)
+    SetGlobal("SouthTableClicked","AR5509",1)
+    DisplayStringNoName(Myself,72142)  // ~The top of the table feels cold to the touch, it looks as if you might be able to turn the table.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("SouthTableClicked","AR5509",1)
+  !GlobalTimerNotExpired("SouthTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    DisplayStringNoName(Myself,73852)  // ~You turn the table, disabling some of the traps on the platforms above.~
+    SetGlobalTimer("SouthTableTimer","AR5509",5)
+    SetGlobal("SouthTableClicked","AR5509",2)
+    CreateCreature("INVISABO",[727.596],0)  // <Invalid Strref -1>
+    ReallyForceSpellRES("jwcone","invisabo")  // <Invalid Strref -1>
+    Wait(1)
+    SmallWait(5)
+    CreateCreature("GOLICE01",[738.520],0)  // ~Ice Golem~
+    CreateCreature("GOLICE01",[724.672],8)  // ~Ice Golem~
+    RemoveTraps("DOOR05")
+    RemoveTraps("DOOR06")
+    ActionOverride("invisabo",DestroySelf())
+    EndCutSceneMode()
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  Global("SouthTableClicked","AR5509",2)
+  !GlobalTimerNotExpired("SouthTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobalTimer("SouthTableTimer","AR5509",5)
+    DisplayStringNoName(Myself,70896)  // ~There is nothing more that you can do with this.~
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("SouthTableTimer","AR5509")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

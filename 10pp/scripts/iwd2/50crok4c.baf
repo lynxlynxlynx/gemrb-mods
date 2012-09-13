@@ -1,0 +1,41 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AR5004_4A")  // 
+    Unlock(Myself)
+    CloseDoor(Myself)
+    Lock(Myself)
+    PlaySequence("ROCK_4A",ATTACK)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AR5004_4B")  // 
+    Unlock(Myself)
+    CloseDoor(Myself)
+    PlaySequence("ROCK_4B",ATTACK)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AR5004_4C")  // 
+    PlaySound("am5101e")
+    PlaySequence("ROCK_4C",AWAKE)
+    SetGlobal("Rock_Row_4_Moved","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AR5004_4D")  // 
+    Unlock(Myself)
+    CloseDoor(Myself)
+    PlaySequence("ROCK_4D",ATTACK)
+END
+

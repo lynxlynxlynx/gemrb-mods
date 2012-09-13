@@ -1,0 +1,10 @@
+IF
+  Dead("Carbos")  // ~Carbos~
+  See([PC])
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(TRUE)
+    StartDialogNoSet([PC])
+END
+

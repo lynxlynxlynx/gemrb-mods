@@ -1,0 +1,50 @@
+IF
+  CreatureHidden(Myself)
+  Dead("DRUM_1")  // 
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("31BUGGUT_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  !CreatureHidden(Myself)
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_1_STATE","MYAREA",2)
+    SetGlobal("I_PLAY_DRUMS","LOCALS",1)
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+    ChangeCurrentScript("")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(NW)
+  RESPONSE #100
+    Face(N)
+  RESPONSE #100
+    Face(NE)
+  RESPONSE #100
+    Face(SW)
+  RESPONSE #100
+    Face(S)
+  RESPONSE #100
+    Face(SE)
+  RESPONSE #100
+    Face(E)
+  RESPONSE #100
+    Face(W)
+END
+

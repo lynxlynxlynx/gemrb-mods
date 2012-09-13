@@ -1,0 +1,34 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride("ppdesh",DestroySelf())
+    TriggerActivation("StoneTrap",FALSE)
+    LeaveAreaLUAPanic("AR1515","",[414.574],6)
+    LeaveAreaLUA("AR1515","",[414.574],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR1515","",[609.447],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR1515","",[469.612],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR1515","",[661.500],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR1515","",[367.650],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR1515","",[520.513],6))
+    MultiPlayerSync()
+    SetGlobal("EnteredArea1500","GLOBAL",1)
+    StartMovie("FLYTHR01")
+    Unlock("Door02")
+    CreateCreature("ppdili",[796.348],0)  // ~Dili~
+    CreateCreature("pptiax",[950.453],0)  // ~Tiax~
+    CreateCreature("ppimoen",[1098.537],0)  // ~Imoen~
+    CreateCreature("ppwanev",[707.813],0)  // ~Wanev~
+    CreateCreature("ppnalj",[650.758],0)  // ~Naljier Skal~
+    CreateCreature("ppaphril",[483.379],0)  // ~Aphril~
+    CreateCreature("ppdradee",[742.1323],0)  // ~Dradeel~
+    CreateCreature("ppworker",[323.523],0)  // ~Lonk the Sane~
+    Wait(1)
+    FadeFromColor([20.0],0)
+    SetGlobal("AsylumPlot","GLOBAL",12)
+    EndCutSceneMode()
+END
+

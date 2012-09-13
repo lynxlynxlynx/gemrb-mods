@@ -1,0 +1,165 @@
+IF
+  !Global("GEM_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(3)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_SPIRITUAL_WRATH)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_SPIRITUAL_WRATH)
+    RemoveSpell(CLERIC_SPIRITUAL_WRATH)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_BLADE_BARRIER)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CLERIC_BLADE_BARRIER)
+    RemoveSpell(CLERIC_BLADE_BARRIER)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SLAY_LIVING)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_SLAY_LIVING)
+    RemoveSpell(CLERIC_SLAY_LIVING)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SUNRAY)
+  See(NearestEnemyOf(Myself))
+  Global("CAST_SUNRAY","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SUNRAY","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SUNRAY)
+    RemoveSpell(CLERIC_SUNRAY)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SOLS_SEARING_ORB)
+  See(NearestEnemyOf(Myself))
+  Global("CAST_ORB","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_ORB","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SOLS_SEARING_ORB)
+    RemoveSpell(CLERIC_SOLS_SEARING_ORB)
+    Wait(2)
+END
+
+IF
+  Global("SPELL_ORDER_3","LOCALS",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    IncrementGlobal("SPELL_ORDER_3","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SPIKE_STONES)
+    RemoveSpell(CLERIC_SPIKE_STONES)
+    Wait(2)
+END
+
+IF
+  Global("SPELL_ORDER_3","LOCALS",1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    IncrementGlobal("SPELL_ORDER_3","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_FLAME_STRIKE)
+    RemoveSpell(CLERIC_FLAME_STRIKE)
+    Wait(2)
+END
+
+IF
+  Global("SPELL_ORDER_3","LOCALS",2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    IncrementGlobal("SPELL_ORDER_3","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_STATIC_CHARGE)
+    RemoveSpell(CLERIC_STATIC_CHARGE)
+    Wait(2)
+END
+
+IF
+  Global("SPELL_ORDER_3","LOCALS",3)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    IncrementGlobal("SPELL_ORDER_3","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SUNRAY)
+    RemoveSpell(CLERIC_SUNRAY)
+    Wait(2)
+END
+
+IF
+  Global("SPELL_ORDER_3","LOCALS",4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("SPELL_ORDER_3","LOCALS",0)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SOLS_SEARING_ORB)
+    RemoveSpell(CLERIC_SOLS_SEARING_ORB)
+    Wait(2)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+

@@ -1,0 +1,37 @@
+IF
+  OnCreation()
+  Dead("gromnir")  // ~Gromnir Il-Khan~
+  Global("Escape","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Escape","LOCALS",1)
+    DestroySelf()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("OrogShout","LOCALS",0)
+THEN
+  RESPONSE #100
+    GlobalShout(151)
+    SetGlobal("OrogShout","LOCALS",1)
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  GlobalTimerExpired("SaradushBarracksTimer","GLOBAL")
+  See([PC])
+  Global("OrogInit","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OrogInit","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

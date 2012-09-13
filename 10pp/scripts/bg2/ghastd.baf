@@ -1,0 +1,9 @@
+IF
+  See([ANYONE])
+  !Class(LastSeenBy(Myself),GHOUL_GHAST)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+

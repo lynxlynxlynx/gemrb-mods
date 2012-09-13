@@ -1,0 +1,35 @@
+IF
+  !TimerActive(18)
+  !IsScriptName("Gorg",Myself)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,1013)  // ~* Grunt *~
+    StartRandomTimer(18,6,12)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,25777)  // ~* Snort *~
+    StartRandomTimer(18,6,12)
+    Continue()
+  RESPONSE #100
+    StartRandomTimer(18,6,12)
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  IsScriptName("Gorg",Myself)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,1013)  // ~* Grunt *~
+    StartTimer(18,5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,25763)  // ~"Kill lich!"~
+    StartTimer(18,5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,25777)  // ~* Snort *~
+    StartTimer(18,5)
+    Continue()
+END
+

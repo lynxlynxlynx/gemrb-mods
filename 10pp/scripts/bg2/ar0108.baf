@@ -1,0 +1,26 @@
+IF
+  Global("EnteredPalace","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartMovie("PALACE")
+    SetGlobal("EnteredPalace","GLOBAL",1)
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("SarevokBehavior","GLOBAL",0)
+  !Exists("Sarevok")  // ~Sarevok~
+  !Dead("Sarevok")  // ~Sarevok~
+THEN
+  RESPONSE #100
+    CreateCreature("SAREVO2",[581.344],0)  // SAREVO2
+    CreateCreature("LIIA",[680.356],0)  // ~Liia Jannath~
+    CreateCreature("BELT",[735.371],0)  // ~Belt~
+    CreateCreature("NOBLPA1",[702.485],0)  // NOBLPA1
+    CreateCreature("NOBLPA2",[773.466],0)  // NOBLPA2
+    CreateCreature("NOBLPA3",[823.407],0)  // NOBLPA3
+    CreateCreature("NOBLPA4",[867.462],0)  // NOBLPA4
+    CreateCreature("NOBLPA5",[839.518],0)  // NOBLPA5
+    CreateCreature("NOBLPA",[769.571],0)  // NOBLPA
+END
+

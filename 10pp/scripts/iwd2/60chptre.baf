@@ -1,0 +1,16 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequence(Myself,ATTACK)
+    WaitRandom(3,5)
+    Continue()
+END
+

@@ -1,0 +1,43 @@
+IF
+  OR(2)
+    See([GOODCUTOFF.0.0.CLERIC_ALL])
+    See([GOODCUTOFF.0.0.MAGE_ALL])
+  Global("Prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #70
+    AttackOneRound(LastSeenBy(Myself))
+    AttackOneRound(LastSeenBy(Myself))
+  RESPONSE #30
+    ForceSpell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  OR(2)
+    See([0.0.0.CLERIC_ALL])
+    See([0.0.0.MAGE_ALL])
+  Global("Prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+  See([ANYONE])
+  Global("Prep","LOCALS",1)
+THEN
+  RESPONSE #75
+    AttackReevaluate(LastSeenBy(Myself),30)
+  RESPONSE #25
+    ForceSpell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+

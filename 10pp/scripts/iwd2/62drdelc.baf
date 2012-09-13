@@ -1,0 +1,17 @@
+IF
+  Global("62_Orc_Elf_Combat","GLOBAL",1)
+  See([0.UNDEAD.ORC],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

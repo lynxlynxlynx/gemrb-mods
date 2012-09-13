@@ -1,0 +1,16 @@
+IF
+  Detect([GOODCUTOFF])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([GOODCUTOFF])
+END
+
+IF
+  HPLT(Myself,2)
+  NumTimesTalkedToLT(2)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([GOODCUTOFF])
+END
+

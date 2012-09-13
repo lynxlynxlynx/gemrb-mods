@@ -1,0 +1,21 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,ILLUSION_DEATH)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  Dead("neb")  // ~Neb~
+  Global("ChildrenGone","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ChildrenGone","LOCALS",1)
+    SetGlobal("ChildWraithsFreed","GLOBAL",1)
+    DisplayStringHead(Myself,5773)  // ~Thank you! I am released!~
+    AddexperienceParty(2500)
+    ForceSpell(Myself,TRAP_SHADOW_DEATH)
+END
+

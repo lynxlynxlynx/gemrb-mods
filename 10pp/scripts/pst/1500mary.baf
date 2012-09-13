@@ -1,0 +1,92 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeTeam(Myself,TEAM_NONGHOUL)
+END
+
+IF
+  Die()
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Undead_Alert","AR1500",1)
+    CreateItem("SkullSM",0,0,0)  // ~Stale Mary's Skull~
+    DropInventory()
+    EnablePortalTravel("DN_Portal",0)
+    ActivatePortalCursor("DN_Portal",0)
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateItem("SkullSM",0,0,0)  // ~Stale Mary's Skull~
+    DropInventory()
+    EnablePortalTravel("DN_Portal",0)
+    ActivatePortalCursor("DN_Portal",0)
+END
+
+IF
+  Global("StaleMa_DEAD","KAPUTZ",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("Undead_Alert","AR1500",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Ghoul_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeAIScript("1500bdz",DEFAULT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Undead_Alert","AR1500",1)
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Undead_Alert","AR1500",0)
+THEN
+  RESPONSE #100
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,64193)  // ~"Rrruhhhmbuhhh yuhhh d-d-doooteees..."~
+    WaitRandom(3,5)
+  RESPONSE #100
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,64194)  // ~"Hunuhhhr thuhhh Suhhlnnn Kuhnnng..."~
+    WaitRandom(3,5)
+  RESPONSE #100
+    KillFloatMessage(Myself)
+    FloatMessage(Myself,64195)  // ~"Suhhhn, w-w-we wuhhhl beee freee ufff fleshhh..."~
+    WaitRandom(3,5)
+END
+

@@ -1,0 +1,61 @@
+IF
+  HPPercentLT(Myself,50)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Enemy_Dabus","GLOBAL",1)
+    IncrementGlobal("Lady","GLOBAL",5)
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.0.0.DABUS])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    MoveToPoint([2299.3742])
+    Face(8)
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    MoveToPoint([2591.3755])
+    Face(0)
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    MoveToPoint([2468.3619])
+    Face(4)
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    SetAnimState(Myself,ANIM_MISC1)
+    MoveToPoint([2591.3755])
+    Face(0)
+END
+

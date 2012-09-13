@@ -1,0 +1,9 @@
+IF
+  See([PC])
+  Global("one","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),BLACK_DRAGON_INSECT)
+    SetGlobal("one","LOCALS",1)
+END
+

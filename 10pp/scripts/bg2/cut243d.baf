@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateVisualEffect("ICFIRSDI",[1876.1478])
+    ActionOverride("bhaal01",DestroySelf())
+    Wait(2)
+    ActionOverride("meliss01",StartDialogNoSet(Player1))
+END
+

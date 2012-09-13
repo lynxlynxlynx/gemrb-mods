@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    MoveToPoint([2664.2091])
+    MoveToPoint([2578.2086])
+    Face(12)
+    Wait(3)
+    PlaySequenceTimed(ANIM_STANCEFIDGET1,4)
+    Wait(3)
+    MoveToPoint([2546.2131])
+    Face(12)
+    Wait(3)
+    PlaySequenceTimed(ANIM_STANCEFIDGET1,5)
+    Wait(3)
+    MoveToPoint([2578.2086])
+    Face(12)
+    Wait(3)
+    PlaySequenceTimed(ANIM_STANCEFIDGET1,4)
+    Wait(3)
+    MoveToPoint([2664.2091])
+    MoveToPoint([2634.2164])
+    Face(4)
+END
+

@@ -1,0 +1,32 @@
+IF
+  Global("TEAM_9","MYAREA",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("WOKE_UP_TEAM","LOCALS",0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,574)  // ~"UP!  Get up and attack!"~
+    Wait(1)
+    SetGlobal("WOKE_UP_TEAM","LOCALS",1)
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",Myself)  // ~Potion of Healing~
+END
+

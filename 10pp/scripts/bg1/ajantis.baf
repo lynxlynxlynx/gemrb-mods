@@ -1,0 +1,16 @@
+IF
+  Global("AjantisLeave","GLOBAL",1)
+  See([0.0.0.0.0.0.MASK_EVIL])
+THEN
+  RESPONSE #100
+    Attack(LastSeenBy(Myself))
+END
+
+IF
+  Global("AjantisLeave","GLOBAL",1)
+  !See([0.0.0.0.0.0.MASK_EVIL])
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

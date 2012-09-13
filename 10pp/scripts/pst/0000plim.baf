@@ -1,0 +1,39 @@
+IF
+  See(NearestEnemyOf([PC]))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf([PC]))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([PC])
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf([PC]))
+END
+
+IF
+  !Range("Nameless",25)  // ~Nameless One~
+THEN
+  RESPONSE #100
+    RunToObject("Nameless")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #60
+    RandomWalk()
+  RESPONSE #20
+    FaceObject("Nameless")
+  RESPONSE #20
+    MoveToObjectEx("Nameless",0)
+END
+

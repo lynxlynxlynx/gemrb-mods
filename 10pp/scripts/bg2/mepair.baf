@@ -1,0 +1,27 @@
+IF
+  Global("airmephitcombat","LOCALS",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,MEPHIT_BLUR)
+    SetGlobal("airmephitcombat","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("airmephitcombat","LOCALS",1)
+  Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_GRIT)
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

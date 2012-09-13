@@ -1,0 +1,184 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",0)
+  NearLocation(Myself,1180,1500,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",1)
+  NearLocation(Myself,230,1120,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",2)
+  NearLocation(Myself,230,660,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",3)
+  NearLocation(Myself,330,550,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",4)
+  NearLocation(Myself,1710,1120,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",5)
+  NearLocation(Myself,330,550,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",6)
+  NearLocation(Myself,230,660,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",7)
+  NearLocation(Myself,230,1120,4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("MoveToPoint_13_06","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",8)
+THEN
+  RESPONSE #100
+    SetGlobal("MoveToPoint_13_06","MYAREA",0)
+    SetGlobal("OkayToGo_13_06_0","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_1","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_2","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_3","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_4","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_5","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_6","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_7","LOCALS",0)
+    SetGlobal("OkayToGo_13_06_8","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",0)
+  Global("MoveToPoint_13_05","MYAREA",0)
+  Global("OkayToGo_13_06_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_0","LOCALS",1)
+    MoveToPoint([1180.1500])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",1)
+  Global("MoveToPoint_13_05","MYAREA",1)
+  Global("OkayToGo_13_06_1","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_1","LOCALS",1)
+    MoveToPoint([230.1120])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",2)
+  Global("MoveToPoint_13_05","MYAREA",2)
+  Global("OkayToGo_13_06_2","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_2","LOCALS",1)
+    MoveToPoint([230.660])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",3)
+  Global("MoveToPoint_13_05","MYAREA",3)
+  Global("OkayToGo_13_06_3","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_3","LOCALS",1)
+    MoveToPoint([330.550])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",4)
+  Global("MoveToPoint_13_05","MYAREA",4)
+  Global("OkayToGo_13_06_4","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_4","LOCALS",1)
+    MoveToPoint([1710.1120])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",5)
+  Global("MoveToPoint_13_05","MYAREA",5)
+  Global("OkayToGo_13_06_5","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_5","LOCALS",1)
+    MoveToPoint([330.550])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",6)
+  Global("MoveToPoint_13_05","MYAREA",6)
+  Global("OkayToGo_13_06_6","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_6","LOCALS",1)
+    MoveToPoint([230.660])
+    Continue()
+END
+
+IF
+  Global("MoveToPoint_13_06","MYAREA",7)
+  Global("MoveToPoint_13_05","MYAREA",7)
+  Global("OkayToGo_13_06_7","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OkayToGo_13_06_7","LOCALS",1)
+    MoveToPoint([230.1120])
+    Continue()
+END
+

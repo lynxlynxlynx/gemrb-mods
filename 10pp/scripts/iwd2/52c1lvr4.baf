@@ -1,0 +1,77 @@
+IF
+  Sequence("AR5202_C1_Switch4_S",ATTACK)  // AR5202_C1_Switch4_S
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    PlaySequence("AR5202_C1_Switch4_S",AWAKE)
+    Continue()
+END
+
+IF
+  !Sequence("AR5202_C1_Switch4_S",ATTACK)  // AR5202_C1_Switch4_S
+  OpenState(Myself,FALSE)
+THEN
+  RESPONSE #100
+    PlaySequence("AR5202_C1_Switch4_S",ATTACK)
+    Continue()
+END
+
+IF
+  Or(2)
+    OpenState(Myself,TRUE)
+    !CheckDoorFlags(Myself,DOORLOCKED)
+  Or(2)
+    Global("WATCHING_PLAYER","MYAREA",0)
+    !Global("52Morohem_Master","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+    CloseDoor(Myself)
+    Lock(Myself)
+END
+
+IF
+  Or(2)
+    !Global("52Morohem_Master","GLOBAL",1)
+    Global("WATCHING_PLAYER","MYAREA",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("CHAMBER_1_LEVER","MYAREA",4)
+  !CheckDoorFlags(Myself,DOORLOCKED)
+  OpenState(Myself,TRUE)
+  CheckDoorFlags("AR5202_C1_Switch0_D",DOORLOCKED)  // AR5202_C1_Switch0_D
+  OpenState("AR5202_C1_Switch0_D",TRUE)  // AR5202_C1_Switch0_D
+  CheckDoorFlags("AR5202_C1_Switch1_D",DOORLOCKED)  // AR5202_C1_Switch1_D
+  OpenState("AR5202_C1_Switch1_D",TRUE)  // AR5202_C1_Switch1_D
+  CheckDoorFlags("AR5202_C1_Switch2_D",DOORLOCKED)  // AR5202_C1_Switch2_D
+  OpenState("AR5202_C1_Switch2_D",TRUE)  // AR5202_C1_Switch2_D
+  CheckDoorFlags("AR5202_C1_Switch3_D",DOORLOCKED)  // AR5202_C1_Switch3_D
+  OpenState("AR5202_C1_Switch3_D",TRUE)  // AR5202_C1_Switch3_D
+THEN
+  RESPONSE #100
+    Lock(Myself)
+    SetGlobal("CHAMBER_1_LEVER","MYAREA",5)
+END
+
+IF
+  !Global("CHAMBER_1_LEVER","MYAREA",4)
+  !CheckDoorFlags(Myself,DOORLOCKED)
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    Unlock("AR5202_C1_Switch0_D")
+    CloseDoor("AR5202_C1_Switch0_D")
+    Unlock("AR5202_C1_Switch1_D")
+    CloseDoor("AR5202_C1_Switch1_D")
+    Unlock("AR5202_C1_Switch2_D")
+    CloseDoor("AR5202_C1_Switch2_D")
+    Unlock("AR5202_C1_Switch3_D")
+    CloseDoor("AR5202_C1_Switch3_D")
+    SetGlobal("CHAMBER_1_LEVER","MYAREA",0)
+END
+

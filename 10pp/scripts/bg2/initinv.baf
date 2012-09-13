@@ -1,0 +1,75 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  See([PC])
+  !StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+    Dialog(LastSeenBy(Myself))
+END
+
+IF
+  See(Player1)
+  !StateCheck(Player1,STATE_INVISIBLE)
+  !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+    Dialog(Player1)
+END
+
+IF
+  See(Player2)
+  !StateCheck(Player2,STATE_INVISIBLE)
+  !StateCheck(Player2,STATE_IMPROVEDINVISIBILITY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+    Dialog(Player2)
+END
+
+IF
+  See(Player3)
+  !StateCheck(Player3,STATE_INVISIBLE)
+  !StateCheck(Player3,STATE_IMPROVEDINVISIBILITY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+    Dialog(Player3)
+END
+
+IF
+  See(Player4)
+  !StateCheck(Player4,STATE_INVISIBLE)
+  !StateCheck(Player4,STATE_IMPROVEDINVISIBILITY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+    Dialog(Player4)
+END
+
+IF
+  See(Player5)
+  !StateCheck(Player5,STATE_INVISIBLE)
+  !StateCheck(Player5,STATE_IMPROVEDINVISIBILITY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+    Dialog(Player5)
+END
+
+IF
+  See(Player6)
+  !StateCheck(Player6,STATE_INVISIBLE)
+  !StateCheck(Player6,STATE_IMPROVEDINVISIBILITY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+    Dialog(Player6)
+END
+
+
+END

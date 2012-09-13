@@ -1,0 +1,7 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ForceSpell([PC],TRAP_SPIKES)
+END
+

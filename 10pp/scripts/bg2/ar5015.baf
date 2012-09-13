@@ -1,0 +1,34 @@
+IF
+  Global("MelissanJob","GLOBAL",1)
+  Global("SpawnSarcpt01","AR5015",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("INFORMPLOTCUTACTIVE","GLOBAL",1)
+    CreateCreature("SARCPT01",[530.364],10)  // ~Captain Samand~
+    CreateCreature("SARIPG01",[594.270],0)  // ~Militia Guard~
+    CreateCreature("SARMAT01",[547.297],0)  // ~Mateo~
+    CreateCreature("SARIPG02",[494.294],0)  // ~Militia Guard~
+    CreateCreature("SARKIS01",[477.347],14)  // ~Kiser Jhaeri~
+    CreateCreature("SARIPG03",[618.293],2)  // ~Militia Guard~
+    CreateCreature("SARIPG04",[671.368],6)  // ~Militia Guard~
+    CreateCreature("SARCNT01",[629.343],4)  // ~Mirnielle Santele~
+    SetGlobal("SpawnSarcpt01","AR5015",1)
+    ActionOverride("sarcpt01",StartDialogNoSet(Player1))
+END
+
+IF
+  GlobalTimerExpired("SaradushSiegeTimer","GLOBAL")
+THEN
+  RESPONSE #50
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5008S1")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+  RESPONSE #50
+    ScreenShake([20.20],3)
+    PlaySound("AM5008S2")
+    SetGlobalTimer("SaradushSiegeTimer","GLOBAL",50)
+END
+

@@ -1,0 +1,123 @@
+IF
+  Global("INITIALIZED_40ANDORA","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetSavedLocation()
+    SetGlobal("INITIALIZED_40ANDORA","LOCALS",1)
+    Continue()
+END
+
+IF
+  !Global("TEAM_2","MYAREA",1)
+  Or(2)
+    AttackedBy([GOODCUTOFF],0)
+    PickPocketFailed([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  !IsTeamBitOn(TEAM_2_BIT)
+THEN
+  RESPONSE #100
+    SetTeamBit(TEAM_2_BIT,TRUE)
+    Continue()
+END
+
+IF
+  !Global("TEAM_2","MYAREA",1)
+  Allegiance(Myself,ENEMY)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  NearSavedLocation(4)
+  !Allegiance(Myself,ENEMY)
+  Global("AttackedEnemy","LOCALS",1)
+  GlobalTimerExpired("ReturnTimer","LOCALS")
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    SetGlobal("ML_0","LOCALS",1)
+    SetStartPos([-1.-1])
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  !NearSavedLocation(4)
+  !Allegiance(Myself,ENEMY)
+  Global("AttackedEnemy","LOCALS",1)
+  GlobalTimerExpired("ReturnTimer","LOCALS")
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !Allegiance(Myself,ENEMY)
+  Global("AttackedEnemy","LOCALS",1)
+  GlobalTimerExpired("ReturnTimer","LOCALS")
+  !See([ENEMY],0)
+THEN
+  RESPONSE #100
+    SetGlobal("ATTACKEDENEMY","LOCALS",0)
+    SetGlobal("ML_0","LOCALS",0)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  GlobalTimerExpired("ReturnTimer","LOCALS")
+  See([ENEMY],0)
+  Or(2)
+    HPGT(LastMarkedObject,1)
+    !IsAnimationID(LastMarkedObject,Werewolf)
+  !Specifics(LastMarkedObject,254)
+  !InParty(LastMarkedObject)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedEnemy","LOCALS",1)
+    SetBestWeapon(LastMarkedObject,3)
+    AttackReevaluate(LastMarkedObject,45)
+    ActionOverride(LastMarkedObject,EquipWeapon())
+    ActionOverride(LastMarkedObject,AttackOneRound(LastAttackerOf(Myself)))
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  ActionListEmpty()
+  See([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  GlobalTimerExpired("ReturnTimer","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("ReturnTimer","LOCALS",7)
+    Continue()
+END
+

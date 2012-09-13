@@ -1,0 +1,36 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("Ravel_Trigit_Spawn1","GLOBAL",0)
+    GlobalSet("Ravel_Trigit_Spawn2","GLOBAL",0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+

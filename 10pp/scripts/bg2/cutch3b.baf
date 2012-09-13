@@ -1,0 +1,37 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    FadeToColor([20.0],0)
+    Wait(1)
+    JumpToPoint([1807.2635])
+    ActionOverride(Player2,JumpToPoint([1848.2557]))
+    ActionOverride(Player3,JumpToPoint([1737.2562]))
+    ActionOverride(Player4,JumpToPoint([1889.2512]))
+    ActionOverride(Player5,JumpToPoint([1666.2534]))
+    ActionOverride(Player6,JumpToPoint([1790.2533]))
+    Wait(2)
+    Face(0)
+    ActionOverride(Player2,Face(0))
+    ActionOverride(Player3,Face(0))
+    ActionOverride(Player4,Face(0))
+    ActionOverride(Player5,Face(0))
+    ActionOverride(Player6,Face(0))
+    AmbientActivate("AMB_DOOR04",TRUE)
+    SoundActivate("EnergyBarrier3",TRUE)
+    SetGlobal("OpenDoor4","AR4500",0)
+    Unlock("Door4")
+    CloseDoor("Door4")
+    Lock("Door4")
+    MoveViewObject(Player1,VERY_FAST)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    CreateVisualEffect("SPPORTAL",[1884.2798])
+    CreateCreatureCopyPoint("CHALDT01",Player1,[1884.2798])
+    ActionOverride("CHALDT01",Face(8))
+    Wait(4)
+    ActionOverride("chaldt01",StartDialogNoSet(Player1))
+END
+

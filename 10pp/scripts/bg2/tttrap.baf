@@ -1,0 +1,7 @@
+IF
+  Disarmed([ANYONE])
+THEN
+  RESPONSE #100
+    SetGlobal("TutorialLesson","GLOBAL",33)
+END
+

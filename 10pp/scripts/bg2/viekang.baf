@@ -1,0 +1,25 @@
+IF
+  OR(6)
+    AttackedBy([ANYONE],DEFAULT)
+    HitBy([ANYONE],CRUSHING)
+    HPPercentLT(Myself,100)
+    See([ENEMY])
+    Heard([ANYONE],99)
+    Heard([ANYONE],57)
+  Global("Attacked","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  See(Player1)
+  Range(Player1,30)
+  Global("ViekangSeesPC","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ViekangSeesPC","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+

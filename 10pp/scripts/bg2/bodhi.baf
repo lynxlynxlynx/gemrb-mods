@@ -1,0 +1,57 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  GlobalLT("AsylumPlot","GLOBAL",4)
+  GlobalGT("WorkingForBodhi","GLOBAL",0)
+  GlobalLT("Chapter","GLOBAL",5)
+  Global("BodhiSlaughtersYou","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BodhiSlaughtersYou","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut83a")
+END
+
+IF
+  OR(2)
+    Global("BodhiAppear","GLOBAL",1)
+    Global("BodhiAppear","GLOBAL",2)
+  !Detect([PC])
+  TimeLT(DUSK_END)
+  TimeGT(5)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  TimeGT(5)
+  TimeLT(DUSK_END)
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_BAT_FORM_CHANGE)
+END
+
+IF
+  Global("BodhiAppear","GLOBAL",1)
+  Detect([PC])
+  Range(LastSeenBy(Myself),13)
+  OR(2)
+    TimeGT(DUSK_START)
+    TimeLT(DAWN_START)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("BodhiAppear","GLOBAL",1)
+  !Detect([PC])
+  OR(2)
+    TimeGT(DUSK_START)
+    TimeLT(DAWN_START)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+

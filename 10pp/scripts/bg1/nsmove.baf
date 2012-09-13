@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+  RESPONSE #20
+    MoveToOffset([0.4])
+    Wait(5)
+    MoveToOffset([0.-4])
+  RESPONSE #20
+    MoveToOffset([0.-4])
+    Wait(3)
+    MoveToOffset([0.4])
+END
+

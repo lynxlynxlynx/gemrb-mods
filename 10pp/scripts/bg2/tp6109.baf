@@ -1,0 +1,22 @@
+IF
+  Dead("SenKen01")  // ~Thelynn'ss~
+  WalkedToTrigger([ANYONE])
+  Global("SendaiCutScene1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    DisplayStringHead(Player1,72839)  // ~Elsewhere...~
+    SetGlobal("SendaiCutScene1","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut236a")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut236d")
+END
+

@@ -1,0 +1,44 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("08_52MNKCRG_01")  // 
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+    JumpToPoint([1665.1660])
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    Wait(1)
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+    Wait(1)
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("08_52MNKCRG_02")  // 
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+    JumpToPoint([1550.1755])
+    Wait(1)
+    SpellHitEffectSprite(Myself,Myself,CALL_LIGHTNING,0)
+    Wait(1)
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+    Wait(1)
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+END
+

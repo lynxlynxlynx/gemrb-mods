@@ -1,0 +1,97 @@
+IF
+  Global("WOT_Rats","AR1600",1)
+THEN
+  RESPONSE #100
+    Face(10)
+    MoveToPoint([2208.2296])
+    Face(6)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",2)
+THEN
+  RESPONSE #100
+    Face(12)
+    MoveToPoint([2366.2294])
+    Face(8)
+    MoveToPoint([2366.2189])
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",3)
+THEN
+  RESPONSE #100
+    Face(10)
+    MoveToPoint([2426.2133])
+    Face(8)
+    MoveToPoint([2291.2009])
+    Face(2)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",4)
+THEN
+  RESPONSE #100
+    Face(6)
+    MoveToPoint([2198.1909])
+    Face(4)
+    MoveToPoint([2114.1907])
+    Face(0)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",5)
+THEN
+  RESPONSE #100
+    Face(4)
+    MoveToPoint([1952.1908])
+    Face(0)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",6)
+THEN
+  RESPONSE #100
+    Face(2)
+    MoveToPoint([1881.1968])
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",7)
+THEN
+  RESPONSE #100
+    Face(4)
+    MoveToPoint([1658.1967])
+    Face(0)
+    MoveToPoint([1655.2105])
+    Face(14)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",8)
+THEN
+  RESPONSE #100
+    MoveToPoint([1654.2207])
+    Face(14)
+    MoveToPoint([1809.2366])
+    Face(12)
+    MoveToPoint([1879.2365])
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Global("WOT_Rats","AR1600",9)
+THEN
+  RESPONSE #100
+    MoveToPoint([2170.2331])
+    Face(6)
+    ChangeAIScript("",DEFAULT)
+END
+

@@ -1,0 +1,31 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Rest()
+    ActionOverride("Player2",Rest())
+    ActionOverride("Player3",Rest())
+    ActionOverride("Player4",Rest())
+    ActionOverride("Player5",Rest())
+    ActionOverride("Player6",Rest())
+    Wait(1)
+    SaveGame(0)
+    MultiPlayerSync()
+    FadeToColor([30.0],0)
+    Wait(2)
+    LeaveAreaLUAPanic("AR0071","",[0.0],0)
+    LeaveAreaLUA("AR0071","",[0.0],0)
+    ActionOverride(Player2,LeaveAreaLUA("AR0071","",[0.0],0))
+    ActionOverride(Player3,LeaveAreaLUA("AR0071","",[0.0],0))
+    ActionOverride(Player4,LeaveAreaLUA("AR0071","",[0.0],0))
+    ActionOverride(Player5,LeaveAreaLUA("AR0071","",[0.0],0))
+    ActionOverride(Player6,LeaveAreaLUA("AR0071","",[0.0],0))
+    MultiPlayerSync()
+    MoveViewPoint([899.1233],INSTANT)
+    Wait(1)
+    FadeFromColor([30.0],0)
+    Wait(1)
+    StartCutScene("Movie03d")
+END
+

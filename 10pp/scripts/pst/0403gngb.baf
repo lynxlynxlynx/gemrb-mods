@@ -1,0 +1,88 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Kill_SDThug","GLOBAL",1)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[923.1907],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_5)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[882.1950],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_6)
+END
+
+IF
+  Global("Sybil_Quest","GLOBAL",2)
+  LOS([PC],10)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  !Global("Sybil_Quest","GLOBAL",2)
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  See([0.0.0.0.0.0.SYBIL])
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack([0.0.0.0.0.0.SYBIL])
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.XAOSITECT])
+  !See([0.0.0.0.0.0.SYBIL])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    MoveToObjectEx(Protagonist,0)
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_STANDTOSTANCE)
+    PlaySequence(ANIM_STANCETOSTAND)
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

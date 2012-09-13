@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trax")  // 
+    MoveToObject("Jan")
+    StartDialogNoSet(Player1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Traxg")  // 
+    Wait(1)
+    MoveToObject("Trax")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Jan")  // 
+    MoveToObject("Trax")
+END
+

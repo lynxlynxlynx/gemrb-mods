@@ -1,0 +1,27 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+  Global("MDAIRTALKED2","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("MDAIRTALKED2","GLOBAL",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("MDAIRHOSTILE2","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  Global("MDAIRHOSTILE2","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

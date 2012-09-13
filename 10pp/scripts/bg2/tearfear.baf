@@ -1,0 +1,40 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  !PartyHasItem("clck30")  // ~Cloak of Bravery~
+  Global("HellFearTear","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,330)  // ~You have faced your fear without resorting to the protection and power of evil. The Tear of Bhaal is yours.~
+    GiveItemCreate("miscb5",LastTrigger,0,0,0)  // ~Tears of Bhaal~
+    IncrementGlobal("BhaalTest","GLOBAL",1)
+    TriggerActivation("Tran2900",TRUE)
+    TriggerActivation("FearTrap",FALSE)
+    ActionOverride("HellBeh1",Enemy())
+    ActionOverride("HellBeh2",Enemy())
+    SetGlobal("HellFearTear","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("clck30")  // ~Cloak of Bravery~
+  Global("HellFearTear","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,331)  // ~With the cloak given by the demon, you feel no fear and are able to take the Tear of Bhaal easily.~
+    GiveItemCreate("miscb5",LastTrigger,0,0,0)  // ~Tears of Bhaal~
+    IncrementGlobal("BhaalTest","GLOBAL",1)
+    TriggerActivation("Tran2900",TRUE)
+    TriggerActivation("FearTrap",FALSE)
+    SetGlobal("HellFearTear","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

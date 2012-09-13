@@ -1,0 +1,55 @@
+IF
+  Clicked(Player1)
+THEN
+  RESPONSE #100
+    ActionOverride("53Lab",SetDialogueRange(300))
+    ActionOverride("53Lab",Dialogue(Player1))
+END
+
+IF
+  Clicked(Player2)
+THEN
+  RESPONSE #100
+    ActionOverride("53Lab",SetDialogueRange(300))
+    ActionOverride("53Lab",Dialogue(Player2))
+END
+
+IF
+  Clicked(Player3)
+THEN
+  RESPONSE #100
+    ActionOverride("53Lab",SetDialogueRange(300))
+    ActionOverride("53Lab",Dialogue(Player3))
+END
+
+IF
+  Clicked(Player4)
+THEN
+  RESPONSE #100
+    ActionOverride("53Lab",SetDialogueRange(300))
+    ActionOverride("53Lab",Dialogue(Player4))
+END
+
+IF
+  Clicked(Player5)
+THEN
+  RESPONSE #100
+    ActionOverride("53Lab",SetDialogueRange(300))
+    ActionOverride("53Lab",Dialogue(Player5))
+END
+
+IF
+  Clicked(Player6)
+THEN
+  RESPONSE #100
+    ActionOverride("53Lab",SetDialogueRange(300))
+    ActionOverride("53Lab",Dialogue(Player6))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

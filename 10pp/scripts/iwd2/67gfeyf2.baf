@@ -1,0 +1,41 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  OpenState("AR6700_Cell1",TRUE)  // AR6700_Cell1
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !TimerActive(18)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,27618)  // ~"Hundreds of spiders the size of your head crawl over your body.  Each one has barbed tentacles spewing forth from their maws, slashing and cutting into your delicate, mortal flesh... " ~
+    StartRandomTimer(18,15,25)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27619)  // ~"You cannot move.  You are in pure darkness, yet you feel the hateful stare of something angry... and hungry.  You hear it coming closer to you, sliding its heavy feet on the cold, stone floor. You can hear it rapidly clattering its teeth in anticipation..." ~
+    StartRandomTimer(18,15,25)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27623)  // ~"The spiders are coming! The spiders are coming!"~
+    StartRandomTimer(18,15,25)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,27624)  // ~"Mmmmm! The sweet, sweet taste of mortal fear..."~
+    StartRandomTimer(18,15,25)
+    Continue()
+  RESPONSE #200
+    StartRandomTimer(18,15,25)
+    Continue()
+END
+

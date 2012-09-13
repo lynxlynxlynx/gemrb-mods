@@ -1,0 +1,9 @@
+IF
+  Die()
+THEN
+  RESPONSE #10
+    ReallyForceSpell(Myself,3995)
+  RESPONSE #90
+    ReallyForceSpell(Myself,FIREBALL_DEATH)
+END
+

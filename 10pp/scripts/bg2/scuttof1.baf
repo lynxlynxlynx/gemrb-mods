@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    SetGlobal("MoveCut","AR3023",0)
+    Wait(1)
+    MoveViewPoint([1607.776],6)
+    MoveToPointNoInterrupt([1607.776])
+    CreateCreature("FSDOG",[1525.702],14)  // ~War Dog~
+    ActionOverride("FSDog",MoveToPoint([1568.741]))
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

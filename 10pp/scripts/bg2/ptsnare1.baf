@@ -1,0 +1,12 @@
+IF
+  Detect([GOODCUTOFF])
+  Range(LastSeenBy(Myself),2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14381)  // ~Trap Sprung~ [AMB_D05C]
+    ForceSpell(LastSeenBy(Myself),TRAP_ARROW_BITING)
+    ForceSpell(LastSeenBy(Myself),TRAP_ARROW_BITING)
+    ForceSpell(LastSeenBy(Myself),TRAP_ARROW_BITING)
+    TriggerActivation(Myself,FALSE)
+END
+

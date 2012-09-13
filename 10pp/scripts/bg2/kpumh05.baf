@@ -1,0 +1,10 @@
+IF
+  Global("UmberHungry","AR1301",1)
+  Global("Move","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(6)
+    MoveToPointNoInterrupt([1026.1229])
+    SetGlobal("Move","LOCALS",1)
+END
+

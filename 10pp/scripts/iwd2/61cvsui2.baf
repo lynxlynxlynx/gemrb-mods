@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Protagonist)  // 
+    HideGUI()
+    MoveViewPoint([960.2368],VERY_FAST)
+    ActionOverride("Venomin4",MoveToPoint([960.2368]))
+    Wait(4)
+    MoveViewObject("Venomin4",INSTANT)
+    SpellHitEffectSprite("Venomin4","Venomin4",FLAME_STRIKE,0)
+    DisplayString("Venomin4",14026)  // ~Death~
+    SetCriticalPathObject("Venomin4",FALSE)
+    Wait(1)
+    ActionOverride("Venomin4",DestroySelf())
+    MoveViewObject(Protagonist,VERY_FAST)
+    Wait(2)
+    UnhideGUI()
+    EndCutSceneMode()
+END
+

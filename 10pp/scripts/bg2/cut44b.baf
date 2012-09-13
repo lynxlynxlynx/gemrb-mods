@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("udvith")  // 
+    ForceSpell(Myself,DO_NOTHING)
+    Wait(1)
+    CreateVisualEffect("SPPORTAL",[2413.3270])
+    CreateVisualEffect("SPFLSRIN",[2413.3270])
+    Wait(1)
+    CreateCreature("udelde",[2413.3270],4)  // ~Greater Earth Elemental~
+    Wait(1)
+    SetGlobal("dwVithal","GLOBAL",1)
+    EndCutSceneMode()
+END
+

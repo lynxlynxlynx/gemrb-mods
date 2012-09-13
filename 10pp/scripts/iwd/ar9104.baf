@@ -1,0 +1,78 @@
+IF
+  Global("EMERICH_DONE","MYAREA",0)
+  !Exists("EMMERICH")  // ~Emmerich Hawk~
+THEN
+  RESPONSE #100
+    SetGlobal("EMERICH_DONE","MYAREA",1)
+    Continue()
+END
+
+IF
+  Global("EMERICH_DONE","MYAREA",0)
+  CreatureHidden("EMMERICH")  // ~Emmerich Hawk~
+  Global("WEREWOLF_ACTIVE","GLOBAL",0)
+  Global("EMERICH_DIED_WOLF","GLOBAL",0)
+  Global("EMMERICH_OUTSIDE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature("EMMERICH",FALSE)
+    Continue()
+END
+
+IF
+  Global("EMERICH_DONE","MYAREA",0)
+  !CreatureHidden("EMMERICH")  // ~Emmerich Hawk~
+  Or(3)
+    Global("WEREWOLF_ACTIVE","GLOBAL",1)
+    !Global("EMERICH_DIED_WOLF","GLOBAL",0)
+    !Global("EMMERICH_OUTSIDE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature("EMMERICH",TRUE)
+    Continue()
+END
+
+IF
+  Global("9100_RESET_WEREWOLF","GLOBAL",0)
+  GlobalLT("WEREWOLF_ACTIVE","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("9100_RESET_WEREWOLF","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("LONELYWOOD_ALARM","GLOBAL",0)
+  !Global("AREA_HOSTILE","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LONELYWOOD_ALARM","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("AREA_HOSTILE","MYAREA",0)
+  !Global("LONELYWOOD_ALARM","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AREA_HOSTILE","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+    SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

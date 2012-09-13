@@ -1,0 +1,34 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DemilichHowl","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DemilichHowl","LOCALS",1)
+    StartTimer(55,60)
+    ForceSpell(Myself,DEMILICH_DEATH)
+    ForceSpell(Myself,0)
+END
+
+IF
+  TimerExpired(55)
+  Global("DemilichHowl","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("DemilichHowl","LOCALS",0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),DEMILICH_TRAP_SOUL)
+    Wait(3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),1)
+END
+

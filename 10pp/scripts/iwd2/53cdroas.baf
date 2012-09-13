@@ -1,0 +1,103 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DroPr")  // 
+    FadeToColor([0.0],0)
+    Wait(1)
+    DestroySelf()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosSS_01")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosSS_02")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosSS_03")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosAs_01")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosAs_02")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosAs_03")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosAs_04")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosAs_05")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosAs_06")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53DrosAs_07")  // 
+    Wait(1)
+    DestroySelf()
+END
+

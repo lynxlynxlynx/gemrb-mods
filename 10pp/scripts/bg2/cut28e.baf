@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Dream1")  // 
+    ApplySpell("sarevokd",SURE_STONE_SHATTER)
+    CreateCreature("DREAM2",[2346.1702],0)  // ~Jon Irenicus~
+    MoveToPoint([2511.1401])
+    Wait(1)
+    MultiPlayerSync()
+    StartDialogNoSet(Player1)
+END
+

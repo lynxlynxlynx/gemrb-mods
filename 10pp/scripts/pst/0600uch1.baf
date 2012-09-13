@@ -1,0 +1,37 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([0.0.UCHO])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+    RunAwayFromEx(NearestEnemyOf(Myself),TEN_AI_SECONDS,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    MoveToPoint([562.3101])
+    Face(8)
+    Wait(10)
+    MoveToPoint([688.3229])
+    Face(10)
+END
+

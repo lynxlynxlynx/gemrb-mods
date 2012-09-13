@@ -1,0 +1,8 @@
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+

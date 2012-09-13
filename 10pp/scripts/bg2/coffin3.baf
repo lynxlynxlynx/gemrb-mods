@@ -1,0 +1,46 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("Coffin3","AR0801",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,35811)  // ~The vampire retreated to this coffin once you defeated it. If you have a wooden stake, you can try to kill it.~
+    SetGlobal("Coffin3","AR0801",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("MISC6W")  // ~Wooden Stake~
+  Global("Coffin3","AR0801",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,35847)  // ~You pound the stake through the vampires foul heart. The creature shall prey no more on the blood of others.~
+    SetGlobal("Coffin3","AR0801",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("Coffin3","AR0801",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,35849)  // ~The vampire is truly dead and the coffin reeks of carrion. There is nothing else you can do with it.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,35811)  // ~The vampire retreated to this coffin once you defeated it. If you have a wooden stake, you can try to kill it.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

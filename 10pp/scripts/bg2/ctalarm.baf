@@ -1,0 +1,16 @@
+IF
+  Opened([ANYONE])
+  !StateCheck(LastTrigger,STATE_INVISIBLE)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    CreateCreature("ENFORAM",[-1.-1],0)  // <Invalid Strref -1>
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

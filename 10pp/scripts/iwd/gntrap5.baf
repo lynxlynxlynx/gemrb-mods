@@ -1,0 +1,16 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_GROUP_VAR","",5,OR)
+    DisplayString(Myself,14381)  // ~Trap Sprung~ [AMB_D05C]
+END
+
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_GROUP_VAR","",5,OR)
+    DisplayString(Myself,14381)  // ~Trap Sprung~ [AMB_D05C]
+END
+

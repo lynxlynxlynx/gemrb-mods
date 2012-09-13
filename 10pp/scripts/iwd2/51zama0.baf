@@ -1,0 +1,509 @@
+IF
+  Global("FL_0","LOCALS",0)
+  !TimerActive(21)
+  Global("TEAM_13","MYAREA",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18780)  // ~"Laduguer the Harsh is our protector and taskmaster."~
+    StartRandomTimer(21,3,5)
+    IncrementGlobal("FL_0","LOCALS",1)
+END
+
+IF
+  Global("FL_0","LOCALS",1)
+  !TimerActive(21)
+  Global("TEAM_13","MYAREA",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18781)  // ~"Laduguer taught us order and discipline..."~
+    StartRandomTimer(21,3,5)
+    IncrementGlobal("FL_0","LOCALS",1)
+END
+
+IF
+  Global("FL_0","LOCALS",2)
+  !TimerActive(21)
+  Global("TEAM_13","MYAREA",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18782)  // ~"... to master ourselves and others, to cast aside weaknesses like pity and mercy..."~
+    StartRandomTimer(21,3,5)
+    IncrementGlobal("FL_0","LOCALS",1)
+END
+
+IF
+  Global("FL_0","LOCALS",3)
+  !TimerActive(21)
+  Global("TEAM_13","MYAREA",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18783)  // ~"...to develop new abilities and forge items of fantastic power."~
+    StartRandomTimer(21,3,5)
+    IncrementGlobal("FL_0","LOCALS",1)
+END
+
+IF
+  Global("FL_0","LOCALS",4)
+  !TimerActive(21)
+  Global("TEAM_13","MYAREA",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18784)  // ~"When Laduguer turned to the shadows to seek power, his cowardly brothers abandoned him."~
+    StartRandomTimer(21,3,5)
+    IncrementGlobal("FL_0","LOCALS",1)
+END
+
+IF
+  Global("FL_0","LOCALS",5)
+  !TimerActive(21)
+  Global("TEAM_13","MYAREA",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18785)  // ~"They exiled Laduguer from his home to the great darkness below Acheron..."~
+    StartRandomTimer(21,3,5)
+    IncrementGlobal("FL_0","LOCALS",1)
+END
+
+IF
+  Global("FL_0","LOCALS",6)
+  !TimerActive(21)
+  Global("TEAM_13","MYAREA",0)
+  NearSavedLocation(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18786)  // ~"... from where he watches over and commands us."~
+    StartRandomTimer(21,3,5)
+    SetGlobal("FL_0","LOCALS",0)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !Global("TEAM_13","MYAREA",0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140611151101",Myself,SPELLCAST_IGNORE_SEE)
+      // CLERIC_DEFENSIVE_HARMONY
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_BLESS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("13_51DUECL_02",0)  // 13_51DUECL_02
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("13_51DUECL_02",0)  // 13_51DUECL_02
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("13_51DUECL_03",0)  // 13_51DUECL_03
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("13_51DUECL_03",0)  // 13_51DUECL_03
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("13_51DEUCL_17",0)  // 13_51DEUCL_17
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("13_51DEUCL_17",0)  // 13_51DEUCL_17
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("13_51Barud_04",0)  // 13_51Barud_04
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("13_51Barud_04",0)  // 13_51Barud_04
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See("13_51Harhor_05",0)  // 13_51Harhor_05
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See("13_51Harhor_05",0)  // 13_51Harhor_05
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",Myself)  // ~Potion of Healing~
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  See("13_51DUECL_02",0)  // 13_51DUECL_02
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",LastSeenBy(Myself))  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  See("13_51DUECL_02",0)  // 13_51DUECL_02
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",LastSeenBy(Myself))  // ~Potion of Healing~
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  See("13_51DUECL_03",0)  // 13_51DUECL_03
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",LastSeenBy(Myself))  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  See("13_51DUECL_03",0)  // 13_51DUECL_03
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",LastSeenBy(Myself))  // ~Potion of Healing~
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  See("13_51DEUCL_17",0)  // 13_51DEUCL_17
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",LastSeenBy(Myself))  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  See("13_51DEUCL_17",0)  // 13_51DEUCL_17
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",LastSeenBy(Myself))  // ~Potion of Healing~
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  See("13_51Barud_04",0)  // 13_51Barud_04
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",LastSeenBy(Myself))  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  See("13_51Barud_04",0)  // 13_51Barud_04
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",LastSeenBy(Myself))  // ~Potion of Healing~
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  See("13_51Harhor_05",0)  // 13_51Harhor_05
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",LastSeenBy(Myself))  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  See("13_51Harhor_05",0)  // 13_51Harhor_05
+  HPPercentLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",LastSeenBy(Myself))  // ~Potion of Healing~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(CLERIC_SILENCE_15_RADIUS)
+  See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_SILENCE_15_RADIUS,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_SILENCE_15_RADIUS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(WIZARD_HOLD_PERSON)
+  AttackedBy([GOODCUTOFF],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_HOLD_PERSON,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_HOLD_PERSON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(CLERIC_CLOAK_OF_FEAR)
+  AttackedBy([GOODCUTOFF],0)
+  IsSpellTargetValid(Myself,CLERIC_CLOAK_OF_FEAR,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CLOAK_OF_FEAR)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    Continue()
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("13222425",LastMarkedObject,3)
+      // CLERIC_MOLD_TOUCH
+      // CLERIC_CONTAGION
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    Attack(LastMarkedObject)
+END
+
+IF
+  HaveSpell(WIZARD_ANIMATE_DEAD)
+  !Global("TEAM_13","MYAREA",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_ANIMATE_DEAD)
+    SpellWait(WIZARD_ANIMATE_DEAD)
+END
+
+IF
+  HaveSpell(CLERIC_GIANT_INSECT)
+  !Global("TEAM_13","MYAREA",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_GIANT_INSECT)
+    SpellWait(CLERIC_GIANT_INSECT)
+END
+
+IF
+  HasItem("CDiseas",Myself)  // ~Contagion~
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1322",LastMarkedObject,3)
+      // CLERIC_MOLD_TOUCH
+    MarkSpellAndObject("1315",Myself,3)
+      // CLERIC_CAUSE_DISEASE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !TimerActive(22)
+  !NearSavedLocation(4)
+  Global("TEAM_13","MYAREA",0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(22,5)
+END
+

@@ -1,0 +1,29 @@
+IF
+  Global("KULDAHAR_ATTACK","GLOBAL",3)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  See([0.0.ORC])
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastSeenBy(Myself),45)
+END
+
+IF
+  AttackedBy([0.0.ORC],DEFAULT)
+THEN
+  RESPONSE #100
+    RunAwayFromNoLeaveArea(LastAttackerOf(Myself),45)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

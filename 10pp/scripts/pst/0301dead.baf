@@ -1,0 +1,7 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    PlayDead(2000000000)
+END
+

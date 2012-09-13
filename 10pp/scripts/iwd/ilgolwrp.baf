@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOLEM_1")  // 
+    ClearActions(Myself)
+    ReallyForceSpell(Myself,INNATE_ICE_GOLEM_DISAPPEAR)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOLEM_2")  // 
+    ClearActions(Myself)
+    ReallyForceSpell(Myself,INNATE_ICE_GOLEM_DISAPPEAR)
+END
+

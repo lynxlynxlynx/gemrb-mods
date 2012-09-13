@@ -1,0 +1,28 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("Nameless_Trigit_Spawn","GLOBAL",0)
+END
+
+IF
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    Attack([ENEMY])
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ProtectObject([PC],30)
+END
+

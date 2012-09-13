@@ -1,0 +1,19 @@
+IF
+  Global("Damage","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Damage","LOCALS",0)
+    ReallyForceSpell(LastTalkedToBy,WIZARD_MAGIC_MISSILE)
+    ReallyForceSpell(LastTalkedToBy,WIZARD_MAGIC_MISSILE)
+    ReallyForceSpell(LastTalkedToBy,WIZARD_MAGIC_MISSILE)
+    ReallyForceSpell(LastTalkedToBy,WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  GlobalGT("Damage","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Damage","LOCALS",0)
+    ReallyForceSpell(LastTalkedToBy,WIZARD_FLAME_ARROW)
+END
+

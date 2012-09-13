@@ -1,0 +1,210 @@
+IF
+  Dead("Demogor2")  // ~Demogorgon~
+  Global("DemoGorgonIsDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DemoGorgonIsDead","GLOBAL",1)
+END
+
+IF
+  Dead("Demogor2")  // ~Demogorgon~
+  Global("DestroyHelmScroll","GLOBAL",0)
+  PartyHasItem("PLOT01Q")  // ~Helm's Scroll~
+THEN
+  RESPONSE #100
+    Wait(2)
+    DisplayStringHead(Player1,73502)  // ~With the destruction of Demogorgon's avatar, the Helm scroll disappears.~
+    TakePartyItem("PLOT01Q")
+    SetGlobal("DestroyHelmScroll","GLOBAL",1)
+END
+
+IF
+  Global("EnteredArea","AR3000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR3000",1)
+    AmbientActivate("DoorMist01",FALSE)
+    AmbientActivate("DoorMist02",FALSE)
+    AmbientActivate("DoorMist03",FALSE)
+    AmbientActivate("DoorMist04",FALSE)
+    AmbientActivate("DoorMist05",FALSE)
+    Wait(1)
+    TextScreen("SCRODRE")
+END
+
+IF
+  SpellCastInnate([ANYONE],HELM_RITUAL_SCROLL)
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddXP2DA("Plot01F")
+    TakePartyItem("PLOT01Q")
+    ActionOverride("Demogor1",DestroySelf())
+    AmbientActivate("DoorMist02",FALSE)
+    CloseDoor("Door02")
+    DisplayStringHead(Player1,70619)  // ~All entrances to Demogorgon's Lair have now been sealed.~
+    EraseJournalEntry(62402)  // ~Watcher's KeepBrother Odren of the Knights of the Vigil has sent out a call for those capable of entering the Watcher's Keep...an ancient prison holding a great evil imprisoned there by the god Helm, himself.  The evil is close to breaking the seals of its prison and becoming free.  The Knights would enter the Keep and perform a ritual to fix those seals, but cannot as they are too weak to bypass the traps and monsters within.Odren suggests that I, too, am not yet ready to enter the Keep just yet.  I shall return another time when my experience is greater.~
+    EraseJournalEntry(62423)  // ~Watcher's KeepBrother Odren of the Knights of the Vigil has sent out a call for those capable of entering the Watcher's Keep...an ancient prison holding a great evil imprisoned there by the god Helm, himself.  The evil is close to breaking the seals of its prison and becoming free.  The Knights would enter the Keep and perform a ritual to fix those seals, but cannot as they are too weak to bypass the traps and monsters within.I refused Odren's request to enter the Keep and fix his problem, although he asked that I reconsider...if this evil escapes, he says, no one shall be safe.~
+    EraseJournalEntry(62461)  // ~Watcher's KeepBrother Odren of the Knights of the Vigil has sent out a call for those capable of entering the Watcher's Keep...an ancient prison holding a great evil imprisoned there by the god Helm, himself.  The evil is close to breaking the seals of its prison and becoming free.  The Knights would enter the Keep and perform a ritual to fix those seals, but cannot as they are too weak to bypass the traps and monsters within.I have accepted the task of entering the Keep and fixing the seal that keeps this evil imprisoned.  It may be a long task...the Keep is large and quite dangerous... but Odren says there is still some time before the remaining seals are broken.  It must be done, however, or this creature will be freed and endanger all.~
+    EraseJournalEntry(62481)  // ~Watcher's KeepOdren has brought me to the top of Watcher's Keep and shown me the entrance.  To get inside, I will need the proper holy symbol and ritual from Brother Pol, who can also answer my questions.  Equipment can be bought from Sister Garlena, who is giving us access to the Knights' resources.~
+    EraseJournalEntry(62987)  // ~Watcher's KeepI have encountered the Imprisoned One after opening the final seal and listened to its story of false imprisonment by the Knights of the Vigil and its offer of revenge and reward for its freedom.  According to it, the Knights had planned for me to be sealed up in this place along with the Imprisoned One...something that strikes me as having the ring of truth.  In order to free the Imprisoned One, I will have to go to Odren and tell him that the Imprisoned One is dead...Odren will investigate and the Imprisoned One will kill him.~
+    EraseJournalEntry(63049)  // ~Watcher's KeepI have discovered that the ritual to keep the Imprisoned One sealed, here, has done the same to me, as well...something that the Knights of the Vigil hardly could have not known about.  I have agreed to help free the Imprisoned One, who wants revenge as well and has agreed to open a small hole in the seal so I may escape...in order to free it, I will have to go to Odren and tell him that the Imprisoned One is dead...Odren will investigate and the Imprisoned One will kill him.~
+    EraseJournalEntry(63048)  // ~Watcher's KeepOdren has entered the Keep to confront Demogorgon, and will no doubt be killed in the process.  An apparition appeared and offered me a scroll from Helm, Himself, which will allow me to seal both Demogorgon and the unfaithful Odren inside the Keep forever.  I accepted it...and have only to use the scroll anywhere in the area outside of the prison...then the Imprisoned One's Lair will be sealed forever.~
+    EraseJournalEntry(63091)  // ~Watcher's KeepOdren has entered the Keep to confront Demogorgon, and will no doubt be killed in the process.  An apparition appeared and offered me a scroll from Helm, Himself, which will allow me to seal both Demogorgon and the unfaithful Odren inside the Keep forever.  I declined to use it, though the apparition gave it to me anyway...it need only be used in front of the door that leads to Demogorgon.  Instead, I intend to go and confront the Demon Prince, myself.~
+    AddJournalEntry(71078,QUEST_DONE)
+    SetGlobal("HelmRitualDone","GLOBAL",1)
+END
+
+IF
+  Global("CloseDemogorgonTemple","GLOBAL",1)
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    TakePartyItem("PLOT01Q")
+    ActionOverride("Demogor1",DestroySelf())
+    AmbientActivate("DoorMist02",FALSE)
+    CloseDoor("Door02")
+    DisplayStringHead(Player1,70619)  // ~All entrances to Demogorgon's Lair have now been sealed.~
+    EraseJournalEntry(62402)  // ~Watcher's KeepBrother Odren of the Knights of the Vigil has sent out a call for those capable of entering the Watcher's Keep...an ancient prison holding a great evil imprisoned there by the god Helm, himself.  The evil is close to breaking the seals of its prison and becoming free.  The Knights would enter the Keep and perform a ritual to fix those seals, but cannot as they are too weak to bypass the traps and monsters within.Odren suggests that I, too, am not yet ready to enter the Keep just yet.  I shall return another time when my experience is greater.~
+    EraseJournalEntry(62423)  // ~Watcher's KeepBrother Odren of the Knights of the Vigil has sent out a call for those capable of entering the Watcher's Keep...an ancient prison holding a great evil imprisoned there by the god Helm, himself.  The evil is close to breaking the seals of its prison and becoming free.  The Knights would enter the Keep and perform a ritual to fix those seals, but cannot as they are too weak to bypass the traps and monsters within.I refused Odren's request to enter the Keep and fix his problem, although he asked that I reconsider...if this evil escapes, he says, no one shall be safe.~
+    EraseJournalEntry(62461)  // ~Watcher's KeepBrother Odren of the Knights of the Vigil has sent out a call for those capable of entering the Watcher's Keep...an ancient prison holding a great evil imprisoned there by the god Helm, himself.  The evil is close to breaking the seals of its prison and becoming free.  The Knights would enter the Keep and perform a ritual to fix those seals, but cannot as they are too weak to bypass the traps and monsters within.I have accepted the task of entering the Keep and fixing the seal that keeps this evil imprisoned.  It may be a long task...the Keep is large and quite dangerous... but Odren says there is still some time before the remaining seals are broken.  It must be done, however, or this creature will be freed and endanger all.~
+    EraseJournalEntry(62481)  // ~Watcher's KeepOdren has brought me to the top of Watcher's Keep and shown me the entrance.  To get inside, I will need the proper holy symbol and ritual from Brother Pol, who can also answer my questions.  Equipment can be bought from Sister Garlena, who is giving us access to the Knights' resources.~
+    EraseJournalEntry(62987)  // ~Watcher's KeepI have encountered the Imprisoned One after opening the final seal and listened to its story of false imprisonment by the Knights of the Vigil and its offer of revenge and reward for its freedom.  According to it, the Knights had planned for me to be sealed up in this place along with the Imprisoned One...something that strikes me as having the ring of truth.  In order to free the Imprisoned One, I will have to go to Odren and tell him that the Imprisoned One is dead...Odren will investigate and the Imprisoned One will kill him.~
+    EraseJournalEntry(63049)  // ~Watcher's KeepI have discovered that the ritual to keep the Imprisoned One sealed, here, has done the same to me, as well...something that the Knights of the Vigil hardly could have not known about.  I have agreed to help free the Imprisoned One, who wants revenge as well and has agreed to open a small hole in the seal so I may escape...in order to free it, I will have to go to Odren and tell him that the Imprisoned One is dead...Odren will investigate and the Imprisoned One will kill him.~
+    EraseJournalEntry(63048)  // ~Watcher's KeepOdren has entered the Keep to confront Demogorgon, and will no doubt be killed in the process.  An apparition appeared and offered me a scroll from Helm, Himself, which will allow me to seal both Demogorgon and the unfaithful Odren inside the Keep forever.  I accepted it...and have only to use the scroll anywhere in the area outside of the prison...then the Imprisoned One's Lair will be sealed forever.~
+    EraseJournalEntry(63091)  // ~Watcher's KeepOdren has entered the Keep to confront Demogorgon, and will no doubt be killed in the process.  An apparition appeared and offered me a scroll from Helm, Himself, which will allow me to seal both Demogorgon and the unfaithful Odren inside the Keep forever.  I declined to use it, though the apparition gave it to me anyway...it need only be used in front of the door that leads to Demogorgon.  Instead, I intend to go and confront the Demon Prince, myself.~
+    SetGlobal("HelmRitualDone","GLOBAL",1)
+END
+
+IF
+  Global("KnightsInKeep","GLOBAL",1)
+  Global("MoveOdrenKnights","AR3000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MoveOdrenKnights","AR3000",1)
+    SetGlobalTimer("SpawnDemogorgonTimer","GLOBAL",ONE_DAY)
+    StartCutSceneMode()
+    StartCutScene("Cut208a")
+END
+
+IF
+  !Dead("Demogor2")  // ~Demogorgon~
+  Global("HelmRitualDone","GLOBAL",0)
+  Global("OdrenRitualDone","GLOBAL",0)
+  GlobalTimerExpired("SpawnDemogorgonTimer","GLOBAL")
+  Global("SpawnDemogorgon","AR3000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDemogorgon","AR3000",1)
+    SetGlobal("Destroy3020Demo","GLOBAL",1)
+    TakePartyItem("PLOT01A")
+    DisplayStringNoNameHead(Player1,73862)  // ~The ritual scroll given to you by Odren crumbles into dust before your eyes.~
+    TriggerActivation("Tran3001a",FALSE)
+    CreateCreature("Demogor1",[1847.2267],0)  // ~Imprisoned One~
+END
+
+IF
+  Global("OpenDungeonDoor2","GLOBAL",1)
+  OpenState("DOOR03",FALSE)  // DOOR03
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddMapNote([418.1164],70903)  // ~To the Elemental Level~
+    AmbientActivate("DoorMist03",TRUE)
+    OpenDoor("DOOR03")
+    SetGlobal("OpenDungeonDoor2","GLOBAL",2)
+END
+
+IF
+  Global("OpenDungeonDoor2","GLOBAL",2)
+  OpenState("DOOR03",FALSE)  // DOOR03
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR03")
+END
+
+IF
+  Global("OpenDungeonDoor1","GLOBAL",1)
+  OpenState("DOOR04",FALSE)  // DOOR04
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddMapNote([669.1516],70902)  // ~To the Teleport Maze~
+    AmbientActivate("DoorMist04",TRUE)
+    OpenDoor("DOOR04")
+    SetGlobal("OpenDungeonDoor1","GLOBAL",2)
+END
+
+IF
+  Global("OpenDungeonDoor1","GLOBAL",2)
+  OpenState("DOOR04",FALSE)  // DOOR04
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR04")
+END
+
+IF
+  Global("OpenDungeonDoor3","GLOBAL",1)
+  OpenState("DOOR05",FALSE)  // DOOR05
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddMapNote([929.1846],70901)  // ~To the Machine of Lum the Mad~
+    AmbientActivate("DoorMist05",TRUE)
+    OpenDoor("DOOR05")
+    SetGlobal("OpenDungeonDoor3","GLOBAL",2)
+END
+
+IF
+  Global("OpenDungeonDoor3","GLOBAL",2)
+  OpenState("DOOR05",FALSE)  // DOOR05
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR05")
+END
+
+IF
+  Global("OpenDungeonDoor4","GLOBAL",1)
+  OpenState("DOOR01",FALSE)  // DOOR01
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddMapNote([228.1665],70904)  // ~To the Final Seal~
+    AmbientActivate("DoorMist01",TRUE)
+    OpenDoor("DOOR01")
+    SetGlobal("OpenDungeonDoor4","GLOBAL",2)
+END
+
+IF
+  Global("OpenDungeonDoor4","GLOBAL",2)
+  OpenState("DOOR01",FALSE)  // DOOR01
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+END
+
+IF
+  Global("OpenDungeonDoor5","GLOBAL",1)
+  OpenState("DOOR02",FALSE)  // DOOR02
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddMapNote([478.2000],70906)  // ~To the Imprisoned One~
+    AmbientActivate("DoorMist02",TRUE)
+    OpenDoor("DOOR02")
+    SetGlobal("OpenDungeonDoor5","GLOBAL",2)
+END
+
+IF
+  Global("OpenDungeonDoor5","GLOBAL",2)
+  OpenState("DOOR02",FALSE)  // DOOR02
+  Global("HelmRitualDone","GLOBAL",0)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR02")
+END
+

@@ -1,0 +1,39 @@
+IF
+  Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+    Continue()
+END
+

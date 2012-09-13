@@ -1,0 +1,237 @@
+IF
+  HPPercentLT(Myself,100)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  !TimerActive(3)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,32424)  // ~"Tout here! Tout!"~
+    StartTimer(3,4)
+    Continue()
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,32425)  // ~"Tout! I'll get ye where ye're goin', only one copper!"~
+    StartTimer(3,4)
+    Continue()
+  RESPONSE #100
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,32675)  // ~"One copper gets ye yer directions! Tout!"~
+    StartTimer(3,4)
+    Continue()
+END
+
+IF
+  Global("Tout300","AR0300",0)
+THEN
+  RESPONSE #100
+    Face(6)
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([2744.2034])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([2590.2032])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([2330.1768])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",4)
+THEN
+  RESPONSE #100
+    MoveToPoint([2330.1534])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",5)
+THEN
+  RESPONSE #100
+    MoveToPoint([2262.1534])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",6)
+THEN
+  RESPONSE #100
+    MoveToPoint([2056.1338])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",7)
+THEN
+  RESPONSE #100
+    MoveToPoint([1206.1338])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",8)
+THEN
+  RESPONSE #100
+    MoveToPoint([876.1010])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",9)
+THEN
+  RESPONSE #100
+    MoveToPoint([658.1010])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",10)
+THEN
+  RESPONSE #100
+    MoveToPoint([658.1684])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",11)
+THEN
+  RESPONSE #100
+    MoveToPoint([786.1806])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",12)
+THEN
+  RESPONSE #100
+    MoveToPoint([786.2068])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",13)
+THEN
+  RESPONSE #100
+    MoveToPoint([1088.2370])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",14)
+THEN
+  RESPONSE #100
+    MoveToPoint([1524.2370])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",15)
+THEN
+  RESPONSE #100
+    MoveToPoint([1650.2234])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",16)
+THEN
+  RESPONSE #100
+    MoveToPoint([1720.2234])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",17)
+THEN
+  RESPONSE #100
+    MoveToPoint([1778.2178])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",18)
+THEN
+  RESPONSE #100
+    MoveToPoint([1904.2178])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",19)
+THEN
+  RESPONSE #100
+    MoveToPoint([2040.2048])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",20)
+THEN
+  RESPONSE #100
+    MoveToPoint([2528.2048])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",21)
+THEN
+  RESPONSE #100
+    MoveToPoint([2866.2378])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",22)
+THEN
+  RESPONSE #100
+    MoveToPoint([2974.2260])
+    IncrementGlobal("Tout300","AR0300",1)
+END
+
+IF
+  Global("Tout300","AR0300",23)
+THEN
+  RESPONSE #100
+    MoveToPoint([2900.2186])
+    GlobalSet("Tout300","AR0300",0)
+END
+

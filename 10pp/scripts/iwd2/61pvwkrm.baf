@@ -1,0 +1,20 @@
+IF
+  Global("61PlayerSawWorkroom","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("61PlayerSawWorkroom","GLOBAL",1)
+END
+
+IF
+  Global("61NheeroMissionQuest","GLOBAL",4)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FloatMessage(LastMarkedObject,35060)  // ~We have found the room where the yuan-ti make their histachii brew.  Now we need to replace the mandrake root they use in the process with Nheero's modified version.~
+    AddJournalEntry(35060)
+    SetGlobal("61NheeroMissionQuest","GLOBAL",5)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

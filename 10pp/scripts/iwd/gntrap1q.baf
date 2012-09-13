@@ -1,0 +1,14 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_GROUP_VAR","",1,OR)
+END
+
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    BitGlobal("MYAREA:AREA_GROUP_VAR","",1,OR)
+END
+

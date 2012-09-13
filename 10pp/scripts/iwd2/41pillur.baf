@@ -1,0 +1,17 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    OpenDoor("AR4101_Door26Dummy2")
+    Continue()
+END
+
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,34803)  // ~Before you stands an illusionary wall.  You feel that if you believe strongly in the fact that it's not a real wall you'll be able to walk right through it.~
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

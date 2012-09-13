@@ -1,0 +1,48 @@
+IF
+  Global("Deactivate","AR6004",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","AR6004",1)
+    TriggerActivation("Tran6001",FALSE)
+END
+
+IF
+  Global("Deactivate","AR6004",1)
+  Global("AbazigalLairOpen","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","AR6004",2)
+    TriggerActivation("Tran6001",TRUE)
+    TriggerActivation("Info6001",FALSE)
+END
+
+IF
+  Global("Tran6005Deactivated","AR6004",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Tran6005Deactivated","AR6004",1)
+    TriggerActivation("TRAN6005",FALSE)
+END
+
+IF
+  Dead("bazdra03")  // ~Fll'Yissetat~
+  Global("FreedBazdra03","AR6004",0)
+  PartyHasItem("bazplo06")  // ~Reversal Scroll~
+THEN
+  RESPONSE #100
+    SetGlobal("FreedBazdra03","AR6004",1)
+    TakePartyItem("bazplo06")
+END
+
+IF
+  Global("Tran6005Deactivated","AR6004",1)
+  Global("FreedBazdra03","AR6004",1)
+  PartyHasItem("bazplo01")  // ~Abazigal's Wardstone~
+THEN
+  RESPONSE #100
+    SetGlobal("Tran6005Deactivated","AR6004",2)
+    SetGlobal("AbazigalLairOpen","GLOBAL",1)
+    TriggerActivation("TRAN6005",TRUE)
+    TriggerActivation("NoLair",FALSE)
+END
+

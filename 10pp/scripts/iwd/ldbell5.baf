@@ -1,0 +1,8 @@
+IF
+  Closed(Myself)
+  BitGlobal("GLOBAL:LOWER_DORNS_DEEP_GAREA_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+END
+

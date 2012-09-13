@@ -1,0 +1,15 @@
+IF
+  Range([GOODCUTOFF],20)
+  Global("SpawnElemental01","AR6002",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnElemental01","AR6002",1)
+    CreateVisualEffect("ICRMPARI",[602.294])
+    CreateVisualEffect("ICRMPARI",[419.221])
+    CreateVisualEffect("ICRMPARI",[170.289])
+    SmallWait(8)
+    CreateCreatureImpassable("ELWATG01",[602.294],2)
+    CreateCreatureImpassable("ELEMHYDR",[419.221],0)
+    CreateCreatureImpassable("ELWATG01",[170.289],14)
+END
+

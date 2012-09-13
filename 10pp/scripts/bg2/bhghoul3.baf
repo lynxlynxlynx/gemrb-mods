@@ -1,0 +1,13 @@
+IF
+  Range([PC],10)
+  Global("DisplayGhoul","GLOBAL",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("DisplayGhoul","GLOBAL",1)
+    DisplayStringHead(Myself,23290)  // ~What isss thisss?  What isss thisss?  Living onesss?  Here?  I mussst tell the mayor!!~
+    MoveToPointNoInterrupt([874.1108])
+    Enemy()
+    EscapeAreaMove("AR0206",1036,695,4)
+END
+

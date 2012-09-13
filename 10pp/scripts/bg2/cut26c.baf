@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(5)
+    CreateCreature("PLASS01",[245.367],13)  // ~Assassin~
+    CreateCreature("PLASS02",[449.206],13)  // ~Assassin~
+    CreateCreature("PLASS03",[487.392],7)  // ~Assassin~
+    CreateCreature("PLASS04",[528.353],7)  // ~Assassin~
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,28 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #10
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)
+    Wait(3)
+  RESPONSE #10
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_KILL)
+    Wait(3)
+  RESPONSE #20
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_SOLS_SEARING_ORB)
+    Wait(3)
+  RESPONSE #20
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)
+    Wait(3)
+  RESPONSE #20
+    ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+    Wait(3)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+

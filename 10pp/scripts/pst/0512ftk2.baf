@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(6)
+    MoveToPoint([534.719])
+    ChangeAIScript("0512ft2b",DEFAULT)
+END
+

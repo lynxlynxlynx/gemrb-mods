@@ -1,0 +1,33 @@
+IF
+  !TimerActive(67)
+THEN
+  RESPONSE #200
+    SetGlobal("Priority","LOCALS",0)
+    StartTimer(67,60)
+  RESPONSE #100
+    SetGlobal("Priority","LOCALS",1)
+    StartTimer(67,60)
+END
+
+IF
+  Global("Priority","LOCALS",0)
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    See("Iselore",0)  // Iselore
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Global("Priority","LOCALS",1)
+  Or(2)
+    See("Iselore",0)  // Iselore
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

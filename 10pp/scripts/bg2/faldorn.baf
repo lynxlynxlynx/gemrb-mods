@@ -1,0 +1,74 @@
+IF
+  !See([PC])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    SetGlobal("DruidFight","AR1901",12)
+    MoveToPointNoInterrupt([498.653])
+END
+
+IF
+  Global("DruidFight","AR1901",11)
+  See([PC])
+THEN
+  RESPONSE #100
+    Wait(1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(199)
+    Enemy()
+END
+
+IF
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    Shout(199)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF])
+  Allegiance(Myself,ENEMY)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    Shout(199)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],199)
+  Allegiance(Myself,NEUTRAL)
+  !Class(Myself,INNOCENT)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Heard([ANYONE],199)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],199)
+  !Class(Myself,INNOCENT)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(LastHeardBy(Myself))
+    Continue()
+END
+

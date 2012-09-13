@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("shadcut3")  // 
+    PlaySoundNotRanged("SHAM102")
+    Activate(Myself)
+    PlaySequence(ANIM_GETUP)
+    TimedMoveToPoint([1139.3106],45)
+    Face(8)
+    PlaySoundNotRanged("SHAM102")
+    Wait(3)
+    StartCutScene("0610ct1e")
+END
+

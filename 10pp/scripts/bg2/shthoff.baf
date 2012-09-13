@@ -1,0 +1,9 @@
+IF
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+  !Global("AmaAttacked","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+

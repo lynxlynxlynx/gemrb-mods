@@ -1,0 +1,17 @@
+IF
+  Global("53Refused_Entrance","GLOBAL",0)
+  IsOverMe([PC])
+THEN
+  RESPONSE #100
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  !Global("53Refused_Entrance","GLOBAL",0)
+  IsOverMe([PC])
+THEN
+  RESPONSE #100
+    TriggerActivation(Myself,FALSE)
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+

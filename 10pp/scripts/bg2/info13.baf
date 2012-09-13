@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16226)  // ~ _Hostile creatures have red circles around their feet. Left-clicking within the circle will direct your character to attack. You can switch weapons using the Quick Weapons icons. The weapon outlined in green is the current weapon. Attack with fists only (empty quick slot) if you only wish to knock your opponent unconscious. If you have a character with magical abilities, try casting a spell using their Spell icons. ~ [TEXTPOP]
+END
+

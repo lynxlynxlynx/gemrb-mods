@@ -1,0 +1,7 @@
+IF
+  Clicked([ANYONE])
+THEN
+  RESPONSE #100
+    SetGlobal("ReadBook3","GLOBAL",1)
+END
+

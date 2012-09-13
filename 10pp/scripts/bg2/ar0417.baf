@@ -1,0 +1,9 @@
+IF
+  GlobalGT("StealingPlot","GLOBAL",0)
+  Global("BorinallSpawn","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("BorinallSpawn","GLOBAL",2)
+    CreateCreature("BORINALL",[309.335],14)  // ~Borinall~
+END
+

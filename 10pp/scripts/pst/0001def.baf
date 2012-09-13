@@ -1,0 +1,18 @@
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Mortuary_Alert","GLOBAL",1)
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("Mortuary_Alert","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Mortuary_Alert","GLOBAL",1)
+    Enemy()
+    Attack([PC])
+END
+

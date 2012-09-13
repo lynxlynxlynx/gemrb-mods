@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("VhailF")  // 
+    FadeToBlack()
+    Wait(3)
+    StartCutScene("1201CV34")
+END
+

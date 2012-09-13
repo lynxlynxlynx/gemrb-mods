@@ -1,0 +1,9 @@
+IF
+  Or(2)
+    Global("63Thayvian_Ruse","GLOBAL",1)
+    Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("00aAtGN")
+END
+

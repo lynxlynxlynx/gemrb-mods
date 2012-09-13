@@ -1,0 +1,575 @@
+IF
+  Global("Check_Num_Players_In_Melee_Range","LOCALS",0)
+  TimerExpired(31)
+THEN
+  RESPONSE #100
+    StartTimer(31,3)
+    SetGlobal("Num_Players_In_Melee_Range","LOCALS",0)
+    SetGlobal("Check_Num_Players_In_Melee_Range","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_Players_In_Melee_Range","LOCALS",1)
+  See(NearestEnemyOf(Myself),0)
+  Range(LastSeenBy(Myself),5,LESS_THAN)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Num_Players_In_Melee_Range","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_Players_In_Melee_Range","LOCALS",1)
+  See(SecondNearestEnemyOf(Myself),0)
+  Range(LastSeenBy(Myself),5,LESS_THAN)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Num_Players_In_Melee_Range","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_Players_In_Melee_Range","LOCALS",1)
+  See(ThirdNearestEnemyOf(Myself),0)
+  Range(LastSeenBy(Myself),5,LESS_THAN)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Num_Players_In_Melee_Range","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_Players_In_Melee_Range","LOCALS",1)
+  Global("Num_Players_In_Melee_Range","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobal("Check_Num_Players_In_Melee_Range","LOCALS",-1)
+    Continue()
+END
+
+IF
+  !Global("Check_Num_Players_In_Melee_Range","LOCALS",-1)
+THEN
+  RESPONSE #100
+    SetGlobal("Check_Num_Players_In_Melee_Range","LOCALS",0)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetGlobal("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",0)
+    Continue()
+END
+
+IF
+  !HaveSpell(WIZARD_CIRCLE_OF_DEATH)
+THEN
+  RESPONSE #100
+    SetGlobal("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",-1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",0)
+  TimerExpired(32)
+THEN
+  RESPONSE #100
+    StartTimer(32,4)
+    SetGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",0)
+    SetGlobal("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  See(NearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  See(SecondNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  See(ThirdNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  GlobalLT("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",3)
+  See(FourthNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  GlobalLT("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",3)
+  See(FifthNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  GlobalLT("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",3)
+  See(SixthNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  GlobalLT("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",3)
+  See(SeventhNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  GlobalLT("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",3)
+  See(EigthNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("Check_Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+  GlobalLT("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",3)
+  See(NinthNearestEnemyOf(Myself),0)
+  CheckStatLT(LastSeenBy(Myself),6,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    MarkObject(LastSeenBy(Myself))
+    IncrementGlobal("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("53Kadres_Dead","GLOBAL",1)
+  Global("53Viizra_Dead","GLOBAL",1)
+  GlobalGT("53SorApp_Dead","GLOBAL",3)
+  GlobalGT("53DespuGu_Dead","GLOBAL",6)
+  Global("53Mass_Teleport","GLOBAL",0)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("53Mass_Teleport","GLOBAL",1)
+    SpellCastEffect("Malavon_Despana","","","Cas_100",GLOW_ALTERATION,1,ATTACK)
+    Wait(1)
+    DisplayString("Malavon_Despana",33980)  // ~Casts Mass Teleport~
+    SpellHitEffectSprite(Myself,"Malavon_Despana",PORTAL,0)
+    ActionOverride("Malavon_Despana",DestroySelf())
+    SpellHitEffectSprite(Myself,"Ginafae_Despana",PORTAL,0)
+    ActionOverride("Ginafae_Despana",DestroySelf())
+    SpellHitEffectSprite(Myself,"Viizra_Arabani",PORTAL,0)
+    ActionOverride("Viizra_Arabani",DestroySelf())
+    SpellHitEffectSprite(Myself,"Kadresh_Olonrae",PORTAL,0)
+    ActionOverride("Kadresh_Olonrae",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_01",PORTAL,0)
+    ActionOverride("House_Despana_Guard_01",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_02",PORTAL,0)
+    ActionOverride("House_Despana_Guard_02",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_03",PORTAL,0)
+    ActionOverride("House_Despana_Guard_03",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_04",PORTAL,0)
+    ActionOverride("House_Despana_Guard_04",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_05",PORTAL,0)
+    ActionOverride("House_Despana_Guard_05",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_06",PORTAL,0)
+    ActionOverride("House_Despana_Guard_06",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_07",PORTAL,0)
+    ActionOverride("House_Despana_Guard_07",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_08",PORTAL,0)
+    ActionOverride("House_Despana_Guard_08",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_09",PORTAL,0)
+    ActionOverride("House_Despana_Guard_09",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_10",PORTAL,0)
+    ActionOverride("House_Despana_Guard_10",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_11",PORTAL,0)
+    ActionOverride("House_Despana_Guard_11",DestroySelf())
+    SpellHitEffectSprite(Myself,"House_Despana_Guard_12",PORTAL,0)
+    ActionOverride("House_Despana_Guard_12",DestroySelf())
+    SpellHitEffectSprite(Myself,"Sorcere_Apprentice_01",PORTAL,0)
+    ActionOverride("Sorcere_Apprentice_01",DestroySelf())
+    SpellHitEffectSprite(Myself,"Sorcere_Apprentice_02",PORTAL,0)
+    ActionOverride("Sorcere_Apprentice_02",DestroySelf())
+    SpellHitEffectSprite(Myself,"Sorcere_Apprentice_03",PORTAL,0)
+    ActionOverride("Sorcere_Apprentice_03",DestroySelf())
+    SpellHitEffectSprite(Myself,"Sorcere_Apprentice_04",PORTAL,0)
+    ActionOverride("Sorcere_Apprentice_04",DestroySelf())
+    SpellHitEffectSprite(Myself,"Sorcere_Apprentice_05",PORTAL,0)
+    ActionOverride("Sorcere_Apprentice_05",DestroySelf())
+    SpellHitEffectSprite(Myself,"Sorcere_Apprentice_06",PORTAL,0)
+    ActionOverride("Sorcere_Apprentice_06",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_01",PORTAL,0)
+    ActionOverride("Goblin_Fodder_01",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_02",PORTAL,0)
+    ActionOverride("Goblin_Fodder_02",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_03",PORTAL,0)
+    ActionOverride("Goblin_Fodder_03",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_04",PORTAL,0)
+    ActionOverride("Goblin_Fodder_04",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_05",PORTAL,0)
+    ActionOverride("Goblin_Fodder_05",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_06",PORTAL,0)
+    ActionOverride("Goblin_Fodder_06",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_07",PORTAL,0)
+    ActionOverride("Goblin_Fodder_07",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_08",PORTAL,0)
+    ActionOverride("Goblin_Fodder_08",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_09",PORTAL,0)
+    ActionOverride("Goblin_Fodder_09",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_10",PORTAL,0)
+    ActionOverride("Goblin_Fodder_10",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_11",PORTAL,0)
+    ActionOverride("Goblin_Fodder_11",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_12",PORTAL,0)
+    ActionOverride("Goblin_Fodder_12",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_13",PORTAL,0)
+    ActionOverride("Goblin_Fodder_13",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_14",PORTAL,0)
+    ActionOverride("Goblin_Fodder_14",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_15",PORTAL,0)
+    ActionOverride("Goblin_Fodder_15",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_16",PORTAL,0)
+    ActionOverride("Goblin_Fodder_16",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_17",PORTAL,0)
+    ActionOverride("Goblin_Fodder_17",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_18",PORTAL,0)
+    ActionOverride("Goblin_Fodder_18",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_19",PORTAL,0)
+    ActionOverride("Goblin_Fodder_19",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_20",PORTAL,0)
+    ActionOverride("Goblin_Fodder_20",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_21",PORTAL,0)
+    ActionOverride("Goblin_Fodder_21",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_22",PORTAL,0)
+    ActionOverride("Goblin_Fodder_22",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_23",PORTAL,0)
+    ActionOverride("Goblin_Fodder_23",DestroySelf())
+    SpellHitEffectSprite(Myself,"Goblin_Fodder_24",PORTAL,0)
+    ActionOverride("Goblin_Fodder_24",DestroySelf())
+END
+
+IF
+  StateCheck(Myself,STATE_SILENCED)
+  Allegiance(Myself,ENEMY)
+  HaveSpell(WIZARD_VOCALIZE)
+  SetLastMarkedObject(Myself)
+  IsSpellTargetValid(Myself,WIZARD_VOCALIZE,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_VOCALIZE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(WIZARD_AEGIS)
+  SetLastMarkedObject(Myself)
+  IsSpellTargetValid(Myself,WIZARD_AEGIS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_AEGIS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("29102623",Nothing,35)
+      // WIZARD_EXECUTIONERS_EYES
+      // WIZARD_IMPROVED_HASTE
+    Continue()
+END
+
+IF
+  IsMarkedSpell(WIZARD_EXECUTIONERS_EYES)
+THEN
+  RESPONSE #100
+    SpellPoint([671.863],MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  IsMarkedSpell(WIZARD_IMPROVED_HASTE)
+THEN
+  RESPONSE #100
+    SpellPoint([671.863],MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  SetLastMarkedObject(Myself)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("26202710",Myself,3)
+      // WIZARD_TROLLISH_FORTITUDE
+      // WIZARD_SEVEN_EYES
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HaveSpell(WIZARD_LOWER_RESISTANCE)
+  See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastSeenBy(Myself),WIZARD_LOWER_RESISTANCE,0)
+  Or(3)
+    SubRace(LastSeenBy(Myself),PURERACE)
+    SubRace(LastSeenBy(Myself),PURERACE)
+    SubRace(LastSeenBy(Myself),PURERACE)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_LOWER_RESISTANCE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Global("Num_Players_In_Melee_Range","LOCALS",3)
+  HaveSpell(WIZARD_MALAVONS_RAGE)
+  See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(Myself,WIZARD_MALAVONS_RAGE,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MALAVONS_RAGE)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Global("Num_PC_Allied_Monsters_Below_Level_Six","LOCALS",3)
+  HaveSpell(WIZARD_CIRCLE_OF_DEATH)
+  See(NearestEnemyOf(Myself),0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_CIRCLE_OF_DEATH,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_CIRCLE_OF_DEATH)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Or(2)
+    See(NearestEnemyOf(Myself),0)
+    See([0.0.DRIDER],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("260325112519",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+      // WIZARD_SHROUD_OF_FLAME
+      // WIZARD_SUNFIRE
+    MarkSpellAndObject("25042401211826072316261523042412",LastMarkedObject,7)
+      // WIZARD_CONE_OF_COLD
+      // WIZARD_CONFUSION
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_DISINTEGRATE
+      // WIZARD_DIRE_CHARM
+      // WIZARD_FLESH_TO_STONE
+      // WIZARD_FIREBALL
+      // WIZARD_MALISON
+    MarkSpellAndObject("2507",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_DOMINATE_PERSON
+    MarkSpellAndObject("2510",[ANYONE],SPELLCAST_RANDOM)
+      // WIZARD_FEEBLEMIND
+    MarkSpellAndObject("230821122422231225192424",LastMarkedObject,7)
+      // WIZARD_LIGHTNING_BOLT
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_SLOW
+      // WIZARD_SUNFIRE
+      // WIZARD_VITRIOLIC_SPHERE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("25042401211826072316261523042412",LastMarkedObject,7)
+      // WIZARD_CONE_OF_COLD
+      // WIZARD_CONFUSION
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_DISINTEGRATE
+      // WIZARD_DIRE_CHARM
+      // WIZARD_FLESH_TO_STONE
+      // WIZARD_FIREBALL
+      // WIZARD_MALISON
+    MarkSpellAndObject("2507",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_DOMINATE_PERSON
+    MarkSpellAndObject("2510",[ANYONE],SPELLCAST_RANDOM)
+      // WIZARD_FEEBLEMIND
+    MarkSpellAndObject("230821122422231225192424",LastMarkedObject,7)
+      // WIZARD_LIGHTNING_BOLT
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_SLOW
+      // WIZARD_SUNFIRE
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("260325112519",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+      // WIZARD_SHROUD_OF_FLAME
+      // WIZARD_SUNFIRE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2507",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_DOMINATE_PERSON
+    MarkSpellAndObject("2510",[ANYONE],SPELLCAST_RANDOM)
+      // WIZARD_FEEBLEMIND
+    MarkSpellAndObject("230821122422231225192424",LastMarkedObject,7)
+      // WIZARD_LIGHTNING_BOLT
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_SLOW
+      // WIZARD_SUNFIRE
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("260325112519",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+      // WIZARD_SHROUD_OF_FLAME
+      // WIZARD_SUNFIRE
+    MarkSpellAndObject("25042401211826072316261523042412",LastMarkedObject,7)
+      // WIZARD_CONE_OF_COLD
+      // WIZARD_CONFUSION
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_DISINTEGRATE
+      // WIZARD_DIRE_CHARM
+      // WIZARD_FLESH_TO_STONE
+      // WIZARD_FIREBALL
+      // WIZARD_MALISON
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("2510",[ANYONE],SPELLCAST_RANDOM)
+      // WIZARD_FEEBLEMIND
+    MarkSpellAndObject("230821122422231225192424",LastMarkedObject,7)
+      // WIZARD_LIGHTNING_BOLT
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_SLOW
+      // WIZARD_SUNFIRE
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("260325112519",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+      // WIZARD_SHROUD_OF_FLAME
+      // WIZARD_SUNFIRE
+    MarkSpellAndObject("25042401211826072316261523042412",LastMarkedObject,7)
+      // WIZARD_CONE_OF_COLD
+      // WIZARD_CONFUSION
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_DISINTEGRATE
+      // WIZARD_DIRE_CHARM
+      // WIZARD_FLESH_TO_STONE
+      // WIZARD_FIREBALL
+      // WIZARD_MALISON
+    MarkSpellAndObject("2507",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_DOMINATE_PERSON
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("230821122422231225192424",LastMarkedObject,7)
+      // WIZARD_LIGHTNING_BOLT
+      // WIZARD_MAGIC_MISSILE
+      // WIZARD_MORDENKAINENS_FORCE_MISSILES
+      // WIZARD_SLOW
+      // WIZARD_SUNFIRE
+      // WIZARD_VITRIOLIC_SPHERE
+    MarkSpellAndObject("260325112519",FarthestEnemyOf(Myself),SPELLCAST_RANDOM)
+      // WIZARD_CHAIN_LIGHTNING
+      // WIZARD_SHROUD_OF_FLAME
+      // WIZARD_SUNFIRE
+    MarkSpellAndObject("25042401211826072316261523042412",LastMarkedObject,7)
+      // WIZARD_CONE_OF_COLD
+      // WIZARD_CONFUSION
+      // WIZARD_CHROMATIC_ORB
+      // WIZARD_DISINTEGRATE
+      // WIZARD_DIRE_CHARM
+      // WIZARD_FLESH_TO_STONE
+      // WIZARD_FIREBALL
+      // WIZARD_MALISON
+    MarkSpellAndObject("2507",[PC.0.0.0.0.0.0.0.0.CLASSMASK_FIGHTER],SPELLCAST_RANDOM)
+      // WIZARD_DOMINATE_PERSON
+    MarkSpellAndObject("2510",[ANYONE],SPELLCAST_RANDOM)
+      // WIZARD_FEEBLEMIND
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

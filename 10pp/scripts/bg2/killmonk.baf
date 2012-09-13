@@ -1,0 +1,24 @@
+IF
+  !Detect([PC])
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  Detect([PC])
+  !Range([PC],7)
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+
+IF
+  Detect([PC])
+  Range([PC],7)
+THEN
+  RESPONSE #100
+    SwingOnce()
+    Kill([PC])
+END
+

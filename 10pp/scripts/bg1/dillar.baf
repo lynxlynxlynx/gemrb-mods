@@ -1,0 +1,7 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Shout(1)
+END
+

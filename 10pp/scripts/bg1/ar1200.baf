@@ -1,0 +1,55 @@
+IF
+  OnCreation()
+  Global("THRONE","GLOBAL",1)
+  Global("CaedmonSpawn","GLOBAL",0)
+  !Exists("CAEDMO")  // ~Caedmon~
+THEN
+  RESPONSE #100
+    CreateCreature("CAEDMO",[582.847])  // ~Caedmon~
+    SetGlobal("CaedmonSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("BrennanSpawn","GLOBAL",0)
+  !Exists("BRENNA")  // ~Brennan Risling~
+THEN
+  RESPONSE #100
+    CreateCreature("BRENNA",[1400.796])  // ~Brennan Risling~
+    SetGlobal("BrennanSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("JonavinSpawn","GLOBAL",0)
+  !Exists("JONAVI")  // ~Jonavin~
+THEN
+  RESPONSE #100
+    CreateCreature("JONAVI",[2743.1023])  // ~Jonavin~
+    SetGlobal("JonavinSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  Global("Capture1200","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Capture1200","GLOBAL",1)
+    CreateCreature("FFHUNT",[1538.1248])  // ~Flaming Fist Enforcer~
+    CreateCreature("FFHUNT",[1538.1248])  // ~Flaming Fist Enforcer~
+END
+
+IF
+  Global("Chapter","GLOBAL",7)
+  !Exists("Kolvar")  // ~Kolvar~
+  !Dead("Kolvar")  // ~Kolvar~
+THEN
+  RESPONSE #100
+    CreateCreature("KOLVAR",[1215.625])  // ~Kolvar~
+END
+

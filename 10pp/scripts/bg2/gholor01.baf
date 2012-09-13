@@ -1,0 +1,14 @@
+IF
+  Delay(15)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,GHOULLORD_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),5)
+END
+

@@ -1,0 +1,15 @@
+IF
+  GlobalGT("SPRITE_IS_DEADNobleOrder","GLOBAL",4)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("SPRITE_IS_DEADNobleOrder","GLOBAL",0)
+  Global("MostNobleOrder","GLOBAL",0)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

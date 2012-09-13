@@ -1,0 +1,102 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  Die()
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Sarge",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx(NearestEnemyOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[831.393])  // ~Harmonium Officer~
+    CreateCreature("Sarge",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[265.1535])  // ~Harmonium Officer~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    Help()
+    RunAwayFromEx(LastAttackerOf(Myself),50,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(0)
+    FloatMessage(Myself,67262)  // ~"Hmm. Maybe someone over there will chat..."~
+    Wait(3)
+    Face(14)
+    Wait(3)
+    MoveToPoint([1146.927])
+    Face(8)
+    FloatMessage(Myself,67265)  // ~"Sometimes I think people are avoiding me..."~
+    Wait(3)
+    Face(2)
+    Wait(3)
+    Face(4)
+    Wait(3)
+    MoveToPoint([1271.851])
+    Face(10)
+    FloatMessage(Myself,67264)  // ~"All these people and I still feel lonely..."~
+    Wait(3)
+    Face(0)
+    Wait(3)
+    MoveToPoint([1320.871])
+    Face(12)
+    FloatMessage(Myself,67263)  // ~"Hi there, I'm Karina. How are you today?"~
+    Wait(3)
+    Face(4)
+    Wait(3)
+    MoveToPoint([1315.989])
+END
+

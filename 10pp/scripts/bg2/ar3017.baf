@@ -1,0 +1,423 @@
+IF
+  Global("IceSalamanderSpawn","AR3017",1)
+THEN
+  RESPONSE #100
+    SetGlobal("IceSalamanderSpawn","AR3017",2)
+    CreateVisualEffect("spanisum",[1055.1991])
+    CreateVisualEffect("spanisum",[1149.2167])
+    CreateVisualEffect("spanisum",[677.2195])
+    CreateVisualEffect("spanisum",[916.2358])
+    Wait(2)
+    CreateCreature("ICSALCOL",[1055.1991],0)  // ~Ice Salamander~
+    CreateCreature("ICSALCOL",[1149.2167],0)  // ~Ice Salamander~
+    CreateCreature("ICSALCOL",[677.2195],0)  // ~Ice Salamander~
+    CreateCreature("ICSALCOL",[916.2358],0)  // ~Ice Salamander~
+END
+
+IF
+  Global("OpenDungeonDoor3","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenDungeonDoor3","GLOBAL",1)
+    AmbientActivate("AMB_Flame01",FALSE)
+    AmbientActivate("AMB_Flame02",FALSE)
+    AmbientActivate("AMB_Flame03",FALSE)
+    AmbientActivate("AMB_Flame04",FALSE)
+    AmbientActivate("AMB_Flame05",FALSE)
+    AmbientActivate("AMB_Flame06",FALSE)
+END
+
+IF
+  Global("StairButton","GLOBAL",1)
+  Global("PortalActivated","AR3017",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PortalActivated","AR3017",1)
+    AmbientActivate("ExitPortal",TRUE)
+    SoundActivate("SndExitPortal",TRUE)
+END
+
+IF
+  Global("Torches","GLOBAL",6)
+  OpenState("DOOR05",FALSE)  // DOOR05
+THEN
+  RESPONSE #100
+    ScreenShake([20.20],20)
+    Wait(1)
+    PlaySound("EFF_M36B")
+    Wait(2)
+    DisplayStringHead(Player1,70424)  // ~The torches have been lit correctly and the door opens with a boom.~
+    OpenDoor("DOOR05")
+    AmbientActivate("AMB_Flame01",FALSE)
+    AmbientActivate("AMB_Flame02",FALSE)
+    AmbientActivate("AMB_Flame03",FALSE)
+    AmbientActivate("AMB_Flame04",FALSE)
+    AmbientActivate("AMB_Flame05",FALSE)
+    AmbientActivate("AMB_Flame06",FALSE)
+    AddXP2DA("PLOT6C")
+    TakePartyItem("PLOT04A")
+    TakePartyItem("PLOT04B")
+    TakePartyItem("PLOT04C")
+    TakePartyItem("PLOT04F")
+END
+
+IF
+  Global("BellJar","GLOBAL",1)
+  Global("GorCarFreed","AR3017",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("cut210a")
+END
+
+IF
+  RandomNum(3,1)
+THEN
+  RESPONSE #25
+    AmbientActivate("AMB_Arm1",TRUE)
+    StaticSequence("AMB_Arm1",0)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm1",TRUE)
+    StaticSequence("AMB_Arm1",3)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm1",TRUE)
+    StaticSequence("AMB_Arm1",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm1",TRUE)
+    StaticSequence("AMB_Arm1",2)
+    Continue()
+END
+
+IF
+  RandomNum(3,1)
+THEN
+  RESPONSE #25
+    AmbientActivate("AMB_Arm2",TRUE)
+    StaticSequence("AMB_Arm2",0)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm2",TRUE)
+    StaticSequence("AMB_Arm2",3)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm2",TRUE)
+    StaticSequence("AMB_Arm2",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm2",TRUE)
+    StaticSequence("AMB_Arm2",2)
+    Continue()
+END
+
+IF
+  RandomNum(3,1)
+THEN
+  RESPONSE #25
+    AmbientActivate("AMB_Arm3",TRUE)
+    StaticSequence("AMB_Arm3",0)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm3",TRUE)
+    StaticSequence("AMB_Arm3",3)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm3",TRUE)
+    StaticSequence("AMB_Arm3",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm3",TRUE)
+    StaticSequence("AMB_Arm3",2)
+    Continue()
+END
+
+IF
+  RandomNum(3,1)
+THEN
+  RESPONSE #25
+    AmbientActivate("AMB_Arm4",TRUE)
+    StaticSequence("AMB_Arm4",0)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm4",TRUE)
+    StaticSequence("AMB_Arm4",3)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm4",TRUE)
+    StaticSequence("AMB_Arm4",1)
+    Continue()
+  RESPONSE #25
+    AmbientActivate("AMB_Arm4",TRUE)
+    StaticSequence("AMB_Arm4",2)
+    Continue()
+END
+
+IF
+  !GlobalTimerNotExpired("AMB_Pipe1Timer","AR3017")
+THEN
+  RESPONSE #80
+    AmbientActivate("AMB_Pipe1A",FALSE)
+    AmbientActivate("AMB_Pipe1B",FALSE)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe1A",TRUE)
+    AmbientActivate("AMB_Pipe1B",FALSE)
+    SetGlobalTimer("AMB_Pipe1Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe1A",FALSE)
+    AmbientActivate("AMB_Pipe1B",TRUE)
+    StaticSequence("AMB_Pipe1B",0)
+    SetGlobalTimer("AMB_Pipe1Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe1A",FALSE)
+    AmbientActivate("AMB_Pipe1B",TRUE)
+    StaticSequence("AMB_Pipe1B",1)
+    SetGlobalTimer("AMB_Pipe1Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe1A",FALSE)
+    AmbientActivate("AMB_Pipe1B",TRUE)
+    StaticSequence("AMB_Pipe1B",2)
+    SetGlobalTimer("AMB_Pipe1Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe1A",FALSE)
+    AmbientActivate("AMB_Pipe1B",TRUE)
+    StaticSequence("AMB_Pipe1B",3)
+    SetGlobalTimer("AMB_Pipe1Timer","AR3017",3)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #80
+    AmbientActivate("AMB_Pipe2A",FALSE)
+    AmbientActivate("AMB_Pipe2B",FALSE)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe2A",TRUE)
+    AmbientActivate("AMB_Pipe2B",FALSE)
+    SetGlobalTimer("AMB_Pipe2Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe2A",FALSE)
+    AmbientActivate("AMB_Pipe2B",TRUE)
+    StaticSequence("AMB_Pipe2B",0)
+    SetGlobalTimer("AMB_Pipe2Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe2A",FALSE)
+    AmbientActivate("AMB_Pipe2B",TRUE)
+    StaticSequence("AMB_Pipe2B",1)
+    SetGlobalTimer("AMB_Pipe2Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe2A",FALSE)
+    AmbientActivate("AMB_Pipe2B",TRUE)
+    StaticSequence("AMB_Pipe2B",2)
+    SetGlobalTimer("AMB_Pipe2Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe2A",FALSE)
+    AmbientActivate("AMB_Pipe2B",TRUE)
+    StaticSequence("AMB_Pipe2B",3)
+    SetGlobalTimer("AMB_Pipe2Timer","AR3017",3)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #80
+    AmbientActivate("AMB_Pipe2A",FALSE)
+    AmbientActivate("AMB_Pipe2B",FALSE)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe3A",TRUE)
+    AmbientActivate("AMB_Pipe3B",FALSE)
+    SetGlobalTimer("AMB_Pipe3Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe3A",FALSE)
+    AmbientActivate("AMB_Pipe3B",TRUE)
+    StaticSequence("AMB_Pipe3B",0)
+    SetGlobalTimer("AMB_Pipe3Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe3A",FALSE)
+    AmbientActivate("AMB_Pipe3B",TRUE)
+    StaticSequence("AMB_Pipe3B",1)
+    SetGlobalTimer("AMB_Pipe3Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe3A",FALSE)
+    AmbientActivate("AMB_Pipe3B",TRUE)
+    StaticSequence("AMB_Pipe3B",2)
+    SetGlobalTimer("AMB_Pipe3Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe3A",FALSE)
+    AmbientActivate("AMB_Pipe3B",TRUE)
+    StaticSequence("AMB_Pipe3B",3)
+    SetGlobalTimer("AMB_Pipe3Timer","AR3017",3)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #80
+    AmbientActivate("AMB_Pipe4A",FALSE)
+    AmbientActivate("AMB_Pipe4B",FALSE)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe4A",TRUE)
+    AmbientActivate("AMB_Pipe4B",FALSE)
+    SetGlobalTimer("AMB_Pipe4Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe4A",FALSE)
+    AmbientActivate("AMB_Pipe4B",TRUE)
+    StaticSequence("AMB_Pipe4B",0)
+    SetGlobalTimer("AMB_Pipe4Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe4A",FALSE)
+    AmbientActivate("AMB_Pipe4B",TRUE)
+    StaticSequence("AMB_Pipe4B",1)
+    SetGlobalTimer("AMB_Pipe4Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe4A",FALSE)
+    AmbientActivate("AMB_Pipe4B",TRUE)
+    StaticSequence("AMB_Pipe4B",2)
+    SetGlobalTimer("AMB_Pipe4Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe4A",FALSE)
+    AmbientActivate("AMB_Pipe4B",TRUE)
+    StaticSequence("AMB_Pipe4B",3)
+    SetGlobalTimer("AMB_Pipe4Timer","AR3017",3)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #80
+    AmbientActivate("AMB_Pipe5A",FALSE)
+    AmbientActivate("AMB_Pipe5B",FALSE)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe5A",TRUE)
+    AmbientActivate("AMB_Pipe5B",FALSE)
+    SetGlobalTimer("AMB_Pipe5Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe5A",FALSE)
+    AmbientActivate("AMB_Pipe5B",TRUE)
+    StaticSequence("AMB_Pipe5B",0)
+    SetGlobalTimer("AMB_Pipe5Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe5A",FALSE)
+    AmbientActivate("AMB_Pipe5B",TRUE)
+    StaticSequence("AMB_Pipe5B",1)
+    SetGlobalTimer("AMB_Pipe5Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe5A",FALSE)
+    AmbientActivate("AMB_Pipe5B",TRUE)
+    StaticSequence("AMB_Pipe5B",2)
+    SetGlobalTimer("AMB_Pipe5Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe5A",FALSE)
+    AmbientActivate("AMB_Pipe5B",TRUE)
+    StaticSequence("AMB_Pipe5B",3)
+    SetGlobalTimer("AMB_Pipe5Timer","AR3017",3)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #80
+    AmbientActivate("AMB_Pipe6A",FALSE)
+    AmbientActivate("AMB_Pipe6B",FALSE)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe6A",TRUE)
+    AmbientActivate("AMB_Pipe6B",FALSE)
+    SetGlobalTimer("AMB_Pipe6Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe6A",FALSE)
+    AmbientActivate("AMB_Pipe6B",TRUE)
+    StaticSequence("AMB_Pipe6B",0)
+    SetGlobalTimer("AMB_Pipe6Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe6A",FALSE)
+    AmbientActivate("AMB_Pipe6B",TRUE)
+    StaticSequence("AMB_Pipe6B",1)
+    SetGlobalTimer("AMB_Pipe6Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe6A",FALSE)
+    AmbientActivate("AMB_Pipe6B",TRUE)
+    StaticSequence("AMB_Pipe6B",2)
+    SetGlobalTimer("AMB_Pipe6Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe6A",FALSE)
+    AmbientActivate("AMB_Pipe6B",TRUE)
+    StaticSequence("AMB_Pipe6B",3)
+    SetGlobalTimer("AMB_Pipe6Timer","AR3017",3)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #80
+    AmbientActivate("AMB_Pipe7A",FALSE)
+    AmbientActivate("AMB_Pipe7B",FALSE)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe7A",TRUE)
+    AmbientActivate("AMB_Pipe7B",FALSE)
+    SetGlobalTimer("AMB_Pipe7Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe7A",FALSE)
+    AmbientActivate("AMB_Pipe7B",TRUE)
+    StaticSequence("AMB_Pipe7B",0)
+    SetGlobalTimer("AMB_Pipe7Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe7A",FALSE)
+    AmbientActivate("AMB_Pipe7B",TRUE)
+    StaticSequence("AMB_Pipe7B",1)
+    SetGlobalTimer("AMB_Pipe7Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe7A",FALSE)
+    AmbientActivate("AMB_Pipe7B",TRUE)
+    StaticSequence("AMB_Pipe7B",2)
+    SetGlobalTimer("AMB_Pipe7Timer","AR3017",3)
+    Continue()
+  RESPONSE #10
+    AmbientActivate("AMB_Pipe7A",FALSE)
+    AmbientActivate("AMB_Pipe7B",TRUE)
+    StaticSequence("AMB_Pipe7B",3)
+    SetGlobalTimer("AMB_Pipe7Timer","AR3017",3)
+    Continue()
+END
+

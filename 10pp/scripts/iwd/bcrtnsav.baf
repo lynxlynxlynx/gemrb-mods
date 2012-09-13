@@ -1,0 +1,9 @@
+IF
+  !See(NearestEnemyOf(Myself))
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

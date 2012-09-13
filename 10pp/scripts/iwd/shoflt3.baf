@@ -1,0 +1,44 @@
+IF
+  BitGlobal("MYAREA:AREA_GROUP_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartTimer(24,4)
+    Continue()
+END
+
+IF
+  !TimerActive(24)
+THEN
+  RESPONSE #75
+    FloatMessage(Myself,17234)  // ~"Hmmm."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #75
+    FloatMessage(Myself,17319)  // ~"Makes sense."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #75
+    FloatMessage(Myself,17321)  // ~"That should be good."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #75
+    FloatMessage(Myself,17323)  // ~"Go on."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #75
+    FloatMessage(Myself,17326)  // ~"Interesting."~
+    StartTimer(24,4)
+    Continue()
+  RESPONSE #150
+    StartTimer(24,4)
+    Continue()
+END
+

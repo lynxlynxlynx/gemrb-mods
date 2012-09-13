@@ -1,0 +1,63 @@
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPLostGT(Myself,18)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  StateCheck(Myself,STATE_INVISIBLE)
+  RandomNum(5,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,4188)  // ~Leaving Shadows~
+    ClearSpriteEffects(Myself)
+    SetGlobalTimer("HideTimer","LOCALS",7)
+    SetBestWeapon(LastMarkedObject,3)
+    AttackReevaluate(LastMarkedObject,45)
+END
+
+IF
+  !StateCheck(Myself,STATE_INVISIBLE)
+  GlobalLT("Flee","LOCALS",7)
+  !TimerActive(99)
+  HPPercentLT(Myself,50)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Flee","LOCALS",1)
+    RunAwayFrom(LastMarkedObject,45)
+    StartTimer(99,5)
+    Continue()
+END
+
+IF
+  !CheckSpellState(Myself,SANCTUARY)
+  HasItem("00POTN74",Myself)  // ~Sanctuary Potion~
+  GlobalGT("Flee","LOCALS",0)
+THEN
+  RESPONSE #100
+    UseItem("00POTN74",Myself)  // ~Sanctuary Potion~
+END
+
+IF
+  !StateCheck(Myself,STATE_INVISIBLE)
+  GlobalTimerExpired("HideTimer","LOCALS")
+  Range(NearestPC,25,GREATER_THAN)
+  !StateCheck(Myself,STATE_DEAD)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,19944)  // ~Hide Succeeded~
+    ApplySpell(Myself,INNATE_INVISIBILITY_NO_FEEDBACK)
+    SetGlobal("Flee","LOCALS",0)
+END
+
+IF
+  StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

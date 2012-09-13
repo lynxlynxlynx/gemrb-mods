@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Dermin")  // 
+    EscapeArea()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Jaheira")  // 
+    Wait(3)
+    StartDialogNoSet(Player1)
+END
+

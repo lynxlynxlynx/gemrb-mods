@@ -1,0 +1,225 @@
+IF
+  InternalGT(Myself,0,2)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,0)
+    Continue()
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  HPPercentLT(Myself,25)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",Myself,SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(Nearest,25)
+  See(Nearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(SecondNearest,25)
+  See(SecondNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(ThirdNearest,25)
+  See(ThirdNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(FourthNearest,25)
+  See(FourthNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(FifthNearest,25)
+  See(FifthNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(SixthNearest,25)
+  See(SixthNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(SeventhNearest,25)
+  See(SeventhNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(EighthNearest,25)
+  See(EighthNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(NinthNearest,25)
+  See(NinthNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT(TenthNearest,25)
+  See(TenthNearest,0)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16071502",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_HEAL
+      // CLERIC_CURE_CRITICAL_WOUNDS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HasItem("SLiving",Myself)  // ~Slay Living~
+  Internal(Myself,0,0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,1)
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Internal(Myself,0,0)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("2501111115032306",LastMarkedObject,7)
+      // WIZARD_ANIMATE_DEAD
+      // CLERIC_BANE
+      // CLERIC_FLAME_STRIKE
+      // WIZARD_HOLD_PERSON
+    MarkSpellAndObject("1203140912151515",Myself,7)
+      // CLERIC_CHANT
+      // CLERIC_CLOAK_OF_FEAR
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_SLAY_LIVING
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1203140912151515",Myself,7)
+      // CLERIC_CHANT
+      // CLERIC_CLOAK_OF_FEAR
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_SLAY_LIVING
+    MarkSpellAndObject("2501111115032306",LastMarkedObject,7)
+      // WIZARD_ANIMATE_DEAD
+      // CLERIC_BANE
+      // CLERIC_FLAME_STRIKE
+      // WIZARD_HOLD_PERSON
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,0,1)
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    IncrementInternal(Myself,0,1)
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

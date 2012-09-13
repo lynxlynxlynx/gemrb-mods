@@ -1,0 +1,22 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("mindblast","LOCALS",0)
+THEN
+  RESPONSE #60
+    ForceSpell(LastSeenBy(Myself),PSIONIC_MIND_BLAST)
+    SetGlobal("mindblast","LOCALS",1)
+  RESPONSE #40
+    SetGlobal("mindblast","LOCALS",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(6)
+THEN
+  RESPONSE #25
+    ForceSpell(LastSeenBy(Myself),PSIONIC_MIND_BLAST)
+  RESPONSE #75
+    Continue()
+END
+

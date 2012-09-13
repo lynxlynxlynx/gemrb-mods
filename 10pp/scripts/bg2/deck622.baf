@@ -1,0 +1,102 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  Detect([PC])
+  Global("DeadPlayer1","LOCALS",1)
+THEN
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer2","LOCALS",1)
+THEN
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer3","LOCALS",1)
+THEN
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer4","LOCALS",1)
+THEN
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer5","LOCALS",1)
+THEN
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer6","LOCALS",1)
+THEN
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer1","LOCALS",0)
+THEN
+    AttackReevaluate(Player1,15)
+    SetGlobal("DeadPlayer1","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer2","LOCALS",0)
+THEN
+    AttackReevaluate(Player2,15)
+    SetGlobal("DeadPlayer2","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer3","LOCALS",0)
+THEN
+    AttackReevaluate(Player3,15)
+    SetGlobal("DeadPlayer3","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer4","LOCALS",0)
+THEN
+    AttackReevaluate(Player4,15)
+    SetGlobal("DeadPlayer4","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer5","LOCALS",0)
+THEN
+    AttackReevaluate(Player5,15)
+    SetGlobal("DeadPlayer5","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer6","LOCALS",0)
+THEN
+    AttackReevaluate(Player6,15)
+    SetGlobal("DeadPlayer6","LOCALS",1)
+END
+
+
+END

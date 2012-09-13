@@ -1,0 +1,40 @@
+IF
+  GlobalTimerExpired("TraineeFightEnd","GLOBAL")
+  Exists(Myself)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Global("TraineeFight","AR0307",1)
+  HP(Myself,1)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("TraineeFight","AR0307",2)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("TraineeFight","AR0307",1)
+  Global("Fight","LOCALS",0)
+  HPGT(Myself,1)
+THEN
+  RESPONSE #100
+    ForceSpell("arntra01",WIZARD_MAGIC_MISSILE)
+    Wait(2)
+    SetGlobal("Fight","LOCALS",1)
+END
+
+IF
+  Global("TraineeFight","AR0307",1)
+  Global("Fight","LOCALS",1)
+  HPGT(Myself,1)
+THEN
+  RESPONSE #100
+    ForceSpell("arntra01",WIZARD_FLAME_ARROW)
+    Wait(3)
+    SetGlobal("Fight","LOCALS",0)
+END
+

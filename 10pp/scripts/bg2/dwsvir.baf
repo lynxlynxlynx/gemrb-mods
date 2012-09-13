@@ -1,0 +1,15 @@
+IF
+  Allegiance(Myself,NEUTRAL)
+  Global("SvirHostile","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("SvirHostile","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+

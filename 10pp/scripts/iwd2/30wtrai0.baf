@@ -1,0 +1,23 @@
+IF
+  !TimerActive(21)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,1011)  // ~"Keep training SCUM!"~
+    StartRandomTimer(21,4,10)
+    Continue()
+END
+
+IF
+  !TimerActive(3)
+THEN
+  RESPONSE #100
+    Face(E)
+    StartRandomTimer(3,2,8)
+  RESPONSE #100
+    Face(NE)
+    StartRandomTimer(3,2,8)
+  RESPONSE #100
+    Face(SE)
+    StartRandomTimer(3,2,8)
+END
+

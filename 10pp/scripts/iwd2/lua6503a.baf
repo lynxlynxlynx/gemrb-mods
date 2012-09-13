@@ -1,0 +1,54 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    MultiPlayerSync()
+    LeaveAreaLUA("AR6503","LOAD6000",[625.580],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    MultiPlayerSync()
+    LeaveAreaLUA("AR6503","LOAD6000",[625.580],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    MultiPlayerSync()
+    LeaveAreaLUA("AR6503","LOAD6000",[625.580],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    MultiPlayerSync()
+    LeaveAreaLUA("AR6503","LOAD6000",[625.580],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    MultiPlayerSync()
+    LeaveAreaLUA("AR6503","LOAD6000",[625.580],10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    MultiPlayerSync()
+    LeaveAreaLUA("AR6503","LOAD6000",[625.580],10)
+END
+

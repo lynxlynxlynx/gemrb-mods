@@ -1,0 +1,33 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  !Dead(Myself)  // 
+  Or(2)
+    Global("50Dragon","GLOBAL",4)
+    NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  !TimerActive(18)
+  Global("50DRAGON","GLOBAL",3)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18343)  // ~"Ho-ho, keep to it! *Slay that dragon!*"~
+    StartRandomTimer(18,4,8)
+END
+
+IF
+  !TimerActive(18)
+  Or(2)
+    Global("50DRAGON","GLOBAL",2)
+    Global("50DRAGON","GLOBAL",4)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,18342)  // ~"Go on, then... into the cave!"~
+    StartRandomTimer(18,4,8)
+END
+

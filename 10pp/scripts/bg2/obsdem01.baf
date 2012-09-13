@@ -1,0 +1,17 @@
+IF
+  Detect([PC])
+  Global("summon","LOCALS",0)
+THEN
+  RESPONSE #100
+    CreateVisualEffect("SPFLAST2",[1972.1287])
+    CreateVisualEffect("SPFLSRIN",[1972.1287])
+    CreateCreature("OBSDEM04",[1972.1287],0)  // ~Maurezhi~
+    CreateVisualEffect("SPFLAST2",[1889.1461])
+    CreateVisualEffect("SPFLSRIN",[1889.1461])
+    CreateCreature("OBSDEM04",[1889.1461],0)  // ~Maurezhi~
+    CreateVisualEffect("SPFLAST2",[2244.1403])
+    CreateVisualEffect("SPFLSRIN",[2244.1403])
+    CreateCreature("OBSDEM04",[2244.1403],0)  // ~Maurezhi~
+    SetGlobal("summon","LOCALS",1)
+END
+

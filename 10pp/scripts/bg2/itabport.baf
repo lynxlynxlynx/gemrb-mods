@@ -1,0 +1,30 @@
+IF
+  WalkedToTrigger([ANYONE])
+  Dead("Abazigal")  // ~Abazigal~
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    Wait(2)
+    CreateVisualEffect("ICRMPAR2",[1450.1156])
+    StartCutScene("cut227a")
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  !Dead("Abazigal")  // ~Abazigal~
+  !GlobalTimerNotExpired("Entrance6000Timer","AR6005")
+THEN
+  RESPONSE #100
+    DisplayString(Myself,71126)  // ~Abazigal must be preventing you from entering the portal.~
+    SetGlobalTimer("Entrance6000Timer","AR6005",10)
+END
+
+IF
+  WalkedToTrigger([ANYONE])
+  GlobalTimerNotExpired("Entrance6000Timer","AR6005")
+THEN
+  RESPONSE #100
+    ClearActions(LastTrigger)
+END
+

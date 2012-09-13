@@ -1,0 +1,126 @@
+IF
+  Range([0.0.0.0.0.0.PERSON_14],10)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,33490)  // ~"Ya look like ya been rollin' around in Ragpicker's dump!"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_15],33491)  // ~"To hell with ya!"~
+    Wait(5)
+    StartTimer(1,15)
+  RESPONSE #100
+    FloatMessage(Myself,33492)  // ~"Eeech! Ya sleepin' with a Collector now, berk?"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_15],33493)  // ~"Ya smellin' yer own hole, ya bastard!" ~
+    Wait(5)
+    StartTimer(1,15)
+  RESPONSE #100
+    FloatMessage(Myself,33494)  // ~"Ya got less life in ya than a Dustman, cutter!"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_15],33495)  // ~"Piss off ya bleedin' sod!"~
+    Wait(5)
+    StartTimer(1,15)
+  RESPONSE #100
+    FloatMessage(Myself,33496)  // ~"I hear Krystall's got a thing for arses like yaself!"~
+    Wait(5)
+    FloatMessage([0.0.0.0.0.0.PERSON_15],33497)  // ~"That so? Well I'll be sure and ask her before I bring 'er head back for ya!"~
+    Wait(5)
+    StartTimer(1,15)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1821.1234])
+    Face(4)
+    WaitRandom(5,8)
+    GlobalSet("0301_DAS_Patrol1","AR0301",1)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1821.1575])
+    GlobalSet("0301_DAS_Patrol1","AR0301",2)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([2175.1773])
+    Face(8)
+    WaitRandom(5,8)
+    GlobalSet("0301_DAS_Patrol1","AR0301",3)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([2482.1773])
+    Face(2)
+    WaitRandom(5,8)
+    GlobalSet("0301_DAS_Patrol1","AR0301",4)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",4)
+THEN
+  RESPONSE #100
+    MoveToPoint([2565.1686])
+    Face(8)
+    WaitRandom(5,8)
+    GlobalSet("0301_DAS_Patrol1","AR0301",5)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",5)
+THEN
+  RESPONSE #100
+    MoveToPoint([2482.1773])
+    Face(2)
+    WaitRandom(5,8)
+    GlobalSet("0301_DAS_Patrol1","AR0301",6)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",6)
+THEN
+  RESPONSE #100
+    MoveToPoint([2175.1773])
+    Face(8)
+    WaitRandom(5,8)
+    GlobalSet("0301_DAS_Patrol1","AR0301",7)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",7)
+THEN
+  RESPONSE #100
+    MoveToPoint([1821.1575])
+    GlobalSet("0301_DAS_Patrol1","AR0301",8)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",8)
+THEN
+  RESPONSE #100
+    MoveToPoint([1821.1234])
+    Face(4)
+    WaitRandom(5,8)
+    GlobalSet("0301_DAS_Patrol1","AR0301",9)
+END
+
+IF
+  Global("0301_DAS_Patrol1","AR0301",9)
+THEN
+  RESPONSE #100
+    MoveToPoint([1698.1118])
+    Face(12)
+    Wait(10)
+    GlobalSet("0301_DAS_Patrol1","AR0301",0)
+END
+

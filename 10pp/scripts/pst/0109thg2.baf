@@ -1,0 +1,55 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    Help()
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Buried_Attack","GLOBAL",1)
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.0.0.0.0.0.THUG_1])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  Help([0.0.0.0.0.0.THUG_3])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  Global("Thug2_Move","AR0109",1)
+THEN
+  RESPONSE #100
+    RunToPoint([2039.1118])
+    Face(0)
+    Wait(3)
+    Face(2)
+    MoveToPoint([1870.1223])
+    Face(10)
+    ChangeAIScript("0109ght2",DEFAULT)
+END
+

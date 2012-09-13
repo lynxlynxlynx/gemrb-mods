@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ActionOverride("CPCHICK1",AttackReevaluate("CPCHICK2",30))
+    ActionOverride("CPCHICK2",AttackReevaluate("CPCHICK1",30))
+    Wait(6)
+    Kill("CPCHICK1")
+    SetGlobal("SurlyFight","AR0406",2)
+    StartCutScene("Cut03c")
+END
+

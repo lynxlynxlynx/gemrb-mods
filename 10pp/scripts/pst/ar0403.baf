@@ -1,0 +1,65 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("Stinger_Sound_403","GLOBAL",0)
+END
+
+IF
+  TimerExpired(1)
+THEN
+  RESPONSE #100
+    PlaySound("AM_0403m")
+    Continue()
+END
+
+IF
+  Global("Stinger_Sound_403","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Stinger_Sound_403","GLOBAL",1)
+    StartTimer(1,2)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0403_Visited","GLOBAL",0)
+  !Dead("Pharod")  // ~Collector Boss~
+THEN
+  RESPONSE #100
+    StartMovie("Ss_Phard")
+    GlobalSet("AR0403_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0403_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0403_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",403)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",403)
+    Continue()
+END
+
+IF
+  Global("Tenement_Alarm","AR0403",1)
+THEN
+  RESPONSE #100
+    GlobalSet("Tenement_Alarm","AR0403",2)
+    CreateCreature("SDThug1",[1241.1995])  // ~Starved Dog Barking Thug~
+    CreateCreature("SDThug2",[2199.2024])  // ~Starved Dog Barking Thug~
+    CreateCreature("SDThug4",[1040.2789])  // ~Starved Dog Barking Thug~
+    CreateCreature("SDThug6",[3766.2372])  // ~Starved Dog Barking Thug~
+    Wait(2)
+    OpenDoor("ar403d14")
+END
+

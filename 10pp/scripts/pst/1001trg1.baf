@@ -1,0 +1,22 @@
+IF
+  HarmlessEntered([PC])
+  GlobalGT("Pillar","GLOBAL",0)
+  Global("Evil_Fhjull_1","GLOBAL",1)
+  Global("Pillar_Cutscene_Once","AR1001",0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    StartTimer(1,5)
+    GlobalSet("Pillar_Cutscene_Once","AR1001",1)
+    StartCutSceneMode()
+    StartCutScene("1001cut4")
+END
+
+IF
+  HarmlessEntered([PC])
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    TeleportParty("AR1000",[4595.2209],4)
+END
+

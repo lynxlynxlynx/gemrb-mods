@@ -1,0 +1,11 @@
+IF
+  PartyHasItem("miscbh")  // ~Deirex's Gem~
+  Dead("JARLICH")  // ~Deirex~
+  Global("PortalToJarlaxle","AR2207",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearActions(Player1)
+    StartCutScene("cut52c")
+END
+

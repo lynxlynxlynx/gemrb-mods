@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("ammonk01")  // 
+    Wait(1)
+    CreateCreatureObject("CUTSPY","ammonk01",0,0,0)  // <Invalid Strref -1>
+    MoveViewObject("amcler01",10)
+    Wait(3)
+    ActionOverride("amcler01",StartDialogNoSet(LastSeenBy("ammonk01")))
+END
+

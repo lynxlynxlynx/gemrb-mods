@@ -1,0 +1,27 @@
+IF
+  GlobalTimerNotExpired("PrismFireDelay","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("41PrismTarget","MYAREA",1)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([3679.1503],2092)
+    SetGlobalTimer("PrismFireDelay","MYAREA",2)
+    TriggerActivation("Mirror12",TRUE)
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Global("41PrismTarget","MYAREA",2)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([896.320],2092)
+    SetGlobalTimer("PrismFireDelay","MYAREA",3)
+    TriggerActivation("Mirror8",TRUE)
+    TriggerActivation(Myself,FALSE)
+END
+

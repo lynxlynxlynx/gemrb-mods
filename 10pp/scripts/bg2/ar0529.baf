@@ -1,0 +1,23 @@
+IF
+  Global("NebIsASmellyBastard","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NebIsASmellyBastard","GLOBAL",2)
+    CreateCreature("neb",[510.338],0)  // ~Neb~
+END
+
+IF
+  Global("ChildWraithsFreed","GLOBAL",1)
+  Global("ChildrenRestore","AR0529",0)
+  NumDead("chwraith",4)
+THEN
+  RESPONSE #100
+    SetGlobal("ChildrenRestore","AR0529",1)
+    ActionOverride(Player1,ReallyForceSpell(Myself,CLERIC_LESSER_RESTORATION))
+    ActionOverride(Player2,ReallyForceSpell(Myself,CLERIC_LESSER_RESTORATION))
+    ActionOverride(Player3,ReallyForceSpell(Myself,CLERIC_LESSER_RESTORATION))
+    ActionOverride(Player4,ReallyForceSpell(Myself,CLERIC_LESSER_RESTORATION))
+    ActionOverride(Player5,ReallyForceSpell(Myself,CLERIC_LESSER_RESTORATION))
+    ActionOverride(Player6,ReallyForceSpell(Myself,CLERIC_LESSER_RESTORATION))
+END
+

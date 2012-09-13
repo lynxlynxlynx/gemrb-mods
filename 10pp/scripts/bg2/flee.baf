@@ -1,0 +1,18 @@
+IF
+  HPPercentLT(Myself,75)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),20)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(Myself),60)
+END
+

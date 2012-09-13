@@ -1,0 +1,21 @@
+IF
+  Detect([PC])
+  !GlobalTimerNotExpired("TalkTimer","LOCALS")
+  Global("MistressTalk","AR5010",2)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TalkTimer","LOCALS",10)
+  RESPONSE #10
+    SetGlobalTimer("TalkTimer","LOCALS",10)
+    DisplayStringHead(Myself,71372)  // ~Cold Mistress, please release us!~
+  RESPONSE #10
+    SetGlobalTimer("TalkTimer","LOCALS",10)
+    DisplayStringHead(Myself,71373)  // ~Save us!~
+  RESPONSE #10
+    SetGlobalTimer("TalkTimer","LOCALS",10)
+    DisplayStringHead(Myself,71374)  // ~We're doomed.~
+  RESPONSE #10
+    SetGlobalTimer("TalkTimer","LOCALS",10)
+    DisplayStringHead(Myself,71375)  // ~Gromnir does nothing for us.~
+END
+

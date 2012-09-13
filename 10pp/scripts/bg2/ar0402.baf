@@ -1,0 +1,34 @@
+IF
+  GlobalTimerExpired("JanDidPlot","GLOBAL")
+  Global("JanSpawn","AR0402",0)
+THEN
+  RESPONSE #100
+    SetGlobal("JanSpawn","AR0402",1)
+    MoveGlobal("AR0402","Jan",[258.331])
+END
+
+IF
+  GlobalGT("JanLissaPlot","GLOBAL",2)
+  GlobalLT("JanLissaPlot","GLOBAL",6)
+  InParty("Jan")  // Jan
+  !Dead("Jan")  // Jan
+THEN
+  RESPONSE #100
+    SetGlobal("JanLissaPlot","GLOBAL",5)
+    ActionOverride("Jan",StartDialogNoSet(Player1))
+    Wait(2)
+END
+
+IF
+  Global("JanLissaPlot","GLOBAL",12)
+  Global("VaelagSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("VaelagSpawn","GLOBAL",1)
+    CreateCreature("VAELAG",[371.326],4)  // ~Vaelag~
+    CreateCreature("VAELG01",[439.301],4)  // ~Vaelag's Guard~
+    CreateCreature("VAELG01",[394.270],4)  // ~Vaelag's Guard~
+    SmallWait(6)
+    ActionOverride("Vaelag",StartDialogNoSet(Player1))
+END
+

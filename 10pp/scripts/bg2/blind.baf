@@ -1,0 +1,9 @@
+IF
+  Delay(6)
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_BLIND)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_BLINDNESS)
+END
+

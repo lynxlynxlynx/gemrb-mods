@@ -1,0 +1,21 @@
+IF
+  Global("Deactivation0404","AR0405",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivation0404","AR0405",1)
+    TriggerActivation("Door0404",FALSE)
+    TriggerActivation("Door0404Info",TRUE)
+END
+
+IF
+  OR(2)
+    Global("Backroom","GLOBAL",1)
+    Global("HendakTold","GLOBAL",1)
+  Global("Deactivation0404","AR0405",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivation0404","AR0405",2)
+    TriggerActivation("Door0404",TRUE)
+    TriggerActivation("Door0404Info",FALSE)
+END
+

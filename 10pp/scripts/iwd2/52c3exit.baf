@@ -1,0 +1,12 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",3)
+  Or(2)
+    OpenState(Myself,FALSE)
+    CheckDoorFlags(Myself,DOORLOCKED)
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+    OpenDoor(Myself)
+    Lock(Myself)
+END
+

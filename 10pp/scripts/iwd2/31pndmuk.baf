@@ -1,0 +1,49 @@
+IF
+  !Global("30GOBPON_DEAD","GLOBAL",0)
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("30GOBPON_BETRAYER","GLOBAL",0)
+  Global("30GOBPON_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !TimerActive(21)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,627)  // ~"No kill Pondmuk.  Pondmuk good."~
+    StartRandomTimer(21,2,3)
+    Continue()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+END
+

@@ -1,0 +1,32 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("JoinedBandits","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("JoinedBandits","GLOBAL",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Heard("Ardenor",1)  // Ardenor
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard("Taurgousz",1)  // Taurgousz
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

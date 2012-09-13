@@ -1,0 +1,32 @@
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  HP(Myself,1)
+  NumberOfTimesTalkedTo(1)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  See([0.0.SHADOW])
+THEN
+  RESPONSE #100
+    AttackReevaluate([0.0.SHADOW],45)
+END
+
+IF
+  !See(NearestEnemyOf(Myself))
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

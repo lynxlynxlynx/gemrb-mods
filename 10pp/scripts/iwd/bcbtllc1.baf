@@ -1,0 +1,70 @@
+IF
+  !Global("BC_BATTLE_OVER","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("BCRTNSAV")
+  RESPONSE #100
+    WaitRandom(1,4)
+END
+
+IF
+  Global("SET_LOC_TIMER","LOCALS",0)
+  !Global("WENT_BATTLE_LOC","LOCALS",0)
+  GlobalTimerExpired("LOC_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobal("SET_LOC_TIMER","LOCALS",1)
+    SetGlobalTimer("LOC_TIMER","LOCALS",10)
+END
+
+IF
+  Global("CHANGING_SCRIPT","LOCALS",0)
+  !Global("SET_LOC_TIMER","LOCALS",0)
+  GlobalTimerExpired("LOC_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobal("CHANGING_SCRIPT","LOCALS",1)
+    ChangeCurrentScript("BCBTLLC2")
+END
+
+IF
+  ActionListEmpty()
+  !TimerActive(30)
+THEN
+  RESPONSE #100
+    WaitRandom(0,2)
+    MoveToPoint([2372.598])
+    SetGlobal("WENT_BATTLE_LOC","LOCALS",1)
+    StartRandomTimer(30,1,5)
+  RESPONSE #100
+    WaitRandom(0,2)
+    MoveToPoint([2637.617])
+    SetGlobal("WENT_BATTLE_LOC","LOCALS",1)
+    StartRandomTimer(30,1,5)
+  RESPONSE #100
+    WaitRandom(0,2)
+    MoveToPoint([2869.645])
+    SetGlobal("WENT_BATTLE_LOC","LOCALS",1)
+    StartRandomTimer(30,1,5)
+  RESPONSE #100
+    WaitRandom(0,2)
+    MoveToPoint([2387.618])
+    SetGlobal("WENT_BATTLE_LOC","LOCALS",1)
+    StartRandomTimer(30,1,5)
+  RESPONSE #100
+    WaitRandom(0,2)
+    MoveToPoint([2633.636])
+    SetGlobal("WENT_BATTLE_LOC","LOCALS",1)
+    StartRandomTimer(30,1,5)
+  RESPONSE #100
+    WaitRandom(0,2)
+    MoveToPoint([2852.697])
+    SetGlobal("WENT_BATTLE_LOC","LOCALS",1)
+    StartRandomTimer(30,1,5)
+  RESPONSE #100
+    WaitRandom(0,2)
+    MoveToPoint([3035.777])
+    SetGlobal("WENT_BATTLE_LOC","LOCALS",1)
+    StartRandomTimer(30,1,5)
+END
+

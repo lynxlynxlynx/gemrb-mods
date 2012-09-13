@@ -1,0 +1,7 @@
+IF
+  Dead("UnseeingEye")  // UnseeingEye
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

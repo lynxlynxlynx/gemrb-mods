@@ -1,0 +1,48 @@
+IF
+  See([0.0.KOBOLD.0.12])
+  See([0.0.KOBOLD.0.13])
+  Detect(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #25
+    ForceSpell([0.0.KOBOLD.0.12],POWER_AMP)
+    Wait(3)
+  RESPONSE #25
+    ForceSpell([0.0.KOBOLD.0.12],POWER_AMP)
+    Wait(2)
+  RESPONSE #25
+    ForceSpell([0.0.KOBOLD.0.12],POWER_AMP)
+    Wait(1)
+  RESPONSE #25
+    ForceSpell([0.0.KOBOLD.0.13],POWER_AMP)
+    Wait(4)
+END
+
+IF
+  See([0.0.KOBOLD.0.12])
+  Detect(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell([0.0.KOBOLD.0.12],POWER_AMP)
+    Wait(3)
+END
+
+IF
+  See([0.0.KOBOLD.0.13])
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #50
+    ForceSpell([0.0.KOBOLD.0.13],POWER_AMP)
+    Wait(4)
+  RESPONSE #50
+    ForceSpell(NearestEnemyOf(Myself),POWER_AMP)
+    Wait(3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),POWER_AMP)
+    Wait(2)
+END
+

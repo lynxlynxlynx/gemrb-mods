@@ -1,0 +1,119 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Shout(100)
+    EscapeArea()
+END
+
+IF
+  Detect([PC])
+  Dead("surakw1")  // ~Rakshasa~
+  Dead("surakw2")  // ~Rakshasa~
+  Dead("surakw3")  // ~Rakshasa~
+  Dead("surakw4")  // ~Rakshasa~
+  Dead("suelfw9")  // ~Elven Battle Mage~
+  Global("Scene2","AR2800",2)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("Scene2","AR2800",3)
+    DisplayStringHead(Myself,23965)  // ~Seek out the befoulers! ~
+    Wait(1)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Global("Scene2","AR2800",3)
+  !Dead("suelfw9")  // ~Elven Battle Mage~
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    Wait(1)
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Global("Scene2","AR2800",2)
+  See([ENEMY])
+  Global("Fight","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  Global("Scene2","AR2800",2)
+  See([ENEMY])
+  Global("Fight","LOCALS",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell(Myself,WIZARD_HASTE)
+END
+
+IF
+  Global("Scene2","AR2800",2)
+  See([ENEMY])
+  Global("Fight","LOCALS",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  Global("Scene2","AR2800",2)
+  See([ENEMY])
+  Global("Fight","LOCALS",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],FLASHY_4)
+END
+
+IF
+  Global("Scene2","AR2800",2)
+  See([ENEMY])
+  Global("Fight","LOCALS",4)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],WIZARD_VAMPIRIC_TOUCH)
+END
+
+IF
+  Global("Scene2","AR2800",2)
+  See([ENEMY])
+  Global("Fight","LOCALS",5)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Fight","LOCALS",1)
+    ForceSpell([ENEMY],WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  Global("Scene2","AR2800",2)
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

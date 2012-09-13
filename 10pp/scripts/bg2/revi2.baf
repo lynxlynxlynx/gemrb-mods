@@ -1,0 +1,28 @@
+IF
+  OR(2)
+    !InParty("Jaheira")  // Jaheira
+    Dead("Jaheira")  // Jaheira
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Allegiance("jarevia",ENEMY)  // ~Reviane~
+  !Allegiance(Myself,ENEMY)
+  Global("AttackBegins","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackBegins","LOCALS",1)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+

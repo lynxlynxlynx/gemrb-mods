@@ -1,0 +1,31 @@
+IF
+  Help([0.0.GNOLL])
+THEN
+  RESPONSE #0
+    Attack(LastAttackerOf(LastHelp(Myself)))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),45)
+END
+
+IF
+  Delay(15)
+  See(NearestEnemyOf(Myself))
+  Exists(LastAttackerOf(LastSeenBy(Myself)))
+  NumCreatureGT([ENEMY],1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

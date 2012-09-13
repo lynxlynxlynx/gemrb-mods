@@ -1,0 +1,64 @@
+IF
+  Dead("TOLGER2")  // ~Tolgerias~
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Detect("Valygar")  // Valygar
+  Global("TolgSawValygar","LOCALS",0)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    SetGlobal("TolgSawValygar","LOCALS",1)
+    ActionOverride("tolger",StartDialogNoSet([PC]))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("cowledwizard","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)
+    ApplySpell(Myself,WIZARD_PROTECTION_FROM_ENERGY)
+    ApplySpell(Myself,WIZARD_SPELL_DEFLECTION)
+    SetGlobal("cowledwizard","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_POWER_WORD_KILL)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_KILL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  See([0.0.0.0.0.SUMMONED])
+  HaveSpell(WIZARD_DEATH_SPELL)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell([0.0.0.0.0.SUMMONED],WIZARD_DEATH_SPELL)
+END
+

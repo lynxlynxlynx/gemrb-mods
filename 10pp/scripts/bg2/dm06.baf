@@ -1,0 +1,13 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  GlobalTimerExpired("DM06Timer","GLOBAL")
+  Global("DM06Active","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DM06Timer","GLOBAL",20)
+    ForceSpell(LastTrigger,DM_SHIELD)
+    TriggerActivation("DM06",FALSE)
+    SetGlobal("DM06Active","GLOBAL",1)
+END
+

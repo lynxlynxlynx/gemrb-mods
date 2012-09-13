@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    Face(2)
+    MoveToPoint([648.467])
+    Face(6)
+    Wait(5)
+    Face(12)
+    MoveToPoint([778.476])
+    Wait(5)
+    Face(6)
+    MoveToPoint([689.467])
+    MoveToPoint([689.433])
+    Face(6)
+END
+

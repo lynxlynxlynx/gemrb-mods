@@ -1,0 +1,8 @@
+IF
+  !Contains("bow19b",Myself)
+  Global("RobbedGolem","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("RobbedGolem","GLOBAL",1)
+END
+

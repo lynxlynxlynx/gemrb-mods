@@ -1,0 +1,29 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(2)
+    FadeToColor([30.0],0)
+    StorePartyLocations()
+    Wait(2)
+    LeaveAreaLUAPanic("AR6108","",[1249.1253],14)
+    LeaveAreaLUA("AR6108","",[1249.1253],14)
+    ActionOverride(Player2,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player3,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player4,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player5,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    ActionOverride(Player6,LeaveAreaLUA("AR6108","",[1249.1253],14))
+    Wait(2)
+    MultiPlayerSync()
+    CreateCreature("senmonk",[586.703],10)  // ~Master Bennon~
+    CreateCreature("cutspy",[628.576],10)  // <Invalid Strref -1>
+    MoveViewPoint([628.576],INSTANT)
+    Explore()
+    Wait(1)
+    FadeFromColor([30.0],0)
+    Wait(2)
+    ActionOverride("senmonk",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

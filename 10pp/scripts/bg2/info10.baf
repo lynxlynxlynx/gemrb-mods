@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16223)  // ~ _Bards can inspire their comrades in combat by use of the Battle Song. They are able to move when singing but any other action will end the song. While they may be rogues, Bards primarily concern themselves with people. Because of this, they can pick pockets but lack the other thieving skills. ~ [TEXTPOP]
+END
+

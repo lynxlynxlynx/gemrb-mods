@@ -1,0 +1,36 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    GlobalSet("1202_Vhailor_Created","GLOBAL",0)
+    StartTimer(1,15)
+END
+
+IF
+  See("Nameless")  // ~Nameless One~
+  !BitCheck("1202_Status","AR1202",BIT1)
+THEN
+  RESPONSE #100
+    PlaySoundNotRanged("Vha135e")
+    BitSet("1202_Status","AR1202",BIT1)
+    Wait(4)
+END
+
+IF
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    PlaySoundNotRanged("Vha137")
+    StartRandomTimer(1,30,45)
+  RESPONSE #100
+    PlaySoundNotRanged("Vha138")
+    StartRandomTimer(1,30,45)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+

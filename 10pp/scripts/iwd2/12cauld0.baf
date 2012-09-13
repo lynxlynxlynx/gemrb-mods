@@ -1,0 +1,156 @@
+IF
+  !TimerActive(18)
+  GlobalLT("Catapult_Quest","GLOBAL",2)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,16153)  // ~"Damnable catapult!"~
+    StartRandomTimer(18,15,20)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16154)  // ~"If only I had the right tools..."~
+    StartRandomTimer(18,15,20)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16155)  // ~"'Make do, Caulder, make do!'  Hah!"~
+    StartRandomTimer(18,15,20)
+    Continue()
+  RESPONSE #225
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  Global("Catapult_Quest","GLOBAL",2)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+  See([PC],0)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,16157)  // ~"Got that hammer yet?"~
+    StartRandomTimer(18,15,20)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16162)  // ~"I still need that hammer."~
+    StartRandomTimer(18,15,20)
+    Continue()
+  RESPONSE #150
+    Continue()
+END
+
+IF
+  !TimerActive(18)
+  GlobalGT("Catapult_Quest","GLOBAL",2)
+  Global("Goblins_Attack_Palisade","GLOBAL",0)
+THEN
+  RESPONSE #25
+    FloatMessage(Myself,16164)  // ~"Finally!  I didn't think it would ever work again."~
+    StartRandomTimer(18,15,20)
+    Continue()
+  RESPONSE #25
+    FloatMessage(Myself,16166)  // ~"Damnable nails!  Not so smart now, are you?!  ARE YOU?!"~
+    StartRandomTimer(18,15,20)
+    Continue()
+  RESPONSE #150
+    Continue()
+END
+
+IF
+  Global("Catapult_Quest","GLOBAL",2)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(0)
+  GlobalGT("Catapult_Quest","GLOBAL",2)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(19,5)
+END
+
+IF
+  !TimerActive(19)
+  NearSavedLocation(0)
+  GlobalGT("Catapult_Quest","GLOBAL",2)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(19,5)
+END
+
+IF
+  Global("ML_1","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,834,2626,4)
+THEN
+  RESPONSE #100
+    SetStartPos([834.2626])
+    SetGlobal("ML_1","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_1","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([834.2626])
+END
+
+IF
+  Global("ML_1","LOCALS",1)
+  !TimerActive(20)
+THEN
+  RESPONSE #100
+    Face(SW)
+    SetGlobal("ML_1","LOCALS",2)
+END
+
+IF
+  Global("ML_1","LOCALS",2)
+  !TimerActive(20)
+THEN
+  RESPONSE #100
+    StartRandomTimer(20,15,20)
+    SetGlobal("ML_1","LOCALS",3)
+END
+
+IF
+  Global("ML_1","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,822,2780,4)
+THEN
+  RESPONSE #100
+    SetStartPos([822.2780])
+    SetGlobal("ML_1","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("ML_1","LOCALS",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([822.2780])
+END
+
+IF
+  Global("ML_1","LOCALS",4)
+  !TimerActive(20)
+THEN
+  RESPONSE #100
+    Face(NW)
+    SetGlobal("ML_1","LOCALS",5)
+END
+
+IF
+  Global("ML_1","LOCALS",5)
+  !TimerActive(20)
+THEN
+  RESPONSE #100
+    StartRandomTimer(20,15,20)
+    SetGlobal("ML_1","LOCALS",0)
+END
+

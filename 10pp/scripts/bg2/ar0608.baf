@@ -1,0 +1,27 @@
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("KentSpawn","GLOBAL",0)
+  !Exists("KENT")  // KENT
+THEN
+  RESPONSE #100
+    CreateCreature("KENT",[302.235],0)  // KENT
+    SetGlobal("KentSpawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("Chapter","GLOBAL",7)
+  Global("Rashadspawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Rashadspawn","GLOBAL",1)
+    CreateCreature("RASHAD",[568.293],0)  // RASHAD
+    ActionOverride("ELTAN",DestroySelf())
+    CreateCreature("DELTAN2",[581.268],0)  // DELTAN2
+    SmallWait(2)
+    ActionOverride("ELTAN2",Face(6))
+    Continue()
+END
+

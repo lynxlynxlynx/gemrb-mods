@@ -1,0 +1,120 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  See([PC])
+  See([0.0.DOG])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),100)
+END
+
+IF
+  Name("udspid01",Myself)
+  !Allegiance(Myself,ENEMY)
+  Global("StartMoving","LOCALS",0)
+  Global("goBack","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("StartMoving","LOCALS",1)
+END
+
+IF
+  Name("udspid01",Myself)
+  !Allegiance(Myself,ENEMY)
+  Global("StartMoving","LOCALS",1)
+  Global("goBack","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(1)
+    MoveToPoint([1152.1846])
+    Wait(1)
+    MoveToPoint([1239.1524])
+    Wait(1)
+    MoveToPoint([1066.1277])
+    Wait(1)
+    MoveToPoint([518.1173])
+    Wait(4)
+    MoveToPoint([375.1430])
+    Wait(1)
+    MoveToPoint([567.1862])
+    Wait(1)
+END
+
+IF
+  Name("udspid02",Myself)
+  See("udspid01")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObjectFollow(LastSeenBy(Myself))
+END
+
+IF
+  Name("udspid02",Myself)
+  !See("udspid01")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject("udspid01")
+END
+
+IF
+  Name("udspid03",Myself)
+  See("udspid02")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObjectFollow(LastSeenBy(Myself))
+END
+
+IF
+  Name("udspid03",Myself)
+  !See("udspid02")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject("udspid02")
+END
+
+IF
+  Name("udspid04",Myself)
+  See("udspid03")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObjectFollow(LastSeenBy(Myself))
+END
+
+IF
+  Name("udspid04",Myself)
+  !See("udspid03")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject("udspid03")
+END
+
+IF
+  Name("udspid05",Myself)
+  See("udspid04")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObjectFollow(LastSeenBy(Myself))
+END
+
+IF
+  Name("udspid05",Myself)
+  !See("udspid04")  // ~Giant Spider~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject("udspid04")
+END
+

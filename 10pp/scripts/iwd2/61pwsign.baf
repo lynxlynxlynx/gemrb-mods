@@ -1,0 +1,16 @@
+IF
+  Clicked([PC])
+  CheckStatGT(LastTrigger,15,INT)
+THEN
+  RESPONSE #100
+    FloatMessage("INVISIBLE",25726)  // ~This badly damaged sign is barely legible, but by filling in the missing text you are able to determine its writing:  "By order of his greatness, High Priest Thorasskus, you are hereby ordered to proceed no further and exit these premises immediately.  This will be your only warning." ~
+    SetGlobal("61PlayerReadWarningSign","GLOBAL",1)
+END
+
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    FloatMessage("INVISIBLE",25727)  // ~You are unable to determine what is written on this badly damaged sign, but it appears to be some type of warning.~
+END
+

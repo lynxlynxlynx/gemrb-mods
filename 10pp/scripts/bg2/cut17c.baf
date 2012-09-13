@@ -1,0 +1,25 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("EnteredThePortal","AR0510",2)
+    FadeToColor([20.0],0)
+    Wait(2)
+    ActionOverride("Bounha",DestroySelf())
+    ActionOverride("Bounha02",DestroySelf())
+    ActionOverride("Bounha03",DestroySelf())
+    ActionOverride("Bounha04",DestroySelf())
+    ActionOverride("ffactor1",MoveBetweenAreas("AR0516",[451.617],14))
+    ActionOverride("ffactor2",MoveBetweenAreas("AR0516",[377.599],0))
+    ActionOverride("Raelis",MoveBetweenAreas("AR0516",[394.516],0))
+    ActionOverride("Haerdalis",ChangeAIScript("",DEFAULT))
+    ActionOverride("Haerdalis",SetDialogue("haerda"))
+    ActionOverride("Haerdalis",LeaveParty())
+    ActionOverride("Haerdalis",MoveGlobal("AR0516",Myself,[311.494]))
+    TriggerActivation("PlanarTransition",TRUE)
+    SetGlobal("PlanarPrison","GLOBAL",1)
+    FadeFromColor([20.0],0)
+    EndCutSceneMode()
+END
+

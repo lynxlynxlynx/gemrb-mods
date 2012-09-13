@@ -1,0 +1,30 @@
+IF
+  Global("AR2001_Attack","AR2001",1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("AR2001_Attack","AR2001",0)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,1708)  // ~*burp*~
+    WaitRandom(10,25)
+  RESPONSE #100
+    FloatMessage(Myself,1758)  // ~*chomp*~
+    WaitRandom(10,25)
+  RESPONSE #100
+    FloatMessage(Myself,1759)  // ~*crunch*~
+    WaitRandom(10,25)
+END
+

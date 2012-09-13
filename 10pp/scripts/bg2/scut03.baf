@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    ActionOverride("FSGoblin",Attack("FSSpir1"))
+    ReallyForceSpell("FSGoblin",WIZARD_MAGIC_MISSILE)
+    ReallyForceSpell("FSGoblin",WIZARD_MAGIC_MISSILE)
+    Attack("FSGoblin")
+    SetGlobal("FSGoblinFight","AR3023",1)
+END
+

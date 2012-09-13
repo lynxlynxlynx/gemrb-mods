@@ -1,0 +1,38 @@
+IF
+  GlobalLT("RatWarren","GLOBAL",3)
+THEN
+  RESPONSE #100
+    CreateCreature("ManyA",[916.456])  // ~Cranium Rat Collective~
+    CreateCreature("ManyA",[242.724])  // ~Cranium Rat Collective~
+    CreateCreature("ManyA",[1571.568])  // ~Cranium Rat Collective~
+    CreateCreature("ManyA",[1906.1024])  // ~Cranium Rat Collective~
+    ChangeAIScript("ar1601_3",DEFAULT)
+    Continue()
+END
+
+IF
+  GlobalGT("RatWarren","GLOBAL",2)
+  !Global("RatWarren","GLOBAL",6)
+  !Global("RatWarren","GLOBAL",7)
+THEN
+  RESPONSE #100
+    CreateCreature("ManyB",[916.456])  // ~Cranium Rat Collective~
+    CreateCreature("ManyB",[242.724])  // ~Cranium Rat Collective~
+    CreateCreature("ManyB",[1571.568])  // ~Cranium Rat Collective~
+    CreateCreature("ManyB",[1906.1024])  // ~Cranium Rat Collective~
+    ChangeAIScript("ar1601_3",DEFAULT)
+    Continue()
+END
+
+IF
+  GlobalGT("RatWarren","GLOBAL",5)
+THEN
+  RESPONSE #100
+    CreateCreature("ManyC",[916.456])  // ~Cranium Rat Collective~
+    CreateCreature("ManyC",[242.724])  // ~Cranium Rat Collective~
+    CreateCreature("ManyC",[1571.568])  // ~Cranium Rat Collective~
+    CreateCreature("ManyC",[1906.1024])  // ~Cranium Rat Collective~
+    ChangeAIScript("ar1601_3",DEFAULT)
+    Continue()
+END
+

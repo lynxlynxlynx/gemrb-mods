@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("FSSpir1")  // 
+    SetGlobal("MoveCut","AR3023",0)
+    Wait(1)
+    MoveViewPoint([921.295],6)
+    MoveToPointNoInterrupt([921.295])
+    CreateCreature("FSGIBB",[917.216],0)  // ~Gibberling~
+    ActionOverride("FSGibb",MoveToPoint([916.279]))
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

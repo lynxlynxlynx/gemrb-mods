@@ -1,0 +1,95 @@
+IF
+  See([0.0.0.0.10])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  Global("fight1","LOCALS",0)
+  Delay(10)
+THEN
+  RESPONSE #10
+    ForceSpell(LastSeenBy(Myself),WIZARD_BURNING_HANDS)
+    Wait(1)
+  RESPONSE #10
+    ForceSpell(LastSeenBy(Myself),WIZARD_AGANNAZAR_SCORCHER)
+    Wait(1)
+END
+
+IF
+  Dead("udelde")  // ~Greater Earth Elemental~
+  Global("spoken","LOCALS",0)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  Delay(1)
+THEN
+  RESPONSE #100
+    SetGlobal("spoken","LOCALS",1)
+    SetGlobal("dwVithal","GLOBAL",2)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Dead("udeldf")  // ~Greater Fire Elemental~
+  Global("spoken","LOCALS",1)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  Delay(1)
+THEN
+  RESPONSE #100
+    SetGlobal("spoken","LOCALS",2)
+    SetGlobal("dwVithal","GLOBAL",12)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Dead("udelda")  // ~Greater Air Elemental~
+  Global("spoken","LOCALS",2)
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  Delay(1)
+THEN
+  RESPONSE #100
+    SetGlobal("spoken","LOCALS",3)
+    SetGlobal("dwVithal","GLOBAL",16)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+  Global("dwVithal","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("dwVithal","GLOBAL",5)
+    Wait(2)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  See([PC])
+  Global("dwVithal","GLOBAL",14)
+  !Allegiance(Myself,ENEMY)
+  Global("firegate","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(2)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  See([PC])
+  Global("dwVithal","GLOBAL",18)
+  !Allegiance(Myself,ENEMY)
+  Global("airgate","LOCALS",0)
+THEN
+  RESPONSE #100
+    Wait(2)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("swapScripts","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mage18z",GENERAL)
+    SetGlobal("swapScripts","LOCALS",1)
+END
+

@@ -1,0 +1,68 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("Pipe03Clicked","AR0404",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Pipe03Clicked","AR0404",1)
+    DisplayString(Myself,27098)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:Vallah is no moreBut he has left a thing behindGive me a handAnd I shall help you in returnYou wonder why someone would write such things on pipes.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  Global("PipeOrder","AR0404",4)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27195)  // ~There is nothing else to do with this pipe.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("MISC5S")  // ~Hand~
+  Global("PipeOrder","AR0404",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27098)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:Vallah is no moreBut he has left a thing behindGive me a handAnd I shall help you in returnYou wonder why someone would write such things on pipes.~
+    DisplayString(Myself,27107)  // ~As you place the desiccated hand into the pipe, the fingers curl up into a fist.~
+    CreateVisualEffectObject("ICMAGICH",Myself)
+    SetGlobal("PipeOrder","AR0404",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  PartyHasItem("MISC5S")  // ~Hand~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27081)  // ~You hear the rush of wind and your hair stands on end. It seems that you've placed the items in the wrong order.~
+    ReallyForceSpell(LastTrigger,MEPHIT_LIGHTNING_BOLT)
+    SetGlobal("PipeOrder","AR0404",0)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+  !PartyHasItem("MISC5S")  // ~Hand~
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27098)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:Vallah is no moreBut he has left a thing behindGive me a handAnd I shall help you in returnYou wonder why someone would write such things on pipes.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,12)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,27098)  // ~There are words scratched into the rust of the pipe. The handwriting looks like that of a child:Vallah is no moreBut he has left a thing behindGive me a handAnd I shall help you in returnYou wonder why someone would write such things on pipes.~
+END
+

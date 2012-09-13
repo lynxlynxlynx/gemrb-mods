@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeFromColor([30.0],0)
+    MoveViewPoint([783.513],VERY_FAST)
+    MoveToPoint([783.513])
+    ActionOverride("ttbelt",StartDialogNoSet(Player1))
+END
+

@@ -1,0 +1,27 @@
+IF
+  !Allegiance(Myself,ENEMY)
+  GlobalTimerExpired("DamageTimer","LOCALS")
+  HPLostGT(Myself,1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("DamageTimer","LOCALS")
+  HPLostGT(Myself,1)
+  !See([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    MoveToObjectUntilSee(NearestPC)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("DamageTimer","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DamageTimer","LOCALS",5)
+END
+

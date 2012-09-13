@@ -1,0 +1,64 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("SC_Hostile","AR0402",1)
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("SC_Hostile","AR0402",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  GlobalLT("SC_Patron_3_Talk","AR0402",3)
+  Global("SC_Hostile","AR0402",0)
+  Range([PC],15)
+  See([0.0.0.0.0.0.MAGIC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,9509)  // ~"Sigil's just a big rat-hive in the eyes of the planeborn."~
+    Wait(4)
+    FloatMessage([0.0.0.0.0.0.MAGIC],9511)  // ~"What do you mean?"~
+    Wait(2)
+    FloatMessage(Myself,9510)  // ~"D'ya think any of the powers really finds this important?"~
+    Wait(4)
+    FloatMessage([0.0.0.0.0.0.MAGIC],9512)  // ~"What has that got to do with Sigil?"~
+    Wait(4)
+    FloatMessage(Myself,9513)  // ~"This is a place humans feel important. We're insignificant in the grand scheme. We're rats."~
+    Wait(8)
+    FloatMessage([0.0.0.0.0.0.MAGIC],9514)  // ~"No. YOU are a rat. The planes let you be as big as you want. Obviously you don't want to be."~
+    Wait(8)
+    FloatMessage(Myself,9515)  // ~"I don't know why I bother talking to you."~
+    Wait(4)
+    FloatMessage([0.0.0.0.0.0.MAGIC],9516)  // ~"Neither do I."~
+    Wait(10)
+    IncrementGlobal("SC_Patron_3_Talk","AR0402",1)
+END
+
+IF
+  GlobalGT("SC_Patron_3_Talk","AR0402",2)
+  Global("SC_Hostile","AR0402",0)
+  Range([PC],15)
+  See([0.0.0.0.0.0.MAGIC])
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,9515)  // ~"I don't know why I bother talking to you."~
+    Wait(4)
+    FloatMessage([0.0.0.0.0.0.MAGIC],9516)  // ~"Neither do I."~
+    Wait(10)
+END
+

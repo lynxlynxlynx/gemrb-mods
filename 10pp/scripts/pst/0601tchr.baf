@@ -1,0 +1,31 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+END
+
+IF
+  Global("Lecture_Death","GLOBAL",0)
+  Global("Lecture_Ghysis","GLOBAL",0)
+  Global("Lecture_3Planes","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(0)
+END
+

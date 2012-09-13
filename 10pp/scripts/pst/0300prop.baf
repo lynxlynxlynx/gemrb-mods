@@ -1,0 +1,52 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(0)
+    Wait(1)
+    FloatMessage(Myself,9381)  // ~"I foresee the end!"~
+    Wait(3)
+    Face(2)
+    Wait(1)
+    FloatMessage(Myself,9380)  // ~"A great darkness shall fall upon this city!"~
+    Wait(3)
+    Face(0)
+    Wait(1)
+    FloatMessage(Myself,9457)  // ~"The factions shall be cast out!"~
+    Wait(3)
+    Face(2)
+    Wait(1)
+    FloatMessage(Myself,9456)  // ~"Five years hence! Damnation!"~
+    Wait(3)
+    Face(0)
+    Wait(1)
+    FloatMessage(Myself,9455)  // ~"Where the Lady's shadow falls, so do men fall!"~
+    Wait(3)
+    Face(2)
+    Wait(1)
+    FloatMessage(Myself,9454)  // ~"To the mazes they shall go!"~
+    Wait(3)
+    Face(0)
+    Wait(1)
+    FloatMessage(Myself,9453)  // ~"Woe be to those who listen but do not heed!"~
+    Wait(3)
+    Face(2)
+    Wait(1)
+    FloatMessage(Myself,9463)  // ~"Even the factols themselves shall not be spared!"~
+    Wait(3)
+END
+

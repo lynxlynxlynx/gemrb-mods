@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Jarden")  // 
+    MoveToObject(Player1)
+    TakePartyGold(5000)
+    SetGlobal("BanditsStole","GLOBAL",1)
+    Wait(1)
+    ActionOverride("Ertof",StartDialogNoSet(Player1))
+END
+

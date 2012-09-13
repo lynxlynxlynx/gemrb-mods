@@ -1,0 +1,208 @@
+IF
+  Vacant()
+  !Exists([0.0.0.0.Cranium_RAT][0.0.10000.10000])
+  Exists([ENEMY][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    BitSet("1601_Status","AR1601",BIT2)
+    Continue()
+END
+
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    IncrementGlobal("1601_Times_Entered","AR1601",1)
+    GlobalSet("1601_Spells_Cast","AR1601",0)
+    BitClear("1601_Status","AR1601",BIT2)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",1601)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1601)
+    Continue()
+END
+
+IF
+  Global("AR1601_Visited","GLOBAL",0)
+  Exists("Nameless")  // ~Nameless One~
+THEN
+  RESPONSE #100
+    GlobalSet("AR1601_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("1601_Many_A_Respawn","GLOBAL",0)
+  Global("1601_Many_B_Respawn","GLOBAL",0)
+  Global("1601_Many_C_Respawn","GLOBAL",0)
+  GlobalLT("RatWarren","GLOBAL",3)
+THEN
+  RESPONSE #100
+    GlobalSet("1601_Many_A_Respawn","GLOBAL",1)
+    GlobalSet("1601_Many_A_Talker","GLOBAL",1)
+    BitSet("1601_Status","AR1601",BIT4)
+END
+
+IF
+  Global("1601_Many_A_Respawn","GLOBAL",0)
+  Global("1601_Many_B_Respawn","GLOBAL",0)
+  Global("1601_Many_C_Respawn","GLOBAL",0)
+  GlobalGT("RatWarren","GLOBAL",2)
+  GlobalLT("RatWarren","GLOBAL",6)
+THEN
+  RESPONSE #100
+    GlobalSet("1601_Many_B_Respawn","GLOBAL",1)
+    GlobalSet("1601_Many_B_Talker","GLOBAL",1)
+    BitSet("1601_Status","AR1601",BIT5)
+END
+
+IF
+  Global("1601_Many_A_Respawn","GLOBAL",0)
+  Global("1601_Many_B_Respawn","GLOBAL",0)
+  Global("1601_Many_C_Respawn","GLOBAL",0)
+  GlobalGT("RatWarren","GLOBAL",5)
+THEN
+  RESPONSE #100
+    GlobalSet("1601_Many_C_Respawn","GLOBAL",1)
+    GlobalSet("1601_Many_C_Talker","GLOBAL",1)
+    BitSet("1601_Status","AR1601",BIT6)
+END
+
+IF
+  NumCreatureGT([0.0.0.0.Cranium_RAT][0.0.10000.10000],4)
+THEN
+  RESPONSE #100
+    DebugOutput("Stop_spawning_rats")
+    GlobalSet("1601_Respawn","GLOBAL",0)
+    Continue()
+END
+
+IF
+  GlobalGT("Collective_Rats_Spawned","AR1601",49)
+  BitCheck("1601_Status","AR1601",BIT4)
+  !BitCheck("1601_Status","AR1601",BIT8)
+  NumCreatureLT([0.0.0.0.Cranium_RAT][0.0.10000.10000],5)
+THEN
+  RESPONSE #100
+    FloatMessageFixed([1175.1075],68483)  // ~"WE YIELD TO YOU, BIPED.  WE YIELD.  WE SHALL TROUBLE YOU NO MORE."~
+    BitSet("1601_Status","AR1601",BIT8)
+END
+
+IF
+  GlobalLT("1601_Times_Entered","AR1601",6)
+  GlobalLT("Collective_Rats_Spawned","AR1601",50)
+  BitCheck("1601_Status","AR1601",BIT3)
+  BitCheck("1601_Status","AR1601",BIT4)
+  NumCreatureLT([0.0.0.0.Cranium_RAT],5)
+THEN
+  RESPONSE #100
+    GlobalSet("1601_Respawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  GlobalGT("Collective_Rats_Spawned","AR1601",39)
+  BitCheck("1601_Status","AR1601",BIT5)
+  !BitCheck("1601_Status","AR1601",BIT8)
+  NumCreatureLT([0.0.0.0.Cranium_RAT][0.0.10000.10000],5)
+THEN
+  RESPONSE #100
+    FloatMessageFixed([1175.1075],68483)  // ~"WE YIELD TO YOU, BIPED.  WE YIELD.  WE SHALL TROUBLE YOU NO MORE."~
+    BitSet("1601_Status","AR1601",BIT8)
+END
+
+IF
+  GlobalLT("1601_Times_Entered","AR1601",6)
+  GlobalLT("Collective_Rats_Spawned","AR1601",40)
+  BitCheck("1601_Status","AR1601",BIT3)
+  BitCheck("1601_Status","AR1601",BIT5)
+  NumCreatureLT([0.0.0.0.Cranium_RAT],5)
+THEN
+  RESPONSE #100
+    GlobalSet("1601_Respawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  GlobalGT("Collective_Rats_Spawned","AR1601",34)
+  BitCheck("1601_Status","AR1601",BIT6)
+  !BitCheck("1601_Status","AR1601",BIT8)
+  NumCreatureLT([0.0.0.0.Cranium_RAT][0.0.10000.10000],5)
+THEN
+  RESPONSE #100
+    FloatMessageFixed([1175.1075],68483)  // ~"WE YIELD TO YOU, BIPED.  WE YIELD.  WE SHALL TROUBLE YOU NO MORE."~
+    BitSet("1601_Status","AR1601",BIT8)
+END
+
+IF
+  GlobalLT("1601_Times_Entered","AR1601",6)
+  GlobalLT("Collective_Rats_Spawned","AR1601",35)
+  BitCheck("1601_Status","AR1601",BIT3)
+  BitCheck("1601_Status","AR1601",BIT6)
+  NumCreatureLT([0.0.0.0.Cranium_RAT],5)
+THEN
+  RESPONSE #100
+    GlobalSet("1601_Respawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  GlobalLT("1601_Spells_Cast","AR1601",15)
+  BitCheck("1601_Status","AR1601",BIT4)
+  BitCheck("1601_Status","AR1601",BIT1)
+THEN
+  RESPONSE #100
+    ForceAIScript("1601mana",[0.0.0.MANY_1][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601mana",[0.0.0.MANY_2][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601mana",[0.0.0.MANY_3][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601mana",[0.0.0.MANY_4][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+END
+
+IF
+  GlobalLT("1601_Spells_Cast","AR1601",10)
+  BitCheck("1601_Status","AR1601",BIT5)
+  BitCheck("1601_Status","AR1601",BIT1)
+THEN
+  RESPONSE #100
+    ForceAIScript("1601manb",[0.0.0.MANY_1][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601manb",[0.0.0.MANY_2][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601manb",[0.0.0.MANY_3][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601manb",[0.0.0.MANY_4][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+END
+
+IF
+  GlobalLT("1601_Spells_Cast","AR1601",7)
+  BitCheck("1601_Status","AR1601",BIT6)
+  BitCheck("1601_Status","AR1601",BIT1)
+THEN
+  RESPONSE #100
+    ForceAIScript("1601manc",[0.0.0.MANY_1][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601manc",[0.0.0.MANY_2][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601manc",[0.0.0.MANY_3][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+  RESPONSE #100
+    ForceAIScript("1601manc",[0.0.0.MANY_4][0.0.10000.10000],DEFAULT)
+    BitClear("1601_Status","AR1601",BIT1)
+END
+

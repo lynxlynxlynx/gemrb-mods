@@ -1,0 +1,55 @@
+IF
+  !IsCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS)
+  !Global("30SSpid_Door","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+    Continue()
+END
+
+IF
+  !TimerActive(22)
+  ActionListEmpty()
+  !Global("30SSpid_Door","GLOBAL",0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartRandomTimer(22,0,3)
+END
+
+IF
+  Global("RW_30SPDMOV1","LOCALS",0)
+  !NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    SetGlobal("RW_30SPDMOV1","LOCALS",1)
+    Continue()
+END
+
+IF
+  !Global("RW_30SPDMOV1","LOCALS",0)
+  NearSavedLocation(4)
+THEN
+  RESPONSE #100
+    SetGlobal("RW_30SPDMOV1","LOCALS",0)
+    NoAction()
+END
+
+IF
+  !Global("RW_30SPDMOV1","LOCALS",0)
+  Global("30SSpid_Door","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([-2.-2])
+END
+
+IF
+  !TimerActive(23)
+  Global("RW_30SPDMOV1","LOCALS",0)
+  Global("30SSpid_Door","GLOBAL",0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartRandomTimer(23,5,10)
+END
+

@@ -1,0 +1,27 @@
+IF
+  GlobalTimerExpired("FleshDead","AR0801")
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("FleshAttack","AR0801",1)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1406.1013])
+    Unlock("DOOR03")
+    OpenDoor("DOOR03")
+    Lock("DOOR03")
+    SetGlobalTimer("FleshDead","AR0801",30)
+    SetGlobal("FleshAttack","AR0801",2)
+END
+
+IF
+  Global("FleshAttack","AR0801",2)
+  See([ENEMY])
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY],45)
+END
+

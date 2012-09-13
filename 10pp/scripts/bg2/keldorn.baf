@@ -1,0 +1,336 @@
+IF
+  OR(9)
+    Dead("peony")  // ~Peony~
+    Allegiance("peony",ENEMY)  // ~Peony~
+    Dead("maria")  // ~Lady Maria~
+    Allegiance("maria",ENEMY)  // ~Lady Maria~
+    Dead("leona")  // ~Leona~
+    Allegiance("leona",ENEMY)  // ~Leona~
+    Dead("vesper")  // ~Vesper~
+    Allegiance("vesper",ENEMY)  // ~Vesper~
+    Global("AttackedKeldornsFamily","GLOBAL",1)
+  InParty(Myself)
+  AreaCheck("AR1003")
+  Global("KeldornKickMe","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KeldornKickMe","LOCALS",1)
+    DisplayStringHead(Myself,11532)  // ~This is the end, m'<PRO_LADYLORD>.  It always was... My destiny demands it as much as yours.~
+    LeaveParty()
+    Enemy()
+END
+
+IF
+  InParty(Myself)
+  Global("EnteredAR1000","LOCALS",0)
+  AreaCheck("AR1000")
+THEN
+  RESPONSE #100
+    SetGlobal("KeldornEstate","LOCALS",1)
+    SetGlobal("EnteredAR1000","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  See("Peony")  // ~Peony~
+  InParty("keldorn")  // keldorn
+  !Global("MariaFight","LOCALS",2)
+  !Allegiance("peony",ENEMY)  // ~Peony~
+  !Allegiance("maria",ENEMY)  // ~Lady Maria~
+  !Allegiance("leona",ENEMY)  // ~Leona~
+  !Allegiance("vesper",ENEMY)  // ~Vesper~
+  !Dead("peony")  // ~Peony~
+  !Dead("maria")  // ~Lady Maria~
+  !Dead("leona")  // ~Leona~
+  !Dead("vesper")  // ~Vesper~
+  Global("TalkedPeony","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KeldornComplain","LOCALS",3)
+    StartCutSceneMode()
+    StartCutScene("Cut19a")
+END
+
+IF
+  Detect(Player1)
+  Global("MariaFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+    SetGlobal("MariaFight","LOCALS",2)
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("KeldornHome","GLOBAL")
+  GlobalLT("KeldornComplain","LOCALS",2)
+  !Global("Chapter","GLOBAL",4)
+  !Global("Chapter","GLOBAL",5)
+  !Global("Chapter","GLOBAL",7)
+  AreaType(OUTDOOR)
+  CombatCounter(0)
+  See(Player1)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("ActiveKeldorn","LOCALS",0)
+  Global("BeholderPlot","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ActiveKeldorn","LOCALS",1)
+    Deactivate(Myself)
+END
+
+IF
+  GlobalLT("ActiveKeldorn","LOCALS",2)
+  GlobalGT("BeholderPlot","GLOBAL",0)
+  AreaCheck("ar0701")
+THEN
+  RESPONSE #100
+    SetGlobal("ActiveKeldorn","LOCALS",2)
+    Activate(Myself)
+    CreateCreatureObject("KELZOMB",Myself,0,0,0)  // ~Zombie~
+END
+
+IF
+  Dead("Kelzomb")  // ~Zombie~
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  !Dead("Kelzomb")  // ~Zombie~
+  See("Kelzomb")  // ~Zombie~
+  Detect([PC])
+THEN
+  RESPONSE #100
+    Attack("Kelzomb")
+END
+
+IF
+  InParty(Myself)
+  InParty("Minsc")  // Minsc
+  Dead("Minsc")  // Minsc
+  Global("MinscDies","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MinscDies","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+  InParty("Minsc")  // Minsc
+  See("Minsc")  // Minsc
+  !Dead("Minsc")  // Minsc
+  Global("MinscDies","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("Minsc",Interact("Keldorn"))
+END
+
+IF
+  InParty(Myself)
+  InParty("Jan")  // Jan
+  Dead("Jan")  // Jan
+  Global("JanDies","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("JanDies","GLOBAL",1)
+END
+
+IF
+  InParty(Myself)
+  !StateCheck(Myself,STATE_SLEEPING)
+  InParty("Jan")  // Jan
+  See("Jan")  // Jan
+  !Dead("Jan")  // Jan
+  Global("JanDies","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("Jan",Interact("Keldorn"))
+END
+
+IF
+  Global("JanDies","GLOBAL",1)
+  InParty("Jan")  // Jan
+  !Dead("Jan")  // Jan
+  OR(3)
+    !InParty(Myself)
+    !See("Jan")  // Jan
+    StateCheck(Myself,STATE_SLEEPING)
+THEN
+  RESPONSE #100
+    SetGlobal("JanDies","GLOBAL",0)
+END
+
+IF
+  InParty(Myself)
+  OR(2)
+    Global("AnomenIsKnight","GLOBAL",1)
+    Global("AnomenIsNotKnight","GLOBAL",1)
+  Global("AnomenIsKnightGlobal","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("KeldornAnomenKnight","GLOBAL",TWO_DAYS)
+    SetGlobal("AnomenIsKnightGlobal","LOCALS",1)
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("KeldornAnomenKnight","GLOBAL")
+  InParty("Anomen")  // Anomen
+  See("Anomen")  // Anomen
+  !Dead("Anomen")  // Anomen
+  !StateCheck("Anomen",STATE_SLEEPING)  // Anomen
+  CombatCounter(0)
+  Global("BeratesOnce","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BeratesOnce","LOCALS",1)
+    Interact("Anomen")
+END
+
+IF
+  InParty(Myself)
+  OR(2)
+    AreaCheck("AR0308")
+    AreaCheck("AR0309")
+  InParty("Jaheira")  // Jaheira
+  See("Jaheira")  // Jaheira
+  !Dead("Jaheira")  // Jaheira
+  !StateCheck("Jaheira",STATE_SLEEPING)  // Jaheira
+  CombatCounter(0)
+  Global("BKeldorn9","LOCALS",0)
+THEN
+  RESPONSE #100
+    Interact("Jaheira")
+END
+
+IF
+  InParty(Myself)
+  GlobalTimerExpired("KeldornMetPlayer","GLOBAL")
+  OR(2)
+    ReputationGT(Player1,14)
+    ReputationLT(Player1,9)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+  CombatCounter(0)
+  Global("KeldornJudgement","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KeldornJudgement","LOCALS",1)
+    Interact(Player1)
+END
+
+IF
+  InParty(Myself)
+  See(Player1)
+  !StateCheck(Player1,STATE_SLEEPING)
+  Global("FoundAegis","GLOBAL",0)
+  Global("FoundAegis2","LOCALS",0)
+  Delay(10)
+  PartyHasItem("misc5m")  // ~Inspector's Body~
+THEN
+  RESPONSE #100
+    SetGlobal("FoundAegis2","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("TempleShout0903","GLOBAL",1)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    LeaveParty()
+    Enemy()
+END
+
+IF
+  Global("TempleShout0903","GLOBAL",1)
+  !InParty(Myself)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  InParty(Myself)
+  Global("EdwinKeldornFight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetLeavePartyDialogueFile()
+    LeaveParty()
+    ChangeAIScript("kelvsed",SPECIFICS)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  InParty(Myself)
+  Global("AnomenKeldornFight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetLeavePartyDialogueFile()
+    LeaveParty()
+    ChangeAIScript("kelvsam",SPECIFICS)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  InParty(Myself)
+  Global("ViconiaKeldornFight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetLeavePartyDialogueFile()
+    LeaveParty()
+    ChangeAIScript("kelvsvic",CLASS)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("",DEFAULT)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",1)
+    ChangeAIScript("keldornx",CLASS)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    SetDialogue("")
+    Continue()
+END
+
+IF
+  Allegiance(Myself,NEUTRAL)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("keldornx",CLASS)
+    ChangeAIScript("useitem",GENERAL)
+    ChangeAIScript("",DEFAULT)
+    Enemy()
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !InParty(Myself)
+  Global("NPCFight","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("NPCFight","LOCALS",0)
+    ChangeAIScript("",CLASS)
+    ChangeAIScript("",GENERAL)
+    Continue()
+END
+

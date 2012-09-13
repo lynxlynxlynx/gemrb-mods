@@ -1,0 +1,60 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("PITFEAR","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),DEMON_FEAR)
+    SetGlobal("PITFEAR","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DeathKnightFireball","LOCALS",0)
+THEN
+  RESPONSE #50
+    ForceSpell(LastSeenBy(Myself),DEATHKNIGHT_FIREBALL)
+    SetGlobal("DeathKnightFireball","LOCALS",1)
+  RESPONSE #50
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+    SetGlobal("DeathKnightFireball","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DeathAttack","LOCALS",0)
+THEN
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),DEATHKNIGHT_FIREBALL)
+    SetGlobal("DeathAttack","LOCALS",1)
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
+    SetGlobal("DeathAttack","LOCALS",1)
+  RESPONSE #60
+    AttackReevaluate(LastSeenBy(Myself),15)
+    SetGlobal("DeathAttack","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DeathAttack","LOCALS",1)
+THEN
+  RESPONSE #50
+    ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
+    SetGlobal("DeathAttack","LOCALS",2)
+  RESPONSE #50
+    ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
+    SetGlobal("DeathAttack","LOCALS",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DeathAttack","LOCALS",2)
+THEN
+  RESPONSE #15
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
+  RESPONSE #15
+    ReallyForceSpell(LastSeenBy(Myself),DEATHKNIGHT_FIREBALL)
+  RESPONSE #70
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

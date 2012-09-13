@@ -1,0 +1,30 @@
+IF
+  !Global("SEER_DEAD","GLOBAL",0)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("CHANGED_MUSIC","MYAREA",0)
+  !Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MUSIC_TIMER","MYAREA",70)
+    SetGlobal("CHANGED_MUSIC","MYAREA",1)
+    StartMusic(MISC0,QUICK_FADE)
+    FaceObject(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    Continue()
+END
+

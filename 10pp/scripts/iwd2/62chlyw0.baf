@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Mdarfein")  // 
+    ActionOverride(Player1,MoveToPoint([1911.1803]))
+    ActionOverride(Player2,MoveToPoint([1861.1780]))
+    ActionOverride(Player3,MoveToPoint([1945.1769]))
+    ActionOverride(Player4,MoveToPoint([1894.1744]))
+    ActionOverride(Player5,MoveToPoint([1974.1734]))
+    ActionOverride(Player6,MoveToPoint([1912.1707]))
+    MoveViewObject("Mdarfein",9)
+    Wait(10)
+    SetDialogueRange(300)
+    Dialogue([PC])
+END
+

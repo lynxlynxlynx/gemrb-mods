@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Mazzy")  // 
+    Wait(1)
+    MoveToPointNoInterrupt([4687.1568])
+    Wait(1)
+    StartDialogNoSet([PC])
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,26 @@
+IF
+  PartyHasItem("MISC5A")  // ~Rift Device Part~
+  PartyHasItem("MISC5B")  // ~Rift Device Part~
+  !Dead("UnseeingEye")  // UnseeingEye
+THEN
+  RESPONSE #100
+    TakePartyItem("MISC5A")
+    TakePartyItem("MISC5B")
+    GiveItemCreate("MISC5C",Player1,1,0,0)  // ~Rift Device~
+    AddexperienceParty(26250)
+    DisplayStringHead(Player1,31215)  // ~The two parts meld into one, and the assembled rod seethes with power, feeding your crueler emotions.  Greed, hate, lust, and violence all surge within you and you now know why this device has been hidden away.  The rod can be used like a wand and has but one charge.  You should equip it in your quick slot immediately.~
+    Wait(7)
+    CreateCreature("BHEYE",[2528.1897],12)  // ~Unseeing Eye~
+END
+
+IF
+  PartyHasItem("MISC5A")  // ~Rift Device Part~
+  PartyHasItem("MISC5B")  // ~Rift Device Part~
+THEN
+  RESPONSE #100
+    TakePartyItem("MISC5A")
+    TakePartyItem("MISC5B")
+    GiveItemCreate("MISC5C",Player1,0,0,0)  // ~Rift Device~
+    DisplayStringHead(Player1,31215)  // ~The two parts meld into one, and the assembled rod seethes with power, feeding your crueler emotions.  Greed, hate, lust, and violence all surge within you and you now know why this device has been hidden away.  The rod can be used like a wand and has but one charge.  You should equip it in your quick slot immediately.~
+END
+

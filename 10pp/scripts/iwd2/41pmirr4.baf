@@ -1,0 +1,16 @@
+IF
+  GlobalTimerNotExpired("PrismFireDelay","MYAREA")
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("41PrismFire","MYAREA",3)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([1543.2087],2092)
+    TriggerActivation("Mirror15",TRUE)
+    TriggerActivation(Myself,FALSE)
+END
+

@@ -1,0 +1,28 @@
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,1150,1460,4)
+THEN
+  RESPONSE #100
+    SetStartPos([1150.1460])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  !Global("30SSpid_Door","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([1150.1460])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !Global("30SSpid_Door","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("30SPDDR1")
+    SetGlobal("ML_0","LOCALS",0)
+END
+

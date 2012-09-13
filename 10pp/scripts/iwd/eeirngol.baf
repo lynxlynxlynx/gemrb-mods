@@ -1,0 +1,34 @@
+IF
+  !Global("BELHIFET_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+  Or(13)
+    See(NearestEnemyOf(Myself))
+    See([PC.0.0.FIGHTER_DRUID])
+    See([PC.0.0.FIGHTER_MAGE_THIEF])
+    See([PC.0.0.FIGHTER_MAGE_CLERIC])
+    See([PC.0.0.FIGHTER_CLERIC])
+    See([PC.0.0.BARD])
+    See([PC.0.0.CLERIC_THIEF])
+    See([PC.0.0.MAGE_THIEF])
+    See([PC.0.0.FIGHTER_MAGE])
+    See([PC.0.0.DRUID])
+    See([PC.0.0.CLERIC_MAGE])
+    See([PC.0.0.CLERIC])
+    See([PC.0.0.MAGE])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+

@@ -1,0 +1,134 @@
+IF
+  Global("4001Visited","MYAREA",2)
+  Global("IntroStep","LOCALS",0)
+THEN
+  RESPONSE #100
+    SaveGame(16204)  // ~Chapter Two~
+    AllowAreaResting(FALSE)
+    PlaySound("AM2101d")
+    ActionOverride(Player1,JumpToPoint([290.320]))
+    ActionOverride(Player2,JumpToPoint([290.320]))
+    ActionOverride(Player3,JumpToPoint([290.320]))
+    ActionOverride(Player4,JumpToPoint([290.320]))
+    ActionOverride(Player5,JumpToPoint([290.320]))
+    ActionOverride(Player6,JumpToPoint([290.320]))
+    ForceSpellPoint([290.290],2097)
+    ScreenShake(75,40,30)
+    SetGlobal("IntroStep","LOCALS",1)
+END
+
+IF
+  Global("IntroStep","LOCALS",1)
+THEN
+  RESPONSE #100
+    ActionOverride(Player1,MakeUnselectable(5))
+    ActionOverride(Player5,MakeUnselectable(5))
+    ActionOverride(Player3,MakeUnselectable(5))
+    ActionOverride(Player4,MakeUnselectable(5))
+    ActionOverride(Player5,MakeUnselectable(5))
+    ActionOverride(Player6,MakeUnselectable(5))
+    ActionOverride(Player1,PlayDead(75))
+    ActionOverride(Player2,PlayDead(75))
+    ActionOverride(Player3,PlayDead(75))
+    ActionOverride(Player4,PlayDead(75))
+    ActionOverride(Player5,PlayDead(75))
+    ActionOverride(Player6,PlayDead(75))
+    ForceSpell(Player1,2096)
+    ForceSpell(Player2,2096)
+    ForceSpell(Player3,2096)
+    ForceSpell(Player4,2096)
+    ForceSpell(Player5,2096)
+    ForceSpell(Player6,2096)
+    SetGlobalTimer("41BeetleTimer","MYAREA",10)
+    SetGlobal("IntroStep","LOCALS",2)
+END
+
+IF
+  Global("IntroStep","LOCALS",2)
+  GlobalTimerExpired("41BeetleTimer","MYAREA")
+  IsHeartOfFuryModeOn()
+THEN
+  RESPONSE #100
+    SetGlobal("4001Visited","MYAREA",3)
+    SetGlobal("40BeetleSpawnRequests","GLOBAL",5)
+    SetGlobal("40BeetleSpawns","GLOBAL",5)
+    SetGlobal("40CurrentBeetleCount","GLOBAL",5)
+    OpenDoor("AR4001_Door1")
+    TriggerActivation("To4000",TRUE)
+    AddJournalEntry(18850)
+    SetGlobal("IntroStep","LOCALS",3)
+END
+
+IF
+  Global("IntroStep","LOCALS",2)
+  GlobalTimerExpired("41BeetleTimer","MYAREA")
+  Difficulty(3,GREATER_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("4001Visited","MYAREA",3)
+    SetGlobal("40BeetleSpawnRequests","GLOBAL",4)
+    SetGlobal("40BeetleSpawns","GLOBAL",4)
+    SetGlobal("40CurrentBeetleCount","GLOBAL",4)
+    OpenDoor("AR4001_Door1")
+    TriggerActivation("To4000",TRUE)
+    AddJournalEntry(18850)
+    SetGlobal("IntroStep","LOCALS",3)
+END
+
+IF
+  Global("IntroStep","LOCALS",2)
+  GlobalTimerExpired("41BeetleTimer","MYAREA")
+  CheckAreaDiffLevel(3)
+THEN
+  RESPONSE #100
+    SetGlobal("4001Visited","MYAREA",3)
+    SetGlobal("40BeetleSpawnRequests","GLOBAL",3)
+    SetGlobal("40BeetleSpawns","GLOBAL",3)
+    SetGlobal("40CurrentBeetleCount","GLOBAL",3)
+    OpenDoor("AR4001_Door1")
+    TriggerActivation("To4000",TRUE)
+    AddJournalEntry(18850)
+    SetGlobal("IntroStep","LOCALS",3)
+END
+
+IF
+  Global("IntroStep","LOCALS",2)
+  GlobalTimerExpired("41BeetleTimer","MYAREA")
+  CheckAreaDiffLevel(2)
+THEN
+  RESPONSE #100
+    SetGlobal("4001Visited","MYAREA",3)
+    SetGlobal("40BeetleSpawnRequests","GLOBAL",2)
+    SetGlobal("40BeetleSpawns","GLOBAL",2)
+    SetGlobal("40CurrentBeetleCount","GLOBAL",2)
+    OpenDoor("AR4001_Door1")
+    TriggerActivation("To4000",TRUE)
+    AddJournalEntry(18850)
+    SetGlobal("IntroStep","LOCALS",3)
+END
+
+IF
+  Global("IntroStep","LOCALS",2)
+  GlobalTimerExpired("41BeetleTimer","MYAREA")
+  CheckAreaDiffLevel(1)
+THEN
+  RESPONSE #100
+    SetGlobal("4001Visited","MYAREA",3)
+    SetGlobal("40BeetleSpawnRequests","GLOBAL",1)
+    SetGlobal("40BeetleSpawns","GLOBAL",1)
+    SetGlobal("40CurrentBeetleCount","GLOBAL",1)
+    OpenDoor("AR4001_Door1")
+    TriggerActivation("To4000",TRUE)
+    AddJournalEntry(18850)
+    SetGlobal("IntroStep","LOCALS",3)
+END
+
+IF
+  Global("IntroStep","LOCALS",3)
+  Global("40CurrentBeetleCount","GLOBAL",0)
+THEN
+  RESPONSE #100
+    AddJournalEntry(18851)
+    SetGlobal("IntroStep","LOCALS",4)
+END
+

@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("DeionS")  // 
+    PlaySequence(ANIM_DIE)
+    EndCutSceneMode()
+    DestroySelf()
+END
+

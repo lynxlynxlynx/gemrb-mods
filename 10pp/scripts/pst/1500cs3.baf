@@ -1,0 +1,64 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    JumpToPoint([2430.770])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    JumpToPoint([2430.820])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    JumpToPoint([2430.870])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    JumpToPoint([2480.770])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    JumpToPoint([2480.820])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToBlack()
+    Wait(3)
+    JumpToPoint([2627.874])
+    Face(14)
+    FadeFromBlack()
+    MoveViewPoint([2700.920],INSTANT)
+    GlobalSet("DN_Surrender","AR1500",2)
+    GlobalSet("Hargrimm_Talk","AR1500",3)
+    GlobalSet("DN_Prisoner","GLOBAL",1)
+    DebugOutput("*******Waiting*********")
+    DebugOutput("*******Stoped_Waiting*********")
+    StartCutScene("1500cut7")
+END
+

@@ -1,0 +1,68 @@
+IF
+  Global("HaerDalisGemQuest","GLOBAL",20)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("FightingTheTroupe","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    SetGlobal("FightingTheTroupe","GLOBAL",1)
+    DialogueInterrupt(FALSE)
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("FightingTheTroupe","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FightingTheTroupe","GLOBAL",1)
+    DialogueInterrupt(FALSE)
+END
+
+IF
+  See([PC])
+  !See([ENEMY])
+  CombatCounter(0)
+  Global("PlayStarted","AR0510",0)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("Cut15a")
+END
+
+IF
+  Global("PlanarPrison","GLOBAL",1)
+  Global("DisableDeathTrap","AR0516",0)
+  Global("Danger","LOCALS",0)
+  AreaCheck("AR0516")
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("Danger","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HasItem("potn52",Myself)  // ~Potion of Extra Healing~
+THEN
+  RESPONSE #100
+    UseItem("potn52",Myself)  // ~Potion of Extra Healing~
+END
+

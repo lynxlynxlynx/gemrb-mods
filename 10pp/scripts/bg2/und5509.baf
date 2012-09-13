@@ -1,0 +1,31 @@
+IF
+  Range([GOODCUTOFF],10)
+  Global("UndeadRise","AR5509",0)
+THEN
+  RESPONSE #100
+    SetGlobal("UndeadRise","AR5509",1)
+    SetGlobal("AmGuardLeave","GLOBAL",1)
+    ClearAllActions()
+    StartCutSceneMode()
+    CreateCreature("CUTSPY",[710.750],0)  // <Invalid Strref -1>
+    MoveViewPoint([737.568],5)
+    Wait(2)
+    CreateVisualEffect("SPRAISED",[737.568])
+    Wait(1)
+    CreateVisualEffect("SPGFLSH",[737.568])
+    CreateCreature("AMLICH01",[737.568],0)  // ~Vongoethe~
+    ActionOverride("CUTSPY",DestroySelf())
+    Wait(2)
+    ActionOverride("AMLICH01",FaceObject(Player1))
+    Wait(1)
+    ActionOverride("AMLICH01",StartDialogNoSet(Player1))
+END
+
+IF
+  Global("UndeadRise","AR5509",1)
+THEN
+  RESPONSE #100
+    SetGlobal("UndeadRise","AR5509",2)
+    TriggerActivation(Myself,FALSE)
+END
+

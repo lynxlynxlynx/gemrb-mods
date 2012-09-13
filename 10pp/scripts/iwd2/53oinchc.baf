@@ -1,0 +1,11 @@
+IF
+  Global("53Stone_Quest","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SpellCastEffect(Myself,"","","",GLOW_ALTERATION,1,ATTACK)
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_ORIGIN,0)
+    HideCreature(Myself,TRUE)
+    FloatMessage(Myself,24096)  // ~.:Casts Plane Shift:.~
+    DestroySelf()
+END
+

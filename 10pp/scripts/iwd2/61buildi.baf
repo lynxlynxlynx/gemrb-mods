@@ -1,0 +1,115 @@
+IF
+  AttackedBy([GOODCUTOFF],0)
+  Global("TEAM_1","MYAREA",0)
+  Or(2)
+    IsScriptName("61Amphitheatre",Myself)
+    IsScriptName("61Palace",Myself)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("TEAM_1","MYAREA",1)
+    Continue()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],0)
+  Global("TEAM_2","MYAREA",0)
+  Global("TEAM_6","MYAREA",0)
+  Or(2)
+    IsScriptName("61Citadel",Myself)
+    IsScriptName("61Throne",Myself)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("TEAM_2","MYAREA",1)
+    SetGlobal("TEAM_6","MYAREA",1)
+    Continue()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],0)
+  Global("TEAM_3","MYAREA",0)
+  IsScriptName("61Embassy",Myself)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("TEAM_3","MYAREA",1)
+    Continue()
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  HP(Myself,1)
+  IsScriptName("61Throne",Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    DropInventoryEX("61Throne")
+    HideCreature("61Throne",TRUE)
+    DisplayString("61Throne",37293)  // ~Destroyed~
+    ScreenShake(25,16,12)
+    OpenDoor("AR6104_Throne")
+    TriggerActivation("InfoThroneDamaged",TRUE)
+    TriggerActivation("InfoThroneFixed",FALSE)
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  HP(Myself,1)
+  IsScriptName("61Amphitheatre",Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    HideCreature("61Amphitheatre",TRUE)
+    DisplayString("61Amphitheatre",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins1")
+    TriggerActivation("InfoAmphitheatreDamaged",TRUE)
+    TriggerActivation("InfoAmphitheatreFixed",FALSE)
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  HP(Myself,1)
+  IsScriptName("61Embassy",Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    HideCreature("61Embassy",TRUE)
+    DisplayString("61Embassy",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins2")
+    TriggerActivation("InfoEmbassyDamaged",TRUE)
+    TriggerActivation("InfoEmbassyFixed",FALSE)
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  HP(Myself,1)
+  IsScriptName("61Palace",Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    HideCreature("61Palace",TRUE)
+    DisplayString("61Palace",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins3")
+    TriggerActivation("InfoPalaceDamaged",TRUE)
+    TriggerActivation("InfoPalaceFixed",FALSE)
+END
+
+IF
+  HitBy([ANYONE],CRUSHING)
+  HP(Myself,1)
+  IsScriptName("61Citadel",Myself)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    HideCreature("61Citadel",TRUE)
+    DisplayString("61Citadel",37293)  // ~Destroyed~
+    ScreenShake(75,16,12)
+    OpenDoor("AR6104_Ruins4")
+    TriggerActivation("InfoCitadelDamaged",TRUE)
+    TriggerActivation("InfoCitadelFixed",FALSE)
+END
+

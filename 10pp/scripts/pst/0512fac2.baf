@@ -1,0 +1,64 @@
+IF
+  Specifics(Myself,FWORKER_1)
+THEN
+  RESPONSE #100
+    Face(10)
+    ChangeAIScript("0512work",DEFAULT)
+END
+
+IF
+  Specifics(Myself,FWORKER_2)
+THEN
+  RESPONSE #100
+    Face(14)
+    ChangeAIScript("0512work",DEFAULT)
+END
+
+IF
+  Specifics(Myself,FWORKER_3)
+THEN
+  RESPONSE #100
+    Face(14)
+    ChangeAIScript("0512work",DEFAULT)
+END
+
+IF
+  Specifics(Myself,FWORKER_4)
+THEN
+  RESPONSE #100
+    Face(6)
+    ChangeAIScript("0512work",DEFAULT)
+END
+
+IF
+  Specifics(Myself,FWORKER_5)
+THEN
+  RESPONSE #100
+    Face(14)
+    ChangeAIScript("0512work",DEFAULT)
+END
+
+IF
+  Specifics(Myself,FWORKER_6)
+THEN
+  RESPONSE #100
+    Face(2)
+    ChangeAIScript("0512work",DEFAULT)
+END
+
+IF
+  Specifics(Myself,FWORKER_7)
+THEN
+  RESPONSE #100
+    Face(6)
+    ChangeAIScript("0512work",DEFAULT)
+END
+
+IF
+  Specifics(Myself,FWORKER_8)
+THEN
+  RESPONSE #100
+    Face(6)
+    ChangeAIScript("0512work",DEFAULT)
+END
+

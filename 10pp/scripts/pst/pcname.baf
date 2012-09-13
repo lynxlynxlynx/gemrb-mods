@@ -1,0 +1,9 @@
+IF
+  Global("PartyScriptsActive","GLOBAL",1)
+  AttackedBy([ENEMY],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+

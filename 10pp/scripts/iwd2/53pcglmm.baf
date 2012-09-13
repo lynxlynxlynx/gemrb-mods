@@ -1,0 +1,88 @@
+IF
+  Global("InCombat","LOCALS",1)
+  !TimerActive(0)
+  !TimerActive(95)
+THEN
+  RESPONSE #100
+    SetGlobal("InCombat","LOCALS",0)
+    FloatMessage(Myself,27334)  // ~"I RETURN TO THE MASTER."~
+    StartTimer(0,3)
+    StartTimer(95,7)
+    Continue()
+END
+
+IF
+  Global("53PCGolem_Protect","GLOBAL",1)
+  !Dead(Player1)  // 
+  Range(Player1,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    SetStartPos([-1.-1])
+    SetSavedLocation()
+END
+
+IF
+  Global("53PCGolem_Protect","GLOBAL",2)
+  !Dead(Player2)  // 
+  Range(Player2,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(Player2)
+    SetStartPos([-1.-1])
+    SetSavedLocation()
+END
+
+IF
+  Global("53PCGolem_Protect","GLOBAL",3)
+  !Dead(Player3)  // 
+  Range(Player3,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(Player3)
+    SetStartPos([-1.-1])
+    SetSavedLocation()
+END
+
+IF
+  Global("53PCGolem_Protect","GLOBAL",4)
+  !Dead(Player4)  // 
+  Range(Player4,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(Player4)
+    SetStartPos([-1.-1])
+    SetSavedLocation()
+END
+
+IF
+  Global("53PCGolem_Protect","GLOBAL",5)
+  !Dead(Player5)  // 
+  Range(Player5,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(Player5)
+    SetStartPos([-1.-1])
+    SetSavedLocation()
+END
+
+IF
+  Global("53PCGolem_Protect","GLOBAL",6)
+  !Dead(Player6)  // 
+  Range(Player6,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(Player6)
+    SetStartPos([-1.-1])
+    SetSavedLocation()
+END
+
+IF
+  Range(NearestPC,5,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+    SetStartPos([-1.-1])
+    SetSavedLocation()
+END
+

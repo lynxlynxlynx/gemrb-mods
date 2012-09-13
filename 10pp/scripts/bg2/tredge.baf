@@ -1,0 +1,8 @@
+IF
+  IsOverMe([PC])
+THEN
+  RESPONSE #100
+    ApplyDamage(LastTrigger,10,PIERCING)
+    ApplyDamage(LastTrigger,10,ACID)
+END
+

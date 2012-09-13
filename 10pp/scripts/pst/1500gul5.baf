@@ -1,0 +1,87 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeTeam(Myself,GHOUL)
+END
+
+IF
+  Global("Undead_Alert","AR1500",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Ghoul_Attack","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeAIScript("1500bdg",DEFAULT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Undead_Alert","AR1500",1)
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(6)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    Face(-1)
+    WaitRandom(3,5)
+    MoveToPoint([1838.1326])
+    Face(8)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    Face(-1)
+    WaitRandom(3,5)
+    MoveToPoint([1745.1407])
+    Face(2)
+    WaitRandom(3,5)
+    Face(-1)
+    WaitRandom(3,5)
+    Face(-1)
+    WaitRandom(3,5)
+    Face(2)
+    MoveToPoint([1745.1407])
+    WaitRandom(3,5)
+    Face(-1)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    Face(8)
+    MoveToPoint([1838.1326])
+    WaitRandom(3,5)
+    Face(-1)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    MoveToPoint([1991.1326])
+END
+

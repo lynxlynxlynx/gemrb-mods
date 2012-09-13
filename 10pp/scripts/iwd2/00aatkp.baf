@@ -1,0 +1,18 @@
+IF
+  IsWeaponRanged(Myself)
+  Allegiance(Myself,ENEMY)
+  Range([PC.0.0.0.0.0.0.0.0.CLASSMASK_PALADIN],5,LESS_THAN)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC.0.0.0.0.0.0.0.0.CLASSMASK_PALADIN],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

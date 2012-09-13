@@ -1,0 +1,36 @@
+IF
+  Global("TalkedToMarlowe","GLOBAL",1)
+  Global("MallaPlaced","AR5507",0)
+THEN
+  RESPONSE #100
+    CreateCreatureImpassable("malla01",[401.204],10)
+    SetGlobal("MallaPlaced","AR5507",1)
+END
+
+IF
+  Dead("Marlowe")  // ~Marlowe~
+  Allegiance("Marlowe",ENEMY)  // ~Marlowe~
+  GlobalLT("LichJob","GLOBAL",2)
+  Global("MallaDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MallaDead","GLOBAL",1)
+END
+
+IF
+  Global("MallaDead","GLOBAL",1)
+  !Dead("malla01")  // ~Malla~
+THEN
+  RESPONSE #100
+    ActionOverride("malla01",Kill(Myself))
+END
+
+IF
+  Global("MallaGone","GLOBAL",1)
+  Exists("malla01")  // ~Malla~
+THEN
+  RESPONSE #100
+    SetGlobal("MallaGone","GLOBAL",2)
+    ActionOverride("malla01",DestroySelf())
+END
+

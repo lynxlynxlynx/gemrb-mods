@@ -1,0 +1,27 @@
+IF
+  !TimerActive(18)
+THEN
+  RESPONSE #15
+    FloatMessage(Myself,1677)  // ~"Targos burn!"~
+    StartRandomTimer(18,20,30)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1680)  // ~"Kill all!"~
+    StartRandomTimer(18,20,30)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1681)  // ~"Lives for Caballus!"~
+    StartRandomTimer(18,20,30)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1683)  // ~"Burn and kill!"~
+    StartRandomTimer(18,20,30)
+    Continue()
+  RESPONSE #15
+    FloatMessage(Myself,1684)  // ~"Destroy town!"~
+    StartRandomTimer(18,20,30)
+    Continue()
+  RESPONSE #425
+    Continue()
+END
+

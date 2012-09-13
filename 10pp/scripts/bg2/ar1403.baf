@@ -1,0 +1,42 @@
+IF
+  Global("ShadowLordDead","GLOBAL",0)
+  Global("ShadeDark","AR1403",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ShadeDark","AR1403",1)
+    TriggerActivation("Tran1400",FALSE)
+    TriggerActivation("Tran1404",TRUE)
+END
+
+IF
+  Dead("SHADEL")  // ~Shade Lord~
+  Dead("SHALT01")  // ~Shadow Altar~
+  Global("ShadowLordDead","GLOBAL",1)
+  Global("NewTransition","AR1403",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NewTransition","AR1403",1)
+    TriggerActivation("Tran1400",TRUE)
+    TriggerActivation("Tran1404",FALSE)
+END
+
+IF
+  Global("SpawnAnathHuman","GLOBAL",1)
+  Global("AnathSpawn","AR1403",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AnathSpawn","AR1403",1)
+    CreateCreature("rngwlf01",[718.485],2)  // ~Anath~
+END
+
+IF
+  OR(2)
+    Global("KillAnath","GLOBAL",1)
+    Dead("SHADEL")  // ~Shade Lord~
+  Global("KillAnathCave","AR1403",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KillAnathCave","AR1403",1)
+    ActionOverride("rngwlf01",DestroySelf())
+END
+

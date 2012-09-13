@@ -1,0 +1,8 @@
+IF
+  !Global("IDOL_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroyItem("ANTIMAG")  // <Invalid Strref -1>
+    ChangeCurrentScript("")
+END
+

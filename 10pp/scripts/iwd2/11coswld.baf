@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutScene("LUA4001a")
+    EndCutSceneMode()
+END
+

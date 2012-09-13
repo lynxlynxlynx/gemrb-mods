@@ -1,0 +1,26 @@
+IF
+  !CreatureHidden(Myself)
+  Or(3)
+    Global("ACTIVE_DARK_TREE","MYAREA",-1)
+    See([PC],0)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    XEquipItem("00CIWSP2",Myself,SLOT_AMULET,FALSE)
+    HideCreature(Myself,TRUE)
+END
+
+IF
+  !Global("AR5003_DARK_TREE_CLEAR","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

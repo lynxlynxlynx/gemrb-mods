@@ -1,0 +1,54 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    JumpToPoint([2150.823])
+    FaceObject("05_50Venla_02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    JumpToPoint([2150.823])
+    FaceObject("05_50Venla_02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    JumpToPoint([2150.823])
+    FaceObject("05_50Venla_02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    JumpToPoint([2150.823])
+    FaceObject("05_50Venla_02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    JumpToPoint([2150.823])
+    FaceObject("05_50Venla_02")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    JumpToPoint([2150.823])
+    FaceObject("05_50Venla_02")
+END
+

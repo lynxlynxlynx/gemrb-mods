@@ -1,0 +1,87 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  True()
+THEN
+    SetGlobal("TalkedToGorion","GLOBAL",1)
+    MoveToPoint([2745.1816])
+    JumpToPoint([3941.2456])
+    MoveToPoint([4202.2495])
+    Face(8)
+    VerbalConstant(Myself,61)
+END
+
+IF
+  True()
+THEN
+    Wait(1)
+    MoveViewPoint([4250.2440],INSTANT)
+    JumpToPoint([3879.2431])
+    MoveToPoint([4206.2446])
+    Face(0)
+    Wait(14)
+    ActionOverride("GORION",ForceSpell(Player1,CLERIC_CURE_LIGHT_WOUNDS))
+    Wait(4)
+    ActionOverride("GORION",MoveToPoint([4314.2510]))
+    ActionOverride("GORION",DestroySelf())
+    MoveToPoint([4314.2510])
+    ClearAllActions()
+    DayNight(MIDNIGHT)
+    LeaveAreaLUAPanic("AR2700","TRGORION",[2350.1523],12)
+    LeaveAreaLUA("AR2700","TRGORION",[2350.1523],12)
+    ActionOverride(Player2,LeaveAreaLUA("AR2700","TRGORION",[3522.3712],12))
+    ActionOverride(Player3,LeaveAreaLUA("AR2700","TRGORION",[3522.3712],12))
+    ActionOverride(Player4,LeaveAreaLUA("AR2700","TRGORION",[3522.3712],12))
+    ActionOverride(Player5,LeaveAreaLUA("AR2700","TRGORION",[3522.3712],12))
+    ActionOverride(Player6,LeaveAreaLUA("AR2700","TRGORION",[3522.3712],12))
+    Weather(RAIN)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    StartCutScene("Ch1cut02")
+END
+
+IF
+  True()
+THEN
+    SmallWait(7)
+    JumpToPoint([302.573])
+END
+
+IF
+  True()
+THEN
+    SmallWait(7)
+    JumpToPoint([302.573])
+END
+
+IF
+  True()
+THEN
+    SmallWait(7)
+    JumpToPoint([302.573])
+END
+
+IF
+  True()
+THEN
+    SmallWait(7)
+    JumpToPoint([302.573])
+END
+
+IF
+  True()
+THEN
+    SmallWait(7)
+    JumpToPoint([302.573])
+END
+
+
+END

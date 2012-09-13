@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GraceF")  // 
+    MoveToPoint([4582.1020])
+    Face(2)
+    Wait(1)
+    MoveToPoint([4489.1006])
+    StartSong(CHAR_GRACE,[0.0],Normal)
+    Face(0)
+    Wait(1)
+    Dialogue([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+    Wait(3)
+    Face(10)
+    Wait(2)
+    Face(8)
+END
+

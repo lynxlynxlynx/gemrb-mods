@@ -1,0 +1,37 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    MoveToPoint([945.588])
+    MoveToPoint([943.453])
+    Face(8)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    GlobalSet("Patron_Arrived","AR0611",1)
+    Wait(3)
+    FloatMessage(Myself,27443)  // ~"How does *this* outfit look?"~
+    Continue()
+  RESPONSE #100
+    GlobalSet("Patron_Arrived","AR0611",2)
+    Wait(3)
+    FloatMessage(Myself,27441)  // ~"Does this dress make me look a bit fat?"~
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(5)
+    GlobalSet("Patron_Arrived","AR0611",0)
+    MoveToPoint([945.588])
+    MoveToPoint([1143.593])
+    Face(12)
+END
+

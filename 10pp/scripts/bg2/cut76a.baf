@@ -1,0 +1,36 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(3)
+    FadeToColor([30.0],0)
+    Wait(3)
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("HDRAGSIL")  // 
+    ScreenShake([4.4],30)
+    Wait(1)
+    CreateVisualEffect("spflasnc",[857.432])
+    CreateVisualEffect("spfirsd2",[1502.367])
+    CreateVisualEffect("spflasnc",[932.500])
+    CreateVisualEffect("spflasnc",[1020.467])
+    CreateVisualEffect("spfirsd2",[1018.527])
+    CreateVisualEffect("spflasnc",[1024.597])
+    CreateVisualEffect("spfirsd2",[1103.527])
+    Wait(1)
+    CreateVisualEffect("spflasnc",[963.391])
+    CreateVisualEffect("spfirsd2",[1129.459])
+    CreateVisualEffect("spfirsd2",[940.545])
+    CreateVisualEffect("spflasnc",[943.596])
+    Wait(2)
+    DestroySelf()
+    Wait(1)
+END
+

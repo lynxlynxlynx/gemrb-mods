@@ -1,0 +1,52 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Shout(24)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC])
+  !Range([PC],5)
+THEN
+  RESPONSE #80
+    EquipRanged()
+    AttackOneRound([PC])
+  RESPONSE #20
+    EquipMostDamagingMelee()
+    AttackReevaluate([PC],30)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC])
+THEN
+  RESPONSE #50
+    EquipMostDamagingMelee()
+    AttackReevaluate([PC],30)
+  RESPONSE #50
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

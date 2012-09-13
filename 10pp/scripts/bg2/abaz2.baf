@@ -1,0 +1,187 @@
+IF
+  OR(3)
+    AttackedBy([GOODCUTOFF],DEFAULT)
+    HitBy([GOODCUTOFF],CRUSHING)
+    HPPercentLT(Myself,100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([EVILCUTOFF],151)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  HPPercentLT(Myself,75)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN55",Myself)  // ~Potion of Superior Healing~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN55",Myself)  // ~Potion of Superior Healing~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !GlobalTimerNotExpired("Hardiness","LOCALS")
+  Global("HardinessUsed","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Hardiness","LOCALS",84)
+    SetGlobal("HardinessUsed","LOCALS",1)
+    ReallyForceSpellRES("SPCL907",Myself)  // ~Hardiness~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Range(NearestEnemyOf(Myself),8)
+  !DifficultyLT(HARD)
+  !GlobalTimerNotExpired("WhirlwindAttack","LOCALS")
+  GlobalLT("WhirlwindUsed","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("WhirlwindAttack","LOCALS",6)
+    IncrementGlobal("WhirlwindUsed","LOCALS",1)
+    ReallyForceSpellRES("SPCL900",Myself)  // ~Whirlwind Attack~
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  Range(NearestEnemyOf(Myself),10)
+  !StateCheck(Myself,STATE_HASTED)
+  !CheckStatGT(Myself,3,NUMBEROFATTACKS)
+  !GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+  HasItem("POTN14",Myself)  // ~Oil of Speed~
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+    DisplayStringHead(Myself,46150)  // ~quaffs a potion~
+    UseItem("POTN14",Myself)  // ~Oil of Speed~
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(3)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.DRUID_ALL]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(ThirdNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  OR(2)
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.SORCERER]))
+    See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  See(LastAttackerOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Range(NearestEnemyOf(Myself),4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    MoveToObject([GOODCUTOFF])
+END
+
+IF
+  !Allegiance(LastSeenBy(Myself),GOODCUTOFF)
+  !See([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    SetGlobal("HardinessUsed","LOCALS",0)
+    SetGlobal("WhirlwindUsed","LOCALS",0)
+    SetGlobal("KaiUsed","LOCALS",0)
+    MoveToObject(Player1)
+END
+
+IF
+  GlobalLT("KaiUsed","LOCALS",5)
+  Range(LastSeenBy(Myself),6)
+  !GlobalTimerNotExpired("KaiAttack","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("KaiAttack","LOCALS",10)
+    IncrementGlobal("KaiUsed","LOCALS",1)
+    ReallyForceSpellRES("SPCL144",Myself)  // ~Kai~
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+

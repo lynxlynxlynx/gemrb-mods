@@ -1,0 +1,27 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(0)
+    PlaySequence(ANIM_ATTACK1)
+    WaitRandom(5,10)
+    Face(2)
+    PlaySequence(ANIM_ATTACK1)
+    WaitRandom(5,10)
+END
+

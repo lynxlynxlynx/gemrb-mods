@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(1)
+    LeaveAreaLUA("AR0014","",[721.654],8)
+    Wait(1)
+    MultiPlayerSync()
+    MoveViewPoint([721.654],INSTANT)
+    FadeFromColor([30.0],0)
+    Wait(1)
+    ActionOverride("drim02",StartDialogNoSet(Player1))
+END
+

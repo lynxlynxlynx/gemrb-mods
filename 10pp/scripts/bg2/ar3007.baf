@@ -1,0 +1,39 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("TeleportDeathKnightTimer","GLOBAL",10)
+END
+
+IF
+  Global("SpawnDeathKnights","AR3007",0)
+  GlobalTimerExpired("TeleportDeathKnightTimer","GLOBAL")
+  LevelPartyGT(16)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDeathKNights","AR3007",1)
+    CreateVisualEffect("SPPORTAL",[550.390])
+    CreateVisualEffect("SPPORTAL",[383.505])
+    CreateVisualEffect("SPPORTAL",[574.683])
+    CreateVisualEffect("SPPORTAL",[801.611])
+    Wait(2)
+    CreateCreature("deathkni",[550.390],0)  // ~Demon Knight~
+    CreateCreature("deathkni",[383.505],12)  // ~Demon Knight~
+    CreateCreature("deathkni",[574.683],10)  // ~Demon Knight~
+    CreateCreature("deathkni",[801.611],6)  // ~Demon Knight~
+END
+
+IF
+  Global("SpawnDeathKnights","AR3007",0)
+  GlobalTimerExpired("TeleportDeathKnightTimer","GLOBAL")
+  !LevelPartyGT(16)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnDeathKNights","AR3007",1)
+    CreateVisualEffect("SPPORTAL",[550.390])
+    CreateVisualEffect("SPPORTAL",[574.683])
+    Wait(2)
+    CreateCreature("deathkni",[550.390],0)  // ~Demon Knight~
+    CreateCreature("deathkni",[574.683],10)  // ~Demon Knight~
+END
+

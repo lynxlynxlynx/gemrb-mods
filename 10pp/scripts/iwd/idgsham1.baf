@@ -1,0 +1,47 @@
+IF
+  Global("CAST_SPECIAL","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([PC.0.0.MAGE_ALL])
+    See([PC.0.0.CLERIC_ALL])
+THEN
+  RESPONSE #50
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_MISCAST_MAGIC)
+    Wait(2)
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("CAST_SPECIAL","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    ForceSpell(Myself,CLERIC_ENTROPY_SHIELD)
+    Wait(2)
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_FLAME_STRIKE)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("CAST_SPECIAL","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",2)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SOLS_SEARING_ORB)
+    Wait(2)
+END
+
+IF
+  Global("CAST_SPECIAL","LOCALS",2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+

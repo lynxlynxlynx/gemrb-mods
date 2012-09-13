@@ -1,0 +1,30 @@
+IF
+  GlobalLT("SP_BATTLE_MUSIC","MYAREA",2)
+  Dead("01_51Harsho_01")  // 
+  !AnyPCSeesEnemy()
+THEN
+  RESPONSE #100
+    SetMusic(COMBAT_NORMAL,BLANK)
+    SetGlobal("SP_BATTLE_MUSIC","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("SP_BATTLE_MUSIC","MYAREA",0)
+  !CreatureHidden("01_51Harsho_01")  // 01_51Harsho_01
+  Allegiance("01_51Harsho_01",ENEMY)  // 01_51Harsho_01
+THEN
+  RESPONSE #100
+    SetMusic(COMBAT_NORMAL,BA5102)
+    SetGlobal("SP_BATTLE_MUSIC","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

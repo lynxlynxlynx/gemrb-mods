@@ -1,0 +1,67 @@
+IF
+  Global("HamaBehavior","GLOBAL",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DIRE_CHARM)
+    ForceSpellPoint([1023.3021],WIZARD_DIMENSION_DOOR)
+    SetGlobal("HamaBehavior","GLOBAL",1)
+END
+
+IF
+  Global("HamaBehavior","GLOBAL",1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_DIRE_CHARM)
+    ForceSpellPoint([1351.3018],WIZARD_DIMENSION_DOOR)
+    SetGlobal("HamaBehavior","GLOBAL",2)
+END
+
+IF
+  Global("HamaBehavior","GLOBAL",2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+    ForceSpellPoint([1234.3383],WIZARD_DIMENSION_DOOR)
+    SetGlobal("HamaBehavior","GLOBAL",3)
+END
+
+IF
+  Global("HamaBehavior","GLOBAL",3)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_ENTANGLE)
+    ForceSpellPoint([872.3352],WIZARD_DIMENSION_DOOR)
+    SetGlobal("HamaBehavior","GLOBAL",4)
+END
+
+IF
+  Global("HamaBehavior","GLOBAL",4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_ENTANGLE)
+    ForceSpellPoint([1126.2992],WIZARD_DIMENSION_DOOR)
+    SetGlobal("HamaBehavior","GLOBAL",5)
+END
+
+IF
+  Global("HamaBehavior","GLOBAL",5)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+    ForceSpellPoint([1202.3397],WIZARD_DIMENSION_DOOR)
+    SetGlobal("HamaBehavior","GLOBAL",6)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+

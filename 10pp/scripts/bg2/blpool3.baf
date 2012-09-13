@@ -1,0 +1,53 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("Pool","AR0809",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,53690)  // ~This unholy pool is filled with fresh human blood. You are nearly overcome with horror at the thought of the vampires' savagery.~
+    SetGlobal("Pool","AR0809",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISCAU")  // ~Elven Holy Water~
+  Global("Pool","AR0809",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,53690)  // ~This unholy pool is filled with fresh human blood. You are nearly overcome with horror at the thought of the vampires' savagery.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISCAU")  // ~Elven Holy Water~
+  Global("Pool","AR0809",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,53691)  // ~You pour one of Elhan's vials of Holy Water into the pool, and the result is immediate. The pool churns violently for a few moments and then calms, cleansed of evil.~
+    TakePartyItemNum("MISCAU",1)
+    SetGlobal("BodhiWeakened","AR0809",1)
+    SetGlobal("Pool","AR0809",2)
+    CreateVisualEffectObject("SPHEALIN",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPDISPMA",Myself)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("Pool","AR0809",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,53696)  // ~The pool has been cleansed and the vampires can no longer draw energy from the blood.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

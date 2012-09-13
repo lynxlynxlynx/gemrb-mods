@@ -1,0 +1,80 @@
+IF
+  CreatureHidden(Myself)
+  Global("EHSQUIRL_KILL_CNT","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("EHSQUIRL_KILL_CNT","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !BitGlobal("LOCALS:SCRIPT_BIT_VAR","",1,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:SCRIPT_BIT_VAR","",1,OR)
+    StartTimer(0,5)
+END
+
+IF
+  TimerActive(0)
+  BitGlobal("LOCALS:SCRIPT_BIT_VAR","",1,AND)
+  AttackedBy(LastSeenBy(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    StartTimer(0,0)
+    Continue()
+END
+
+IF
+  !TimerActive(0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+  !Global("1100_SQUIRREL_DEAD","GLOBAL",0)
+  ActionListEmpty()
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+END
+
+IF
+  Global("1100_SQUIRREL_DEAD","GLOBAL",0)
+  Range("SQUIRREL",5)  // SQUIRREL
+THEN
+  RESPONSE #100
+    ActionOverride("SQUIRREL",RunAwayFrom(NearestEnemyOf(Myself),100))
+    FaceObject("SQUIRREL")
+    Wait(1)
+    PlaySequence(Myself,ATTACK_SLASH)
+    Wait(3)
+END
+
+IF
+  Global("1100_SQUIRREL_DEAD","GLOBAL",0)
+  True()
+THEN
+  RESPONSE #100
+    MoveToObject("SQUIRREL")
+END
+

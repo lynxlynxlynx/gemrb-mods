@@ -1,0 +1,30 @@
+IF
+  Global("Spirit_Quest","GLOBAL",4)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See([PC])
+  !Global("Spirit_Quest","GLOBAL",4)
+THEN
+  RESPONSE #100
+    Dialogue([PC])
+END
+

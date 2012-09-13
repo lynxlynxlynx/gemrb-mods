@@ -1,0 +1,159 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,BUM)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    EscapeArea()
+END
+
+IF
+  Help([0.0.0.0.0.0.GUARD_1])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    EscapeArea()
+END
+
+IF
+  Help([0.0.0.0.0.0.GUARD_2])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    EscapeArea()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    EscapeArea()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    SetAnimState([0.0.0.0.0.0.GUARD_1],ANIM_ATTACK)
+    SetAnimState([0.0.0.0.0.0.GUARD_2],ANIM_ATTACK)
+    PlaySequence(ANIM_DAMAGE)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GUARD_1],67934)  // ~"Where'd you hide it, Jansen?"~
+    Wait(3)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GUARD_2],67922)  // ~"Tell us and we'll stop hurting you."~
+    Wait(3)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,3)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,67923)  // ~"I can't tell you..."~
+    Wait(3)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,4)
+THEN
+  RESPONSE #100
+    SetAnimState([0.0.0.0.0.0.GUARD_1],ANIM_ATTACK)
+    PlaySequence(ANIM_DAMAGE)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,5)
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GUARD_2],67924)  // ~"Make it easy on yourself."~
+    Wait(3)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,6)
+THEN
+  RESPONSE #100
+    SetAnimState([0.0.0.0.0.0.GUARD_1],ANIM_ATTACK)
+    PlaySequence(ANIM_DAMAGE)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,7)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52849)  // ~::moan::~
+    Wait(3)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,8)
+THEN
+  RESPONSE #100
+    SetAnimState([0.0.0.0.0.0.GUARD_2],ANIM_ATTACK)
+    PlaySequence(ANIM_DAMAGE)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,9)
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GUARD_1],67925)  // ~"Just tell us!"~
+    Wait(3)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,10)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,67926)  // ~"I can't!"~
+    Wait(3)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,11)
+THEN
+  RESPONSE #100
+    SetAnimState([0.0.0.0.0.0.GUARD_2],ANIM_ATTACK)
+    PlaySequence(ANIM_DAMAGE)
+    SetInternal(Myself,INTERNAL_0,0)
+END
+

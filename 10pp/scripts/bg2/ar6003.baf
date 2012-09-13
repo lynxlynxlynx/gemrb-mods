@@ -1,0 +1,30 @@
+IF
+  Global("Deactivate","AR6003",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","AR6003",1)
+    TriggerActivation("Tran6001",FALSE)
+END
+
+IF
+  Global("Deactivate","AR6003",1)
+  OR(2)
+    Dead("bazeye01")  // ~Iycanth the Mad~
+    PartyHasItem("bazplo06")  // ~Reversal Scroll~
+THEN
+  RESPONSE #100
+    SetGlobal("Deactivate","AR6003",2)
+    TriggerActivation("Tran6001",TRUE)
+    TriggerActivation("Info6001",FALSE)
+END
+
+IF
+  Global("BazpatDie","AR6003",1)
+THEN
+  RESPONSE #100
+    ApplyDamage("bazpat01",1,SLASHING)
+    ApplyDamage("bazpat02",1,SLASHING)
+    ApplyDamage("bazpat03",1,SLASHING)
+    SetGlobal("BazpatDie","AR6003",2)
+END
+

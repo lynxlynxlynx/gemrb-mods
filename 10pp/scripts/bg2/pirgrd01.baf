@@ -1,0 +1,10 @@
+IF
+  Dead("pirprv01")  // ~Privateer~
+  See("pirexe01")  // ~Executioner~
+  Global("DeadPrivateer","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DeadPrivateer","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

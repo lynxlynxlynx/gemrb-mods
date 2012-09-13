@@ -1,0 +1,34 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,AND)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FloatMessage(Myself,14981)  // ~"Holy sh... Wow!  How'd you get in here?  Get 'em, boys!  Get 'em!"~
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,AND)
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",256,OR)
+    FloatMessage(Myself,14981)  // ~"Holy sh... Wow!  How'd you get in here?  Get 'em, boys!  Get 'em!"~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetBestWeapon(LastSeenBy(Myself),4)
+    AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+

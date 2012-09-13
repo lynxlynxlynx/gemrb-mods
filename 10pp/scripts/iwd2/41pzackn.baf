@@ -1,0 +1,8 @@
+IF
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    AddJournalEntry(22971)
+    ChangeCurrentScript("")
+END
+

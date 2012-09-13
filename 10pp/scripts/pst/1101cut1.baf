@@ -1,0 +1,65 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveToPoint([1313.1169])
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    RunToPoint([1256.1060])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    RunToPoint([1199.1090])
+    Face(14)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    RunToPoint([1174.1165])
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    RunToPoint([1306.1107])
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    RunToPoint([1263.1219])
+    Face(12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Fhjull")  // 
+    Enemy()
+    MoveToPoint([1438.1173])
+    Face(4)
+    Dialogue([PC])
+END
+

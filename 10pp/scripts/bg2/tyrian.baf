@@ -1,0 +1,15 @@
+IF
+  Dead("plass01")  // ~Assassin~
+  Dead("plass02")  // ~Assassin~
+  Dead("plass03")  // ~Assassin~
+  Dead("plass04")  // ~Assassin~
+  Global("PaladinGirlDead","GLOBAL",0)
+  Global("PaladinGirlSpawn","GLOBAL",2)
+  AreaCheck("AR0416")
+  !Detect([PC])
+  Global("OKByTyrianna","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OKByTyrianna","GLOBAL",1)
+END
+

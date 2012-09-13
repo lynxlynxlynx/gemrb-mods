@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateVisualEffectObject("SPGRWHRL","solar")
+    PlaySound("EFF_M28")
+    Wait(1)
+    ActionOverride("Solar",DestroySelf())
+    Wait(1)
+    CreateVisualEffect("SPPOWRRD",[1986.1145])
+    PlaySound("EFF_M18a")
+    Wait(2)
+    CreateVisualEffect("ICFIRSDI",[1986.1145])
+    CreateCreature("Sarevok",[1986.1145],0)  // ~Sarevok~
+    ActionOverride("Sarevok",MakeGlobal())
+    Wait(1)
+    EndCutSceneMode()
+END
+

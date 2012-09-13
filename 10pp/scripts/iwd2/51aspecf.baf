@@ -1,0 +1,22 @@
+IF
+  Global("51SPECTRE","GLOBAL",2)
+  Or(2)
+    See("12_51SPE_01",0)  // 12_51SPE_01
+    AttackedBy("12_51SPE_01",0)  // 12_51SPE_01
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  GlobalTimerExpired("DUERGAR_BEEP","MYAREA")
+  Global("51SPECTRE","GLOBAL",2)
+  !See(NearestEnemyOf(Myself),0)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimerRandom("DUERGAR_BEEP","MYAREA",1,5)
+    Shout(175)
+    Continue()
+END
+

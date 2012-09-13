@@ -1,0 +1,115 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #264
+    SetGlobal("SPECIAL_ATTACK","LOCALS",0)
+    Continue()
+  RESPONSE #33
+    SetGlobal("SPECIAL_ATTACK","LOCALS",1)
+    Continue()
+  RESPONSE #33
+    SetGlobal("SPECIAL_ATTACK","LOCALS",2)
+    Continue()
+  RESPONSE #33
+    SetGlobal("SPECIAL_ATTACK","LOCALS",3)
+    Continue()
+  RESPONSE #33
+    SetGlobal("SPECIAL_ATTACK","LOCALS",4)
+    Continue()
+END
+
+IF
+  Or(2)
+    Global("SPECIAL_ATTACK","LOCALS",3)
+    Global("SPECIAL_ATTACK","LOCALS",4)
+  Or(2)
+    !HasItem("00ring69",Myself)  // ~Ring of Charm~
+    !ChargeCount("00ring69",Myself,0,0,GREATER_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("SPECIAL_ATTACK","LOCALS",0)
+    Continue()
+END
+
+IF
+  HasItem("00potn05",Myself)  // ~Potion of Extra Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn05",Myself)  // ~Potion of Extra Healing~
+END
+
+IF
+  HasItem("00potn04",Myself)  // ~Potion of Healing~
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    UseItem("00potn04",Myself)  // ~Potion of Healing~
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HaveSpell(WIZARD_COLOR_SPRAY)
+  Or(2)
+    See([GOODCUTOFF.0.0.0.150],0)
+    See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_COLOR_SPRAY,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_COLOR_SPRAY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Global("SPECIAL_ATTACK","LOCALS",1)
+  HaveSpell(WIZARD_CHARM_PERSON)
+  Or(2)
+    AttackedBy([GOODCUTOFF.0.0.0.150],0)
+    AttackedBy([GOODCUTOFF],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_CHARM_PERSON,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_CHARM_PERSON)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Global("SPECIAL_ATTACK","LOCALS",2)
+  Or(2)
+    AttackedBy([GOODCUTOFF.0.0.0.150],0)
+    AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    UseItem("00ring69",LastAttackerOf(Myself))  // ~Ring of Charm~
+END
+
+IF
+  Global("SPECIAL_ATTACK","LOCALS",4)
+  HaveSpell(WIZARD_SLOW)
+  Or(2)
+    See([GOODCUTOFF.0.0.0.150],0)
+    See([PC],0)
+  IsSpellTargetValid(LastMarkedObject,WIZARD_SLOW,0)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,WIZARD_SLOW)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([GOODCUTOFF.0.0.0.150],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

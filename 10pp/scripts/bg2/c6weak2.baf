@@ -1,0 +1,9 @@
+IF
+  Global("VampiresWeakened","AR0808",1)
+  Global("Weakened","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Weakened","LOCALS",1)
+    ApplySpell(Myself,C6VAMPIRE_WEAKNESS)
+END
+

@@ -1,0 +1,7 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    ReallyForceSpellLevel([PC],WIZARD_CHROMATIC_ORB,0)
+END
+

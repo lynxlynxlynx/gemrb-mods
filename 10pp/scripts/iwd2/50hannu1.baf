@@ -1,0 +1,60 @@
+IF
+  !Global("LIHMA_OUTSIDE","GLOBAL",0)
+  Global("5002_HANNU_ESCAPE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("LIHMA_OUTSIDE","GLOBAL",0)
+  !Global("5002_HANNU_ESCAPE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !TimerActive(18)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,33751)  // ~* HUFF * * PUFF * * HUFF * * PUFF *~
+    StartRandomTimer(18,5,10)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  ActionListEmpty()
+  NearLocation(Myself,36,1292,4)
+THEN
+  RESPONSE #100
+    SetStartPos([36.1292])
+    SetGlobal("ML_0","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([36.1292])
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

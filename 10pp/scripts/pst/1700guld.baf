@@ -1,0 +1,23 @@
+IF
+  See([PC])
+  !BitCheck("Once_Only_1700","AR1700",BIT3)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,42288)  // ~"Ssss! Come no closer, human!"~
+    Wait(2)
+    KillFloatMessage(Myself)
+    WaitRandom(5,15)
+  RESPONSE #50
+    FloatMessage(Myself,42289)  // ~"You bungle into our trap!"~
+    Wait(2)
+    KillFloatMessage(Myself)
+    WaitRandom(5,15)
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

@@ -1,0 +1,16 @@
+IF
+  Global("Chapter","GLOBAL",3)
+  Global("TevenSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TevenSpawn","GLOBAL",1)
+    CreateCreature("Teven",[1469.2254])  // ~Teven~
+    CreateCreature("BANDIT",[1375.2147])  // ~Bandit~
+    CreateCreature("BANDIT",[1364.2260])  // ~Bandit~
+    CreateCreature("BANDIT",[1479.2347])  // ~Bandit~
+    CreateCreature("BANDIT",[1486.2143])  // ~Bandit~
+    CreateCreature("BANDIT",[1548.2228])  // ~Bandit~
+    CreateCreature("BANDIT",[1290.2260])  // ~Bandit~
+    CreateCreature("BANDIT",[1393.2366])  // ~Bandit~
+END
+

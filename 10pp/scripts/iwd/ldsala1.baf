@@ -1,0 +1,65 @@
+IF
+  OnCreation()
+  !Global("KELLY_DEAD","GLOBAL",0)
+  Global("8002_ARCHERS_DEAD","GLOBAL",5)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,5,15)
+    Continue()
+END
+
+IF
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,14987)  // ~"Get back to work, you miserable wretches!"~
+    StartRandomTimer(24,5,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,14988)  // ~"Perhaps you need the taste of flame to help you work harder!"~
+    StartRandomTimer(24,5,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,14989)  // ~"I swear, I've seen Lava Mephits smarter and faster than you worms."~
+    StartRandomTimer(24,5,15)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(96)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+    WaitRandom(5,15)
+END
+

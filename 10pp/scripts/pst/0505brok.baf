@@ -1,0 +1,33 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,66798)  // ~"Our first customer in ages..."~
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("0505_Call_Harm","GLOBAL",1)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("Shopper_Exists","AR0505",1)
+THEN
+  RESPONSE #100
+    FaceObject([0.0.0.0.0.0.PERSON_3])
+    Wait(10)
+    FloatMessage(Myself,45245)  // ~"I've got eyes, can I not see?"~
+END
+

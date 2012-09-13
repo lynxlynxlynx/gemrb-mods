@@ -1,0 +1,31 @@
+IF
+  CreatureHidden(Myself)
+  !Global("LYSAN_DEAD","GLOBAL",0)
+  See([PC])
+  !Exists([ENEMY][0.0.10000.10000])
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetDialogueRange(75)
+    MultiPlayerSync()
+    MoveViewObject(Myself,INSTANT)
+    HideCreature(Myself,FALSE)
+    Wait(1)
+    Dialogue([PC])
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    FaceObject([PC])
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

@@ -1,0 +1,53 @@
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Attack([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  HPPercentLT(Myself,33)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(1)
+    Face(8)
+    WaitRandom(3,5)
+    Face(2)
+    MoveToPoint([3567.1303])
+    WaitRandom(3,5)
+    Face(0)
+    MoveToPoint([3504.1496])
+    WaitRandom(3,5)
+    Face(10)
+    MoveToPoint([3837.1169])
+    WaitRandom(3,5)
+    Face(4)
+    MoveToPoint([3669.1163])
+    WaitRandom(3,5)
+    MoveToPoint([3555.1257])
+    Face(2)
+END
+

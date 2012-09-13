@@ -1,0 +1,23 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Shout(5)
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],5)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomTurn()
+END
+

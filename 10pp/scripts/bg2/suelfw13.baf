@@ -1,0 +1,60 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],100)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Shout(100)
+    EscapeArea()
+END
+
+IF
+  NumDead("suundead",3)
+  OR(3)
+    !Dead("suelfw1")  // ~Elven Warrior~
+    !Dead("suelfw2")  // ~Elven Warrior~
+    !Dead("suelfw3")  // ~Elven Warrior~
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  NumDead("suundead",3)
+  Dead("suelfw1")  // ~Elven Warrior~
+  Dead("suelfw2")  // ~Elven Warrior~
+  Dead("suelfw3")  // ~Elven Warrior~
+  Global("Scene1","AR2800",1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("Scene1","AR2800",2)
+    DisplayStringHead(Myself,23956)  // ~Move out men! The enemy is everywhere!~
+    Wait(1)
+    EscapeArea()
+END
+
+IF
+  See([ENEMY])
+  Global("Scene1","AR2800",1)
+THEN
+  RESPONSE #100
+    AttackReevaluate([ENEMY],45)
+END
+

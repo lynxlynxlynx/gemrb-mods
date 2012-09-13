@@ -1,0 +1,129 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered([PC])
+    Disarmed([PC])
+  !Global("40YurstTraps","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Debug("GiveTrap1Award(NoQuest)")
+    AddXPVar("Level_1_Easy",813)  // ~You removed one of the traps set by the Aurilite rangers.~
+    IncrementGlobal("TrapRemovalCount","MYAREA",1)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered([PC])
+    Disarmed([PC])
+  Global("40YurstTraps","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Debug("GiveTrap1Award(Quest)")
+    AddXPVar("Level_1_Easy",34095)  // ~You removed a trap that was placed here.~
+    IncrementGlobal("TrapRemovalCount","MYAREA",1)
+    Continue()
+END
+
+IF
+  Disarmed([PC])
+  See([0.HUMANOID],0)
+  Specifics(LastMarkedObject,255)
+  LOS(LastMarkedObject,100)
+  !StateCheck(LastTrigger,STATE_INVISIBLE)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2","MYAREA",1)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player1)
+    Disarmed(Player1)
+  Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    ClearActions("Odea")
+    SetGlobal("40SummonOdea","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player2)
+    Disarmed(Player2)
+  Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    ClearActions("Odea")
+    SetGlobal("40SummonOdea","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player3)
+    Disarmed(Player3)
+  Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    ClearActions("Odea")
+    SetGlobal("40SummonOdea","GLOBAL",3)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player4)
+    Disarmed(Player4)
+  Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    ClearActions("Odea")
+    SetGlobal("40SummonOdea","GLOBAL",4)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player5)
+    Disarmed(Player5)
+  Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    ClearActions("Odea")
+    SetGlobal("40SummonOdea","GLOBAL",5)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player6)
+    Disarmed(Player6)
+  Global("TEAM_2","MYAREA",0)
+THEN
+  RESPONSE #100
+    ClearActions("Odea")
+    SetGlobal("40SummonOdea","GLOBAL",6)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered([PC])
+    Disarmed([PC])
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+    TriggerActivation(Myself,FALSE)
+END
+

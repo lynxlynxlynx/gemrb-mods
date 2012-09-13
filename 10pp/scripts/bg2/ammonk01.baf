@@ -1,0 +1,76 @@
+IF
+  Global("Enclave","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Detect([PC])
+  Global("AMTemplePlotFight","AR5500",0)
+  Global("PriestMonkCutScene","AR5500",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PriestMonkCutScene","AR5500",1)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("amprmk2")
+END
+
+IF
+  HP(Myself,1)
+  !Dead("amcler01")  // ~Priest of Waukeen~
+  Global("SpawnAMmag01","AR5500",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    DialogueInterrupt(TRUE)
+    SetGlobal("SpawnAMmag01","AR5500",1)
+    SetGlobal("Fight","LOCALS",2)
+    CreateCreatureObjectDoor("AMMAG01","ammonk01",14,0,0)  // ~Mage~
+    ActionOverride("AMMAG01",DialogueInterrupt(FALSE))
+    SmallWait(7)
+    FaceObject("ammag01")
+    Wait(1)
+    EndCutSceneMode()
+END
+
+IF
+  Global("AMTemplePlotFight","AR5500",1)
+  Global("Fight","LOCALS",0)
+THEN
+  RESPONSE #100
+    ActionOverride("cutspy",DestroySelf())
+    SetGlobal("Fight","LOCALS",1)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeAIScript("CMONK20B",DEFAULT)
+    Enemy()
+END
+
+IF
+  Global("AMTemplePlotFight","AR5500",1)
+  OR(2)
+    !See("amcler01")  // ~Priest of Waukeen~
+    Dead("amcler01")  // ~Priest of Waukeen~
+THEN
+  RESPONSE #100
+    SetGlobal("AMTemplePlotFight","AR5500",2)
+    EscapeArea()
+END
+
+IF
+  Global("Fight","LOCALS",1)
+  See("amcler01")  // ~Priest of Waukeen~
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    AttackReevaluate("amcler01",15)
+END
+

@@ -1,0 +1,17 @@
+IF
+  Global("TurnOffRestEncounters","MYAREA",0)
+  Global("Rest_Peacefully","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("TurnOffRestEncounters","MYAREA",1)
+    SetRestEncounterChance(0,0)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

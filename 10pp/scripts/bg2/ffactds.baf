@@ -1,0 +1,7 @@
+IF
+  Global("HaerDalisGemQuest","GLOBAL",20)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

@@ -1,0 +1,42 @@
+IF
+  OutOfAmmo()
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Continue()
+END
+
+IF
+  IsWeaponRanged(Myself)
+  Or(9)
+    Range(NearestEnemyOf(Myself),5,LESS_THAN)
+    Range("Heartless_Dead1",5,LESS_THAN)  // Heartless_Dead1
+    Range("Heartless_Dead2",5,LESS_THAN)  // Heartless_Dead2
+    Range("Heartless_Dead3",5,LESS_THAN)  // Heartless_Dead3
+    Range("Heartless_Dead4",5,LESS_THAN)  // Heartless_Dead4
+    Range("Heartless_Dead5",5,LESS_THAN)  // Heartless_Dead5
+    Range("Heartless_Dead6",5,LESS_THAN)  // Heartless_Dead6
+    Range("Heartless_Dead7",5,LESS_THAN)  // Heartless_Dead7
+    Range("Heartless_Dead8",5,LESS_THAN)  // Heartless_Dead8
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  Or(9)
+    See(NearestEnemyOf(Myself),0)
+    See("Heartless_Dead1",0)  // Heartless_Dead1
+    See("Heartless_Dead2",0)  // Heartless_Dead2
+    See("Heartless_Dead3",0)  // Heartless_Dead3
+    See("Heartless_Dead4",0)  // Heartless_Dead4
+    See("Heartless_Dead5",0)  // Heartless_Dead5
+    See("Heartless_Dead6",0)  // Heartless_Dead6
+    See("Heartless_Dead7",0)  // Heartless_Dead7
+    See("Heartless_Dead8",0)  // Heartless_Dead8
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

@@ -1,0 +1,10 @@
+IF
+  Detect([PC])
+  Global("PCSphere","GLOBAL",1)
+  Global("TalkedToPC","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TalkedToPC","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

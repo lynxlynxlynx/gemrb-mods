@@ -1,0 +1,49 @@
+IF
+  TimeGT(DAWN_START)
+  TimeLT(DUSK_END)
+  !See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("SlaveHelp","GLOBAL",0)
+    DestroySelf()
+END
+
+IF
+  !Dead("SlumsSlaver2")  // SlumsSlaver2
+  !Dead("SlumsSlaver3")  // SlumsSlaver3
+  See("slamng01")  // ~Amnish Soldier~
+  See([PC])
+  Global("SlaverBribe","AR0400",0)
+  Global("SlaveTalkGuard","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SlaveTalkGuard","GLOBAL",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Dead("SlumsSlaver2")  // SlumsSlaver2
+  Dead("SlumsSlaver3")  // SlumsSlaver3
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("MovingSlave","AR0400",1)
+  Allegiance("SlumsSlaver2",NEUTRAL)  // SlumsSlaver2
+THEN
+  RESPONSE #100
+    MoveToObject("SlumsSlaver2")
+END
+
+IF
+  Global("MovingSlave","AR0400",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([2497.2320])
+    SetGlobal("SlaveHelp","GLOBAL",0)
+    DestroySelf()
+END
+

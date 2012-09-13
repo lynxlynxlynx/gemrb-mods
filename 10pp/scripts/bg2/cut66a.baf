@@ -1,0 +1,31 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Suelhan")  // 
+    MoveViewObject("Suelhan",INSTANT)
+    SetGlobal("TalkedToElhan","AR2800",2)
+    DisplayStringHead(Myself,23957)  // ~Move out men! Watch for survivors and beware of magical illusions.~
+    Wait(2)
+    ActionOverride("Suelfw1",DisplayStringHead(Myself,23958))  // ~Yes, my liege. It shall be done as you say.~
+    Wait(1)
+    ActionOverride("Suelfw10",ForceSpell("Suelfw1",WIZARD_PROTECTION_FROM_EVIL))
+    SmallWait(7)
+    ActionOverride("Suelfw9",ForceSpell("Suelfw2",WIZARD_PROTECTION_FROM_EVIL))
+    ActionOverride("Suelfw10",ForceSpell(Myself,WIZARD_ARMOR))
+    ActionOverride("Suelfw9",ForceSpell(Myself,WIZARD_MIRROR_IMAGE))
+    Wait(3)
+    ActionOverride("Suelfw2",DisplayStringHead(Myself,23959))  // ~For the Queen!~
+    ActionOverride("Suelfw1",MoveToPointNoInterrupt([4614.2887]))
+    ActionOverride("Suelfw1",EscapeArea())
+    Wait(1)
+    ActionOverride("Suelfw2",MoveToPointNoInterrupt([4086.3031]))
+    ActionOverride("Suelfw2",EscapeArea())
+    ActionOverride("Suelfw10",MoveToPointNoInterrupt([4614.2887]))
+    ActionOverride("Suelfw10",EscapeArea())
+    ActionOverride("Suelfw9",MoveToPointNoInterrupt([4041.3031]))
+    ActionOverride("Suelfw9",EscapeArea())
+    Wait(4)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,14 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    OpenDoor("AR6051_BridgeDummy")
+END
+
+IF
+  Closed([PC])
+THEN
+  RESPONSE #100
+    CloseDoor("AR6051_BridgeDummy")
+END
+

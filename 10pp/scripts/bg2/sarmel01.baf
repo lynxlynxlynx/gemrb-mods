@@ -1,0 +1,137 @@
+IF
+  AreaCheck("AR5000")
+  GlobalGT("MelissanJob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("Mel01Fight","AR5000",1)
+  Global("StopFight","LOCALS",0)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    Wait(1)
+    SetGlobal("StopFight","LOCALS",1)
+    DisplayStringHead(Myself,70752)  // ~Please stop!~
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  Global("Mel01Fight","AR5000",1)
+  Global("Attacked","LOCALS",0)
+  Global("AttackEscape","LOCALS",0)
+  Global("MelissanJob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(TRUE)
+    SetGlobal("Attacked","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Dead("gromg01")  // ~Il-Khan Soldier~
+  Dead("gromg02")  // ~Il-Khan Soldier~
+  NumDead("gromg06",2)
+  NumDead("gromg07",2)
+  Global("AfterGromg01Death","LOCALS",0)
+  Global("AttackEscape","LOCALS",0)
+  Detect([PC])
+  Global("MelissanJob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(TRUE)
+    SetGlobal("Mel01Fight","AR5000",2)
+    SetGlobal("AfterGromg01Death","LOCALS",1)
+    PlaySong(79)
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  !See("gromg01")  // ~Il-Khan Soldier~
+  !See("gromg02")  // ~Il-Khan Soldier~
+  !See("gromg06")  // ~Il-Khan Soldier~
+  !See("gromg07")  // ~Il-Khan Soldier~
+  Global("AfterGromg01Death","LOCALS",0)
+  Global("AttackEscape","LOCALS",0)
+  Detect([PC])
+  Global("MelissanJob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(TRUE)
+    SetGlobal("Mel01Fight","AR5000",2)
+    SetGlobal("AfterGromg01Death","LOCALS",1)
+    PlaySong(79)
+    Wait(1)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Dead("gromg01")  // ~Il-Khan Soldier~
+  Dead("gromg02")  // ~Il-Khan Soldier~
+  NumDead("gromg06",2)
+  NumDead("gromg07",2)
+  Global("AfterGromg01Death","LOCALS",0)
+  Global("AttackEscape","LOCALS",1)
+  Detect([PC])
+  Global("MelissanJob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(TRUE)
+    Activate(Myself)
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    ApplySpell(Myself,HEAL_NO_VISUAL)
+    SetGlobal("AttackEscape","LOCALS",0)
+    SetGlobal("Attacked","LOCALS",0)
+    SetGlobal("Mel01Fight","AR5000",2)
+    SetGlobal("AfterGromg01Death","LOCALS",1)
+    Wait(3)
+    PlaySong(79)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  !See("gromg01")  // ~Il-Khan Soldier~
+  !See("gromg02")  // ~Il-Khan Soldier~
+  !See("gromg06")  // ~Il-Khan Soldier~
+  !See("gromg07")  // ~Il-Khan Soldier~
+  Global("AfterGromg01Death","LOCALS",0)
+  Global("AttackEscape","LOCALS",1)
+  Detect([PC])
+  Global("MelissanJob","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(TRUE)
+    Activate(Myself)
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    ApplySpell(Myself,HEAL_NO_VISUAL)
+    SetGlobal("AttackEscape","LOCALS",0)
+    SetGlobal("Attacked","LOCALS",0)
+    SetGlobal("Mel01Fight","AR5000",2)
+    SetGlobal("AfterGromg01Death","LOCALS",1)
+    Wait(3)
+    PlaySong(79)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("Mel01GromnirDeath","GLOBAL",0)
+  GlobalGT("DeathOfGromnir","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("HadBhaal25Dream1","GLOBAL",1)
+  Global("AfterYagaDeath","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AfterYagaDeath","LOCALS",1)
+    PlaySong(79)
+    StartDialogNoSet(Player1)
+END
+

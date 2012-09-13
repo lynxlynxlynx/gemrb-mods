@@ -1,0 +1,25 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("Dopdur1Move","GLOBAL",0)
+END
+
+IF
+  Global("Dopdur1Move","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Dopdur1Move","GLOBAL",1)
+    DialogueInterrupt(FALSE)
+    JumpToPoint([887.1011])
+END
+
+IF
+  Global("Dopdur1Move","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Dopdur1Move","GLOBAL",2)
+    DialogueInterrupt(TRUE)
+    StartDialogNoSet(Player1)
+END
+

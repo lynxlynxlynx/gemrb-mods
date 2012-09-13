@@ -1,0 +1,40 @@
+IF
+  Dead("trfued01")  // ~Lady Lilith Lurraxol~
+  Dead("trfued05")  // ~Lord Skarmaen Alibakkar~
+  Global("SpawnLogan","GLOBAL",0)
+  !Dead("celogan")  // ~High Merchant Logan Coprith~
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnLogan","GLOBAL",1)
+    CreateCreature("CELOGAN",[780.606],12)  // ~High Merchant Logan Coprith~
+    ActionOverride("celogan",SetNumTimesTalkedTo(1))
+END
+
+IF
+  Global("alibakkarjob","GLOBAL",1)
+  Global("deactivatesk","AR2012",0)
+THEN
+  RESPONSE #100
+    Deactivate("trfued01")
+    SetGlobal("deactivatesk","AR2012",1)
+END
+
+IF
+  Global("alibakkarjob","GLOBAL",0)
+  Global("deactivatesk","AR2012",1)
+THEN
+  RESPONSE #100
+    Activate("trfued01")
+    SetGlobal("deactivatesk","AR2012",0)
+END
+
+IF
+  Global("feudplot","GLOBAL",1)
+  Global("alibakkarjob","GLOBAL",0)
+  Global("ActivateForFeud","AR2012",0)
+THEN
+  RESPONSE #100
+    CreateCreature("trfued01",[929.471],0)  // ~Lady Lilith Lurraxol~
+    SetGlobal("ActivateForFeud","AR2012",1)
+END
+

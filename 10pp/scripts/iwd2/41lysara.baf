@@ -1,0 +1,213 @@
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !CheckSpellState(Myself,SANCTUARY)
+  HPLostGT(Myself,37)
+  IsSpellTargetValid(Myself,CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !CheckSpellState(Myself,SANCTUARY)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  !CheckSpellState(Myself,SANCTUARY)
+  HPLostGT(Myself,7)
+  IsSpellTargetValid(Myself,CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !CheckSpellState(Myself,SANCTUARY)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("CMDamag",Myself)  // ~Inflict Moderate Wounds~
+  !CheckSpellState(Myself,SANCTUARY)
+  RandomNum(2,1)
+  !StateCheck(LastMarkedObject,STATE_PANIC)
+  !StateCheck(LastMarkedObject,STATE_SLEEPING)
+  !CheckSpellState(LastMarkedObject,HELD)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  !CheckSpellState(Myself,SANCTUARY)
+  RandomNum(2,1)
+  !StateCheck(LastMarkedObject,STATE_PANIC)
+  !StateCheck(LastMarkedObject,STATE_SLEEPING)
+  !CheckSpellState(LastMarkedObject,HELD)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("110211112306132511172501",LastMarkedObject,7)
+      // CLERIC_COMMAND
+      // CLERIC_BANE
+      // WIZARD_HOLD_PERSON
+      // CLERIC_UNHOLY_BLIGHT
+      // CLERIC_FROST_FINGERS
+      // WIZARD_ANIMATE_DEAD
+    MarkSpellAndObject("12181409",Myself,7)
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_CLOAK_OF_FEAR
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("12181409",Myself,7)
+      // CLERIC_CAUSE_MODERATE_WOUNDS
+      // CLERIC_CLOAK_OF_FEAR
+    MarkSpellAndObject("110211112306132511172501",LastMarkedObject,7)
+      // CLERIC_COMMAND
+      // CLERIC_BANE
+      // WIZARD_HOLD_PERSON
+      // CLERIC_UNHOLY_BLIGHT
+      // CLERIC_FROST_FINGERS
+      // WIZARD_ANIMATE_DEAD
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([ENEMY.HUMANOID],0)
+  !CheckSpellState(Myself,SANCTUARY)
+  Specifics(LastMarkedObject,254)
+  Or(8)
+    StateCheck(LastMarkedObject,STATE_PANIC)
+    StateCheck(LastMarkedObject,STATE_SLEEPING)
+    StateCheck(LastMarkedObject,STATE_FEEBLEMINDED)
+    StateCheck(LastMarkedObject,STATE_STUNNED)
+    StateCheck(LastMarkedObject,STATE_HELPLESS)
+    StateCheck(LastMarkedObject,STATE_BERSERK)
+    StateCheck(LastMarkedObject,STATE_CONFUSED)
+    CheckSpellState(LastMarkedObject,HOPELESSNESS)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("13161303",LastMarkedObject,7)
+      // CLERIC_EXALTATION
+      // CLERIC_DISPEL_MAGIC
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See([PC.0.0.0.0.0.0.0.0.238],0)
+  Allegiance(Myself,ENEMY)
+  !CheckSpellState(Myself,SANCTUARY)
+  Range(LastMarkedObject,9,GREATER_THAN)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("12112501",LastMarkedObject,7)
+      // CLERIC_SILENCE_15_RADIUS
+      // WIZARD_ANIMATE_DEAD
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HasItem("IBlade",Myself)  // ~Ice Blade~
+  Allegiance(Myself,ENEMY)
+  !CheckSpellState(Myself,SANCTUARY)
+  RandomNum(2,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  !CheckSpellState(Myself,SANCTUARY)
+  RandomNum(2,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("111514061215142813131414",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_DEFENSIVE_HARMONY
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_ICE_BLADE
+      // CLERIC_PRAYER
+      // CLERIC_RECITATION
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

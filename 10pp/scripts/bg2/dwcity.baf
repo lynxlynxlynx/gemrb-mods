@@ -1,0 +1,67 @@
+IF
+  Allegiance(Myself,ENEMY)
+  Global("DrowCityHostile","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+END
+
+IF
+  Global("DrowCityHostile","GLOBAL",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See("uddemon")  // ~Lesser Demon Lord~
+  GlobalGT("DemonWalks","GLOBAL",0)
+THEN
+  RESPONSE #30
+    ApplySpell(Myself,DEATH_CURSE)
+    Kill(Myself)
+  RESPONSE #30
+    ApplySpell(Myself,RED_PILLAR_VISUAL)
+    Kill(Myself)
+END
+
+IF
+  Dead("Phaere")  // Phaere
+  Dead("Ardulace")  // Ardulace
+  Global("udDemonHasDoneTheKill","GLOBAL",0)
+  AreaCheck("AR2201")
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,ENEMY)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  OR(2)
+    !Allegiance(Myself,ENEMY)
+    Global("DrowCityHostile","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DrowCityHostile","GLOBAL",1)
+    Enemy()
+    Continue()
+END
+
+IF
+  Global("lcIDidThis","LOCALS",0)
+  Global("DrowCityHostile","GLOBAL",1)
+  OR(2)
+    See("Phaere")  // Phaere
+    See("Solaufein")  // Solaufein
+  OR(2)
+    !Allegiance("Phaere",ENEMY)  // Phaere
+    !Allegiance("Phaere",ENEMY)  // Phaere
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly("Phaere",ENEMY)
+    ChangeEnemyAlly("Solaufein",ENEMY)
+    SetGlobal("lcIDidThis","LOCALS",1)
+END
+

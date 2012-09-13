@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("OrmisDohorLemur")  // 
+    SpellHitEffectSprite(Myself,Myself,CONJURE_WATER_ELEMENTAL,0)
+    HideCreature(Myself,TRUE)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("OrmisDohor")  // 
+    Wait(1)
+    HideCreature(Myself,FALSE)
+    Wait(4)
+    Dialogue([PC])
+END
+

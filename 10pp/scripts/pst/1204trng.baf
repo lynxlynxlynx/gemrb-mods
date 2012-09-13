@@ -1,0 +1,62 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Quit_Game","GLOBAL",1)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    StartTimer(1,30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    PlaySoundNotRanged("Tra005")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra008")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra009")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra017")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra018")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra019")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra021")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra022")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra025")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra026")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra026")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra027")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra064")
+    StartRandomTimer(1,15,30)
+  RESPONSE #100
+    PlaySoundNotRanged("Tra068")
+    StartRandomTimer(1,15,30)
+END
+

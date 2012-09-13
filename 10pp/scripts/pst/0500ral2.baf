@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToPoint([2444.2550])
+    MoveToPoint([2278.2688])
+    MoveToPoint([1980.2688])
+    MoveToPoint([1766.2484])
+    MoveToPoint([1716.2484])
+    MoveToPoint([1146.1918])
+    MoveToPoint([148.1918])
+    DestroySelf()
+END
+

@@ -1,0 +1,62 @@
+IF
+  OR(2)
+    Dead("amlich01")  // ~Vongoethe~
+    Allegiance("amlich01",ENEMY)  // ~Vongoethe~
+  Global("LichFightStart","AR5509",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LichFightStart","AR5509",1)
+END
+
+IF
+  Global("LichFightStart","AR5509",1)
+  Global("Reinforcements","AR5509",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Reinforcements","AR5509",1)
+    SetGlobal("AmGuardLeave","GLOBAL",1)
+    ClearAllActions()
+    StartCutSceneMode()
+    CreateCreature("CUTSPY",[710.750],0)  // <Invalid Strref -1>
+    MoveViewPoint([737.568],5)
+    Wait(1)
+    CreateVisualEffect("ICRMPARI",[719.746])
+    CreateVisualEffect("ICRMPARI",[963.588])
+    CreateVisualEffect("ICRMPARI",[747.419])
+    CreateVisualEffect("ICRMPARI",[501.569])
+    Wait(2)
+    CreateVisualEffect("SPUNHOLY",[737.568])
+    CreateVisualEffect("SPRAISED",[579.524])
+    CreateVisualEffect("SPRAISED",[873.518])
+    CreateVisualEffect("SPRAISED",[1071.621])
+    CreateVisualEffect("SPRAISED",[372.629])
+    CreateVisualEffect("SPRAISED",[570.264])
+    CreateVisualEffect("SPRAISED",[261.509])
+    CreateVisualEffect("SPRAISED",[297.421])
+    CreateVisualEffect("SPRAISED",[702.247])
+    CreateVisualEffect("SPRAISED",[966.256])
+    Wait(1)
+    CreateVisualEffect("SPGFLSH1",[579.524])
+    CreateVisualEffect("SPGFLSH1",[873.518])
+    CreateVisualEffect("SPGFLSH1",[1071.621])
+    CreateVisualEffect("SPGFLSH1",[372.629])
+    CreateVisualEffect("SPGFLSH1",[570.264])
+    CreateVisualEffect("SPGFLSH1",[261.509])
+    CreateVisualEffect("SPGFLSH1",[297.421])
+    CreateVisualEffect("SPGFLSH1",[702.247])
+    CreateVisualEffect("SPGFLSH1",[966.256])
+    CreateCreature("SKELWA01",[579.524],0)  // ~Skeleton Warrior~
+    CreateCreature("SKELWA01",[873.518],0)  // ~Skeleton Warrior~
+    CreateCreature("BANSHE01",[1071.621],2)  // ~Banshee~
+    CreateCreature("BANSHE01",[372.629],14)  // ~Banshee~
+    CreateCreature("SKELAR01",[570.264],0)  // ~Skeleton Archer~
+    CreateCreature("SKELAR01",[261.509],0)  // ~Skeleton Archer~
+    CreateCreature("SKELAR01",[297.421],0)  // ~Skeleton Archer~
+    CreateCreature("SKELAR01",[702.247],0)  // ~Skeleton Archer~
+    CreateCreature("SKELAR01",[966.256],0)  // ~Skeleton Archer~
+    ActionOverride("CUTSPY",DestroySelf())
+    ActionOverride("marlowe",ChangeEnemyAlly(Myself,GOODBUTBLUE))
+    Wait(1)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,9 @@
+IF
+  Dead("Lyros")  // ~Xzar~
+  Global("BodyCreation","AR0309",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BodyCreation","AR0309",1)
+    CreateItem("MISC5U",0,0,0)  // ~Montaron's Body~
+END
+

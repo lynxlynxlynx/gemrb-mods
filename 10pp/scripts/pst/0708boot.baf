@@ -1,0 +1,55 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(8)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    MoveToPoint([2906.2868])
+    Face(8)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    MoveToPoint([2911.3265])
+    MoveToPoint([2855.3312])
+    MoveToPoint([2791.3312])
+    MoveToPoint([2751.3276])
+    MoveToPoint([2607.3418])
+    MoveToPoint([2240.3418])
+    MoveToPoint([2090.3302])
+    Face(8)
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    MoveToPoint([2240.3418])
+    MoveToPoint([2607.3418])
+    MoveToPoint([2751.3276])
+    MoveToPoint([2791.3312])
+    MoveToPoint([2855.3312])
+    MoveToPoint([2911.3265])
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    Face(8)
+    MoveToPoint([2906.2868])
+    WaitRandom(3,5)
+    PlaySequence(ANIM_TALK1)
+    WaitRandom(3,5)
+    MoveToPoint([2400.2868])
+END
+

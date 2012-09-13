@@ -1,0 +1,10 @@
+IF
+  WalkedToTrigger([ANYONE])
+  !GlobalTimerNotExpired("Entrance3025Timer","AR3019")
+THEN
+  RESPONSE #100
+    DisplayString(Myself,68116)  // ~You are prevented from entering this doorway by some strange force.~
+    SetGlobalTimer("Entrance3025Timer","AR3019",10)
+    ClearActions(LastTrigger)
+END
+

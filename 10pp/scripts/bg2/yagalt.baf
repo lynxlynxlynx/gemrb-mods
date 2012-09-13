@@ -1,0 +1,13 @@
+IF
+  Entered([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    CreateVisualEffect("SPFIREPI",[992.1080])
+    CreateVisualEffect("SPFIREPI",[1600.922])
+    Wait(1)
+    CreateVisualEffect("SPMAGICH",[992.1080])
+    CreateVisualEffect("SPMAGICH",[1600.922])
+    CreateCreature("GOLBUR01",[992.1080],0)  // ~Burning Man~
+    CreateCreature("GOLBUR01",[1600.922],8)  // ~Burning Man~
+END
+

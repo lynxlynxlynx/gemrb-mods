@@ -1,0 +1,10 @@
+IF
+  Global("talked","AR2010",1)
+  Dead("trfued09")  // ~Lurraxol Guard~
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("talked","AR2010",2)
+    StartDialogNoSet([PC])
+END
+

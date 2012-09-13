@@ -1,0 +1,85 @@
+IF
+  See([0.0.0.0.7])
+  !NumDead("uddrow37",4)
+  Global("duelStarts","AR2202",1)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  !NumDead("uddrow37",4)
+  !See([0.0.0.0.7])
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  NumDead("uddrow37",4)
+  Global("duelStarts","AR2202",1)
+  Global("healed","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("healed","LOCALS",1)
+    ApplySpell(Myself,HEAL_NO_VISUAL)
+    Wait(1)
+END
+
+IF
+  CombatCounter(0)
+  HPPercentLT(Myself,80)
+  Global("healed","LOCALS",1)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,HEAL_NO_VISUAL)
+END
+
+IF
+  NumDead("uddrow37",4)
+  Global("duelStarts","AR2202",1)
+  Delay(1)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    CreateVisualEffectObject("SPDIMNDR",Myself)
+    JumpToPoint([673.1069])
+    CreateVisualEffect("SPDIMNDR",[673.1069])
+    MoveViewPoint([673.1069],INSTANT)
+    Wait(5)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  !CombatCounter(0)
+  Global("DuelOn","AR2202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DuelOn","AR2202",1)
+    Continue()
+END
+
+IF
+  CombatCounter(0)
+  Global("DuelOn","AR2202",1)
+  !Dead("udlesa")  // ~Lasaonar~
+THEN
+  RESPONSE #100
+    SetGlobal("DuelOn","AR2202",0)
+END
+
+IF
+  HPLT(Myself,6)
+  Global("duelStarts","AR2202",2)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  Global("DuelStarts","AR2202",3)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

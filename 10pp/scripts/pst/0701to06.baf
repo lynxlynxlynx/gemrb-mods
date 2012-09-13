@@ -1,0 +1,18 @@
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(8)
+    WaitRandom(10,15)
+    Face(10)
+    WaitRandom(5,7)
+    Face(8)
+END
+

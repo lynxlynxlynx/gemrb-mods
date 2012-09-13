@@ -1,0 +1,40 @@
+IF
+  Global("ICASARACHT_SPOKE","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ICASARACHT_SPOKE","MYAREA",1)
+    StartCutSceneMode()
+    StartCutScene("ILDRGTLK")
+END
+
+IF
+  Global("GEM_ACTIVE","GLOBAL",0)
+  !Global("ICASARACHT_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GEM_ACTIVE","GLOBAL",1)
+    StartCutSceneMode()
+    HideGUI()
+    StartCutScene("ILDRGDED")
+END
+
+IF
+  Global("HOW_COMPLETED","GLOBAL",0)
+  !Global("GEM_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("HOW_COMPLETED","GLOBAL",1)
+    StartCutSceneMode()
+    ClearPartyEffects()
+    Wait(1)
+    StartCutScene("ILGEMDED")
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

@@ -1,0 +1,26 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",6)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("52Morohem_Master","GLOBAL",6)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+  Entered([PC])
+THEN
+  RESPONSE #100
+    IncrementGlobal("5200_SPIPW_DEAD","GLOBAL",2)
+    ReallyForceSpell(LastTrigger,WIZARD_WEB)
+END
+
+IF
+  Or(2)
+    !Global("52Morohem_Master","GLOBAL",6)
+    Global("WATCHING_PLAYER","MYAREA",0)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

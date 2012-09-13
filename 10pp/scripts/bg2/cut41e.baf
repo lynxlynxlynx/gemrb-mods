@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobalTimer("SaemWalk","GLOBAL",10)
+    ActionOverride("ppsaem",MoveToPointNoInterrupt([769.2172]))
+    Wait(1)
+    ActionOverride("ppsime",StartDialogNoSet(Player1))
+END
+

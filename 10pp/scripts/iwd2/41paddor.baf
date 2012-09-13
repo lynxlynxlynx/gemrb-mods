@@ -1,0 +1,29 @@
+IF
+  Clicked([PC])
+  CheckDoorFlags(Myself,DOORLOCKED)
+  Or(3)
+    LevelInClassGT(LastTrigger,6,THIEF)
+    CheckSkillGT(LastTrigger,7,Disable_Device)
+    CheckSkillGT(LastTrigger,7,Search)
+THEN
+  RESPONSE #100
+    SetGlobal("41XhaanPlayerKnowsLock","GLOBAL",1)
+    DisplayString(LastTrigger,24690)  // ~This locked door has no visible keyhole.  "L[eft]-North...R[ight]-North" has been chiseled into its surface.  Upon further inspection you notice wires beneath the ice leading from the door to the dais.~
+END
+
+IF
+  Clicked([PC])
+  CheckDoorFlags(Myself,DOORLOCKED)
+THEN
+  RESPONSE #100
+    SetGlobal("41XhaanPlayerKnowsLock","GLOBAL",1)
+    DisplayString(LastTrigger,24689)  // ~This locked door has no visible keyhole.  "L[eft]-North...R[ight]-North" has been chiseled into its surface.~
+END
+
+IF
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

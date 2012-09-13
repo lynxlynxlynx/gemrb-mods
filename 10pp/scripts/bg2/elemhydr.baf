@@ -1,0 +1,24 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),45)
+  RESPONSE #50
+    EquipRanged()
+    AttackReevaluate(SecondNearestEnemyOf(Myself),45)
+  RESPONSE #50
+    EquipRanged()
+    AttackReevaluate(ThirdNearestEnemyOf(Myself),45)
+  RESPONSE #50
+    EquipRanged()
+    AttackReevaluate(FourthNearestEnemyOf(Myself),45)
+  RESPONSE #50
+    EquipRanged()
+    AttackReevaluate(FifthNearestEnemyOf(Myself),45)
+  RESPONSE #50
+    EquipRanged()
+    AttackReevaluate(SixthNearestEnemyOf(Myself),45)
+END
+

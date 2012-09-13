@@ -1,0 +1,62 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_1)
+    Continue()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68008)  // ~"Get him! Get him!"~
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,3)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,12)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68021)  // ~"How many hits was that?"~
+    Wait(1)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,13)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,15)
+THEN
+  RESPONSE #100
+    MoveToObjectEx([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],0)
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,16)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,16)
+THEN
+  RESPONSE #100
+    MoveToPoint([1441.3213])
+    Face(0)
+    Wait(8)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,17)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,17)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68024)  // ~"All right, boy... go get him!"~
+    Wait(1)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,18)
+END
+

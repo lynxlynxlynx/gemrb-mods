@@ -1,0 +1,27 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    SetGlobal("deadJoye","AR1513",1)
+    ReallyForceSpellDead(Myself,DACE_MIST_FORM_CHANGE)
+END
+
+IF
+  See([PC])
+  Delay(12)
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead([PC],VAMPIRE_DOMINATION)
+END
+
+IF
+  !Range([PC],10)
+  Global("deadJoye","AR1513",2)
+THEN
+  RESPONSE #100
+    OpenDoor("Door08")
+    OpenDoor("Door09")
+    MoveToObject([PC])
+END
+

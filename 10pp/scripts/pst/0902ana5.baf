@@ -1,0 +1,56 @@
+IF
+  Global("No_Anarchy","AR0902",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Dead("Ebb")  // ~Ebb Creakknees~
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Wait(10)
+    MoveToPoint([396.480])
+    Face(4)
+    Wait(10)
+    MoveToPoint([369.343])
+    Face(4)
+    Wait(10)
+    Continue()
+END
+

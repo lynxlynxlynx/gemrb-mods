@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ravel")  // 
+    SetInternal(Myself,INTERNAL_0,1)
+    ApplySpell("Nameless",SPECIAL_TINT_SCREEN)
+    Wait(3)
+    SetAnimState(Myself,ANIM_MIMESTANDFIDGET1)
+    PlaySoundNotRanged("RAV079B")
+    Wait(12)
+    Dialogue([PC])
+    SetInternal(Myself,INTERNAL_0,0)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    Wait(10)
+    PlaySoundNotRanged("NAM211C")
+    PlaySequence(ANIM_TALK1)
+    Wait(5)
+END
+

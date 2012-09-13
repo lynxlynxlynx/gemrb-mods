@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    Enemy()
+    UseItem("BELBYE",Myself)  // <Invalid Strref -1>
+    EndCutSceneMode()
+END
+

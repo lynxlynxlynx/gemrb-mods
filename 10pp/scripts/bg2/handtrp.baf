@@ -1,0 +1,16 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateVisualEffect("SPCLOUD1",[696.3143])
+    CreateVisualEffect("SPCLOUD1",[878.2953])
+    CreateVisualEffect("SPCLOUD1",[934.2752])
+    Wait(1)
+    CreateVisualEffect("SPFLESHS",[696.3143])
+    CreateVisualEffect("SPFLESHS",[878.2953])
+    CreateVisualEffect("SPFLESHS",[934.2752])
+    CreateCreature("SPIDHU01",[696.3143],14)  // ~Huge Spider~
+    CreateCreature("SPIDHU01",[878.2953],14)  // ~Huge Spider~
+    CreateCreature("SPIDHU01",[934.2752],14)  // ~Huge Spider~
+END
+

@@ -1,0 +1,9 @@
+IF
+  Delay(18)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    DisplayString(Myself,49991)  // ~The dark altar summons forth a shadow~
+    ForceSpell(Myself,SUMMON_SHADOW)
+END
+

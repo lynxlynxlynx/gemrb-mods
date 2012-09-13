@@ -1,0 +1,7 @@
+IF
+  BitGlobal("MYAREA:AREA_VAR","",2147483647,AND)
+THEN
+  RESPONSE #100
+    AttackReevaluate([PC][0.0.10000.10000],45)
+END
+

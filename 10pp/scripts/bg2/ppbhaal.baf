@@ -1,0 +1,11 @@
+IF
+  Global("AsylumPlot","GLOBAL",30)
+  HPLT(Myself,20)
+  Global("spoke","LOCALS",0)
+THEN
+  RESPONSE #100
+    ClearActions(Myself)
+    SetGlobal("spoke","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+

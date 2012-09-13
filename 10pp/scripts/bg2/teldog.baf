@@ -1,0 +1,44 @@
+IF
+  Detect(NearestEnemyOf(Myself))
+  !See(NearestEnemyOf(Myself))
+  HaveSpell(MOON_DOG_HOWL)
+THEN
+  RESPONSE #100
+    Spell(Myself,MOON_DOG_HOWL)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(Myself,STATE_NORMAL)
+  HaveSpell(NON_DETECTION_SELF)
+THEN
+  RESPONSE #100
+    Spell(Myself,NON_DETECTION_SELF)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  HaveSpell(HASTE_SELF)
+THEN
+  RESPONSE #100
+    Spell(Myself,HASTE_SELF)
+    Continue()
+END
+
+IF
+  See([ENEMY.0.TIEFLING])
+  OR(3)
+    HPPercentLT(LastSeenBy(Myself),50)
+    StateCheck(LastSeenBy(Myself),STATE_POISONED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+  HaveSpell(INVISIBILITY_SELF)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),INVISIBILITY_SELF)
+    Continue()
+END
+

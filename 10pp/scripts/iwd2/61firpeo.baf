@@ -1,0 +1,41 @@
+IF
+  GlobalGT("61VolcanoStatus","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite("INVISIBLE",Myself,ALTERATION,0)
+    DestroySelf()
+END
+
+IF
+  Or(2)
+    !IsCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS)
+    !IsCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,253)
+    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+    Continue()
+END
+
+IF
+  AttackedBy([ANYONE],0)
+  Range(LastAttackerOf(Myself),15,LESS_THAN)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("61CurrentDay","GLOBAL",3)
+  Global("LotharOnPatrol","MYAREA",1)
+  See([ENEMY],0)
+  Range(LastMarkedObject,15,LESS_THAN)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

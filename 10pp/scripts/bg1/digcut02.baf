@@ -1,0 +1,82 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Charleston")  // 
+    MoveToPoint([710.300])
+    MoveToPoint([674.541])
+    MoveToPoint([1058.554])
+    Wait(3)
+    StartDialog("cutchar",Player1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    Wait(1)
+    SmallWait(7)
+    MoveViewPoint([700.300],VERY_FAST)
+    MoveToPoint([700.300])
+    MoveViewPoint([670.541],VERY_FAST)
+    MoveToPoint([670.541])
+    MoveViewPoint([1062.573],VERY_FAST)
+    MoveToPoint([1011.554])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    Wait(3)
+    MoveToPoint([700.300])
+    MoveToPoint([670.541])
+    MoveToPoint([1011.554])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    Wait(3)
+    MoveToPoint([700.300])
+    MoveToPoint([670.541])
+    MoveToPoint([1011.554])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    Wait(3)
+    MoveToPoint([700.300])
+    MoveToPoint([670.541])
+    MoveToPoint([1011.554])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    Wait(3)
+    MoveToPoint([700.300])
+    MoveToPoint([670.541])
+    MoveToPoint([1011.554])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    Wait(3)
+    MoveToPoint([700.300])
+    MoveToPoint([670.541])
+    MoveToPoint([1011.554])
+END
+

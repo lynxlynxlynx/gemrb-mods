@@ -1,0 +1,15 @@
+IF
+  See(NearestMyGroupOfType)
+  HPLT(LastSeenBy(Myself),25)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  See([0.0.0.0.MAGIC])
+THEN
+  RESPONSE #100
+    Attack(LastSeenBy(Myself))
+END
+

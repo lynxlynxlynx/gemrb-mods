@@ -1,0 +1,69 @@
+IF
+  !Global("6051_Wearing_Robes","GLOBAL",6)
+  See(Player1,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("6051_Wearing_Robes","GLOBAL",6)
+  See(Player2,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("6051_Wearing_Robes","GLOBAL",6)
+  See(Player3,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("6051_Wearing_Robes","GLOBAL",6)
+  See(Player4,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("6051_Wearing_Robes","GLOBAL",6)
+  See(Player5,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("6051_Wearing_Robes","GLOBAL",6)
+  See(Player6,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  See(NearestEnemySummoned,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    ChangeCurrentScript("")
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

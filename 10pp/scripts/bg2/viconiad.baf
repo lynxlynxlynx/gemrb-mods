@@ -1,0 +1,17 @@
+IF
+  !Global("ViconiaRomanceActive","GLOBAL",0)
+  !Global("ViconiaRomanceActive","GLOBAL",3)
+  Global("ViconiaMatch","GLOBAL",1)
+  See(Player1)
+  CombatCounter(0)
+  OR(3)
+    Global("LoveTalk","LOCALS",39)
+    Global("LoveTalk","LOCALS",49)
+    Global("LoveTalk","LOCALS",61)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    DisplayString(Player1,2)  // ~You played Elminster?~
+    Interact(Player1)
+END
+

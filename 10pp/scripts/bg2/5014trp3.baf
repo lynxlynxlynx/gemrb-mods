@@ -1,0 +1,19 @@
+IF
+  Detected([ANYONE])
+  Global("Switch3Detection5014","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Switch3Detection5014","GLOBAL",1)
+    DisplayString("Switch3",72518)  // ~You have found a small hidden switch behind a trap. You shall have to disarm the trap if you wish to flick the switch.~
+END
+
+IF
+  Disarmed([ANYONE])
+  Global("Switch3Disarmed5014","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Switch3Disarmed5014","GLOBAL",1)
+    IncrementGlobal("DoorSwitch5014","GLOBAL",1)
+    DisplayString("Switch3",72519)  // ~You flick the switch and hear the muffled turning of gears.~
+END
+

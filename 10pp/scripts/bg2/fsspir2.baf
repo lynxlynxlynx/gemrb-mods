@@ -1,0 +1,10 @@
+IF
+  Detect([PC])
+  Global("FSChallenge","GLOBAL",3)
+  Global("FinalSpeech","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FinalSpeech","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

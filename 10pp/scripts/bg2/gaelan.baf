@@ -1,0 +1,18 @@
+IF
+  See(Player1)
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartDialogNoSet(Player1)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Global("GaelanMove2","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Attacked","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

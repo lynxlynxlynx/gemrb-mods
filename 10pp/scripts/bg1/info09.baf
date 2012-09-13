@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16222)  // ~ _Clerics or paladins have the ability to Turn Undead. Activating this icon will cause many undead creatures to flee or even be destroyed. When in this mode, the character can move wherever they wish. Any other action, such as attacking or casting a spell, will deactivate the ability. ~ [TEXTPOP]
+END
+

@@ -1,0 +1,7 @@
+IF
+  PartyHasItem("MISC6Q")  // ~Amuana's Bones~
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

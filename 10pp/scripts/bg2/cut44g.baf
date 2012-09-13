@@ -1,0 +1,11 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("udogre")  // 
+    MoveToPoint([2859.1675])
+    CloseDoor("Door16")
+    Lock("Door16")
+    EndCutSceneMode()
+END
+

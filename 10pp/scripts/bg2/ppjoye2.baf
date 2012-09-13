@@ -1,0 +1,25 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Detect([PC])
+  Range([PC],15)
+  Global("DaceCutScene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DaceCutScene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut75a")
+END
+
+IF
+  Global("AsylumDaceGone","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

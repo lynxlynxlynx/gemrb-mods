@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([1600.930],VERY_FAST)
+    MoveToPoint([1600.930])
+    Face(4)
+    Wait(3)
+    CreateCreature("StaleMa",[1850.625])  // ~Zombie~
+    ForceAIScript("1501atta","StaleMa",DEFAULT)
+    CreateCreature("Hargri",[875.950])  // ~Skeleton Priest~
+    ForceFacing("Hargrim",12)
+    StartCutScene("1501cut2")
+END
+

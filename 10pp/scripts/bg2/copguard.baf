@@ -1,0 +1,12 @@
+IF
+  OR(2)
+    GlobalGT("HendakReleased","AR0406",1)
+    Dead("Lehtinan")  // Lehtinan
+  Global("makeHostile","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeAIScript("",CLASS)
+    SetGlobal("makeHostile","LOCALS",1)
+    Enemy()
+END
+

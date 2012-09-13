@@ -1,0 +1,31 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GraceF")  // 
+    SetAnimState(Myself,ANIM_STANDTOSTANCE)
+    StartSong(CHAR_GRACE,[0.0],Normal)
+    Face(14)
+    Wait(3)
+    Face(6)
+    PlaySoundNotRanged("Ffg071")
+    Wait(1)
+    MoveToPoint([4363.1183])
+    Wait(1)
+    StartSong(CHAR_GRACE,[0.0],Normal)
+    Face(10)
+    Wait(1)
+    Face(4)
+    Wait(1)
+    PlaySoundNotRanged("Ffg073")
+    MoveToPoint([4631.1180])
+    StartCutScene("1201csG2")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Trans")  // 
+END
+

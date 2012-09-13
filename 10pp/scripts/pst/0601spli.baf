@@ -1,0 +1,64 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    GlobalSet("Call_MK","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    GlobalSet("Splinter","GLOBAL",1)
+    Dialogue([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("Splinter","GLOBAL",1)
+    Dialogue([PC])
+END
+
+IF
+  Help([0.0.TEAM_1])
+THEN
+  RESPONSE #100
+    GlobalSet("Splinter","GLOBAL",1)
+    Dialogue([PC])
+END
+
+IF
+  Help([0.0.TEAM_10])
+THEN
+  RESPONSE #100
+    GlobalSet("Splinter","GLOBAL",1)
+    Dialogue([PC])
+END
+
+IF
+  Help([0.0.TEAM_11])
+THEN
+  RESPONSE #100
+    GlobalSet("Splinter","GLOBAL",1)
+    Dialogue([PC])
+END
+
+IF
+  !NearLocation(Myself,[712.958],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([712.958])
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+

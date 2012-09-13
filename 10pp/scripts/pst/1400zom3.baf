@@ -1,0 +1,49 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Help()
+    Attack([PC])
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+THEN
+  RESPONSE #100
+    Attack([PC])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(3,5)
+    Face(6)
+    WaitRandom(3,5)
+    Face(10)
+    MoveToPoint([2291.2154])
+    Face(6)
+    WaitRandom(3,5)
+    Face(10)
+    MoveToPoint([2399.2049])
+    Face(6)
+    WaitRandom(3,5)
+    MoveToPoint([2145.2309])
+    Face(8)
+END
+

@@ -1,0 +1,38 @@
+IF
+  CreatureHidden(Myself)
+  Global("WATCHING_PLAYER","MYAREA",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !CreatureHidden(Myself)
+  Global("WATCHING_PLAYER","MYAREA",0)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite(Myself,Myself,POISON,10)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  GlobalGT("5200_SPIPW_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("5200_SPIPW_DEAD","GLOBAL",-1)
+    SpellHitEffectSprite(Myself,Myself,POISON,10)
+    Wait(1)
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

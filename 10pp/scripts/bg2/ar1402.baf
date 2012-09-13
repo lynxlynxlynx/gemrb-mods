@@ -1,0 +1,20 @@
+IF
+  Global("ShadowLordDead","GLOBAL",0)
+  Global("ShadeDark","AR1402",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ShadeDark","AR1402",1)
+    TriggerActivation("Tran1400",FALSE)
+    TriggerActivation("Tran1404",TRUE)
+END
+
+IF
+  Global("ShadowLordDead","GLOBAL",1)
+  Global("NewTransition","AR1402",0)
+THEN
+  RESPONSE #100
+    SetGlobal("NewTransition","AR1402",1)
+    TriggerActivation("Tran1400",TRUE)
+    TriggerActivation("Tran1404",FALSE)
+END
+

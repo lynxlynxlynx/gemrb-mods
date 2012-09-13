@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("drelle")  // 
+    MoveToPoint([1313.2195])
+    StartDialogNoSet(Player1)
+END
+

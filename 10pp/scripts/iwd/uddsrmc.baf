@@ -1,0 +1,19 @@
+IF
+  GlobalLT("AR6010_TRAP_STATE","GLOBAL",2)
+  Entered([ANYTHING])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,21295)  // ~You hear a loud click.~ [AMB_D05C]
+    ReallyForceSpell(LastTrigger,TRAP_LIGHTNING_BOLT)
+    SetGlobal("AR6010_TRAP_STATE","GLOBAL",0)
+END
+
+IF
+  GlobalLT("AR6010_TRAP_STATE","GLOBAL",3)
+  Entered([ANYTHING])
+THEN
+  RESPONSE #100
+    SetGlobal("AR6010_TRAP_STATE","GLOBAL",3)
+    DisplayString(Myself,21296)  // ~You hear a loud click, followed by eleven similar sounding clicks echoing throughout the room.  Finally, you hear a loud clattering coming from the round table room.~ [DISARMC]
+END
+

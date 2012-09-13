@@ -1,0 +1,16 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("1000corncap")  // 
+    SinisterPoof("S113SMOK",[4143.2123],1)
+    SinisterPoof("S113SMOK",[4112.2167],1)
+    SinisterPoof("S113SMOK",[4113.2261],1)
+    SinisterPoof("S113SMOK",[4145.2303],1)
+    Wait(1)
+    GlobalSet("Cornugon_Buddy_Spawn","GLOBAL",1)
+    Wait(3)
+    EndCutSceneMode()
+    Wait(15)
+END
+

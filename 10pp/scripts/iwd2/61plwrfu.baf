@@ -1,0 +1,16 @@
+IF
+  Clicked([PC])
+  OpenState("AR6102_Lever2",FALSE)  // AR6102_Lever2
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,35372)  // ~A thin magical veil, composed of green sparkling particles, prevents you from accessing this piece of furniture. Small trails of these particles taper off in a westerly direction.~
+END
+
+IF
+  Clicked([PC])
+  !OpenState("AR6102_Lever2",FALSE)  // AR6102_Lever2
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

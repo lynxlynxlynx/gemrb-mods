@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    DayNight(MIDNIGHT)
+    LeaveAreaLUAPanic("AR0500","",[3035.2949],6)
+    LeaveAreaLUA("AR0500","",[3035.2949],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR0500","",[2965.3008],6))
+    ActionOverride(Player3,LeaveAreaLUA("AR0500","",[2988.3027],6))
+    ActionOverride(Player4,LeaveAreaLUA("AR0500","",[3015.3047],6))
+    ActionOverride(Player5,LeaveAreaLUA("AR0500","",[2954.2899],6))
+    ActionOverride(Player6,LeaveAreaLUA("AR0500","",[3100.2954],6))
+    MultiPlayerSync()
+    Wait(1)
+    CreateCreature("pparan2",[3059.3013],0)  // ~Aran Linvail~
+    CreateCreature("ppsaem",[2995.2984],0)  // ~Saemon Havarian~
+    CreateCreature("ppsime",[3070.3076],0)  // ~Sime~
+    Wait(1)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    MultiPlayerSync()
+    ActionOverride("aran",StartDialogNoSet(Player1))
+END
+

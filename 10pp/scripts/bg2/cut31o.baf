@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    ActionOverride("bdact01",JumpToPoint([706.552]))
+    ActionOverride("bdact02",JumpToPoint([948.714]))
+    ActionOverride("bdact03",JumpToPoint([956.714]))
+    ActionOverride("bdact04",JumpToPoint([885.644]))
+    ActionOverride("bdact05",JumpToPoint([819.633]))
+    ActionOverride("bdact06",JumpToPoint([1032.666]))
+    Wait(1)
+    FadeFromColor([20.0],0)
+    ActionOverride("bdact01",StartDialogNoSet(Player1))
+END
+

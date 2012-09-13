@@ -1,0 +1,258 @@
+IF
+  !Global("ARUNDEL_DEAD","GLOBAL",0)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("KULDAHAR_ALARM","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  Global("ARUNDEL_OUTSIDE","GLOBAL",0)
+  !CreatureHidden(Myself)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("ARUNDEL_OUTSIDE","GLOBAL",1)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,31)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,31)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  !Dead("YSELF)")  // YSELF)
+  HPPercentLT(Myself,31)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    Wait(2)
+    Continue()
+END
+
+IF
+  !See([PC])
+  LOS([PC],15)
+  !TimerActive(25)
+THEN
+  RESPONSE #100
+    StartTimer(25,7)
+    ForceSpell([PC],CLERIC_INVISIBILITY_PURGE)
+    Wait(2)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",0)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",3)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",4)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",5)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",6)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",7)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",8)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",9)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",10)
+    Continue()
+END
+
+IF
+  HaveSpell(CLERIC_CREEPING_DOOM)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",1)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_CREEPING_DOOM)
+    RemoveSpell(CLERIC_CREEPING_DOOM)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_CONJURE_EARTH_ELEMENTAL)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",2)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_CONJURE_EARTH_ELEMENTAL)
+    RemoveSpell(CLERIC_CONJURE_EARTH_ELEMENTAL)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_FIRE_SEEDS)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",3)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_FIRE_SEEDS)
+    RemoveSpell(CLERIC_FIRE_SEEDS)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_II)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",4)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_ANIMAL_SUMMONING_II)
+    RemoveSpell(CLERIC_ANIMAL_SUMMONING_II)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_SPIKE_STONES)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",5)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_SPIKE_STONES)
+    RemoveSpell(CLERIC_SPIKE_STONES)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_INSECT_PLAGUE)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",6)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)
+    RemoveSpell(CLERIC_INSECT_PLAGUE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_III)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",7)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_ANIMAL_SUMMONING_III)
+    RemoveSpell(CLERIC_ANIMAL_SUMMONING_III)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_GIANT_INSECT)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",8)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_GIANT_INSECT)
+    RemoveSpell(CLERIC_GIANT_INSECT)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_STATIC_CHARGE)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",9)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_STATIC_CHARGE)
+    RemoveSpell(CLERIC_STATIC_CHARGE)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_DISPEL_MAGIC)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",10)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+    RemoveSpell(CLERIC_DISPEL_MAGIC)
+    Wait(2)
+END
+
+IF
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+  See([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastSeenBy(Myself),CLERIC_CALL_LIGHTNING)
+    RemoveSpell(CLERIC_CALL_LIGHTNING)
+    Wait(2)
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    FaceObject(LastAttackerOf(Myself))
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+END
+

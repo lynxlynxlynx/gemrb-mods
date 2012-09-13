@@ -1,0 +1,95 @@
+IF
+  StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Detect([PC])
+  Global("CloneBehavior","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    ApplySpell(Myself,WIZARD_MINOR_SPELL_TURNING)
+    SetGlobal("CloneBehavior","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  GlobalLT("DetectInvis","LOCALS",2)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_DETECT_INVISIBILITY)
+    IncrementGlobal("DetectInvis","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),8)
+  Global("CloneBehavior","LOCALS",1)
+  HaveSpell(WIZARD_STINKING_CLOUD)
+THEN
+  RESPONSE #100
+    SetGlobal("CloneBehavior","LOCALS",2)
+END
+
+IF
+  See([PC])
+  Global("CloneBehavior","LOCALS",2)
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+    SetGlobal("DimensionDoor","GLOBAL",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("CloneBehavior","LOCALS",3)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MONSTER_SUMMONING_2)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MONSTER_SUMMONING_2)
+END
+
+IF
+  Global("DimensionDoor","GLOBAL",12)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

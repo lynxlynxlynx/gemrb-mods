@@ -1,0 +1,21 @@
+IF
+  !CheckSpellState(Myself,PROTECTION_FROM_EVIL)
+  HaveSpell(CLERIC_PROTECTION_FROM_EVIL)
+  Or(2)
+    Race(NearestEnemySummoned(Myself),TANARI)
+    Race(NearestEnemySummoned(Myself),ELEMENTAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PROTECTION_FROM_EVIL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("63MadaC2")
+END
+

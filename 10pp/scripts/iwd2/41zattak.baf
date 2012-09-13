@@ -1,0 +1,33 @@
+IF
+  Global("INITIALIZED_41ZATTAK","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("INITIALIZED_41ZATTAK","LOCALS",1)
+    Continue()
+END
+
+IF
+  See("41Zack",0)  // ~Zack Boosenburry~
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Or(2)
+    Global("41Zack_dead","GLOBAL",1)
+    !Exists("41Zack")  // ~Zack Boosenburry~
+THEN
+  RESPONSE #100
+    MoveToObject(NearestPC)
+END
+
+IF
+  !See("41Zack",0)  // ~Zack Boosenburry~
+THEN
+  RESPONSE #100
+    MoveToObject("41Zack")
+END
+

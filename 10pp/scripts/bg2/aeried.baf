@@ -1,0 +1,17 @@
+IF
+  !Global("AerieRomanceActive","GLOBAL",0)
+  !Global("AerieRomanceActive","GLOBAL",3)
+  Global("AerieMatch","GLOBAL",1)
+  See(Player1)
+  CombatCounter(0)
+  OR(2)
+    Global("LoveTalk","LOCALS",25)
+    Global("LoveTalk","LOCALS",45)
+THEN
+  RESPONSE #100
+    IncrementGlobal("LoveTalk","LOCALS",1)
+    RealSetGlobalTimer("AerieRomance","GLOBAL",1)
+    PlaySong(34)
+    Interact(Player1)
+END
+

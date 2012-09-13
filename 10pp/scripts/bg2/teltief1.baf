@@ -1,0 +1,26 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("whirlwind","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("whirlwind","LOCALS",1)
+    SpellNoDec(Myself,WARRIOR_WHIRLWIND)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("TiefFight","AR3005",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TiefFight","AR3005",1)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("TiefFight","AR3005",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

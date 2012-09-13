@@ -1,0 +1,50 @@
+IF
+  Exists("Nameless")  // ~Nameless One~
+  Global("AR0209_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("0209cut1")
+    GlobalSet("AR0209_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists([0.0.0.0.0.0.PERSON_1][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_2][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_3][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_4][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_5][0.0.10000.10000])
+  Exists([0.0.0.0.0.0.PERSON_6][0.0.10000.10000])
+  Global("0209_Respawn","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("0209_Respawn","GLOBAL",0)
+END
+
+IF
+  !TimerActive(1)
+  !Dead("Strahan")  // ~Necromancer~
+THEN
+  RESPONSE #100
+    StartTimer(1,36000)
+    GlobalSet("0209_Respawn","GLOBAL",1)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",209)
+  !Dead("Strahan")  // ~Necromancer~
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",209)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",209)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",209)
+    Continue()
+END
+

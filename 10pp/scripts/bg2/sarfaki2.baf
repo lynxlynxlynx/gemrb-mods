@@ -1,0 +1,18 @@
+IF
+  See("sargrd15")  // ~Militia Guard~
+  !GlobalTimerNotExpired("AttackWall","LOCALS")
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("jwarrow","sargrd15")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",3)
+END
+
+IF
+  See("sargrd16")  // ~Militia Guard~
+  !GlobalTimerNotExpired("AttackWall","LOCALS")
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("jwarrow","sargrd16")  // <Invalid Strref -1>
+    SetGlobalTimer("AttackWall","LOCALS",3)
+END
+

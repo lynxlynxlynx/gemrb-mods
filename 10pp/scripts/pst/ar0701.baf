@@ -1,0 +1,35 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",701)
+  Exists("Nameless")  // ~Nameless One~
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",701)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !GlobalGT("AR0701_Visited","GLOBAL",0)
+  Exists("Nameless")  // ~Nameless One~
+THEN
+  RESPONSE #100
+    GlobalSet("AR0701_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Caretaker","GLOBAL",2)
+  Global("0701_Special_Thug","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CreateCreature("Wernet",[2078.3138])  // ~Wernet~
+    GlobalSet("0701_Special_Thug","GLOBAL",1)
+END
+

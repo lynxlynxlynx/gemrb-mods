@@ -1,0 +1,15 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    CreateCreature("00OCHX","",[-1.-1],0)  // ~Ochre Jelly~
+    FaceObject(LastMarkedObject)
+    MatchHP(LastMarkedObject,MAX_HP)
+    MatchHP(LastMarkedObject,CURRENT_HP)
+    PlaySequence(Myself,ATTACK)
+    SmallWait(7)
+    DisplayMessage(41083)  // ~The ochre jelly splits!~
+    HideCreature(LastMarkedObject,FALSE)
+END
+

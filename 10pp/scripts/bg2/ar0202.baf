@@ -1,0 +1,110 @@
+IF
+  Dead("UnseeingEye")  // UnseeingEye
+  Global("FinishedLensPlot","AR0202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FinishedLensPlot","AR0202",1)
+    IncrementGlobal("LensPlot","GLOBAL",1)
+END
+
+IF
+  Global("OpenSecretDoor","AR0202",1)
+  OpenState("SECSTAIR",FALSE)  // SECSTAIR
+THEN
+  RESPONSE #100
+    OpenDoor("SECSTAIR")
+END
+
+IF
+  GlobalGT("GasChamber","AR0202",1)
+  GlobalLT("GasChamber","AR0202",6)
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+    OpenDoor("DOOR02")
+    TriggerActivation("GASCHAMBERSTART",FALSE)
+    SetGlobal("GasChamber","AR0202",6)
+END
+
+IF
+  Global("GasChamber","AR0202",6)
+  OR(2)
+    OpenState("DOOR01",FALSE)  // DOOR01
+    OpenState("DOOR02",FALSE)  // DOOR02
+THEN
+  RESPONSE #100
+    OpenDoor("DOOR01")
+    OpenDoor("DOOR02")
+END
+
+IF
+  Global("Tran0201Active","AR0202",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Tran0201Active","AR0202",1)
+    TriggerActivation("TRAN0201",FALSE)
+END
+
+IF
+  Global("Tran0201Active","AR0202",1)
+  Global("OpenPit","AR0202",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Tran0201Active","AR0202",2)
+    TriggerActivation("TRAN0201",TRUE)
+END
+
+IF
+  Global("UnseeingEye","GLOBAL",1)
+  !Exists("UnseeingEye")  // UnseeingEye
+  !Dead("UnseeingEye")  // UnseeingEye
+THEN
+  RESPONSE #100
+    ActionOverride("cltcut01",DestroySelf())
+    ActionOverride("cltcut02",DestroySelf())
+    ActionOverride("cltcut03",DestroySelf())
+    CreateCreature("BHEYE",[2429.1914],0)  // ~Unseeing Eye~
+END
+
+IF
+  Global("LensNumber","GLOBAL",0)
+  NumItemsParty("c6lens",1)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",1)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+
+IF
+  Global("LensNumber","GLOBAL",1)
+  NumItemsParty("c6lens",2)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",2)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+
+IF
+  Global("LensNumber","GLOBAL",2)
+  NumItemsParty("c6lens",3)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",3)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+

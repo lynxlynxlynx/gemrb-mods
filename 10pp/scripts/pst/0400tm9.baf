@@ -1,0 +1,67 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(8)
+    WaitRandom(5,9)
+    MoveToPoint([2521.710])
+    MoveToPoint([2398.833])
+    MoveToPoint([2176.833])
+    MoveToPoint([1975.634])
+    Face(6)
+    WaitRandom(5,9)
+    MoveToPoint([1772.837])
+    MoveToPoint([1232.837])
+    MoveToPoint([1232.593])
+    MoveToPoint([1071.434])
+    Face(6)
+    MoveToPoint([852.653])
+    MoveToPoint([797.662])
+    MoveToPoint([720.740])
+    Face(4)
+    WaitRandom(5,9)
+    MoveToPoint([720.787])
+    MoveToPoint([748.825])
+    MoveToPoint([948.1026])
+    MoveToPoint([948.1467])
+    MoveToPoint([1215.1735])
+    MoveToPoint([1304.1646])
+    MoveToPoint([1378.1646])
+    MoveToPoint([1422.1603])
+    Face(10)
+    WaitRandom(5,9)
+    MoveToPoint([1829.2011])
+    MoveToPoint([2279.2011])
+    MoveToPoint([2364.1926])
+    MoveToPoint([3084.1926])
+    MoveToPoint([3145.1864])
+    Face(10)
+    WaitRandom(5,9)
+    MoveToPoint([3572.1864])
+    MoveToPoint([3801.1635])
+    MoveToPoint([3801.1459])
+    MoveToPoint([3579.1236])
+    MoveToPoint([3579.1020])
+    MoveToPoint([3369.810])
+    Face(8)
+    WaitRandom(5,9)
+    MoveToPoint([3293.810])
+    MoveToPoint([3131.971])
+    MoveToPoint([3002.971])
+    MoveToPoint([2741.710])
+END
+

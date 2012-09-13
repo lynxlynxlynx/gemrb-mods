@@ -1,0 +1,51 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ginafae")  // 
+    FadeToColor([0.0],0)
+    Wait(1)
+    HideCreature(Myself,TRUE)
+    Wait(1)
+    FadeFromColor([0.0],0)
+    Wait(1)
+    EndCutSceneMode()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53SpiGin_01")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53SpiGin_02")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53SpiGin_03")  // 
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("53SpiGin_04")  // 
+    Wait(1)
+    DestroySelf()
+END
+

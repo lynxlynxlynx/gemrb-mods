@@ -1,0 +1,24 @@
+IF
+  Detect([PC])
+  Global("Display","LOCALS",0)
+  !Dead("pirpir02")  // ~Andar the Pirate~
+THEN
+  RESPONSE #100
+    SetGlobal("Display","LOCALS",1)
+    Wait(5)
+    DisplayStringHead(Myself,48079)  // ~Argh!~
+    Wait(5)
+    DisplayStringHead(Myself,48079)  // ~Argh!~
+END
+
+IF
+  Dead("pirpir02")  // ~Andar the Pirate~
+  Global("DeadDisplay","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DeadDisplay","LOCALS",1)
+    DisplayStringHead(Myself,48085)  // ~Fairly warned be thee, says I.~
+    Wait(2)
+    EscapeArea()
+END
+

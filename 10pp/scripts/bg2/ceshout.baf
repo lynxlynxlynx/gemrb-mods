@@ -1,0 +1,28 @@
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,NEUTRAL)
+  !Class(Myself,INNOCENT)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Heard([ANYONE],89)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Heard([ANYONE],89)
+  !Class(Myself,INNOCENT)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(LastHeardBy(Myself))
+    Continue()
+END
+

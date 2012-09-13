@@ -1,0 +1,8 @@
+IF
+  HarmlessOpened([PC])
+THEN
+  RESPONSE #100
+    DestroyPartyItem("KeyPr",TRUE)
+    GlobalSet("Mortuary_Walkthrough","GLOBAL",1)
+END
+

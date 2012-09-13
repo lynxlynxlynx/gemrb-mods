@@ -1,0 +1,23 @@
+IF
+  Dead("Lehtinan")  // Lehtinan
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Dead("copamb02")  // ~Copper Coronet Guard~
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+
+IF
+  Detect([PC])
+  See("copamb02")  // ~Copper Coronet Guard~
+  !Dead("copamb02")  // ~Copper Coronet Guard~
+THEN
+  RESPONSE #100
+    AttackReevaluate("copamb02",15)
+END
+

@@ -1,0 +1,29 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+  Global("GraveClose","AR0800",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,26773)  // ~The grave is only partially filled. The gravekeeper must be lazy. Within a few minutes you have reached the coffin. You open it to find a corpse and a man who is quite obviously alive. You help him out of the coffin.~
+    FadeToColor([15.0],0)
+    CreateCreature("TIRDIR",[995.712],9)  // ~Tirdir~
+    FadeFromColor([15.0],0)
+    SetGlobal("GraveClose","AR0800",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,26779)  // ~Other than a rotting corpse there is nothing of note within the grave.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,26768)  // ~You are too far away from the grave to do anything with it.~
+END
+

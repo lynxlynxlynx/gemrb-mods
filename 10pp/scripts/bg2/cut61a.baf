@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("tolger")  // 
+    Wait(1)
+    ForceSpell("Valygar",FLASHY_1)
+    ActionOverride("Valygar",LeaveParty())
+    Wait(2)
+    Wait(1)
+    ActionOverride("Valygar",DropInventory())
+    ActionOverride("Valygar",DestroySelf())
+    ReputationInc(-2)
+    SetGlobal("SPRITE_IS_DEADValygar","GLOBAL",1)
+    SetGlobal("ValygarGone","GLOBAL",1)
+    StartDialogNoSet(Player1)
+END
+

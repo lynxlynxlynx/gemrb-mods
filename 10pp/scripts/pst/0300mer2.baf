@@ -1,0 +1,51 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx(LastAttackerOf(Myself),100,TRUE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(4)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9538)  // ~"Fish-heads!"~
+    WaitRandom(10,12)
+    Face(6)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9537)  // ~"Freeesshhh fiiiiiish!"~
+    WaitRandom(10,12)
+    Face(4)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9536)  // ~"Fresh fish-heads!"~
+    WaitRandom(10,12)
+    Face(2)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9538)  // ~"Fish-heads!"~
+    WaitRandom(10,12)
+    Face(0)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9537)  // ~"Freeesshhh fiiiiiish!"~
+    WaitRandom(10,12)
+    Face(2)
+    Wait(1)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,9536)  // ~"Fresh fish-heads!"~
+    WaitRandom(10,12)
+END
+

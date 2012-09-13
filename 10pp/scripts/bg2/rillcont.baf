@@ -1,0 +1,38 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PuzzleOn","AR2809",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PuzzleOn","AR2809",1)
+    CreateCreature("rillpuzz",[637.284],0)  // <Invalid Strref -1>
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PuzzleOn","AR2809",1)
+  !Global("TalkedtoRillpuzz","AR2809",2)
+THEN
+  RESPONSE #100
+    ActionOverride("rillpuzz",StartDialogNoSet([PC]))
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("PuzzleOn","AR2809",1)
+  Global("TalkedtoRillpuzz","AR2809",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,55222)  // ~The puzzle box is empty and you have no further use for it.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

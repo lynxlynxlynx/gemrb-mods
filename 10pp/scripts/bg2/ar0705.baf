@@ -1,0 +1,83 @@
+IF
+  Dead("Mekrath")  // Mekrath
+  Global("HaerDalisFree","GLOBAL",0)
+  Global("doOnce","AR0705",0)
+THEN
+  RESPONSE #100
+    ActionOverride("HaerDalis",JumpToPoint([855.674]))
+    SetGlobal("doOnce","AR0705",1)
+END
+
+IF
+  !Dead("Mekrath")  // Mekrath
+  Global("HaerDalisFree","GLOBAL",1)
+  Global("doOnceDav","AR0705",0)
+THEN
+  RESPONSE #100
+    ActionOverride("HaerDalis",JumpToPoint([855.674]))
+    SetGlobal("doOnceDav","AR0705",1)
+END
+
+IF
+  OR(2)
+    Global("MekrathLeft","GLOBAL",1)
+    Dead("mekrath")  // mekrath
+  Global("FinishedLensPlot","AR0705",0)
+THEN
+  RESPONSE #100
+    SetGlobal("FinishedLensPlot","AR0705",1)
+    IncrementGlobal("LensPlot","GLOBAL",1)
+    Unlock("LensContainer")
+END
+
+IF
+  Global("HaerDalisFree","GLOBAL",1)
+  Global("OpenContainer","AR0705",0)
+THEN
+  RESPONSE #100
+    SetGlobal("OpenContainer","AR0705",1)
+    Unlock("Container10")
+END
+
+IF
+  Global("LensNumber","GLOBAL",0)
+  NumItemsParty("c6lens",1)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",1)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+
+IF
+  Global("LensNumber","GLOBAL",1)
+  NumItemsParty("c6lens",2)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",2)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+
+IF
+  Global("LensNumber","GLOBAL",2)
+  NumItemsParty("c6lens",3)
+THEN
+  RESPONSE #100
+    SetGlobal("LensNumber","GLOBAL",3)
+    AddXPObject(Player1,45000)
+    AddXPObject(Player2,45000)
+    AddXPObject(Player3,45000)
+    AddXPObject(Player4,45000)
+    AddXPObject(Player5,45000)
+    AddXPObject(Player6,45000)
+END
+

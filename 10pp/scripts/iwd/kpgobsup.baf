@@ -1,0 +1,45 @@
+IF
+  !Global("CHICKEN_ALL_DEAD","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,3,7)
+    Continue()
+END
+
+IF
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8146)  // ~"Idiots!  Get those chickens!"~
+    StartRandomTimer(24,3,7)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8147)  // ~"Blix, get over there!"~
+    StartRandomTimer(24,3,7)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8148)  // ~"Move it!"~
+    StartRandomTimer(24,3,7)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,8149)  // ~"Help him, Kreg!"~
+    StartRandomTimer(24,3,7)
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation()
+END
+

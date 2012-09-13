@@ -1,0 +1,8 @@
+IF
+  PartyHasItem("BOW12")  // ~Elven Court Bow +3~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+

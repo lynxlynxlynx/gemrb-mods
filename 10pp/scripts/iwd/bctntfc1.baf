@@ -1,0 +1,251 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WYLFDENE")  // 
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOB_1")  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOB_2")  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOB_3")  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOB_4")  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOB_5")  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GOB_6")  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("SKEL_1")  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("SKEL_2")  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("SKEL_3")  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("SKEL_4")  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("SKEL_5")  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("SKEL_6")  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_1")  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_2")  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_3")  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_4")  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_5")  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WARRIOR_6")  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("MISC_1")  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("MISC_2")  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("MISC_3")  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    SmallWait(4)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    SmallWait(2)
+    FaceObject("SEER")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    SmallWait(6)
+    FaceObject("SEER")
+END
+

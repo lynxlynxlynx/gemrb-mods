@@ -1,0 +1,270 @@
+IF
+  Global("ar6051_Kill_Inhatri","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("Inhatri",Kill(Myself))
+    ActionOverride("Viper_Fang1",Kill(Myself))
+    ActionOverride("Viper_Fang2",Kill(Myself))
+    ActionOverride("Viper_Fang3",Kill(Myself))
+    ActionOverride("Viper_Fang4",Kill(Myself))
+    ActionOverride("Viper_Fang5",Kill(Myself))
+    ActionOverride("Viper_Fang6",Kill(Myself))
+    ActionOverride("Viper_Fang7",Kill(Myself))
+    ActionOverride("Viper_Fang8",Kill(Myself))
+    ActionOverride("Viper_Fang9",Kill(Myself))
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Inhatri_Demo_State","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    FloatMessage(Myself,25846)  // ~"Watch closssely, studentsss.  Alcaman'sss theoriesss on abjuration are not without flaw, but they still contain much wisdom."~
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  GlobalLT("Inhatri_Demo","LOCALS",8)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",8)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    FloatMessage(Myself,25842)  // ~"The hand motionsss can be modified slightly, but take care not to let the left hand dip to the ssside.  It isss a subtle difference between Alcaman'sss abjuration somatic and Fasdul'sss advanced necromatic preparations."~
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",9)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",10)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",11)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",12)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",13)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",14)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    FloatMessage(Myself,25843)  // ~"Alwaysss prepare your reagentsss in a clean environment.  While the relative 'purity' of your componentsss cannot reasonably affect the casssting of your spells, mixed reagentsss can make spellcasting impossible."~
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  GlobalLT("Inhatri_Demo","LOCALS",23)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",23)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    FloatMessage(Myself,25844)  // ~"The shaping of the weave is a complex processss that, paradoxically, requiresss both intense concentration and mental detachment."~
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",24)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",25)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",26)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",27)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",28)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",29)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",30)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    FloatMessage(Myself,25845)  // ~"The shape of Gammock's Star is complex.  Thayans like Jadra Kaan and Sepitius the Elder attempted to create a 'shortcut' through the complex patternsss, reducing the somatic elements of many invocation spellsss.  Their short sighted theory did not hold under duressss."~
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",31)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",32)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",33)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",34)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",35)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Inhatri_Demo","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("Inhatri_Demo_State","LOCALS",1)
+  Global("Inhatri_Demo","LOCALS",36)
+THEN
+  RESPONSE #100
+    SetGlobal("Inhatri_Demo_State","LOCALS",0)
+    SetGlobal("Inhatri_Demo","LOCALS",0)
+END
+

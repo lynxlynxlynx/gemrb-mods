@@ -1,0 +1,16 @@
+IF
+  GlobalTimerExpired("Leaving_4","GLOBAL")
+THEN
+  RESPONSE #100
+    ChangeAIScript("1600t4rn",DEFAULT)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    MoveToObjectEx([0.0.0.0.0.0.TEAM_4_LEADER][0.0.10000.10000],0)
+    FaceObject([PC])
+    ChangeAIScript("1600t4rt",DEFAULT)
+END
+

@@ -1,0 +1,22 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("KilledDopple","GLOBAL",1)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("Doppleganger","GLOBAL",1)
+END
+
+IF
+  Global("Doppleganger","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DOPPLEGANGER_CHANGE)
+END
+

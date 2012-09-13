@@ -1,0 +1,75 @@
+IF
+  !BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,AND)
+THEN
+  RESPONSE #100
+    BitGlobal("LOCALS:CREATURE_STATE_VAR","",1,OR)
+    StartRandomTimer(24,3,5)
+    Continue()
+END
+
+IF
+  RandomNumLT(100,20)
+  !TimerActive(24)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,14822)  // ~"AAAAAAAAGH!  Head hurt!"~
+    StartRandomTimer(24,3,5)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,14823)  // ~"Ghereg no do wrong!  No hurt!"~
+    StartRandomTimer(24,3,5)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  RandomNumLT(100,50)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    RandomWalk()
+    WaitRandom(0,10)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Log("ATTACK_BACKSLASH")
+    PlaySequence(Myself,ATTACK_BACKSLASH)
+    Wait(3)
+  RESPONSE #100
+    Log("ATTACK")
+    PlaySequence(Myself,ATTACK)
+    Wait(3)
+  RESPONSE #100
+    Log("ATTACK_SLASH")
+    PlaySequence(Myself,ATTACK_SLASH)
+    Wait(3)
+  RESPONSE #100
+    Log("ATTACK_JAB")
+    PlaySequence(Myself,ATTACK_JAB)
+    Wait(3)
+END
+

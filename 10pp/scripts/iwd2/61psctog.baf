@@ -1,0 +1,50 @@
+IF
+  Trigger(0)
+  OpenState(Myself,TRUE)
+  !TimeOfDay(DAY)
+THEN
+  RESPONSE #100
+    TriggerActivation("SummoningCircle",TRUE)
+    TriggerActivation("ProtectionCircle",TRUE)
+    SetGlobalTimer("SummonWaitTimer","MYAREA",ONE_DAY)
+    SetGlobal("Summon","MYAREA",1)
+    CloseDoor(Myself)
+    SetDoorFlag(Myself,HIDDEN,TRUE)
+END
+
+IF
+  Clicked([PC])
+  LevelInClassGT(LastTrigger,8,CLERIC)
+  OpenState(Myself,FALSE)
+  !TimeOfDay(DAY)
+THEN
+  RESPONSE #100
+    TriggerActivation("SummoningCircle",TRUE)
+    TriggerActivation("ProtectionCircle",TRUE)
+    SetGlobalTimer("SummonWaitTimer","MYAREA",ONE_DAY)
+    SetGlobal("Summon","MYAREA",2)
+    SetDoorFlag(Myself,HIDDEN,TRUE)
+END
+
+IF
+  Clicked([PC])
+  Or(2)
+    !LevelInClassGT(LastTrigger,8,CLERIC)
+    TimeOfDay(DAY)
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,WIZARD_FLAYING)
+    DisplayString(LastTrigger,41304)  // ~The lever violently tears away from your hands.  Though no words were spoken, you feel as if it has rejected you for reasons unknown.~
+END
+
+IF
+  OpenState(Myself,FALSE)
+  GlobalTimerExpired("SummonWaitTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SetDoorFlag(Myself,HIDDEN,FALSE)
+    TriggerActivation("SummoningCircle",FALSE)
+    TriggerActivation("ProtectionCircle",FALSE)
+    OpenDoor(Myself)
+END
+

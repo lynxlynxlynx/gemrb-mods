@@ -1,0 +1,96 @@
+IF
+  Global("Curst_Slavers","AR0900",2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,53252)  // ~"YOU BE QUIET!"~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",3)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",5)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,53251)  // ~"ME SAID YOU BE QUIET!!"~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",6)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",10)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,53248)  // ~"YOU DO WHAT WE SAY OR WE KILL YOU!!"~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",11)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",14)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,53246)  // ~"YES MUST KILL YOU!!"~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",15)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",16)
+THEN
+  RESPONSE #100
+    SetAnimState(Myself,ANIM_STANDTOSTANCE)
+    PlaySequenceTimed(ANIM_MIMESTANCE,5)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",18)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_ATTACK1)
+    PlaySequence(ANIM_STANCETOSTAND)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",22)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,53244)  // ~"LIKE LITTLE ANIMAL!"~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",23)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",25)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",26)
+END
+
+IF
+  Global("Curst_Slavers","AR0900",26)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,53242)  // ~"WE THINK WE KILL YOU TOO!!"~
+    Wait(2)
+    GlobalSet("Curst_Slavers","AR0900",27)
+END
+
+IF
+  GlobalGT("Curst_Slavers","AR0900",24)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+END
+
+IF
+  GlobalGT("Curst_Slavers","AR0900",16)
+  GlobalLT("Curst_Slavers","AR0900",19)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_MIMESTANCE)
+END
+

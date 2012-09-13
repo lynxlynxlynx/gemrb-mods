@@ -1,0 +1,30 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("radmephitcombat","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_COLOR_SPRAY)
+    IncrementGlobal("radmephitcombat","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  Delay(16)
+  See(NearestEnemyOf(Myself))
+  GlobalLT("radmephitcombat","LOCALS",3)
+  Range(NearestEnemyOf(Myself),3)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_COLOR_SPRAY)
+    IncrementGlobal("radmephitcombat","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

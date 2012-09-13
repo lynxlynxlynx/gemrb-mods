@@ -1,0 +1,73 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("trigit3")  // 
+    DeactivateEx(Myself,FALSE)
+    GlobalSet("Spawn_Trigit","GLOBAL",0)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("trigit4")  // 
+    DeactivateEx(Myself,FALSE)
+    MoveViewPoint([692.2317],VERY_FAST)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    TimedMoveToPoint([698.2386],75)
+    Face(6)
+    StartCutScene("0610in2c")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)  // 
+    MoveToPoint([665.2442])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)  // 
+    MoveToPoint([799.2370])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)  // 
+    MoveToPoint([758.2467])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)  // 
+    MoveToPoint([726.2527])
+    Face(6)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)  // 
+    MoveToPoint([829.2449])
+    Face(6)
+END
+

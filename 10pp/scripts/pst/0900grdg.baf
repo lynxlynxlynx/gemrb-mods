@@ -1,0 +1,83 @@
+IF
+  Die()
+  GlobalGT("Curst_Murder","GLOBAL",14)
+THEN
+  RESPONSE #100
+    GlobalSet("Curst_Force_Spawn","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Die()
+  GlobalLT("Curst_Murder","GLOBAL",15)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Murder","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_13)
+    Continue()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Guard_Dead","AR0900",1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+  See([0.0.0.0.GEHRELETH])
+THEN
+  RESPONSE #100
+    Attack([0.0.0.0.GEHRELETH])
+END
+
+IF
+  See([0.0.0.0.GEHRELETH])
+  See([PC])
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See([ENEMY])
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    Attack([ENEMY])
+END
+
+IF
+  Help([0.0.0.0.0.0.PERSON_13])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

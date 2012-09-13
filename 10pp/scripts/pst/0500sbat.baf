@@ -1,0 +1,33 @@
+IF
+  HPPercentLT(Myself,25)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],100,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(10,25)
+    PlaySequence(ANIM_SPELL1)
+    Continue()
+END
+

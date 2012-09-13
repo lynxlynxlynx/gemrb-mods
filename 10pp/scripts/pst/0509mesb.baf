@@ -1,0 +1,37 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RunToPoint([438.333])
+    Face(4)
+    GlobalSet("Wait_For_Messenger","AR0509",1)
+    FloatMessage(Myself,46635)  // ~"Here's your receipt."~
+    PlaySequence(ANIM_TALK1)
+    Wait(3)
+    RunToPoint([210.524])
+    GlobalSet("Change_Brain","AR0509",0)
+    GlobalSet("Respawn_0509","GLOBAL",0)
+    DestroySelf()
+END
+

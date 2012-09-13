@@ -1,0 +1,10 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Delay(6)
+THEN
+  RESPONSE #20
+    ForceSpell(LastSeenBy(Myself),PSIONIC_MIND_BLAST)
+  RESPONSE #80
+    Continue()
+END
+

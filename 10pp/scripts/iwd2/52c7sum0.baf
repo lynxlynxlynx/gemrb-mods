@@ -1,0 +1,40 @@
+IF
+  Global("WATCHING_PLAYER","MYAREA",0)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+    SpellHitEffectSprite(Myself,Myself,DISINTEGRATE,10)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",0)
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  CreatureHidden(Myself)
+  Global("52Morohem_Master","GLOBAL",7)
+  !Global("WATCHING_PLAYER","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+    SpellHitEffectSprite(Myself,Myself,DISINTEGRATE,10)
+    Wait(1)
+    Enemy()
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

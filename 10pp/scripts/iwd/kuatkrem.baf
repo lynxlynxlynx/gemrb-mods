@@ -1,0 +1,27 @@
+IF
+  OnCreation()
+  Global("KULDAHAR_ATTACK","GLOBAL",3)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    DestroySelf()
+END
+
+IF
+  !Global("KULDAHAR_FORCEREMOVE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    DestroySelf()
+END
+
+IF
+  OnCreation()
+  Global("KULDAHAR_ATTACK","GLOBAL",2)
+  GlobalTimerExpired("2100_ATTACK","GLOBAL")
+THEN
+  RESPONSE #100
+    HideCreature(Myself,TRUE)
+    DestroySelf()
+END
+

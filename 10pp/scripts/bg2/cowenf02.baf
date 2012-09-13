@@ -1,0 +1,346 @@
+IF
+  StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("cowledwizard","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    Wait(1)
+    DisplayString(Myself,31247)  // ~Tattoo of Power - Spell Immunity~
+    ApplySpell(Myself,WIZARD_SPELL_IMMUNITY_INVOCATION)
+    SetGlobal("cowledwizard","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("cowledwizard","LOCALS",1)
+  CheckStatLT(Myself,1,STONESKINS)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("cowledwizard","LOCALS",2)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Range(ThirdNearest([ENEMY]),10)
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([0.0.0.MAGE])
+  HaveSpell(WIZARD_POWER_WORD_SILENCE)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_SILENCE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  HaveSpell(WIZARD_GREATER_MALISON)
+  HaveSpell(WIZARD_CHAOS)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,31024)  // ~Magic Tattoo - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)
+    Spell(LastSeenBy(Myself),WIZARD_CHAOS)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(SecondNearest([ENEMY]))
+  !InMyGroup(LastSeenBy(Myself))
+  HaveSpell(WIZARD_GREATER_MALISON)
+  HaveSpell(WIZARD_CHAOS)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,31024)  // ~Magic Tattoo - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)
+    Spell(LastSeenBy(Myself),WIZARD_CHAOS)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  !InMyGroup(LastSeenBy(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY.0.0.0.0.SUMMONED])
+  HaveSpell(WIZARD_DEATH_SPELL)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,31024)  // ~Magic Tattoo - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_MANTLE)
+  HaveSpell(WIZARD_BREACH)
+  HaveSpell(WIZARD_PROTECTION_FROM_ELECTRICITY)
+  HaveSpell(WIZARD_CHAIN_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MANTLE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)
+    Spell(Myself,WIZARD_PROTECTION_FROM_ELECTRICITY)
+    Spell(LastSeenBy(Myself),WIZARD_CHAIN_LIGHTNING)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  !InMyGroup(LastSeenBy(Myself))
+  HaveSpell(WIZARD_MANTLE)
+  HaveSpell(WIZARD_PROTECTION_FROM_ELECTRICITY)
+  HaveSpell(WIZARD_CHAIN_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MANTLE)
+    Spell(Myself,WIZARD_PROTECTION_FROM_ELECTRICITY)
+    Spell(LastSeenBy(Myself),WIZARD_CHAIN_LIGHTNING)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  !InMyGroup(LastSeenBy(Myself))
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  !InMyGroup(LastSeenBy(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  !InMyGroup(LastSeenBy(Myself))
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  !InMyGroup(LastSeenBy(Myself))
+  HaveSpell(WIZARD_ENCHANTED_WEAPON)
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(Myself,WIZARD_ENCHANTED_WEAPON)
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([ENEMY])
+  !InMyGroup(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("cowledwizard","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,WIZARD_SPELL_TURNING)
+    Wait(1)
+    DisplayString(Myself,31247)  // ~Tattoo of Power - Spell Immunity~
+    ApplySpell(Myself,WIZARD_SPELL_IMMUNITY_INVOCATION)
+    SetGlobal("cowledwizard","LOCALS",1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("cowledwizard","LOCALS",1)
+  CheckStatLT(Myself,1,STONESKINS)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,29736)  // ~Contingency - Stoneskin~
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("cowledwizard","LOCALS",2)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !Range(ThirdNearestEnemyOf(Myself),10)
+  HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+THEN
+  RESPONSE #100
+    Spell(ThirdNearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC.0.0.MAGE])
+  HaveSpell(WIZARD_POWER_WORD_SILENCE)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_SILENCE)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(Player2)
+  HaveSpell(WIZARD_GREATER_MALISON)
+  HaveSpell(WIZARD_CHAOS)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,31024)  // ~Magic Tattoo - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(Player2,WIZARD_GREATER_MALISON)
+    Spell(Player2,WIZARD_CHAOS)
+END
+
+IF
+  See(SecondNearestEnemyOf(Myself))
+  HaveSpell(WIZARD_GREATER_MALISON)
+  HaveSpell(WIZARD_CHAOS)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,31024)  // ~Magic Tattoo - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(SecondNearestEnemyOf(Myself),WIZARD_GREATER_MALISON)
+    Spell(SecondNearestEnemyOf(Myself),WIZARD_CHAOS)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC])
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  HaveSpell(WIZARD_POWER_WORD_STUN)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  HaveSpell(WIZARD_DEATH_SPELL)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,31024)  // ~Magic Tattoo - Mirror Image~
+    ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  See(Player1)
+  StateCheck(Player1,STATE_STUNNED)
+  HaveSpell(WIZARD_MANTLE)
+  HaveSpell(WIZARD_BREACH)
+  HaveSpell(WIZARD_PROTECTION_FROM_ELECTRICITY)
+  HaveSpell(WIZARD_CHAIN_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MANTLE)
+    Spell(Player1,WIZARD_BREACH)
+    Spell(Myself,WIZARD_PROTECTION_FROM_ELECTRICITY)
+    Spell(Player1,WIZARD_CHAIN_LIGHTNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Detect([PC])
+  HaveSpell(WIZARD_MANTLE)
+  HaveSpell(WIZARD_PROTECTION_FROM_ELECTRICITY)
+  HaveSpell(WIZARD_CHAIN_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MANTLE)
+    Spell(Myself,WIZARD_PROTECTION_FROM_ELECTRICITY)
+    Spell(LastSeenBy(Myself),WIZARD_CHAIN_LIGHTNING)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_AGANNAZAR_SCORCHER)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_ENCHANTED_WEAPON)
+  HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    Spell(Myself,WIZARD_ENCHANTED_WEAPON)
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

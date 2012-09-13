@@ -1,0 +1,42 @@
+IF
+  Vacant()
+  Exists([0.0.0.0.VARGOUILLE][0.0.10000.10000])
+  GlobalLT("HC_Varg_Killed","GLOBAL",10)
+THEN
+  RESPONSE #100
+    GlobalSet("HC_Varg","GLOBAL",1)
+    GlobalSet("HC_Varg_Killed","GLOBAL",0)
+END
+
+IF
+  Global("HC_Varg_Killed","GLOBAL",10)
+  Global("HC_Varg","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("HC_Varg","GLOBAL",0)
+    Continue()
+END
+
+IF
+  NumCreature([0.0.0.0.VARGOUILLE][0.0.10000.10000],10)
+THEN
+  RESPONSE #100
+    GlobalSet("HC_Varg","GLOBAL",0)
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR1401_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR1401_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",1401)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",1401)
+END
+

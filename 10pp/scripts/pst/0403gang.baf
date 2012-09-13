@@ -1,0 +1,214 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Kill_SDThug","GLOBAL",1)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[1116.2079],1)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_1)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[1086.2062],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_2)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[1076.2028],1)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_3)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[1041.2000],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_4)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[737.2078],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_7)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[694.2046],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_8)
+END
+
+IF
+  OnCreation()
+  NearLocation(Myself,[694.2092],0)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,GANGER_9)
+END
+
+IF
+  Global("Sybil_Quest","GLOBAL",2)
+  LOS([PC],10)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  !Global("Sybil_Quest","GLOBAL",2)
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack([PC])
+END
+
+IF
+  See([0.0.0.0.0.0.SYBIL])
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    Attack([0.0.0.0.0.0.SYBIL])
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([0.XAOSITECT])
+  !See([0.0.0.0.0.0.SYBIL])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    MoveToObjectEx(Protagonist,0)
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  GlobalGT("Tenement_Alarm","AR0403",0)
+  !Global("Sybil_Betrayed","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    MoveToObjectEx(Protagonist,0)
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  Specifics(Myself,GANGER_1)
+  !Exists([PC])
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_1],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_2],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_3],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_4],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_5],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_6],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_7],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_8],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_9],9622)  // ~"A-ooooooooooo"~
+    Wait(2)
+    Continue()
+END
+
+IF
+  Specifics(Myself,GANGER_1)
+  !Exists([PC])
+THEN
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_1],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_2],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_3],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_4],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_5],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_6],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_7],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_8],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+  RESPONSE #100
+    FloatMessage([0.0.0.0.0.0.GANGER_9],9622)  // ~"A-ooooooooooo"~
+    WaitRandom(10,15)
+    Continue()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+

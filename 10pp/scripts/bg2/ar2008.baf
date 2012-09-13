@@ -1,0 +1,82 @@
+IF
+  GlobalGT("Pala","GLOBAL",0)
+  Global("DestroyBarl","AR2008",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DestroyBarl","AR2008",1)
+    ActionOverride("Barl",DestroySelf())
+END
+
+IF
+  OR(2)
+    Global("PalaCured","GLOBAL",1)
+    Global("Pala","GLOBAL",0)
+  OR(2)
+    Allegiance("Barl",ENEMY)  // ~Barl~
+    Allegiance("temsup",ENEMY)  // ~Overgold Renwellyn~
+  Global("WaukeenAttacked","AR2008",0)
+THEN
+  RESPONSE #100
+    SetGlobal("WaukeenAttacked","AR2008",1)
+    ActionOverride("Barl",Enemy())
+    ActionOverride("temsup",Enemy())
+    ReputationInc(-1)
+    CreateCreatureOffScreen("WAUKNI01",0)  // ~Waukeenar Knight~
+    CreateCreatureOffScreen("WAUKNI01",0)  // ~Waukeenar Knight~
+    CreateCreatureOffScreen("WAUKNI01",0)  // ~Waukeenar Knight~
+    CreateCreatureOffScreen("WAUKNI01",0)  // ~Waukeenar Knight~
+END
+
+IF
+  Dead("Barl")  // ~Barl~
+  !InPartyAllowDead("Mazzy")  // Mazzy
+  CombatCounter(0)
+  Global("Pala","GLOBAL",3)
+  Global("PalaCureFound","GLOBAL",0)
+  Global("AlternateEnding","AR2008",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TemsupNoTalkBattle","GLOBAL",1)
+    SetGlobal("AlternateEnding","AR2008",1)
+    SetGlobal("MazzyDeadAllFailed","GLOBAL",1)
+    SetGlobalTimer("PalaDead","GLOBAL",TWO_DAYS)
+END
+
+IF
+  Global("BarlAttacks","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ActionOverride("temsup",MoveToPoint([783.582]))
+    ActionOverride("barl",ForceSpell(Myself,SUMMON_POISON))
+    ActionOverride("barl",ForceSpell(Myself,SUMMON_POISON))
+    ActionOverride("temsup",Face(2))
+    ActionOverride("barl",Enemy())
+    SetGlobal("BarlAttacks","GLOBAL",2)
+END
+
+IF
+  Global("Pala","GLOBAL",3)
+  Global("PalaCured","GLOBAL",0)
+  Global("PalaCureFound","GLOBAL",0)
+  !Dead("Pala")  // ~Pala Fentan~
+  Global("TempleDoors","AR2008",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TempleDoors","AR2008",1)
+    TriggerActivation("Tran2000",FALSE)
+    TriggerActivation("Tran2000b",TRUE)
+END
+
+IF
+  OR(3)
+    !Global("PalaCured","GLOBAL",0)
+    !Global("PalaCureFound","GLOBAL",0)
+    Dead("Pala")  // ~Pala Fentan~
+  Global("TempleDoors2","AR2008",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TempleDoors2","AR2008",1)
+    TriggerActivation("Tran2000",TRUE)
+    TriggerActivation("Tran2000b",FALSE)
+END
+

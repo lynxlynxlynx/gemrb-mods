@@ -1,0 +1,45 @@
+IF
+  Clicked([PC])
+  OpenState(Myself,FALSE)
+  GlobalTimerExpired("BrickTimer","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("BrickTimer","MYAREA",1)
+    SetGlobal("Brick02","MYAREA",1)
+    Unlock("AR6051_Brick2")
+    OpenDoor("AR6051_Brick2")
+    Lock("AR6051_Brick2")
+    PlaySoundPoint("AM6051d",[3099.1453])
+    SetGlobal("Brick04","MYAREA",1)
+    SetGlobal("Brick05","MYAREA",2)
+    MultiPlayerSync()
+END
+
+IF
+  OpenState(Myself,FALSE)
+  Global("Brick02","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("BrickTimer","MYAREA",1)
+    SetGlobal("Brick02","MYAREA",1)
+    Unlock("AR6051_Brick2")
+    OpenDoor("AR6051_Brick2")
+    Lock("AR6051_Brick2")
+    PlaySoundPoint("AM6051d",[3099.1453])
+    MultiPlayerSync()
+END
+
+IF
+  OpenState(Myself,TRUE)
+  Global("Brick02","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("BrickTimer","MYAREA",1)
+    SetGlobal("Brick02","MYAREA",2)
+    Unlock("AR6051_Brick2")
+    CloseDoor("AR6051_Brick2")
+    Lock("AR6051_Brick2")
+    PlaySoundPoint("AM6051d",[3099.1453])
+    MultiPlayerSync()
+END
+

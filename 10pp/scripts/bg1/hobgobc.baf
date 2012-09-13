@@ -1,0 +1,14 @@
+IF
+  Heard("Cattack",1)  // Cattack
+THEN
+  RESPONSE #100
+    ChangeAIScript("WDASIGHT",RACE)
+END
+
+IF
+  Heard("Cattack",2)  // Cattack
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

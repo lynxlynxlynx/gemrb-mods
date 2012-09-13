@@ -1,0 +1,58 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Face(-1)
+    SavePlace()
+END
+
+IF
+  Global("Destroy_Fiends","AR1000",1)
+  !Range([PC],30)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  See([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(NearestEnemyOf(LastHelp))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  !NearSavedLocation(10)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

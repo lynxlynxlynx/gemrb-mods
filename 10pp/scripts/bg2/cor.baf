@@ -1,0 +1,62 @@
+IF
+  GlobalGT("AnomenSaerk","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  InParty("Anomen")  // Anomen
+  Detect("Anomen")  // Anomen
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet("Anomen")
+END
+
+IF
+  Global("AnomenIsEnemy","GLOBAL",1)
+  Global("CorSeesParty","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("CorSeesParty","LOCALS",1)
+    Shout(99)
+    Enemy()
+END
+
+IF
+  Global("AnomenFinalFight","GLOBAL",1)
+  Global("CorFights","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CorFights","LOCALS",1)
+    SetDialogue("")
+    ChangeEnemyAlly(Myself,EVILBUTBLUE)
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,EVILBUTBLUE)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,ENEMY)
+END
+
+IF
+  Allegiance("Anomen",ENEMY)  // Anomen
+  Allegiance(Myself,EVILBUTBLUE)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  Global("AnomenFinalFight","GLOBAL",1)
+  !Dead("Anomen")  // Anomen
+  See("Anomen")  // Anomen
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+

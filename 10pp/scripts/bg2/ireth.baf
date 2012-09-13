@@ -1,0 +1,21 @@
+IF
+  See(NearestMyGroupOfType)
+  Allegiance(LastSeenBy(Myself),ENEMY)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,ENEMY)
+END
+
+IF
+  OR(2)
+    Dead("ulvaryl")  // ~Ulvaryl~
+    !See("ulvaryl")  // ~Ulvaryl~
+  See([PC])
+  Global("TurnHostile","LOCALS",0)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,ENEMY)
+    SetGlobal("TurnHostile","LOCALS",1)
+END
+

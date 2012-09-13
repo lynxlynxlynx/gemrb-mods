@@ -1,0 +1,24 @@
+IF
+  Dead("Lehtinan")  // Lehtinan
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Dead("copamb01")  // ~Gladiator~
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Detect([PC])
+  See("copamb01")  // ~Gladiator~
+  !Dead("copamb01")  // ~Gladiator~
+THEN
+  RESPONSE #100
+    AttackReevaluate("copamb01",15)
+END
+

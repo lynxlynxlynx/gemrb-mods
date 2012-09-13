@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Bedai")  // 
+    TimedMoveToPoint([2954.647],150)
+    EndCutSceneMode()
+    DestroySelf()
+END
+

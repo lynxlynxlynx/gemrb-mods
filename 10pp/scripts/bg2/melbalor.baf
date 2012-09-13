@@ -1,0 +1,26 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+  RandomNum(3,1)
+  GlobalLT("TANARIPARALYZE","LOCALS",5)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),TANARI_PARALYZE)
+    IncrementGlobal("TANARIPARALYZE","LOCALS",1)
+END
+
+IF
+  !See([GOODCUTOFF])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

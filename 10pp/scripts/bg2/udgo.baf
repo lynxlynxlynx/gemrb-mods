@@ -1,0 +1,7 @@
+IF
+  Global("DrowCityHostile","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

@@ -1,0 +1,22 @@
+IF
+  Global("SurlyFight","AR0406",1)
+THEN
+  RESPONSE #50
+    SetGlobal("SurlyFight","AR0406",2)
+    StartCutSceneMode()
+    StartCutScene("Cut03a")
+  RESPONSE #50
+    SetGlobal("SurlyFight","AR0406",2)
+    StartCutSceneMode()
+    StartCutScene("Cut04a")
+END
+
+IF
+  Global("GorfSurlyFight","AR0406",1)
+THEN
+  RESPONSE #100
+    SetGlobal("GorfSurlyFight","AR0406",2)
+    StartCutSceneMode()
+    StartCutScene("Cut16a")
+END
+

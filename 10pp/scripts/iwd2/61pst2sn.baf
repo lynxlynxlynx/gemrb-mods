@@ -1,0 +1,17 @@
+IF
+  Allegiance("Thorasskus",ENEMY)  // Thorasskus
+  Or(4)
+    HasItem("00Club01",Myself)  // ~Club~
+    HasItem("00Staf01",Myself)  // ~Quarterstaff~
+    HasItem("00Arow01",Myself)  // ~Arrows~
+    HasItem("00Sper01",Myself)  // ~Spear~
+THEN
+  RESPONSE #100
+    DestroyItem("00Club01")  // ~Club~
+    DestroyItem("00Staf01")  // ~Quarterstaff~
+    DestroyItem("00Arow01")  // ~Arrows~
+    DestroyItem("00Sper01")  // ~Spear~
+    CreateCreature("61snaGia","SnakeSpawn",[-1.-1],8)  // ~Monstrous Snake~
+    ChangeCurrentScript("")
+END
+

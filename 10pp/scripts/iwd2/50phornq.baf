@@ -1,0 +1,15 @@
+IF
+  Unlocked(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Unlocked(Myself)
+  GlobalGT("50Wight_Horn","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+END
+

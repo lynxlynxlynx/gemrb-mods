@@ -1,0 +1,28 @@
+IF
+  Global("SleepingPotionPlot","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("SleepingPotionPlot","GLOBAL",5)
+    ActionOverride("pircor06",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("GalvenaDoor","GLOBAL",0)
+  Global("GuardSleep","GLOBAL",0)
+  Global("SpawnCaptain","GLOBAL",0)
+  OpenState("Door01",TRUE)  // Door01
+THEN
+  RESPONSE #100
+    ActionOverride("pirmur04",StartDialogNoSet([PC]))
+    SetGlobal("GalvenaDoor","GLOBAL",1)
+END
+
+IF
+  OnCreation()
+  Global("SecretOpenAR1611","GLOBAL",1)
+THEN
+  RESPONSE #100
+    OpenDoor("Door04")
+    Continue()
+END
+

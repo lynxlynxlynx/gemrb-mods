@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("feudplot","GLOBAL",1)
+    ActionOverride("trcut06",MoveToPoint([484.551]))
+    ActionOverride("trcut06",DestroySelf())
+    ActionOverride("trcut07",Wait(3))
+    ActionOverride("trcut07",StartDialogNoSet(Player1))
+END
+

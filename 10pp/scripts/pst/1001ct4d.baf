@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Cornugon")  // 
+    TimedMoveToPoint([1054.1150],60)
+    Wait(1)
+    FloatMessage(Myself,51405)  // ~"Where did theeey fleee?"~
+    PlaySequence(ANIM_STANCEFIDGET1)
+    Wait(2)
+    FloatMessage("Pillar",51406)  // ~"WE WOULD ANSWER THAT QUESTION... FOR A SERVICE."~
+    Wait(3)
+    FloatMessage(Myself,52903)  // ~"Bah! Wretched thiiing! Very well... feeeast upon the souls of this pair of lemuuures!"~
+    Wait(4)
+    FloatMessage("Lemure1",53239)  // ~*Pitiful Whimper*~
+    Wait(1)
+    FloatMessage("Lemure8",34918)  // ~::Moan::~
+    Wait(2)
+    FloatMessage("Pillar",53240)  // ~"YESSS..."~
+    FadeToBlack()
+    Wait(3)
+    StartCutScene("1001ct4e")
+END
+

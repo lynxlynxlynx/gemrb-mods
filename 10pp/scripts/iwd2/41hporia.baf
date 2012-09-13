@@ -1,0 +1,407 @@
+IF
+  OpenState("AR4102_Door2",FALSE)  // AR4102_Door2
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    ClearSpriteEffects(Myself)
+    SetGlobal("TEAM_1","MYAREA",1)
+    SetDialogueRange(300)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    Dialogue(LastMarkedObject)
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",0)
+  HPPercentLT(Myself,90)
+THEN
+  RESPONSE #100
+    SetGlobal("41RetributiveStrike","LOCALS",2)
+    Continue()
+END
+
+IF
+  Or(2)
+    NumberOfTimesTalkedTo(0)
+    Global("41RetributiveStrike","LOCALS",2)
+  !See([PC],0)
+THEN
+  RESPONSE #100
+    ClearSpriteEffects(Myself)
+    MoveToObject(NearestPC)
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",2)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    ClearSpriteEffects(Myself)
+    SetDialogueRange(300)
+    Dialogue(LastMarkedObject)
+    Continue()
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",1)
+THEN
+  RESPONSE #100
+    Unlock("AR4102_Door1")
+    OpenDoor("AR4102_Door1")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SpellHitEffectSprite(Myself,Myself,PORTAL,0)
+    ReallyForceSpell(Myself,2091)
+    DestroyItem("41ORIA")  // <Invalid Strref -1>
+    DestroyItem("00CWSTAB")  // ~Quarterstaff +1~
+    DestroyItem("00CISEE2")  // <Invalid Strref -1>
+    HideCreature(Myself,TRUE)
+    HideCreature("OriaEssence",FALSE)
+    ApplySpell("OriaEssence",2084)
+    SetCreatureAreaFlag("OriaEssence",INVULNERABLE,TRUE)
+    TransferInventory(Myself,"OriaEssence")
+    XEquipItem("00BRAC02","OriaEssence",SLOT_GAUNTLETS,TRUE)
+    XEquipItem("00RING20","OriaEssence",SLOT_RING_LEFT,TRUE)
+    XEquipItem("00CISEE2","OriaEssence",SLOT_AMULET,TRUE)
+    XEquipItem("00BELT03","OriaEssence",SLOT_BELT,TRUE)
+    XEquipItem("00ROBE04","OriaEssence",SLOT_CLOAK,TRUE)
+    XEquipItem("00WAND20","OriaEssence",SLOT_MISC0,TRUE)
+    XEquipItem("MISC07","OriaEssence",SLOT_MISC0,TRUE)
+    XEquipItem("00POTN19","OriaEssence",SLOT_MISC0,TRUE)
+    XEquipItem("00POTN34","OriaEssence",SLOT_MISC0,TRUE)
+    XEquipItem("00POTN36","OriaEssence",SLOT_MISC0,TRUE)
+    XEquipItem("SPWI404Z","OriaEssence",SLOT_MISC0,TRUE)
+    SetGlobal("Oria_dead","GLOBAL",1)
+    SetGlobal("OriaEssence_dead","GLOBAL",0)
+    StartTimer(100,10)
+    SetGlobal("41RetributiveStrike","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",3)
+  CheckAreaDiffLevel(1)
+THEN
+  RESPONSE #100
+    SetGlobal("41RetributiveStrike","LOCALS",4)
+    AddExperiencePartyCR(4)
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",3)
+  CheckAreaDiffLevel(2)
+THEN
+  RESPONSE #100
+    SetGlobal("41RetributiveStrike","LOCALS",4)
+    AddExperiencePartyCR(5)
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",3)
+  CheckAreaDiffLevel(3)
+THEN
+  RESPONSE #100
+    SetGlobal("41RetributiveStrike","LOCALS",4)
+    AddExperiencePartyCR(7)
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",4)
+  !TimerActive(100)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("41RetributiveStrike","LOCALS",4)
+  TimerActive(100)
+THEN
+  RESPONSE #100
+    DestroySelf()
+    ChangeCurrentScript("")
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("MoveToSafeSpot","LOCALS",0)
+  !Global("41RetributiveStrike","LOCALS",2)
+  !See([0.0.WOLF],0)
+THEN
+  RESPONSE #100
+    SetSavedLocationPoint(3456,863,SW)
+    Unlock("AR4102_Door1")
+    OpenDoor("AR4102_Door1")
+    SetGlobal("TEAM_7","MYAREA",1)
+    SetGlobal("MoveToSafeSpot","LOCALS",1)
+END
+
+IF
+  Global("MoveToSafeSpot","LOCALS",1)
+  ActionListEmpty()
+  NearSavedLocation(5)
+THEN
+  RESPONSE #100
+    SetGlobal("MoveToSafeSpot","LOCALS",2)
+END
+
+IF
+  Global("MoveToSafeSpot","LOCALS",1)
+  !TargetUnreachable("OriaSafeSpot")  // OriaSafeSpot
+THEN
+  RESPONSE #100
+    MoveToObject("OriaSafeSpot")
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",3)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",4)
+    Continue()
+  RESPONSE #100
+    SetGlobal("MLS_0","LOCALS",5)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",1)
+  ActionListEmpty()
+  NearLocation(Myself,2944,607,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2944.607])
+    SetGlobal("ML_0","LOCALS",0)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",1)
+  AttackedBy([PC],0)
+  Global("ML_1","LOCALS",0)
+  !Global("41RetributiveStrike","LOCALS",2)
+  RandomNum(10,1)
+  Range(LastAttackerOf(Myself),6,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToPoint([2944.607])
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",2)
+  ActionListEmpty()
+  NearLocation(Myself,2655,927,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2655.927])
+    SetGlobal("ML_0","LOCALS",0)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",2)
+  AttackedBy([PC],0)
+  Global("ML_1","LOCALS",0)
+  !Global("41RetributiveStrike","LOCALS",2)
+  RandomNum(10,1)
+  Range(LastAttackerOf(Myself),6,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToPoint([2655.927])
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,2944,1024,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2944.1024])
+    SetGlobal("ML_0","LOCALS",0)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",3)
+  AttackedBy([PC],0)
+  Global("ML_1","LOCALS",0)
+  !Global("41RetributiveStrike","LOCALS",2)
+  RandomNum(10,1)
+  Range(LastAttackerOf(Myself),6,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToPoint([2944.1024])
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",4)
+  ActionListEmpty()
+  NearLocation(Myself,3232,735,4)
+THEN
+  RESPONSE #100
+    SetStartPos([3232.735])
+    SetGlobal("ML_0","LOCALS",0)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",4)
+  AttackedBy([PC],0)
+  Global("ML_1","LOCALS",0)
+  !Global("41RetributiveStrike","LOCALS",2)
+  RandomNum(10,1)
+  Range(LastAttackerOf(Myself),6,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToPoint([3232.735])
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",5)
+  ActionListEmpty()
+  NearLocation(Myself,2975,800,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2975.800])
+    SetGlobal("ML_0","LOCALS",0)
+    SetGlobal("MLS_0","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",0)
+  Global("MLS_0","LOCALS",5)
+  AttackedBy([PC],0)
+  Global("ML_1","LOCALS",0)
+  !Global("41RetributiveStrike","LOCALS",2)
+  RandomNum(10,1)
+  Range(LastAttackerOf(Myself),6,LESS_THAN)
+THEN
+  RESPONSE #100
+    MoveToPoint([2975.800])
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  HitBy([PC],MAGIC)
+  Global("UsedShield","LOCALS",0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    PlaySequence(Myself,ATTACK)
+    ForceSpell(Myself,WIZARD_SHIELD)
+    SetGlobal("UsedShield","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Global("UsedGlobe","LOCALS",0)
+  Or(2)
+    HitBy([PC],MAGIC)
+    HPPercentLT(Myself,97)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    PlaySequence(Myself,ATTACK)
+    ForceSpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)
+    SetGlobal("UsedGlobe","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  RandomNum(2,1)
+  Or(3)
+    Global("UsedBolt","LOCALS",0)
+    Global("UsedRay","LOCALS",0)
+    Global("UsedCone","LOCALS",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpellRequest","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("SpellRequest","LOCALS",2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("SpellRequest","LOCALS",3)
+    Continue()
+END
+
+IF
+  Global("SpellRequest","LOCALS",1)
+  Global("UsedBolt","LOCALS",0)
+  !HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)
+  !See([ENEMY],0)
+  See([PC],0)
+  Range(LastMarkedObject,3,GREATER_THAN)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+    EquipWeapon()
+    PlaySequence(Myself,ATTACK)
+    ForceSpell(LastMarkedObject,WIZARD_LIGHTNING_BOLT)
+    SetGlobal("SpellRequest","LOCALS",0)
+    SetGlobal("UsedBolt","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("SpellRequest","LOCALS",2)
+  Global("UsedRay","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+    EquipWeapon()
+    PlaySequence(Myself,ATTACK)
+    ForceSpell(LastMarkedObject,WIZARD_RAY_OF_ENFEEBLEMENT)
+    SetGlobal("SpellRequest","LOCALS",0)
+    SetGlobal("UsedRay","LOCALS",1)
+    Wait(1)
+END
+
+IF
+  Global("SpellRequest","LOCALS",3)
+  Global("UsedCone","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(LastMarkedObject)
+    EquipWeapon()
+    PlaySequence(Myself,ATTACK)
+    ForceSpell(LastMarkedObject,WIZARD_CONE_OF_COLD)
+    SetGlobal("SpellRequest","LOCALS",0)
+    SetGlobal("UsedCone","LOCALS",1)
+    Wait(1)
+END
+

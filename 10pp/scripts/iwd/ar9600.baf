@@ -1,0 +1,37 @@
+IF
+  Global("AREA_INIT","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AREA_INIT","MYAREA",1)
+    StartCutScene("ILLANDCT")
+    SaveGame(0)
+    Continue()
+END
+
+IF
+  !Global("9600_RESET_JOIN","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("9600_RESET_JOIN","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("GOLEM_FOLLOW_PARTY","MYAREA",2)
+  GlobalTimerExpired("GOLEM_TIMER","MYAREA")
+THEN
+  RESPONSE #100
+    SetGlobal("GOLEM_FOLLOW_PARTY","MYAREA",0)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

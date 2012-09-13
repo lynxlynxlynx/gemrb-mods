@@ -1,0 +1,17 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Class(NearestEnemyOf(Myself),MAGE)
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+

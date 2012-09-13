@@ -1,0 +1,17 @@
+IF
+  !Global("YXUNOMEI_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Unlock(Myself)
+    OpenDoor(Myself)
+    ChangeCurrentScript("")
+END
+
+IF
+  !Global("YXUN_ATTACK","MYAREA",0)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    Lock(Myself)
+END
+

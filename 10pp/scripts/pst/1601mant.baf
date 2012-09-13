@@ -1,0 +1,8 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("1601cut2")
+END
+

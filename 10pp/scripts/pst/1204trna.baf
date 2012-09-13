@@ -1,0 +1,18 @@
+IF
+  Class(Protagonist,MAGE)
+THEN
+  RESPONSE #100
+    Face(14)
+    ChangeAIScript("1204trnf",DEFAULT)
+    ChangeAIScript("",RACE)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(14)
+    ChangeAIScript("1204trnf",DEFAULT)
+    ChangeAIScript("",RACE)
+END
+

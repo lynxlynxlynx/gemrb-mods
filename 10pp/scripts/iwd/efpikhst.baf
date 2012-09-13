@@ -1,0 +1,16 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  PickPocketFailed([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+

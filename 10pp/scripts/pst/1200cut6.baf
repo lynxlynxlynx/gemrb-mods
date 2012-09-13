@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    MoveViewPoint([713.1234],VERY_FAST)
+    MoveToPoint([713.1234])
+    Face(8)
+    StartMovie("FortDoor")
+    OpenDoor("ar1200d1")
+    EndCutSceneMode()
+END
+

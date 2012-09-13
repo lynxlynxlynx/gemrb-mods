@@ -1,0 +1,38 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("CrushingTrap","AR1504",6)
+    TriggerActivation("Trap01",FALSE)
+END
+
+IF
+  GlobalTimerExpired("BodhiHunts","GLOBAL")
+  !Global("AsylumPlot","GLOBAL",100)
+  !Exists("ppbodhi4")  // ~Bodhi~
+THEN
+  RESPONSE #100
+    FadeToColor([20.0],0)
+    CreateCreatureObject("ppbodhi4",Player1,0,0,0)  // ~Bodhi~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    CreateCreatureObject("vammat01",Player1,0,0,0)  // ~Vampire~
+    FadeFromColor([20.0],0)
+    ActionOverride("ppbodhi4",StartDialogNoSet(Player1))
+END
+
+IF
+  GlobalTimerExpired("CrushingTrap","AR1504")
+  Global("1504TrapStop","GLOBAL",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("Trap01",TRUE)
+    SmallWait(8)
+    CloseDoor("Wall01")
+    PlaySound("AMB_D01A")
+    Wait(2)
+    TriggerActivation("Trap01",FALSE)
+    OpenDoor("Wall01")
+    PlaySound("AMB_D01B")
+    SetGlobalTimer("CrushingTrap","AR1504",6)
+END
+

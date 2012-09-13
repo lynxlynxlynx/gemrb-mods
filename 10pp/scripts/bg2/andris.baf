@@ -1,0 +1,110 @@
+IF
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogue("andris",[PC])
+END
+
+IF
+  Global("AndrisBehavior","AR1009",0)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpellPoint([2002.1554],WIZARD_DIMENSION_DOOR)
+    Wait(1)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CONFUSION)
+    SetGlobal("AndrisBehavior","AR1009",1)
+END
+
+IF
+  Global("AndrisBehavior","AR1009",1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpellPoint([2041.1137],WIZARD_DIMENSION_DOOR)
+    Wait(1)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_FIREBALL)
+    SetGlobal("AndrisBehavior","AR1009",2)
+END
+
+IF
+  Global("AndrisBehavior","AR1009",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1947.1499])
+    MoveToPoint([1897.1536])
+    MoveToPoint([1973.1574])
+    MoveToPoint([2088.1443])
+    SetGlobal("AndrisBehavior","AR1009",2)
+END
+
+IF
+  Global("AndrisBehavior","AR1009",2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_DIRE_CHARM)
+    SpellNoDec([99.12],WIZARD_DIMENSION_DOOR)
+    SpellNoDec(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("AndrisBehavior","AR1009",3)
+END
+
+IF
+  Global("AndrisBehavior","AR1009",2)
+THEN
+  RESPONSE #100
+    MoveToPoint([1712.1031])
+    MoveToPoint([1769.1045])
+    MoveToPoint([1834.1025])
+    MoveToPoint([1889.1048])
+    MoveToPoint([1946.1064])
+    SetGlobal("AndrisBehavior","AR1009",3)
+END
+
+IF
+  Global("AndrisBehavior","AR1009",3)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_HOLD_PERSON)
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MONSTER_SUMMONING_3)
+    SetGlobal("AndrisBehavior","AR1009",4)
+END
+
+IF
+  Global("AndrisBehavior","AR1009",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([1842.1098])
+    SetGlobal("AndrisBehavior","AR1009",4)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("AndrisBehavior","AR1009",4)
+  HaveSpell(WIZARD_MELF_ACID_ARROW)
+  HaveSpell(WIZARD_MAGIC_MISSILE)
+  HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+  RESPONSE #30
+    ForceSpellPoint([1659.1049],WIZARD_DIMENSION_DOOR)
+    Wait(1)
+    Spell(NearestEnemyOf(Myself),WIZARD_MELF_ACID_ARROW)
+  RESPONSE #30
+    ForceSpellPoint([2002.1117],WIZARD_DIMENSION_DOOR)
+    Wait(1)
+    Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+  RESPONSE #30
+    ForceSpellPoint([1752.1330],WIZARD_DIMENSION_DOOR)
+    Wait(2)
+    Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

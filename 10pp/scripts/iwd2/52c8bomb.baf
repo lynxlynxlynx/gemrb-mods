@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    SpellHitEffectSprite(Myself,Myself,FIRE_SUMMONING_CIRCLE,0)
+    WaitRandom(2,3)
+    ReallyForceSpell(Myself,CLERIC_FLAME_STRIKE)
+    IncrementGlobal("BOMBERS_BOMBING","MYAREA",-1)
+    SetGlobal("IS_BOMBING","LOCALS",0)
+END
+

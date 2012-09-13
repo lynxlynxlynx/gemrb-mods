@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Albert")  // 
+    SetInterrupt(FALSE)
+    SetGlobal("Rufie","GLOBAL",3)
+    Polymorph(OGRE_MAGE)
+    Dialogue([PC])
+    Wait(1)
+    ForceSpellPoint([4732.3747],WIZARD_DIMENSION_DOOR)
+    EndCutSceneMode()
+    Wait(1)
+    SetInterrupt(TRUE)
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Rufie")  // 
+    SetInterrupt(FALSE)
+    Wait(1)
+    ForceSpellPoint([4818.3756],WIZARD_DIMENSION_DOOR)
+    Wait(1)
+    SetInterrupt(TRUE)
+    DestroySelf()
+END
+

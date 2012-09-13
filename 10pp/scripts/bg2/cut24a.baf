@@ -1,0 +1,17 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("shthass1")  // 
+    ActionOverride(Player1,JumpToPoint([834.820]))
+    ActionOverride(Player2,JumpToPoint([801.796]))
+    ActionOverride(Player3,JumpToPoint([842.764]))
+    ActionOverride(Player4,JumpToPoint([754.824]))
+    ActionOverride(Player5,JumpToPoint([786.844]))
+    ActionOverride(Player6,JumpToPoint([744.782]))
+    MoveViewPoint([877.898],INSTANT)
+    FadeFromColor([20.0],0)
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

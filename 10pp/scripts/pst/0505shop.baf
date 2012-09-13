@@ -1,0 +1,55 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Shopper_Exists","AR0505",0)
+END
+
+IF
+  Global("Shopper_Exists","AR0505",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Shopper_Exists","AR0505",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+    GlobalSet("0505_Call_Harm","GLOBAL",1)
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(10)
+    MoveToPoint([268.603])
+    MoveToPoint([268.508])
+    Face(8)
+    Wait(20)
+    FloatMessage(Myself,45243)  // ~"No, that's okay... I was just leaving..."~
+    MoveToPoint([268.603])
+    MoveToPoint([185.690])
+    GlobalSet("Shopper_Exists","AR0505",0)
+    DestroySelf()
+END
+

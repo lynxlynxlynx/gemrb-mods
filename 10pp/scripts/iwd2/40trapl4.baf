@@ -1,0 +1,34 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,WIZARD_CONE_OF_COLD)
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered([PC])
+    Disarmed([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2","MYAREA",1)
+    AddJournalEntry(34231)
+    Continue()
+END
+
+IF
+  Or(3)
+    Entered([PC])
+    Disarmed([PC])
+    Trigger(0)
+THEN
+  RESPONSE #100
+    PlaySound("am4000j")
+    Deactivate("AndoraArchwayTrap")
+    Deactivate("forcefield")
+    ChangeCurrentScript("")
+    TriggerActivation(Myself,FALSE)
+END
+

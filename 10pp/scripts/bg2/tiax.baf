@@ -1,0 +1,92 @@
+IF
+  !UnselectableVariable(0)
+  Global("Tiaxfight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  UnselectableVariable(0)
+  See("Quayle")  // ~Quayle~
+  Global("Tiaxfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MakeUnselectable(5000)
+END
+
+IF
+  !UnselectableVariable(0)
+  Dead("Quayle")  // ~Quayle~
+  Global("Tiaxfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Tiaxfight","GLOBAL",0)
+    MakeUnselectable(0)
+END
+
+IF
+  !UnselectableVariable(0)
+  !See("Quayle")  // ~Quayle~
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  Global("Tiaxfight","GLOBAL",1)
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+  Global("Tiaxfight","GLOBAL",1)
+  See("Quayle")  // ~Quayle~
+  HaveSpell(CLERIC_HOLD_PERSON)
+  !StateCheck("Quayle",STATE_SLEEPING)  // ~Quayle~
+  !StateCheck("Quayle",STATE_HELPLESS)  // ~Quayle~
+THEN
+  RESPONSE #100
+    Spell("Quayle",CLERIC_HOLD_PERSON)
+END
+
+IF
+  Global("Tiaxfight","GLOBAL",1)
+  See("Quayle")  // ~Quayle~
+  HaveSpell(CLERIC_COMMAND)
+  !StateCheck("Quayle",STATE_SLEEPING)  // ~Quayle~
+  !StateCheck("Quayle",STATE_HELPLESS)  // ~Quayle~
+THEN
+  RESPONSE #100
+    Spell("Quayle",CLERIC_COMMAND)
+END
+
+IF
+  Global("Tiaxfight","GLOBAL",1)
+  See("Quayle")  // ~Quayle~
+  HaveSpell(CLERIC_MAGIC_STONE)
+THEN
+  RESPONSE #100
+    Spell("Quayle",CLERIC_MAGIC_STONE)
+END
+
+IF
+  Global("Tiaxfight","GLOBAL",1)
+  See("Quayle")  // ~Quayle~
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+THEN
+  RESPONSE #100
+    Spell("Quayle",CLERIC_CALL_LIGHTNING)
+END
+
+IF
+  Global("Tiaxfight","GLOBAL",1)
+  See("Quayle")  // ~Quayle~
+THEN
+  RESPONSE #100
+    Attack("Quayle")
+END
+

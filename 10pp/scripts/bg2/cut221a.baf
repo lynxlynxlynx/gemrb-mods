@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateVisualEffect("SPPOWRRD",[1993.991])
+    PlaySound("EFF_P06")
+    SmallWait(10)
+    CreateVisualEffect("SPMETSW2",[1932.1041])
+    CreateVisualEffect("SPMETSW2",[2055.1041])
+    PlaySound("EFF_M20")
+    SmallWait(8)
+    CreateVisualEffect("SPFIREPI",[1932.1041])
+    CreateVisualEffect("SPFIREPI",[2055.1041])
+    PlaySound("EFF_M21")
+    FadeToColor([20.0],0)
+    Wait(1)
+    ExitPocketPlane()
+    FadeFromColor([20.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,58 @@
+IF
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_PANIC)
+  Range(LastSeenBy(Myself),10)
+  LevelPartyGT(14)
+  NumInPartyGT(4)
+  !Difficulty(EASIEST)
+  !GlobalTimerNotExpired("DemFear","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("DemFear","LOCALS",15)
+    ForceSpell(NearestEnemyOf(Myself),DEMON_FEAR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+    StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+THEN
+  RESPONSE #100
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See([0.0.0.TANARI])
+THEN
+  RESPONSE #50
+    SpellNoDec([0.0.0.TANARI],WIZARD_LIGHTNING_BOLT)
+  RESPONSE #100
+    AttackReevaluate([0.0.0.TANARI],30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  RandomNum(2,1)
+  !AreaCheck("AR3004")
+  !CheckStatGT(LastSeenBy(Myself),75,RESISTMAGIC)
+  !HasBounceEffects(LastSeenBy(Myself))
+  !GlobalTimerNotExpired("SpellAttack","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("SpellAttack","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+  RESPONSE #100
+    SetGlobalTimer("SpellAttack","LOCALS",12)
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_AGANNAZAR_SCORCHER)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

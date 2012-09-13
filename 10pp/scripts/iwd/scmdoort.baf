@@ -1,0 +1,12 @@
+IF
+  Global("9502_DOOR_OPEN","MYAREA",0)
+  Or(2)
+    PartyHasItem("MIRROR")  // ~Mirror of Black Ice~
+    PartyHasItem("MIRROR2")  // ~Mirror of Black Ice Amulet~
+  Entered([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("9502_DOOR_OPEN","MYAREA",1)
+    StartCutScene("SCMDOORC")
+END
+

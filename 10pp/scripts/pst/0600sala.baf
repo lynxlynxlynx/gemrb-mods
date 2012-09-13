@@ -1,0 +1,97 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveAnySpells()
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SHIELD)
+    Wait(2)
+    Spell([PC],WIZARD_BALL_LIGHTNING)
+    Wait(2)
+    Spell([PC],WIZARD_ICE_KNIFE)
+    Wait(2)
+    Spell([PC],WIZARD_ICE_KNIFE)
+    Wait(2)
+    Spell([PC],WIZARD_CHROMATIC_ORB)
+    Wait(1)
+    Spell([PC],WIZARD_CHROMATIC_ORB)
+    Wait(1)
+    Spell([PC],WIZARD_CHROMATIC_ORB)
+    Wait(1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  Help([0.0.SENSATES])
+  HaveAnySpells()
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Help([0.0.SENSATES])
+THEN
+  RESPONSE #100
+    Enemy()
+    RunAwayFromEx(NearestEnemyOf(Myself),TWO_AI_SECONDS,FALSE)
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Help()
+    Enemy()
+    GlobalSet("Call_MK","GLOBAL",1)
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  !NearSavedLocation(0)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+END
+
+IF
+  See([0.0.0.0.0.0.PERSON_10])
+THEN
+  RESPONSE #100
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK2)
+    FloatMessage(Myself,50785)  // ~"...and then fool bumped me..."~
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK3)
+    FloatMessage(Myself,50786)  // ~"...so I *CURSED* the clumsy oaf!"~
+  RESPONSE #100
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,50787)  // ~"...and she said 'No, they're mine.'"~
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK2)
+    FloatMessage(Myself,50788)  // ~"...so I *CURSED* the mouthy cow!"~
+  RESPONSE #100
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK3)
+    FloatMessage(Myself,50789)  // ~"...and when they had the gall to give me an odd look..."~
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK1)
+    FloatMessage(Myself,50790)  // ~"...so I *CURSED* the wretches, both of them!"~
+  RESPONSE #100
+    WaitRandom(5,10)
+    PlaySequence(ANIM_TALK2)
+    FloatMessage(Myself,50791)  // ~"...and that's why *I* should be Mage Tutor of the Civic Festhall."~
+END
+

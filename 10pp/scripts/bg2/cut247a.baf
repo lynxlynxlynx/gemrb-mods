@@ -1,0 +1,44 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    ClearAllActions()
+    CreateCreature("cutspy",[1654.1564],0)  // <Invalid Strref -1>
+    MoveViewObject("seworo01",INSTANT)
+    Wait(1)
+    ActionOverride("sewdue01",SwingOnce())
+    ActionOverride("sewdue02",SwingOnce())
+    Wait(1)
+    ActionOverride("sewdue01",SwingOnce())
+    ActionOverride("seworo01",DisplayStringHead(Myself,72835))  // ~Hurry, you fools. The shades will return soon!~
+    Wait(2)
+    ActionOverride("sewdue02",SwingOnce())
+    Wait(2)
+    ActionOverride("sewdue01",DisplayStringHead(Myself,72836))  // ~'Tis dangerous work, orc. If we dig too fast, the roof will collapse.~
+    Wait(1)
+    ActionOverride("sewdue02",SwingOnce())
+    ActionOverride("sewdue01",SwingOnce())
+    Wait(1)
+    ActionOverride("sewdue02",SwingOnce())
+    Wait(2)
+    ActionOverride("seworo01",DisplayStringHead(Myself,72837))  // ~Yaga Shura isn't interested in your excuses and I'm not interested in getting ripped apart by shadows.~
+    Wait(1)
+    ActionOverride("sewdue01",SwingOnce())
+    Wait(1)
+    ActionOverride("sewdue02",SwingOnce())
+    Wait(2)
+    ActionOverride("sewdue01",DisplayStringHead(Myself,72838))  // ~Burn in he-- What? Saradush soldiers have found us! Attack!~
+    Wait(3)
+    CreateCreature("sewsha01",[1746.1482],2)  // ~Shadow Fiend~
+    CreateCreature("sewsha02",[1386.1622],12)  // ~Shadow Fiend~
+    ActionOverride("cutspy",DestroySelf())
+    ActionOverride("seworo01",Enemy())
+    ActionOverride("sewdue01",Enemy())
+    ActionOverride("sewdue02",Enemy())
+    ActionOverride("sewarc01",Enemy())
+    ActionOverride("sewarc02",Enemy())
+    SetGlobal("SpawnShadows","AR5013",1)
+    EndCutSceneMode()
+END
+

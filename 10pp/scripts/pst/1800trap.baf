@@ -1,0 +1,14 @@
+IF
+  Entered([PC])
+THEN
+  RESPONSE #50
+    ReallyForceSpellLevel([PC],WIZARD_CHROMATIC_ORB,1)
+    WaitRandom(2,6)
+  RESPONSE #150
+    ReallyForceSpellLevel([PC],WIZARD_MAGIC_MISSILE,1)
+    WaitRandom(2,6)
+  RESPONSE #150
+    ReallyForceSpellLevel([PC],WIZARD_ICE_KNIFE,3)
+    WaitRandom(2,6)
+END
+

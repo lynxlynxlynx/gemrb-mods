@@ -1,0 +1,27 @@
+IF
+  See(NearestEnemyOf(Myself))
+  Global("steammephitcombat","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_RAINSTORM)
+    IncrementGlobal("steammephitcombat","LOCALS",1)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  Delay(12)
+  See(NearestEnemyOf(Myself))
+  GlobalGT("steammephitcombat","LOCALS",0)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),MEPHIT_WATER_JET)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

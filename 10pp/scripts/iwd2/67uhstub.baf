@@ -1,0 +1,24 @@
+IF
+  CreatureHidden(Myself)
+  Global("SH_Stop_Envoys","GLOBAL",1)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  Global("SH_Stop_Envoys","GLOBAL",1)
+  !CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

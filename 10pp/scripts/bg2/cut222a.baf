@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("sarcpt01")  // 
+    MoveViewPoint([847.2078],-1)
+    SetGlobal("INFORMPLOTCUTACTIVE","GLOBAL",1)
+    CreateCreature("cutSpy",[852.2132],0)  // <Invalid Strref -1>
+    SmallWait(7)
+    StartDialogNoSet(Player1)
+END
+

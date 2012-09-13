@@ -1,0 +1,23 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    LeaveAreaLUAPanic("AR1607","",[347.1823],3)
+    LeaveAreaLUA("AR1607","",[347.1823],3)
+    ActionOverride(Player2,LeaveAreaLUA("AR1607","",[262.1766],3))
+    ActionOverride(Player3,LeaveAreaLUA("AR1607","",[306.1721],3))
+    ActionOverride(Player4,LeaveAreaLUA("AR1607","",[490.1854],3))
+    ActionOverride(Player5,LeaveAreaLUA("AR1607","",[394.1873],3))
+    ActionOverride(Player6,LeaveAreaLUA("AR1607","",[514.1620],3))
+    MultiPlayerSync()
+    FadeFromColor([20.0],0)
+    Explore()
+    SetGlobal("AsylumPlot","GLOBAL",80)
+    EndCutSceneMode()
+    SmallWait(1)
+    TextScreen("SCRTXT05")
+END
+

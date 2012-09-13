@@ -1,0 +1,30 @@
+IF
+  Or(3)
+    !NumberOfTimesTalkedTo(0)
+    AttackedBy([GOODCUTOFF],0)
+    Global("Destroy_Shaengarne_Bridge","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  Or(2)
+    !NumberOfTimesTalkedTo(0)
+    Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  CheckDoorFlags("AR2102_Bridge",DOOROPEN)  // AR2102_Bridge
+  LOS(NearestPC,28)
+THEN
+  RESPONSE #100
+    SetDialogueRange(300)
+    Dialogue(NearestPC)
+END
+

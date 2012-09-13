@@ -1,0 +1,7 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(Myself,16215)  // ~ _If you have a mage, cleric, or druid in your party, your character must memorize spells using the Rest button on the Mage Book or Priest Scroll pages. To get to these pages, right-click on your character portrait and then select the book or scroll icon that appears on the left.~ [TEXTPOP]
+END
+

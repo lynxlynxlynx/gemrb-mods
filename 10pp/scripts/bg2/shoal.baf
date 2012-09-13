@@ -1,0 +1,8 @@
+IF
+  HitBy([PC],CRUSHING)
+THEN
+  RESPONSE #100
+    SetGlobal("ShoalHit","GLOBAL",1)
+    Dialog([PC])
+END
+

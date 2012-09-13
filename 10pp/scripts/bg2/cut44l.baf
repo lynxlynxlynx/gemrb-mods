@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("udsimyaz")  // 
+    FadeToColor([20.0],0)
+    JumpToPoint([2672.1404])
+    ActionOverride("udgith02",JumpToPoint([2679.1339]))
+    ActionOverride("udgith03",JumpToPoint([2730.1354]))
+    ActionOverride("udgith04",JumpToPoint([2721.1298]))
+    ActionOverride("udgith05",Kill(Myself))
+    MoveViewPoint([2535.1616],100)
+    SetGlobal("udMind","GLOBAL",12)
+    Wait(4)
+    FadeFromColor([20.0],0)
+    StartDialogNoSet(Player1)
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,15 @@
+IF
+  Global("AR5101_IN_SUB_AREA","GLOBAL",0)
+  See(NearestPC,0)
+THEN
+  RESPONSE #100
+    SetGlobal("AR5101_IN_SUB_AREA","GLOBAL",1)
+END
+
+IF
+  !IsCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+END
+

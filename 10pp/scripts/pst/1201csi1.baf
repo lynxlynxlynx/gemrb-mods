@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Nameless")  // 
+    FadeToBlack()
+    Wait(3)
+    DisableFogDither()
+    DisableSpriteDither()
+    ExploreMapChunk([4493.1095],0,600)
+    MoveViewPoint([4493.1095],INSTANT)
+    CreateCreature("IgnusF",[4493.1095])  // ~Ignus~
+    CreateCreature("Trans",[4680.805])  // ~The Transcendent One~
+    StartSong(CHAR_IGNUS,[0.0],Normal)
+    StickySinisterPoof("S113SMOK","IgnusF",1)
+    StartCutScene("1201CI11")
+END
+

@@ -1,0 +1,20 @@
+IF
+  Opened([ANYTHING])
+  Global("YUANTI_ROOM","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YUANTI_ROOM","GLOBAL",1)
+    SetGlobal("YUANTI_SURPRISE","GLOBAL",1)
+    FloatMessage(LastTrigger,16938)  // ~A blast of fetid air, heavy with the scent of dead flesh, pours out of this room as you open the door.~
+END
+
+IF
+  Unlocked([ANYTHING])
+  Global("YUANTI_ROOM","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("YUANTI_ROOM","GLOBAL",1)
+    SetGlobal("YUANTI_SURPRISE","GLOBAL",1)
+    FloatMessage(LastTrigger,16938)  // ~A blast of fetid air, heavy with the scent of dead flesh, pours out of this room as you open the door.~
+END
+

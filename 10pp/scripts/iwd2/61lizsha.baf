@@ -1,0 +1,225 @@
+IF
+  CheckSpellState(Myself,SANCTUARY)
+  See([GOODCUTOFF],0)
+  !See([0.0.YUANTI],0)
+  !See([0.0.LIZARDMAN],0)
+  Or(2)
+    See([0.0.YUANTI][0.0.10000.10000],0)
+    See([0.0.LIZARDMAN][0.0.10000.10000],0)
+THEN
+  RESPONSE #100
+    MoveToObjectUntilSee(LastMarkedObject)
+END
+
+IF
+  CheckSpellState(Myself,SANCTUARY)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See([0.0.LIZARDMAN],0)
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See([0.0.LIZARDMAN],0)
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  See([0.0.LIZARDMAN],0)
+  HPLostGT(LastSeenBy(Myself),7)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See([0.0.LIZARDMAN],0)
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SANCTUARY)
+  See([0.0.LIZARDMAN],0)
+  HPPercentLT(LastSeenBy(Myself),75)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_SANCTUARY,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SANCTUARY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  See([0.0.YUANTI],0)
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  See([0.0.YUANTI],0)
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  See([0.0.YUANTI],0)
+  HPLostGT(LastSeenBy(Myself),7)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  See([0.0.YUANTI],0)
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SANCTUARY)
+  See([0.0.YUANTI],0)
+  HPPercentLT(LastSeenBy(Myself),75)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_SANCTUARY,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SANCTUARY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Or(2)
+    See([0.0.LIZARDMAN],0)
+    See([0.0.YUANTI],0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("1115",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+    MarkSpellAndObject("110113131210",LastMarkedObject,7)
+      // CLERIC_BLESS
+      // CLERIC_PRAYER
+      // CLERIC_MINOR_ELEMENTAL_BARRIER
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("110113131210",LastMarkedObject,7)
+      // CLERIC_BLESS
+      // CLERIC_PRAYER
+      // CLERIC_MINOR_ELEMENTAL_BARRIER
+    MarkSpellAndObject("1115",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HaveSpell(CLERIC_REMOVE_PARALYSIS)
+  Or(2)
+    See([0.0.LIZARDMAN],0)
+    See([0.0.YUANTI],0)
+  IsSpellTargetValid(LastMarkedObject,CLERIC_REMOVE_PARALYSIS,0)
+  CheckSpellState(LastMarkedObject,HELD)
+THEN
+  RESPONSE #100
+    Spell(LastMarkedObject,CLERIC_REMOVE_PARALYSIS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("131123061418",LastMarkedObject,7)
+      // CLERIC_RIGID_THINKING
+      // WIZARD_HOLD_PERSON
+      // CLERIC_POISON
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

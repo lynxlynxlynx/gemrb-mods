@@ -1,0 +1,82 @@
+IF
+  !See("Dolora")  // ~Prostitute~
+  !Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    SetInternal(Myself,INTERNAL_0,0)
+END
+
+IF
+  Trigger(6)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    SendTrigger("BPatron6",6)
+    SendTrigger("BPatron7",6)
+    SendTrigger("BPatron8",6)
+    StartTimer(1,45)
+    StartRandomTimer(2,10,15)
+    Continue()
+END
+
+IF
+  TimerActive(1)
+  !TimerActive(2)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,48150)  // ~"Subject now conversing with human male."~
+    StartRandomTimer(2,10,15)
+  RESPONSE #100
+    FloatMessage(Myself,48151)  // ~"Subject now playing a game with human male."~
+    StartRandomTimer(2,10,15)
+END
+
+IF
+  Trigger(1)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FaceObject("Dolora")
+    SetInternal(Myself,INTERNAL_0,1)
+    StartRandomTimer(3,5,10)
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    FaceObject("Dolora")
+    Continue()
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+  !TimerActive(3)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,48124)  // ~"Subject sighted."~
+    StartRandomTimer(3,5,10)
+  RESPONSE #100
+    FloatMessage(Myself,48126)  // ~"Subject behavior static."~
+    StartRandomTimer(3,5,10)
+  RESPONSE #100
+    FloatMessage(Myself,48149)  // ~"Subject mannerisms reserved."~
+    StartRandomTimer(3,5,10)
+END
+
+IF
+  See("Dolora")  // ~Prostitute~
+  Internal(Myself,INTERNAL_0,0)
+  !TimerActive(1)
+THEN
+  RESPONSE #100
+    SendTrigger("BPatron6",1)
+    SendTrigger("BPatron7",1)
+    SendTrigger("BPatron8",1)
+    FaceObject("Dolora")
+    SetInternal(Myself,INTERNAL_0,1)
+    StartRandomTimer(3,5,10)
+END
+

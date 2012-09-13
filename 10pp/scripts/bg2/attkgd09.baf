@@ -1,0 +1,7 @@
+IF
+  Range([GOODCUTOFF],9)
+THEN
+  RESPONSE #100
+    AttackReevaluate([GOODCUTOFF],5)
+END
+

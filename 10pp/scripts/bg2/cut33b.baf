@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    CreateCreatureObjectDoor("MGTEOS01",Myself,0,0,0)  // ~Teos~
+    Wait(4)
+    ActionOverride("MGTEOS01",StartDialogNoSet([PC]))
+END
+

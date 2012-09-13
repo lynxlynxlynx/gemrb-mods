@@ -1,0 +1,7 @@
+IF
+  IsOverMe([PC])
+THEN
+  RESPONSE #100
+    ActionOverride(LastTrigger,LeaveAreaLUA("AR0518","",[263.495],8))
+END
+

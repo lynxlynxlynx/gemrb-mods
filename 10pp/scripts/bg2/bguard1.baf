@@ -1,0 +1,28 @@
+IF
+  OR(4)
+    Dead("Feveron")  // Feveron
+    Dead("Diana")  // Diana
+    Allegiance("Feveron",ENEMY)  // Feveron
+    Allegiance("Diana",ENEMY)  // Diana
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  HPPercentLT("Feveron",100)  // Feveron
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf("Feveron"),30)
+END
+
+IF
+  HPPercentLT("Diana",100)  // Diana
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf("Diana"),30)
+END
+

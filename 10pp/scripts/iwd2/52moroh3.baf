@@ -1,0 +1,328 @@
+IF
+  GlobalGT("52Morohem_Master","GLOBAL",3)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("52Moroh4")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Dead(Player1)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC3r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Dead(Player2)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC3r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Dead(Player3)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC3r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Dead(Player4)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC3r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Dead(Player5)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC3r")
+END
+
+IF
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Dead(Player6)  // 
+THEN
+  RESPONSE #100
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    StartCutScene("52cC3r")
+END
+
+IF
+  GlobalTimerExpired("CHAMBER_3_SHOCK_TIMER","MYAREA")
+  !Global("WATCHING_PLAYER","MYAREA",0)
+THEN
+  RESPONSE #100
+    ClearActions("08_52MNKCRG_01")
+    ClearActions("08_52MNKCRG_02")
+    MultiPlayerSync()
+    ClearSpriteEffects(NearestPC)
+    StartCutScene("52cC3Shk")
+    SetGlobalTimer("CHAMBER_3_SHOCK_TIMER","MYAREA",24)
+    SetGlobalRandom("CHAMBER_3_SWITCH_ACTIVE","MYAREA",1,6)
+    Continue()
+END
+
+IF
+  Global("C_3_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",1)
+  Dead("08_52MNKCRG_01")  // 
+  Dead("08_52MNKCRG_02")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_3_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player1)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player1,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",4)
+    Unlock("AR5202_Door4")
+    OpenDoor("AR5202_Door4")
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+    AddXPVar("Level_10_Average",34472)  // ~You have mastered the Chamber of Sorcery, third of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player1,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_3_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",2)
+  Dead("08_52MNKCRG_01")  // 
+  Dead("08_52MNKCRG_02")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_3_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player2)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player2,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",4)
+    Unlock("AR5202_Door4")
+    OpenDoor("AR5202_Door4")
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+    AddXPVar("Level_10_Average",34472)  // ~You have mastered the Chamber of Sorcery, third of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player2,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_3_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",3)
+  Dead("08_52MNKCRG_01")  // 
+  Dead("08_52MNKCRG_02")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_3_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player3)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player3,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",4)
+    Unlock("AR5202_Door4")
+    OpenDoor("AR5202_Door4")
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+    AddXPVar("Level_10_Average",34472)  // ~You have mastered the Chamber of Sorcery, third of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player3,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_3_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",4)
+  Dead("08_52MNKCRG_01")  // 
+  Dead("08_52MNKCRG_02")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_3_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player4)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player4,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",4)
+    Unlock("AR5202_Door4")
+    OpenDoor("AR5202_Door4")
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+    AddXPVar("Level_10_Average",34472)  // ~You have mastered the Chamber of Sorcery, third of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player5,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player4,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_3_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",5)
+  Dead("08_52MNKCRG_01")  // 
+  Dead("08_52MNKCRG_02")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_3_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player5)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player5,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",4)
+    Unlock("AR5202_Door4")
+    OpenDoor("AR5202_Door4")
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+    AddXPVar("Level_10_Average",34472)  // ~You have mastered the Chamber of Sorcery, third of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player6,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player5,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  Global("C_3_MASTERED","MYAREA",0)
+  Global("WATCHING_PLAYER","MYAREA",6)
+  Dead("08_52MNKCRG_01")  // 
+  Dead("08_52MNKCRG_02")  // 
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("C_3_MASTERED","MYAREA",1)
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    DropInventoryEX(Player6)
+    MultiPlayerSync()
+    SetGlobal("WATCHING_PLAYER","MYAREA",0)
+    ActionOverride(Player6,JumpToSavedLocation())
+    MultiPlayerSync()
+    SetGlobal("52Morohem_Master","GLOBAL",4)
+    Unlock("AR5202_Door4")
+    OpenDoor("AR5202_Door4")
+    SetGlobal("CHAMBER_3_SWITCH_ACTIVE","MYAREA",0)
+    AddXPVar("Level_10_Average",34472)  // ~You have mastered the Chamber of Sorcery, third of the Eight Chambers.~
+    Wait(1)
+    ChangeEnemyAlly(Player1,PC)
+    ChangeEnemyAlly(Player2,PC)
+    ChangeEnemyAlly(Player3,PC)
+    ChangeEnemyAlly(Player4,PC)
+    ChangeEnemyAlly(Player5,PC)
+    MultiPlayerSync()
+    ResetJoinRequests()
+    MultiPlayerSync()
+    MoveViewObject(Player6,INSTANT)
+    MultiPlayerSync()
+    MultiPlayerSync()
+    FadeFromColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

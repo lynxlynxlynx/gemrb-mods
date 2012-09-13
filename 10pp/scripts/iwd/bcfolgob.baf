@@ -1,0 +1,16 @@
+IF
+  Or(2)
+    !Global("GOBLIN_RACE_KILLED","MYAREA",0)
+    !Global("BC_GOBLIN_LOST","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("BCRTNSAV")
+END
+
+IF
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    MoveToObject([0.0.GOBLIN][0.0.10000.10000])
+END
+

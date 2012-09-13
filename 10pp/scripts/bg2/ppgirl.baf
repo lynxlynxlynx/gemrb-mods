@@ -1,0 +1,19 @@
+IF
+  Detect([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    SetGlobal("AsylumPlot","GLOBAL",68)
+    StartDialogNoSet(Player1)
+END
+
+IF
+  See([PC])
+  Global("freaked","AR1606",0)
+THEN
+  RESPONSE #100
+    SetGlobal("freaked","AR1606",1)
+    SetGlobal("AsylumPlot","GLOBAL",69)
+    StartDialogNoSet(Player1)
+END
+

@@ -1,0 +1,34 @@
+IF
+  Global("Team_3_Leader","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ChangeAIScript("1600t3gl",DEFAULT)
+END
+
+IF
+  Specifics(Myself,LEAVING)
+  NearLocation(Myself,[2648.2890],0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Specifics(Myself,LEAVING)
+  NearLocation(Myself,[3161.2777],0)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !Specifics(Myself,LEAVING)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,LEAVING)
+    MoveToPoint([2648.2890])
+  RESPONSE #100
+    ChangeSpecifics(Myself,LEAVING)
+    MoveToPoint([3161.2777])
+END
+

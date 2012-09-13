@@ -1,0 +1,16 @@
+IF
+  Clicked([PC])
+  Global("PrisonerTalk","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PrisonerTalk","MYAREA",1)
+END
+
+IF
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    SetGlobal("PrisonerTalk","MYAREA",-1)
+    ChangeCurrentScript("")
+END
+

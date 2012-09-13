@@ -1,0 +1,12 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("hgwra01")  // 
+    CreateVisualEffectObject("CALLLIGH",Player1)
+    CreateVisualEffectObject("SPFLSRIN",Player1)
+    ApplyDamage(Player1,15,ELECTRICITY)
+    Wait(2)
+    StartDialogNoSet(Player1)
+END
+

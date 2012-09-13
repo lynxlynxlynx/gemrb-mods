@@ -1,0 +1,28 @@
+IF
+  Disarmed([PC])
+  See([0.HUMANOID],0)
+  Specifics(LastMarkedObject,255)
+  LOS(LastMarkedObject,100)
+  !StateCheck(LastTrigger,STATE_INVISIBLE)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_2","MYAREA",1)
+    SetGlobal("TEAM_6","MYAREA",1)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+
+IF
+  Or(2)
+    Opened([PC])
+    Entered([PC])
+THEN
+  RESPONSE #100
+    ForceSpellPoint([2970.251],CLERIC_GLYPH_OF_WARDING)
+    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
+    SetGlobal("TEAM_6","MYAREA",1)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

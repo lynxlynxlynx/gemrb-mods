@@ -1,0 +1,16 @@
+IF
+  NearLocation(Myself,[2590.867],0)
+THEN
+  RESPONSE #100
+    Face(0)
+    ChangeAIScript("0601tchr",DEFAULT)
+END
+
+IF
+  NearLocation(Myself,[2590.867],0)
+THEN
+  RESPONSE #100
+    Face(0)
+    ChangeAIScript("0601tpa",DEFAULT)
+END
+

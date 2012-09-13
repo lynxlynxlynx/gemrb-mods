@@ -1,0 +1,62 @@
+IF
+  GlobalLT("BARB_RAGE","LOCALS",1)
+  !TimerActive(11)
+  CheckStatLT(Myself,4,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    StartTimer(11,43200)
+    SetGlobal("BARB_RAGE","LOCALS",1)
+    Continue()
+END
+
+IF
+  GlobalLT("BARB_RAGE","LOCALS",2)
+  !TimerActive(11)
+  CheckStatGT(Myself,3,CLASSLEVELSUM)
+  CheckStatLT(Myself,8,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    StartTimer(11,43200)
+    SetGlobal("BARB_RAGE","LOCALS",2)
+    Continue()
+END
+
+IF
+  GlobalLT("BARB_RAGE","LOCALS",3)
+  !TimerActive(11)
+  CheckStatGT(Myself,7,CLASSLEVELSUM)
+  CheckStatLT(Myself,12,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    StartTimer(11,43200)
+    SetGlobal("BARB_RAGE","LOCALS",3)
+    Continue()
+END
+
+IF
+  GlobalLT("BARB_RAGE","LOCALS",4)
+  !TimerActive(11)
+  CheckStatGT(Myself,11,CLASSLEVELSUM)
+  CheckStatLT(Myself,16,CLASSLEVELSUM)
+THEN
+  RESPONSE #100
+    StartTimer(11,43200)
+    SetGlobal("BARB_RAGE","LOCALS",4)
+    Continue()
+END
+
+IF
+  GlobalGT("BARB_RAGE","LOCALS",0)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
+  !CheckSpellState(Myself,GREATER_BARBARIAN_RAGE)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,INNATE_BARBARIAN_RAGE)
+    IncrementGlobal("BARB_RAGE","LOCALS",-1)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    Continue()
+END
+

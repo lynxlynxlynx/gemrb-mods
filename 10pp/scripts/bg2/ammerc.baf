@@ -1,0 +1,130 @@
+IF
+  OR(2)
+    GlobalGT("Enclave","GLOBAL",1)
+    Allegiance(Myself,ENEMY)
+  Global("AmMercEnemy","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("AmMercEnemy","GLOBAL",1)
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("AmMercEnemy","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  OR(3)
+    Name("AMCST02",Myself)
+    Name("AMCST03",Myself)
+    Name("AMCST04",Myself)
+  Range(NearestMyGroupOfType,8)
+  See(NearestMyGroupOfType)
+  !GlobalTimerNotExpired("MercYap","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MercYap","LOCALS",3)
+    FaceObject(NearestMyGroupOfType)
+  RESPONSE #100
+    SetGlobalTimer("MercYap","LOCALS",3)
+    FaceObject(SecondNearestMyGroupOfType)
+  RESPONSE #100
+    SetGlobalTimer("MercYap","LOCALS",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalGT("AmkMercCap","AR5500",25)
+  Range(NearestEnemyOf(Myself),15)
+  OnScreen(Myself)
+  Global("reinforcement","LOCALS",0)
+  LevelGT(Myself,16)
+  AreaCheck("AR5500")
+THEN
+  RESPONSE #100
+    SetGlobal("reinforcement","LOCALS",1)
+  RESPONSE #50
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMercCap","AR5500",3)
+    DisplayStringHead(Myself,71930)  // ~It's the Bhaalspawn!  Get him!~
+    CreateCreatureOffScreen("AMMERC07",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC08",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+  RESPONSE #50
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMercCap","AR5500",3)
+    DisplayStringHead(Myself,71931)  // ~There <PRO_HESHE> is!  <CHARNAME> must be killed!~
+    CreateCreatureOffScreen("AMMERC08",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+  RESPONSE #50
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMercCap","AR5500",4)
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),15)
+  Global("reinforcement","LOCALS",0)
+  GlobalLT("AmkMercCap","AR5500",40)
+  OnScreen(Myself)
+  !LevelGT(Myself,16)
+  LevelGT(Myself,6)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    SetGlobal("reinforcement","LOCALS",1)
+  RESPONSE #50
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMercCap","AR5500",2)
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+    CreateCreatureOffScreen("AMMERC09",0)  // ~Mercenary~
+  RESPONSE #20
+    SetGlobal("reinforcement","LOCALS",1)
+    IncrementGlobal("AmkMercCap","AR5500",1)
+    CreateCreatureOffScreen("AMMERC07",0)  // ~Mercenary~
+END
+
+IF
+  OR(2)
+    See("AMBOY01")  // ~Boy~
+    See("AMGIRL01")  // ~Girl~
+  Range(LastSeenBy(Myself),10)
+  !GlobalTimerNotExpired("GetLostKid","GLOBAL")
+  OnScreen(Myself)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("GetLostKid","GLOBAL",60)
+    FaceObject(LastSeenBy(Myself))
+    DisplayStringHead(Myself,71548)  // ~Get lost, brat!~
+    ActionOverride(LastSeenBy(Myself),SetInterrupt(TRUE))
+    DisplayStringHead(LastSeenBy(Myself),2912)  // ~Eek!~ [AERIE58]
+    ActionOverride(LastSeenBy(Myself),RunAwayFrom([0.0.0.FIGHTER],60))
+END
+
+IF
+  See([0.0.0.INNOCENT])
+  RandomNum(10,1)
+  !Name("AMBOY01",LastSeenBy(Myself))
+  !Name("AMGIRL01",LastSeenBy(Myself))
+  Range(LastSeenBy(Myself),8)
+  !GlobalTimerNotExpired("MoveAlong","LOCALS")
+  AreaCheck("AR5500")
+  OnScreen(Myself)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MoveAlong","LOCALS",60)
+    FaceObject(LastSeenBy(Myself))
+    DisplayStringHead(Myself,16086)  // ~Move along, citizen, nothing to see here.~
+    ActionOverride(LastSeenBy(Myself),SetInterrupt(TRUE))
+    ActionOverride(LastSeenBy(Myself),RunAwayFrom([0.0.0.FIGHTER],60))
+END
+

@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Anomen")  // 
+    MoveToObject("Surayah")
+    ActionOverride("Surayah",StartDialogNoSet(Player1))
+END
+

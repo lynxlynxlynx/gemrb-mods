@@ -1,0 +1,62 @@
+IF
+  Global("Took_Throne","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("1501_Leave","AR1501",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+    Help()
+    CreateItem("SkullSM",0,0,0)  // ~Stale Mary's Skull~
+    DropInventory()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("1501_Undead_Alert","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    GlobalSet("1501_Undead_Alert","GLOBAL",1)
+    Enemy()
+    Attack(LastAttackerOf(LastHelp))
+END
+

@@ -1,0 +1,92 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_1)
+    Continue()
+END
+
+IF
+  !Global("Spawn_Avenger","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Avenger","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("Execution_Chaos","AR0900",1)
+  !Dead("Execute")  // ~Executioner~
+THEN
+  RESPONSE #100
+    Enemy()
+    Wait(1)
+    Attack("Execute")
+END
+
+IF
+  Global("Execution_Chaos","AR0900",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([0.0.0.0.0.0.GUARD_1])
+END
+
+IF
+  WasInDialog()
+  GlobalGT("Curst_Execution_Two","GLOBAL",1)
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  Global("Curst_Execution_Two","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToPoint([1187.3022])
+    MoveToPoint([947.2911])
+    MoveToPoint([850.2911])
+    Face(4)
+    SavePlace()
+    GlobalSet("Curst_Execution_Two","GLOBAL",2)
+END
+
+IF
+  Global("Curst_Execution_Two","GLOBAL",3)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52854)  // ~"Yes, I do."~
+    Wait(3)
+    GlobalSet("Curst_Execution_Two","GLOBAL",4)
+END
+
+IF
+  Global("Curst_Execution_Two","GLOBAL",5)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,52853)  // ~"I have nothing to say, but I DO have something to give!"~
+    Wait(3)
+    GlobalSet("Curst_Execution_Two","GLOBAL",6)
+END
+
+IF
+  Global("Curst_Execution_Two","GLOBAL",6)
+THEN
+  RESPONSE #100
+    PlaySequence(ANIM_STANDTOSTANCE)
+    GlobalSet("Curst_Execution_Two","GLOBAL",7)
+    PlaySequenceTimed(ANIM_MIMESTANCE,10)
+END
+
+IF
+  Global("Curst_Execution_Two","GLOBAL",8)
+THEN
+  RESPONSE #100
+    Face(2)
+    PlaySequence(ANIM_ATTACK1)
+    GlobalSet("Curst_Execution_Two","GLOBAL",9)
+    PlaySequence(ANIM_ATTACK2)
+END
+

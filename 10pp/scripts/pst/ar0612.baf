@@ -1,0 +1,55 @@
+IF
+  Global("CW_PK_Split","AR0612",1)
+  !Exists("Pestle")  // ~Clerk's Ward Merchant~
+  !Exists("Kiln")  // ~Clerk's Ward Merchant~
+  Exists("PK")  // ~Clerk's Ward Merchant~
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("0612cut1")
+END
+
+IF
+  !Global("Current_Area","GLOBAL",612)
+  Exists("Pestle")  // ~Clerk's Ward Merchant~
+THEN
+  RESPONSE #100
+    FloatMessage("Pestle",50828)  // ~"Welcome, sir, to Pestle and Kilnn's apothecary."~
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",612)
+  Exists("PK")  // ~Clerk's Ward Merchant~
+THEN
+  RESPONSE #100
+    FloatMessage("PK",50825)  // ~"Welcome to - *gack!* - Pestle Kilnn's apothecary."~
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",612)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",612)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0612_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0612_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  GlobalTimerExpired("0612_Timer_1","AR0612")
+  BitCheck("0612_Status","AR0612",BIT2)
+THEN
+  RESPONSE #100
+    CreateCreature("Patron2",[485.652])  // ~Clerk's Ward Citizen~
+    BitClear("0612_Status","AR0612",BIT2)
+END
+

@@ -1,0 +1,57 @@
+IF
+  OpenState("AR3000_Drum3",TRUE)  // AR3000_Drum3
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  !Global("DRUM_3_CHECK_SUMMON","MYAREA",0)
+  See(NearestPC,0)
+THEN
+  RESPONSE #100
+    SpellHitEffectSprite("DRUM_3","DRUM_3",CAUSE_CRITICAL_WOUNDS,10)
+    Continue()
+END
+
+IF
+  !Global("DRUM_3_CHECK_SUMMON","MYAREA",0)
+  !See(NearestPC,0)
+THEN
+  RESPONSE #100
+    PlaySound("EFF_P103")
+    Continue()
+END
+
+IF
+  !Global("DRUM_3_CHECK_SUMMON","MYAREA",0)
+  !Dead(Myself)  // 
+  !Global("SPAWN_LOCK","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_3_CHECK_SUMMON","MYAREA",0)
+    SetGlobal("TEAM_15","MYAREA",1)
+    SetGlobal("TEAM_16","MYAREA",1)
+    SetGlobal("TEAM_15","MYAREA",1)
+END
+
+IF
+  !Global("DRUM_3_CHECK_SUMMON","MYAREA",0)
+  !Dead(Myself)  // 
+  Global("SPAWN_LOCK","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DRUM_3_CHECK_SUMMON","MYAREA",0)
+    SetGlobal("AR3000_DRUM_SUMMON","GLOBAL",1)
+    SetGlobal("TEAM_15","MYAREA",1)
+    SetGlobal("TEAM_16","MYAREA",1)
+    SetGlobal("TEAM_15","MYAREA",1)
+END
+
+IF
+  !IsCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
+END
+

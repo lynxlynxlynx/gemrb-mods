@@ -1,0 +1,14 @@
+IF
+  !Range("Waypoint1",4)  // Waypoint1
+THEN
+  RESPONSE #100
+    MoveToObject("Waypoint1")
+END
+
+IF
+  Range("Waypoint1",4)  // Waypoint1
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

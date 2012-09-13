@@ -1,0 +1,48 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    IncrementGlobal("Kill_SDThug","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Help()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    Face(12)
+    WaitRandom(3,5)
+    FloatMessage(Myself,9620)  // ~"Aooooooooooooooooo"~
+    Wait(3)
+    Face(14)
+    WaitRandom(3,5)
+    FloatMessage(Myself,9621)  // ~"Aw-oooooooooooo"~
+    Wait(3)
+    Face(12)
+    WaitRandom(3,5)
+    FloatMessage(Myself,9622)  // ~"A-ooooooooooo"~
+    Wait(3)
+    Face(10)
+    WaitRandom(3,5)
+    FloatMessage(Myself,9623)  // ~"Arowooooooo"~
+    Wait(3)
+END
+

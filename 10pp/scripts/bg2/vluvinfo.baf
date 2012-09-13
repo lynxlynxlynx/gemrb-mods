@@ -1,0 +1,14 @@
+IF
+  Entered([ANYONE])
+  Global("GotBook94","GLOBAL",1)
+  OR(4)
+    Global("AerieVampire","GLOBAL",3)
+    Global("AnomenVampire","GLOBAL",3)
+    Global("ViconiaVampire","GLOBAL",3)
+    Global("JaheiraVampire","GLOBAL",3)
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,56407)  // ~This appears to be the statue described in the Vapiricus Omnibus.  The book spoke of placing the vampire and it's master's heart within the statue's arms to destroy the curse.~
+    Wait(2)
+END
+

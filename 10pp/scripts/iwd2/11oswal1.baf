@@ -1,0 +1,90 @@
+IF
+  Global("ML_0","LOCALS",0)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,30)
+    SetGlobal("ML_0","LOCALS",1)
+END
+
+IF
+  Global("ML_0","LOCALS",1)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8540)  // ~"Dum-de-dum-de-dum."~
+    SetGlobal("ML_0","LOCALS",2)
+  RESPONSE #100
+    FloatMessage(Myself,8541)  // ~"Ahh... what a beautiful Northern sky."~
+    SetGlobal("ML_0","LOCALS",2)
+  RESPONSE #100
+    FloatMessage(Myself,8542)  // ~::Whistling::~
+    SetGlobal("ML_0","LOCALS",2)
+  RESPONSE #100
+    FloatMessage(Myself,8543)  // ~"I wonder what would happen if I changed the gas to air mixture..." ~
+    SetGlobal("ML_0","LOCALS",2)
+END
+
+IF
+  Global("ML_0","LOCALS",2)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,3)
+    SetGlobal("ML_0","LOCALS",3)
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+  ActionListEmpty()
+  NearLocation(Myself,2039,667,4)
+THEN
+  RESPONSE #100
+    SetStartPos([2039.667])
+    SetGlobal("ML_0","LOCALS",4)
+    Continue()
+END
+
+IF
+  Global("ML_0","LOCALS",3)
+THEN
+  RESPONSE #100
+    MoveToPoint([2039.667])
+END
+
+IF
+  Global("ML_0","LOCALS",4)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    Face(W)
+    SetGlobal("ML_0","LOCALS",5)
+END
+
+IF
+  Global("ML_0","LOCALS",5)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    StartTimer(19,1)
+    SetGlobal("ML_0","LOCALS",6)
+END
+
+IF
+  Global("ML_0","LOCALS",6)
+  !TimerActive(19)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,8540)  // ~"Dum-de-dum-de-dum."~
+    SetGlobal("ML_0","LOCALS",0)
+  RESPONSE #100
+    FloatMessage(Myself,8541)  // ~"Ahh... what a beautiful Northern sky."~
+    SetGlobal("ML_0","LOCALS",0)
+  RESPONSE #100
+    FloatMessage(Myself,8542)  // ~::Whistling::~
+    SetGlobal("ML_0","LOCALS",0)
+  RESPONSE #100
+    FloatMessage(Myself,8543)  // ~"I wonder what would happen if I changed the gas to air mixture..." ~
+    SetGlobal("ML_0","LOCALS",0)
+END
+

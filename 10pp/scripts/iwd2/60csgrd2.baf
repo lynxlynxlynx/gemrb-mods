@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Spell_FX")  // 
+    MultiPlayerSync()
+    SpellHitEffectPoint(Myself,[460.1460],MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectPoint(Myself,[340.1530],MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectPoint(Myself,[520.1530],MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectPoint(Myself,[400.1460],MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectPoint(Myself,[430.1600],MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectPoint(Myself,[430.1500],MONSTER_SUMMONING_CIRCLE,0)
+    SpellHitEffectPoint(Myself,[460.1460],ACID,0)
+    SpellHitEffectPoint(Myself,[340.1530],ACID,0)
+    SpellHitEffectPoint(Myself,[520.1530],ACID,0)
+    SpellHitEffectPoint(Myself,[400.1460],ACID,0)
+    SpellHitEffectPoint(Myself,[430.1600],ACID,0)
+    SpellHitEffectPoint(Myself,[430.1500],ACID,0)
+    Wait(1)
+    HideCreature("The_Guardian",FALSE)
+    Wait(1)
+    StartCutScene("60cSGrd3")
+END
+

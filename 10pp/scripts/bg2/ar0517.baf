@@ -1,0 +1,7 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    DisplayString(Myself,39677)  // ~The strange fleshy trap has sucked a party member down into another chamber below.~
+END
+

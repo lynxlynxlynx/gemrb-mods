@@ -1,0 +1,62 @@
+IF
+  Clicked([PC])
+  Range(LastTrigger,3,GREATER_THAN)
+THEN
+  RESPONSE #100
+    ActionOverride(LastTrigger,MoveToPoint([910.750]))
+    SetGlobal("PlayerClickedPost","MYAREA",1)
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Global("PlayerClickedPost","MYAREA",1)
+  Range(LastTrigger,4,LESS_THAN)
+  Or(10)
+    IsActive("WalkwayTrap0")  // WalkwayTrap0
+    IsActive("WalkwayTrap1")  // WalkwayTrap1
+    IsActive("WalkwayTrap2")  // WalkwayTrap2
+    IsActive("WalkwayTrap3")  // WalkwayTrap3
+    IsActive("WalkwayTrap4")  // WalkwayTrap4
+    IsActive("WalkwayTrap5")  // WalkwayTrap5
+    IsActive("WalkwayTrap6")  // WalkwayTrap6
+    IsActive("WalkwayTrap7")  // WalkwayTrap7
+    IsActive("WalkwayTrap8")  // WalkwayTrap8
+    IsActive("WalkwayTrap9")  // WalkwayTrap9
+THEN
+  RESPONSE #100
+    TriggerActivation("WalkwayTrap0",FALSE)
+    TriggerActivation("WalkwayTrap1",FALSE)
+    TriggerActivation("WalkwayTrap2",FALSE)
+    TriggerActivation("WalkwayTrap3",FALSE)
+    TriggerActivation("WalkwayTrap4",FALSE)
+    TriggerActivation("WalkwayTrap5",FALSE)
+    TriggerActivation("WalkwayTrap6",FALSE)
+    TriggerActivation("WalkwayTrap7",FALSE)
+    TriggerActivation("WalkwayTrap8",FALSE)
+    TriggerActivation("WalkwayTrap9",FALSE)
+    DisplayString(LastTrigger,34655)  // ~The snow at the base of this post has been disturbed.  It bends slightly backward as you touch it, then quickly snaps into its original position.  A few moments later you hear the subtle sound of crumbling stone travel up the path towards Dragon's Eye.~
+    SpellHitEffectPoint(LastTrigger,[830.735],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[800.672],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[768.608],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[780.540],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[780.480],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[760.440],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[700.380],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[620.384],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[543.287],FREE_ACTION,0)
+    Wait(1)
+    SpellHitEffectPoint(LastTrigger,[520.255],FREE_ACTION,0)
+    SetGlobal("PlayerClickedPost","MYAREA",0)
+    TriggerActivation(Myself,FALSE)
+    ChangeCurrentScript("")
+END
+

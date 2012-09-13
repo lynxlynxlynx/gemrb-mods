@@ -1,0 +1,21 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("AnnahF")  // 
+    Face(8)
+    Enemy()
+    StickySinisterPoof("S113SMOK","AnnahF",1)
+    FadeFromBlack()
+    Wait(3)
+    Face(2)
+    StartSong(CHAR_ANNAH,[0.0],Normal)
+    Wait(2)
+    Face(14)
+    Wait(2)
+    Face(0)
+    PlaySoundNotRanged("Ana199D")
+    Wait(4)
+    StartCutScene("1201CSA2")
+END
+

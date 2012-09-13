@@ -1,0 +1,26 @@
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Global("GoodElfKill","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GoodElfKill","GLOBAL",2)
+END
+
+IF
+  Detect([PC])
+  Global("GeneralDialogue","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("GeneralDialogue","LOCALS",1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("GoodElfKill","GLOBAL",2)
+  Global("TurnHostile","LOCALS",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("TurnHostile","LOCALS",1)
+END
+

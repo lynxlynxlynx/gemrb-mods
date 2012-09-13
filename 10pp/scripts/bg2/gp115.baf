@@ -1,0 +1,64 @@
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Shout(115)
+    Enemy()
+END
+
+IF
+  HitBy([GOODCUTOFF],CRUSHING)
+THEN
+  RESPONSE #100
+    Shout(115)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF])
+  Allegiance(Myself,ENEMY)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    Shout(115)
+    Continue()
+END
+
+IF
+  Heard([ANYONE],115)
+  Allegiance(Myself,NEUTRAL)
+  !Class(Myself,INNOCENT)
+THEN
+  RESPONSE #100
+    Enemy()
+    MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+  Dead("trfued05")  // ~Lord Skarmaen Alibakkar~
+  !See([PC])
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Allegiance("trfued05",ENEMY)  // ~Lord Skarmaen Alibakkar~
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  See([0.0.0.0.116])
+  !Dead("astSeenBy(Myself))")  // astSeenBy(Myself))
+  OR(2)
+    Global("alibakkarjob","GLOBAL",1)
+    Global("lurraxoljob","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Attack(LastSeenBy(Myself))
+END
+

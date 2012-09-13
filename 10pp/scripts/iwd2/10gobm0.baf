@@ -1,0 +1,40 @@
+IF
+  Global("I_LIKE_DWARVES","LOCALS",0)
+  See([PC],0)
+THEN
+  RESPONSE #75
+    SetGlobal("I_LIKE_DWARVES","LOCALS",2)
+    Continue()
+  RESPONSE #25
+    SetGlobal("I_LIKE_DWARVES","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("I_LIKE_DWARVES","LOCALS",1)
+  Or(2)
+    See([PC.0.DWARF],0)
+    See([0.0.DWARF],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  Or(9)
+    See(NearestEnemyOf(Myself),0)
+    See("JORUN",0)  // JORUN
+    See("CRANDALL",0)  // CRANDALL
+    See("BROGAN",0)  // BROGAN
+    See("JON",0)  // JON
+    See("REIG",0)  // REIG
+    See("SCREED",0)  // SCREED
+    See("ELDGULL",0)  // ELDGULL
+    See("HEDRON",0)  // HEDRON
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

@@ -1,0 +1,16 @@
+IF
+  !TimerActive(21)
+THEN
+  RESPONSE #50
+    FloatMessage(Myself,473)  // ~"Need find food."~
+    StartRandomTimer(21,10,20)
+    Continue()
+  RESPONSE #50
+    FloatMessage(Myself,474)  // ~"Me hungry."~
+    StartRandomTimer(21,10,20)
+    Continue()
+  RESPONSE #100
+    StartRandomTimer(21,10,20)
+    Continue()
+END
+

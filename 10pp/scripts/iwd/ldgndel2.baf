@@ -1,0 +1,8 @@
+IF
+  OnCreation()
+  GlobalGT("8001_SALAMANDERS_DEAD","GLOBAL",20)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

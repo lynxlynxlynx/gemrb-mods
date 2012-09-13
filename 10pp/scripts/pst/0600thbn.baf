@@ -1,0 +1,21 @@
+IF
+  !TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    ChangeAIScript("0600thbd",DEFAULT)
+END
+
+IF
+  !NearLocation(Myself,[2150.3842],47)
+THEN
+  RESPONSE #100
+    MoveToPoint([2150.3842])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

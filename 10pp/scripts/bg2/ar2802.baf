@@ -1,0 +1,18 @@
+IF
+  Global("ElvenAvatar","GLOBAL",1)
+  Global("killstone","AR2802",0)
+THEN
+  RESPONSE #100
+    SetGlobal("killstone","AR2802",1)
+    ActionOverride("golsto01",DestroySelf())
+    ActionOverride("golcla01",DestroySelf())
+END
+
+IF
+  Global("killstone","AR2802",1)
+THEN
+  RESPONSE #100
+    SetGlobal("killstone","AR2802",2)
+    ActionOverride("golsto01",DestroySelf())
+END
+

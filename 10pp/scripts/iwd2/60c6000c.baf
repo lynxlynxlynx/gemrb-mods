@@ -1,0 +1,62 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Hiepherus")  // 
+    MoveViewPoint([864.1450],15)
+    Wait(2)
+    SpellCastEffect(Myself,"","","",GLOW_NECROMANCY,1,ATTACK)
+    SpellHitEffectSprite(Myself,Myself,NECROMANCY,0)
+    HideCreature(Myself,TRUE)
+    EndCutSceneMode()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Intro_Wight_01")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Intro_Wight_02")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Intro_Wight_03")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Intro_Wight_04")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Intro_Wight_05")  // 
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Intro_Wight_06")  // 
+    DestroySelf()
+END
+

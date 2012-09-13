@@ -1,0 +1,83 @@
+IF
+  Global("EnteredArea","AR0607",0)
+THEN
+  RESPONSE #100
+    SetGlobal("EnteredArea","AR0607",1)
+    MoveGlobalsTo("AR0604","AR0607",[0.0])
+    MoveGlobalsTo("AR0605","AR0607",[0.0])
+    MoveGlobalsTo("AR0606","AR0607",[0.0])
+    MoveGlobalsTo("AR0600","AR0607",[0.0])
+    Continue()
+END
+
+IF
+  !Dead("Quaylem")  // ~Quayle~
+  Global("Quaylem","AR0607",0)
+THEN
+  RESPONSE #100
+    CreateCreature("Quayle",[332.299],0)  // ~Quayle~
+    CreateCreature("qcirc01",[399.205],0)  // ~Circus Worker~
+    CreateCreature("qcirc02",[699.253],2)  // ~Circus Worker~
+    CreateCreature("qcirc03",[690.506],4)  // ~Circus Performer~
+    SetGlobal("Quaylem","AR0607",1)
+END
+
+IF
+  !InPartyAllowDead("Aerie")  // ~Aerie~
+  !Dead("Aerie")  // ~Aerie~
+  !GlobalGT("AerieTransform","GLOBAL",0)
+  Global("Aerie","AR0607",0)
+  Global("KalahI","AR0607",0)
+THEN
+  RESPONSE #100
+    MoveGlobal("Ar0607","Aerie",[318.378])
+    ChangeEnemyAlly("Aerie",NEUTRAL)
+    SetGlobal("Aerie","AR0607",1)
+    ActionOverride("Aerie",Polymorph(MAGE_FEMALE_ELF))
+    ActionOverride("Aerie",SetBeenInPartyFlags())
+    SetGlobal("AerieTransform","GLOBAL",2)
+END
+
+IF
+  !InPartyAllowDead("Aerie")  // ~Aerie~
+  !Dead("Aerie")  // ~Aerie~
+  GlobalGT("AerieTransform","GLOBAL",0)
+  Global("Aerie","AR0607",0)
+  Global("KalahI","AR0607",0)
+THEN
+  RESPONSE #100
+    MoveGlobal("Ar0607","Aerie",[318.378])
+    ChangeEnemyAlly("Aerie",NEUTRAL)
+    SetGlobal("Aerie","AR0607",1)
+END
+
+IF
+  !InPartyAllowDead("Aerie")  // ~Aerie~
+  Dead("Aerie")  // ~Aerie~
+  Global("Aerie","AR0607",0)
+  Global("KalahI","AR0607",0)
+THEN
+  RESPONSE #100
+    CreateCreature("AERBOD01",[318.378],0)  // ~Aerie~
+    SetGlobal("Aerie","AR0607",1)
+END
+
+IF
+  !Dead("Kftown01")  // ~Spider~
+  Global("Kftown02","AR0607",0)
+THEN
+  RESPONSE #100
+    CreateCreature("KFTOWN02",[96.310],0)  // ~Hannah~
+    SetGlobal("Kftown02","AR0607",1)
+END
+
+IF
+  Dead("KalahIllusion")  // KalahIllusion
+  Global("KalahI","AR0607",0)
+THEN
+  RESPONSE #100
+    SetGlobal("KalahI","AR0607",1)
+    CreateCreature("KALAH2",[366.563],0)  // ~Kalah~
+    FadeFromColor([40.0],0)
+END
+

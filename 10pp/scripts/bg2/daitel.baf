@@ -1,0 +1,169 @@
+IF
+  StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+  Detect([PC])
+  !See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SHADOW_DOOR)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CONTINGENCY_MIRROR_IMAGE)
+    Spell(Myself,WIZARD_SHADOW_DOOR)
+END
+
+IF
+  Detect([PC])
+  !See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([968.523],WIZARD_DIMENSION_DOOR)
+    Wait(2)
+    SetGlobal("DimensionDoor","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(WIZARD_SHADOW_DOOR)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,CONTINGENCY_MIRROR_IMAGE)
+    Spell(Myself,WIZARD_SHADOW_DOOR)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ForceSpellPoint([968.523],WIZARD_DIMENSION_DOOR)
+    Wait(2)
+    SetGlobal("DimensionDoor","GLOBAL",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CHAOS)
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("DimensionDoor","GLOBAL",2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",2)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_INVISIBLE_STALKER)
+    SetGlobal("DimensionDoor","GLOBAL",3)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("DimensionDoor","GLOBAL",4)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",4)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FIREBALL)
+    SetGlobal("DimensionDoor","GLOBAL",5)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",5)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_HOLD_PERSON)
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("DimensionDoor","GLOBAL",6)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",6)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_FIREBALL)
+    SetGlobal("DimensionDoor","GLOBAL",7)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",7)
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("DimensionDoor","GLOBAL",8)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",8)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_POLYMORPH_OTHER)
+    SetGlobal("DimensionDoor","GLOBAL",9)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",9)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_ANIMATE_DEAD)
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("DimensionDoor","GLOBAL",10)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",10)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_CLOUDKILL)
+    SetGlobal("DimensionDoor","GLOBAL",11)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("DimensionDoor","GLOBAL",11)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+    Spell(Myself,WIZARD_MIRROR_IMAGE)
+    SetGlobal("DimensionDoor","GLOBAL",12)
+END
+
+IF
+  Global("DimensionDoor","GLOBAL",12)
+  See(NearestEnemyOf(Myself))
+  HaveSpell(0)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),0)
+END
+
+IF
+  Global("DimensionDoor","GLOBAL",12)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

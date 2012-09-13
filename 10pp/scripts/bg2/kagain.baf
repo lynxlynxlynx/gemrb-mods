@@ -1,0 +1,60 @@
+IF
+  !UnselectableVariable(0)
+  Global("Yeslickfight","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  UnselectableVariable(0)
+  See("Yeslick")  // Yeslick
+  Global("Yeslickfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MakeUnselectable(5000)
+END
+
+IF
+  !UnselectableVariable(0)
+  Dead("Yeslick")  // Yeslick
+  Global("Yeslickfight","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Yeslickfight","GLOBAL",0)
+    MakeUnselectable(0)
+END
+
+IF
+  !UnselectableVariable(0)
+  !See("Yeslick")  // Yeslick
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+END
+
+IF
+  Global("Yeslickfight","GLOBAL",1)
+  See("Yeslick")  // Yeslick
+THEN
+  RESPONSE #100
+    EquipRanged()
+    Attack("Yeslick")
+END
+
+IF
+  GlobalTimerExpired("Kagain","GLOBAL")
+  Global("KagainCaravan","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+
+IF
+  GlobalTimerExpired("Kagain","GLOBAL")
+  Global("KagainCaravan","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Dialog([PC])
+END
+

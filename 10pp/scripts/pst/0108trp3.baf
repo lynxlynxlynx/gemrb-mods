@@ -1,0 +1,7 @@
+IF
+  Opened([PC])
+THEN
+  RESPONSE #100
+    ForceSpell([PC],TRAP_GAS_CLOUD)
+END
+

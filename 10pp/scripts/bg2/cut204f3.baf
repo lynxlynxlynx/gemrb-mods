@@ -1,0 +1,34 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([30.0],0)
+    Wait(2)
+    JumpToPoint([615.489])
+    Face(15)
+    ActionOverride(Player2,JumpToPoint([683.463]))
+    ActionOverride(Player2,Face(15))
+    ActionOverride(Player3,JumpToPoint([744.437]))
+    ActionOverride(Player3,Face(15))
+    ActionOverride(Player4,JumpToPoint([569.430]))
+    ActionOverride(Player4,Face(15))
+    ActionOverride(Player5,JumpToPoint([637.401]))
+    ActionOverride(Player5,Face(15))
+    ActionOverride(Player6,JumpToPoint([698.378]))
+    ActionOverride(Player6,Face(15))
+    CreateCreature("ILLASERA",[807.993],10)  // ~Illasera~
+    CreateCreature("ZILFGT01",[608.659],8)  // ~Black Reaver~
+    CreateCreature("ZILFGT02",[482.295],0)  // ~Black Reaver~
+    CreateCreature("ZILARC01",[986.592],6)  // ~Black Reaver~
+    MoveViewObject(Player1,INSTANT)
+    Explore()
+    Wait(2)
+    FadeFromColor([30.0],0)
+    ActionOverride("Illasera",MoveToPointNoInterrupt([805.683]))
+    ActionOverride("Illasera",Face(7))
+    Wait(4)
+    ActionOverride("Illasera",StartDialogNoSet(Player1))
+    EndCutSceneMode()
+END
+

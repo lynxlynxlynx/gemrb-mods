@@ -1,0 +1,35 @@
+IF
+  Global("AttackedThieves","GLOBAL",1)
+  !Global("MaeVarExposed","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+  !Global("MaeVarExposed","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CreateCreatureObject("STDEATH",Player1,0,0,0)  // ~Arkanis Gath~
+    SetGlobal("AttackedThieves","GLOBAL",1)
+END
+
+IF
+  Global("MaeVarExposed","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC])
+END
+

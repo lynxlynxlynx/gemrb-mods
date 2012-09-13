@@ -1,0 +1,26 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    ClearActions(Player1)
+    ClearActions(Player2)
+    ClearActions(Player3)
+    ClearActions(Player4)
+    ClearActions(Player5)
+    ClearActions(Player6)
+    MultiPlayerSync()
+    Wait(1)
+    FadeToColor([0.0],0)
+    Wait(1)
+    MultiPlayerSync()
+    SetGlobal("AR1100_RESET_CUTSCENE","GLOBAL",1)
+    StopJoinRequests()
+    SetGlobal("RJ_AR1100","GLOBAL",1)
+    MultiPlayerSync()
+    StartCutScene("LUA1100a")
+END
+

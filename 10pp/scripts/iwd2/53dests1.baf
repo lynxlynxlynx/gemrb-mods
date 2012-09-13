@@ -1,0 +1,33 @@
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  AttackedBy([GOODCUTOFF],0)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #50
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+    SpellHitEffectPoint(Myself,[766.1640],RECITATION,0)
+    WaitRandom(3,5)
+    Continue()
+  RESPONSE #50
+    SpellCastEffect(Myself,"","","",GLOW_ENCHANTMENT,1,ATTACK)
+    PlaySequence(Myself,CAST)
+    Wait(1)
+    SpellHitEffectPoint(Myself,[624.1647],RECITATION,0)
+    WaitRandom(3,5)
+    Continue()
+END
+

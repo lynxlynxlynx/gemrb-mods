@@ -1,0 +1,9 @@
+IF
+  HasItem("POTN08",Myself)  // ~Potion of Healing~
+  HPPercentLT(Myself,75)
+THEN
+  RESPONSE #100
+    UseItem("POTN08",Myself)  // ~Potion of Healing~
+    Continue()
+END
+

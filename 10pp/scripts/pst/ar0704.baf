@@ -1,0 +1,35 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  !Global("Current_Area","GLOBAL",704)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",704)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0704_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0704_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Slavers","GLOBAL",5)
+  !Exists("Jasilya")  // ~Jasilya~
+  !Dead("Jasilya")  // ~Jasilya~
+THEN
+  RESPONSE #100
+    CreateCreature("Jasilya",[2027.754])  // ~Jasilya~
+    Continue()
+END
+

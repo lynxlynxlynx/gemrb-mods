@@ -1,0 +1,453 @@
+IF
+  HasItem("00POTN03",Myself)  // ~Elixir of Health~
+  Allegiance(Myself,ENEMY)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    UseItem("00POTN03",Myself)  // ~Elixir of Health~
+END
+
+IF
+  HasItem("00POTN03",Myself)  // ~Elixir of Health~
+  Allegiance(Myself,ENEMY)
+  See("02_Mystic_03",0)  // 02_Mystic_03
+  HPPercentLT(LastSeenBy(Myself),50)
+THEN
+  RESPONSE #100
+    UseItem("00POTN03",LastSeenBy(Myself))  // ~Elixir of Health~
+END
+
+IF
+  HasItem("00POTN03",Myself)  // ~Elixir of Health~
+  Allegiance(Myself,ENEMY)
+  See("02_Assassin_01",0)  // 02_Assassin_01
+  HPPercentLT(LastSeenBy(Myself),50)
+THEN
+  RESPONSE #100
+    UseItem("00POTN03",LastSeenBy(Myself))  // ~Elixir of Health~
+END
+
+IF
+  HasItem("00POTN03",Myself)  // ~Elixir of Health~
+  Allegiance(Myself,ENEMY)
+  See("02_Warrior_04",0)  // 02_Warrior_04
+  HPPercentLT(LastSeenBy(Myself),50)
+THEN
+  RESPONSE #100
+    UseItem("00POTN03",LastSeenBy(Myself))  // ~Elixir of Health~
+END
+
+IF
+  HaveSpell(CLERIC_SANCTUARY)
+  Allegiance(Myself,ENEMY)
+  HPPercentLT(Myself,50)
+  IsSpellTargetValid(Myself,CLERIC_SANCTUARY,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SANCTUARY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  HPLostGT(Myself,37)
+  IsSpellTargetValid(Myself,CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  HPLostGT(Myself,18)
+  IsSpellTargetValid(Myself,CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  Allegiance(Myself,ENEMY)
+  HPLostGT(Myself,7)
+  IsSpellTargetValid(Myself,CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  HPLostGT(Myself,8)
+  IsSpellTargetValid(Myself,CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SANCTUARY)
+  Allegiance(Myself,ENEMY)
+  See("02_Mystic_03",0)  // 02_Mystic_03
+  HPPercentLT(LastSeenBy(Myself),50)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_SANCTUARY,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SANCTUARY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Mystic_03",0)  // 02_Mystic_03
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Mystic_03",0)  // 02_Mystic_03
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  Allegiance(Myself,ENEMY)
+  See("02_Mystic_03",0)  // 02_Mystic_03
+  HPLostGT(LastSeenBy(Myself),7)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Mystic_03",0)  // 02_Mystic_03
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SANCTUARY)
+  Allegiance(Myself,ENEMY)
+  See("02_Assassin_01",0)  // 02_Assassin_01
+  HPPercentLT(LastSeenBy(Myself),50)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_SANCTUARY,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SANCTUARY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Assassin_01",0)  // 02_Assassin_01
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Assassin_01",0)  // 02_Assassin_01
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  Allegiance(Myself,ENEMY)
+  See("02_Assassin_01",0)  // 02_Assassin_01
+  HPLostGT(LastSeenBy(Myself),7)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Assassin_01",0)  // 02_Assassin_01
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_SANCTUARY)
+  Allegiance(Myself,ENEMY)
+  See("02_Warrior_04",0)  // 02_Warrior_04
+  HPPercentLT(LastSeenBy(Myself),50)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_SANCTUARY,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SANCTUARY)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Warrior_04",0)  // 02_Warrior_04
+  HPLostGT(LastSeenBy(Myself),37)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Warrior_04",0)  // 02_Warrior_04
+  HPLostGT(LastSeenBy(Myself),18)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_AID)
+  Allegiance(Myself,ENEMY)
+  See("02_Warrior_04",0)  // 02_Warrior_04
+  HPLostGT(LastSeenBy(Myself),7)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_AID,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_AID)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+  Allegiance(Myself,ENEMY)
+  See("02_Warrior_04",0)  // 02_Warrior_04
+  HPLostGT(LastSeenBy(Myself),8)
+  IsSpellTargetValid(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS,0)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+END
+
+IF
+  HasItem("CDiseas",Myself)  // ~Contagion~
+  Allegiance(Myself,ENEMY)
+  RandomNum(5,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  RandomNum(5,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("110211142306111113111204",LastMarkedObject,7)
+      // CLERIC_COMMAND
+      // CLERIC_DOOM
+      // WIZARD_HOLD_PERSON
+      // CLERIC_BANE
+      // CLERIC_RIGID_THINKING
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    MarkSpellAndObject("1315",Myself,7)
+      // CLERIC_CAUSE_DISEASE
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1315",Myself,7)
+      // CLERIC_CAUSE_DISEASE
+    MarkSpellAndObject("110211142306111113111204",LastMarkedObject,7)
+      // CLERIC_COMMAND
+      // CLERIC_DOOM
+      // WIZARD_HOLD_PERSON
+      // CLERIC_BANE
+      // CLERIC_RIGID_THINKING
+      // CLERIC_CHARM_PERSON_OR_MAMMAL
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HasItem("FBlade",Myself)  // ~Flame Blade~
+  Allegiance(Myself,ENEMY)
+  RandomNum(5,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  Allegiance(Myself,ENEMY)
+  RandomNum(5,1)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("11132501",LastMarkedObject,7)
+      // CLERIC_SUNSCORCH
+      // WIZARD_ANIMATE_DEAD
+    MarkSpellAndObject("11151101120312151206121013091312",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_BLESS
+      // CLERIC_CHANT
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_FLAME_BLADE
+      // CLERIC_MINOR_ELEMENTAL_BARRIER
+      // CLERIC_INVISIBILITY_PURGE
+      // CLERIC_STRENGTH_OF_ONE
+    MarkSpellAndObject("1415131314062406",Myself,7)
+      // CLERIC_BLOOD_RAGE
+      // CLERIC_PRAYER
+      // CLERIC_DEFENSIVE_HARMONY
+      // WIZARD_MINOR_GLOBE_OF_INVULNERABILITY
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("11151101120312151206121013091312",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_BLESS
+      // CLERIC_CHANT
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_FLAME_BLADE
+      // CLERIC_MINOR_ELEMENTAL_BARRIER
+      // CLERIC_INVISIBILITY_PURGE
+      // CLERIC_STRENGTH_OF_ONE
+    MarkSpellAndObject("1415131314062406",Myself,7)
+      // CLERIC_BLOOD_RAGE
+      // CLERIC_PRAYER
+      // CLERIC_DEFENSIVE_HARMONY
+      // WIZARD_MINOR_GLOBE_OF_INVULNERABILITY
+    MarkSpellAndObject("11132501",LastMarkedObject,7)
+      // CLERIC_SUNSCORCH
+      // WIZARD_ANIMATE_DEAD
+    Continue()
+  RESPONSE #100
+    MarkSpellAndObject("1415131314062406",Myself,7)
+      // CLERIC_BLOOD_RAGE
+      // CLERIC_PRAYER
+      // CLERIC_DEFENSIVE_HARMONY
+      // WIZARD_MINOR_GLOBE_OF_INVULNERABILITY
+    MarkSpellAndObject("11132501",LastMarkedObject,7)
+      // CLERIC_SUNSCORCH
+      // WIZARD_ANIMATE_DEAD
+    MarkSpellAndObject("11151101120312151206121013091312",Myself,7)
+      // CLERIC_ARMOR_OF_FAITH
+      // CLERIC_BLESS
+      // CLERIC_CHANT
+      // CLERIC_DRAW_UPON_HOLY_MIGHT
+      // CLERIC_FLAME_BLADE
+      // CLERIC_MINOR_ELEMENTAL_BARRIER
+      // CLERIC_INVISIBILITY_PURGE
+      // CLERIC_STRENGTH_OF_ONE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

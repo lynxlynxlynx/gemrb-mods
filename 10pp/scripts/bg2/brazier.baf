@@ -1,0 +1,50 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("ThrallOrb","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38874)  // ~The brazier glows with a searing heat. An arm reaches from the fire as if waiting to grasp something and draw it into the heat.~
+    SetGlobal("ThrallOrb","GLOBAL",1)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  PartyHasItem("MISC7X")  // ~Mastery Orb~
+  Global("ThrallOrb","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ThrallOrb","GLOBAL",2)
+    TakePartyItem("MISC7X")
+    AddexperienceParty(24750)
+    DisplayString(Myself,38876)  // ~You place the orb in the outstretched arm and watch as the orb is drawn into the searing heat. For a moment, nothing happens. You hear a cracking noise and the orb bursts.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  !PartyHasItem("MISC7X")  // ~Mastery Orb~
+  Global("ThrallOrb","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38874)  // ~The brazier glows with a searing heat. An arm reaches from the fire as if waiting to grasp something and draw it into the heat.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("ThrallOrb","GLOBAL",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,38878)  // ~With the mastery orb destroyed and the collars useless, the Warden's thralls should cause no more trouble for you.~
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

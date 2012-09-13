@@ -1,0 +1,40 @@
+IF
+  Global("FountainCount","MYAREA",4)
+  Global("Thorasskus_dead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    OpenDoor(Myself)
+END
+
+IF
+  OpenState(Myself,TRUE)
+THEN
+  RESPONSE #100
+    SetGlobal("61ExitTo6104Open","GLOBAL",1)
+    ChangeCurrentScript("")
+END
+
+IF
+  Clicked([PC])
+  Global("FountainCount","MYAREA",1)
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,35436)  // ~Liquid is racing through one of this door's four tubes.~
+END
+
+IF
+  Clicked([PC])
+  Global("FountainCount","MYAREA",2)
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,35437)  // ~Liquid is racing through two of this door's four tubes.~
+END
+
+IF
+  Clicked([PC])
+  Global("FountainCount","MYAREA",3)
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,35438)  // ~Liquid is racing through three of this door's four tubes.~
+END
+

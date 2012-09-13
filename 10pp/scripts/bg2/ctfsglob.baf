@@ -1,0 +1,41 @@
+IF
+  Global("GlobesPlaced","GLOBAL",1)
+  GlobalLT("ContainersEmpty","AR3019",4)
+  OR(16)
+    Contains("GLOBRED1","RedTube")  // RedTube
+    Contains("GLOBRED2","RedTube")  // RedTube
+    Contains("GLOBRED3","RedTube")  // RedTube
+    Contains("GLOBRED4","RedTube")  // RedTube
+    Contains("GLOBBLU1","BlueTube")  // BlueTube
+    Contains("GLOBBLU2","BlueTube")  // BlueTube
+    Contains("GLOBBLU3","BlueTube")  // BlueTube
+    Contains("GLOBBLU4","BlueTube")  // BlueTube
+    Contains("GLOBGRE1","GreenTube")  // GreenTube
+    Contains("GLOBGRE2","GreenTube")  // GreenTube
+    Contains("GLOBGRE3","GreenTube")  // GreenTube
+    Contains("GLOBGRE4","GreenTube")  // GreenTube
+    Contains("GLOBPUR1","PurpleTube")  // PurpleTube
+    Contains("GLOBPUR2","PurpleTube")  // PurpleTube
+    Contains("GLOBPUR3","PurpleTube")  // PurpleTube
+    Contains("GLOBPUR4","PurpleTube")  // PurpleTube
+THEN
+  RESPONSE #100
+    IncrementGlobal("ContainersEmpty","AR3019",1)
+    DestroyItem("GLOBRED1")  // ~Red Globe~
+    DestroyItem("GLOBRED2")  // ~Red Globe~
+    DestroyItem("GLOBRED3")  // ~Red Globe~
+    DestroyItem("GLOBRED4")  // ~Red Globe~
+    DestroyItem("GLOBBLU1")  // ~Blue Globe~
+    DestroyItem("GLOBBLU2")  // ~Blue Globe~
+    DestroyItem("GLOBBLU3")  // ~Blue Globe~
+    DestroyItem("GLOBBLU4")  // ~Blue Globe~
+    DestroyItem("GLOBGRE1")  // ~Green Globe~
+    DestroyItem("GLOBGRE2")  // ~Green Globe~
+    DestroyItem("GLOBGRE3")  // ~Green Globe~
+    DestroyItem("GLOBGRE4")  // ~Green Globe~
+    DestroyItem("GLOBPUR1")  // ~Purple Globe~
+    DestroyItem("GLOBPUR2")  // ~Purple Globe~
+    DestroyItem("GLOBPUR3")  // ~Purple Globe~
+    DestroyItem("GLOBPUR4")  // ~Purple Globe~
+END
+

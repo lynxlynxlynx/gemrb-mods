@@ -1,0 +1,34 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_3)
+    Continue()
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,9)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68019)  // ~"Someone's gonna owe me plenty o' jink tonight!"~
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,10)
+END
+
+IF
+  Internal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,13)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,68022)  // ~"My bird got in three hits so far."~
+    Wait(3)
+    SetInternal([0.0.0.0.0.0.DUELER_1][0.0.10000.10000],INTERNAL_0,14)
+END
+

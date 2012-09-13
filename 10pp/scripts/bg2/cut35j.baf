@@ -1,0 +1,22 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    MoveGlobal("AR1901","Cernd",[433.615])
+    SetGlobal("CerndFightObserve","GLOBAL",1)
+    LeaveAreaLUAPanic("AR1901","",[423.525],6)
+    LeaveAreaLUA("AR1901","",[423.525],6)
+    ActionOverride(Player2,LeaveAreaLUA("AR1901","",[463.548],0))
+    ActionOverride(Player3,LeaveAreaLUA("AR1901","",[517.572],0))
+    ActionOverride(Player4,LeaveAreaLUA("AR1901","",[592.572],0))
+    ActionOverride(Player5,LeaveAreaLUA("AR1901","",[593.606],0))
+    ActionOverride(Player6,LeaveAreaLUA("AR1901","",[579.642],0))
+    MultiPlayerSync()
+    Wait(3)
+    FadeFromColor([20.0],0)
+    ActionOverride("cefaldor",StartDialogNoSet(Player1))
+END
+

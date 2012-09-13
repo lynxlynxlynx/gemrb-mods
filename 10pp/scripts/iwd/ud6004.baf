@@ -1,0 +1,15 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

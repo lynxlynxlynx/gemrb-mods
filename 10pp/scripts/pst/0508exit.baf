@@ -1,0 +1,8 @@
+IF
+  HarmlessEntered("Nordom")  // ~Modron~
+THEN
+  RESPONSE #100
+    VerbalConstant("Nordom",NORDOM_PORTAL)
+    Continue()
+END
+

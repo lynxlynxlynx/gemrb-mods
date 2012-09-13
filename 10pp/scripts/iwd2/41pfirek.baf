@@ -1,0 +1,23 @@
+IF
+  Clicked([PC])
+  Range(LastTrigger,4,GREATER_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("FireKeyClick","MYAREA",1)
+    ActionOverride(LastTrigger,MoveToPoint([2688.1472]))
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Global("FireKeyClick","MYAREA",1)
+  Range(LastTrigger,5,LESS_THAN)
+THEN
+  RESPONSE #100
+    ForceSpell(LastTrigger,WIZARD_BELTYNS_BURNING_BLOOD)
+    OpenDoor("AR4100_Door13")
+    SetGlobal("TEAM_3","MYAREA",1)
+    TriggerActivation("FireKey",FALSE)
+    ChangeCurrentScript("")
+END
+

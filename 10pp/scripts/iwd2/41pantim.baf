@@ -1,0 +1,130 @@
+IF
+  TimerActive(100)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Or(2)
+    Entered(Player1)
+    IsOverMe(Player1)
+THEN
+  RESPONSE #100
+    ForceSpell(Player1,2087)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player2)
+    IsOverMe(Player2)
+THEN
+  RESPONSE #100
+    ForceSpell(Player2,2087)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player3)
+    IsOverMe(Player3)
+THEN
+  RESPONSE #100
+    ForceSpell(Player3,2087)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player4)
+    IsOverMe(Player4)
+THEN
+  RESPONSE #100
+    ForceSpell(Player4,2087)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player5)
+    IsOverMe(Player5)
+THEN
+  RESPONSE #100
+    ForceSpell(Player5,2087)
+    Continue()
+END
+
+IF
+  Or(2)
+    Entered(Player6)
+    IsOverMe(Player6)
+THEN
+  RESPONSE #100
+    ForceSpell(Player6,2087)
+    Continue()
+END
+
+IF
+  IsOverMe("Nathaniel")  // Nathaniel
+THEN
+  RESPONSE #100
+    ForceSpell("Nathaniel",2087)
+    Continue()
+END
+
+IF
+  IsOverMe("04_Prisoner_01")  // 04_Prisoner_01
+THEN
+  RESPONSE #100
+    ForceSpell("04_Prisoner_01",2087)
+    Continue()
+END
+
+IF
+  IsOverMe("04_Prisoner_02")  // 04_Prisoner_02
+THEN
+  RESPONSE #100
+    ForceSpell("04_Prisoner_02",2087)
+    Continue()
+END
+
+IF
+  IsOverMe("04_Prisoner_03")  // 04_Prisoner_03
+THEN
+  RESPONSE #100
+    ForceSpell("04_Prisoner_03",2087)
+    Continue()
+END
+
+IF
+  IsOverMe("04_Prisoner_04")  // 04_Prisoner_04
+THEN
+  RESPONSE #100
+    ForceSpell("04_Prisoner_04",2087)
+    Continue()
+END
+
+IF
+  IsOverMe("04_Prisoner_05")  // 04_Prisoner_05
+THEN
+  RESPONSE #100
+    ForceSpell("04_Prisoner_05",2087)
+    Continue()
+END
+
+IF
+  IsOverMe("04_Prisoner_06")  // 04_Prisoner_06
+THEN
+  RESPONSE #100
+    ForceSpell("04_Prisoner_06",2087)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    StartTimer(100,6)
+END
+

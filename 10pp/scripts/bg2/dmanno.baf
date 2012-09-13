@@ -1,0 +1,17 @@
+IF
+  See([PC])
+  NumberOfTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    Wait(5)
+    StartDialogNoSet([PC])
+END
+
+IF
+  !GlobalTimerNotExpired("AntimagicTimer","AR0060")
+THEN
+  RESPONSE #100
+    ApplySpell(Myself,MULTIPLAYER_ANTIMAGIC)
+    SetGlobalTimer("AntimagicTimer","AR0060",3)
+END
+

@@ -1,0 +1,61 @@
+IF
+  Global("PaladinPlot","GLOBAL",20)
+  Global("PaladinGirlSpawn","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PaladinGirlSpawn","GLOBAL",1)
+    CreateCreature("FRANCO",[510.361],13)  // ~Franco~
+END
+
+IF
+  Dead("plass01")  // ~Assassin~
+  Dead("plass02")  // ~Assassin~
+  Dead("plass03")  // ~Assassin~
+  Dead("plass04")  // ~Assassin~
+  !Dead("PLGIRL01")  // ~Tyrianna~
+  Global("PaladinGirlDead","GLOBAL",0)
+  Global("PaladinGirlSpawn","GLOBAL",2)
+  !AreaCheck("AR0416")
+THEN
+  RESPONSE #100
+    SetGlobal("PaladinGirlSpawn","GLOBAL",3)
+    Wait(5)
+    StartCutSceneMode()
+    StartCutScene("cut26b")
+END
+
+IF
+  !Dead("PLGIRL01")  // ~Tyrianna~
+  Global("PaladinGirlDead","GLOBAL",0)
+  Global("HurgisFake","GLOBAL",1)
+  Global("HurgisFakeSpawn","GLOBAL",0)
+  Global("PaladinGirlSpawn","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Wait(2)
+    SetGlobal("HurgisFakeSpawn","GLOBAL",1)
+    CreateCreature("HURGISF",[528.353],7)  // ~Hurgis Baltezan~
+END
+
+IF
+  !Dead("PLGIRL01")  // ~Tyrianna~
+  Global("PaladinGirlDead","GLOBAL",0)
+  Global("HurgisReal","GLOBAL",1)
+  Global("HurgisRealSpawn","GLOBAL",0)
+  Global("PaladinGirlSpawn","GLOBAL",3)
+THEN
+  RESPONSE #100
+    Wait(2)
+    SetGlobal("HurgisRealSpawn","GLOBAL",1)
+    CreateCreature("HURGISR",[528.353],7)  // ~Hurgis Baltezan~
+END
+
+IF
+  Dead("PLGIRL01")  // ~Tyrianna~
+  Global("PaladinGirlDead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PaladinGirlDead","GLOBAL",1)
+    SetGlobal("PaladinPlot","GLOBAL",22)
+END
+

@@ -1,0 +1,9 @@
+IF
+  !TimerActive(27)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    StartRandomTimer(27,3,18)
+    Help()
+END
+

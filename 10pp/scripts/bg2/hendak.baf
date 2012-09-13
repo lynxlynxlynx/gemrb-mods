@@ -1,0 +1,138 @@
+IF
+  Global("HendakFight","AR0406",0)
+  Dead("Lehtinan")  // Lehtinan
+  Global("HendakReleased","AR0406",2)
+THEN
+  RESPONSE #100
+    SetGlobal("HendakFight","AR0406",1)
+    SetGlobal("HendakReleased","AR0406",2)
+    SetGlobal("HendakMove","AR0406",6)
+    JumpToPoint([526.1193])
+END
+
+IF
+  !GlobalTimerNotExpired("Shout","LOCALS")
+  Global("KnowCellKey","AR0406",0)
+  !PartyHasItem("MISC4Z")  // ~Beastmaster Key~
+  Range([PC],8)
+  CombatCounter(0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("Shout","LOCALS",15)
+    StartDialogNoSet([PC])
+END
+
+IF
+  OpenState("DOOR09",TRUE)  // DOOR09
+  See([PC])
+  Global("shoutOnceOnOpen","LOCALS",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+    SetGlobal("shoutOnceOnOpen","LOCALS",1)
+END
+
+IF
+  Global("HendakReleased","AR0406",2)
+  Global("HendakMove","AR0406",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetHomeLocation([32.120])
+    MoveToPointNoInterrupt([2599.615])
+    SetGlobal("HendakMove","AR0406",1)
+END
+
+IF
+  Global("HendakReleased","AR0406",3)
+  Global("HendakMove","AR0406",0)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([2599.615])
+    SetGlobal("HendakMove","AR0406",1)
+END
+
+IF
+  Global("HendakMove","AR0406",1)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([2538.702])
+    OpenDoor("DOOR12")
+    SetGlobal("HendakMove","AR0406",2)
+END
+
+IF
+  Global("HendakMove","AR0406",2)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1622.1350])
+    OpenDoor("DOOR16")
+    SetGlobal("HendakMove","AR0406",3)
+END
+
+IF
+  Global("HendakMove","AR0406",3)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([1420.1474])
+    OpenDoor("DOOR17")
+    SetGlobal("HendakMove","AR0406",4)
+END
+
+IF
+  Global("HendakMove","AR0406",4)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    MoveToPointNoInterrupt([526.1193])
+    SetGlobal("HendakMove","AR0406",5)
+END
+
+IF
+  Detect([PC])
+  See("Lehtinan")  // Lehtinan
+  !Dead("Lehtinan")  // Lehtinan
+  Global("HendakMove","AR0406",5)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("HendakMove","AR0406",6)
+END
+
+IF
+  !See("Lehtinan")  // Lehtinan
+  !Dead("Lehtinan")  // Lehtinan
+  Global("HendakMove","AR0406",5)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    JumpToPoint([526.1193])
+END
+
+IF
+  Global("HendakFight","AR0406",1)
+  See("Lehtinan")  // Lehtinan
+  !Dead("Lehtinan")  // Lehtinan
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    DialogueInterrupt(FALSE)
+    Attack("Lehtinan")
+END
+
+IF
+  Global("HendakFight","AR0406",1)
+  Dead("Lehtinan")  // Lehtinan
+  See([PC])
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    SetGlobal("HendakFight","AR0406",2)
+    DialogueInterrupt(TRUE)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+

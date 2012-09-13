@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Soego")  // 
+    MoveViewPoint([1000.2700],VERY_FAST)
+    MoveToPoint([1000.2700])
+    SetDoorLocked("Fakedoor",FALSE)
+    PlaySound("SPE_03A")
+    GlobalSet("Gate_Cut_Scene","AR0201",1)
+    Wait(1)
+    MoveViewObject("Nameless",VERY_FAST)
+    MoveToObjectEx("Nameless",0)
+    FaceObject(Protagonist)
+    Dialogue(Myself)
+    EndCutSceneMode()
+END
+

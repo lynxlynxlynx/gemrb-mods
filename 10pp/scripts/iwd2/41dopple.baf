@@ -1,0 +1,11 @@
+IF
+  Allegiance("Ingrath",ENEMY)  // Ingrath
+THEN
+  RESPONSE #100
+    SetApparentNameSTRREF(Myself,9362)  // ~Doppelganger~
+    SetRegularNameSTRREF(Myself,9362)  // ~Doppelganger~
+    Enemy()
+    Polymorph(Doppleganger)
+    ChangeCurrentScript("")
+END
+

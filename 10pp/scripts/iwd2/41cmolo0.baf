@@ -1,0 +1,45 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Warrior_03")  // 
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    GiveItemCreate("41AMULHS","SymbolContainer",0,0,0)  // ~Aurilite Holy Symbol~
+    GiveItemCreate("00RING11","SymbolContainer",0,0,0)  // ~Ruby Ring~
+    SetGlobal("TEAM_1","MYAREA",1)
+    SetDialogueRange(300)
+    SetApparentNameSTRREF(Myself,41017)  // ~Phuzalon~
+    SetRegularNameSTRREF(Myself,41017)  // ~Phuzalon~
+    HideCreature("Wandering_Postulant_01",TRUE)
+    MoveViewPoint([160.1760],INSTANT)
+    Wait(1)
+    Dialogue(NearestPC)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Warrior_06")  // 
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    SetApparentNameSTRREF(Myself,41019)  // ~Ougamya of Uthgardt~
+    SetRegularNameSTRREF(Myself,41019)  // ~Ougamya of Uthgardt~
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("05_Postulant_08")  // 
+    JumpToPoint([540.1380])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Protagonist)  // 
+    SetSavedLocation()
+    JumpToPoint([160.1760])
+END
+

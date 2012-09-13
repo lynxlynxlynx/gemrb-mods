@@ -1,0 +1,11 @@
+IF
+  Global("40FindEquipment","GLOBAL",0)
+  Clicked([PC])
+THEN
+  RESPONSE #100
+    AddJournalEntry(18862)
+    AddXPVar("Level_7_Easy",18865)  // ~You found the equipment that was stolen by the boring beetles attacking Oswald's airship.~
+    SetGlobal("40FindEquipment","GLOBAL",1)
+    SetGlobal("40MendingSpell","GLOBAL",1)
+END
+

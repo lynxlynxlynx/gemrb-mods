@@ -1,0 +1,14 @@
+IF
+  HarmlessEntered([PC])
+  Global("Grave_Robber","AR1405",0)
+THEN
+  RESPONSE #100
+    GlobalSet("Grave_Robber","AR1405",1)
+    SinisterPoof("EF01TPRT",[709.1627],1)
+    SinisterPoof("EF01TPRT",[756.1714],1)
+    SinisterPoof("EF01TPRT",[863.1687],1)
+    CreateCreature("Ghoulce1",[709.1627])  // ~Ghoul~
+    CreateCreature("Ghoulce2",[756.1714])  // ~Ghoul~
+    CreateCreature("Ghoulce3",[863.1687])  // ~Ghoul~
+END
+

@@ -1,0 +1,38 @@
+IF
+  Global("GalvenaHostile","GLOBAL",1)
+  Global("PimurHostile04","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("PimurHostile04","LOCALS",1)
+    Enemy()
+END
+
+IF
+  Global("GalvenaHostile","GLOBAL",1)
+  Global("SpawnCaptain","GLOBAL",0)
+  Allegiance(Myself,ENEMY)
+  See([PC])
+  Global("TalkedToPC","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("TalkedToPC","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Detect([PC])
+  Global("SleepingPotionPlot","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("SleepingPotionPlot","GLOBAL",3)
+    StartCutSceneMode()
+    StartCutScene("Cut46c")
+END
+
+IF
+  Global("GuardSleep","GLOBAL",1)
+THEN
+  RESPONSE #100
+    PlayDead(999)
+END
+

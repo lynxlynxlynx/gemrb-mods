@@ -1,0 +1,19 @@
+IF
+  Global("Sorn_Talk","MYAREA",0)
+  See([PC],0)
+THEN
+  RESPONSE #100
+    SetGlobal("Sorn_Talk","MYAREA",2)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    StartCutScene("53cNadal")
+END
+
+IF
+  Global("Sorn_Talk","MYAREA",2)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+

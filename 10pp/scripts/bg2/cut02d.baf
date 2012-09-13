@@ -1,0 +1,27 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Gladiator")  // 
+    SmallWait(10)
+    AttackOneRound("GladiatorBear")
+    AttackOneRound("GladiatorBear")
+    MoveToPoint([2466.1339])
+    AttackOneRound("GladiatorBear")
+    AttackOneRound("GladiatorBear")
+    AttackOneRound("GladiatorBear")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("GladiatorBear")  // 
+    AttackOneRound("Gladiator")
+    AttackOneRound("Gladiator")
+    AttackOneRound("Gladiator")
+    Kill("Gladiator")
+    EndCutSceneMode()
+    EscapeArea()
+END
+

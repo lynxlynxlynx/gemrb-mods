@@ -1,0 +1,57 @@
+IF
+  GlobalTimerExpired("ImoenDream1","GLOBAL")
+  Global("HadImoenDream1","GLOBAL",0)
+  GlobalLT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("HadImoenDream1","GLOBAL",1)
+    SetGlobalTimer("JonDream1","GLOBAL",ONE_DAY)
+    StartCutSceneMode()
+    StartCutScene("Cut28a")
+END
+
+IF
+  GlobalGT("DrowTalk","GLOBAL",3)
+  Global("HadSlayerDream","GLOBAL",0)
+  GlobalGT("AsylumPlot","GLOBAL",54)
+THEN
+  RESPONSE #100
+    SetGlobal("HadSlayerDream","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut49a")
+END
+
+IF
+  GlobalTimerExpired("JonDream1","GLOBAL")
+  Global("HadJonDream1","GLOBAL",0)
+  GlobalLT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("HadJonDream1","GLOBAL",1)
+    SetGlobalTimer("JonDream2","GLOBAL",ONE_DAY)
+    StartCutSceneMode()
+    StartCutScene("Cut67a")
+END
+
+IF
+  GlobalTimerExpired("JonDream2","GLOBAL")
+  Global("HadJonDream2","GLOBAL",0)
+  GlobalLT("Chapter","GLOBAL",4)
+THEN
+  RESPONSE #100
+    SetGlobal("HadJonDream2","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut69a")
+END
+
+IF
+  GlobalTimerExpired("EllesimeDream1","GLOBAL")
+  Global("HadEllesimeDream1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("EllesimeDream2","GLOBAL",ONE_DAY)
+    SetGlobal("HadEllesimeDream1","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("Cut68a")
+END
+

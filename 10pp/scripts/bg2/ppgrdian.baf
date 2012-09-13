@@ -1,0 +1,7 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPFIREPI",Myself)
+END
+

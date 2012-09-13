@@ -1,0 +1,40 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  Global("FreeOrDeadSlave","AR2400",0)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57589)  // ~This machine hums from the energy coursing through it.  As you run your fingers across its smooth surface, an electrical tingle runs through your body.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  GlobalGT("FreeOrDeadSlave","AR2400",0)
+  GlobalLT("oneClickMach","AR2400",4)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57685)  // ~When you touch the machine it hums louder for a brief moment, then a golden circlet materializes in your hand.~
+    GiveItemCreate("misc9x",LastTrigger,1,1,1)  // ~Control Circlet~
+    IncrementGlobal("oneClickMach","AR2400",1)
+    SetGlobal("FreeOrDeadSlave","AR2400",2)
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,20)
+  GlobalGT("oneClickMach","AR2400",3)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,58110)  // ~The machine is cool to your touch -- not enough energy passes through it to create any more circlets.~
+    TriggerActivation(Myself,FALSE)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,20)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+

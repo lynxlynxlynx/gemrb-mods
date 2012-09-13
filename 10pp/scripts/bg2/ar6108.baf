@@ -1,0 +1,176 @@
+IF
+  OnCreation()
+  Global("DeactivatePortal","AR6108",0)
+THEN
+  RESPONSE #100
+    TriggerActivation("Tran6100",FALSE)
+    TriggerActivation("Tran6107",FALSE)
+    AmbientActivate("SPDIMNDR",FALSE)
+    SmallWait(2)
+    TriggerActivation("Tran6100",FALSE)
+    TriggerActivation("Tran6107",FALSE)
+    AmbientActivate("SPDIMNDR",FALSE)
+    SetGlobal("DeactivatePortal","AR6108",1)
+END
+
+IF
+  Dead("sendai2")  // ~Sendai~
+  Dead("sendai3")  // ~Sendai~
+  Dead("sendai4")  // ~Sendai~
+  Dead("sendai5")  // ~Sendai~
+  Dead("sendai6")  // ~Sendai~
+  Dead("sendai7")  // ~Sendai~
+  Dead("sendai8")  // ~Sendai~
+  Dead("sendai")  // ~Sendai~
+  Global("HadBhaal25Dream2","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("HadBhaal25Dream2","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut234a")
+END
+
+IF
+  Dead("sendai2")  // ~Sendai~
+  Dead("sendai3")  // ~Sendai~
+  Dead("sendai4")  // ~Sendai~
+  Dead("sendai5")  // ~Sendai~
+  Dead("sendai6")  // ~Sendai~
+  Dead("sendai7")  // ~Sendai~
+  Dead("sendai8")  // ~Sendai~
+  Dead("sendai")  // ~Sendai~
+  Dead("Abazigal")  // ~Abazigal~
+  Global("HadBhaal25Dream2","GLOBAL",1)
+  Global("HadBhaal25Dream3","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    SetGlobal("HadBhaal25Dream3","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("cut235a")
+END
+
+IF
+  Dead("sendai2")  // ~Sendai~
+  Global("SendaiActivate","AR6108",0)
+  HasItem("HOLDRING","sendai7")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    SetGlobal("SendaiActivate","AR6108",1)
+    CreateCreature("SENFOD01",[309.582],12)  // ~Drow~
+    CreateCreature("SENFOD01",[306.623],12)  // ~Drow~
+    TakeItemReplace("ring12","HOLDRING","sendai7")
+    TakeItemReplace("ring10","STONRING","sendai7")
+    ActionOverride("sendai7",Enemy())
+END
+
+IF
+  Dead("sendai7")  // ~Sendai~
+  Global("SendaiActivate","AR6108",1)
+  HasItem("HOLDRING","sendai6")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    SetGlobal("SendaiActivate","AR6108",2)
+    CreateCreature("SENFOD01",[309.582],12)  // ~Drow~
+    CreateCreature("SENFOD02",[306.623],12)  // ~Drow~
+    TakeItemReplace("ring12","HOLDRING","sendai6")
+    TakeItemReplace("ring10","STONRING","sendai6")
+    ActionOverride("sendai6",Enemy())
+END
+
+IF
+  Dead("sendai6")  // ~Sendai~
+  Global("SendaiActivate","AR6108",2)
+  HasItem("HOLDRING","sendai5")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    SetGlobal("SendaiActivate","AR6108",3)
+    CreateCreature("SENFOD01",[309.582],12)  // ~Drow~
+    CreateCreature("SENFOD02",[306.623],12)  // ~Drow~
+    TakeItemReplace("ring12","HOLDRING","sendai5")
+    TakeItemReplace("ring10","STONRING","sendai5")
+    ActionOverride("sendai5",Enemy())
+END
+
+IF
+  Dead("sendai5")  // ~Sendai~
+  Global("SendaiActivate","AR6108",3)
+  HasItem("HOLDRING","sendai8")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    SetGlobal("SendaiActivate","AR6108",4)
+    CreateCreature("SENFOD01",[309.582],12)  // ~Drow~
+    CreateCreature("SENFOD01",[306.623],12)  // ~Drow~
+    TakeItemReplace("ring12","HOLDRING","sendai8")
+    TakeItemReplace("ring10","STONRING","sendai8")
+    ActionOverride("sendai8",Enemy())
+END
+
+IF
+  Dead("sendai8")  // ~Sendai~
+  Global("SendaiActivate","AR6108",4)
+  HasItem("HOLDRING","sendai3")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    SetGlobal("SendaiActivate","AR6108",5)
+    CreateCreature("SENFOD01",[309.582],12)  // ~Drow~
+    CreateCreature("SENFOD01",[306.623],12)  // ~Drow~
+    TakeItemReplace("ring12","HOLDRING","sendai3")
+    TakeItemReplace("ring10","STONRING","sendai3")
+    ActionOverride("sendai3",Enemy())
+END
+
+IF
+  Dead("sendai3")  // ~Sendai~
+  Global("SendaiActivate","AR6108",5)
+  HasItem("HOLDRING","sendai4")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    SetGlobal("SendaiActivate","AR6108",6)
+    CreateCreature("SENFOD01",[309.582],12)  // ~Drow~
+    CreateCreature("SENFOD01",[306.623],12)  // ~Drow~
+    TakeItemReplace("ring12","HOLDRING","sendai4")
+    TakeItemReplace("ring10","STONRING","sendai4")
+    ActionOverride("sendai4",Enemy())
+END
+
+IF
+  Dead("sendai4")  // ~Sendai~
+  Global("SendaiActivate","AR6108",6)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    SetGlobal("SendaiActivate","AR6108",7)
+    SetGlobal("SendaiFinalBattle","GLOBAL",1)
+    CreateVisualEffect("SPDIMNDR",[646.641])
+    Wait(2)
+    CreateCreature("sendai",[646.641],0)  // ~Sendai~
+    ActionOverride("sendai",DialogueInterrupt(TRUE))
+    ActionOverride("sendai",Enemy())
+    ActionOverride("sendai",DisplayStringHead(Myself,73249))  // ~Damn you, <CHARNAME>! The statues have fallen but I shall not!~
+    CreateCreature("senstalk",[508.726],0)  // ~Invisible Stalker~
+    CreateCreature("senstalk",[487.547],0)  // ~Invisible Stalker~
+    CreateCreature("senstalk",[766.534],0)  // ~Invisible Stalker~
+    CreateCreature("senstalk",[772.716],0)  // ~Invisible Stalker~
+    EndCutSceneMode()
+END
+
+IF
+  Global("DeactivatePortal","AR6108",1)
+  Global("OpenPortal","AR6108",1)
+  Dead("sendai")  // ~Sendai~
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    TriggerActivation("Tran6100",TRUE)
+    TriggerActivation("Tran6107",TRUE)
+    AmbientActivate("SPDIMNDR",TRUE)
+    AddMapNote([646.641],48431)  // ~Dungeon Exit~
+    SetGlobal("DeactivatePortal","AR6108",2)
+    Wait(1)
+    StaticSequence("SPDIMNDR",1)
+    EndCutSceneMode()
+END
+

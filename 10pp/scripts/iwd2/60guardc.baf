@@ -1,0 +1,30 @@
+IF
+  !TimerActive(98)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    StartTimer(98,7)
+    ReallyForceSpell(Myself,INNATE_GUARDIAN_INNATE_FEAR)
+    Wait(1)
+END
+
+IF
+  GlobalTimerExpired("Acid","LOCALS")
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #40
+    Continue()
+  RESPONSE #60
+    SetGlobalTimer("Acid","LOCALS",21)
+    ReallyForceSpell(LastSeenBy(Myself),INNATE_GUARDIAN_ACID_BREATH)
+    Wait(1)
+END
+
+IF
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

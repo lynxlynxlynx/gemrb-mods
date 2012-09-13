@@ -1,0 +1,18 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HPLT(Myself,25)
+  Global("BrainGolemStun","LOCALS",0)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),BRAIN_PSIONIC_BLAST)
+    SetGlobal("BrainGolemStun","LOCALS",1)
+END
+
+IF
+  See(WeakestOf(NearestEnemyOf(Myself)))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

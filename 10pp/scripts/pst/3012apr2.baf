@@ -1,0 +1,87 @@
+IF
+  Help([ANYONE])
+  !Help([PC])
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Internal(Myself,INTERNAL_0,0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    SetInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,PERSON_2)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,1)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    Spell(Myself,WIZARD_ARMOR)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  Internal(Myself,INTERNAL_0,2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    IncInternal(Myself,INTERNAL_0,1)
+END
+
+IF
+  InternalGT(Myself,INTERNAL_0,2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  Global("Summon_Dance","AR3012",0)
+  !NearLocation(Myself,[608.568],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([608.568])
+    Face(6)
+    Wait(2)
+    FloatMessage(Myself,48676)  // ~"Braaaaa..."~
+END
+
+IF
+  Global("Summon_Dance","AR3012",1)
+  !NearLocation(Myself,[628.497],0)
+THEN
+  RESPONSE #100
+    MoveToPoint([628.497])
+    Face(2)
+    Wait(2)
+    FloatMessage(Myself,48676)  // ~"Braaaaa..."~
+END
+

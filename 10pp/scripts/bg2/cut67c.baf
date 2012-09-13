@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Dpjon01")  // 
+    ForceSpell("Dpstat01",FLASHY_DEATH_1)
+    Wait(3)
+    StartDialogNoSet(Player1)
+END
+

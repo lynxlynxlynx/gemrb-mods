@@ -1,0 +1,24 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId([PC][0.0.10000.10000])  // 
+    StartCutSceneMode()
+    HideGUI()
+    MultiPlayerSync()
+    ClearAllActions()
+    MultiPlayerSync()
+    DisplayMessage(39397)  // ~Your high vantage point allows you to see out across the entire vale.~
+    Explore()
+    MultiPlayerSync()
+    MoveViewPointUntilDone([1839.701],30)
+    Wait(2)
+    MultiPlayerSync()
+    MoveViewObject([PC][0.0.10000.10000],35)
+    Wait(2)
+    MultiPlayerSync()
+    UnhideGUI()
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+

@@ -1,0 +1,20 @@
+IF
+  Clicked([ANYONE])
+  OpenState("DOOR02",FALSE)  // DOOR02
+  Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    ActionOverride(LastTrigger,MoveToPoint([1033.1383]))
+    OpenDoor("DOOR02")
+    CloseDoor("DOOR01")
+    PlaySound("AMB_D04A")
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,9)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,23565)  // ~You are too far away to operate that device.~
+END
+

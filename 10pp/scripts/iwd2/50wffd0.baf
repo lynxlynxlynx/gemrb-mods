@@ -1,0 +1,20 @@
+IF
+  CreatureHidden(Myself)
+  GlobalGT("WLFDF_KILLED","GLOBAL",0)
+  !Exists([ENEMY][580.600.5.-1])
+THEN
+  RESPONSE #100
+    IncrementGlobal("WLFDF_KILLED","GLOBAL",-1)
+    JumpToPoint([580.600])
+    FaceObject(NearestEnemyOf(Myself))
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+

@@ -1,0 +1,7 @@
+IF
+  Dead("KING")  // KING
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

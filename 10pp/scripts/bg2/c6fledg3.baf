@@ -1,0 +1,15 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_GAS_FORM_CHANGE)
+END
+
+IF
+  !See([PC])
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+

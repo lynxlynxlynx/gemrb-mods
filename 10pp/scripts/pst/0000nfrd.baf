@@ -1,0 +1,7 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("Death_Fortress","GLOBAL",1)
+END
+

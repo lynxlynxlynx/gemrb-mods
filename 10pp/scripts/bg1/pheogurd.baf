@@ -1,0 +1,9 @@
+IF
+  Die()
+THEN
+  RESPONSE #50
+    ReallyForceSpell(Myself,RISE_FROM_ASH)
+  RESPONSE #50
+    ReallyForceSpell(Myself,FIREBALL_DEATH)
+END
+

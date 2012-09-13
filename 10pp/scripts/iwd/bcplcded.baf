@@ -1,0 +1,50 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)  // 
+    CreateCreature("DBAR1",[3291.1033],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR2",[3421.1142],4)  // ~Barbarian Warrior~
+    CreateCreature("DBAR6",[3302.1228],8)  // ~Barbarian Warrior~
+    CreateCreature("DBAR5",[3079.1121],12)  // ~Barbarian Warrior~
+    CreateCreature("DBAR4",[3348.1684],12)  // ~Barbarian Warrior~
+    MultiPlayerSync()
+    CreateCreature("DBAR1",[3451.1703],4)  // ~Barbarian Warrior~
+    CreateCreature("DBAR3",[3349.1839],8)  // ~Barbarian Warrior~
+    CreateCreature("DBAR5",[3402.1806],2)  // ~Barbarian Warrior~
+    CreateCreature("DBAR4",[2868.1888],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR3",[2863.1956],8)  // ~Barbarian Warrior~
+    MultiPlayerSync()
+    CreateCreature("DBAR1",[3114.2175],2)  // ~Barbarian Warrior~
+    CreateCreature("DBAR2",[3124.2220],6)  // ~Barbarian Warrior~
+    CreateCreature("DBAR3",[3400.2089],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR4",[3449.2122],6)  // ~Barbarian Warrior~
+    CreateCreature("DBAR5",[3332.2071],12)  // ~Barbarian Warrior~
+    MultiPlayerSync()
+    CreateCreature("DBAR6",[3081.2196],10)  // ~Barbarian Warrior~
+    CreateCreature("DBAR1",[2308.2203],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR4",[2242.2243],10)  // ~Barbarian Warrior~
+    CreateCreature("DBAR5",[2280.2242],6)  // ~Barbarian Warrior~
+    CreateCreature("DBAR3",[2264.2511],10)  // ~Barbarian Warrior~
+    MultiPlayerSync()
+    CreateCreature("DBAR6",[918.2621],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR1",[1046.2110],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR2",[1337.2316],2)  // ~Barbarian Warrior~
+    CreateCreature("DBAR3",[1148.2541],6)  // ~Barbarian Warrior~
+    CreateCreature("DBAR2",[584.2487],0)  // ~Barbarian Warrior~
+    MultiPlayerSync()
+    CreateCreature("DBAR1",[414.1134],12)  // ~Barbarian Warrior~
+    CreateCreature("DBAR2",[667.1346],4)  // ~Barbarian Warrior~
+    CreateCreature("DBAR3",[404.1576],8)  // ~Barbarian Warrior~
+    CreateCreature("DBAR4",[460.1317],8)  // ~Barbarian Warrior~
+    CreateCreature("DBAR5",[753.1599],6)  // ~Barbarian Warrior~
+    MultiPlayerSync()
+    CreateCreature("DBAR6",[1376.1839],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR1",[1746.2216],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR5",[1795.2237],6)  // ~Barbarian Warrior~
+    CreateCreature("DBAR6",[2159.972],0)  // ~Barbarian Warrior~
+    CreateCreature("DBAR5",[2650.1043],4)  // ~Barbarian Warrior~
+    CreateCreature("DBAR3",[1292.2699],4)  // ~Barbarian Warrior~
+    MultiPlayerSync()
+END
+

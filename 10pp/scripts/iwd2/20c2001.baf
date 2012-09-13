@@ -1,0 +1,281 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Torak1")  // 
+    MoveToPoint([905.1594])
+    MultiPlayerSync()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Emma")  // 
+    Wait(5)
+    MoveViewObject(Myself,15)
+    MultiPlayerSync()
+    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
+    HideCreature(Myself,FALSE)
+    Wait(1)
+    FloatMessage(Myself,39391)  // ~"By the Goddess!  What is going on here?"~
+    MoveViewObject(Myself,15)
+    ForceSpell(Myself,CLERIC_DIVINE_SHELL)
+    Wait(1)
+    FloatMessage(Myself,39392)  // ~"Stop, thief!"~
+    Wait(5)
+    MoveViewObject(NearestPC,15)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Vrek")  // 
+    Wait(7)
+    MoveViewObject(Myself,15)
+    Wait(2)
+    FloatMessage(Myself,39393)  // ~"Now my chance.  Moon healer distracted."~
+    MoveToObject("Emma")
+    FaceObject("Emma")
+    PlaySequence(Myself,ATTACK)
+    MoveToPoint([905.1594])
+    MultiPlayerSync()
+    DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_1")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_2")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_3")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_4")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_5")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_6")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_7")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_8")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_9")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_10")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_11")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_12")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_13")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_14")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_15")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_16")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_17")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_18")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Orc_19")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_1")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_2")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_3")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_4")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_5")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_6")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_7")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_8")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_9")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("T1_Archer_9")  // 
+    SetGlobal("TEAM_1","MYAREA",1)
+END
+

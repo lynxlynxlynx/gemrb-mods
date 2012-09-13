@@ -1,0 +1,147 @@
+IF
+  HaveSpell(WIZARD_STONESKIN)
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_STONESKIN)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_SEVEN_EYES)
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SEVEN_EYES)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_TROLLISH_FORTITUDE)
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_TROLLISH_FORTITUDE)
+    Wait(2)
+END
+
+IF
+  !HaveSpell(WIZARD_MORDENKAINENS_FORCE_MISSILES)
+  !HaveSpell(WIZARD_SOUL_EATER)
+  !HaveSpell(WIZARD_CONFUSION)
+  !HaveSpell(WIZARD_CHROMATIC_ORB)
+  !HaveSpell(WIZARD_CONE_OF_COLD)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_DARTS_OF_BONE)
+    Wait(2)
+    ChangeCurrentScript("LDKRAMG2")
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  CreatureHidden(Myself)
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+THEN
+  RESPONSE #100
+    HideCreature(Myself,FALSE)
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+  !Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+  Allegiance(Myself,ENEMY)
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  CreatureHidden(Myself)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",0)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",1)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",2)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",3)
+    Continue()
+  RESPONSE #100
+    SetGlobal("LOCAL_CAST_SPELL","LOCALS",4)
+    Continue()
+END
+
+IF
+  HaveSpell(WIZARD_SOUL_EATER)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",1)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SOUL_EATER)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_CONFUSION)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",2)
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_CONFUSION)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_CHROMATIC_ORB)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",3)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_CONE_OF_COLD)
+  GlobalLT("LOCAL_CAST_SPELL","LOCALS",4)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_CONE_OF_COLD)
+    Wait(2)
+END
+
+IF
+  HaveSpell(WIZARD_MORDENKAINENS_FORCE_MISSILES)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_MORDENKAINENS_FORCE_MISSILES)
+    Wait(2)
+END
+

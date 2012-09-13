@@ -1,0 +1,63 @@
+IF
+  Global("0205_Angry","AR0205",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  HPPercentLT(Myself,51)
+THEN
+  RESPONSE #100
+    Enemy()
+    Help()
+    RunAwayFromEx([PC],50,FALSE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    GlobalSet("0205_Angry","AR0205",1)
+    Help()
+    Attack(LastAttackerOf(LastHelp))
+END
+
+IF
+  Help([ANYONE])
+  !Help([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Attack([PC])
+END
+
+IF
+  LOS([PC],20)
+  Global("Emoric","GLOBAL",0)
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    FloatMessage(Myself,9728)  // ~"You look lost, sir."~
+    Wait(25)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(10,15)
+    Face(12)
+    WaitRandom(10,15)
+    Face(14)
+END
+

@@ -1,0 +1,134 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    GlobalSet("Customer_Spawn","GLOBAL",0)
+    Help()
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #20
+    FloatMessage(Myself,67253)  // ~"Here now! No call for that!"~
+    Continue()
+  RESPONSE #20
+    FloatMessage(Myself,67256)  // ~"Steal from an honest man, will you?!"~
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Die()
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Murder","GLOBAL",1)
+    IncrementGlobal("Good","GLOBAL",-1)
+    IncrementGlobal("Law","GLOBAL",-1)
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  !Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Enemy()
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    GlobalSet("Call_MK","GLOBAL",1)
+    GlobalSet("MK_Counter","GLOBAL",1000)
+    CreateCreature("Sarge",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+    CreateCreature("Patrol",[175.2000])  // ~Harmonium Officer~
+    Help()
+END
+
+IF
+  AttackedBy([PC],DEFAULT)
+  Global("Call_MK","GLOBAL",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,27432)  // ~"Help! Guards! I'm being attacked!"~
+    Help()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  WasInDialog()
+THEN
+  RESPONSE #100
+    ReturnToSavedPlace()
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49567)  // ~"Bid! What am I bid!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49568)  // ~"Come now! You insult me, sir!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49569)  // ~"That offer is insulting!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49570)  // ~"That offer insults me and all of my past generations!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49571)  // ~"It's on special!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49572)  // ~"Are you all rendered mute?! Now: WHAT. AM. I. BID?"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49573)  // ~"100 coins! I will pretend I didn't hear that!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49574)  // ~"For this fine item! You offer a mere pittance! You insult me, sir!"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49575)  // ~"You, sir! Would you care to step up?"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49576)  // ~"What am I offered?"~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+  RESPONSE #100
+    WaitRandom(5,10)
+    FloatMessage(Myself,49577)  // ~"You there! You look like you could use a..."~
+    PlaySequence(ANIM_TALK1)
+    Continue()
+END
+

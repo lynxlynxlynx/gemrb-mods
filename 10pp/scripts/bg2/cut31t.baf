@@ -1,0 +1,30 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    SetGlobal("BardPlot1","GLOBAL",54)
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride("bdact09",DestroySelf())
+    ActionOverride("bdact10",DestroySelf())
+    ActionOverride("bdact01",JumpToPoint([706.552]))
+    ActionOverride("bdact02",JumpToPoint([948.714]))
+    ActionOverride("bdact03",JumpToPoint([956.714]))
+    ActionOverride("bdact04",JumpToPoint([885.644]))
+    ActionOverride("bdact05",JumpToPoint([819.633]))
+    ActionOverride("bdact06",JumpToPoint([931.707]))
+    ActionOverride("bdact05",Face(0))
+    ActionOverride("bdact06",Face(0))
+    ActionOverride("bdact01",Face(0))
+    ActionOverride("bdact02",Face(0))
+    ActionOverride("bdact03",Face(0))
+    ActionOverride("bdact05",Face(0))
+    ActionOverride("bdact04",Face(0))
+    MoveToPoint([843.832])
+    Wait(2)
+    FadeFromColor([20.0],0)
+    MoveViewPoint([942.569],FAST)
+    ActionOverride("bdhigg01",StartDialogNoSet(Player1))
+END
+

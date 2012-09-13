@@ -1,0 +1,23 @@
+IF
+  Global("AttackedChickens","GLOBAL",0)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    SetGlobal("AttackedChickens","GLOBAL",1)
+END
+
+IF
+  Global("AttackedChickens","GLOBAL",1)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  Global("villagesaved","GLOBAL",1)
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

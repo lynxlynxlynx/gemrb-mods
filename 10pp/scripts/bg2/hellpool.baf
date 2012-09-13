@@ -1,0 +1,137 @@
+
+
+
+
+
+
+
+
+
+
+IF
+  Global("RoomPride","GLOBAL",1)
+  IsOverMe(Player1)
+THEN
+    ForceSpell(Player1,HELL_PRIDE_GOOD)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",1)
+  IsOverMe(Player2)
+THEN
+    ForceSpell(Player2,HELL_PRIDE_GOOD)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",1)
+  IsOverMe(Player3)
+THEN
+    ForceSpell(Player3,HELL_PRIDE_GOOD)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",1)
+  IsOverMe(Player4)
+THEN
+    ForceSpell(Player4,HELL_PRIDE_GOOD)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",1)
+  IsOverMe(Player5)
+THEN
+    ForceSpell(Player5,HELL_PRIDE_GOOD)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",1)
+  IsOverMe(Player6)
+THEN
+    ForceSpell(Player6,HELL_PRIDE_GOOD)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",1)
+  OR(6)
+    IsOverMe(Player1)
+    IsOverMe(Player2)
+    IsOverMe(Player3)
+    IsOverMe(Player4)
+    IsOverMe(Player5)
+    IsOverMe(Player6)
+THEN
+    Wait(1)
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe(Player1)
+THEN
+    ForceSpell(Player1,HELL_PRIDE_EVIL)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe(Player2)
+THEN
+    ForceSpell(Player2,HELL_PRIDE_EVIL)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe(Player3)
+THEN
+    ForceSpell(Player3,HELL_PRIDE_EVIL)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe(Player4)
+THEN
+    ForceSpell(Player4,HELL_PRIDE_EVIL)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe(Player5)
+THEN
+    ForceSpell(Player5,HELL_PRIDE_EVIL)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe(Player6)
+THEN
+    ForceSpell(Player6,HELL_PRIDE_EVIL)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe([ANYONE])
+  !Allegiance(LastTrigger,PC)
+THEN
+    ForceSpell(LastTrigger,HELL_PRIDE_EVIL)
+    Continue()
+END
+
+IF
+  Global("RoomPride","GLOBAL",2)
+  IsOverMe([ANYONE])
+THEN
+    Wait(2)
+END
+
+
+END

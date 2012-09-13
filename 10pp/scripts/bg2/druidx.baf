@@ -1,0 +1,347 @@
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_BARKSKIN)
+  CheckStatGT(Myself,2,ARMORCLASS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_BARKSKIN)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_IRONSKIN)
+  HPGT(LastSeenBy(Myself),20)
+  CheckStatLT(Myself,1,STONESKINS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_IRONSKIN)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_PHYSICAL_MIRROR)
+  HPGT(LastSeenBy(Myself),20)
+  !HasBounceEffects(Myself)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_PHYSICAL_MIRROR)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CHAOTIC_COMMANDS)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_REGENERATE)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_REGENERATE)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,30)
+  OR(3)
+    HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+    HaveSpell(CLERIC_HEAL)
+    HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(Myself),10)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,60)
+  HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,10)
+  HaveSpell(CLERIC_HEAL)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_HEAL)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),4)
+  HPPercentLT(Myself,30)
+  HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MEDIUM_WOUNDS)
+END
+
+IF
+  StateCheck(Myself,STATE_POISONED)
+  HaveSpell(CLERIC_SLOW_POISON)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SLOW_POISON)
+    Continue()
+END
+
+IF
+  StateCheck(Myself,STATE_POISONED)
+  HaveSpell(CLERIC_NEUTRALIZE_POISON)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_NEUTRALIZE_POISON)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_POISON)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_POISON)
+    Continue()
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Detect([PC])
+  !See(LastSeenBy(Myself))
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_INVISIBILITY_PURGE)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CALL_LIGHTNING)
+  AreaCheck("UTDOOR)")
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CALL_LIGHTNING)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),20)
+  HaveSpell(CLERIC_DOLOROUS_DECAY)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_DOLOROUS_DECAY)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CONJURE_ANIMALS)
+  NumCreatureLT([ENEMY.0.0.0.0.SUMMONED],5)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CONJURE_ANIMALS)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CREEPING_DOOM)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CREEPING_DOOM)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CONFUSION)
+  HPGT(LastSeenBy(Myself),20)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CONFUSION)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ENTANGLE)
+  HPGT(LastSeenBy(Myself),20)
+  NumCreatureVsPartyGT([GOODCUTOFF],4)
+  AreaCheck("UTDOOR)")
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_ENTANGLE)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_INSECT_PLAGUE)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CLOAK_OF_FEAR)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CLOAK_OF_FEAR)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_ANIMAL_SUMMONING_3)
+  NumCreatureLT([ENEMY.0.0.0.0.SUMMONED],5)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_ANIMAL_SUMMONING_3)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CAUSE_CRITICAL_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CAUSE_CRITICAL_WOUNDS)
+    AttackOneRound(LastSeenBy(Myself))
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("wave1","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    AttackOneRound(NearestEnemyOf(Myself))
+    SetGlobal("wave1","LOCALS",1)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_SUMMON_INSECTS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_SUMMON_INSECTS)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_NATURE_BEAUTY)
+  HPGT(LastSeenBy(Myself),20)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_NATURE_BEAUTY)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FINGER_OF_DEATH)
+  HPGT(LastSeenBy(Myself),20)
+  HPLT(LastSeenBy(Myself),50)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FINGER_OF_DEATH)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CALL_WOODLAND_BEINGS)
+  HPGT(LastSeenBy(Myself),30)
+  NumCreatureLT([ENEMY.0.0.0.0.SUMMONED],5)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CALL_WOODLAND_BEINGS)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),50)
+  HaveSpell(CLERIC_CONJURE_EARTH_ELEMENTAL)
+  NumCreatureLT([ENEMY.0.ELEMENTAL.0.0.SUMMONED],1)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CONJURE_EARTH_ELEMENTAL)
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CONJURE_FIRE_ELEMENTAL)
+  HPGT(LastSeenBy(Myself),50)
+  NumCreatureLT([ENEMY.0.ELEMENTAL.0.0.SUMMONED],1)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CONJURE_FIRE_ELEMENTAL)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  HaveSpell(CLERIC_CHARM_PERSON)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_CHARM_PERSON)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  HaveSpell(CLERIC_HOLD_ANIMAL)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_HOLD_ANIMAL)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),4)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+    Continue()
+END
+

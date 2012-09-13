@@ -1,0 +1,109 @@
+IF
+  OpenState("AR5301_Cells",FALSE)  // AR5301_Cells
+  !Global("TEAM_1","MYAREA",0)
+THEN
+  RESPONSE #100
+    OpenDoor("AR5301_Cells")
+    Continue()
+END
+
+IF
+  Global("Viciscamera_Sequence","MYAREA",0)
+  Dead("Viciscamera")  // 
+THEN
+  RESPONSE #100
+    SetGlobal("Viciscamera_Sequence","MYAREA",1)
+    PlaySequence("5301MS1",AWAKE)
+    StartTimer(42,4)
+    Continue()
+END
+
+IF
+  Global("Viciscamera_Sequence","MYAREA",1)
+  TimerExpired(42)
+THEN
+  RESPONSE #100
+    SetGlobal("Viciscamera_Sequence","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("Viciscamera_Sequence","MYAREA",2)
+THEN
+  RESPONSE #100
+    PlaySequence("5301MS1",CAST)
+    Deactivate("spider_maker_thing1")
+    Continue()
+END
+
+IF
+  Global("Viciscamera_JournalEntry","MYAREA",0)
+  Global("Viciscamera_Sequence","MYAREA",2)
+  Global("Viciscamera_Quest","GLOBAL",1)
+  Global("Malavon_Dead","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Viciscamera_JournalEntry","MYAREA",1)
+    AddJournalEntry(39488)
+    Continue()
+END
+
+IF
+  !Global("DF_Slain","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DF_Slain","GLOBAL",0)
+    CreateCreature("53ViDrFi","",[180.1390],0)  // ~Viciscamera Drider Fighter~
+    Continue()
+  RESPONSE #100
+    SetGlobal("DF_Slain","GLOBAL",0)
+    CreateCreature("53ViDrFi","",[175.1755],0)  // ~Viciscamera Drider Fighter~
+    Continue()
+  RESPONSE #100
+    SetGlobal("DF_Slain","GLOBAL",0)
+    CreateCreature("53ViDrFi","",[175.2049],0)  // ~Viciscamera Drider Fighter~
+    Continue()
+END
+
+IF
+  !Global("DW_Slain","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DW_Slain","GLOBAL",0)
+    CreateCreature("53ViDrWi","",[180.1390],0)  // ~Viciscamera Drider Wizard~
+    Continue()
+  RESPONSE #100
+    SetGlobal("DW_Slain","GLOBAL",0)
+    CreateCreature("53ViDrWi","",[175.1755],0)  // ~Viciscamera Drider Wizard~
+    Continue()
+  RESPONSE #100
+    SetGlobal("DW_Slain","GLOBAL",0)
+    CreateCreature("53ViDrWi","",[175.2049],0)  // ~Viciscamera Drider Wizard~
+    Continue()
+END
+
+IF
+  !Global("DP_Slain","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("DP_Slain","GLOBAL",0)
+    CreateCreature("53ViDrPr","",[180.1390],0)  // ~Viciscamera Drider Priestess~
+    Continue()
+  RESPONSE #100
+    SetGlobal("DP_Slain","GLOBAL",0)
+    CreateCreature("53ViDrPr","",[175.1755],0)  // ~Viciscamera Drider Priestess~
+    Continue()
+  RESPONSE #100
+    SetGlobal("DP_Slain","GLOBAL",0)
+    CreateCreature("53ViDrPr","",[175.2049],0)  // ~Viciscamera Drider Priestess~
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

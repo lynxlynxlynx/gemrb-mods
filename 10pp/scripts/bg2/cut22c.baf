@@ -1,0 +1,9 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("obsgol01")  // 
+    SetGlobal("ObsGolem","AR0411",1)
+    EndCutSceneMode()
+END
+

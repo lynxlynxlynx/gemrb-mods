@@ -1,0 +1,203 @@
+IF
+  !Global("Current_Area","GLOBAL",1204)
+THEN
+  RESPONSE #100
+    GlobalSet("Fortress_Party_Roof","GLOBAL",0)
+    GlobalSet("Current_Area","GLOBAL",1204)
+    StartCutSceneMode()
+    StartCutScene("1204wait")
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  Global("AR1204_Visited","GLOBAL",0)
+  Global("Fortress_Ignus","GLOBAL",1)
+  Global("Fortress_Ignus_Battle","GLOBAL",0)
+THEN
+  RESPONSE #100
+    EnableFogDither()
+    EnableSpriteDither()
+    Explore()
+    IncrementGlobal("Fortress_Party_Roof","GLOBAL",1)
+    GlobalSet("AR1204_Visited","GLOBAL",1)
+    GeneratePartyMember([1706.1021],IGNUS)
+    Kill("Ignus")
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  Global("AR1204_Visited","GLOBAL",0)
+  Global("Fortress_Vhailor","GLOBAL",1)
+  Global("Fortress_Vhailor_Battle","GLOBAL",0)
+THEN
+  RESPONSE #100
+    EnableFogDither()
+    EnableSpriteDither()
+    Explore()
+    IncrementGlobal("Fortress_Party_Roof","GLOBAL",1)
+    GlobalSet("AR1204_Visited","GLOBAL",1)
+    GeneratePartyMember([1706.1021],VHAILOR)
+    Kill("Vhail")
+    Continue()
+END
+
+IF
+  Global("Fortress_Dakkon","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GeneratePartyMember([1228.886],DAKKON)
+    Kill("Dakkon")
+    IncrementGlobal("Fortress_Party_Roof","GLOBAL",1)
+    GlobalSet("Fortress_Dakkon","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("Fortress_Nordom","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GeneratePartyMember([1640.670],NORDOM)
+    Kill("Nordom")
+    IncrementGlobal("Fortress_Party_Roof","GLOBAL",1)
+    GlobalSet("Fortress_Nordom","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("Fortress_Annah","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GeneratePartyMember([1453.1012],ANNAH)
+    Kill("Annah")
+    IncrementGlobal("Fortress_Party_Roof","GLOBAL",1)
+    GlobalSet("Fortress_Annah","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("Fortress_Grace","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GeneratePartyMember([1676.861],FALL_FROM_GRACE)
+    Kill("Grace")
+    IncrementGlobal("Fortress_Party_Roof","GLOBAL",1)
+    GlobalSet("Fortress_Grace","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Global("Fortress_Morte","GLOBAL",1)
+THEN
+  RESPONSE #100
+    GeneratePartyMember([1243.1048],MORTE)
+    Kill("Morte")
+    IncrementGlobal("Fortress_Party_Roof","GLOBAL",1)
+    GlobalSet("Fortress_Morte","GLOBAL",2)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  Global("AR1204_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    EnableFogDither()
+    EnableSpriteDither()
+    Explore()
+    GlobalSet("AR1204_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Absorb","GLOBAL",1)
+  Global("1204_Absorb_Cutscene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DeactivateEx("Trans",FALSE)
+    GlobalSet("1204_Absorb_Cutscene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1204m0")
+END
+
+IF
+  Global("Absorb","GLOBAL",2)
+  Global("1204_Absorb_Cutscene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DeactivateEx("Trans",FALSE)
+    GlobalSet("1204_Absorb_Cutscene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1204a0")
+END
+
+IF
+  Global("Absorb","GLOBAL",3)
+  Global("1204_Absorb_Cutscene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DeactivateEx("Trans",FALSE)
+    GlobalSet("1204_Absorb_Cutscene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1204d0")
+END
+
+IF
+  Global("Absorb","GLOBAL",4)
+  Global("1204_Absorb_Cutscene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DeactivateEx("Trans",FALSE)
+    GlobalSet("1204_Absorb_Cutscene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1204g0")
+END
+
+IF
+  Global("Absorb","GLOBAL",5)
+  Global("1204_Absorb_Cutscene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DeactivateEx("Trans",FALSE)
+    GlobalSet("1204_Absorb_Cutscene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1204n0")
+END
+
+IF
+  Global("Absorb","GLOBAL",6)
+  Global("1204_Absorb_Cutscene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DeactivateEx("Trans",FALSE)
+    GlobalSet("1204_Absorb_Cutscene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1204i0")
+END
+
+IF
+  Global("Absorb","GLOBAL",7)
+  Global("1204_Absorb_Cutscene","GLOBAL",0)
+THEN
+  RESPONSE #100
+    DeactivateEx("Trans",FALSE)
+    GlobalSet("1204_Absorb_Cutscene","GLOBAL",1)
+    StartCutSceneMode()
+    StartCutScene("1204v0")
+END
+
+IF
+  Global("Quit_Game","GLOBAL",1)
+THEN
+  RESPONSE #100
+    QuitGame(T1DEATH,FINALE,0)
+END
+
+IF
+  Global("Quit_Game","GLOBAL",2)
+THEN
+  RESPONSE #100
+    QuitGame(T1ABSORB,FINALE,0)
+END
+

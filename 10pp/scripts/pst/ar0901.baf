@@ -1,0 +1,147 @@
+IF
+  Vacant()
+THEN
+  RESPONSE #100
+    GlobalSet("No_Cube_Here","GLOBAL",0)
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0901_Visited","GLOBAL",0)
+  Global("Cart_Trap","GLOBAL",2)
+THEN
+  RESPONSE #100
+    IncrementGlobal("Curst_Counter","GLOBAL",-1)
+    Continue()
+END
+
+IF
+  !Global("Current_Area","GLOBAL",901)
+THEN
+  RESPONSE #100
+    GlobalSet("Current_Area","GLOBAL",901)
+    GlobalSet("No_Cube_Here","GLOBAL",1)
+    GlobalSet("Sohmien_Pack_One","AR0901",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0901_Visited","GLOBAL",0)
+  GlobalLT("Curst_Counter","GLOBAL",3)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Hard_Trias","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0901_Visited","GLOBAL",0)
+  GlobalGT("Curst_Counter","GLOBAL",2)
+  GlobalLT("Curst_Counter","GLOBAL",6)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Medium_Trias","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0901_Visited","GLOBAL",0)
+  GlobalGT("Curst_Counter","GLOBAL",5)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_Easy_Trias","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Exists("Nameless")  // ~Nameless One~
+  !GlobalGT("AR0901_Visited","GLOBAL",0)
+THEN
+  RESPONSE #100
+    GlobalSet("AR0901_Visited","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("Regret","GLOBAL",1)
+  !Global("Portal_Active","AR0901",1)
+THEN
+  RESPONSE #100
+    ActivatePortalCursor("to0202",1)
+    EnablePortalTravel("to0202",1)
+    GlobalSet("Portal_Active","AR0901",1)
+    Continue()
+END
+
+IF
+  Global("Spawn_Trias_Friends","GLOBAL",1)
+  GlobalGT("Curst_Counter","GLOBAL",5)
+THEN
+  RESPONSE #100
+    SinisterPoof("S113SMOK",[1721.2800],1)
+    SinisterPoof("S113SMOK",[1838.2870],1)
+    SinisterPoof("S113SMOK",[1779.2837],1)
+    SinisterPoof("S113SMOK",[1694.2993],1)
+    SinisterPoof("S113SMOK",[1599.3000],1)
+    SinisterPoof("S113SMOK",[1705.3062],1)
+    SinisterPoof("S113SMOK",[1888.3093],1)
+    Wait(2)
+    GlobalSet("Spawn_Trias_Friends","GLOBAL",0)
+    GlobalSet("Spawn_MTF","GLOBAL",0)
+    GlobalSet("Spawn_HTF","GLOBAL",0)
+END
+
+IF
+  Global("Spawn_Trias_Friends","GLOBAL",1)
+  GlobalLT("Curst_Counter","GLOBAL",6)
+  GlobalGT("Curst_Counter","GLOBAL",2)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_MTF","GLOBAL",1)
+    SinisterPoof("S113SMOK",[1523.2847],1)
+    SinisterPoof("S113SMOK",[1900.3076],1)
+    SinisterPoof("S113SMOK",[1846.2482],1)
+    SinisterPoof("S113SMOK",[2269.2696],1)
+    SinisterPoof("S113SMOK",[1721.2800],1)
+    SinisterPoof("S113SMOK",[1838.2870],1)
+    SinisterPoof("S113SMOK",[1779.2837],1)
+    SinisterPoof("S113SMOK",[1694.2993],1)
+    SinisterPoof("S113SMOK",[1599.3000],1)
+    SinisterPoof("S113SMOK",[1705.3062],1)
+    SinisterPoof("S113SMOK",[1888.3093],1)
+    Wait(2)
+    GlobalSet("Spawn_Trias_Friends","GLOBAL",0)
+    GlobalSet("Spawn_MTF","GLOBAL",0)
+    GlobalSet("Spawn_HTF","GLOBAL",0)
+END
+
+IF
+  Global("Spawn_Trias_Friends","GLOBAL",1)
+  GlobalLT("Curst_Counter","GLOBAL",3)
+THEN
+  RESPONSE #100
+    GlobalSet("Spawn_MTF","GLOBAL",1)
+    GlobalSet("Spawn_HTF","GLOBAL",1)
+    SinisterPoof("S113SMOK",[1774.3111],1)
+    SinisterPoof("S113SMOK",[1770.2668],1)
+    SinisterPoof("S113SMOK",[2054.2828],1)
+    SinisterPoof("S113SMOK",[1523.2847],1)
+    SinisterPoof("S113SMOK",[1900.3076],1)
+    SinisterPoof("S113SMOK",[1846.2482],1)
+    SinisterPoof("S113SMOK",[2269.2696],1)
+    SinisterPoof("S113SMOK",[1721.2800],1)
+    SinisterPoof("S113SMOK",[1838.2870],1)
+    SinisterPoof("S113SMOK",[1779.2837],1)
+    SinisterPoof("S113SMOK",[1694.2993],1)
+    SinisterPoof("S113SMOK",[1599.3000],1)
+    SinisterPoof("S113SMOK",[1705.3062],1)
+    SinisterPoof("S113SMOK",[1888.3093],1)
+    Wait(2)
+    GlobalSet("Spawn_Trias_Friends","GLOBAL",0)
+    GlobalSet("Spawn_MTF","GLOBAL",0)
+    GlobalSet("Spawn_HTF","GLOBAL",0)
+END
+

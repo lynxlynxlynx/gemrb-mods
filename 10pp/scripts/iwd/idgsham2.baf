@@ -1,0 +1,59 @@
+IF
+  Global("CAST_SPECIAL","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([PC.0.0.MAGE_ALL])
+    See([PC.0.0.CLERIC_ALL])
+THEN
+  RESPONSE #50
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CONFUSION)
+    Wait(2)
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("CAST_SPECIAL","LOCALS",0)
+  Allegiance(Myself,ENEMY)
+  Or(3)
+    See([PC.0.0.FIGHTER_ALL])
+    See([PC.0.0.RANGER_ALL])
+    See([PC.0.0.PALADIN_ALL])
+THEN
+  RESPONSE #50
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_MENTAL_DOMINATION)
+    Wait(2)
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("CAST_SPECIAL","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",1)
+    ForceSpell(LastSeenBy(Myself),CLERIC_SYMBOL_OF_PAIN)
+    Wait(2)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("CAST_SPECIAL","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("CAST_SPECIAL","LOCALS",2)
+    ForceSpell(LastSeenBy(Myself),CLERIC_HARM)
+    Wait(2)
+END
+
+IF
+  Global("CAST_SPECIAL","LOCALS",2)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+

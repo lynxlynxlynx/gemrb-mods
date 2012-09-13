@@ -1,0 +1,169 @@
+IF
+  Clicked([PC])
+  Range(LastTrigger,3,GREATER_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",1)
+    ActionOverride(LastTrigger,MoveToPoint([2090.1160]))
+END
+
+IF
+  Or(2)
+    Clicked([PC])
+    Global("41PrismFire","MYAREA",1)
+  Range(LastTrigger,4,LESS_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("TEAM_1","MYAREA",1)
+    Shout(100)
+    SetGlobal("41PrismFire","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("PrismDeactivated","MYAREA",1)
+  Global("41PrismFire","MYAREA",2)
+  CheckSkillGT(LastTrigger,6,Use_Magic_Device)
+THEN
+  RESPONSE #100
+    FadeToColor([0.0],0)
+    SetGlobal("41PrismFire","MYAREA",0)
+    SetGlobal("PrismDeactivated","MYAREA",0)
+    DisplayString(LastTrigger,39936)  // ~With a careful touch you skillfully repair the prism.~
+    AdvanceTime(300)
+    FadeFromColor([0.0],0)
+END
+
+IF
+  Global("PrismDeactivated","MYAREA",1)
+  Global("41PrismFire","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",0)
+    DisplayString(LastTrigger,30529)  // ~The prism has been disabled in a flurry of electrical energy.  Consumed by the ominous feeling that you may have just destroyed a critical device, you feel compelled to find a way to repair it.~
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  !StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    ApplySpell(LastTrigger,2086)
+    Continue()
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+THEN
+  RESPONSE #100
+    PlaySound("AM4102b1")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM4102b2")
+    Continue()
+  RESPONSE #100
+    PlaySound("AM4102b3")
+    Continue()
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",0)
+  OpenState("AR4102_MirrorReflect1",TRUE)  // AR4102_MirrorReflect1
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",1)
+    TriggerActivation("PrismGun0",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",0)
+  OpenState("AR4102_MirrorReflect1",FALSE)  // AR4102_MirrorReflect1
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",2)
+    TriggerActivation("PrismGun0",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",3)
+    TriggerActivation("PrismGun1",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",4)
+    TriggerActivation("PrismGun2",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",3)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",5)
+    TriggerActivation("PrismGun3",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",4)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",6)
+    TriggerActivation("PrismGun4",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",5)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",7)
+    TriggerActivation("PrismGun5",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",6)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",8)
+    TriggerActivation("PrismGun6",TRUE)
+END
+
+IF
+  Global("41PrismFire","MYAREA",2)
+  Global("PrismSequence","MYAREA",7)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",3)
+    SetGlobal("41PrismTarget","MYAREA",9)
+    TriggerActivation("PrismGun7",TRUE)
+END
+
+IF
+  Clicked([PC])
+  Range(LastTrigger,3,GREATER_THAN)
+THEN
+  RESPONSE #100
+    SetGlobal("41PrismFire","MYAREA",1)
+    ActionOverride(LastTrigger,MoveToPoint([2090.1160]))
+END
+

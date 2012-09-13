@@ -1,0 +1,25 @@
+IF
+  Global("HaerDaisMurderPlot","GLOBAL",0)
+  !See("HaerDalis")  // HaerDalis
+  InParty("HaerDalis")  // HaerDalis
+THEN
+  RESPONSE #100
+    MoveToObject("HaerDalis")
+END
+
+IF
+  Global("HaerDaisMurderPlot","GLOBAL",0)
+  See("HaerDalis")  // HaerDalis
+  InParty("HaerDalis")  // HaerDalis
+THEN
+  RESPONSE #100
+    Dialog("HaerDalis")
+END
+
+IF
+  !InParty("HaerDalis")  // HaerDalis
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
+

@@ -1,0 +1,120 @@
+IF
+  Global("Fuse","LOCALS",0)
+  IsHeartOfFuryModeOn()
+  HitBy([ANYONE],FIRE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    ChangeSpecifics(Myself,NORMAL)
+    SetCreatureAreaFlag(Myself,NON_THREATING_ENEMY,FALSE)
+    CreateItem("00CIKEG3",1,0,0)  // ~Exploding Keg~
+    Wait(1)
+    SetGlobal("Fuse","LOCALS",1)
+    Shout(3)
+    UseItem("00CIKEG3",Myself)  // ~Exploding Keg~
+    Kill(Myself)
+END
+
+IF
+  Global("Fuse","LOCALS",0)
+  Or(2)
+    CheckAreaDiffLevel(3)
+    CheckAreaDiffLevel(2)
+  HitBy([ANYONE],FIRE)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,NORMAL)
+    CreateItem("00CIKEG2",1,0,0)  // ~Exploding Keg~
+    SetCreatureAreaFlag(Myself,NON_THREATING_ENEMY,FALSE)
+    SetGlobal("Fuse","LOCALS",1)
+    SpellHitEffectSprite(Myself,Myself,FIRE,0)
+    FloatMessage(Myself,24086)  // ~3~
+    Wait(1)
+END
+
+IF
+  Global("Fuse","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Fuse","LOCALS",2)
+    SpellHitEffectSprite(Myself,Myself,FIRE,0)
+    FloatMessage(Myself,24087)  // ~2~
+    Wait(1)
+END
+
+IF
+  Global("Fuse","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobal("Fuse","LOCALS",3)
+    SpellHitEffectSprite(Myself,Myself,FIRE,0)
+    FloatMessage(Myself,24088)  // ~1~
+    Wait(1)
+END
+
+IF
+  Global("Fuse","LOCALS",3)
+THEN
+  RESPONSE #100
+    Shout(3)
+    UseItem("00CIKEG2",Myself)  // ~Exploding Keg~
+    Kill(Myself)
+END
+
+IF
+  Global("Fuse","LOCALS",0)
+  HitBy([ANYONE],FIRE)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,NORMAL)
+    CreateItem("00CIKEG1",1,0,0)  // ~Exploding Keg~
+    SetCreatureAreaFlag(Myself,NON_THREATING_ENEMY,FALSE)
+    SetGlobal("Fuse","LOCALS",4)
+    SpellHitEffectSprite(Myself,Myself,FIRE,0)
+    FloatMessage(Myself,24086)  // ~3~
+    Wait(1)
+END
+
+IF
+  Global("Fuse","LOCALS",4)
+THEN
+  RESPONSE #100
+    SetGlobal("Fuse","LOCALS",5)
+    SpellHitEffectSprite(Myself,Myself,FIRE,0)
+    FloatMessage(Myself,24087)  // ~2~
+    Wait(1)
+END
+
+IF
+  Global("Fuse","LOCALS",5)
+THEN
+  RESPONSE #100
+    SetGlobal("Fuse","LOCALS",6)
+    SpellHitEffectSprite(Myself,Myself,FIRE,0)
+    FloatMessage(Myself,24088)  // ~1~
+    Wait(1)
+END
+
+IF
+  Global("Fuse","LOCALS",6)
+THEN
+  RESPONSE #100
+    Shout(3)
+    UseItem("00CIKEG1",Myself)  // ~Exploding Keg~
+    Kill(Myself)
+END
+
+IF
+  !Specifics(Myself,200)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,200)
+END
+
+IF
+  !IsCreatureAreaFlag(Myself,NON_THREATING_ENEMY)
+THEN
+  RESPONSE #100
+    SetCreatureAreaFlag(Myself,NON_THREATING_ENEMY,TRUE)
+END
+

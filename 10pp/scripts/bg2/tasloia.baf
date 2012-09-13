@@ -1,0 +1,50 @@
+IF
+  HitBy([ANYONE],CRUSHING)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  HitBy([ANYONE],PIERCING)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  HitBy([ANYONE],SLASHING)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),3)
+THEN
+  RESPONSE #100
+    RunAwayFrom(NearestEnemyOf(Myself),75)
+END
+
+IF
+  Delay(15)
+  See(NearestEnemyOf(Myself))
+  Exists(LastAttackerOf(LastSeenBy(Myself)))
+  NumCreatureGT([ENEMY],1)
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

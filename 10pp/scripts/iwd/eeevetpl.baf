@@ -1,0 +1,26 @@
+IF
+  !Global("EVERARD_DEAD","GLOBAL",0)
+  !Dead("YSELF)")  // YSELF)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  Global("EVERARD_IN_TEMPLE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+    Wait(1)
+    StartCutScene("EEEVECT0")
+END
+
+IF
+  !Global("EVERARD_IN_TEMPLE","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("EEEVERAR")
+END
+

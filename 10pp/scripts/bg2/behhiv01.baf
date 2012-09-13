@@ -1,0 +1,292 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,ILLUSION_DEATH)
+    Wait(1)
+    DestroySelf()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !GlobalTimerNotExpired("prepback","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("prepback","LOCALS",500)
+    ApplySpell(Myself,WIZARD_STONE_SKIN)
+    ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF.UNDEAD.0.0.0.SUMMONED])
+  !HasBounceEffects(LastSeenBy(Myself))
+THEN
+  RESPONSE #50
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],HIVE_MOTHER_DISINTEGRATE)
+    Continue()
+  RESPONSE #100
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  !General(LastSeenBy(Myself),UNDEAD)
+  LevelGT(LastSeenBy(Myself),6)
+  !HasBounceEffects(LastSeenBy(Myself))
+THEN
+  RESPONSE #30
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],WIZARD_FINGER_OF_DEATH)
+    Continue()
+  RESPONSE #50
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+  RESPONSE #100
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],BEHOLDER_DEATH_RAY)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  !General(LastSeenBy(Myself),UNDEAD)
+  LevelLT(LastSeenBy(Myself),7)
+  !HasBounceEffects(LastSeenBy(Myself))
+THEN
+  RESPONSE #30
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+  RESPONSE #30
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],BEHOLDER_FEAR)
+    Continue()
+  RESPONSE #30
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],BEHOLDER_SLOW)
+    Continue()
+  RESPONSE #50
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+  RESPONSE #100
+    FaceObject([GOODCUTOFF.0.0.0.0.SUMMONED])
+    ForceSpell([GOODCUTOFF.0.0.0.0.SUMMONED],BEHOLDER_DOMINATION)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(3)
+    Class(LastSeenBy(Myself),MAGE_ALL)
+    Class(LastSeenBy(Myself),CLERIC_ALL)
+    HasBounceEffects(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    ForceSpell(NearestEnemyOf(Myself),HIVE_MOTHER_ANTIMAGIC_RAY)
+    Continue()
+END
+
+IF
+  See(LeastDamagedOf(Myself))
+  !HasBounceEffects(LeastDamagedOf(Myself))
+THEN
+  RESPONSE #100
+    FaceObject(LeastDamagedOf(Myself))
+    ForceSpell(LeastDamagedOf(Myself),HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  See(SecondNearest([PC]))
+  !HasBounceEffects(SecondNearest([PC]))
+THEN
+  RESPONSE #20
+    FaceObject(SecondNearest([PC]))
+    ForceSpell(SecondNearest([PC]),HIVE_MOTHER_ANTIMAGIC_RAY)
+    Continue()
+  RESPONSE #20
+    FaceObject(SecondNearest([PC]))
+    ForceSpell(SecondNearest([PC]),BEHOLDER_HOLD_PERSON)
+    Continue()
+  RESPONSE #40
+    FaceObject(SecondNearest([PC]))
+    ForceSpell(SecondNearest([PC]),WIZARD_FINGER_OF_DEATH)
+    Continue()
+  RESPONSE #100
+    FaceObject(SecondNearest([PC]))
+    ForceSpell(SecondNearest([PC]),HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  See(ThirdNearest([PC]))
+  !HasBounceEffects(ThirdNearest([PC]))
+THEN
+  RESPONSE #20
+    FaceObject(ThirdNearest([PC]))
+    ForceSpell(ThirdNearest([PC]),HIVE_MOTHER_ANTIMAGIC_RAY)
+    Continue()
+  RESPONSE #20
+    FaceObject(ThirdNearest([PC]))
+    ForceSpell(ThirdNearest([PC]),BEHOLDER_HOLD_PERSON)
+    Continue()
+  RESPONSE #40
+    FaceObject(ThirdNearest([PC]))
+    ForceSpell(ThirdNearest([PC]),WIZARD_FINGER_OF_DEATH)
+    Continue()
+  RESPONSE #100
+    FaceObject(ThirdNearest([PC]))
+    ForceSpell(ThirdNearest([PC]),HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #30
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+    Continue()
+  RESPONSE #50
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    Continue()
+  RESPONSE #30
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+    Continue()
+  RESPONSE #30
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MAZE)
+    Continue()
+  RESPONSE #30
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_PRISMATIC_SPRAY)
+    Continue()
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CHAIN_LIGHTNING)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !HasBounceEffects(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #40
+    FaceObject(NearestEnemyOf(Myself))
+    ForceSpell(NearestEnemyOf(Myself),HIVE_MOTHER_ANTIMAGIC_RAY)
+    Continue()
+  RESPONSE #40
+    FaceObject(NearestEnemyOf(Myself))
+    ForceSpell(NearestEnemyOf(Myself),HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+  RESPONSE #40
+    FaceObject(NearestEnemyOf(Myself))
+    ForceSpell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)
+    Continue()
+  RESPONSE #40
+    FaceObject(NearestEnemyOf(Myself))
+    ForceSpell(NearestEnemyOf(Myself),HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    ForceSpell(NearestEnemyOf(Myself),BEHOLDER_DEATH_RAY)
+    Continue()
+END
+
+IF
+  See([GOODCUTOFF.0.0.0.0.SUMMONED])
+  Global("summon","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+    ForceSpell(LastSeenBy(Myself),BEHOLDER_PARALYZATION)
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+    SetGlobal("summon","LOCALS",1)
+    Continue()
+END
+
+IF
+  See(LeastDamagedOf(Myself))
+  !HasBounceEffects(LeastDamagedOf(Myself))
+THEN
+  RESPONSE #100
+    FaceObject(LeastDamagedOf(Myself))
+    ForceSpell(LeastDamagedOf(Myself),BEHOLDER_DEATH_RAY)
+    Continue()
+END
+
+IF
+  See([PC])
+  !See(LeastDamagedOf(Myself))
+  !HasBounceEffects([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    ForceSpell([PC],BEHOLDER_DEATH_RAY)
+    Continue()
+END
+
+IF
+  See([PC])
+  !HasBounceEffects([PC])
+THEN
+  RESPONSE #100
+    FaceObject([PC])
+    ForceSpell([PC],HIVE_MOTHER_CAUSE_SERIOUS_WOUNDS)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,STONESKINS)
+  !GlobalTimerNotExpired("healhive","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("healhive","LOCALS",30)
+    ApplySpell(Myself,CLERIC_CURE_CRITICAL_WOUNDS)
+    SpellNoDec(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #20
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    Continue()
+  RESPONSE #40
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_CHAIN_LIGHTNING)
+    Continue()
+  RESPONSE #40
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MAZE)
+    Continue()
+  RESPONSE #40
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_PRISMATIC_SPRAY)
+    Continue()
+  RESPONSE #100
+    FaceObject(NearestEnemyOf(Myself))
+    SpellNoDec(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+    Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HasBounceEffects(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+    Continue()
+END
+

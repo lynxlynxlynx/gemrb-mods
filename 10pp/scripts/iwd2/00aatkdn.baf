@@ -1,0 +1,22 @@
+IF
+  IsWeaponRanged(Myself)
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    Range([PC.0.0.0.0.0.0.0.0.CLASSMASK_DRUID],5,LESS_THAN)
+    Range(NearestEnemyOf(Myself),5,LESS_THAN)
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastMarkedObject,45)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  Or(2)
+    See([PC.0.0.0.0.0.0.0.0.CLASSMASK_DRUID],0)
+    See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

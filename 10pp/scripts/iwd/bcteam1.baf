@@ -1,0 +1,50 @@
+IF
+  Allegiance(Myself,ENEMY)
+  !Global("BC_GROUP_HOSTILE1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeCurrentScript("")
+END
+
+IF
+  Global("BC_GROUP_HOSTILE1","GLOBAL",0)
+  !CreatureHidden(Myself)
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobal("BC_GROUP_HOSTILE1","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Allegiance(Myself,ENEMY)
+  !Global("BC_GROUP_HOSTILE1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("BC_GROUP_HOSTILE1","GLOBAL",1)
+    Continue()
+END
+
+IF
+  ActionListEmpty()
+  !Global("BC_GROUP_HOSTILE1","GLOBAL",0)
+  Allegiance(Myself,ENEMY)
+  !See([PC])
+THEN
+  RESPONSE #100
+    MoveToObject([PC][0.0.10000.10000])
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  Global("BC_GROUP_HOSTILE1","GLOBAL",0)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+  RESPONSE #100
+    Enemy()
+    SetGlobal("BC_GROUP_HOSTILE1","GLOBAL",1)
+    Continue()
+END
+

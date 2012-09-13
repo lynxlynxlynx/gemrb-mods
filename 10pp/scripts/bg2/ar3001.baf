@@ -1,0 +1,171 @@
+IF
+  Global("SetDifficulty","AR3001",0)
+  Global("StartMP","GLOBAL",0)
+  OR(3)
+    NumInPartyLT(5)
+    GlobalGT("XPGiven","GLOBAL",500000)
+    LevelPartyLT(14)
+THEN
+  RESPONSE #100
+    SetGlobal("SetDifficulty","AR3001",1)
+    ActionOverride("gorsta03",DestroySelf())
+    ActionOverride("gorsta04",DestroySelf())
+    ActionOverride("gorsta05",DestroySelf())
+    ActionOverride("gorsta06",DestroySelf())
+    ActionOverride("gorsta11",DestroySelf())
+    ActionOverride("gorsta12",DestroySelf())
+    SetGlobal("SPRITE_IS_DEADgorsta03","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorsta04","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorsta05","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorsta06","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorsta11","GLOBAL",1)
+    SetGlobal("SPRITE_IS_DEADgorsta12","GLOBAL",1)
+    SpawnPtActivate("SpawnPoint5")
+    SpawnPtActivate("SpawnPoint6")
+    SpawnPtActivate("SpawnPoint7")
+    SpawnPtActivate("SpawnPoint8")
+    SpawnPtDeactivate("SpawnPoint1")
+    SpawnPtDeactivate("SpawnPoint2")
+    SpawnPtDeactivate("SpawnPoint3")
+    SpawnPtDeactivate("SpawnPoint4")
+END
+
+IF
+  Global("DeactivatePortal","AR3001",0)
+THEN
+  RESPONSE #100
+    AmbientActivate("AMB_Portal",FALSE)
+    SetGlobal("DeactivatePortal","AR3001",1)
+END
+
+IF
+  Global("Sarcophagus","AR3001",2)
+  Global("SpawnedGorpri1","AR3001",0)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    StartCutSceneMode()
+    MoveViewPoint([1522.450],INSTANT)
+    SetGlobal("SpawnedGorpri1","AR3001",1)
+    CreateVisualEffect("SPMETSWA",[1429.328])
+    SmallWait(5)
+    CreateVisualEffect("SPMETSWA",[1479.353])
+    SmallWait(5)
+    CreateVisualEffect("SPMETSWA",[1504.400])
+    SmallWait(3)
+    CreateVisualEffect("SPRAISED",[1522.450])
+    Wait(2)
+    CreateVisualEffect("SPFLESHS",[1522.450])
+    Wait(2)
+    CreateCreature("gorpri1",[1522.450],0)  // ~Priest~
+    EndCutSceneMode()
+END
+
+IF
+  Global("SpawnedGorpri1","AR3001",2)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnedGorpri1","AR3001",3)
+    CreateVisualEffect("SPRAISED",[1298.494])
+    CreateVisualEffect("SPRAISED",[1497.494])
+    Wait(2)
+    CreateCreature("skelwa",[1298.494],0)  // ~Skeleton Warrior~
+    CreateCreature("skelwa",[1497.494],0)  // ~Skeleton Warrior~
+END
+
+IF
+  Global("LivingStatues","AR3001",1)
+  HasItem("HOLDRING","gorsta01")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta01")
+END
+
+IF
+  Global("LivingStatues","AR3001",1)
+  HasItem("HOLDRING","gorsta02")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta02")
+END
+
+IF
+  Global("LivingStatues","AR3001",1)
+  HasItem("HOLDRING","gorsta03")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta03")
+END
+
+IF
+  Global("LivingStatues","AR3001",1)
+  HasItem("HOLDRING","gorsta04")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta04")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta05")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta05")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta06")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta06")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta07")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta07")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta08")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta08")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta09")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta09")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta10")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta10")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta11")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta11")
+END
+
+IF
+  Global("PortalOpen","AR3001",1)
+  HasItem("HOLDRING","gorsta12")  // <Invalid Strref -1>
+THEN
+  RESPONSE #100
+    TakeItemReplace("STONRING","HOLDRING","gorsta12")
+END
+

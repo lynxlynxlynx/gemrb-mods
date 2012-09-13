@@ -1,0 +1,7 @@
+IF
+  !Global("GEM_DEAD","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+

@@ -1,0 +1,91 @@
+IF
+  Global("CHANGED_POINT","LOCALS",0)
+  !Global("Tabard_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetSavedLocationPoint(1588,1172,E)
+    SetGlobal("CHANGED_POINT","LOCALS",1)
+END
+
+IF
+  Global("CHANGED_POINT","LOCALS",1)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(1)
+    SetGlobal("CHANGED_POINT","LOCALS",2)
+END
+
+IF
+  !TimerActive(18)
+  Global("Tabard_Quest","GLOBAL",1)
+THEN
+  RESPONSE #100
+    FloatMessage(Myself,16169)  // ~"Oh my!  I hope I'm not in trouble..."~
+    StartTimer(18,25)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16171)  // ~"I was only looking at that shield for a few hours..."~
+    StartTimer(18,25)
+    Continue()
+  RESPONSE #100
+    FloatMessage(Myself,16172)  // ~"I wonder where that captain is..."~
+    StartTimer(18,25)
+    Continue()
+END
+
+IF
+  !TimerActive(19)
+  !NearSavedLocation(0)
+  Global("Tabard_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ReturnToSavedLocation(0)
+    StartTimer(19,5)
+END
+
+IF
+  !TimerActive(19)
+  NearSavedLocation(0)
+  Global("Tabard_Quest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    FaceSavedLocation(Myself)
+    StartTimer(19,5)
+END
+
+IF
+  Global("RW_12TABAR01","LOCALS",0)
+  !NearSavedLocation(7)
+THEN
+  RESPONSE #100
+    SetGlobal("RW_12TABAR01","LOCALS",1)
+    Continue()
+END
+
+IF
+  !Global("RW_12TABAR01","LOCALS",0)
+  NearSavedLocation(7)
+THEN
+  RESPONSE #100
+    SetGlobal("RW_12TABAR01","LOCALS",0)
+    NoAction()
+END
+
+IF
+  !Global("RW_12TABAR01","LOCALS",0)
+  !Global("CHANGED_POINT","LOCALS",0)
+THEN
+  RESPONSE #100
+    MoveToPoint([-2.-2])
+END
+
+IF
+  !TimerActive(20)
+  Global("RW_12TABAR01","LOCALS",0)
+  !Global("CHANGED_POINT","LOCALS",0)
+THEN
+  RESPONSE #100
+    RandomWalk()
+    StartRandomTimer(20,3,7)
+END
+

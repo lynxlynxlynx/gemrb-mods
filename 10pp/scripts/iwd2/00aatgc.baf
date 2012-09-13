@@ -1,0 +1,9 @@
+IF
+  Allegiance(Myself,ENEMY)
+  See([PC.0.0.0.0.0.0.0.0.CLASSMASK_CLERIC],0)
+THEN
+  RESPONSE #100
+    EquipWeapon()
+    AttackOneRound(LastMarkedObject)
+END
+

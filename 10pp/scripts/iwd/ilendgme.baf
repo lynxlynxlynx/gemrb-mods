@@ -1,0 +1,13 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Protagonist)  // 
+    SetGlobal("GAME_OVER","MYAREA",1)
+    MultiPlayerSync()
+    StartMovie("HOWDRAG")
+    Wait(1)
+    MultiPlayerSync()
+    EndCredits()
+END
+

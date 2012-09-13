@@ -1,0 +1,68 @@
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("Parasite3","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Parasite3","GLOBAL",1)
+    DisplayString(Myself,57915)  // ~This parasite, this *thing* is like nothing you have ever seen before. Four snake-like appendages protrude from its swollen body and have driven themselves through the branch of the Tree. The parasite is sucking the very life out of the Tree. You can attack it if you wish.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  Global("Parasite3","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Parasite3","GLOBAL",2)
+    AddexperienceParty(2000)
+    DisplayString(Myself,57923)  // ~At the first sign of hostility the parasite swells with energy and summons guardians.~
+    CreateCreatureObject("SUFIRE",Myself,0,0,0)  // ~Fire Elemental~
+    CreateCreatureObject("SUFIRE",Myself,0,0,0)  // ~Fire Elemental~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  NumDeadLT("sufire",2)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57924)  // ~While the guardians yet live, the parasite cannot be harmed.~
+END
+
+IF
+  Clicked([ANYONE])
+  Range(LastTrigger,10)
+  NumDeadGT("sufire",1)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,57925)  // ~With its defences down, the parasite is easily dispatched.~
+    CreateVisualEffectObject("SPFLSRIN",Myself)
+    PlaySound("EFF_M35")
+    IncrementGlobal("ParasitesDead","AR2806",1)
+    SetGlobal("Parasite3","GLOBAL",3)
+    TriggerActivation("Drain3",FALSE)
+    TriggerActivation("Parasite3a",TRUE)
+    TriggerActivation("Parasite3",FALSE)
+END
+
+IF
+  Clicked([ANYONE])
+  !Range(LastTrigger,10)
+THEN
+  RESPONSE #100
+    DisplayString(Myself,14702)  // ~You are too far away to use that.~
+END
+
+IF
+  Detect([PC])
+  Delay(3)
+THEN
+  RESPONSE #30
+    CreateVisualEffect("SHACID",[3827.2002])
+  RESPONSE #30
+    CreateVisualEffect("SHACID",[3822.2012])
+  RESPONSE #30
+    CreateVisualEffect("SHACID",[3820.1995])
+END
+

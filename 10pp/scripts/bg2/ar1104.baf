@@ -1,0 +1,23 @@
+IF
+  GlobalTimerExpired("MakeAlliance","GLOBAL")
+  Global("OgreAlliance","GLOBAL",0)
+  Global("MayorComesBack1","AR1104",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MayorComesBack1","AR1104",1)
+    SetGlobal("OgreAlliance","GLOBAL",1)
+    CreateCreature("UHMAY01",[675.387],0)  // ~Minister Lloyd~
+    ActionOverride("uhmay01",SetNumTimesTalkedTo(1))
+END
+
+IF
+  GlobalTimerExpired("Uhmay01Return","GLOBAL")
+  Global("Uhmay01Spawn","AR1104",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Uhmay01Spawn","AR1104",1)
+    SetGlobal("MadulfMistake","GLOBAL",1)
+    CreateCreature("UHMAY01",[675.387],0)  // ~Minister Lloyd~
+    ActionOverride("uhmay01",SetNumTimesTalkedTo(1))
+END
+

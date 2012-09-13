@@ -1,0 +1,8 @@
+IF
+  NumTimesTalkedToGT(0)
+  See([PC.0.0.0.0.0.MASK_EVIL])
+THEN
+  RESPONSE #100
+    Attack([0.0.0.0.0.0.MASK_EVIL])
+END
+

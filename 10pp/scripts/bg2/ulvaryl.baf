@@ -1,0 +1,30 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_GAS_FORM_CHANGE)
+END
+
+IF
+  HPLT(Myself,10)
+THEN
+  RESPONSE #100
+    ReallyForceSpellDead(Myself,VAMPIRE_BAT_FORM_CHANGE)
+END
+
+IF
+  Detect([PC])
+  Global("StartingDialogue","LOCALS",0)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  See([0.0.0.0.5])
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
+END
+

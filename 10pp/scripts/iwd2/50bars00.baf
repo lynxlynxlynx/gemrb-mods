@@ -1,0 +1,137 @@
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  HPPercentLT(Myself,33)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140112141103",Myself,SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_SERIOUS_WOUNDS
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("02_50BARLD_01",33)  // 02_50BARLD_01
+  See("02_50BARLD_01",0)  // 02_50BARLD_01
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140112141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_SERIOUS_WOUNDS
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("02_50BARWA_02",33)  // 02_50BARWA_02
+  See("02_50BARWA_02",0)  // 02_50BARWA_02
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140112141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_SERIOUS_WOUNDS
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("02_50BARWA_05",33)  // 02_50BARWA_05
+  See("02_50BARWA_05",0)  // 02_50BARWA_05
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140112141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_SERIOUS_WOUNDS
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("02_50BARW2_03",33)  // 02_50BARW2_03
+  See("02_50BARW2_03",0)  // 02_50BARW2_03
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140112141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_SERIOUS_WOUNDS
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("02_50BARW2_04",33)  // 02_50BARW2_04
+  See("02_50BARW2_04",0)  // 02_50BARW2_04
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140112141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_SERIOUS_WOUNDS
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  IsMarkedSpell(MARKED_SPELL)
+  HPPercentLT("02_50BARW2_07",33)  // 02_50BARW2_07
+  See("02_50BARW2_07",0)  // 02_50BARW2_07
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("140112141103",LastSeenBy(Myself),SPELLCAST_IGNORE_SEE)
+      // CLERIC_CURE_SERIOUS_WOUNDS
+      // CLERIC_CURE_MODERATE_WOUNDS
+      // CLERIC_CURE_LIGHT_WOUNDS
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+
+IF
+  HasItem("SLiving",Myself)  // ~Slay Living~
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastMarkedObject)
+END
+
+IF
+  ForceMarkedSpell(MARKED_SPELL)
+  SetSpellTarget(Nothing)
+  See(NearestEnemyOf(Myself),0)
+THEN
+  RESPONSE #100
+    MarkSpellAndObject("16101515",Myself,3)
+      // CLERIC_CIRCLE_OF_BLADES
+      // CLERIC_SLAY_LIVING
+    MarkSpellAndObject("1612",LastMarkedObject,3)
+      // CLERIC_SPIRITUAL_WRATH
+    MarkSpellAndObject("1415",Myself,3)
+      // CLERIC_BLOOD_RAGE
+    Continue()
+END
+
+IF
+  !IsMarkedSpell(MARKED_SPELL)
+THEN
+  RESPONSE #100
+    Spell(SpellTarget,MARKED_SPELL)
+    WaitAnimation(Myself,WALK)
+    WaitAnimation(Myself,CONJURE)
+    WaitAnimation(Myself,CAST)
+    ForceMarkedSpell(MARKED_SPELL)
+END
+

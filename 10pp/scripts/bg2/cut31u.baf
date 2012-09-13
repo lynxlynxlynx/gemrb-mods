@@ -1,0 +1,19 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)  // 
+    FadeToColor([20.0],0)
+    Wait(1)
+    ActionOverride("bdcoun01",EscapeArea())
+    ActionOverride("bdcoun02",EscapeArea())
+    ActionOverride("bdcoun03",EscapeArea())
+    ActionOverride("bdaud01",EscapeArea())
+    ActionOverride("bdaud02",EscapeArea())
+    ActionOverride("bdaud03",EscapeArea())
+    Wait(2)
+    FadeFromColor([20.0],0)
+    MoveViewPoint([942.569],FAST)
+    ActionOverride("bdhigg01",StartDialogNoSet(Player1))
+END
+

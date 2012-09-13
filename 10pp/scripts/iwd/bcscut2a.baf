@@ -1,0 +1,20 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("WYLFDENE")  // 
+    StartCutSceneMode()
+    MultiPlayerSync()
+    ClearAllActions()
+    MultiPlayerSync()
+    HideGUI()
+    Wait(1)
+    Activate("MAIN_AMBI_2")
+    StartCutScene("BCTNTFC2")
+    SetGlobal("BC_CUTSCENE","GLOBAL",17)
+    ForceSpell("SEER",INNATE_RETRIBUTION)
+    Wait(3)
+    StartCutScene("BCSEETLK")
+    ReallyForceSpell("WYLFDENE",INNATE_WYLFDENES_DEATH_ANIMATION)
+END
+
