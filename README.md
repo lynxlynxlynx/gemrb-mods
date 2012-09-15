@@ -1,7 +1,7 @@
 gemrb-mods
 ==========
 
-Repository of my GemRB mods and tools not included with GemRB itself.
+Repository of my GemRB mods and tools not included with GemRB itself. Available under GPLv2, see COPYING for details.
 
 Many come in form of shell scripts, but could easily be adapted to work elsewhere.
 
