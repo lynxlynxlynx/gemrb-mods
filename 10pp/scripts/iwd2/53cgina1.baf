@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Malavon_Despana")  // 
-    MultiPlayerSync()
-    StartCutScene("53cGina2")
-END
-

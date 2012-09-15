@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayStringHead(Player1,52947)  // ~A great tear in the earth has split asunder the structure before you. The roof of the structure is covered in tiny but intricate designs. You would do well to investigate them.~
-END
-

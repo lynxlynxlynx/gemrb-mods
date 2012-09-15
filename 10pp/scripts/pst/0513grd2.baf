@@ -1,8 +1,0 @@
-IF
-  !NearLocation(Myself,[349.851],0)
-THEN
-  RESPONSE #100
-    MoveToPoint([349.851])
-    Face(12)
-END
-

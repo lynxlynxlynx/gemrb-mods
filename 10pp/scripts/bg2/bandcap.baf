@@ -1,8 +1,0 @@
-IF
-  Heard("Bandic",1)  // Bandic
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

@@ -1,7 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    ChangeCurrentScript("00DdrP0")
-END
-

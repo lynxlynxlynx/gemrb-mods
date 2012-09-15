@@ -1,7 +1,0 @@
-IF
-  Heard("FlamingEnforcer",1)  // FlamingEnforcer
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,16227)  // ~ _If you are having trouble coordinating your attacks, try pressing the space bar to pause the game.  While paused, issue your commands.  When you unpause the game your characters will obey the orders you have given them.~ [TEXTPOP]
-END
-

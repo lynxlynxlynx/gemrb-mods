@@ -1,8 +1,0 @@
-IF
-  AttackedBy([PC],DEFAULT)
-THEN
-  RESPONSE #100
-    Enemy()
-    Attack(LastAttackerOf(Myself))
-END
-

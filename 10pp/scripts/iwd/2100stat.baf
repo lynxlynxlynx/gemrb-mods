@@ -1,8 +1,0 @@
-IF
-  Global("Know_Tolben","GLOBAL",0)
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("Know_Tolben","GLOBAL",1)
-END
-

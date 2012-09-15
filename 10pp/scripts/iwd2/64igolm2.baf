@@ -1,9 +1,0 @@
-IF
-  Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    IncrementGlobal("MT_Rude_Guests","GLOBAL",1)
-    ChangeCurrentScript("")
-    Continue()
-END
-

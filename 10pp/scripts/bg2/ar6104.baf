@@ -1,7 +1,0 @@
-IF
-  Global("EnteredAR6104","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("EnteredAR6104","GLOBAL",1)
-END
-

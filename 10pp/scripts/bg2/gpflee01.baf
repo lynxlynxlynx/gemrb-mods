@@ -1,9 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-  HPLT(Myself,15)
-THEN
-  RESPONSE #100
-    DisplayStringHead(Myself,50681)  // ~Enough of this...I must live~
-    ReallyForceSpell(Myself,DRYAD_TELEPORT)
-END
-

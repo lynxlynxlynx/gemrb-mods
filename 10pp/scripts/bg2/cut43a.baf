@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("cltcut01")  // 
-    MoveToObject("cltcut02")
-    ActionOverride("cltcut02",StartDialogNoSet(Player1))
-END
-

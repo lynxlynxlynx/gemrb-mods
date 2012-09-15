@@ -1,7 +1,0 @@
-IF
-  AttackedBy([ANYTHING],0)
-THEN
-  RESPONSE #100
-    RunAwayFrom(LastMarkedObject,45)
-END
-

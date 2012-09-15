@@ -1,8 +1,0 @@
-IF
-  Range(Player1,10)
-  Global("BeginChallenge1","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("BeginChallenge1","GLOBAL",1)
-END
-

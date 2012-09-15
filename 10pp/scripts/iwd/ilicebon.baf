@@ -1,9 +1,0 @@
-IF
-  HaveSpell(WIZARD_SNILLOCS_SNOWBALL_SWARM)
-  See(NearestEnemyOf(Myself))
-THEN
-  RESPONSE #100
-    Spell(LastSeenBy(Myself),WIZARD_SNILLOCS_SNOWBALL_SWARM)
-    Wait(2)
-END
-

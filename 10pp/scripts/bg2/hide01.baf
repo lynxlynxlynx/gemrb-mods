@@ -1,8 +1,0 @@
-IF
-  !StateCheck(Myself,STATE_INVISIBLE)
-  !See([GOODCUTOFF])
-THEN
-  RESPONSE #100
-    Hide()
-END
-

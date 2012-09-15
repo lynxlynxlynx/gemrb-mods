@@ -1,8 +1,0 @@
-IF
-  See("obsdem03")  // ~Elder Orb~
-  Detect([PC])
-THEN
-  RESPONSE #100
-    AttackReevaluate("obsdem03",5)
-END
-

@@ -1,8 +1,0 @@
-IF
-  OpenState(Myself,FALSE)
-  !CheckDoorFlags(Myself,BROKEN)
-THEN
-  RESPONSE #100
-    SetDoorFlag(Myself,BROKEN,TRUE)
-END
-

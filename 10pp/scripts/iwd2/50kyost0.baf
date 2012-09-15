@@ -1,9 +1,0 @@
-IF
-  Global("50Kyosti","GLOBAL",2)
-THEN
-  RESPONSE #100
-    UseItem("11Veira2",Myself)  // <Invalid Strref -1>
-    Wait(1)
-    DestroySelf()
-END
-

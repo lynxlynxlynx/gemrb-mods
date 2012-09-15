@@ -1,8 +1,0 @@
-IF
-  AttackedBy([ANYONE],0)
-THEN
-  RESPONSE #100
-    EquipWeapon()
-    AttackReevaluate(LastMarkedObject,225)
-END
-

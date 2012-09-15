@@ -1,8 +1,0 @@
-IF
-  Entered([ANYONE])
-  Global("ElementalSpawn","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("ElementalSpawn","GLOBAL",1)
-END
-

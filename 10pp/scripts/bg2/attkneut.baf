@@ -1,7 +1,0 @@
-IF
-  See([NEUTRAL])
-THEN
-  RESPONSE #100
-    AttackReevaluate([NEUTRAL],15)
-END
-

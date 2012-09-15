@@ -1,7 +1,0 @@
-IF
-  GlobalTimerExpired("DestroyCrypt","GLOBAL")
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

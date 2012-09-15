@@ -1,9 +1,0 @@
-IF
-  Allegiance(Myself,ENEMY)
-  Detect([PC])
-  Exists("tanwiz1")  // ~Vellin Dahn~
-THEN
-  RESPONSE #100
-    ForceSpell(Myself,POOF_GONE)
-END
-

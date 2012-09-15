@@ -1,8 +1,0 @@
-IF
-  GlobalGT("NaliaWentToFuneral","GLOBAL",0)
-  Global("IsaeaNalia","GLOBAL",0)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

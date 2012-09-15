@@ -1,8 +1,0 @@
-IF
-  GlobalLT("Caravan_Quest","GLOBAL",3)
-  Entered([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("Caravan_Quest","GLOBAL",3)
-END
-

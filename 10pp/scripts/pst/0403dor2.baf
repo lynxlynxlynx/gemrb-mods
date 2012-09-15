@@ -1,8 +1,0 @@
-IF
-  Opened([PC])
-  PartyHasItem("Keystrrm")  // ~Tenement Storeroom Key~
-THEN
-  RESPONSE #100
-    DestroyPartyItem("Keystrrm",TRUE)
-END
-

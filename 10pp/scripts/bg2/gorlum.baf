@@ -1,8 +1,0 @@
-IF
-  NumberOfTimesTalkedTo(0)
-  Detect([PC])
-THEN
-  RESPONSE #100
-    StartDialogNoSet(LastTrigger("belljar"))
-END
-

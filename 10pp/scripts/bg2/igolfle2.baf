@@ -1,7 +1,0 @@
-IF
-  Global("Ellsime","AR0602",1)
-THEN
-  RESPONSE #100
-    ChangeAnimation("IGOLFLE4")
-END
-

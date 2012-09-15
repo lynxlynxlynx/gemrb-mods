@@ -1,7 +1,0 @@
-IF
-  Global("TempleShout0904","GLOBAL",1)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

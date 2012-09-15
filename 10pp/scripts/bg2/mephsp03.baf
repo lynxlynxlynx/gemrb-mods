@@ -1,9 +1,0 @@
-IF
-  See([PC])
-  Dead("Mepmag02")  // ~Magma Mephit~
-THEN
-  RESPONSE #100
-    SetGlobal("Sprite_Is_DeadMepmag02","GLOBAL",0)
-    CreateCreature("MEPMAG02",[1385.2608],0)  // ~Magma Mephit~
-END
-

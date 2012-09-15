@@ -1,7 +1,0 @@
-IF
-  Global("GorCarFreed","AR3017",0)
-THEN
-  RESPONSE #100
-    NoAction()
-END
-

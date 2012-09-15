@@ -1,7 +1,0 @@
-IF
-  Exists([PC][0.0.10000.10000])
-THEN
-  RESPONSE #100
-    Attack([PC][0.0.10000.10000])
-END
-

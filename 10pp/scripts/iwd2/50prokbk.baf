@@ -1,8 +1,0 @@
-IF
-  OpenState(Myself,FALSE)
-  Global("TEAM_10","MYAREA",0)
-THEN
-  RESPONSE #100
-    OpenDoor(Myself)
-END
-

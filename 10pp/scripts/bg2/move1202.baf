@@ -1,8 +1,0 @@
-IF
-  Entered([ANYONE])
-  Global("Move","AR1202",0)
-THEN
-  RESPONSE #100
-    SetGlobal("Move","AR1202",1)
-END
-

@@ -1,8 +1,0 @@
-IF
-  Global("60Seen_Treasury_Door","GLOBAL",0)
-  Entered([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("60Seen_Treasury_Door","GLOBAL",1)
-END
-

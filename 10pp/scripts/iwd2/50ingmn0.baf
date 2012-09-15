@@ -1,7 +1,0 @@
-IF
-  !Global("5005_INGRATH_NO_SHOW","GLOBAL",0)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

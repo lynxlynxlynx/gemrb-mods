@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    SpellHitEffectSprite(Myself,Myself,DIMENSION_DOOR_DESTINATION,0)
-    ChangeCurrentScript("")
-END
-

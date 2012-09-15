@@ -1,8 +1,0 @@
-IF
-  !Global("YUANTI_INFERNO","GLOBAL",0)
-THEN
-  RESPONSE #100
-    OpenDoor(Myself)
-    ChangeCurrentScript("")
-END
-

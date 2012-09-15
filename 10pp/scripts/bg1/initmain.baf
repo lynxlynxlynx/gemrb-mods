@@ -1,8 +1,0 @@
-IF
-  See(Player1)
-  NumberOfTimesTalkedTo(0)
-THEN
-  RESPONSE #100
-    Dialogue(Player1)
-END
-

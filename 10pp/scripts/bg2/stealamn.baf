@@ -1,8 +1,0 @@
-IF
-  StealFailed([ANYONE])
-  !Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    StartDialogue("stolen",LastTrigger)
-END
-

@@ -1,9 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    PlaySound("ALARM1")
-    DisplayString(Myself,19431)  // ~As you step through the doorway, an alarm sounds and then abruptly stops.~
-    SetGlobal("Ellsime","AR0602",1)
-END
-

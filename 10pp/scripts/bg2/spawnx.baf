@@ -1,8 +1,0 @@
-IF
-  GlobalLT("EXTRACOUNT","MYAREA",8)
-THEN
-  RESPONSE #100
-    IncrementGlobal("EXTRACOUNT","MYAREA",1)
-    CreateCreatureOffScreen("",6)  // 
-END
-

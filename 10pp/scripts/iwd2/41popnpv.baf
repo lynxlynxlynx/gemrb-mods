@@ -1,8 +1,0 @@
-IF
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    Unlock("AR4102_Door8")
-    ChangeCurrentScript("")
-END
-

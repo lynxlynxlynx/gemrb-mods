@@ -1,7 +1,0 @@
-IF
-  Global("KiserJob","GLOBAL",3)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

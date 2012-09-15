@@ -1,8 +1,0 @@
-IF
-  Global("DeactivateTemple","AR5201",0)
-THEN
-  RESPONSE #100
-    SetGlobal("DeactivateTemple","AR5201",1)
-    TriggerActivation("Tran5204",FALSE)
-END
-

@@ -1,8 +1,0 @@
-IF
-  Global("BEETLE_DOOR_OPENED","MYAREA",0)
-  OpenState(Myself,TRUE)
-THEN
-  RESPONSE #100
-    SetGlobal("BEETLE_DOOR_OPENED","MYAREA",1)
-END
-

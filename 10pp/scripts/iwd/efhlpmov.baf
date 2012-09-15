@@ -1,9 +1,0 @@
-IF
-  !Help([PC])
-  Allegiance(Myself,ENEMY)
-  Help([ANYTHING])
-THEN
-  RESPONSE #100
-    MoveToObject(NearestEnemyOf(LastHelp(Myself)))
-END
-

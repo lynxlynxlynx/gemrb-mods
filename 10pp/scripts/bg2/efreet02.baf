@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    Wait(20)
-    ReallyForceSpell(Myself,EFREETI_PHYSICAL_FORM_CHANGE)
-END
-

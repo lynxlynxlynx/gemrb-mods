@@ -1,8 +1,0 @@
-IF
-  HarmlessEntered([PC])
-  Global("Glyve_Talk","AR1400",0)
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

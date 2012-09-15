@@ -1,7 +1,0 @@
-IF
-  Global("udDoneDuty","AR2400",1)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

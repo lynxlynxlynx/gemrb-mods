@@ -1,7 +1,0 @@
-IF
-  Global("BEETLE_DOOR_OPENED","MYAREA",0)
-THEN
-  RESPONSE #100
-    NoAction()
-END
-

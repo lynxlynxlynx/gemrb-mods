@@ -1,7 +1,0 @@
-IF
-  Global("Chapter","GLOBAL",7)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

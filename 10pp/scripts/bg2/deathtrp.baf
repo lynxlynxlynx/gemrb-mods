@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    Kill(LastTrigger)
-END
-

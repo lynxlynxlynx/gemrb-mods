@@ -1,8 +1,0 @@
-IF
-  !Global("Goblins_Attack_Palisade","GLOBAL",0)
-  OpenState(Myself,FALSE)
-THEN
-  RESPONSE #100
-    OpenDoor(Myself)
-END
-

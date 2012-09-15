@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Nameless")  // 
-    SetNoOneOnTrigger("Face")
-END
-

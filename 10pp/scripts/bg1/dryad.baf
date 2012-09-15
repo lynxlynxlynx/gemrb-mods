@@ -1,8 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-THEN
-  RESPONSE #100
-    ForceSpell(NearestEnemyOf(Myself),WIZARD_CHARM_PERSON)
-    RunAwayFrom(NearestEnemyOf(Myself),45)
-END
-

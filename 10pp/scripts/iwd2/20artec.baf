@@ -1,7 +1,0 @@
-IF
-  AttackedBy([GOODCUTOFF],0)
-THEN
-  RESPONSE #100
-    EscapeAreaDestroy(7)
-END
-

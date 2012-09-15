@@ -1,9 +1,0 @@
-IF
-  !PartyHasItem("misc9r")  // ~Light Gem~
-  Clicked([ANYONE])
-  Global("lightmes","AR2100",0)
-THEN
-  RESPONSE #100
-    DisplayString(Myself,52937)  // ~An impenetrable darkness overwhelms you.  You cannot pass this way without light.~
-END
-

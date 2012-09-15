@@ -1,9 +1,0 @@
-IF
-  Global("TEAM_2","MYAREA",0)
-  Opened([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("TEAM_2","MYAREA",1)
-    ReallyForceSpell(LastTrigger,TRAP_ARROW_BITING)
-END
-

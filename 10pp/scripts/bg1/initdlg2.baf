@@ -1,8 +1,0 @@
-IF
-  See([PC])
-  Delay(5)
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

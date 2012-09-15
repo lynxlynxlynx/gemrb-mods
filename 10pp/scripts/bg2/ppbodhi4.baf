@@ -1,9 +1,0 @@
-IF
-  Detect([PC])
-  AreaCheck("ar1514")
-  NumberOfTimesTalkedTo(0)
-THEN
-  RESPONSE #100
-    StartDialogNoSet(LastSeenBy(Myself))
-END
-

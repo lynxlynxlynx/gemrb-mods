@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    Enemy()
-    ChangeAIScript("",AREA)
-END
-

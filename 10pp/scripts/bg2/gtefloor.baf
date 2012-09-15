@@ -1,8 +1,0 @@
-IF
-  GlobalTimerNotExpired("ElectrifiedFloorTimer","AR6005")
-  IsOverMe([ANYONE])
-THEN
-  RESPONSE #100
-    ReallyForceSpellRES("JWSP01",LastTrigger)  // <Invalid Strref -1>
-END
-

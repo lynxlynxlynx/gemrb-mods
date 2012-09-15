@@ -1,7 +1,0 @@
-IF
-  Global("Leave","LOCALS",1)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

@@ -1,8 +1,0 @@
-IF
-  Global("FoughtTazok","GLOBAL",0)
-  HPPercentLT(Myself,50)
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

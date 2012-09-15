@@ -1,9 +1,0 @@
-IF
-  Global("TrueSight","LOCALS",0)
-  Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    SetGlobal("TrueSight","LOCALS",1)
-    ForceSpell(Myself,CLERIC_TRUE_SIGHT)
-END
-

@@ -1,9 +1,0 @@
-IF
-  Dead("Riftcr04")  // ~Empathic Manifestation~
-  Global("Avatar","AR0203",0)
-THEN
-  RESPONSE #100
-    SetGlobal("Avatar","AR0203",1)
-    CreateCreature("RIFTG03",[508.462],14)  // ~Avatar~
-END
-

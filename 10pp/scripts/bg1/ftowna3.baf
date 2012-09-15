@@ -1,8 +1,0 @@
-IF
-  Trigger(1)
-THEN
-  RESPONSE #100
-    MoveToPoint([316.354])
-    Dialogue([PC])
-END
-

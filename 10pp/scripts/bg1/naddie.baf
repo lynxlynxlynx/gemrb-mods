@@ -1,7 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    SetGlobal("NADARIN","GLOBAL",1)
-END
-

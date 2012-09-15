@@ -1,8 +1,0 @@
-IF
-  Global("30SSpid_Door","GLOBAL",0)
-  OpenState(Myself,TRUE)
-THEN
-  RESPONSE #100
-    SetGlobal("30SSpid_Door","GLOBAL",1)
-END
-

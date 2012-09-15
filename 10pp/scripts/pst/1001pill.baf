@@ -1,9 +1,0 @@
-IF
-  Global("Pillar_Warning","GLOBAL",1)
-  !TimerActive(1)
-THEN
-  RESPONSE #100
-    PlaySoundNotRanged("AR_Alarm")
-    StartTimer(1,18)
-END
-

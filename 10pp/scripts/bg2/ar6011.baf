@@ -1,9 +1,0 @@
-IF
-  GlobalGT("PatsyJob","GLOBAL",2)
-  Global("PatsyJob","AR6011",0)
-THEN
-  RESPONSE #100
-    SetGlobal("PatsyJob","AR6011",1)
-    ActionOverride("bazgau01",DestroySelf())
-END
-

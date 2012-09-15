@@ -1,7 +1,0 @@
-IF
-  Global("Current_Area","GLOBAL",1601)
-THEN
-  RESPONSE #100
-    ChangeAIScript("1601rat",DEFAULT)
-END
-

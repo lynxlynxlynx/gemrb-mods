@@ -1,8 +1,0 @@
-IF
-  See([PC],0)
-THEN
-  RESPONSE #100
-    SetGlobal("41PlayerSawGameRoom","GLOBAL",1)
-    ChangeCurrentScript("")
-END
-

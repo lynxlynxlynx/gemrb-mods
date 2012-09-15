@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId(Player1)  // 
-    ActionOverride("trcut05",Dialog(Player1))
-END
-

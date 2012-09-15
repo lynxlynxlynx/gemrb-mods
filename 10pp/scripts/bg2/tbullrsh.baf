@@ -1,8 +1,0 @@
-IF
-  Clicked([ANYONE])
-THEN
-  RESPONSE #100
-    CreateCreature("BULLRUSH",[-1.-1],0)  // BULLRUSH
-    TriggerActivation("Bullrushtrap",FALSE)
-END
-

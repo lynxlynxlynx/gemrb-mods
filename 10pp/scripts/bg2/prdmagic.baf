@@ -1,9 +1,0 @@
-IF
-  IsOverMe([ANYONE])
-  Global("Warning","AR3004",0)
-THEN
-  RESPONSE #100
-    DisplayString(Myself,64149)  // ~The air feels unusually stale and heavy here.  It's as if all of the energy and power has been sucked out of the room.~
-    SetGlobal("Warning","AR3004",1)
-END
-

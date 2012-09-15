@@ -1,8 +1,0 @@
-IF
-  Allegiance(Myself,ENEMY)
-  ActionListEmpty()
-THEN
-  RESPONSE #100
-    MoveToObject([PC][0.0.10000.10000])
-END
-

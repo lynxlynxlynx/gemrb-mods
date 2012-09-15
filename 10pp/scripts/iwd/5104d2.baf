@@ -1,8 +1,0 @@
-IF
-  Global("SES2_DEAD","GLOBAL",1)
-THEN
-  RESPONSE #100
-    OpenDoor(Myself)
-    SetGlobal("SES2_DEAD","GLOBAL",2)
-END
-

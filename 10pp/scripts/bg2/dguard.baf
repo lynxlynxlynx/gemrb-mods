@@ -1,7 +1,0 @@
-IF
-  Heard("Dillar",1)  // Dillar
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

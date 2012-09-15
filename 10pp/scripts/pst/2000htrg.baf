@@ -1,7 +1,0 @@
-IF
-  HarmlessEntered([PC])
-THEN
-  RESPONSE #100
-    ForceAIScript("2000hrse","Horse",DEFAULT)
-END
-

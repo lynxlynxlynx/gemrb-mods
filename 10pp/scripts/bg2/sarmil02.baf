@@ -1,9 +1,0 @@
-IF
-  Detect([PC])
-  Global("saidonce","LOCALS",0)
-THEN
-  RESPONSE #100
-    SetGlobal("saidonce","LOCALS",1)
-    DisplayStringHead(Myself,71641)  // ~Looting will not be permitted!  Looters shall be executed!!~
-END
-

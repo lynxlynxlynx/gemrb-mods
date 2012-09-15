@@ -1,8 +1,0 @@
-IF
-  Global("GaelanMove","GLOBAL",0)
-  Global("RefusedGaelan","GLOBAL",1)
-THEN
-  RESPONSE #100
-    Dialog([PC])
-END
-

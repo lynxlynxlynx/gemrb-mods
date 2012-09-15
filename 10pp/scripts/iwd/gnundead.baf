@@ -1,8 +1,0 @@
-IF
-  !NumberOfTimesTalkedTo(0)
-THEN
-  RESPONSE #100
-    ChangeRace(Myself,UNDEAD)
-    ChangeCurrentScript("")
-END
-

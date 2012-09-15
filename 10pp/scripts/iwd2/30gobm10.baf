@@ -1,8 +1,0 @@
-IF
-  Exists("PATROL_4")  // PATROL_4
-  !Dead("PATROL_4")  // 
-THEN
-  RESPONSE #100
-    MoveToObjectFollow("PATROL_4")
-END
-

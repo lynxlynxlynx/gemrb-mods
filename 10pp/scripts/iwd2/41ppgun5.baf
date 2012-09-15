@@ -1,9 +1,0 @@
-IF
-  Global("41PrismFire","MYAREA",3)
-THEN
-  RESPONSE #100
-    ForceSpellPoint([1599.1567],2092)
-    Unlock("AR4102_Door3")
-    TriggerActivation(Myself,FALSE)
-END
-

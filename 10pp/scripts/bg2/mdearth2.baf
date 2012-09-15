@@ -1,8 +1,0 @@
-IF
-  RandomNum(2,1)
-  See("DUSTMEP")  // DUSTMEP
-THEN
-  RESPONSE #100
-    AttackReevaluate("DUSTMEP",15)
-END
-

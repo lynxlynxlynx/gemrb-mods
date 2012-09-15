@@ -1,7 +1,0 @@
-IF
-  Dead("Talmiss")  // ~Mistress Ada~
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

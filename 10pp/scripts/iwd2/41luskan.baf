@@ -1,9 +1,0 @@
-IF
-  Global("41Rahm","GLOBAL",1)
-  See([0.0.DOPPLEGANGER],0)
-THEN
-  RESPONSE #100
-    EquipWeapon()
-    AttackOneRound(LastMarkedObject)
-END
-

@@ -1,7 +1,0 @@
-IF
-  !See("BPatron4")  // ~Brothel Patron~
-THEN
-  RESPONSE #100
-    ChangeAIScript("0605kim1",DEFAULT)
-END
-

@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,62580)  // ~Unlike the other rooms, there appear to be no monsters in here. The runes inscribed on the floor and walls just inside the door to this room are similar to those at the main entrance to the temple.  ~
-END
-

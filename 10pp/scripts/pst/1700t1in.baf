@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    ChangeSpecifics(Myself,0)
-    ChangeAIScript("1700tro1",GENERAL)
-END
-

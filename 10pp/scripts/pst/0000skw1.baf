@@ -1,8 +1,0 @@
-IF
-  Global("Current_Area","GLOBAL",208)
-THEN
-  RESPONSE #100
-    Enemy()
-    ChangeAIScript("0208tskl",DEFAULT)
-END
-

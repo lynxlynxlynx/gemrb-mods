@@ -1,7 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,RED_SWIRL)
-END
-

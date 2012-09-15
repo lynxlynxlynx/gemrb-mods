@@ -1,8 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-THEN
-  RESPONSE #100
-    Spell(NearestEnemyOf(Myself),WIZARD_HORROR)
-    ForceSpell(Myself,DAESEWOLF_CHANGE)
-END
-

@@ -1,8 +1,0 @@
-IF
-  AreaCheck("ar1503")
-  Dead("icfung02")  // ~Spore Colony~
-THEN
-  RESPONSE #100
-    Kill(Myself)
-END
-

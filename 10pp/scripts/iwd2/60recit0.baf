@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    ForceSpellPoint([420.490],CLERIC_RECITATION)
-    Wait(21)
-END
-

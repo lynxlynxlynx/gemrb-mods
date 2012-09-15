@@ -1,8 +1,0 @@
-IF
-  GlobalTimerExpired("PartyArrest","GLOBAL")
-  See([PC])
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

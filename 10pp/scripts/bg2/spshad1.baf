@@ -1,7 +1,0 @@
-IF
-  IsOverMe([ANYONE])
-THEN
-  RESPONSE #50
-    CreateCreatureObject("RNGSHA01",Myself,0,0,0)  // ~Shadow~
-END
-

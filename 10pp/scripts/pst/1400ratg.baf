@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    MoveToObjectEx([0.0.0.0.0.0.PERSON_12][0.0.10000.10000],0)
-    FaceObject([PC])
-    ChangeAIScript("",GENERAL)
-END
-

@@ -1,8 +1,0 @@
-IF
-  Opened([PC])
-  Global("Thief","AR0304",0)
-THEN
-  RESPONSE #100
-    GlobalSet("Thief","AR0304",1)
-END
-

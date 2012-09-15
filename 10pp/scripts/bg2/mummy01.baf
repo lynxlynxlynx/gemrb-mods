@@ -1,7 +1,0 @@
-IF
-  SpellCastOnMe([PC],CLERIC_RESURRECTION)
-THEN
-  RESPONSE #100
-    ChangeAnimation("mumfig01")
-END
-

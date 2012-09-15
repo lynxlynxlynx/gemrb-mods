@@ -1,7 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    ChangeSpecifics(Myself,PERSON_2)
-END
-

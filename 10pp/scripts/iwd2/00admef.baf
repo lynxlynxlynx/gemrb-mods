@@ -1,8 +1,0 @@
-IF
-  AttackedBy([GOODCUTOFF],0)
-  !TargetUnreachable(LastMarkedObject)
-THEN
-  RESPONSE #100
-    MoveToObject(LastMarkedObject)
-END
-

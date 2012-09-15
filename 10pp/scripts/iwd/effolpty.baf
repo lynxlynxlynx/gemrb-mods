@@ -1,8 +1,0 @@
-IF
-  ActionListEmpty()
-  !See([PC])
-THEN
-  RESPONSE #100
-    MoveToObject([PC][0.0.10000.10000])
-END
-

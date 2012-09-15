@@ -1,9 +1,0 @@
-IF
-  Global("Plot6Failed","AR0523",1)
-  Global("didthis","LOCALS",0)
-THEN
-  RESPONSE #100
-    SetGlobal("didthis","LOCALS",1)
-    DestroySelf()
-END
-

@@ -1,9 +1,0 @@
-IF
-  Global("PlayerToldOfTrollMound","GLOBAL",1)
-  Global("CreateLens","LOCALS",0)
-THEN
-  RESPONSE #100
-    SetGlobal("CreateLens","LOCALS",1)
-    CreateItem("c6lens",0,0,0)  // ~Lens Piece~
-END
-

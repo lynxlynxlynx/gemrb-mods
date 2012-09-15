@@ -1,9 +1,0 @@
-IF
-  OnCreation()
-  Global("ar0413SoundOff","AR0413",0)
-THEN
-  RESPONSE #100
-    SoundActivate("0413a-ON",FALSE)
-    SetGlobal("ar0413SoundOff","AR0413",1)
-END
-

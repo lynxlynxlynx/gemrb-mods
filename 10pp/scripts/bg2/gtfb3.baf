@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    ForceSpellPoint([3185.1152],RED_FIREBALL)
-    Wait(6)
-END
-

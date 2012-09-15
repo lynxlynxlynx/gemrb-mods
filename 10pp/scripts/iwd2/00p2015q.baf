@@ -1,9 +1,0 @@
-IF
-  Or(2)
-    Opened([PC])
-    Entered([PC])
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastTrigger,TRAP_POISON_DAMAGE_DARTS)
-END
-

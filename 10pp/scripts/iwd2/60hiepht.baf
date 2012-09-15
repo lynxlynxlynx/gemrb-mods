@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    ChangeEnemyAlly(Myself,NEUTRAL)
-    HideCreature(Myself,FALSE)
-    ChangeCurrentScript("")
-END
-

@@ -1,7 +1,0 @@
-IF
-  HarmlessOpened([PC])
-THEN
-  RESPONSE #100
-    GlobalSet("Undead_Alert","AR1500",1)
-END
-

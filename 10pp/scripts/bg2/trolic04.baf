@@ -1,9 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    ApplySpell(Myself,TROLL_SETHP1)
-    PlayDead(300)
-    ReallyForceSpellRES("bliztrl",Myself)  // <Invalid Strref -1>
-END
-

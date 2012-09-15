@@ -1,8 +1,0 @@
-IF
-  !Allegiance(Myself,ENEMY)
-  PickPocketFailed([PC])
-THEN
-  RESPONSE #100
-    NoAction()
-END
-

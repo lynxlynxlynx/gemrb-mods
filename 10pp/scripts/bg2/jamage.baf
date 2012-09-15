@@ -1,8 +1,0 @@
-IF
-  Global("PloyerMages","GLOBAL",1)
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

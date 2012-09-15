@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId(Player1)  // 
-    ActionOverride("mook",MoveToPointNoInterrupt([1804.3600]))
-    ActionOverride("Mook",StartDialogNoSet(Player1))
-END
-

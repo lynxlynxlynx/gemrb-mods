@@ -1,9 +1,0 @@
-IF
-  Global("41PrismFire","MYAREA",3)
-THEN
-  RESPONSE #100
-    ForceSpellPoint([1906.1249],2092)
-    TriggerActivation("Mirror7",TRUE)
-    TriggerActivation(Myself,FALSE)
-END
-

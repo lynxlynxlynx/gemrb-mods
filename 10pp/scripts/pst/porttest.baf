@@ -1,8 +1,0 @@
-IF
-  Entered([PC])
-  PartyHasItem("SCALPEL")  // ~Scalpel~
-THEN
-  RESPONSE #100
-    PlaySound("")
-END
-

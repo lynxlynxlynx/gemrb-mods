@@ -1,7 +1,0 @@
-IF
-  Heard("HouseEnforcer",1)  // HouseEnforcer
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

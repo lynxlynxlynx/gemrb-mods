@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    SetCreatureAreaFlag(Myself,IGNORE_RETURN_TO_START_POS,TRUE)
-    ChangeCurrentScript("")
-END
-

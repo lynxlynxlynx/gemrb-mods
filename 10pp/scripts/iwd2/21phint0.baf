@@ -1,7 +1,0 @@
-IF
-  Entered([PC])
-THEN
-  RESPONSE #100
-    FloatMessage("21Bridge",40971)  // ~The bridge to the west looks as if it was recently destroyed.  With enough lumber, you might be able to repair it.~
-END
-

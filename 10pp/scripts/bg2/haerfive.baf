@@ -1,9 +1,0 @@
-IF
-  IsOverMe("HaerDalis")  // HaerDalis
-  Global("HaerDalisFiveFlagon","GLOBAL",0)
-THEN
-  RESPONSE #100
-    ActionOverride("HaerDalis",StartDialogNoSet(Player1))
-    SetGlobal("HaerDalisFiveFlagon","GLOBAL",1)
-END
-

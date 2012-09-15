@@ -1,6 +1,0 @@
-IF
-THEN
-  RESPONSE #100
-    ChangeCurrentScript("00aAtGN")
-END
-

@@ -1,8 +1,0 @@
-IF
-  Detect([PC])
-  Range(LastSeenBy(Myself),25)
-THEN
-  RESPONSE #100
-    StartDialogNoSet(LastSeenBy(Myself))
-END
-

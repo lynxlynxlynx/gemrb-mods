@@ -1,7 +1,0 @@
-IF
-  Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    ChangeEnemyAlly(Myself,NEUTRAL)
-END
-

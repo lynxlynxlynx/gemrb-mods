@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,16224)  // ~ _Open doors by left-clicking on the doorway. The mouse pointer will change into a door icon when in the right position and the door will be outlined in blue. Your party can then enter the building if you left-click on the area just inside the door. ~ [TEXTPOP]
-END
-

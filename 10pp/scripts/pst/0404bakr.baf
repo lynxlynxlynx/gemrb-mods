@@ -1,8 +1,0 @@
-IF
-  Global("Fell_Floor_Trigger","GLOBAL",0)
-  HarmlessEntered([PC])
-THEN
-  RESPONSE #100
-    GlobalSet("Fell_Floor_Trigger","GLOBAL",1)
-END
-

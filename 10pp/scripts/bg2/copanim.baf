@@ -1,8 +1,0 @@
-IF
-  Allegiance("beast",ENEMY)  // ~Beastmaster~
-  !Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    ChangeEnemyAlly(Myself,ENEMY)
-END
-

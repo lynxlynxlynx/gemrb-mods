@@ -1,9 +1,0 @@
-IF
-  Global("TranzigSpawn","GLOBAL",0)
-  Global("Chapter","GLOBAL",3)
-THEN
-  RESPONSE #100
-    SetGlobal("TranzigSpawn","GLOBAL",1)
-    CreateCreature("TRANZI",[200.580])  // ~Tranzig~
-END
-

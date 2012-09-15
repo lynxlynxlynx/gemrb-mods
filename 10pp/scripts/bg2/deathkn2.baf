@@ -1,9 +1,0 @@
-IF
-  Global("DeathSpawn","GLOBAL",1)
-THEN
-  RESPONSE #100
-    ForceSpell("ike",WIZARD_FIREBALL)
-    ForceSpell("tourist2",WIZARD_FIREBALL)
-    ForceSpell(Myself,DRYAD_TELEPORT)
-END
-

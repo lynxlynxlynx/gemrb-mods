@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    Wait(10)
-    StartDialogNoSet(Player1)
-END
-

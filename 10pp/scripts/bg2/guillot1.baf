@@ -1,8 +1,0 @@
-IF
-  Entered([GOODCUTOFF])
-THEN
-  RESPONSE #50
-    ForceSpell(LastTrigger,TRAP_GUILLOTINE)
-    CreateVisualEffect("AM307TT2",[1498.744])
-END
-

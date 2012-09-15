@@ -1,9 +1,0 @@
-IF
-  OR(2)
-    Global("TrisLeave","GLOBAL",1)
-    Global("tannerplot2","GLOBAL",4)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

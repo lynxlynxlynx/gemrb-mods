@@ -1,9 +1,0 @@
-IF
-  OR(2)
-    Global("KiserJob","GLOBAL",0)
-    GlobalGT("KiserJob","GLOBAL",1)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

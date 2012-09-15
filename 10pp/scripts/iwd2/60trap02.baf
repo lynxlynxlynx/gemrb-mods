@@ -1,7 +1,0 @@
-IF
-  Entered([PC])
-THEN
-  RESPONSE #100
-    ForceSpell(LastTrigger,TRAP_SNAKE_LAUNCHER)
-END
-

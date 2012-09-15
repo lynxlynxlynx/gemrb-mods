@@ -1,7 +1,0 @@
-IF
-  Global("itFight","R0406P",3)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

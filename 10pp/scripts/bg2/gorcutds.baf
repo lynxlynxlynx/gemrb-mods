@@ -1,7 +1,0 @@
-IF
-  Global("DestroyAllCutCreatures","AR3017",1)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

@@ -1,9 +1,0 @@
-IF
-  See([PC])
-  Global("Display","LOCALS",0)
-THEN
-  RESPONSE #100
-    SetGlobal("Display","LOCALS",1)
-    DisplayStringHead(Myself,52944)  // ~Gather my pretties! Manlings intrude upon our realm!~
-END
-

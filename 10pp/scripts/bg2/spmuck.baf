@@ -1,7 +1,0 @@
-IF
-  IsOverMe([ANYONE])
-THEN
-  RESPONSE #50
-    ForceSpell(LastTrigger,TRAP_MUCK)
-END
-

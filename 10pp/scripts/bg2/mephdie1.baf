@@ -1,7 +1,0 @@
-IF
-  Dead("MephitPortal1")  // MephitPortal1
-THEN
-  RESPONSE #100
-    Kill(Myself)
-END
-

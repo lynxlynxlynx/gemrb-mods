@@ -1,7 +1,0 @@
-IF
-  !Global("HJOLLDER_BANISHED","GLOBAL",0)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

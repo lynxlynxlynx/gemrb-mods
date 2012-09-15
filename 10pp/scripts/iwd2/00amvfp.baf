@@ -1,8 +1,0 @@
-IF
-  !TimerActive(19)
-THEN
-  RESPONSE #100
-    MoveToObject(NearestPC)
-    StartRandomTimer(19,1,5)
-END
-

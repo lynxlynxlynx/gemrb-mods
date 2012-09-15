@@ -1,7 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    DisplayString(Myself,11778)  // ~You travel down a long tunnel to a group of three burial mounds.~
-END
-

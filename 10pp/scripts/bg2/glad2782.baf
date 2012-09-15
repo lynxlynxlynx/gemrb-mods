@@ -1,8 +1,0 @@
-IF
-  Dead("Hendak")  // ~Hendak~
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

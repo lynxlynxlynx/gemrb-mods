@@ -1,7 +1,0 @@
-IF
-  Dead("Mendas3")  // Mendas3
-THEN
-  RESPONSE #100
-    ForceSpell(Myself,WEREWOLF_CHANGE)
-END
-

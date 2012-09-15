@@ -1,8 +1,0 @@
-IF
-  Global("sahkngjob","GLOBAL",2)
-THEN
-  RESPONSE #100
-    DestroyItem("RODS02")  // ~Rod of Lordly Might~
-    DestroyItem("BRAC19")  // ~Gauntlets of Crushing~
-END
-

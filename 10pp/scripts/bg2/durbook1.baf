@@ -1,7 +1,0 @@
-IF
-  Clicked([ANYONE])
-THEN
-  RESPONSE #100
-    SetGlobal("ReadBook1","GLOBAL",1)
-END
-

@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    SetCreatureAreaFlag(Myself,IGNORE_AI_INHIBIT,TRUE)
-    ChangeCurrentScript("")
-END
-

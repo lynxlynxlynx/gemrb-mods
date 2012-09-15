@@ -1,7 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    DisplayStringHead(Myself,62023)  // ~The beholder dies and leaves a small pile of items.~
-END
-

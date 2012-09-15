@@ -1,8 +1,0 @@
-IF
-  HasItem("00POTN03",Myself)  // ~Elixir of Health~
-  HPPercentLT(Myself,75)
-THEN
-  RESPONSE #100
-    UseItem("00POTN03",Myself)  // ~Elixir of Health~
-END
-

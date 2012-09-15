@@ -1,9 +1,0 @@
-IF
-  Entered([ANYONE])
-  Global("Infected","GLOBAL",1)
-THEN
-  RESPONSE #100
-    CreateCreature("WEREWO",[-1.-1],0)  // WEREWO
-    CreateCreature("WEREWO",[-1.-1],0)  // WEREWO
-END
-

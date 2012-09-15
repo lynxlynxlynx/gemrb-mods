@@ -1,8 +1,0 @@
-IF
-  !Global("Current_Area","GLOBAL",3015)
-THEN
-  RESPONSE #100
-    GlobalSet("Current_Area","GLOBAL",3015)
-    Continue()
-END
-

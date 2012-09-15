@@ -1,8 +1,0 @@
-IF
-  See([GOODCUTOFF.0.0.0.240],0)
-THEN
-  RESPONSE #100
-    SetBestWeapon(LastMarkedObject,3)
-    AttackReevaluate(LastMarkedObject,45)
-END
-

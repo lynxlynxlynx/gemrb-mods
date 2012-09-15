@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(LastTrigger,62593)  // ~Strong gusts of air whip down the corridor to pull and tug at your clothing, nearly knocking you off your feet.  ~
-END
-

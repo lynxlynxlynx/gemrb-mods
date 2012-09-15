@@ -1,9 +1,0 @@
-IF
-  OR(2)
-    GlobalTimerExpired("Gaal","AR0900")
-    Dead("UnseeingEye")  // UnseeingEye
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

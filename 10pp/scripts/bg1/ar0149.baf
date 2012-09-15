@@ -1,9 +1,0 @@
-IF
-  Global("Chapter","GLOBAL",7)
-  !Exists("PIlmater")  // PIlmater
-  !Dead("PIlmater")  // PIlmater
-THEN
-  RESPONSE #100
-    CreateCreature("PRIILMU",[191.234])  // ~Priest of Ilmater~
-END
-

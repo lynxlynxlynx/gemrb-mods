@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,16229)  // ~ _Wizards, Clerics, Druids, and Bards can all cast spells. Select their Cast Spell button, choose a spell, and left-click on your target. You can also configure Quick Spells by right-clicking on a Quick Spell slot. This summons a list of memorized spells to choose. If no spells are listed, the character either does not have any spells memorized or cannot cast until higher levels. To cast the quick spell, left-click on the appropriate quick spell slot and then select your target.~ [TEXTPOP]
-END
-

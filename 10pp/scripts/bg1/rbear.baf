@@ -1,7 +1,0 @@
-IF
-  AttackedBy([ANYONE],DEFAULT)
-THEN
-  RESPONSE #100
-    Attack(LastAttackerOf(Myself))
-END
-

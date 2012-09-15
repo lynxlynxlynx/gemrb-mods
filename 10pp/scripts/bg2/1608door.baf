@@ -1,8 +1,0 @@
-IF
-  IsOverMe([ANYONE])
-  Global("GalvenaDoor","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("GalvenaDoor","GLOBAL",1)
-END
-

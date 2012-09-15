@@ -1,7 +1,0 @@
-IF
-  GlobalTimerExpired("Galteran","GLOBAL")
-THEN
-  RESPONSE #100
-    CreateCreature("GUARD",[300.379])  // ~Guard~
-END
-

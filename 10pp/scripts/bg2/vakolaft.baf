@@ -1,8 +1,0 @@
-IF
-  Global("VakolaMove","GLOBAL",3)
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

@@ -1,8 +1,0 @@
-IF
-  !IsRotation(Myself,W)
-THEN
-  RESPONSE #100
-    Face(W)
-    Continue()
-END
-

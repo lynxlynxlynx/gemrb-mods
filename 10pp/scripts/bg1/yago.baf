@@ -1,8 +1,0 @@
-IF
-  HPLT(Myself,11)
-  Global("YagoFight","GLOBAL",0)
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

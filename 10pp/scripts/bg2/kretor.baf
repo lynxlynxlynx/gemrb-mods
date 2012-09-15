@@ -1,7 +1,0 @@
-IF
-  Global("KretorThief","GLOBAL",9)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

@@ -1,8 +1,0 @@
-IF
-  !GlobalTimerNotExpired("AntimagicTimer","AR3004")
-THEN
-  RESPONSE #100
-    ApplySpell(Player1,DEAD_MAGIC_AREA)
-    SetGlobalTimer("AntimagicTimer","AR3004",3)
-END
-

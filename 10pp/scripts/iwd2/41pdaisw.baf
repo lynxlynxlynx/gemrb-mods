@@ -1,8 +1,0 @@
-IF
-  IsOverMe([ANYONE])
-  !Dead(LastTrigger)  // 
-THEN
-  RESPONSE #100
-    ActionOverride(LastTrigger,JumpToPoint([1250.740]))
-END
-

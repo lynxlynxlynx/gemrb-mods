@@ -1,9 +1,0 @@
-IF
-  Global("snowbam_8_played","MYAREA",0)
-  Entered([PC])
-THEN
-  RESPONSE #100
-    Activate("snowbam8")
-    SetGlobal("snowbam_8_played","MYAREA",1)
-END
-

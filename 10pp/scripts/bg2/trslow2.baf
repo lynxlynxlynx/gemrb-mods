@@ -1,9 +1,0 @@
-IF
-  Detect([GOODCUTOFF])
-  !GlobalTimerNotExpired("SlowFreezeTimer2","AR3016")
-THEN
-  RESPONSE #100
-    SetGlobalTimer("SlowFreezeTimer2","AR3016",3)
-    ReallyForceSpell(Myself,SLOW_FREEZE)
-END
-

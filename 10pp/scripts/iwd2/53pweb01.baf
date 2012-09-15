@@ -1,8 +1,0 @@
-IF
-  Entered([PC])
-THEN
-  RESPONSE #100
-    DisplayMessage(14381)  // ~Trap Sprung~ [AMB_D05C]
-    ReallyForceSpell(LastTrigger,INNATE_DRIDER_WEB)
-END
-

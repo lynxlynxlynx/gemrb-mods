@@ -1,9 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,TROLL_SETHP1)
-    PlayDead(300)
-    ReallyForceSpell(Myself,TROLL_DESERT_CHANGE)
-END
-

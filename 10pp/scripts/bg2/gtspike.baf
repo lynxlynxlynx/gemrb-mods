@@ -1,7 +1,0 @@
-IF
-  IsOverMe([GOODCUTOFF])
-THEN
-  RESPONSE #50
-    ForceSpell(LastTrigger,TRAP_HALLWAY_SPIKES)
-END
-

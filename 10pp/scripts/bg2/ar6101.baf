@@ -1,8 +1,0 @@
-IF
-  Global("EnteredArea","AR6101",0)
-THEN
-  RESPONSE #100
-    SetGlobal("EnteredArea","AR6101",1)
-    PlaySound("am6101s")
-END
-

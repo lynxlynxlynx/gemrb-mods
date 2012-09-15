@@ -1,7 +1,0 @@
-IF
-  GlobalGT("SHEEMISH_ESCAPE","GLOBAL",1)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

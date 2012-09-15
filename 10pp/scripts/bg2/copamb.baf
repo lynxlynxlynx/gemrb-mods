@@ -1,7 +1,0 @@
-IF
-  Dead("Lehtinan")  // Lehtinan
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

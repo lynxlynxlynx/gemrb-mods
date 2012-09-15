@@ -1,8 +1,0 @@
-IF
-  PartyHasItem("AX1H13")  // ~Battle Axe +3, Frostreaver~
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

@@ -1,9 +1,0 @@
-IF
-  IsOverMe([PC])
-  Global("UmbPoly","LOCALS",0)
-THEN
-  RESPONSE #100
-    DisplayString(Myself,46785)  // ~This cell appears to be where the umberhulks gained entrance to the castle. Several stew pots lie in the tunnel area directly behind the cell, which seems to be their feeding area.  Putting more food in there might draw the umber hulks, it is uncertain.~
-    SetGlobal("UmbPoly","LOCALS",1)
-END
-

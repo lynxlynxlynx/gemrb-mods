@@ -1,9 +1,0 @@
-IF
-  Entered([PC])
-THEN
-  RESPONSE #100
-    ForceSpell([PC],TRAP_ARROW_STRIKE)
-  RESPONSE #100
-    ForceSpell([PC],TRAP_SPINNING_BLADES)
-END
-

@@ -1,7 +1,0 @@
-IF
-  IsOverMe([ANYONE])
-THEN
-  RESPONSE #100
-    ApplySpell(LastTrigger,FIRE_GIANT_LAVA)
-END
-

@@ -1,7 +1,0 @@
-IF
-  See([NEUTRAL])
-THEN
-  RESPONSE #100
-    Attack([NEUTRAL])
-END
-

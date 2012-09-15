@@ -1,9 +1,0 @@
-IF
-  Range([PC],20)
-  Global("Dead6100","AR6100",0)
-THEN
-  RESPONSE #100
-    SetGlobal("Dead6100","AR6100",1)
-    DisplayStringNoName(Myself,71460)  // ~There are signs of a struggle near these woodcutter carts. Piles of things that may or may not be human remains lie in stinking heaps. Someone was slaughtered here.~
-END
-

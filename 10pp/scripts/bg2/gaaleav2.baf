@@ -1,8 +1,0 @@
-IF
-  GlobalGT("GaalSpoke","AR0900",0)
-THEN
-  RESPONSE #100
-    MoveToPointNoInterrupt([2858.1544])
-    DestroySelf()
-END
-

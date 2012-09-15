@@ -1,9 +1,0 @@
-IF
-  IsOverMe(Player1)
-  Global("SelfTalk","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("SelfTalk","GLOBAL",1)
-    ActionOverride(Player1,StartDialogue("player1",Player1))
-END
-

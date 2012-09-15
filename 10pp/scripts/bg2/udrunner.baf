@@ -1,8 +1,0 @@
-IF
-  Range([PC],25)
-THEN
-  RESPONSE #100
-    MoveToPointNoInterrupt([4876.257])
-    DestroySelf()
-END
-

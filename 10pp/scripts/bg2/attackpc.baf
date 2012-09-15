@@ -1,8 +1,0 @@
-IF
-  See([PC])
-  Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    AttackReevaluate(LastSeenBy(Myself),30)
-END
-

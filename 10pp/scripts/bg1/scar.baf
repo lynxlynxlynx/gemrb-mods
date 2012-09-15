@@ -1,8 +1,0 @@
-IF
-  Global("SHITNUTS","GLOBAL",1)
-THEN
-  RESPONSE #100
-    SetGlobal("ScarMission","GLOBAL",20)
-    DestroySelf()
-END
-

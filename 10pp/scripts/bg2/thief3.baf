@@ -1,7 +1,0 @@
-IF
-  !ModalState(DETECTTRAPS)
-THEN
-  RESPONSE #100
-    FindTraps()
-END
-

@@ -1,9 +1,0 @@
-IF
-  Global("GrovePoisoned","GLOBAL",1)
-  Global("Yelled","LOCALS",0)
-THEN
-  RESPONSE #100
-    Wait(3)
-    StartDialogNoSet([PC])
-END
-

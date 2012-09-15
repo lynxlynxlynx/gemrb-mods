@@ -1,9 +1,0 @@
-IF
-  HitBy([PC],CRUSHING)
-  Global("JonHit","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("JonHit","GLOBAL",1)
-    StartDialogue("erik",[PC])
-END
-

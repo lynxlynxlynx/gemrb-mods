@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Incar1")  // 
-    Dialogue("Nameless")
-    EndCutSceneMode()
-END
-

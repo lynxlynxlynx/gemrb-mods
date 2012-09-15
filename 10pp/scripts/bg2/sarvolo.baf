@@ -1,8 +1,0 @@
-IF
-  AttackedBy([ANYONE],DEFAULT)
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

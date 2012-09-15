@@ -1,9 +1,0 @@
-IF
-  Global("Chapter","GLOBAL",3)
-  Global("ChangeEmerson","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("ChangeEmerson","GLOBAL",1)
-    SetDialogue("emers2")
-END
-

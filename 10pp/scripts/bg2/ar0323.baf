@@ -1,8 +1,0 @@
-IF
-  Global("EnteredArea","AR0323",0)
-THEN
-  RESPONSE #100
-    SetGlobal("EnteredArea","AR0323",1)
-    MoveGlobalsTo("AR0303","AR0323",[0.0])
-END
-

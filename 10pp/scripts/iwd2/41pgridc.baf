@@ -1,7 +1,0 @@
-IF
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    DisplayString(LastTrigger,33967)  // ~This item cannot be removed.~
-END
-

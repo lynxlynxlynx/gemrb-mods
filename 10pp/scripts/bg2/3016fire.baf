@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(LastTrigger,62595)  // ~The crackle of flames and the smell of smoke assails your senses.  A blast of heat from the room causes your skin to redden and blister.~
-END
-

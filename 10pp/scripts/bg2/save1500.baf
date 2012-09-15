@@ -1,8 +1,0 @@
-IF
-  Global("AutoSave","AR1500",0)
-THEN
-  RESPONSE #100
-    SetGlobal("AutoSave","AR1500",1)
-    SaveGame(0)
-END
-

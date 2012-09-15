@@ -1,9 +1,0 @@
-IF
-  See([PC])
-  Global("AlterDisplay","AR1506",0)
-THEN
-  RESPONSE #100
-    DisplayString(Myself,53403)  // ~On the dais there is blood-encrusted altar to some disgusting eight legged beast. There is the taint of malevolent power in the air.~
-    SetGlobal("AlterDisplay","AR1506",1)
-END
-

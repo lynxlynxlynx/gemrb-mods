@@ -1,9 +1,0 @@
-IF
-  Global("ElvenSpirits","GLOBAL",1)
-THEN
-  RESPONSE #100
-    ClearAllActions()
-    StartCutSceneMode()
-    StartCutScene("Movie05a")
-END
-

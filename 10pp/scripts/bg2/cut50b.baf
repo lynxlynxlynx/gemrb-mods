@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("c6elhan")  // 
-    Wait(2)
-    StartDialogNoSet([PC])
-END
-

@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Nameless")  // 
-    MoveToPoint([741.478])
-    EndCutSceneMode()
-END
-

@@ -1,8 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    PlayDead(150)
-    ReallyForceSpell(Myself,DGTROLL_CHANGE)
-END
-

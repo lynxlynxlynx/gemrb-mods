@@ -1,9 +1,0 @@
-IF
-  Global("Move","AR1202",1)
-  Global("Move","LOCALS",0)
-THEN
-  RESPONSE #100
-    MoveToPointNoInterrupt([2178.2199])
-    SetGlobal("Move","LOCALS",1)
-END
-

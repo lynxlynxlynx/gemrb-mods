@@ -1,9 +1,0 @@
-IF
-  See([PC])
-  NumberOfTimesTalkedTo(0)
-THEN
-  RESPONSE #100
-    SmallWait(2)
-    StartDialogue("rielta",[PC])
-END
-

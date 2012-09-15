@@ -1,8 +1,0 @@
-IF
-  Allegiance(Myself,ENEMY)
-  !See([ENEMY],0)
-THEN
-  RESPONSE #100
-    MoveToObject([ENEMY][0.0.10000.10000])
-END
-

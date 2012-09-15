@@ -1,8 +1,0 @@
-IF
-  HarmlessEntered("Nameless")  // ~Nameless One~
-  GlobalLT("Pregnant_Quest","GLOBAL",3)
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

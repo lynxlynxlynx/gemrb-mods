@@ -1,7 +1,0 @@
-IF
-  Global("MissionPackSave","GLOBAL",0)
-THEN
-  RESPONSE #100
-    SetGlobal("MissionPackSave","GLOBAL",1)
-END
-

@@ -1,7 +1,0 @@
-IF
-  !Global("EVERARD_IN_TEMPLE","GLOBAL",0)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

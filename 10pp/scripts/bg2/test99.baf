@@ -1,8 +1,0 @@
-IF
-  See([PC])
-THEN
-  RESPONSE #100
-    ForceSpell(LastSeenBy(Myself),BLACK_DRAGON_BREATH)
-    Wait(6)
-END
-

@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    EquipMostDamagingMelee()
-    Enemy()
-    RunningAttack([PC.0.0.0.0.0.MORTE])
-END
-

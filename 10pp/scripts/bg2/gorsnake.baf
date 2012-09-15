@@ -1,7 +1,0 @@
-IF
-  !Range("slimepit",20)  // slimepit
-THEN
-  RESPONSE #100
-    MoveToObject("slimepit")
-END
-

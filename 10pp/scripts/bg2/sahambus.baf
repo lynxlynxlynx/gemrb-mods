@@ -1,7 +1,0 @@
-IF
-  Global("villynatyjob","GLOBAL",1)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

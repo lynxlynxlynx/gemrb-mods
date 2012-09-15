@@ -1,9 +1,0 @@
-IF
-  !TimerActive(19)
-  Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    MoveToObject(NearestPC)
-    StartRandomTimer(19,2,5)
-END
-

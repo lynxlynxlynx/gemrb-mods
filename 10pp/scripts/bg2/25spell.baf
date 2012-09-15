@@ -1,8 +1,0 @@
-IF
-  Dead("25spell")  // ~Lazarus Librarus~
-  AreaCheck("AR5502")
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

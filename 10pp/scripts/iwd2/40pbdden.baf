@@ -1,8 +1,0 @@
-IF
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("40PlayerSawDen","GLOBAL",1)
-    ChangeCurrentScript("")
-END
-

@@ -1,7 +1,0 @@
-IF
-  AttackedBy([GOODCUTOFF],DEFAULT)
-THEN
-  RESPONSE #100
-    UseItem("BELBYE",Myself)  // <Invalid Strref -1>
-END
-

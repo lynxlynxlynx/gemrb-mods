@@ -1,7 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    Kill(Myself)
-END
-

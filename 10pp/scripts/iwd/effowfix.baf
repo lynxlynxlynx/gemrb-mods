@@ -1,8 +1,0 @@
-IF
-  !See(NearestEnemyOf(Myself))
-  AttackedBy([GOODCUTOFF],DEFAULT)
-THEN
-  RESPONSE #100
-    MoveToObjectUntilSee(LastAttackerOf(Myself))
-END
-

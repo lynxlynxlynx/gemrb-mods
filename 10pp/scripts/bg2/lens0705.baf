@@ -1,9 +1,0 @@
-IF
-  Global("PlayerToldOfMekrath","GLOBAL",1)
-  Global("CreateLens","AR0705",0)
-THEN
-  RESPONSE #100
-    SetGlobal("CreateLens","AR0705",1)
-    CreateItem("c6lens",0,0,0)  // ~Lens Piece~
-END
-

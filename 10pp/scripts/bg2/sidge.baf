@@ -1,7 +1,0 @@
-IF
-  Global("TalkedToRenal","GLOBAL",1)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Nameless")  // 
-    TeleportParty("AR0702",[623.1787],2)
-END
-

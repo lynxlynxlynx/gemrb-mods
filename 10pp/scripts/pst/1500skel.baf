@@ -1,7 +1,0 @@
-IF
-  Global("1500Destroy_Myself","AR1500",1)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

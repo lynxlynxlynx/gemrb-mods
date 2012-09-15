@@ -1,8 +1,0 @@
-IF
-  PartyHasItem("63KeyCP")  // ~Captain Pudu's Key~
-  Opened([PC])
-THEN
-  RESPONSE #100
-    TakePartyItem("63KeyCP")
-END
-

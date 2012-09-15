@@ -1,7 +1,0 @@
-IF
-  Global("Current_Area","GLOBAL",602)
-THEN
-  RESPONSE #100
-    ChangeAIScript("0602sen8",OVERRIDE)
-END
-

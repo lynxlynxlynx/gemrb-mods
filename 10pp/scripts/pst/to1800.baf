@@ -1,8 +1,0 @@
-IF
-  HarmlessOpened([PC])
-  PartyCountGT(1)
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

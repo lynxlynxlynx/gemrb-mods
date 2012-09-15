@@ -1,9 +1,0 @@
-IF
-  Global("CastOnce","LOCALS",0)
-THEN
-  RESPONSE #100
-    ForceSpell(Myself,WIZARD_STONE_SKIN)
-    ForceSpell(Myself,WIZARD_MIRROR_IMAGE)
-    SetGlobal("CastOnce","LOCALS",1)
-END
-

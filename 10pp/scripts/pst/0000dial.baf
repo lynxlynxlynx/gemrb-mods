@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    Dialogue("Nameless")
-    ChangeAIScript("",AREA)
-END
-

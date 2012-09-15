@@ -1,9 +1,0 @@
-IF
-  Clicked([ANYONE])
-  !Exists("DAERRAGH")  // DAERRAGH
-THEN
-  RESPONSE #100
-    CreateCreature("DAERRAGH",[-1.-1],0)  // DAERRAGH
-    IncrementGlobal("DAERRAGH","GLOBAL",1)
-END
-

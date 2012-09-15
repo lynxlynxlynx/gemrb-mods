@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    SetGlobal("DestroyAnnouncer","AR0406",1)
-END
-

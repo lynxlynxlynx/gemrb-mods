@@ -1,7 +1,0 @@
-IF
-  Clicked([ANYONE])
-THEN
-  RESPONSE #100
-    ActionOverride("Demogor1",StartDialogNoSet(LastTrigger("DemoGorgonInfo")))
-END
-

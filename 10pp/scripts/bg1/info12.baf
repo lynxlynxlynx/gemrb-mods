@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,16225)  // ~ _Direct your selected character to climb stairs by moving the pointer to the top of a stairway and left-clicking. The graphic will change to a stair icon when in the right spot.~ [TEXTPOP]
-END
-

@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Trax")  // 
-    Wait(1)
-    StartDialogNoSet(Player1)
-END
-

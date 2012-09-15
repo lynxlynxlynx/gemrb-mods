@@ -1,9 +1,0 @@
-IF
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    GiveItemCreate("41GenRP",LastTrigger,0,0,0)  // ~Rock Pile~
-    CloseDoor(Myself)
-    SetDoorFlag(Myself,HIDDEN,TRUE)
-END
-

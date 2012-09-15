@@ -1,8 +1,0 @@
-IF
-  ActionListEmpty()
-THEN
-  RESPONSE #100
-    PlaySequence(Myself,SHOOT)
-    WaitRandom(1,2)
-END
-

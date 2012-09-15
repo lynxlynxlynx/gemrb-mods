@@ -1,8 +1,0 @@
-IF
-  Exists("Nameless")  // ~Nameless One~
-  GlobalGT("AR0606_Visited","GLOBAL",0)
-THEN
-  RESPONSE #100
-    GlobalSet("AR0606_Visited","GLOBAL",1)
-END
-

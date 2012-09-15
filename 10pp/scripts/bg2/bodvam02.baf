@@ -1,7 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    ReallyForceSpellDead(Myself,BODVAM02_MIST_CHANGE)
-END
-

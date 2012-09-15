@@ -1,8 +1,0 @@
-IF
-  See([PC])
-  Delay(45)
-THEN
-  RESPONSE #100
-    StartDialogue("obe",[PC])
-END
-

@@ -1,7 +1,0 @@
-IF
-  Entered("PAWN")  // PAWN
-THEN
-  RESPONSE #100
-    ForceSpell(LastTrigger,QUEEN_CHANGE)
-END
-

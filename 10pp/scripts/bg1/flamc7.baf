@@ -1,8 +1,0 @@
-IF
-  NumberOfTimesTalkedTo(0)
-  Global("SmugglerMove","GLOBAL",0)
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

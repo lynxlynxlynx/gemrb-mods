@@ -1,8 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself),0)
-THEN
-  RESPONSE #100
-    SetBestWeapon(LastMarkedObject,3)
-    AttackReevaluate(LastMarkedObject,210)
-END
-

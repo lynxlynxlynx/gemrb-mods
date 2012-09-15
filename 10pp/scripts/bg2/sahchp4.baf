@@ -1,7 +1,0 @@
-IF
-  !Range(Player1,10)
-THEN
-  RESPONSE #100
-    MoveToObject(Player1)
-END
-

@@ -1,9 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-  Delay(6)
-  !StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-THEN
-  RESPONSE #100
-    ForceSpell(LastSeenBy(Myself),SNAKE_GAZE)
-END
-

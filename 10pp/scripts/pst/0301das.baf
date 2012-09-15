@@ -1,8 +1,0 @@
-IF
-  !Allegiance(Myself,ENEMY)
-  Global("0301_Good_Angry","AR0301",0)
-THEN
-  RESPONSE #100
-    ReturnToSavedPlace()
-END
-

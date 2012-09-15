@@ -1,9 +1,0 @@
-IF
-  Global("Mirek_Trigger","AR2100",0)
-  Entered([PC])
-THEN
-  RESPONSE #100
-    CreateCreature("kumirek",[3390.1674],4)  // ~Frightened Townsperson~
-    SetGlobal("Mirek_Trigger","AR2100",1)
-END
-

@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("lester")  // 
-    MoveToObject("mourner1")
-    StartDialogNoSet(Player1)
-END
-

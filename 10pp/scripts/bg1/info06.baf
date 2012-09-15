@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,16219)  // ~ _Buy items by talking to the keeper of a store or inn. You can also rest your party by renting a room, try to hear a few rumors over a mug of ale, or attempt a little shoplifting. In the Buy/Sell screen, items that the currently selected character cannot use (due to class limitations or weapon proficiencies) will be tinted red, though others in your party may have a use for them. ~ [TEXTPOP]
-END
-

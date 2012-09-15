@@ -1,9 +1,0 @@
-IF
-  HitBy([ANYONE],CRUSHING)
-  Global("KielDoor1","GLOBAL",0)
-THEN
-  RESPONSE #100
-    ClearActions(LastAttackerOf(Myself))
-    SetGlobal("KielDoor1","GLOBAL",1)
-END
-

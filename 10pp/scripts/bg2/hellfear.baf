@@ -1,9 +1,0 @@
-IF
-  IsOverMe([ANYONE])
-  GlobalTimerExpired("HellFearTimer","GLOBAL")
-THEN
-  RESPONSE #50
-    ForceSpell(LastTrigger,HELL_FEAR)
-    SetGlobalTimer("HellFearTimer","GLOBAL",5)
-END
-

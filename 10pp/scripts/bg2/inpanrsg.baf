@@ -1,8 +1,0 @@
-IF
-  NumberOfTimesTalkedTo(0)
-  See([PC])
-THEN
-  RESPONSE #100
-    StartDialogNoSet([PC])
-END
-

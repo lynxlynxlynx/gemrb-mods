@@ -1,7 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,SAND_DIE)
-END
-

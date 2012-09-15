@@ -1,8 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-  HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
-THEN
-  RESPONSE #100
-    Spell(Myself,CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
-END
-

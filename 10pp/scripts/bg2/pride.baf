@@ -1,9 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-  NumberOfTimesTalkedTo(0)
-THEN
-  RESPONSE #100
-    SetNumTimesTalkedTo(1)
-    ReallyForceSpell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
-END
-

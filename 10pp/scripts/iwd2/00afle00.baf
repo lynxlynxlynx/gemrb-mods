@@ -1,8 +1,0 @@
-IF
-  !Allegiance(Myself,ENEMY)
-  See([ENEMY],0)
-THEN
-  RESPONSE #100
-    RunAwayFrom(LastMarkedObject,45)
-END
-

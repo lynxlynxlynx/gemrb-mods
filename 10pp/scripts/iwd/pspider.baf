@@ -1,9 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-  !Range(NearestEnemyOf(Myself),12)
-  !CreatureHidden(Myself)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(NearestEnemyOf(Myself),INNATE_PHASE_SPIDER_TELEPORT)
-END
-

@@ -1,8 +1,0 @@
-IF
-  AttackedBy([GOODCUTOFF],DEFAULT)
-THEN
-  RESPONSE #100
-    Enemy()
-    Continue()
-END
-

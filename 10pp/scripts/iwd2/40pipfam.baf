@@ -1,7 +1,0 @@
-IF
-  See([PC],0)
-THEN
-  RESPONSE #100
-    RunAwayFrom(LastSeenBy(Myself),60)
-END
-

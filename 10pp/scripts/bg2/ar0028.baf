@@ -1,9 +1,0 @@
-IF
-  OnCreation()
-  Global("doOnce","AR0028",0)
-THEN
-  RESPONSE #100
-    SetGlobal("doOnce","AR0028",1)
-    TriggerActivation("DemonDoor",FALSE)
-END
-

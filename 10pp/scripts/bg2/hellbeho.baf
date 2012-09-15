@@ -1,8 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #50
-    ActionOverride("HellBeh1",Enemy())
-    ActionOverride("HellBeh2",Enemy())
-END
-

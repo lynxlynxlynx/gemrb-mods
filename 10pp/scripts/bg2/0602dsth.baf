@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(LastTrigger,23968)  // ~The bodies of several black-hooded thieves litter the hallway, slaughtered by a massive release of magical energy. From the distant explosions that you can still hear, it seems as if whatever battle killed these men, still rages.~
-END
-

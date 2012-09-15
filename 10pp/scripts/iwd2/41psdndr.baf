@@ -1,8 +1,0 @@
-IF
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("41SherincalSecretDoorOpened","GLOBAL",1)
-    ChangeCurrentScript("")
-END
-

@@ -1,8 +1,0 @@
-IF
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("41PartyMissingEquipment","GLOBAL",0)
-    ChangeCurrentScript("")
-END
-

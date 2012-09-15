@@ -1,7 +1,0 @@
-IF
-  See([PC])
-THEN
-  RESPONSE #100
-    StartDialogue("narrat2",[PC])
-END
-

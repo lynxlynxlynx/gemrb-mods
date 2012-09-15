@@ -1,9 +1,0 @@
-IF
-  Global("TUTFAM01","GLOBAL",1)
-THEN
-  RESPONSE #100
-    ActionOverride(Player1,Face(0))
-    DisplayStringHead(Player1,62026)  // ~You may not cast the find familiar spell in the tutorial.~
-    SetGlobal("TUTFAM01","GLOBAL",0)
-END
-

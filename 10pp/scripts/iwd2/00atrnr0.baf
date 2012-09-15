@@ -1,8 +1,0 @@
-IF
-  !TimerActive(1)
-THEN
-  RESPONSE #100
-    RandomTurn()
-    StartRandomTimer(1,2,15)
-END
-

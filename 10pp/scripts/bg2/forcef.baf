@@ -1,9 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(LastTrigger,71011)  // ~You lock the two halves of the rod together. The Illithid Rod can now be used to open one of the doors in the area.~
-    ApplySpell(LastTrigger,DRAGON_WING_BUFFET)
-    CreateVisualEffectObject("SPSTRENH","OilDoor")
-END
-

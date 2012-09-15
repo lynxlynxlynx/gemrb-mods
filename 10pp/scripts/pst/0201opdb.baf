@@ -1,8 +1,0 @@
-IF
-  HarmlessEntered([PC])
-  Global("0202_DoorB_Opened","GLOBAL",0)
-THEN
-  RESPONSE #100
-    GlobalSet("0202_DoorB_Opened","GLOBAL",1)
-END
-

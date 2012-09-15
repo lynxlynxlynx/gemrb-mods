@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Nameless")  // 
-    StartMovie("ss_adeth")
-    StartCutScene("0405cut9")
-END
-

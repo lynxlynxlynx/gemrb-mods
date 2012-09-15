@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("obsgol01")  // 
-    Wait(2)
-    StartDialogNoSet(Player1)
-END
-

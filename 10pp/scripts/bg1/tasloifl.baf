@@ -1,8 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-THEN
-  RESPONSE #100
-    Help()
-    AttackReevaluate(NearestEnemyOf(Myself),15)
-END
-

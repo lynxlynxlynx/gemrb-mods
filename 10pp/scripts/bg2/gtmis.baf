@@ -1,9 +1,0 @@
-IF
-  Entered([ANYONE])
-  See([PC.0.0.MAGE])
-THEN
-  RESPONSE #100
-    DisplayString([PC.0.0.MAGE],14381)  // ~Trap Sprung~ [AMB_D05C]
-    ForceSpell([PC.0.0.MAGE],TRAP_MISCAST_MAGIC)
-END
-

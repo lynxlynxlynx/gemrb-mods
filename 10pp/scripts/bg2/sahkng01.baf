@@ -1,9 +1,0 @@
-IF
-  Global("villynatyjob","GLOBAL",1)
-  Global("ReplaceKing","AR2300",0)
-THEN
-  RESPONSE #100
-    SetGlobal("ReplaceKing","AR2300",1)
-    DestroySelf()
-END
-

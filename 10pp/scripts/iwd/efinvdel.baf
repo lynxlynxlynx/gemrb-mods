@@ -1,7 +1,0 @@
-IF
-  CreatureHidden(Myself)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

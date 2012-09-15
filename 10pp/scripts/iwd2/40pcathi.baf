@@ -1,9 +1,0 @@
-IF
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("41SaidPainting3","GLOBAL",1)
-    ChangeCurrentScript("41pSpell")
-    Continue()
-END
-

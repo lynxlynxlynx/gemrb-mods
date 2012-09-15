@@ -1,7 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    SetGlobal("SpawnOrcs","GLOBAL",1)
-END
-

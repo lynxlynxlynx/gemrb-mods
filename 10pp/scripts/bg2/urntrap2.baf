@@ -1,8 +1,0 @@
-IF
-  Global("UrnTrap2","GLOBAL",1)
-THEN
-  RESPONSE #100
-    ForceSpell([PC],TRAP_LIGHTNING_BOLT)
-    SetGlobal("UrnTrap2","GLOBAL",0)
-END
-

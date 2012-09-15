@@ -1,9 +1,0 @@
-IF
-  Dead("gphil01")  // ~Philosopher~
-  Global("HuntleyEscape","GLOBAL",1)
-THEN
-  RESPONSE #100
-    SetGlobal("HuntleyEscape","GLOBAL",2)
-    EscapeArea()
-END
-

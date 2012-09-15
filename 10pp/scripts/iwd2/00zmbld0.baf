@@ -1,9 +1,0 @@
-IF
-  !CreatureHidden(Myself)
-  LOS([PC],25)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,INNATE_ZOMBIE_LORD_AURA)
-    ChangeCurrentScript("")
-END
-

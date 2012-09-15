@@ -1,9 +1,0 @@
-IF
-  See(Player1)
-  NumberOfTimesTalkedTo(0)
-THEN
-  RESPONSE #100
-    StartCutSceneMode()
-    Dialog(Player1)
-END
-

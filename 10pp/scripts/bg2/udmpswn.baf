@@ -1,8 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    SetGlobalTimer("SpawnIllTimer","GLOBAL",60)
-    SetGlobal("spawnIll","AR2400",0)
-END
-

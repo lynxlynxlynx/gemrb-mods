@@ -1,8 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    SetGlobal("TEAM_2","MYAREA",0)
-    ChangeCurrentScript("")
-END
-

@@ -1,7 +1,0 @@
-IF
-  Global("HelpAlatos","GLOBAL",1)
-THEN
-  RESPONSE #100
-    SetGlobal("HelpAlatos","GLOBAL",2)
-END
-

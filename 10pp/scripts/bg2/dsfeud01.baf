@@ -1,7 +1,0 @@
-IF
-  Global("alibakkarjob","GLOBAL",2)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

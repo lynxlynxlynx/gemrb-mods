@@ -1,8 +1,0 @@
-IF
-  HPLT(Myself,2)
-THEN
-  RESPONSE #50
-    ReallyForceSpell(Myself,BEHOLDER_GAS_SPORE)
-    Kill(Myself)
-END
-

@@ -1,8 +1,0 @@
-IF
-  See("c6drizz2")  // ~Drizzt~
-  !Dead("c6drizz2")  // ~Drizzt~
-THEN
-  RESPONSE #100
-    AttackReevaluate("c6drizz2",30)
-END
-

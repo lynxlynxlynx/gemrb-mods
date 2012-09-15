@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("WEREWOLF")  // 
-    SetGlobal("FOLLOW_PC","LOCALS",0)
-    HideCreature(Myself,FALSE)
-END
-

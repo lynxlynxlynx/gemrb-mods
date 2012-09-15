@@ -1,8 +1,0 @@
-IF
-  Global("KRESS_QUEST","GLOBAL",4)
-THEN
-  RESPONSE #100
-    Unlock(Myself)
-    Deactivate(Myself)
-END
-

@@ -1,9 +1,0 @@
-IF
-  Delay(12)
-  GlobalLT("dead","LOCALS",10)
-THEN
-  RESPONSE #100
-    ForceSpell(Myself,CLERIC_ANIMATE_DEAD)
-    IncrementGlobal("dead","LOCALS",1)
-END
-

@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId("Soego2")  // 
-    Dialogue([PC])
-    EndCutSceneMode()
-END
-

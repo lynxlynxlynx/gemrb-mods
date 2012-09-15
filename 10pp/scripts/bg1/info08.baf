@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,16221)  // ~ _Thieves access their skills using the icons along the bottom of their screen. "Thieving" includes Pick Lock, Pick Pocket, and Remove Trap, when used in conjunction with the appropriate targets (chests, people, and traps, respectively). "Find Traps" examines a general area, and outlines found traps in red. "Stealth" renders a thief effectively invisible until their next attack. That attack is automatically a "backstab," increasing the damage of a successful hit dramatically. ~ [TEXTPOP]
-END
-

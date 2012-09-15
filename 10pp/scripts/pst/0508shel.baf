@@ -1,8 +1,0 @@
-IF
-  Global("Morte_Stolen","GLOBAL",1)
-  TriggerClick()
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

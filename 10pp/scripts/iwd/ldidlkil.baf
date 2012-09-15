@@ -1,7 +1,0 @@
-IF
-  !Global("IDOL_DEAD","GLOBAL",0)
-THEN
-  RESPONSE #100
-    Kill(Myself)
-END
-

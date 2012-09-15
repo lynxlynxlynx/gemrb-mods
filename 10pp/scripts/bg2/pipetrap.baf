@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    ForceSpellPoint([654.11237],TRAP_MINOR_LIGHTNING_BOLT)
-END
-

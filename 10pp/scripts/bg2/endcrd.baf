@@ -1,9 +1,0 @@
-IF
-  OR(2)
-    Entered([ANYONE])
-    Clicked([ANYONE])
-THEN
-  RESPONSE #100
-    EndCredits()
-END
-

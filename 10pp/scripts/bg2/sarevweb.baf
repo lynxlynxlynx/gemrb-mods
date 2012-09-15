@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    ForceSpell([PC],WIZARD_WEB)
-END
-

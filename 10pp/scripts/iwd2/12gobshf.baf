@@ -1,8 +1,0 @@
-IF
-  !Dead("CABALLUS")  // 
-  !See("CABALLUS",0)  // CABALLUS
-THEN
-  RESPONSE #100
-    MoveToObjectFollow("CABALLUS")
-END
-

@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId(Player1)  // 
-    ActionOverride("drelle2",MoveToPoint([1867.2270]))
-    ActionOverride("drelle2",StartDialogNoSet(Player1))
-END
-

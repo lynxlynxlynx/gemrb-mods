@@ -1,7 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    PlayDeadInterruptible(2147483647)
-END
-

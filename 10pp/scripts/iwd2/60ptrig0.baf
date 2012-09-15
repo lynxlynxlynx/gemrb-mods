@@ -1,8 +1,0 @@
-IF
-  Global("60Shortcut","GLOBAL",0)
-  Clicked([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("60Shortcut","GLOBAL",1)
-END
-

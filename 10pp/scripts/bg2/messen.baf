@@ -1,8 +1,0 @@
-IF
-  Delay(12)
-  See(Player1)
-THEN
-  RESPONSE #100
-    DisplayStringHead(Myself,4632)  // ~Be there any who possess courage hereabouts? I have a job for you!~
-END
-

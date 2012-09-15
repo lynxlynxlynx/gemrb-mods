@@ -1,9 +1,0 @@
-IF
-  !TimerExpired(1)
-  See([PC])
-  !Range([PC],4)
-THEN
-  RESPONSE #100
-    MoveToObject([PC])
-END
-

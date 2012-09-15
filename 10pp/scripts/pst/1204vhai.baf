@@ -1,9 +1,0 @@
-IF
-  OnCreation()
-THEN
-  RESPONSE #100
-    PolymorphEx(0,0)
-    Kill(Myself)
-    ChangeAIScript("",GENERAL)
-END
-

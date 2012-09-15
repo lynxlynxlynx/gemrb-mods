@@ -1,9 +1,0 @@
-IF
-  AttackedBy([GOODCUTOFF],DEFAULT)
-  Global("impsattacked","AR2300",0)
-THEN
-  RESPONSE #100
-    SetGlobal("impsattacked","AR2300",1)
-    StartDialogNoSet(Player1)
-END
-

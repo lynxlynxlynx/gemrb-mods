@@ -1,9 +1,0 @@
-IF
-  CreatureHidden(Myself)
-  See(NearestEnemyOf(Myself))
-THEN
-  RESPONSE #100
-    HideCreature(Myself,FALSE)
-    Continue()
-END
-

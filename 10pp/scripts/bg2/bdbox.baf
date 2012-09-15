@@ -1,8 +1,0 @@
-IF
-  GlobalGT("BardMoneyX","GLOBAL",0)
-THEN
-  RESPONSE #100
-    CreateItemGlobal("BardMoneyX","GLOBAL","MISC07")
-    SetGlobal("BardMoneyX","GLOBAL",0)
-END
-

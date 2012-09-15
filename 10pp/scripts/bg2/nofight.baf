@@ -1,7 +1,0 @@
-IF
-  !Detect([PC])
-THEN
-  RESPONSE #100
-    NoAction()
-END
-

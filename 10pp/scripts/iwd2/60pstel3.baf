@@ -1,8 +1,0 @@
-IF
-  Opened([PC])
-THEN
-  RESPONSE #100
-    GiveItemCreate("60Stele3",LastTrigger,1,0,0)  // ~Religious Stele~
-    Lock(Myself)
-END
-

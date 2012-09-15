@@ -1,7 +1,0 @@
-IF
-  GlobalGT("JaheiraHarperPlot","GLOBAL",0)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

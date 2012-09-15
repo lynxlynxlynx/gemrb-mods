@@ -1,9 +1,0 @@
-IF
-  Global("dirtbam_0_played","MYAREA",0)
-  Entered([PC])
-THEN
-  RESPONSE #100
-    Activate("dirtbam0")
-    SetGlobal("dirtbam_0_played","MYAREA",1)
-END
-

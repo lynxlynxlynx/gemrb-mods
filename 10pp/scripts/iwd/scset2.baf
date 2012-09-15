@@ -1,8 +1,0 @@
-IF
-  !Global("AR9500_ENCOUNTER","GLOBAL",0)
-  !Global("AR9500_ENCOUNTER","GLOBAL",2)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

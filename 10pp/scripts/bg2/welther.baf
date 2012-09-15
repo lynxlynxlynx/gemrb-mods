@@ -1,9 +1,0 @@
-IF
-  OR(2)
-    Global("ElgeaGone","GLOBAL",1)
-    Global("ElgeaFree","GLOBAL",1)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

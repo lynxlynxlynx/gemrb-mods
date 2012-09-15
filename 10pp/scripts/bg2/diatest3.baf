@@ -1,7 +1,0 @@
-IF
-  See([PC])
-THEN
-  RESPONSE #100
-    StartDialogNoSet([PC])
-END
-

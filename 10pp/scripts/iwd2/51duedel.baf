@@ -1,7 +1,0 @@
-IF
-  GlobalGT("50DUERGAR_DESTROY","GLOBAL",0)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

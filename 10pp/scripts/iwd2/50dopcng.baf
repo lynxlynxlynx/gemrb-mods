@@ -1,7 +1,0 @@
-IF
-  Allegiance(Myself,ENEMY)
-THEN
-  RESPONSE #100
-    ChangeAnimation("50Dop")
-END
-

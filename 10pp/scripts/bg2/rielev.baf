@@ -1,9 +1,0 @@
-IF
-  NumberOfTimesTalkedTo(0)
-  Detect([PC])
-  Range(LastSeenBy(Myself),6)
-THEN
-  RESPONSE #100
-    StartDialogNoSet(LastSeenBy(Myself))
-END
-

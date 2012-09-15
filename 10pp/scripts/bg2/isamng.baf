@@ -1,7 +1,0 @@
-IF
-  !Range("ISAEA",5)  // ~Isaea Roenal~
-THEN
-  RESPONSE #100
-    MoveToObject("ISAEA")
-END
-

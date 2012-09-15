@@ -1,8 +1,0 @@
-IF
-  Heard("Cyrdemac",1)  // Cyrdemac
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

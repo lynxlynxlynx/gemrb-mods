@@ -1,8 +1,0 @@
-IF
-  Global("EnteredKeep","GLOBAL",0)
-THEN
-  RESPONSE #100
-    StartMovie("CNDLKEEP")
-    SetGlobal("EnteredKeep","GLOBAL",1)
-END
-

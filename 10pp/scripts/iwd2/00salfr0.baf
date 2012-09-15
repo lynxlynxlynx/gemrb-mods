@@ -1,9 +1,0 @@
-IF
-  !CreatureHidden(Myself)
-  LOS([PC],35)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,INNATE_SALAMANDER_AURA_FROST)
-    ChangeCurrentScript("")
-END
-

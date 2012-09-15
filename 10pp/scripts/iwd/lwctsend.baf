@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId([PC][0.0.10000.10000])  // 
-    MultiPlayerSync()
-    EndCutSceneMode()
-END
-

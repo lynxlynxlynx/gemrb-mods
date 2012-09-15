@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(Myself,16228)  // ~ _Interaction defaults to Talk for neutral targets, and Attack for hostile targets. To talk to a neutral character (neutrals are identified by blue circles), left-click on one of them. Don't forget to select one of your party members to do the talking. If you would like to talk to a hostile character, select the Talk icon and then left-click on the character. If you would like to attack a neutral, select a weapon icon and then left-click on the target.~ [TEXTPOP]
-END
-

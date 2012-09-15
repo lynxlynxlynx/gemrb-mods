@@ -1,7 +1,0 @@
-IF
-  HPLT(Myself,10)
-THEN
-  RESPONSE #100
-    ChangeAnimationNoEffect("TROLL03")
-END
-

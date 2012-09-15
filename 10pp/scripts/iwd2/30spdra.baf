@@ -1,9 +1,0 @@
-IF
-  Or(2)
-    Global("REACHED_DESTINATION","LOCALS",2)
-    !Global("TEAM_5","MYAREA",0)
-THEN
-  RESPONSE #100
-    ChangeCurrentScript("00AATGN")
-END
-

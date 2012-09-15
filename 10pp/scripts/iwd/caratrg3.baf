@@ -1,9 +1,0 @@
-IF
-  GlobalLT("Heartstone_Stolen","GLOBAL",1)
-  Entered([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("Heartstone_Stolen","GLOBAL",1)
-    AddJournalEntry(2052)
-END
-

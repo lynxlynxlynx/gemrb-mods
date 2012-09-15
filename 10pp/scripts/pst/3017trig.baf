@@ -1,7 +1,0 @@
-IF
-  HarmlessEntered([PC])
-THEN
-  RESPONSE #100
-    Dialogue([PC])
-END
-

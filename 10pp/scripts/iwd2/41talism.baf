@@ -1,8 +1,0 @@
-IF
-  Global("KillMirrorTrap","MYAREA",1)
-THEN
-  RESPONSE #100
-    Enemy()
-    ChangeCurrentScript("")
-END
-

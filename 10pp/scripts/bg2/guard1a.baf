@@ -1,8 +1,0 @@
-IF
-  Global("Backroom","GLOBAL",1)
-  Allegiance(Myself,NEUTRAL)
-THEN
-  RESPONSE #100
-    MoveToPoint([1320.1507])
-END
-

@@ -1,7 +1,0 @@
-IF
-  Entered([ANYONE])
-THEN
-  RESPONSE #100
-    DisplayString(LastTrigger,62607)  // ~The cold air spilling from the room into the hall chills your bones, numbs your joints and stiffens your armor, making movement difficult. ~
-END
-

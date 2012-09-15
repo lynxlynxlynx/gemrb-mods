@@ -1,7 +1,0 @@
-IF
-  Die()
-THEN
-  RESPONSE #100
-    IncrementGlobal("ZombiesDead","GLOBAL",1)
-END
-

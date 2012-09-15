@@ -1,9 +1,0 @@
-IF
-  Dead("DuegarClanChief")  // DuegarClanChief
-  Allegiance(Myself,NEUTRAL)
-  AreaCheck("AR0602")
-THEN
-  RESPONSE #100
-    Enemy()
-END
-

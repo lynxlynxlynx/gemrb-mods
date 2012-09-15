@@ -1,8 +1,0 @@
-IF
-  Global("Paid_RA","AR0301",1)
-  !NearSavedLocation(0)
-THEN
-  RESPONSE #100
-    ReturnToSavedPlace()
-END
-

@@ -1,8 +1,0 @@
-IF
-  Global("TrueSeeing","LOCALS",0)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_TRUE_SIGHT)
-    SetGlobal("TrueSeeing","LOCALS",1)
-END
-

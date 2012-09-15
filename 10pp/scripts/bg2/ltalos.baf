@@ -1,7 +1,0 @@
-IF
-  GlobalTimerExpired("UncleLester","GLOBAL")
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

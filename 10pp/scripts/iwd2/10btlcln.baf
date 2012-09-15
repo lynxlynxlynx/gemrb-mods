@@ -1,7 +1,0 @@
-IF
-  !Global("1000_CLEAN_UP","GLOBAL",0)
-THEN
-  RESPONSE #100
-    DestroySelf()
-END
-

@@ -1,8 +1,0 @@
-IF
-  !TimerActive(19)
-THEN
-  RESPONSE #100
-    RandomWalk()
-    StartRandomTimer(19,2,5)
-END
-

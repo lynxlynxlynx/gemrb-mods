@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId(Myself)  // 
-    StartRandomTimer(27,28,35)
-    ForceSpell([PC],INNATE_DRAGON_BREATH)
-END
-

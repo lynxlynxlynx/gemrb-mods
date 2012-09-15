@@ -1,7 +1,0 @@
-IF
-  Entered([PC])
-THEN
-  RESPONSE #100
-    SetGlobal("62_Orc_Elf_Combat","GLOBAL",1)
-END
-

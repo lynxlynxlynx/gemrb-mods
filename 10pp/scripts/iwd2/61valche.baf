@@ -1,8 +1,0 @@
-IF
-  See([PC],0)
-THEN
-  RESPONSE #100
-    AddJournalEntry(35469)
-    ChangeCurrentScript("")
-END
-

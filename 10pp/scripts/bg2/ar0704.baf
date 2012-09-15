@@ -1,9 +1,0 @@
-IF
-  Global("Leona","GLOBAL",1)
-  Global("WilliamSpawn","GLOBAL",0)
-THEN
-  RESPONSE #100
-    CreateCreature("willia",[357.451],13)  // ~Sir William of Thorpe~
-    SetGlobal("WilliamSpawn","GLOBAL",1)
-END
-

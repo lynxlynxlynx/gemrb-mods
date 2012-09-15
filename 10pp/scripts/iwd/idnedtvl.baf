@@ -1,9 +1,0 @@
-IF
-  True()
-THEN
-  RESPONSE #100
-    CutSceneId(Myself)  // 
-    StartCutSceneMode()
-    StartCutScene("BINEDTVL")
-END
-

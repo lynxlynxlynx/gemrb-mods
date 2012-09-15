@@ -1,8 +1,0 @@
-IF
-  See(NearestEnemyOf(Myself))
-  HaveSpell(WIZARD_SLOW)
-THEN
-  RESPONSE #100
-    Spell(NearestEnemyOf(Myself),WIZARD_SLOW)
-END
-

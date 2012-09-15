@@ -1,7 +1,0 @@
-IF
-  Global("FarajiLeave","GLOBAL",1)
-THEN
-  RESPONSE #100
-    EscapeArea()
-END
-

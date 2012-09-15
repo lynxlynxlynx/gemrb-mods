@@ -1,8 +1,0 @@
-IF
-  Global("Escort","AR0406",3)
-THEN
-  RESPONSE #100
-    SetGlobal("Escort","AR0406",4)
-    Dialog(LastTalkedToBy("Madam"))
-END
-

@@ -1,8 +1,0 @@
-IF
-  Help([ANYONE])
-  !Help([PC])
-THEN
-  RESPONSE #100
-    Attack(LastAttackerOf(LastHelp(Myself)))
-END
-

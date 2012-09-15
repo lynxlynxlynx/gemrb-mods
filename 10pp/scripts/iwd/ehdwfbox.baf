@@ -1,7 +1,0 @@
-IF
-  PickLockFailed([PC])
-THEN
-  RESPONSE #100
-    HideCreature("EHBEDD1",TRUE)
-END
-

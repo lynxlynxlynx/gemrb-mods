@@ -1,8 +1,0 @@
-IF
-  Entered([PC])
-  PartyHasItem("PTKEY3")  // <Invalid Strref -1>
-THEN
-  RESPONSE #100
-    TeleportParty("ar1800",[1740.1555],0)
-END
-

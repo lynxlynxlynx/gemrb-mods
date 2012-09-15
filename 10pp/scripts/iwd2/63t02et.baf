@@ -1,7 +1,0 @@
-IF
-  Global("TEAM_2","MYAREA",0)
-THEN
-  RESPONSE #100
-    NoAction()
-END
-

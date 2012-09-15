@@ -1,7 +1,0 @@
-IF
-  See(Player4,0)
-THEN
-  RESPONSE #100
-    FaceObject(LastMarkedObject)
-END
-
