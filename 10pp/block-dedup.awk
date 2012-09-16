@@ -2,9 +2,7 @@
 #
 # This script deduplicates consecutive blank separated blocks
 #
-# trivial test cases:
-#  echo -e '1\n2\n3\n\n4\n5\n\n4\n5\n\n4\n5\n\n6' | awk -f block-dedup.awk
-#  echo -e '1\n\n4\n5\n\n4\n5\n\n4\n5\n\n6' | awk -f block-dedup.awk
+# some test cases are included in test-block-dedup.sh
 
 function dumpArray (ar) {
   # manually unroll, since awk does not guarantee preserved order
