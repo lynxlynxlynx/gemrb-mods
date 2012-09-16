@@ -3,7 +3,8 @@ top=${1:-$(dirname "$0")}
 game=${2:-bg2}
 pctotal=${3:-7}
 base="$top/scripts/$game"
-orig="../../gemrb/scripts/$game"
+orig_base="$top/../../gemrb"
+orig="$orig_base/scripts/$game"
 triggerids="$top/trigger-$game.ids"
 simple_sed="$top/simple-sed-ok-$game"
 
@@ -20,7 +21,7 @@ cleanup() {
   exit 13
 }
 trap cleanup SIGINT
-player6files=$(grep -rl Player6 "$orig")
+player6files=$(grep -rl Player6 "$orig" | sed "s,$orig_base/,,")
 triggers=$(cut -s -d" " -f2 "$triggerids" | cut -d"(" -f1)
 
 for (( pcnum=7; pcnum <= pctotal; pcnum++ )); do # MAIN LOOP
@@ -62,7 +63,7 @@ for (( pcnum=7; pcnum <= pctotal; pcnum++ )); do # MAIN LOOP
   # START DEALING WITH STANDALONE TRIGGERS
   # find all the files that mention player6 but we haven't touched yet
   if ((pcnum == 7)); then # only need to do it once
-	recheck=$({ diff -rq "$orig" "$base" | awk '{print $2}'  | sed p; 
+	recheck=$({ diff -rq "$orig" "$base" | awk '{print $2}' | sed -e "s,$orig_base/,," -e p;
 	  echo "$player6files";
 	} | sort | uniq -u)
 	echo -n Finding untouched scripts needing changes...
