@@ -6,7 +6,7 @@ function check_test () {
   if [[ $1 != $2 ]]; then
     let failed+=1
     echo failed
-	[[ $inspect ]] && diff -su <(echo "$2") <(echo "$1") | less -F
+	[[ $inspect ]] && diff -su <(echo "$2") <(echo "$1") | less
   else
     echo ok
   fi
