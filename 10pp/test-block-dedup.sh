@@ -32,6 +32,21 @@ in=$(awk -f block-dedup.awk block-dedup.awk)
 expected=$(cat block-dedup.awk)
 check_test "$in" "$expected"
 
+echo -n "4. Eating our own dogfood ... "
+in=$(awk -f block-dedup.awk test-block-dedup.sh)
+expected=$(cat test-block-dedup.sh)
+check_test "$in" "$expected"
+
+echo -n "5. Eating our own dogfood ... "
+in=$(awk -f block-dedup.awk doc-*)
+expected=$(cat doc-*)
+check_test "$in" "$expected"
+
+echo -n "6. Eating our own dogfood ... "
+in=$(awk -f block-dedup.awk trigger-iwd2.ids)
+expected=$(cat trigger-iwd2.ids)
+check_test "$in" "$expected"
+
 echo
 if [[ $failed != 0 ]]; then
   echo "Some ($failed) tests have failed!"
