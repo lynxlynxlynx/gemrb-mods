@@ -28,6 +28,11 @@ function copyArray (src, dest) {
   }
 }
 
+function reinitArray (ar) {
+  delete ar; # gawk extension
+  ar[0] = -1;
+}
+
 BEGIN {
   i=blocks=0; a[0]=b[0]=c[0]=-1;
 }
@@ -47,16 +52,17 @@ BEGIN {
     same = areArraysEqual(a, b);
   }
 
-  if (same) {
-#     delete a;
-  } else {
-    dumpArray(b)
-    print # prints a blank (== $0)
+  if (! same) {
+    if (! areArraysEqual(b, c)) {
+      dumpArray(b)
+    }
+    print "" # unify blanks (as opposed to using $0)
+
     dumpArray(a)
     # reinit the copy for later comparisons
-    delete c;
+    reinitArray(c);
     copyArray(a, c);
-    delete b;
+    reinitArray(b);
     copyArray(a, b);
   }
   delete a;
@@ -69,6 +75,9 @@ END {
     dumpArray(b)
     if (c[0] != -1) dumpArray(c)
   }
-  print ""
+  # don't add a newline if we didn't have any empty lines
+  if (blocks) {
+    print ""
+  }
   dumpArray(a)
 }
