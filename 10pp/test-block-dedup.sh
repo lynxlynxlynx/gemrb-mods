@@ -3,10 +3,12 @@
 failed=0
 inspect=$1
 function check_test () {
-  if [[ $1 != $2 ]]; then
+  local diff=$(diff -swu <(echo "$2") <(echo "$1"))
+  local rc=$(wc -l <<< "$diff")
+  if (( $rc > 1 )); then
     let failed+=1
     echo failed
-	[[ $inspect ]] && diff -su <(echo "$2") <(echo "$1") | less
+	[[ $inspect ]] && less <<< "$diff"
   else
     echo ok
   fi
