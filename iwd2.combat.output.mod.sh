@@ -3,9 +3,9 @@
 # This mod adds IWD2/HoW-like combat output with detailed type and resistance info
 # http://www.gemrb.org/wiki/doku.php?id=mods:iwd2style_combatoutput
 #
-# Run it as: bash iwd2.combat.output.mod.sh /path/to/gemrb/override/bg2
+# Run it as: bash iwd2.combat.output.mod.sh /path/to/gemrb/unhardcoded/bg2 (or other GameType)
 #
-GOVERRIDEPATH="${1:-$HOME/dev/gemrb/gemrb/gemrb/override/bg2}"
+GOVERRIDEPATH="${1:-$HOME/dev/gemrb/gemrb/gemrb/unhardcoded/bg2}"
 
 echo "Press Ctrl-C if you're not in the top game dir. You have 1 seconds."
 sleep 1
@@ -50,6 +50,7 @@ for i in $(seq ${#str[@]}); do
 done
 
 # now modify gemrb's string override with the new strrefs
+cp "$GOVERRIDEPATH"/strings.2da override/
 for i in $(seq ${#strid[@]}); do
-  sed -i "s/^${strid[$i]} .*$/${strid[$i]} ${strref[$i]}/" "$GOVERRIDEPATH"/strings.2da || exit 2
+  sed -i "s/^${strid[$i]} .*$/${strid[$i]} ${strref[$i]}/" override/strings.2da || exit 2
 done
