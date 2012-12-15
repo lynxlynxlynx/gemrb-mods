@@ -24,6 +24,5 @@ TODO
 * make them runnable from anywhere, completely path agnostic&safe
 * create a common format regardless of the payload
 * figure out a better backup mechanism, prefferably just using WeiDU's existing one
-* (external) fix GemRB's overriding priority to simplify mod installation, not pollute the engine files and enable their modding
 * double check that WeiDU can work from anywhere
 * docs, wiki crossover
