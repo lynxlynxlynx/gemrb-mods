@@ -38,18 +38,17 @@ APPEND ~lunumab.2da~ ~MULTI2MONK 14          1          99           1~ UNLESS ~
 APPEND ~lunumab.2da~ ~SORCERER_MONK 14          1          99           1~ UNLESS ~SORCERER_MONK~
 
 // ******************************************
-// add new strings, save their strrefs, use them for classes.2da and eliminate step2
-// Huh, weidu does all of this TRA stuff for us? :)
-
-
-// ******************************************
 // GemRB unhardcoded table changes
 
 // avatar class value (partial Animation ID)
 APPEND ~avprefc.2da~ ~SORCERER_MONK          0x500~
 
 // class details
-APPEND ~classes.2da~ ~SORCERER_MONK @1 @2 @3  * 786432  21  * 0x40000  -1  1  1 1 0 0  2  0~
+APPEND ~classes.2da~ ~SORCERER_MONK PLACEHOLDER_1 PLACEHOLDER_2 PLACEHOLDER_3 * 786432 21 * 0x40000 -1 1 1 1 0 0 2 0~
+COPY_EXISTING ~classes.2da~ ~override~
+  REPLACE ~PLACEHOLDER_1~ @1
+  REPLACE ~PLACEHOLDER_2~ @2
+  REPLACE ~PLACEHOLDER_3~ @3
 
 // class skills
 APPEND ~clskills.2da~ ~SORCERER_MONK   *    *    MXSPLSRC   89000   *    SKILLS    *   0     2      *  CLABMO01   -4    2500000    * 0~
