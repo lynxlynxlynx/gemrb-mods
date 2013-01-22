@@ -1,0 +1,69 @@
+====== What does this mod do? ======
+This mods adds a new multiclass choice, sorcerer/monk. Currently dualclassing is **not** possible (see notes below).
+
+Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps (custom actionbar).
+
+{{http://lynxlynx.info/bugs/sorcerer_monk.jpg}} \\
+[[http://lynxlynx.info/bugs/sorcerer_monk2.jpg|Screenshot of the game area with the merged action bar]]
+
+Only the english strings are currently supported, but that's easily changed below.
+
+====== Installation ======
+__**IMPORTANT: this will only work on linux and mac!**__ Windows users will have do step2 by hand. \\
+**IMPORTANT: not fully weidu compatible yet!**
+
+===== Step 1: extending gemrb and game tables =====
+Run WeiDU in the game directory, eg.:
+<code>
+WeiDU setup-sorcerer-monk.tp2
+</code>
+
+TODO: in the end, package weidu, so setup-sorcerer-monk.exe can be used
+
+===== Step 2: adding new strings =====
+Paste the following into a simple text editor and save it.
+<code>
+#!/bin/bash
+GOVERRIDEPATH="${1:-$HOME/dev/bg2/unhardcoded}"
+
+echo "Press Ctrl-C if you're not in the top game dir. You have 1 seconds."
+sleep 1
+dialog=$(find -mindepth 1 -maxdepth 1 -iname dialog.tlk)
+if [[ -z $dialog ]]; then
+  echo "Ehh, I told you to go to the game dir!"
+  exit 123
+fi
+
+strref=()
+str=()
+str[0]="sorcerer/monk"
+str[1]="SORCERER/MONK:
+This is a multiclass-only combination, no dualclassing possible. Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps (custom actionbar) ..."
+str[2]="SORCERER/MONK"
+
+echo Backing up current $dialog to $dialog.gemrb.backup
+cp "$dialog" "$dialog.gemrb.backup"
+echo
+
+# now we can insert them into dialog.tlk
+# since we need the resulting strrefs, we can't just add and forget
+for i in $(seq ${#str[@]}); do
+  WeiDU --strapp "${str[$i-1]}" --tlkout "$dialog" || exit 1
+  strref[$i-1]=$(WeiDU --strfind "${str[$i-1]}" | grep  "~${str[$i-1]}~" |
+                 sed -n '/String/ { s,String #\([[:digit:]]*\) .*$,\1,p; q }')
+done
+echo USE THESE as CLASSES.2DA ENTRIES for the first three columns (replace XXX, YYY, ZZZ)
+WeiDU --string ${strref[0]} | grep String
+WeiDU --string ${strref[1]} | grep String
+WeiDU --string ${strref[2]} | grep String
+</code>
+
+Then run it like:
+<code>
+bash mychosenfilename /path/to/bg2
+</code>
+The path should point to where you installed the game.
+
+====== Uninstallation ======
+You can copy back the dialog.tlk created during the installation. Rerun weidu if you want to uninstall the game&gemrb data modifications.
+
