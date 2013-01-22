@@ -9,6 +9,15 @@ Mage race and item restrictions, monk avatar, combined starting gear in tob, no 
 Only the english strings are currently supported, but that's easily changed below.
 
 ====== Installation ======
+Check where you installed GemRB (data) too and copy these files from unhardcoded/bg2:
+  - avprefc.2da
+  - classes.2da
+  - clskills.2da
+  - fistweap.2da
+  - qslots.2da
+  - skills.2da
+Where? Copy them to the "data" dir in the game dir.
+
 Run WeiDU in the game directory, eg.:
 <code>
 WeiDU setup-sorcerer-monk.tp2
