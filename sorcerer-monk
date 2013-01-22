@@ -9,81 +9,27 @@ Mage race and item restrictions, monk avatar, combined starting gear in tob, no 
 Only the english strings are currently supported, but that's easily changed below.
 
 ====== Installation ======
-__**IMPORTANT: this will only work on linux and mac!**__ Windows users will have do much by hand. \\
-**IMPORTANT: it assumes you have write access to where gemrb is installed!** \\
+__**IMPORTANT: this will only work on linux and mac!**__ Windows users will have do step2 by hand. \\
 **IMPORTANT: not fully weidu compatible!**
 
-===== Step 1: extending gemrb tables =====
-Find out where you installed gemrb, then run the extend2da.py script it comes with.
+===== Step 1: extending gemrb and game tables =====
+Save this code snippet as something.tp2 and run it with weidu in the game directory, eg.: \\
+WeiDU sorcerer.monk.tp2
 
-<code>
-python extend2da.py gemrb/override/bg2/avprefc.2da APPEND 'SORCERER_MONK          0x500'
-python extend2da.py gemrb/override/bg2/classes.2da APPEND 'SORCERER_MONK XXX YYY ZZZ  * 786432  21  * 0x40000  -1  1  1 1 0 0  2  0'
-python extend2da.py gemrb/override/bg2/clskills.2da APPEND 'SORCERER_MONK   *    *    MXSPLSRC   89000   *    SKILLS    *   0     2      *  CLABMO01   -4    2500000    * 0'
-python extend2da.py gemrb/override/bg2/fistweap.2da APPEND '21       MFIST1     MFIST1     MFIST2     MFIST2     MFIST2     MFIST3     MFIST3     MFIST3     MFIST4     MFIST4     MFIST4     MFIST5     MFIST5     MFIST5     MFIST6     MFIST6     MFIST6     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8'
-python extend2da.py gemrb/override/bg2/qslots.2da APPEND 'SORCERER_MONK       0          3          4          2          8          9          11         12        13'
-python extend2da.py gemrb/override/bg2/skills.2da APPEND_COL '$ $ SORCERER_MONK 10 5 -1 -1 -1 1 1 -1 -1'
-</code>
-
-
-===== Step 2: adding new strings =====
-Paste the following into a simple text editor and save it.
-<code>
-#!/bin/bash
-GOVERRIDEPATH="${1:-$HOME/dev/gemrb/gemrb/gemrb/override/bg2}"
-
-echo "Press Ctrl-C if you're not in the top game dir. You have 1 seconds."
-sleep 1
-if ! ls -1 | grep -qi dialog.tlk; then
-  echo "Ehh, I told you to go to the game dir!"
-  exit 123
-fi
-
-strref=()
-str=()
-str[0]="sorcerer/monk"
-str[1]="SORCERER/MONK:
-This is a multiclass-only combination, no dualclassing possible. Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps (custom actionbar) ..."
-str[2]="SORCERER/MONK"
-
-dialog=$(find -mindepth 1 -maxdepth 1 -iname dialog.tlk)
-
-echo Backing up current $dialog to $dialog.gemrb.backup
-cp "$dialog" "$dialog.gemrb.backup"
-echo
-
-# now we can insert them into dialog.tlk
-# since we need the resulting strrefs, we can't just add and forget
-for i in $(seq ${#str[@]}); do
-  WeiDU --strapp "${str[$i-1]}" --tlkout "$dialog" || exit 1
-  strref[$i-1]=$(WeiDU --strfind "${str[$i-1]}" | grep  "~${str[$i-1]}~" |
-                 sed -n '/String/ { s,String #\([[:digit:]]*\) .*$,\1,p; q }')
-done
-echo USE THESE as CLASSES.2DA ENTRIES for the first three columns (replace XXX, YYY, ZZZ)
-WeiDU --string ${strref[0]} | grep String
-WeiDU --string ${strref[1]} | grep String
-WeiDU --string ${strref[2]} | grep String
-</code>
-
-Then run it like:
-<code>
-bash mychosenfilename /path/to/gemrb/override/bg2
-</code>
-The path should point to where you installed gemrb, specifically to it's override/bg2 subfolder.
-
-===== Step 3: extending original tables =====
 <code>
 BACKUP ~sorcmonk\backup~
 AUTHOR ~lynxlynxlynx~
 BEGIN ~Sorcerer/monk multiclass for gemrb~
 
+// ******************************************
+// first all the game table changes
 APPEND ~alignmnt.2da~ ~SORCERER_MONK 1       1       1       0       0       0       0       0       0~ 
 UNLESS ~SORCERER_MONK~
 
 APPEND_COL ~weapprof.2da~ ~$ $ SORCERER_MONK 0 1 0 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
 UNLESS ~SORCERER_MONK~
 
-APPEND ~profs.2da~ ~SORCERER_MONK 2 5~ 
+APPEND ~profs.2da~ ~SORCERER_MONK 2 5~
 UNLESS ~SORCERER_MONK~
 
 APPEND ~xpcap.2da~ ~SORCERER_MONK 8000000~
@@ -105,10 +51,73 @@ APPEND ~luabbr.2da~ ~SORCERER_MONK SM0~ UNLESS ~SORCERER_MONK~
 APPEND ~lunumab.2da~ ~MULTI2SORCERER 14          1          99           1~ UNLESS ~MULTI2SORCERER~
 APPEND ~lunumab.2da~ ~MULTI2MONK 14          1          99           1~ UNLESS ~MULTI2MONK~
 APPEND ~lunumab.2da~ ~SORCERER_MONK 14          1          99           1~ UNLESS ~SORCERER_MONK~
+
+// ******************************************
+// GemRB unhardcoded table changes
+
+// avatar class value (partial Animation ID)
+APPEND ~avprefc.2da~ ~SORCERER_MONK          0x500~
+
+// class details
+APPEND ~classes.2da~ ~SORCERER_MONK XXX YYY ZZZ  * 786432  21  * 0x40000  -1  1  1 1 0 0  2  0~
+
+// class skills
+APPEND ~clskills.2da~ ~SORCERER_MONK   *    *    MXSPLSRC   89000   *    SKILLS    *   0     2      *  CLABMO01   -4    2500000    * 0~
+
+// add monk fists
+APPEND ~fistweap.2da~ ~21       MFIST1     MFIST1     MFIST2     MFIST2     MFIST2     MFIST3     MFIST3     MFIST3     MFIST4     MFIST4     MFIST4     MFIST5     MFIST5     MFIST5     MFIST6     MFIST6     MFIST6     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8~
+
+// action bar setup
+APPEND ~qslots.2da~ ~SORCERER_MONK       0          3          4          2          8          9          11         12        13~
+
+// monk "thieving" skills
+APPEND_COL ~skills.2da~ ~$ $ SORCERER_MONK 10 5 -1 -1 -1 1 1 -1 -1~
 </code>
-Save this as something.tp2 and run it with weidu in the game directory, eg.: \\
-WeiDU sorcerer.monk.tp2
+
+===== Step 2: adding new strings =====
+Paste the following into a simple text editor and save it.
+<code>
+#!/bin/bash
+GOVERRIDEPATH="${1:-$HOME/dev/bg2/unhardcoded}"
+
+echo "Press Ctrl-C if you're not in the top game dir. You have 1 seconds."
+sleep 1
+dialog=$(find -mindepth 1 -maxdepth 1 -iname dialog.tlk)
+if [[ -z $dialog ]]; then
+  echo "Ehh, I told you to go to the game dir!"
+  exit 123
+fi
+
+strref=()
+str=()
+str[0]="sorcerer/monk"
+str[1]="SORCERER/MONK:
+This is a multiclass-only combination, no dualclassing possible. Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps (custom actionbar) ..."
+str[2]="SORCERER/MONK"
+
+echo Backing up current $dialog to $dialog.gemrb.backup
+cp "$dialog" "$dialog.gemrb.backup"
+echo
+
+# now we can insert them into dialog.tlk
+# since we need the resulting strrefs, we can't just add and forget
+for i in $(seq ${#str[@]}); do
+  WeiDU --strapp "${str[$i-1]}" --tlkout "$dialog" || exit 1
+  strref[$i-1]=$(WeiDU --strfind "${str[$i-1]}" | grep  "~${str[$i-1]}~" |
+                 sed -n '/String/ { s,String #\([[:digit:]]*\) .*$,\1,p; q }')
+done
+echo USE THESE as CLASSES.2DA ENTRIES for the first three columns (replace XXX, YYY, ZZZ)
+WeiDU --string ${strref[0]} | grep String
+WeiDU --string ${strref[1]} | grep String
+WeiDU --string ${strref[2]} | grep String
+</code>
+
+Then run it like:
+<code>
+bash mychosenfilename /path/to/bg2
+</code>
+The path should point to where you installed the game.
 
 ====== Uninstallation ======
-You can copy back the dialog.tlk created during the installation and reinstall or reset gemrb to its initial state. Rerun weidu if you want to uninstall the game data modifications (even though they are harmless).
+You can copy back the dialog.tlk created during the installation. Rerun weidu if you want to uninstall the game&gemrb data modifications.
 
