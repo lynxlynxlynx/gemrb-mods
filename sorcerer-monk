@@ -53,6 +53,11 @@ APPEND ~lunumab.2da~ ~MULTI2MONK 14          1          99           1~ UNLESS ~
 APPEND ~lunumab.2da~ ~SORCERER_MONK 14          1          99           1~ UNLESS ~SORCERER_MONK~
 
 // ******************************************
+// TODO: add new strings, save their strrefs, use them for classes.2da and eliminate step2
+
+
+
+// ******************************************
 // GemRB unhardcoded table changes
 
 // avatar class value (partial Animation ID)
