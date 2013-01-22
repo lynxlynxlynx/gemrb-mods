@@ -1,0 +1,64 @@
+BACKUP ~sorcmoncl\backup~
+AUTHOR ~lynxlynxlynx~
+BEGIN ~Sorcerer/monk/cleric multiclass for gemrb~
+
+LANGUAGE ~English~ ~english~ ~tra/english.tra~
+
+VERSION @0
+
+// ******************************************
+// first all the game table changes
+APPEND ~alignmnt.2da~ ~SORCERER_MONK_CLERIC  1       1       1       0       0       0       0       0       0~ 
+UNLESS ~SORCERER_MONK_CLERIC ~
+
+APPEND_COL ~weapprof.2da~ ~$ $ SORCERER_MONK_CLERIC  0 1 0 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+UNLESS ~SORCERER_MONK_CLERIC ~
+
+APPEND ~profs.2da~ ~SORCERER_MONK_CLERIC  2 5~
+UNLESS ~SORCERER_MONK_CLERIC ~
+
+APPEND ~xpcap.2da~ ~SORCERER_MONK_CLERIC  8000000~
+UNLESS ~SORCERER_MONK_CLERIC ~
+
+APPEND_COL ~25stweap.2da~ ~$ $ SORCERER_MONK_CLERIC  * * HELM19 BAG23 RING31 RING27 CLCK02 BOOT05 AMUL21 BRAC09 BELT10 * BULL03,40 * POTN52,5 * * * * *~
+UNLESS ~SORCERER_MONK_CLERIC ~
+
+// if you want dualclassing
+// modify the two abdc* tables, dualclass.2da
+// then also change gemrb's classes.2da and add in the new MC_WAS_ID
+
+// modify the other ab* tables if you want different stat prereqs/mods
+
+// modify lu* for HLAs
+// lazy: no special table (lusmc.2da), since currently gemrb automatically uses the hlas from all classes
+// WTF @ lunumab? is the original so retarded too?
+APPEND ~luabbr.2da~ ~SORCERER_MONK_CLERIC SMC~ UNLESS ~SORCERER_MONK_CLERIC~
+APPEND ~lunumab.2da~ ~MULTI3SORCERER 13          1          99           1~ UNLESS ~MULTI2SORCERER~
+APPEND ~lunumab.2da~ ~MULTI3MONK 15          1          99           1~ UNLESS ~MULTI2MONK~
+APPEND ~lunumab.2da~ ~MULTI3CLERIC 13          1          99           1~ UNLESS ~MULTI2CLERIC~
+APPEND ~lunumab.2da~ ~SORCERER_MONK_CLERIC 14          1          99           1~ UNLESS ~SORCERER_MONK_CLERIC~
+
+// ******************************************
+// GemRB unhardcoded table changes
+
+// avatar class value (partial Animation ID)
+APPEND ~avprefc.2da~ ~SORCERER_MONK_CLERIC          0x500~
+
+// class details
+APPEND ~classes.2da~ ~SORCERER_MONK_CLERIC PLACEHOLDER_1 PLACEHOLDER_2 PLACEHOLDER_3 * 786432 22 * 0x40000 -1 1 1 1 0 0 2 0~
+COPY_EXISTING ~classes.2da~ ~override~
+  REPLACE ~PLACEHOLDER_1~ @1
+  REPLACE ~PLACEHOLDER_2~ @2
+  REPLACE ~PLACEHOLDER_3~ @3
+
+// class skills
+APPEND ~clskills.2da~ ~SORCERER_MONK_CLERIC   *    MXSPLPRS    MXSPLSRC   89000   *    SKILLS    *   0     2      *  CLABMO01   -4    2500000    * 0~
+
+// add monk fists
+APPEND ~fistweap.2da~ ~22       MFIST1     MFIST1     MFIST2     MFIST2     MFIST2     MFIST3     MFIST3     MFIST3     MFIST4     MFIST4     MFIST4     MFIST5     MFIST5     MFIST5     MFIST6     MFIST6     MFIST6     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST7     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8     MFIST8~
+
+// action bar setup
+APPEND ~qslots.2da~ ~SORCERER_MONK_CLERIC       0          3          4          2          8          9          11         12        13~
+
+// monk "thieving" skills
+APPEND_COL ~skills.2da~ ~$ $ SORCERER_MONK_CLERIC 10 5 -1 -1 -1 1 1 -1 -1~
