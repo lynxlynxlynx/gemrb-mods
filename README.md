@@ -19,10 +19,9 @@ Runtime:
 
 TODO
 ====
-* figure out a better way to insert string references / enhance WeiDU
 * port the scripted hacks to python
 * make them runnable from anywhere, completely path agnostic&safe
 * create a common format regardless of the payload
-* figure out a better backup mechanism, prefferably just using WeiDU's existing one
+* figure out a better backup mechanism if complete WeiDUfication is not possible
 * double check that WeiDU can work from anywhere
 * docs, wiki crossover
