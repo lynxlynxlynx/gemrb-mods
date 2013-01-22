@@ -6,7 +6,7 @@ Mage race and item restrictions, monk avatar, combined starting gear in tob, no 
 {{http://lynxlynx.info/bugs/sorcerer_monk.jpg}} \\
 [[http://lynxlynx.info/bugs/sorcerer_monk2.jpg|Screenshot of the game area with the merged action bar]]
 
-Only the english strings are currently supported, but that's easily changed below.
+Only the english strings are currently supported, but that's easily changed - just provide me a standard TRA file.
 
 ====== Installation ======
 Check where you installed GemRB (data) too and copy these files from unhardcoded/bg2:
