@@ -1,11 +1,11 @@
 What does this mod do?
 ======================
 
-This mods adds a new multiclass choice, sorcerer/monk. Currently dualclassing is **not** possible (see notes below).
+This mods adds a new multiclass choice, sorcerer/monk. Currently dualclassing is **not** possible (see notes in the tp2 file).
 
 Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps (custom actionbar).
 
-!(http://lynxlynx.info/bugs/sorcerer_monk.jpg)
+![screenshot](http://lynxlynx.info/bugs/sorcerer_monk.jpg)
 
 [Screenshot of the game area with the merged action bar](http://lynxlynx.info/bugs/sorcerer_monk2.jpg)
 
