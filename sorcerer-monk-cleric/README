@@ -1,14 +1,14 @@
-====== What does this mod do? ======
-This mods adds a new multiclass choice, sorcerer/monk/cleric. Currently dualclassing is **not** possible (see notes below).
+What does this mod do?
+======================
+
+This mods adds a new multiclass choice, sorcerer/monk/cleric. Currently dualclassing is **not** possible (see notes in the tp2 file).
 
 Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps or turn undead (custom actionbar).
 
-{{http://lynxlynx.info/bugs/sorcerer_monk.jpg}} \\
-[[http://lynxlynx.info/bugs/sorcerer_monk2.jpg|Screenshot of the game area with the merged action bar]]
-
 Only the english strings are currently supported, but that's easily changed - just provide me a standard TRA file.
 
-====== Installation ======
+Installation
+------------
 Check where you installed GemRB (data) too and copy these files from unhardcoded/bg2:
   - avprefc.2da
   - classes.2da
@@ -19,12 +19,12 @@ Check where you installed GemRB (data) too and copy these files from unhardcoded
 Where? Copy them to the "data" dir in the game dir.
 
 Run WeiDU in the game directory, eg.:
-<code>
-WeiDU setup-sorcerer-monk.tp2
-</code>
+
+    WeiDU setup-sorcerer-monk-cleric.tp2
 
 TODO: in the end, package weidu, so setup-sorcerer-monk.exe can be used
 
-====== Uninstallation ======
+Uninstallation
+--------------
 Rerun weidu and choose uninstall.
 
