@@ -1,0 +1,20 @@
+- rewrite in a more deterministic manner
+- add test framework for consistency
+- figure out what to do with any exceptions
+  - and extend the tests to cover them
+
+- once working, convert to weidu
+  - add decompiling and recompiling of scripts
+  - should function as any other mod
+  - store a diff in the mod dir for debugging purposes
+  - test suite should still be runnable
+  - write instructions (install last, exceptions)
+  - extend object.ids:
+90 Player7
+91 Player8
+92 Player9
+93 Player10
+94 Player7Fill
+95 Player8Fill
+96 Player9Fill
+97 Player10Fill
