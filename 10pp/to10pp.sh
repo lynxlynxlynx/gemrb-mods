@@ -9,6 +9,7 @@ triggerids="$top/trigger-$game.ids"
 simple_sed="$top/simple-sed-ok-$game"
 
 # TODO: repeat for dialog scripts
+# TODO: repeat for PlayerXFill
 # TODO: use freshly unweidued scripts and recompile+save the changed ones at the end
 # TODO: add other game's trigger.ids (or bother with weidu due to tobex and co)
 # TODO: fix all the other FIXME / TODO entries
@@ -118,13 +119,17 @@ for (( pcnum=7; pcnum <= pctotal; pcnum++ )); do # MAIN LOOP
 
   done < "$top"/untouched-todo # | cut -d"(" -f1 | sort | uniq
 
+  # FIXME: fix the count for just expanded OR blocks - OR(6) -> OR(7)
+  # we do that by counting indented lines, since weidu nicely separates them for us
+  diff -rq "$orig" "$base" | awk '{print $4}' |
+  while read script; do
+	echo -n "$script "
+  done
+echo
+  # FIXME: change all  NumInParty(6) and similar (LT,GT) [just use GT>5]
+
   echo "*****************************************************"
 done # END MAIN LOOP
-  # 2. check all the rest, some are headless actions (garrcut.baf) 
-  #   turns out we can and already do handle it above
-  # so fix miscellaneus problems here
-  # FIXME: fix the count for just expanded OR blocks - OR(6) -> OR(7)
-  # FIXME: change all  NumInParty(6) and similar (LT,GT) [just use GT]
 
 
 
