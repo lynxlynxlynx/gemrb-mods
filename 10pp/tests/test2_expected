@@ -1,0 +1,90 @@
+IF
+  Global("SAVED_GAME","MYAREA",0)
+THEN
+  RESPONSE #100
+    SetGlobal("SAVED_GAME","MYAREA",1)
+    SaveGame(0)
+    Continue()
+END
+
+IF
+  !Global("9300_RESET_JOIN","GLOBAL",0)
+THEN
+  RESPONSE #100
+    MultiPlayerSync()
+    ResetJoinRequests()
+    SetGlobal("9300_RESET_JOIN","GLOBAL",0)
+    Continue()
+END
+
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+  Or(8)
+    !OnIsland(Player1)
+    !OnIsland(Player2)
+    !OnIsland(Player3)
+    !OnIsland(Player4)
+    !OnIsland(Player5)
+    !OnIsland(Player6)
+    !OnIsland(Player7)
+    !OnIsland(Player8)
+THEN
+  RESPONSE #100
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("9300_ON_ISLAND","GLOBAL",0)
+  OnIsland(Player1)
+  OnIsland(Player2)
+  OnIsland(Player3)
+  OnIsland(Player4)
+  OnIsland(Player5)
+  OnIsland(Player6)
+  OnIsland(Player7)
+  OnIsland(Player8)
+THEN
+  RESPONSE #100
+    SetGlobal("9300_ON_ISLAND","GLOBAL",1)
+    SetGlobal("9300_RESET_TEAMS","GLOBAL",1)
+    Continue()
+END
+
+IF
+  !Global("9300_RESET_TEAMS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",0)
+    SetGlobal("MAP_GROUP_HOSTILE4","MYAREA",0)
+    SetGlobal("9300_RESET_TEAMS","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("9400_RESET_TEAMS","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("9400_RESET_TEAMS","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("9100_RESET_WEREWOLF","GLOBAL",0)
+  GlobalLT("WEREWOLF_ACTIVE","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("9100_RESET_WEREWOLF","GLOBAL",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    NoAction()
+    Continue()
+END
+

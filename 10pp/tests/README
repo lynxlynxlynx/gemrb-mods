@@ -1,0 +1,26 @@
+WIP: test suite in progress!
+
+run it with a party cap of 8 and it will change testX and compare it
+to testX_expected. If they're not the same, something is broken!
+
+tests for PlayerX:
+1: noop
+2: triggers, negated triggers, OR counts (no body)
+3: whole blocks (mentions in body)
+4: body append
+5: whole blocks (mentions in both)
+6: body append (multiple response blocks)
+7: body append (separate response blocks)
+8: body append + variables grrrr (bg2/fguard.baf, bg2/borinall.baf)
+9: accidental positives + bad decompile ("DeadPlayer6" global, "layer6")
+	FIXME: probably should correct the syntax, I doubt weidu is robust enough
+
+TODO:
+10: NumInParty exception? (borinall.baf): 
+	if parameter is divided by count of PlayerX objects and all are in separate
+	response blocks, leave alone, copy whole, append new objects and extend original param to 8?
+
+
+TODO: repeat for PlayerXFill (autogenerate? bg2/cut37a.baf is the only vanilla user)
+TODO: how/ilgem6.baf (why oh why didn't they use [PC])
+

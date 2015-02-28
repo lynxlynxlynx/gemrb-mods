@@ -1,0 +1,154 @@
+IF
+  Detect([PC])
+  Global("DeadPlayer1","LOCALS",1)
+  Dead("layer1)")  // layer1)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer2","LOCALS",1)
+  Dead("layer2)")  // layer2)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer3","LOCALS",1)
+  Dead("layer3)")  // layer3)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer4","LOCALS",1)
+  Dead("layer4)")  // layer4)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer5","LOCALS",1)
+  Dead("layer5)")  // layer5)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer6","LOCALS",1)
+  Dead("layer6)")  // layer6)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer7","LOCALS",1)
+  Dead("layer7)")  // layer7)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  Global("DeadPlayer8","LOCALS",1)
+  Dead("layer8)")  // layer8)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,DRYAD_TELEPORT)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player1)  // ~Deck of Many Things~
+  Global("DeadPlayer1","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player1,15)
+    SetGlobal("DeadPlayer1","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player2)  // ~Deck of Many Things~
+  Global("DeadPlayer2","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player2,15)
+    SetGlobal("DeadPlayer2","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player3)  // ~Deck of Many Things~
+  Global("DeadPlayer3","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player3,15)
+    SetGlobal("DeadPlayer3","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player4)  // ~Deck of Many Things~
+  Global("DeadPlayer4","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player4,15)
+    SetGlobal("DeadPlayer4","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player5)  // ~Deck of Many Things~
+  Global("DeadPlayer5","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player5,15)
+    SetGlobal("DeadPlayer5","LOCALS",1)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player6)  // ~Deck of Many Things~
+  Global("DeadPlayer6","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player6,15)
+    SetGlobal("DeadPlayer6","LOCALS",1)
+END
+
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player7)  // ~Deck of Many Things~
+  Global("DeadPlayer7","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player7,15)
+    SetGlobal("DeadPlayer7","LOCALS",1)
+END
+
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player8)  // ~Deck of Many Things~
+  Global("DeadPlayer8","LOCALS",0)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player8,15)
+    SetGlobal("DeadPlayer8","LOCALS",1)
+END
+

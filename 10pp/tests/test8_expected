@@ -1,0 +1,103 @@
+# bg2 fguard.baf
+IF
+  Global("KillPC","GLOBAL",1)
+THEN
+  RESPONSE #10
+    SetGlobal("KillPC","GLOBAL",2)
+    MoveToObject(Player2)
+  RESPONSE #10
+    SetGlobal("KillPC","GLOBAL",3)
+    MoveToObject(Player3)
+  RESPONSE #10
+    SetGlobal("KillPC","GLOBAL",4)
+    MoveToObject(Player4)
+  RESPONSE #10
+    SetGlobal("KillPC","GLOBAL",5)
+    MoveToObject(Player5)
+  RESPONSE #10
+    SetGlobal("KillPC","GLOBAL",6)
+    MoveToObject(Player6)
+  RESPONSE #10
+    SetGlobal("KillPC","GLOBAL",7)
+    MoveToObject(Player7)
+  RESPONSE #10
+    SetGlobal("KillPC","GLOBAL",8)
+    MoveToObject(Player8)
+END
+
+IF
+  Global("KillPC","GLOBAL",2)
+  Range(Player2,3)
+THEN
+  RESPONSE #100
+    Kill(Player2)
+    SetGlobal("KillPC","GLOBAL",7)
+    Wait(1)
+    ActionOverride("Angelo",Dialog([PC]))
+END
+
+IF
+  Global("KillPC","GLOBAL",3)
+  Range(Player3,3)
+THEN
+  RESPONSE #100
+    Kill(Player3)
+    SetGlobal("KillPC","GLOBAL",7)
+    Wait(1)
+    ActionOverride("Angelo",Dialog([PC]))
+END
+
+IF
+  Global("KillPC","GLOBAL",4)
+  Range(Player4,3)
+THEN
+  RESPONSE #100
+    Kill(Player4)
+    SetGlobal("KillPC","GLOBAL",7)
+    Wait(1)
+    ActionOverride("Angelo",Dialog([PC]))
+END
+
+IF
+  Global("KillPC","GLOBAL",5)
+  Range(Player5,3)
+THEN
+  RESPONSE #100
+    Kill(Player5)
+    SetGlobal("KillPC","GLOBAL",7)
+    Wait(1)
+    ActionOverride("Angelo",Dialog([PC]))
+END
+
+IF
+  Global("KillPC","GLOBAL",6)
+  Range(Player6,3)
+THEN
+  RESPONSE #100
+    Kill(Player6)
+    SetGlobal("KillPC","GLOBAL",7)
+    Wait(1)
+    ActionOverride("Angelo",Dialog([PC]))
+END
+
+IF
+  Global("KillPC","GLOBAL",7)
+  Range(Player7,3)
+THEN
+  RESPONSE #100
+    Kill(Player7)
+    SetGlobal("KillPC","GLOBAL",8)
+    Wait(1)
+    ActionOverride("Angelo",Dialog([PC]))
+END
+
+IF
+  Global("KillPC","GLOBAL",8)
+  Range(Player8,3)
+THEN
+  RESPONSE #100
+    Kill(Player8)
+    SetGlobal("KillPC","GLOBAL",9)
+    Wait(1)
+    ActionOverride("Angelo",Dialog([PC]))
+END

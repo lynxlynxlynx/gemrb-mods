@@ -1,0 +1,15 @@
+# part of bg2 fguard.baf
+IF
+  Global("KillPC","GLOBAL",1)
+THEN
+  RESPONSE #10
+    MoveToObject(Player2)
+  RESPONSE #10
+    MoveToObject(Player3)
+  RESPONSE #10
+    MoveToObject(Player4)
+  RESPONSE #10
+    MoveToObject(Player5)
+  RESPONSE #10
+    MoveToObject(Player6)
+END

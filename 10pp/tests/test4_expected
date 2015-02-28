@@ -1,0 +1,34 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("udsimyaz")  // 
+    CreateVisualEffect("SPDIMNDR",[3705.1077])
+    CreateVisualEffect("SPDIMNDR",[4062.1068])
+    CreateVisualEffect("SPDIMNDR",[3923.1237])
+    Wait(2)
+    MoveViewPoint([3900.1100],INSTANT)
+    CreateCreature("udmind01",[3705.1077],12)  // ~Mind Flayer~
+    CreateCreature("udmind03",[4062.1068],4)  // ~Mind Flayer~
+    CreateCreature("udmind04",[3923.1237],8)  // ~Mind Flayer~
+    CloseDoor("Door08")
+    Lock("Door08")
+    Wait(2)
+    ActionOverride("udmind01",ReallyForceSpell(Player1,MIND_CRIPPLE))
+    ActionOverride("udmind03",ReallyForceSpell(Player2,MIND_CRIPPLE))
+    ActionOverride("udmind04",ReallyForceSpell(Player3,MIND_CRIPPLE))
+    Wait(1)
+    ActionOverride("udmind01",ReallyForceSpell(Player4,MIND_CRIPPLE))
+    ActionOverride("udmind03",ReallyForceSpell(Player5,MIND_CRIPPLE))
+    ActionOverride("udmind04",ReallyForceSpell(Player6,MIND_CRIPPLE))
+    ActionOverride("udmind04",ReallyForceSpell(Player7,MIND_CRIPPLE))
+    ActionOverride("udmind04",ReallyForceSpell(Player8,MIND_CRIPPLE))
+    DisplayStringHead("udmind01",37453)  // ~A chittering noise emanates from the writhing tentacles of the illithid.~
+    StartCombatCounter()
+    Wait(2)
+    DisplayStringHead("udmind03",53003)  // ~A sharp pain penetrates your mind.  Images of pain and cruelty, fighting pits and slavery fill your skull.  Then mercifully you lose consciousness...~
+    Wait(5)
+    StartCutSceneMode()
+    StartCutScene("Cut44d")
+END
+
