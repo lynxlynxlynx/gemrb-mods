@@ -7,8 +7,7 @@ use warnings;
 use open qw< :encoding(UTF-8) >;
 
 my $dir = 'tests';
-my $fixer = ''; # path to script fixer script
-# TODO: include $fixer
+require 'extender.pl' or die "Could not load extender functions: $!";
 
 my $QUIET = 0;
 foreach (@ARGV) {
@@ -30,8 +29,6 @@ foreach my $test (@tests) {
 	open($result_handle, "+>", $temp_result);
 
 	fixScript($test_handle, $result_handle);
-#use File::Copy;
-#copy($expected_handle, $result_handle);
 
 	# compare contents of $result_handle and $expected_handle
 	my $result = do { local $/; <$result_handle> };
@@ -56,8 +53,7 @@ sub fixScript {
 	my $self = shift;
 	my $test = shift;
 	my $result = shift;
-	# FIXME
-	# $fixer->fix($test, $result)
+	extend($test, $result, 8)
 }
 
 exit 0;
