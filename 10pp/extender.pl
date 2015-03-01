@@ -51,14 +51,31 @@ sub extend {
             exit;
         }
 
+#         my @trigger_list = split /\n/, $trigger_half;
+#         my @response_blocks = split /RESPONSE/, $response_half;
+
         # figure out what toplevel strategy to take
         if ($trigger_mention == $response_mention) {
             # both triggers and response blocks need to be changed
             # TODO: test5, test8-10
         } elsif ($trigger_mention == 1) {
             # likely only triggers need to be changed
-            # TODO: if (everyone) is mentioned append trigger (test2)
+            # if (everyone) is mentioned append trigger (test2)
             # TODO: else copy the whole block (TODO: test missing!)
+            if ($trigger_half =~ /Player5/) {
+                # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
+                # NOTE: for now we don't care about ordering (567 vs 765)
+                # we have a party, just add extra triggers ny copying Player6 lines
+                # TODO: OR
+                my $prevPC = "Player6";
+                for (my $i = 7; $i <= $party_num; $i++) {
+                    my $nextPC = "Player" . $i;
+                    $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$3$4\n$1$2$nextPC$4/rm;
+                    $prevPC = $nextPC;
+                }
+            } else {
+
+            }
         } else {
             # likely only response blocks need to be changed
             # TODO: if (everyone) is mentioned append action(s) (tests: 4, 6, 7)
@@ -66,6 +83,7 @@ sub extend {
         }
 
         # TODO: don't forget to re-add IF/THEN/END and any other omissions!
+        say $output_handle "IF\n" . $trigger_half . "THEN\n" . $response_half . "END\n";
 
 	# it would be ideal to drop this on a LINE
 	# loop, not block loop.
