@@ -63,11 +63,11 @@ sub extend {
         } elsif ($trigger_mention == 1) {
             # likely only triggers need to be changed
             # if (everyone) is mentioned append trigger (test2)
-            # TODO: else copy the whole block (TODO: test missing!)
             if ($trigger_half =~ /Player5/) {
                 # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
                 $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
             } else {
+                # else copy the whole block (test17)
 
             }
         } else {
