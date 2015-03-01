@@ -1,0 +1,69 @@
+BACKUP ~10pp/backup~
+AUTHOR ~lynx, CreevsDaak~
+BEGIN ~Maximum party size extender for IEScript (usable with GemRB only)~
+
+VERSION "10 player parties 0.2"
+
+// some warnings and input
+PRINT ~
+This mod should be installed after all other script altering/adding mods!
+
+The conversion process can easily take half an hour depending on the size of your install!
+Please be patient and DO NOT INTERRUPT execution lest you want to start from zero.
+There is only one query and then you can go plant some coffee.
+
+What should the new maximum party size be? [1-10]~
+ACTION_READLN ~newmax~
+OUTER_WHILE NOT(IS_AN_INT %newmax% && %newmax% > 0 && %newmax% <= 10) BEGIN
+  PRINT ~Enter a whole number between 1 and 10 silly.
+What should the new maximum party size be? [1-10]~
+  ACTION_READLN ~newmax~
+END
+
+// if it is <6 then they only have to change the variable in GemRB config
+ACTION_IF (%newmax% < 7) THEN BEGIN
+  PRINT ~Good news, smaller parties require only configuration changes!
+
+Just set MaxPartySize to %newmax% in your GemRB config file and you'll be ready to play.
+~
+  FAIL ~Nothing to change, exiting...~
+END
+
+// extend object.ids with new scripting objects
+// NOTE: gemrb supports only up to 10 objects (an arbitrary limit until someone shows a need for more)
+APPEND ~object.ids~ ~90 Player7
+91 Player8
+92 Player9
+93 Player10
+94 Player7Fill
+95 Player8Fill
+96 Player9Fill
+97 Player10Fill~
+//APPEND ~object.ids~ ~91 Player8~
+//APPEND ~object.ids~ ~92 Player9~
+//APPEND ~object.ids~ ~93 Player10~
+//APPEND ~object.ids~ ~94 Player7Fill~
+//APPEND ~object.ids~ ~95 Player8Fill~
+//APPEND ~object.ids~ ~96 Player9Fill~
+//APPEND ~object.ids~ ~97 Player10Fill~
+
+// decompile all scripts
+// TODO: perhaps first do a quick scan for mentions of compiled "Player6"?
+PRINT ~Decompiling *every* script...~
+
+// fix all scripts
+PRINT ~Fixing affected scripts...~
+
+// recompile affected scripts
+PRINT ~Recompiling affected scripts...~
+
+// fix all dialogs
+PRINT ~Fixing dialogs~
+
+
+PRINT ~DONE!
+
+REMEMBER to:
+* use a big enough resolution (extra space for portraits)
+* and to set MaxPartySize to %newmax% in your GemRB config file
+~
