@@ -10,12 +10,20 @@ my $dir = 'tests';
 require 'extender.pl' or die "Could not load extender functions: $!";
 
 my $QUIET = 0;
+my $TESTS_GLOB;
 foreach (@ARGV) {
-	$QUIET=1 if ($_ eq "-q")
+	if ($_ eq "-q") {
+		$QUIET = 1;
+		next;
+	}
+	$TESTS_GLOB .= $_;
+}
+if (not $TESTS_GLOB) {
+	$TESTS_GLOB = "$dir/*[0-9]";
 }
 
 
-my @tests = glob("$dir/*[0-9]");
+my @tests = glob($TESTS_GLOB);
 
 # run fixer over all tests and compare results
 my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';

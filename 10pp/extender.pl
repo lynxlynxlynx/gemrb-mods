@@ -10,8 +10,6 @@ sub extend {
     my $output_handle = shift;
     my $party_num = shift;
 
-#    open(my $input_baf, "tests/test8");
-#    s/IF/IF\n#/ge
     my $input_baf = do { local $/; <$input_handle> };
     my @baf_blocks = split(m{\n\n}x, $input_baf) or die;
 
