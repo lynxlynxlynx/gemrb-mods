@@ -21,14 +21,11 @@ my @tests = glob("$dir/*[0-9]");
 my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
 foreach my $test (@tests) {
 	my $expected_file = $test . "_expected";
-	my $test_handle = undef;
-	my $expected_handle = undef;
-	my $result_handle = undef;
-	open($test_handle, "<", $test);
-	open($expected_handle, "<", $expected_file);
-	open($result_handle, "+>", $temp_result);
+	open(my $test_handle, "<", $test);
+	open(my $expected_handle, "<", $expected_file);
+	open(my $result_handle, "+>", $temp_result);
 
-	fixScript($test_handle, $result_handle);
+	extend($test_handle, $result_handle, 8); # tests are written with 8pp in mind
 
 	# compare contents of $result_handle and $expected_handle
 	my $result = do { local $/; <$result_handle> };
@@ -48,12 +45,4 @@ foreach my $test (@tests) {
 	close($result_handle);
 }
 unlink $temp_result or warn "Could not unlink temporary file: $!";
-
-sub fixScript {
-	my $self = shift;
-	my $test = shift;
-	my $result = shift;
-	extend($test, $result, 8)
-}
-
 exit 0;
