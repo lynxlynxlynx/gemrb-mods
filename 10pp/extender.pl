@@ -5,14 +5,15 @@ use strict;
 use warnings;
 
 sub extend {
-    my $input_baf = shift;
-    my $output_baf = shift;
+    my $input_handle = shift;
+    my $output_handle = shift;
     my $party_num = shift;
 
 #    open(my $input_baf, "tests/test8");
 #    s/IF/IF\n#/ge
-    my @baf_blocks = split(m{\n\n}x, <$input_baf>) or die;
-    
+    my $input_baf = do { local $/; <$input_handle> };
+    my @baf_blocks = split(m{\n\n}x, $input_baf) or die;
+
     foreach (@baf_blocks) { # might need to change if other method is used.
 	# it would be ideal to drop this on a LINE
 	# loop, not block loop.
