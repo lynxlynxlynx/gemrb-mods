@@ -7,9 +7,10 @@ use warnings;
 # reads passed BAF and extends it to request max party count if needed
 sub extend {
     my $input_handle = shift;
-    my $output_handle = shift;
+    my $output_file = shift;
     my $party_num = shift;
 
+    open(my $output_handle, "+>", $output_file);
     my $input_baf = do { local $/; <$input_handle> };
     my @baf_blocks = split(m{\n\n}x, $input_baf) or die;
 
