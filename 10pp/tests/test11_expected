@@ -1,0 +1,19 @@
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+  Or(8)
+    !OnIsland(Player1)
+    !OnIsland(Player2)
+    !OnIsland(Player3)
+    !OnIsland(Player4)
+    !OnIsland(Player5)
+    !OnIsland(Player6)
+    !OnIsland(Player7)
+    !OnIsland(Player8)
+  Or(2)
+    Global("9300_ISLAND","GLOBAL",2)
+    Global("9300_ISLAND","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+END
+

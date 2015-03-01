@@ -15,6 +15,9 @@ tests for PlayerX:
 9: accidental positives + bad decompile ("DeadPlayer6" global, "layer6")
 	FIXME: probably should correct the syntax, I doubt weidu is robust enough
 	FIXME: recheck if this decompile bug still happens at all and amend the test
+11: triggers (multiple OR blocks)
+12: triggers (OR block with extra actions)
+13: triggers (OR block with extra player actions)
 
 TODO:
 10: NumInParty exception? (borinall.baf): 
