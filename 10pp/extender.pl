@@ -40,17 +40,17 @@ sub extend {
 #	    }
 #	}
 #	if ($_ =~ m/[ ][ ]OR\(\d\)\n/)
-	if ($_ =~ m/([ ][ ][ ][ ](.*)Player4(.*)\n)/) {
-	    # might need less robust check for the ones that aren't together
-	    # or random ordering support too, sigh, that'll get long.
-	    if ($_ =~ m/($1[ ][ ][ ][ ](.*)Player5(.*)\n)/) {
-		if ($_ =~ m/($1[ ][ ][ ][ ](.*)Player6(.*)\n)/) {
-		    for (my $i =7; $i<$party_num; $i++) {
-			s/$1/$2Player$i$3/ # dunno if I should do this with flag g or no
-		    }
-		}
-	    }
-	} # if player4
+# # 	if ($_ =~ m/([ ][ ][ ][ ](.*)Player4(.*)\n)/) {
+# # 	    # might need less robust check for the ones that aren't together
+# # 	    # or random ordering support too, sigh, that'll get long.
+# # 	    if ($_ =~ m/($1[ ][ ][ ][ ](.*)Player5(.*)\n)/) {
+# # 		if ($_ =~ m/($1[ ][ ][ ][ ](.*)Player6(.*)\n)/) {
+# # 		    for (my $i =7; $i<$party_num; $i++) {
+# # 			s/$1/$2Player$i$3/ # dunno if I should do this with flag g or no
+# # 		    }
+# # 		}
+# # 	    }
+# # 	} # if player4
 
 	
     }
