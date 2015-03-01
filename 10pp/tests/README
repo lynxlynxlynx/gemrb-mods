@@ -1,7 +1,7 @@
-WIP: test suite in progress!
-
-run it with a party cap of 8 and it will change testX and compare it
-to testX_expected. If they're not the same, something is broken!
+These tests were prepared to be checked against a party cap of 8.
+Evaluation happens with the provided ../test-suite.pl script, which
+extends testX and compares it to testX_expected. If they're not the same,
+something is broken!
 
 tests for PlayerX:
 1: noop
@@ -14,6 +14,7 @@ tests for PlayerX:
 8: body append + variables grrrr (bg2/fguard.baf, bg2/borinall.baf)
 9: accidental positives + bad decompile ("DeadPlayer6" global, "layer6")
 	FIXME: probably should correct the syntax, I doubt weidu is robust enough
+	FIXME: recheck if this decompile bug still happens at all and amend the test
 
 TODO:
 10: NumInParty exception? (borinall.baf): 
