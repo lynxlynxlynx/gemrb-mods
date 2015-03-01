@@ -1,7 +1,7 @@
 IF
   Detect([PC])
   Global("DeadPlayer1","LOCALS",1)
-  Dead("layer1)")  // layer1)
+  Dead(Player1)
 THEN
   RESPONSE #100
     ForceSpell(Myself,DRYAD_TELEPORT)
@@ -10,7 +10,7 @@ END
 IF
   Detect([PC])
   Global("DeadPlayer2","LOCALS",1)
-  Dead("layer2)")  // layer2)
+  Dead(Player2)
 THEN
   RESPONSE #100
     ForceSpell(Myself,DRYAD_TELEPORT)
@@ -19,7 +19,7 @@ END
 IF
   Detect([PC])
   Global("DeadPlayer3","LOCALS",1)
-  Dead("layer3)")  // layer3)
+  Dead(Player3)
 THEN
   RESPONSE #100
     ForceSpell(Myself,DRYAD_TELEPORT)
@@ -28,7 +28,7 @@ END
 IF
   Detect([PC])
   Global("DeadPlayer4","LOCALS",1)
-  Dead("layer4)")  // layer4)
+  Dead(Player4)
 THEN
   RESPONSE #100
     ForceSpell(Myself,DRYAD_TELEPORT)
@@ -37,7 +37,7 @@ END
 IF
   Detect([PC])
   Global("DeadPlayer5","LOCALS",1)
-  Dead("layer5)")  // layer5)
+  Dead(Player5)
 THEN
   RESPONSE #100
     ForceSpell(Myself,DRYAD_TELEPORT)
@@ -46,7 +46,7 @@ END
 IF
   Detect([PC])
   Global("DeadPlayer6","LOCALS",1)
-  Dead("layer6)")  // layer6)
+  Dead(Player6)
 THEN
   RESPONSE #100
     ForceSpell(Myself,DRYAD_TELEPORT)
