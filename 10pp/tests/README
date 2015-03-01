@@ -12,9 +12,8 @@ tests for PlayerX:
 6: body append (multiple response blocks)
 7: body append (separate response blocks)
 8: body append + variables grrrr (bg2/fguard.baf, bg2/borinall.baf)
-9: accidental positives + bad decompile ("DeadPlayer6" global, "layer6")
-	FIXME: probably should correct the syntax, I doubt weidu is robust enough
-	FIXME: recheck if this decompile bug still happens at all and amend the test
+9: accidental positives + bad decompile ("DeadPlayer6" global)
+
 11: triggers (multiple OR blocks)
 12: triggers (OR block with extra actions)
 13: triggers (OR block with extra player actions)
@@ -30,6 +29,6 @@ TODO:
 	response blocks, leave alone, copy whole, append new objects and extend original param to 8?
 
 
-TODO: repeat for PlayerXFill (autogenerate? bg2/cut37a.baf is the only vanilla user)
+TODO: repeat for PlayerXFill (autogenerate? bg2/cut37a.baf is the only vanilla user). Currently not needed, as we loosely match on PlayerX
 TODO: how/ilgem6.baf (why oh why didn't they use [PC])
 
