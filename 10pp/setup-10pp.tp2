@@ -1,8 +1,9 @@
 BACKUP ~10pp/backup~
-AUTHOR ~lynx, CreevsDaak~
+AUTHOR ~lynx, CrevsDaak~
+VERSION "10 player parties 0.2"
+
 BEGIN ~Maximum party size extender for IEScript (usable with GemRB only)~
 
-VERSION "10 player parties 0.2"
 
 // some warnings and input
 PRINT ~
@@ -50,16 +51,17 @@ APPEND ~object.ids~ ~90 Player7
 // decompile all scripts
 // TODO: perhaps first do a quick scan for mentions of compiled "Player6"?
 PRINT ~Decompiling *every* script...~
-
+COPY_EXISTING_REGEXP ~^.+\.bcs$~ ~10pp/temp/baf~
+  DECOMPILE_BCS_TO_BAF
 // fix all scripts
 PRINT ~Fixing affected scripts...~
 
 // recompile affected scripts
 PRINT ~Recompiling affected scripts...~
-
+COMPILE ~10pp/temp/baf~ // this will create backup files
 // fix all dialogs
 PRINT ~Fixing dialogs~
-
+// do the same on dialogs
 
 PRINT ~DONE!
 
