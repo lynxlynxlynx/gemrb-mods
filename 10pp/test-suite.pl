@@ -25,7 +25,12 @@ foreach my $test (@tests) {
 	open(my $expected_handle, "<", $expected_file);
 	open(my $result_handle, "+>", $temp_result);
 
-	extend($test_handle, $result_handle, 8); # tests are written with 8pp in mind
+	my $rc = extend($test_handle, $result_handle, 8); # tests are written with 8pp in mind
+	if ($rc eq 0) {
+		# this test needed no work
+		print "$test: SUCCESS (skipped)!\n";
+		next;
+	}
 
 	# compare contents of $result_handle and $expected_handle
 	my $result = do { local $/; <$result_handle> };

@@ -4,6 +4,7 @@
 use strict;
 use warnings;
 
+# reads passed BAF and extends it to request max party count if needed
 sub extend {
     my $input_handle = shift;
     my $output_handle = shift;
@@ -13,6 +14,12 @@ sub extend {
 #    s/IF/IF\n#/ge
     my $input_baf = do { local $/; <$input_handle> };
     my @baf_blocks = split(m{\n\n}x, $input_baf) or die;
+
+    # shortcircuit scripts that won't need changing
+    # IOW those that have no mentions of Player6
+    if ((grep /Player6/, @baf_blocks) == 0) {
+        return 0;
+    }
 
     foreach (@baf_blocks) { # might need to change if other method is used.
 	# it would be ideal to drop this on a LINE
@@ -40,6 +47,7 @@ sub extend {
 
 	
     }
+    return 1;
 }
 
 #exit 0;
