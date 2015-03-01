@@ -135,8 +135,9 @@ sub fixTriggersOnly {
 #               print $new_trigger_half, "|\n" , $line, "\n";
 #               print ((substr $new_trigger_half, $or_pos, 6), "||", $cur_pos, "||", $or_pos, "||\n");
                 # we have to set the new count carefully in case there are other actions inside the Or: just add to existing
-                my $new_count = (substr $new_trigger_half, $or_pos+4, 1) + ($party_num - 6);
-                substr $new_trigger_half, $or_pos, 6, " Or($new_count)";
+                my $old_count = (substr $new_trigger_half, $or_pos+4, 2) =~ s/(\d+).?/$1/r;
+                my $new_count = $old_count + ($party_num - 6);
+                substr $new_trigger_half, $or_pos, 5+(length $old_count), " Or($new_count)";
                 #$in_or = 0; # one fix per Or block is only enough if there is only one Player6-using trigger ...
             }
             # add new triggers
