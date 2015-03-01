@@ -28,7 +28,13 @@ sub extend {
     #
     # We're writing to the output handle as we go, so we don't need to reread
     # the original
-    foreach (@baf_blocks) { # might need to change if other method is used.
+    foreach my $block (@baf_blocks) {
+        # nothing to do? Just write it out
+        if ($block !~ /Player6/) {
+            say $output_handle $block . "\n";
+            next;
+        }
+
 	# it would be ideal to drop this on a LINE
 	# loop, not block loop.
 #	if ($_ =~ m/^.*NumInParty\(\d\)$/) {
