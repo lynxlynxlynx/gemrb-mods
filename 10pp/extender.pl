@@ -35,6 +35,38 @@ sub extend {
             next;
         }
 
+        # now we know there is a mention of Player6, so let's dig deeper
+        my $trigger_mention = 0;
+        my $response_mention = 0;
+        # safely strip out the contents
+        my ($trigger_half) = ($block =~ /^IF\n((?:(?!^IF).)*)THEN$/ms);
+        my ($response_half) = ($block =~ /^THEN\n((?:(?!^THEN).)*)END$/ms);
+
+        # where are the uses?
+        $trigger_mention++ if ($trigger_half =~ /Player6/);
+        $response_mention++ if ($response_half =~ /Player6/);
+        if ($trigger_mention == $response_mention && $trigger_mention == 0) {
+            print $trigger_half . "||||\n" . $response_half . "\n\n";
+            print "FATAL PARSING ERROR: player mention mismatch! Dumped problematic block above.";
+            exit;
+        }
+
+        # figure out what toplevel strategy to take
+        if ($trigger_mention == $response_mention) {
+            # both triggers and response blocks need to be changed
+            # TODO: test5, test8-10
+        } elsif ($trigger_mention == 1) {
+            # likely only triggers need to be changed
+            # TODO: if (everyone) is mentioned append trigger (test2)
+            # TODO: else copy the whole block (TODO: test missing!)
+        } else {
+            # likely only response blocks need to be changed
+            # TODO: if (everyone) is mentioned append action(s) (tests: 4, 6, 7)
+            # TODO: else copy the whole block (test3)
+        }
+
+        # TODO: don't forget to re-add IF/THEN/END and any other omissions!
+
 	# it would be ideal to drop this on a LINE
 	# loop, not block loop.
 #	if ($_ =~ m/^.*NumInParty\(\d\)$/) {
