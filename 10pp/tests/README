@@ -18,6 +18,9 @@ tests for PlayerX:
 11: triggers (multiple OR blocks)
 12: triggers (OR block with extra actions)
 13: triggers (OR block with extra player actions)
+14: triggers (multiple OR + OR block with extra actions)
+15: triggers (multiple OR + OR block with extra player actions)
+16: triggers (multiple OR x extra player actions + extra action)
 
 TODO:
 10: NumInParty exception? (borinall.baf): 
