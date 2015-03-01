@@ -51,7 +51,7 @@ sub extend {
             exit;
         }
 
-#         my @trigger_list = split /\n/, $trigger_half;
+        my @trigger_list = split /\n/, $trigger_half;
 #         my @response_blocks = split /RESPONSE/, $response_half;
 
         # figure out what toplevel strategy to take
@@ -65,14 +65,42 @@ sub extend {
             if ($trigger_half =~ /Player5/) {
                 # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
                 # NOTE: for now we don't care about ordering (567 vs 765)
-                # we have a party, just add extra triggers ny copying Player6 lines
-                # TODO: OR
-                my $prevPC = "Player6";
-                for (my $i = 7; $i <= $party_num; $i++) {
-                    my $nextPC = "Player" . $i;
-                    $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$3$4\n$1$2$nextPC$4/rm;
-                    $prevPC = $nextPC;
+                # we have a party, just add extra triggers by copying Player6 lines
+                my $new_trigger_half = "";
+                my $in_or = 0;
+                for my $line (@trigger_list) {
+                    if ($line =~ /^  Or\(/) {
+                        $in_or = 1;
+                        $new_trigger_half .= $line . "\n";
+                        next;
+                    } elsif ($line =~ /^\s\s\S/) {
+                        # OR causes extra indent (python style)
+                        $in_or = 0;
+                    }
+                    if ($line =~ /Player6/) {
+                        # adjust Or() if needed
+                        if ($in_or) {
+                            # FIXME: UGLY, perhaps just split on OR(.) and work on that?
+                            my $cur_pos = index $new_trigger_half, my $grr = $line =~ s/Player6/Player5/r;
+                            my $or_pos = rindex $new_trigger_half, " Or(", $cur_pos;
+#                            print $new_trigger_half, "|\n" , $line, "\n";
+#                            print ((substr $new_trigger_half, $or_pos, 6), "||", $cur_pos, "||", $or_pos, "||\n");
+                            # we have to set the new count carefully in case there are other actions inside the Or: just add to existing
+                            my $new_count = (substr $new_trigger_half, $or_pos+4, 1) + ($party_num - 6);
+                            substr $new_trigger_half, $or_pos, 6, " Or($new_count)";
+                            #$in_or = 0; # one fix per Or block is only enough if there is only one Player6-using trigger ...
+                        }
+                        # add new triggers
+                        my $prevPC = "Player6";
+                        for (my $i = 7; $i <= $party_num; $i++) {
+                            my $nextPC = "Player" . $i;
+                            $line = $line =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$3$4\n$1$2$nextPC$4/mr;
+                            $prevPC = $nextPC;
+                        }
+                    }
+                    $new_trigger_half .= $line . "\n";
                 }
+                $trigger_half = $new_trigger_half;
             } else {
 
             }
