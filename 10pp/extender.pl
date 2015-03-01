@@ -5,14 +5,13 @@ use strict;
 use warnings;
 
 sub extend {
-    my $dummy = shift;
     my $input_baf = shift;
     my $output_baf = shift;
     my $party_num = shift;
 
 #    open(my $input_baf, "tests/test8");
 #    s/IF/IF\n#/ge
-    my @baf_blocks = split(m{\n\n}x, <$input_baf>); # perl doesn't like this, fix.
+    my @baf_blocks = split(m{\n\n}x, <$input_baf>) or die;
     
     foreach (@baf_blocks) { # might need to change if other method is used.
 	# it would be ideal to drop this on a LINE
@@ -31,7 +30,7 @@ sub extend {
 	    # or random ordering support too, sigh, that'll get long.
 	    if ($_ =~ m/($1[ ][ ][ ][ ](.*)Player5(.*)\n)/) {
 		if ($_ =~ m/($1[ ][ ][ ][ ](.*)Player6(.*)\n)/) {
-		    for (my $i =7; i<$party_num; i++) {
+		    for (my $i =7; $i<$party_num; $i++) {
 			s/$1/$2Player$i$3/ # dunno if I should do this with flag g or no
 		    }
 		}
@@ -42,4 +41,5 @@ sub extend {
     }
 }
 
-exit 0;
+#exit 0;
+1
