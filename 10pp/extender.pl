@@ -19,6 +19,15 @@ sub extend {
         return 0;
     }
 
+    # overview:
+    # 1. read each block into its:
+    #   * trigger list
+    #   * response block1 ... blockN
+    # 2. check which class of a problem the block represents
+    # 3. fix it
+    #
+    # We're writing to the output handle as we go, so we don't need to reread
+    # the original
     foreach (@baf_blocks) { # might need to change if other method is used.
 	# it would be ideal to drop this on a LINE
 	# loop, not block loop.
