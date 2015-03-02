@@ -3,7 +3,7 @@
   - and extend the tests to cover them
 
 - once working, plug into weidu: see setup-10pp.tp2
-  - store a diff in the mod dir for debugging purposes
+  - debug weidu script, mostly for syntax errors
   - test suite should still be runnable
   - write instructions (install last, exceptions)
   - consider converting to weidu completely, since perl is not there for winfolk
