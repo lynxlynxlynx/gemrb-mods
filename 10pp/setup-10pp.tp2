@@ -4,11 +4,10 @@ VERSION "10 player parties 0.2"
 
 BEGIN ~Maximum party size extender for IEScript (usable with GemRB only)~
 
-
 // some warnings and input
 PRINT ~
 This mod should be installed after all other script altering/adding mods!
-For bg2, the G3 Fixpack is needed (Core fixes): http://www.gibberlings3.net/bg2fixpack/
+For bg2, the G3 Fixpack is needed (Core fixes): www.gibberlings3.net/bg2fixpack/
 
 The conversion process can easily take half an hour depending on the size of your install!
 Please be patient and DO NOT INTERRUPT execution lest you want to start from zero.
@@ -51,15 +50,34 @@ APPEND ~object.ids~ ~90 Player7
 
 // decompile all scripts
 // TODO: perhaps first do a quick scan for mentions of compiled "Player6"?
+MKDIR ~10pp/temp~
+MKDIR ~10pp/temp/baf~
+MKDIR ~10pp/temp/diff~
+MKDIR ~10pp/temp/backup~ // this might get removed next time I edit this file...
 PRINT ~Decompiling *every* script...~
 COPY_EXISTING_REGEXP ~^.+\.bcs$~ ~10pp/temp/baf~
-  DECOMPILE_BCS_TO_BAF
+
+ACTION_BASH_FOR ~10pp/temp/baf/.*\.bcs$~ BEGIN
+  MOVE ~%BASH_FOR_FILE%~ ~ORIG_BAF_FILE_%BASH_FOR_RES%.baf~
+    DECOMPILE_BCS_TO_BAF
+END
+
 // fix all scripts
 PRINT ~Fixing affected scripts...~
 
+AT_NOW // formatted for readability
+~perl -e 'require extender.pl or die "Couldn't load extender.pl: $!";
+
+	my @a = glob "10pp/temp/baf/*";
+	foreach (@a) {
+		extend("ORIG_BAF_FILE_" . "$"_, $_, %newmax%);
+		system("diff -su " . "ORIG_BAF_FILE_" . $_ . " " . $_ . " > ../diff/$_" . ".diff");
+		system("mv ORIG_BAF_FILE_" . $_ . " ../backup/ORIG_BAF_FILE_" . $_)
+	}'~ // last system() call might get it's mv changed it rm...
+
 // recompile affected scripts
 PRINT ~Recompiling affected scripts...~
-COMPILE ~10pp/temp/baf~ // this will create backup files
+COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
 // fix all dialogs
 PRINT ~Fixing dialogs~
 // do the same on dialogs
