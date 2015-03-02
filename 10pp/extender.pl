@@ -76,8 +76,8 @@ sub extend {
             # TODO: else copy the whole block (test3)
         }
 
-        # TODO: don't forget to re-add IF/THEN/END and any other omissions!
-        say $output_handle "IF\n" . $trigger_half . "THEN\n" . $response_half . "END\n";
+        # final writeout of modified current block
+        writeBlock ($output_handle, $trigger_half, $response_half);
 
 	# it would be ideal to drop this on a LINE
 	# loop, not block loop.
@@ -152,5 +152,15 @@ sub fixTriggersOnly {
     }
     return $new_trigger_half;
 }
+
+# don't forget to re-add RESPONSE.* and any other omissions before use!
+sub writeBlock {
+    my $output_handle = shift;
+    my $trigger_half = shift;
+    my $response_half = shift;
+
+    say $output_handle "IF\n" . $trigger_half . "THEN\n" . $response_half . "END\n";
+}
+
 #exit 0;
 1
