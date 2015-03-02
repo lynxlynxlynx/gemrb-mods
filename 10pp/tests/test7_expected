@@ -1,4 +1,3 @@
-# part of bg2 fguard.baf
 IF
   Global("KillPC","GLOBAL",1)
 THEN
