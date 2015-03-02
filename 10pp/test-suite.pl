@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+use Term::ANSIColor qw(:constants);
+
 # FIXME: check what weidu uses; for the miscompiled cases the comments may be useful
 # but that also means that strrefs could bring in wierd chars
 use open qw< :encoding(UTF-8) >;
@@ -34,7 +36,7 @@ foreach my $test (sort {substr($a, 10, 2) <=> substr($b, 10, 2)} @tests) {
 	my $rc = extend($test, $temp_result, 8); # tests are written with 8pp in mind
 	if ($rc eq 0) {
 		# this test needed no work
-		print "$test: SUCCESS (skipped)!\n";
+		print "$test: ", GREEN, "SUCCESS", RESET, " (skipped)!\n";
 		next;
 	}
 
@@ -43,9 +45,9 @@ foreach my $test (sort {substr($a, 10, 2) <=> substr($b, 10, 2)} @tests) {
 	my $result = do { local $/; <$result_handle> };
 	my $expected = do { local $/; <$expected_handle> };
 	if ($result eq $expected) {
-		print "$test: SUCCESS!\n";
+		print "$test: ", GREEN, "SUCCESS!", RESET, "\n";
 	} else {
-		print "$test: FAILURE!\n";
+		print "$test: ", RED, "FAILURE!", RESET, "\n";
 		#print $result . "\n\n\n\n" . $expected;
 		if (!$QUIET) {
 			system("diff -su " . $expected_file . " " . $temp_result);
