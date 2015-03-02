@@ -72,24 +72,6 @@ END
 
 IF
   Detect([PC])
-  Global("DeadPlayer7","LOCALS",1)
-  Dead("layer7)")  // layer7)
-THEN
-  RESPONSE #100
-    ForceSpell(Myself,DRYAD_TELEPORT)
-END
-
-IF
-  Detect([PC])
-  Global("DeadPlayer8","LOCALS",1)
-  Dead("layer8)")  // layer8)
-THEN
-  RESPONSE #100
-    ForceSpell(Myself,DRYAD_TELEPORT)
-END
-
-IF
-  Detect([PC])
   HasItem("DECK",Player1)  // ~Deck of Many Things~
   Global("DeadPlayer1","LOCALS",0)
 THEN
