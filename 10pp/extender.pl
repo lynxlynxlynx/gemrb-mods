@@ -11,8 +11,11 @@ sub extend {
     my $party_num = shift;
 
     open(my $output_handle, "+>", $output_file);
-    my $input_baf = do { local $/; <$input_handle> };
+    open(my $baf_handle, "<:utf8", $input_handle);
+    my $input_baf = do { local $/; <$baf_handle> };
     my @baf_blocks = split(m{\n\n}x, $input_baf) or die;
+    # read data, close file
+    close($baf_handle);
 
     # shortcircuit scripts that won't need changing
     # IOW those that have no mentions of Player6
