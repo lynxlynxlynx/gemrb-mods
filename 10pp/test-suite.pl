@@ -29,10 +29,9 @@ my @tests = glob($TESTS_GLOB);
 my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
 foreach my $test (@tests) {
 	my $expected_file = $test . "_expected";
-	open(my $test_handle, "<", $test);
 	open(my $expected_handle, "<", $expected_file);
 
-	my $rc = extend($test_handle, $temp_result, 8); # tests are written with 8pp in mind
+	my $rc = extend($test, $temp_result, 8); # tests are written with 8pp in mind
 	if ($rc eq 0) {
 		# this test needed no work
 		print "$test: SUCCESS (skipped)!\n";
@@ -53,7 +52,6 @@ foreach my $test (@tests) {
 		}
 	}
 
-	close($test_handle);
 	close($expected_handle);
 	close($result_handle);
 }
