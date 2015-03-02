@@ -78,7 +78,7 @@ sub extend {
                 my $prevPC = "Player6";
                 for (my $i = 7; $i <= $party_num; $i++) {
                     my $nextPC = "Player" . $i;
-                    $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/mr;
+                    $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
                     $prevPC = $nextPC;
                     # last one will be written out below
                     writeBlock ($output_handle, $trigger_half, $response_half) if $i != $party_num;
@@ -99,7 +99,7 @@ sub extend {
                 my $prevPC = "Player6";
                 for (my $i = 7; $i <= $party_num; $i++) {
                     my $nextPC = "Player" . $i;
-                    $response_half = $response_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/mr;
+                    $response_half = $response_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
                     $prevPC = $nextPC;
                     # last one will be written out below
                     writeBlock ($output_handle, $trigger_half, $response_half) if $i != $party_num;
