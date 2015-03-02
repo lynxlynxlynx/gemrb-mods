@@ -124,7 +124,7 @@ sub fixTriggersOnly {
     my $new_trigger_half = "";
     my $in_or = 0;
     for my $line (@trigger_list) {
-        if ($line =~ /^  Or\(/) {
+        if ($line =~ /^  OR\(/) {
             $in_or = 1;
             $new_trigger_half .= $line . "\n";
             next;
@@ -133,17 +133,17 @@ sub fixTriggersOnly {
             $in_or = 0;
         }
         if ($line =~ /Player6/) {
-            # adjust Or() if needed
+            # adjust OR() if needed
             if ($in_or) {
                 # FIXME: UGLY, perhaps just split on OR(.) and work on that?
                 my $cur_pos = index $new_trigger_half, my $grr = $line =~ s/Player6/Player5/r;
-                my $or_pos = rindex $new_trigger_half, " Or(", $cur_pos;
+                my $or_pos = rindex $new_trigger_half, " OR(", $cur_pos;
 #               print $new_trigger_half, "|\n" , $line, "\n";
 #               print ((substr $new_trigger_half, $or_pos, 6), "||", $cur_pos, "||", $or_pos, "||\n");
                 # we have to set the new count carefully in case there are other actions inside the Or: just add to existing
                 my $old_count = (substr $new_trigger_half, $or_pos+4, 2) =~ s/(\d+).?/$1/r;
                 my $new_count = $old_count + ($party_num - 6);
-                substr $new_trigger_half, $or_pos, 5+(length $old_count), " Or($new_count)";
+                substr $new_trigger_half, $or_pos, 5+(length $old_count), " OR($new_count)";
                 #$in_or = 0; # one fix per Or block is only enough if there is only one Player6-using trigger ...
             }
             # add new triggers

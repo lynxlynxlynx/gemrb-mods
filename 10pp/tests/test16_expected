@@ -1,6 +1,6 @@
 IF
   !Global("9300_ON_ISLAND","GLOBAL",0)
-  Or(16)
+  OR(16)
     !OnIsland(Player1)
     !OnIsland(Player2)
     !OnIsland(Player3)
@@ -17,7 +17,7 @@ IF
     !Island(Player6)
     !Island(Player7)
     !Island(Player8)
-  Or(17)
+  OR(17)
     !Onland(Player1)
     !Onland(Player2)
     !Onland(Player3)

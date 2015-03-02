@@ -19,7 +19,7 @@ END
 
 IF
   !Global("9300_ON_ISLAND","GLOBAL",0)
-  Or(8)
+  OR(8)
     !OnIsland(Player1)
     !OnIsland(Player2)
     !OnIsland(Player3)
