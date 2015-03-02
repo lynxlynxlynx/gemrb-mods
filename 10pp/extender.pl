@@ -84,7 +84,24 @@ sub extend {
         } else {
             # likely only response blocks need to be changed
             # TODO: if (everyone) is mentioned append action(s) (tests: 4, 6, 7)
-            # TODO: else copy the whole block (test3)
+            if ($response_half =~ /Player5/) {
+                # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
+#                 $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
+            } else {
+                # else copy the whole block (test3)
+                # write the current one
+                writeBlock ($output_handle, $trigger_half, $response_half);
+
+                # add copies for each extra party member
+                my $prevPC = "Player6";
+                for (my $i = 7; $i <= $party_num; $i++) {
+                    my $nextPC = "Player" . $i;
+                    $response_half = $response_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/mr;
+                    $prevPC = $nextPC;
+                    # last one will be written out below
+                    writeBlock ($output_handle, $trigger_half, $response_half) if $i != $party_num;
+                }
+            }
         }
 
         # final writeout of modified current block
