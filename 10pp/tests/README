@@ -22,6 +22,8 @@ tests for PlayerX:
 16: triggers (multiple OR x extra player actions + extra action)
 17: triggers (whole block)
 18: triggers (whole block + OR)
+19: triggers (whole block + multiple mentions)
+20: whole block (multiple mentions in body)
 
 TODO:
 10: NumInParty exception? (borinall.baf): 

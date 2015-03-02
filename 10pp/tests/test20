@@ -1,0 +1,8 @@
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Continue(Player6)
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Continue(Player6)
+END

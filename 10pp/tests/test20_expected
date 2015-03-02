@@ -1,0 +1,27 @@
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Continue(Player6)
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Continue(Player6)
+END
+
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Continue(Player7)
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Continue(Player7)
+END
+
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Continue(Player8)
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Continue(Player8)
+END
+
