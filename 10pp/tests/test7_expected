@@ -16,3 +16,4 @@ THEN
   RESPONSE #10
     MoveToObject(Player8)
 END
+

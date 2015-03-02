@@ -57,7 +57,11 @@ sub extend {
         }
 
         my @trigger_list = split /\n/, $trigger_half;
-#         my @response_blocks = split /RESPONSE/, $response_half;
+        # note the capture group - we need to preserve the weight
+        my @response_blocks = split /(\s*RESPONSE .*\n)/m, $response_half;
+        # remove first element; always empty due to the way $response_half is built
+        shift @response_blocks;
+        # for my $line (@response_blocks) { print "+$line-"; }
 
         # figure out what toplevel strategy to take
         if ($trigger_mention == $response_mention) {
@@ -89,7 +93,7 @@ sub extend {
             # TODO: if (everyone) is mentioned append action(s) (tests: 4, 6, 7)
             if ($response_half =~ /Player5/) {
                 # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
-#                 $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
+                $response_half = fixResponsesOnly($response_half, $party_num, @response_blocks);
             } else {
                 # else copy the whole block (test3)
                 # write the current one
@@ -112,6 +116,44 @@ sub extend {
     }
     close($output_handle);
     return 1;
+}
+
+# NOTE: for now we don't care about ordering (567 vs 765)
+sub fixResponsesOnly {
+    my $response_half = shift;
+    my $party_num = shift;
+    my @response_blocks = @_;
+
+    # we have a party, add extra actions by copying Player6 lines and
+    # potentially adding new RESPONSE BLOCKS
+    # TODO: adjust weights (not that important?)
+    my $new_response_half = "";
+    my @response_keys = keys @response_blocks;
+    for my $key (@response_keys) {
+        my $block = $response_blocks[$key];
+        next if ($block =~ /^RESPONSE/);
+
+        if ($block =~ /Player5/ and $block =~ /Player6/) {
+            # block mentions everyone, just append
+            my $prevPC = "Player6";
+            for (my $i = 7; $i <= $party_num; $i++) {
+                my $nextPC = "Player" . $i;
+                $block = $block =~ s/^(\s*)(.*)($prevPC)(.*)$/$&\n$1$2$nextPC$4/gmr;
+                $prevPC = $nextPC;
+            }
+        } elsif ($block =~ /Player6/) {
+            # block mentions only last, append as new response block
+            my $prevPC = "Player6";
+            for (my $i = 7; $i <= $party_num; $i++) {
+                my $nextPC = "Player" . $i;
+                $block = $block =~ s/^(\s*)(.*)($prevPC)(.*)$/$&$response_blocks[$key-1]$1$2$nextPC$4/gmr;
+                $prevPC = $nextPC;
+            }
+
+        }
+        $new_response_half .= $block;# . "\n";
+    }
+    return $new_response_half;
 }
 
 # NOTE: for now we don't care about ordering (567 vs 765)
