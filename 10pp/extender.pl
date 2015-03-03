@@ -66,7 +66,14 @@ sub extend {
         # figure out what toplevel strategy to take
         if ($trigger_mention == $response_mention) {
             # both triggers and response blocks need to be changed
-            # TODO: test5, test8-10
+            # test5, test8-10 and others
+            # we have at least 4 cases to handle:
+            #   * append triggers + append actions,
+            #   * append triggers + new response blocks,
+            #   * whole block copy (new trigger block + body append)
+            #   * whole block copy (new trigger block + new response blocks)
+#             $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
+#             $response_half = fixResponsesOnly($response_half, $party_num, @response_blocks);
         } elsif ($trigger_mention == 1) {
             # likely only triggers need to be changed
             # if (everyone) is mentioned append trigger (test2)
@@ -90,7 +97,7 @@ sub extend {
             }
         } else {
             # likely only response blocks need to be changed
-            # TODO: if (everyone) is mentioned append action(s) (tests: 4, 6, 7)
+            # if (everyone) is mentioned append action(s) (tests: 4, 6, 7)
             if ($response_half =~ /Player5/) {
                 # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
                 $response_half = fixResponsesOnly($response_half, $party_num, @response_blocks);
@@ -126,7 +133,7 @@ sub fixResponsesOnly {
 
     # we have a party, add extra actions by copying Player6 lines and
     # potentially adding new RESPONSE BLOCKS
-    # TODO: adjust weights (not that important?)
+    # TODO: adjust weights (not that important & how would we know?)
     my $new_response_half = "";
     my @response_keys = keys @response_blocks;
     for my $key (@response_keys) {
@@ -206,7 +213,7 @@ sub fixTriggersOnly {
     return $new_trigger_half;
 }
 
-# don't forget to re-add RESPONSE.* and any other omissions before use!
+# don't forget to properly reconstruct the halves before use!
 sub writeBlock {
     my $output_handle = shift;
     my $trigger_half = shift;
