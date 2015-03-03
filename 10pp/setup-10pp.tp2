@@ -71,7 +71,8 @@ AT_NOW // formatted for readability
 	my @a = glob "10pp/temp/baf/*";
 	foreach (@a) {
 		extend("ORIG_BAF_FILE_" . "$"_, $_, %newmax%);
-		system("diff -su " . "ORIG_BAF_FILE_" . $_ . " " . $_ . " > ../diff/$_" . ".diff");
+		# TODO: replace system calls with weidu or perl code
+		system("cmp -s " . "ORIG_BAF_FILE_" . $_ . " " . $_ . " || diff -u " . "ORIG_BAF_FILE_" . $_ . " " . $_ . " > ../diff/$_" . ".diff");
 		system("mv ORIG_BAF_FILE_" . $_ . " ../backup/ORIG_BAF_FILE_" . $_)
 	}'~ // last system() call might get it's mv changed it rm...
 
