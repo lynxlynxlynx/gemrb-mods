@@ -1,10 +1,12 @@
 - rewrite in a more deterministic manner
+- write an extender for dialogs
 - figure out what to do with any exceptions
   - and extend the tests to cover them
 
-- once working, plug into weidu: see setup-10pp.tp2
-  - debug weidu script, mostly for syntax errors
-  - test suite should still be runnable
-  - write instructions (install last, exceptions)
-  - consider converting to weidu completely, since perl is not there for winfolk
-    - someone could compile the perl script with a wrapper also in perl
+- debug weidu script, mostly for syntax errors
+- get rid of system() calls
+  - find a perl diff implementation or write a trivial one
+- decompile only scripts that we would touch:
+  - check for mentions of compiled Player6(Fill) object ids
+- write README (install last, perl, warnings, exceptions, dev)
+  - consider bundling perl or packaging everything with an executable
