@@ -1,0 +1,23 @@
+IF
+  Global("KillPC","GLOBAL",1)
+THEN
+  RESPONSE #10
+    MoveToObject(Player1)
+    MoveToObject(Player2)
+    MoveToObject(Player3)
+    MoveToObject(Player4)
+    MoveToObject(Player5)
+    MoveToObject(Player6)
+    MoveToObject(Player7)
+    MoveToObject(Player8)
+  RESPONSE #10
+    MoveToObject(Player6)
+    oveToObject(Player6)
+  RESPONSE #10
+    MoveToObject(Player7)
+    oveToObject(Player7)
+  RESPONSE #10
+    MoveToObject(Player8)
+    oveToObject(Player8)
+END
+

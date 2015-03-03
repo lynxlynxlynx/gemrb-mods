@@ -27,6 +27,7 @@ tests for PlayerX:
 21: body append (multiple mentions in same block)
 22: body append (multiple mentions in same block + multiple RB)
 23: body append (multiple mentions in same block + separate RB)
+24: body append (single&multiple mentions in same block + separate RB)
 
 TODO:
 10: NumInParty exception? (borinall.baf): 
