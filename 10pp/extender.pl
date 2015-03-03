@@ -144,12 +144,17 @@ sub fixResponsesOnly {
         } elsif ($block =~ /Player6/) {
             # block mentions only last, append as new response block
             my $prevPC = "Player6";
+            my $header = $response_blocks[$key-1]; # RESPONSE #100
+            chomp $block;
+            my $old_block = $block;
+#             print "|$block|";
             for (my $i = 7; $i <= $party_num; $i++) {
                 my $nextPC = "Player" . $i;
-                $block = $block =~ s/^(\s*)(.*)($prevPC)(.*)$/$&$response_blocks[$key-1]$1$2$nextPC$4/gmr;
-                $prevPC = $nextPC;
+                my $new_block = $old_block =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
+                $new_block = $header . $new_block;
+                $block .=  $new_block;
             }
-
+            $block .= "\n";
         }
         $new_response_half .= $block;# . "\n";
     }
