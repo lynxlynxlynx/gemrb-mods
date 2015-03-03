@@ -11,8 +11,8 @@ tests for PlayerX:
 5: whole blocks (mentions in both)
 6: body append (multiple response blocks)
 7: body append (separate response blocks)
-8: body append + variables grrrr (bg2/fguard.baf, bg2/borinall.baf)
-9: accidental positives + bad decompile ("DeadPlayer6" global)
+8: body append + whole blocks + variables grrrr (bg2/fguard.baf, bg2/borinall.baf)
+9: accidental positives + whole blocks ("DeadPlayer6" global)
 
 11: triggers (multiple OR blocks)
 12: triggers (OR block with extra actions)
