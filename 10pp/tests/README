@@ -12,7 +12,7 @@ tests for PlayerX:
 6: body append (multiple response blocks)
 7: body append (separate response blocks)
 8: body append + whole blocks + variables grrrr (bg2/fguard.baf, bg2/borinall.baf)
-9: accidental positives + whole blocks ("DeadPlayer6" global)
+9: triggers (single player action) + accidental positives ("DeadPlayer6" global)
 
 11: triggers (multiple OR blocks)
 12: triggers (OR block with extra actions)
@@ -28,6 +28,7 @@ tests for PlayerX:
 22: body append (multiple mentions in same block + multiple RB)
 23: body append (multiple mentions in same block + separate RB)
 24: body append (single&multiple mentions in same block + separate RB)
+25: whole blocks + accidental positives ("DeadPlayer6" global)
 
 TODO:
 10: NumInParty exception? (borinall.baf): 
