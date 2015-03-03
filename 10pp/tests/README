@@ -29,6 +29,10 @@ tests for PlayerX:
 23: body append (multiple mentions in same block + separate RB)
 24: body append (single&multiple mentions in same block + separate RB)
 25: whole blocks + accidental positives ("DeadPlayer6" global)
+26: whole block (new trigger block + body append)
+27: whole block (append triggers + append actions)
+28: whole block (append triggers + new response blocks)
+29: whole block (append triggers + new separate response blocks)
 
 TODO:
 10: NumInParty exception? (borinall.baf): 

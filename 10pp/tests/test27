@@ -1,0 +1,38 @@
+IF
+  !Global("9300_ON_ISLAND","GLOBAL",0)
+  OR(6)
+    !OnIsland(Player1)
+    !OnIsland(Player2)
+    !OnIsland(Player3)
+    !OnIsland(Player4)
+    !OnIsland(Player5)
+    !OnIsland(Player6)
+THEN
+  RESPONSE #100
+    SetGlobal("9300_ON_ISLAND","GLOBAL",0)
+    Lick(Player1)
+    Lick(Player2)
+    Lick(Player3)
+    Lick(Player4)
+    Lick(Player5)
+    Lick(Player6)
+    Continue()
+END
+
+IF
+  Global("9300_ON_ISLAND","GLOBAL",0)
+  OnIsland(Player1)
+  OnIsland(Player2)
+  OnIsland(Player3)
+  OnIsland(Player4)
+  OnIsland(Player5)
+  OnIsland(Player6)
+THEN
+  RESPONSE #100
+    Lick(Player1)
+    Lick(Player2)
+    Lick(Player3)
+    Lick(Player4)
+    Lick(Player5)
+    Lick(Player6)
+END

@@ -68,10 +68,10 @@ sub extend {
             # both triggers and response blocks need to be changed
             # test5, test8-10 and others
             # we have at least 4 cases to handle:
-            #   * append triggers + append actions,
-            #   * append triggers + new response blocks,
-            #   * whole block copy (new trigger block + body append)
-            #   * whole block copy (new trigger block + new response blocks)
+            #   * append triggers + append actions: test27
+            #   * append triggers + new response blocks: test28, 29
+            #   * whole block copy (new trigger block + body append): test26
+            #   * whole block copy (new trigger block + new response blocks): test5, 8, 25
 #             $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
 #             $response_half = fixResponsesOnly($response_half, $party_num, @response_blocks);
         } elsif ($trigger_mention == 1) {

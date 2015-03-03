@@ -1,0 +1,45 @@
+IF
+  Detect([PC])
+  HasItem("DECK",Player6)  // ~Deck of Many Things~
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player1,15)
+    AttackReevaluate(Player2,15)
+    AttackReevaluate(Player3,15)
+    AttackReevaluate(Player4,15)
+    AttackReevaluate(Player5,15)
+    AttackReevaluate(Player6,15)
+    AttackReevaluate(Player7,15)
+    AttackReevaluate(Player8,15)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player7)  // ~Deck of Many Things~
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player1,15)
+    AttackReevaluate(Player2,15)
+    AttackReevaluate(Player3,15)
+    AttackReevaluate(Player4,15)
+    AttackReevaluate(Player5,15)
+    AttackReevaluate(Player6,15)
+    AttackReevaluate(Player7,15)
+    AttackReevaluate(Player8,15)
+END
+
+IF
+  Detect([PC])
+  HasItem("DECK",Player8)  // ~Deck of Many Things~
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player1,15)
+    AttackReevaluate(Player2,15)
+    AttackReevaluate(Player3,15)
+    AttackReevaluate(Player4,15)
+    AttackReevaluate(Player5,15)
+    AttackReevaluate(Player6,15)
+    AttackReevaluate(Player7,15)
+    AttackReevaluate(Player8,15)
+END
+

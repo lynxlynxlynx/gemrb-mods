@@ -1,0 +1,12 @@
+IF
+  Detect([PC])
+  HasItem("DECK",Player6)  // ~Deck of Many Things~
+THEN
+  RESPONSE #100
+    AttackReevaluate(Player1,15)
+    AttackReevaluate(Player2,15)
+    AttackReevaluate(Player3,15)
+    AttackReevaluate(Player4,15)
+    AttackReevaluate(Player5,15)
+    AttackReevaluate(Player6,15)
+END
