@@ -8,7 +8,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player1)
-  !Dead("layer1)")  // layer1)
   HPPercentLT(Player1,80)
 THEN
   RESPONSE #100
@@ -19,7 +18,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player2)
-  !Dead("layer2)")  // layer2)
   HPPercentLT(Player2,80)
 THEN
   RESPONSE #100
@@ -30,7 +28,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player3)
-  !Dead("layer3)")  // layer3)
   HPPercentLT(Player3,80)
 THEN
   RESPONSE #100
@@ -41,7 +38,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player4)
-  !Dead("layer4)")  // layer4)
   HPPercentLT(Player4,80)
 THEN
   RESPONSE #100
@@ -52,7 +48,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player5)
-  !Dead("layer5)")  // layer5)
   HPPercentLT(Player5,80)
 THEN
   RESPONSE #100
@@ -63,7 +58,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player6)
-  !Dead("layer6)")  // layer6)
   HPPercentLT(Player6,80)
 THEN
   RESPONSE #100
@@ -74,7 +68,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player7)
-  !Dead("layer7)")  // layer7)
   HPPercentLT(Player7,80)
 THEN
   RESPONSE #100
@@ -85,7 +78,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
   See(Player8)
-  !Dead("layer8)")  // layer8)
   HPPercentLT(Player8,80)
 THEN
   RESPONSE #100
@@ -96,7 +88,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player1)
-  !Dead("layer1)")  // layer1)
   HPPercentLT(Player1,80)
 THEN
   RESPONSE #100
@@ -107,7 +98,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player2)
-  !Dead("layer2)")  // layer2)
   HPPercentLT(Player2,80)
 THEN
   RESPONSE #100
@@ -118,7 +108,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player3)
-  !Dead("layer3)")  // layer3)
   HPPercentLT(Player3,80)
 THEN
   RESPONSE #100
@@ -129,7 +118,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player4)
-  !Dead("layer4)")  // layer4)
   HPPercentLT(Player4,80)
 THEN
   RESPONSE #100
@@ -140,7 +128,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player5)
-  !Dead("layer5)")  // layer5)
   HPPercentLT(Player5,80)
 THEN
   RESPONSE #100
@@ -151,7 +138,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player6)
-  !Dead("layer6)")  // layer6)
   HPPercentLT(Player6,80)
 THEN
   RESPONSE #100
@@ -162,7 +148,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player7)
-  !Dead("layer7)")  // layer7)
   HPPercentLT(Player7,80)
 THEN
   RESPONSE #100
@@ -173,7 +158,6 @@ END
 IF
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)
   See(Player8)
-  !Dead("layer8)")  // layer8)
   HPPercentLT(Player8,80)
 THEN
   RESPONSE #100
