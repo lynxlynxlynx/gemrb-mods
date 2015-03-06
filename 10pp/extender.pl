@@ -56,6 +56,7 @@ sub extend {
             exit;
         }
 
+        my $no_write = 0;
         my @trigger_list = split /\n/, $trigger_half;
         # note the capture group - we need to preserve the weight
         my @response_blocks = split /(\s*RESPONSE .*\n)/m, $response_half;
@@ -72,8 +73,33 @@ sub extend {
             #   * append triggers + new response blocks: test28, 29
             #   * whole block copy (new trigger block + body append): test26
             #   * whole block copy (new trigger block + new response blocks): test5, 8, 25
-#             $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
-#             $response_half = fixResponsesOnly($response_half, $party_num, @response_blocks);
+            # use same "party vs individual" detection as elsewhere
+            if ($trigger_half =~ /Player5/) {
+                if ($response_half =~ /Player5/) {
+                    $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
+                    $response_half = fixResponsesOnly($response_half, $party_num, @response_blocks);
+                } else {
+                    # test29 works, since it has separate response blocks
+                    if ($#response_blocks > 1) {
+                        $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
+                        $response_half = fixResponsesOnly($response_half, $party_num, @response_blocks);
+                    } else {
+                        # test28 has only one response block
+                        $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
+                        fixResponses($output_handle, $trigger_half, $response_half, $party_num);
+                        $no_write = 1;
+                    }
+                }
+            } else {
+                if ($response_half =~ /Player5/) {
+                    # whole block copy (new trigger block + body append): test26
+                    fixResponses2($output_handle, $trigger_half, $response_half, $party_num);
+                } else {
+                    # whole block copy (new trigger block + new response blocks): test5, 8, 25
+                    #fixResponses3($output_handle, $trigger_half, $response_half, $party_num);
+                }
+                $no_write = 1;
+            }
         } elsif ($trigger_mention == 1) {
             # likely only triggers need to be changed
             # if (everyone) is mentioned append trigger (test2)
@@ -119,10 +145,53 @@ sub extend {
         }
 
         # final writeout of modified current block
-        writeBlock ($output_handle, $trigger_half, $response_half);
+        writeBlock ($output_handle, $trigger_half, $response_half) if not $no_write;
     }
     close($output_handle);
     return 1;
+}
+
+# whole block copy (new trigger block + body append)
+sub fixResponses2 {
+    my $output_handle = shift;
+    my $trigger_half = shift;
+    my $response_half = shift;
+    my $party_num = shift;
+
+    my $old_block = $response_half;
+    my $old_trigger_half = $trigger_half;
+    for (my $i = 6; $i <= $party_num; $i++) {
+        my $prevPC = "Player6";
+        my $nextPC = "Player" . $i;
+        $trigger_half = $old_trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
+        my $new_block = $response_half;
+        for (my $j = 7; $j <= $party_num; $j++) {
+            $nextPC = "Player" . $j;
+            $new_block = $new_block =~ s/^(\s*)(.*)($prevPC)(.*)$/$&\n$1$2$nextPC$4/gmr;
+            $prevPC = $nextPC;
+        }
+        writeBlock ($output_handle, $trigger_half, $new_block);
+    }
+}
+
+# single response block block that requires whole copies along with adapted triggers
+sub fixResponses {
+    my $output_handle = shift;
+    my $trigger_half = shift;
+    my $response_half = shift;
+    my $party_num = shift;
+
+    # flush the original Player6 block
+    writeBlock ($output_handle, $trigger_half, $response_half);
+
+    my $old_block = $response_half;
+    my $prevPC = "Player6";
+    #print "|$header::$block|";
+    for (my $i = 7; $i <= $party_num; $i++) {
+        my $nextPC = "Player" . $i;
+        my $new_block = $old_block =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
+        writeBlock ($output_handle, $trigger_half, $new_block);
+    }
 }
 
 # NOTE: for now we don't care about ordering (567 vs 765)
