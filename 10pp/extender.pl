@@ -117,9 +117,9 @@ sub extend {
                     my $nextPC = "Player" . $i;
                     $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
                     $prevPC = $nextPC;
-                    # last one will be written out below
-                    writeBlock ($output_handle, $trigger_half, $response_half) if $i != $party_num;
+                    writeBlock ($output_handle, $trigger_half, $response_half)
                 }
+                $no_write = 1;
             }
         } else {
             # likely only response blocks need to be changed
@@ -138,9 +138,9 @@ sub extend {
                     my $nextPC = "Player" . $i;
                     $response_half = $response_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
                     $prevPC = $nextPC;
-                    # last one will be written out below
-                    writeBlock ($output_handle, $trigger_half, $response_half) if $i != $party_num;
+                    writeBlock ($output_handle, $trigger_half, $response_half);
                 }
+                $no_write = 1;
             }
         }
 
