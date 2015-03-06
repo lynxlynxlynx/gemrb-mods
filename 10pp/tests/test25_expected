@@ -77,3 +77,4 @@ THEN
     AttackReevaluate(Player8,15)
     SetGlobal("DeadPlayer8","LOCALS",1)
 END
+
