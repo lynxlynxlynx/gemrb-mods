@@ -96,7 +96,7 @@ sub extend {
                     fixResponses2($output_handle, $trigger_half, $response_half, $party_num);
                 } else {
                     # whole block copy (new trigger block + new response blocks): test5, 8, 25
-                    #fixResponses3($output_handle, $trigger_half, $response_half, $party_num);
+                    fixResponses3($output_handle, $trigger_half, $response_half, $party_num);
                 }
                 $no_write = 1;
             }
@@ -149,6 +149,26 @@ sub extend {
     }
     close($output_handle);
     return 1;
+}
+
+# whole block copy (new trigger block + new response blocks)
+sub fixResponses3 {
+    my $output_handle = shift;
+    my $trigger_half = shift;
+    my $response_half = shift;
+    my $party_num = shift;
+
+    # flush the original Player6 block
+    writeBlock ($output_handle, $trigger_half, $response_half);
+
+    my $old_trigger_half = $trigger_half;
+    my $prevPC = "Player6";
+    for (my $i = 7; $i <= $party_num; $i++) {
+        my $nextPC = "Player" . $i;
+        $trigger_half = $old_trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
+        my $new_block = $response_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
+        writeBlock ($output_handle, $trigger_half, $new_block);
+    }
 }
 
 # whole block copy (new trigger block + body append)
