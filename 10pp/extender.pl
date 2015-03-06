@@ -1,4 +1,4 @@
-#!/usr/local/ActivePerl-5.20/bin/perl5.20.1
+#!/usr/bin/env perl
 # change that when i'm done
 
 use strict;
