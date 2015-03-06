@@ -138,7 +138,6 @@ sub fixResponsesOnly {
     my @response_keys = keys @response_blocks;
     for my $key (@response_keys) {
         my $block = $response_blocks[$key];
-        next if ($block =~ /^RESPONSE/);
 
         if ($block =~ /Player5/ and $block =~ /Player6/) {
             # block mentions everyone, just append
