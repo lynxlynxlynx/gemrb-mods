@@ -52,23 +52,26 @@ APPEND ~object.ids~ ~90 Player7
 //APPEND ~object.ids~ ~96 Player9Fill~
 //APPEND ~object.ids~ ~97 Player10Fill~
 
-// decompile all scripts
-// TODO: perhaps first do a quick scan for mentions of compiled "Player6"?
+// decompile all to-be affected scripts
 MKDIR ~10pp/temp~
 MKDIR ~10pp/temp/baf~
 MKDIR ~10pp/diffs~
 MKDIR ~10pp/temp/backup~ // this might get removed next time I edit this file...
-PRINT ~Decompiling *every* script...~
+
+PRINT ~Extracting *all* scripts...~
 COPY_EXISTING_REGEXP ~^.+\.bcs$~ ~10pp/temp/baf~
 
+// the regex below is part of the compiled form of the "Player6" object
+PRINT ~Decompiling affected scripts...~
 ACTION_BASH_FOR ~10pp/temp/baf/.*\.bcs$~ BEGIN
-  MOVE ~%BASH_FOR_FILE%~ ~ORIG_BAF_FILE_%BASH_FOR_RES%.baf~
-    DECOMPILE_BCS_TO_BAF
+  ACTION_IF FILE_CONTAINS ~%BASH_FOR_FILE%~ ' 26 .*"OB' THEN BEGIN
+    # FIXME: why this wierd rename?
+    MOVE ~%BASH_FOR_FILE%~ ~ORIG_BAF_FILE_%BASH_FOR_RES%.baf~
+      DECOMPILE_BCS_TO_BAF
+  END
 END
 
-// fix all scripts
 PRINT ~Fixing affected scripts...~
-
 ACTION_BASH_FOR ~10pp/temp/baf/.*\.baf$~ BEGIN
   AT_NOW ~perl wrapper.pl %BASH_FOR_FILE% %newmax% %BASH_FOR_RES%.baf2~
   MOVE ~%BASH_FOR_RES%.baf2~ ~%BASH_FOR_FILE%~
@@ -77,6 +80,7 @@ END
 // recompile affected scripts
 PRINT ~Recompiling affected scripts...~
 COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
+
 // fix all dialogs
 PRINT ~Fixing dialogs~
 // do the same on dialogs
