@@ -34,6 +34,7 @@ tests for PlayerX:
 28: whole block (append triggers + new response blocks)
 29: whole block (append triggers + new separate response blocks)
 30: body append (separate reponse blocks + not last)
+31: skippable exception
 
 TODO:
 10: NumInParty exception? (borinall.baf): 
