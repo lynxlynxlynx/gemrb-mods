@@ -36,6 +36,7 @@ tests for PlayerX:
 30: body append (separate reponse blocks + not last)
 31: skippable exception
 32: NumInParty*(6) hack
+33: dialog (trivial action append)
 
 TODO:
 NumInParty*(6) is only used in 3 scripts in bg2:

@@ -42,7 +42,7 @@ If you'll be extending the extender logic, use test-suite.pl and write tests
 under tests/* liberally. All other paths lead to madness and peril.
 
 To add tests, just add a file and then make a copy with the desired changes,
-naming it file_expected.
+naming it file_expected. Dialog tests need a D after their id.
 
 Example invocations:
   * ./test-suite.pl       # runs all tests, prints diffs for failures

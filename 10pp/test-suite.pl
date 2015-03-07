@@ -21,7 +21,7 @@ foreach (@ARGV) {
 	$TESTS_GLOB .= $_;
 }
 if (not $TESTS_GLOB) {
-	$TESTS_GLOB = "$dir/*[0-9]";
+	$TESTS_GLOB = "$dir/*[0-9D]";
 }
 
 

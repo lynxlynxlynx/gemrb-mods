@@ -34,6 +34,11 @@ sub extend {
         return 0;
     }
 
+    # treat dialogs separately, since the format is different
+    if ($input_file =~ /dlg$/ or $input_file =~ /D$/) {
+        return extendDLG($output_handle, $input_text, $party_num);
+    }
+
     # overview:
     # 1. read each block into its:
     #   * trigger list
@@ -321,6 +326,14 @@ sub writeBlock {
     # HACK: NumInParty(6)
     $trigger_half = $trigger_half =~ s/(NumInParty[^(]*)\(6\)/$1GT(5)/gmr;
     say $output_handle "IF\n" . $trigger_half . "THEN\n" . $response_half . "END\n";
+}
+
+sub extendDLG {
+    my $output_handle = shift;
+    my $dialog_string = shift;
+    my $party_num = shift;
+
+    say $output_handle $dialog_string;
 }
 
 #exit 0;
