@@ -12,12 +12,19 @@ require "$dirname/extender.pl" or die "Could not load extender functions: $!";
 
 my $file = $ARGV[0];
 my $party_size = $ARGV[1];
-my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
+my $temp_result = $ARGV[2];
+my $preserve = 1;
+if (not $temp_result) {
+	$temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
+	$preserve = 0;
+}
 
 my $rc = extend($file, $temp_result, $party_size);
 if ($rc > 0) {
 	system("diff -u " . $file . " " . $temp_result . " > diffs/$file.diff") or die;
 }
-unlink $temp_result or warn "Could not unlink temporary file: $!";
+if (not $preserve) {
+	unlink $temp_result or warn "Could not unlink temporary file: $!";
+}
 
 exit 0;
