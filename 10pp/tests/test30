@@ -1,0 +1,19 @@
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #10
+    ForceSpell(Player1,PHASE_SPIDER_TELEPORT)
+  RESPONSE #10
+    ForceSpell(Player2,PHASE_SPIDER_TELEPORT)
+  RESPONSE #10
+    ForceSpell(Player3,PHASE_SPIDER_TELEPORT)
+  RESPONSE #10
+    ForceSpell(Player4,PHASE_SPIDER_TELEPORT)
+  RESPONSE #10
+    ForceSpell(Player5,PHASE_SPIDER_TELEPORT)
+  RESPONSE #10
+    ForceSpell(Player6,PHASE_SPIDER_TELEPORT)
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
