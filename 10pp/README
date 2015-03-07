@@ -1,5 +1,72 @@
+Maximum party size extender
+===========================
+This Weidu/perl mod will extend scripts to also refer to player objects beyond
+player 6. It can start anywhere, BUT IS ONLY USABLE with GemRB, since the
+other engines do not support more objects.
 
+PERL IS REQUIRED and not bundled at this point. If you're on windows, look at
+https://www.perl.org/get.html (ActiveState or Strawberry)
 
+Installation
+------------
+This mod should be installed after all other script altering/adding mods!
+For bg2, the G3 Fixpack is required (Core fixes): www.gibberlings3.net/bg2fixpack/
+
+Since it also extends embedded dialog scripts, it is best to just install it last.
+
+The conversion process can easily take half an hour depending on the size of your install!
+Please be patient and DO NOT INTERRUPT execution lest you want to start from zero.
+There is only one query and then you can go plant some coffee.
+
+Run WeiDU in the game directory, eg.:
+
+    WeiDU setup-10pp.tp2
+
+Exceptions
+----------
+Some funky scripts are not handled. Presently this includes fguard.baf from
+bg2 (extra globals setting), but that file is not that important, so we don't
+ship manual overrides either.
+
+Some difficulty scripts that check for party size are not scalable. Eg. the
+final hell fight does not spawn any extra demons for larger parties.
+
+For mod authors
+---------------
+TODO: figure out if they can pre-extend their scripts without the other engines
+breaking apart.
+
+Development
+-----------
+If you'll be extending the extender logic, use test-suite.pl and write tests
+under tests/* liberally. All other paths lead to madness and peril.
+
+To add tests, just add a file and then make a copy with the desired changes,
+naming it file_expected.
+
+Example invocations:
+  * ./test-suite.pl       # runs all tests, prints diffs for failures
+  * ./test-suite.pl -q    # runs all tests without printing diffs for failures
+  * ./test-suite.pl "someglob"   # runs specified tests
+
+cdiff.pl is a perl version of diff used by wrapper.pl for portability. The
+wrapper is the main entry point for external use. The parameters are input baf,
+max party size and an optional output baf. Without it just the diff will be
+generated for changed files. Example:
+
+    ./wrapper.pl rerak06.baf 8
+
+... would extend rerak06.baf for up to 8 PCs, save the diff under
+diffs/rerak06.baf.diff and delete the temporary file.
+NOTE: do not use the same input and output file!
+
+Special thanks
+--------------
 Perl diff implementation is from Algorithm::Diff:
 http://search.cpan.org/~tyemq/Algorithm-Diff-1.1903/lib/Algorithm/Diff.pm
 
+CrevsDaak for motivation and weidu stuff.
+
+Uninstallation
+--------------
+Rerun weidu and choose uninstall.
