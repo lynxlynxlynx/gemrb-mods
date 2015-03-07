@@ -29,7 +29,7 @@ my @tests = glob($TESTS_GLOB);
 
 # run fixer over all tests and compare results
 my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
-foreach my $test (sort {substr($a, 10, 2) <=> substr($b, 10, 2)} @tests) {
+foreach my $test (sort @tests) {
 	my $expected_file = $test . "_expected";
 	open(my $expected_handle, "<", $expected_file);
 
