@@ -73,7 +73,7 @@ END
 
 PRINT ~Fixing affected scripts...~
 ACTION_BASH_FOR ~10pp/temp/baf/.*\.baf$~ BEGIN
-  AT_NOW ~perl wrapper.pl %BASH_FOR_FILE% %newmax% %BASH_FOR_RES%.baf2~
+  AT_NOW ~perl wrapper.pl "%BASH_FOR_FILE%" %newmax% "%BASH_FOR_RES%.baf2"~
   MOVE ~%BASH_FOR_RES%.baf2~ ~%BASH_FOR_FILE%~
 END
 
