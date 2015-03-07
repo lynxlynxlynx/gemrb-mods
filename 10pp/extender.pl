@@ -13,7 +13,7 @@ sub extend {
     open(my $output_handle, "+>", $output_file);
     open(my $baf_handle, "<:utf8", $input_file);
     my $input_baf = do { local $/; <$baf_handle> };
-    my @baf_blocks = split(m{\n\n}x, $input_baf) or die;
+    my @baf_blocks = split(m{\n\n}x, $input_baf) or die "Couldn't split $input_file (empty?): $!";
     # read data, close file
     close($baf_handle);
 
