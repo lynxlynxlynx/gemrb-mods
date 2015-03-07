@@ -1,7 +1,4 @@
-- rewrite in a more deterministic manner
 - write an extender for dialogs
-- figure out what to do with any exceptions
-  - and extend the tests to cover them
 
 - debug weidu script, mostly for syntax errors
 - get rid of system() calls

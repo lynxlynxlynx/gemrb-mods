@@ -40,7 +40,7 @@ tests for PlayerX:
 TODO:
 NumInParty*(6) is only used in 3 scripts in bg2:
  - borinall.baf and ar2906.baf: fine with the NumInParty*GT(5) hack
- - rerak06.baf: fine even without it
+ - rerak06.baf: somewhat close, but fine even without it
 
 10: NumInParty exception? (borinall.baf): 
 	if parameter is divided by count of PlayerX objects and all are in separate
