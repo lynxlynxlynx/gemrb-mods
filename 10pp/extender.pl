@@ -4,11 +4,21 @@
 use strict;
 use warnings;
 
+use File::Basename;
+
+# files not to touch
+my $exceptions = "cut35h.baf test31";
+
 # reads passed BAF and extends it to request max party count if needed
 sub extend {
     my $input_file = shift;
     my $output_file = shift;
     my $party_num = shift;
+
+    # skip false positives like Faldorn's pit fight teleporter
+    if (index($exceptions, basename $input_file) != -1) {
+        return 0;
+    }
 
     open(my $output_handle, "+>", $output_file);
     open(my $baf_handle, "<:utf8", $input_file);
