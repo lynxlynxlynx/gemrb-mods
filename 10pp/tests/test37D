@@ -1,0 +1,55 @@
+BEGIN ~test37D~
+//////////////////////////////////////////////////
+// WARNING: this file contains non-trivial WEIGHTs
+//////////////////////////////////////////////////
+
+IF WEIGHT #9 /* Triggers after states #: 25 26 27 36 43 44 45 55 56 even though they appear after this state */
+~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
+  SAY #30330 /* ~I am Vese Nejj.  What would you have of me?~ */
+  IF ~~ THEN REPLY #30331 /* ~What are you doing here?~ */ GOTO 1
+  IF ~~ THEN REPLY #30332 /* ~I am looking for the person in charge here.~ */ DO ~SetGlobal("SH_Know_Vese","GLOBAL",1)~ GOTO 2
+  IF ~~ THEN REPLY #30333 /* ~I must take my leave of you.  Farewell.~ */ EXIT
+END
+
+IF ~~ THEN BEGIN 16 // from: 15.0
+  SAY #30374 /* ~I see...  Yes...  You have convinced me.  I will see to it that Cedrin is punished for his crime.~ */
+  IF ~Global("SH_Cedrin_Dead","GLOBAL",1)~ THEN REPLY #30375 /* ~The matter has been handled.  Cedrin Zil is dead.~ */ JOURNAL #30324 /* ~We spoke with Vese Nejj about the murder of Zaem Astyr.  He seemed satisfied that the matter had been handled.~ */ GOTO 23
+  IF ~!Global("SH_Cedrin_Dead","GLOBAL",1)~ THEN REPLY #30376 /* ~I believe justice should prevail in this matter.~ */ DO ~SetGlobal("SH_Cedrin_Dead","GLOBAL",1)
+StartCutsceneMode()
+StartCutscene("63cVNkCZ")
+~ JOURNAL #30325 /* ~We spoke with Vese Nejj about the murder of Zaem Astyr.  He agreed with us that Cedrin Zil was indeed his murderer.  Vese handled the matter himself and slew Cedrin for his crime.~ */ EXIT
+  IF ~!Global("SH_Cedrin_Dead","GLOBAL",1)~ THEN REPLY #30377 /* ~It is your affair, handle it as you see fit.~ */ DO ~SetGlobal("SH_Cedrin_Dead","GLOBAL",1)
+StartCutsceneMode()
+StartCutscene("63cVNkCZ")
+~ JOURNAL #30325 /* ~We spoke with Vese Nejj about the murder of Zaem Astyr.  He agreed with us that Cedrin Zil was indeed his murderer.  Vese handled the matter himself and slew Cedrin for his crime.~ */ EXIT
+END
+
+IF WEIGHT #5 /* Triggers after states #: 43 44 45 55 56 even though they appear after this state */
+~Global("SH_Steal_Orrick_Stuff","GLOBAL",3)~ THEN BEGIN 36 // from:
+  SAY #30418 /* ~You have returned.  Do you have the items that I requested?~ */
+  IF ~~ THEN REPLY #30396 /* ~No, I am still working on it.  Farewell.~ */ EXIT
+  IF ~PartyHasItem("63BookOG")
+PartyHasItem("63BookOM")
+PartyHasItem("63GenLB")~ THEN REPLY #30419 /* ~Yes.  I have them here with me.~ */ DO ~SetGlobal("SH_Steal_Orrick_Stuff","GLOBAL",4)~ GOTO 37
+  IF ~Global("SH_Know_Cedrin_Murderer","GLOBAL",1)
+!Global("SH_Turned_In_Cedrin","GLOBAL",1)
+~ THEN REPLY #34392 /* ~There is a matter of some importance that I must speak to you about.~ */ GOTO 46
+END
+
+IF ~~ THEN BEGIN 50 // from: 49.0
+  SAY #38180 /* ~Very well.  Who shall I tattoo with Iron Will?~ */
+  IF ~!Dead(Player1)~ THEN REPLY #38181 /* ~Tattoo <PLAYER1>.~ */ DO ~AddFeat(PLAYER1, IRON_WILL)~ GOTO 54
+  IF ~!Dead(Player2)~ THEN REPLY #38182 /* ~Tattoo <PLAYER2>.~ */ DO ~AddFeat(PLAYER2, IRON_WILL)~ GOTO 54
+  IF ~!Dead(Player3)~ THEN REPLY #38183 /* ~Tattoo <PLAYER3>.~ */ DO ~AddFeat(PLAYER3, IRON_WILL)~ GOTO 54
+  IF ~!Dead(Player4)~ THEN REPLY #38184 /* ~Tattoo <PLAYER4>.~ */ DO ~AddFeat(PLAYER4, IRON_WILL)~ GOTO 54
+  IF ~!Dead(Player5)~ THEN REPLY #38185 /* ~Tattoo <PLAYER5>.~ */ DO ~AddFeat(PLAYER5, IRON_WILL)~ GOTO 54
+  IF ~!Dead(Player6)~ THEN REPLY #38186 /* ~Tattoo <PLAYER6>.~ */ DO ~AddFeat(PLAYER6, IRON_WILL)~ GOTO 54
+  IF ~~ THEN REPLY #38179 /* ~This matter requires some thought on my part.~ */ GOTO 53
+END
+
+IF ~~ THEN BEGIN 54 // from: 52.5 52.4 52.3 52.2 52.1 52.0 51.5 51.4 51.3 51.2 51.1 51.0 50.5 50.4 50.3 50.2 50.1 50.0
+  SAY #38206 /* ~It is done.  The terms of our agreement are fulfilled, and I have no further need of your services.  Farewell.~ */
+  IF ~~ THEN REPLY #2188 /* ~Very well, farewell.~ */ DO ~SetGlobal("SH_Accept_Tattoo","GLOBAL", 3)
+SetGlobal("SH_Vese_Done","GLOBAL", 1)
+~ EXIT
+END

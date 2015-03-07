@@ -37,6 +37,10 @@ tests for PlayerX:
 31: skippable exception
 32: NumInParty*(6) hack
 33: dialog (trivial action append)
+34: dialog (action append with line noise: before)
+35: dialog (action append with line noise: after)
+36: dialog (action append with line noise: both)
+37: dialog (action append with line noise: both) + TOKEN?
 
 TODO:
 NumInParty*(6) is only used in 3 scripts in bg2:

@@ -1,0 +1,40 @@
+BEGIN ~test34D~
+
+IF ~True()
+~ THEN BEGIN 0 // from:
+  SAY #71218 /* ~Come to me... I will free you from your pain.  I will free you from this place of suffering.  Embrace me and feel the chill salvation I offer.~ */
+  IF ~~ THEN REPLY #71551 /* ~What is going on, here? Who are you?~ */ GOTO 4
+  IF ~~ THEN REPLY #71224 /* ~You aren't freeing these people - you're killing them!~ */ GOTO 3
+  IF ~~ THEN REPLY #71226 /* ~Foul spirit!  You're using the fear of these people to lure them to their deaths!~ */ GOTO 3
+  IF ~~ THEN REPLY #71228 /* ~Sorry... I have no interest in this kind of freedom.~ */ GOTO 2
+  IF ~~ THEN REPLY #71229 /* ~Yes... freedom... grant me freedom!  I welcome what you offer!~ */ GOTO 1
+END
+
+IF ~~ THEN BEGIN 1 // from: 0.4
+  SAY #71221 /* ~Feel the sweet release I offer with a single cold touch.~ */
+  IF ~~ THEN DO ~Kill(Player6)
+Kill(Player5)
+Kill(Player4)
+Kill(Player3)
+Kill(Player2)
+Kill(Player1)
+~ EXIT
+END
+
+IF ~~ THEN BEGIN 2 // from: 0.3
+  SAY #71230 /* ~You will return.  In time, all feel the chill embrace of what I offer.~ */
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 3 // from: 0.2 0.1
+  SAY #71231 /* ~The heretics doubt the sanctity of our ceremony!  They defile this sacred ground with their disbelief!  All who seek freedom must destroy the unbelievers.  ~ */
+  IF ~~ THEN DO ~Shout(151)
+Enemy()
+~ EXIT
+END
+
+IF ~~ THEN BEGIN 4 // from: 0.0
+  SAY #71552 /* ~I am my father's daughter. A Child of Bhaal. Death is our nature, <PRO_BROTHERSISTER>. I embrace it as you shall soon embrace me. Embrace death...~ */
+  IF ~~ THEN DO ~Shout(151)
+Enemy()~ EXIT
+END
