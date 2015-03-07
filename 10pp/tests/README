@@ -35,13 +35,17 @@ tests for PlayerX:
 29: whole block (append triggers + new separate response blocks)
 30: body append (separate reponse blocks + not last)
 31: skippable exception
+32: NumInParty*(6) hack
 
 TODO:
+NumInParty*(6) is only used in 3 scripts in bg2:
+ - borinall.baf and ar2906.baf: fine with the NumInParty*GT(5) hack
+ - rerak06.baf: fine even without it
+
 10: NumInParty exception? (borinall.baf): 
 	if parameter is divided by count of PlayerX objects and all are in separate
 	response blocks, leave alone, copy whole, append new objects and extend original param to 8?
 
 
-TODO: repeat for PlayerXFill (autogenerate? bg2/cut37a.baf is the only vanilla user). Currently not needed, as we loosely match on PlayerX
 TODO: how/ilgem6.baf (why oh why didn't they use [PC])
 

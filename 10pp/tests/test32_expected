@@ -1,6 +1,6 @@
 IF
   Global("TalosStrike","LOCALS",1)
-  NumInParty(6)
+  NumInPartyGT(5)
 THEN
   RESPONSE #20
     SetGlobal("TalosStrike","LOCALS",2)
@@ -27,6 +27,15 @@ THEN
     ReallyForceSpell(Player6,CLERIC_CALL_LIGHTNING)
     Wait(2)
     StartDialogNoSet([PC])
+  RESPONSE #20
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player7,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
+  RESPONSE #20
+    SetGlobal("TalosStrike","LOCALS",2)
+    ReallyForceSpell(Player8,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    StartDialogNoSet([PC])
 END
 
-# goes on with similar blocks for NumInParty(5) ... NumInParty(1)
