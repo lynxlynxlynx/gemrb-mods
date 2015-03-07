@@ -29,7 +29,7 @@ sub extend {
 
     # shortcircuit scripts that won't need changing
     # IOW those that have no mentions of Player6
-    if ((grep /Player6/, @baf_blocks) == 0) {
+    if ((grep /Player6/, $input_baf) == 0) {
         close($output_handle);
         return 0;
     }
