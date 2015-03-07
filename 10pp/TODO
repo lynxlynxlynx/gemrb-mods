@@ -1,6 +1,4 @@
 - write an extender for dialogs
 
 - debug weidu script, mostly for syntax errors
-- decompile only scripts that we would touch:
-  - check for mentions of compiled Player6(Fill) object ids
 - consider bundling perl or packaging everything with an executable
