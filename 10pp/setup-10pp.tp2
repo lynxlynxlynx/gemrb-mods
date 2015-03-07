@@ -52,7 +52,7 @@ APPEND ~object.ids~ ~90 Player7
 // TODO: perhaps first do a quick scan for mentions of compiled "Player6"?
 MKDIR ~10pp/temp~
 MKDIR ~10pp/temp/baf~
-MKDIR ~10pp/temp/diff~
+MKDIR ~10pp/diffs~
 MKDIR ~10pp/temp/backup~ // this might get removed next time I edit this file...
 PRINT ~Decompiling *every* script...~
 COPY_EXISTING_REGEXP ~^.+\.bcs$~ ~10pp/temp/baf~
@@ -65,16 +65,10 @@ END
 // fix all scripts
 PRINT ~Fixing affected scripts...~
 
-AT_NOW // formatted for readability
-~perl -e 'require extender.pl or die "Couldn't load extender.pl: $!";
-
-	my @a = glob "10pp/temp/baf/*";
-	foreach (@a) {
-		extend("ORIG_BAF_FILE_" . $_, $_, %newmax%);
-		# TODO: replace system calls with weidu or perl code
-		system("cmp -s " . "ORIG_BAF_FILE_" . $_ . " " . $_ . " || diff -u " . "ORIG_BAF_FILE_" . $_ . " " . $_ . " > ../diff/$_" . ".diff");
-		system("mv ORIG_BAF_FILE_" . $_ . " ../backup/ORIG_BAF_FILE_" . $_)
-	}'~ // last system() call might get it's mv changed it rm...
+ACTION_BASH_FOR ~10pp/temp/baf/.*\.baf$~ BEGIN
+  AT_NOW ~perl wrapper.pl %BASH_FOR_FILE% %newmax% %BASH_FOR_RES%.baf2~
+  MOVE ~%BASH_FOR_RES%.baf2~ ~%BASH_FOR_FILE%~
+END
 
 // recompile affected scripts
 PRINT ~Recompiling affected scripts...~
