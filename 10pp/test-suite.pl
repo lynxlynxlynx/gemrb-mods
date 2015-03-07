@@ -29,6 +29,8 @@ my @tests = glob($TESTS_GLOB);
 
 # run fixer over all tests and compare results
 my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
+my $successes = 0;
+my $failures = 0;
 foreach my $test (sort @tests) {
 	my $expected_file = $test . "_expected";
 	open(my $expected_handle, "<", $expected_file);
@@ -37,6 +39,7 @@ foreach my $test (sort @tests) {
 	if ($rc eq 0) {
 		# this test needed no work
 		print "$test: ", GREEN, "SUCCESS", RESET, " (skipped)!\n";
+		$successes++;
 		next;
 	}
 
@@ -46,8 +49,10 @@ foreach my $test (sort @tests) {
 	my $expected = do { local $/; <$expected_handle> };
 	if ($result eq $expected) {
 		print "$test: ", GREEN, "SUCCESS!", RESET, "\n";
+		$successes++;
 	} else {
 		print "$test: ", RED, "FAILURE!", RESET, "\n";
+		$failures++;
 		#print $result . "\n\n\n\n" . $expected;
 		if (!$QUIET) {
 			system("diff -su " . $expected_file . " " . $temp_result);
@@ -58,4 +63,12 @@ foreach my $test (sort @tests) {
 	close($result_handle);
 }
 unlink $temp_result or warn "Could not unlink temporary file: $!";
+
+# print summary
+if ($failures == 0) {
+	print GREEN, "ALL $successes TESTS PASSED!", RESET, "\n";
+} else {
+	$successes += $failures;
+	print RED, "SOME ($failures/$successes) TESTS FAILED!", RESET, "\n";
+}
 exit 0;
