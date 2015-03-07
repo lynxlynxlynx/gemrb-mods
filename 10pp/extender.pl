@@ -242,14 +242,15 @@ sub fixResponsesOnly {
             my $header = $response_blocks[$key-1]; # RESPONSE #100
             chomp $block;
             my $old_block = $block;
-#             print "|$block|";
+            #print "|$header|$block|";
             for (my $i = 7; $i <= $party_num; $i++) {
                 my $nextPC = "Player" . $i;
                 my $new_block = $old_block =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
                 $new_block = $header . $new_block;
                 $block .=  $new_block;
             }
-            $block .= "\n";
+            #print ":$key:$#response_keys:";
+            $block .= "\n" if $key == $#response_keys;
         }
         $new_response_half .= $block;# . "\n";
     }
