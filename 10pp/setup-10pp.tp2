@@ -83,7 +83,15 @@ COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
 
 // fix all dialogs
 PRINT ~Fixing dialogs~
-// do the same on dialogs
+COPY_EXISTING_REGEXP GLOB ~.*\.dlg$~ ~override~
+  # hopefully this will work with binary files (dlg is not plaintext)
+  ACTION_IF FILE_CONTAINS ~%SOURCE_FILE%~ 'Player6' THEN BEGIN
+    DECOMPILE_AND_PATCH BEGIN
+      AT_NOW ~perl wrapper.pl "%SOURCE_FILE%" %newmax% "%SOURCE_RES%.2"~
+      MOVE ~%SOURCE_RES%.2~ ~%SOURCE_FILE%~
+    END
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 PRINT ~DONE!
 
