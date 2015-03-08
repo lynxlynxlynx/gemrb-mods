@@ -1,0 +1,392 @@
+// creator  : ../../weidu.asm.exe (version 21012)
+// argument : MAEVAR.DLG
+// game		 : /home/fuzzie/src/gemrb/bg2
+// source	 : /home/fuzzie/src/gemrb/bg2/override/MAEVAR.DLG
+// dialog	 : /home/fuzzie/src/gemrb/bg2/dialog.tlk
+// dialogF  : (none)
+
+BEGIN ~MAEVAR~
+//////////////////////////////////////////////////
+// WARNING: this file contains non-trivial WEIGHTs
+//////////////////////////////////////////////////
+
+IF WEIGHT #4 /* Triggers after states #: 38 39 42 46 even though they appear after this state */
+~NumTimesTalkedTo(0)
+~ THEN BEGIN 0 // from:
+  SAY #22202 /* ~Hello then, I certainly hope you've got a reason to be bothering me, because I'm quite busy, as you can see. Ah, poor Lin passed out. I've a few minutes to spare then. Who are you and why shouldn't I kill you?~ [MAEVAR02] */
+  IF ~~ THEN REPLY #22289 /* ~No need for that; I'm here as reinforcement. Renal Bloodscalp sent me.~ */ GOTO 1
+  IF ~~ THEN REPLY #22290 /* ~I'm here on business. Kill me and you would be crossing Renal Bloodscalp.~ */ GOTO 2
+  IF ~~ THEN REPLY #22291 /* ~I am with the Shadow Thieves. You wouldn't harm your own kin, would you?~ */ GOTO 3
+  IF ~~ THEN REPLY #22292 /* ~Do not threaten me. I have been sent here by men higher in power than you.~ */ GOTO 5
+END
+
+IF ~~ THEN BEGIN 1 // from: 0.0
+  SAY #22489 /* ~And I am sure you have letters of authorization or that sort of thing. Irrelevant. How about we throw you on the rack and make sure you are who you say you are?~ */
+  IF ~~ THEN GOTO 6
+END
+
+IF ~~ THEN BEGIN 2 // from: 0.1
+  SAY #22521 /* ~I doubt he told you to say that. Such a confrontational statement does not seem his style. Perhaps I should toss you on the rack and see if you are being true.~ */
+  IF ~~ THEN GOTO 6
+END
+
+IF ~~ THEN BEGIN 3 // from: 0.2
+  SAY #22522 /* ~Ask my cousin here. He relied on sentiment; thought it would get him out of stealing from guild coffers. Perhaps, but not before he's learned about crossing his betters.~ */
+  IF ~~ THEN GOTO 4
+END
+
+IF ~~ THEN BEGIN 4 // from: 3.0
+  SAY #22523 /* ~Perhaps you'd suggest a kinder, gentler punishment for my 'kin?' Or perhaps I should introduce you to the rack instead, so we might determine your true kinship.~ */
+  IF ~~ THEN GOTO 6
+END
+
+IF ~~ THEN BEGIN 5 // from: 0.3
+  SAY #22528 /* ~Not in this room. Ask poor Lin who the most powerful person in his life is. Who will you call master when you are on the rack? Perhaps we should find out?~ */
+  IF ~~ THEN GOTO 6
+END
+
+IF ~~ THEN BEGIN 6 // from: 5.0 4.0 2.0 1.0
+  SAY #22537 /* ~Or perhaps not. Scared you did I? Fear will keep you honest. You don't want to end up like Lin here, with me having to test your honesty. Difficult to do with certainty.~ [MAEVAR07] */
+  IF ~~ THEN REPLY #22565 /* ~I assure you, I am here as a member of the Shadow Thieves in good standing.~ */ GOTO 7
+  IF ~~ THEN REPLY #22566 /* ~Better that he die an honest man than live as a liar and endanger us all.~ */ GOTO 8
+  IF ~~ THEN REPLY #22567 /* ~Who would examine you if your honesty was in doubt? Do you get the same?~ */ GOTO 9
+END
+
+IF ~~ THEN BEGIN 7 // from: 6.0
+  SAY #22558 /* ~Hmm. We shall see. For now, I will dispense some pissant task to keep you out of my hair. I shall test your worth with a good old-fashioned self-serving errand.~ */
+  IF ~ReputationLT(Player1,10)~ THEN GOTO 11
+  IF ~ReputationGT(Player1,9)~ THEN GOTO 12
+END
+
+IF ~~ THEN BEGIN 8 // from: 6.1
+  SAY #22581 /* ~Such thoughts are akin to mine, but I will hold you no closer knowing you are as cold as I. Instead, a simple quest to test your worth and pad our coffers.~ */
+  IF ~ReputationLT(Player1,10)
+!Kit(Player1,GODLATHANDER)
+!Kit(Player2,GODLATHANDER)
+!Kit(Player3,GODLATHANDER)
+!Kit(Player4,GODLATHANDER)
+!Kit(Player5,GODLATHANDER)
+!Kit(Player6,GODLATHANDER)
+~ THEN GOTO 11
+  IF ~OR(7)
+ReputationGT(Player1,9)
+Kit(Player1,GODLATHANDER)
+Kit(Player2,GODLATHANDER)
+Kit(Player3,GODLATHANDER)
+Kit(Player4,GODLATHANDER)
+Kit(Player5,GODLATHANDER)
+Kit(Player6,GODLATHANDER)
+~ THEN GOTO 12
+END
+
+IF ~~ THEN BEGIN 9 // from: 6.2
+  SAY #22578 /* ~There are those that could order it, but you don't get where I am without earning some favors. Questioning me would get the accuser a noose, and a loose one at that.~ */
+  IF ~~ THEN GOTO 10
+END
+
+IF ~~ THEN BEGIN 10 // from: 9.0
+  SAY #22594 /* ~I am short of hands however, and you must do until I have cause to kill you. Sooner than later, I'll wager. For now, a pissant task to test you and pad the coffers.~ */
+  IF ~ReputationLT(Player1,10)~ THEN GOTO 11
+  IF ~ReputationGT(Player1,9)~ THEN GOTO 12
+END
+
+IF ~~ THEN BEGIN 11 // from: 10.0 8.0 7.0
+  SAY #22596 /* ~I'll make the chore something amusing so you don't dislike me from the start. Petty larceny I think, from beneath the skyward eyes of those in the Lathander temple.~ */
+  IF ~~ THEN GOTO 13
+END
+
+IF ~~ THEN BEGIN 12 // from: 10.1 8.1 7.1
+  SAY #22650 /* ~I suppose I should make the task something you wouldn't balk at completely. How about a little petty larceny amidst the stuffed robes over at the Talos temple?~ */
+  IF ~~ THEN GOTO 14
+END
+
+IF ~~ THEN BEGIN 13 // from: 11.0
+  SAY #22661 /* ~Fetch me...the golden statuette acquired by the church. We need a centerpiece for the guild table. I care not how you get it, just keep the profile low.~ */
+  IF ~~ THEN GOTO 16
+END
+
+IF ~~ THEN BEGIN 14 // from: 12.0
+  SAY #22662 /* ~I require...the amulet worn by the Weathermistress. Yes, it looked lovely on her, and I've a beautiful sheltie-spaniel cross that it will adorn just as well.~ */
+  IF ~~ THEN GOTO 15
+END
+
+IF ~~ THEN BEGIN 15 // from: 14.0
+  SAY #22663 /* ~You need not kill her to get it. She likely removes it in the night. As pleasing as it is, even it would leave a welt the size of a melon if slept upon.~ */
+  IF ~~ THEN GOTO 17
+END
+
+IF ~~ THEN BEGIN 16 // from: 13.0
+  SAY #22664 /* ~Well, what else do you need? It's a simple house break. I've told you the mark and where it is; the rest is up to you. Don't bother me without the goods.~ */
+  IF ~!IsValidForPartyDialog("Keldorn")
+!IsValidForPartyDialog("Anomen")
+!IsValidForPartyDialog("Mazzy")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",1)
+~ UNSOLVED_JOURNAL #34201 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough...and has given me my first task: steal a golden statuette from the temple of Lathander.  It must be done quietly, and I am to return to Mae'Var with it once the deed is done.~ */ EXIT
+  IF ~IsValidForPartyDialog("Keldorn")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",1)~ JOURNAL #34201 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough...and has given me my first task: steal a golden statuette from the temple of Lathander.  It must be done quietly, and I am to return to Mae'Var with it once the deed is done.~ */ FLAGS 128 EXTERN ~KELDORJ~ 143
+  IF ~!IsValidForPartyDialog("Keldorn")
+IsValidForPartyDialog("Anomen")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",1)~ UNSOLVED_JOURNAL #34201 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough...and has given me my first task: steal a golden statuette from the temple of Lathander.  It must be done quietly, and I am to return to Mae'Var with it once the deed is done.~ */ EXTERN ~ANOMENJ~ 215
+  IF ~!IsValidForPartyDialog("Keldorn")
+!IsValidForPartyDialog("Anomen")
+IsValidForPartyDialog("Mazzy")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",1)~ UNSOLVED_JOURNAL #34201 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough...and has given me my first task: steal a golden statuette from the temple of Lathander.  It must be done quietly, and I am to return to Mae'Var with it once the deed is done.~ */ EXTERN ~MAZZYJ~ 144
+END
+
+IF ~~ THEN BEGIN 17 // from: 15.0
+  SAY #22698 /* ~Now get moving! I've told you the mark, you do the rest. Pick it from her in her sleep if you must, but do not bother me again without the goods!~ */
+  IF ~!IsValidForPartyDialog("Jan")
+!IsValidForPartyDialog("Yoshimo")
+!IsValidForPartyDialog("Nalia")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",3)
+~ UNSOLVED_JOURNAL #34205 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough, and has given me my first task: steal the amulet from the Weathermistress of the Church of Talos.  A difficult task, although Mae'Var seems certain that the Weathermistress removes the amulet at night.  I am to return to Mae'Var once I have it.~ */ EXIT
+  IF ~IsValidForPartyDialog("Jan")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",3)~ UNSOLVED_JOURNAL #34205 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough, and has given me my first task: steal the amulet from the Weathermistress of the Church of Talos.  A difficult task, although Mae'Var seems certain that the Weathermistress removes the amulet at night.  I am to return to Mae'Var once I have it.~ */ EXTERN ~JANJ~ 113
+  IF ~!IsValidForPartyDialog("Jan")
+IsValidForPartyDialog("Yoshimo")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",3)~ UNSOLVED_JOURNAL #34205 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough, and has given me my first task: steal the amulet from the Weathermistress of the Church of Talos.  A difficult task, although Mae'Var seems certain that the Weathermistress removes the amulet at night.  I am to return to Mae'Var once I have it.~ */ EXTERN ~YOSHJ~ 66
+  IF ~!IsValidForPartyDialog("Jan")
+!IsValidForPartyDialog("Yoshimo")
+IsValidForPartyDialog("Nalia")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",3)~ UNSOLVED_JOURNAL #34205 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has accepted me into his guild readily enough, and has given me my first task: steal the amulet from the Weathermistress of the Church of Talos.  A difficult task, although Mae'Var seems certain that the Weathermistress removes the amulet at night.  I am to return to Mae'Var once I have it.~ */ EXTERN ~NALIAJ~ 250
+END
+
+IF WEIGHT #5 /* Triggers after states #: 38 39 42 46 even though they appear after this state */
+~Global("MaeVarWork","GLOBAL",1)
+!PartyHasItem("MISC4X")
+~ THEN BEGIN 18 // from:
+  SAY #22699 /* ~Was I speaking kobold? Don't bother me until you've got the statuette from the Lathander temple! It's a simple matter, and if you can't do it I've no use for you.~ */
+  IF ~~ THEN EXIT
+END
+
+IF WEIGHT #6 /* Triggers after states #: 38 39 42 46 even though they appear after this state */
+~Global("MaeVarWork","GLOBAL",3)
+!PartyHasItem("MISC4Y")
+~ THEN BEGIN 19 // from:
+  SAY #22705 /* ~Was I not clear? Don't come back until you've got the amulet from the Weathermistress at the Talos temple! It's simple larceny; if you can't do it I have no use for you.~ */
+  IF ~~ THEN EXIT
+END
+
+IF WEIGHT #7 /* Triggers after states #: 38 39 42 46 even though they appear after this state */
+~Global("MaeVarWork","GLOBAL",1)
+PartyHasItem("MISC4X")
+~ THEN BEGIN 20 // from:
+  SAY #22706 /* ~Well, it would seem you have a few skills behind your name after all. A fine bit of work, though hardly a challenge. Well, let's have the thing.~ */
+  IF ~~ THEN DO ~AddexperienceParty(29500)
+SetGlobal("MaeVarWork","GLOBAL",4)
+TakePartyItem("MISC4X")
+DestroyItem("MISC4X")~ GOTO 22
+END
+
+IF WEIGHT #8 /* Triggers after states #: 38 39 42 46 even though they appear after this state */
+~Global("MaeVarWork","GLOBAL",3)
+PartyHasItem("MISC4Y")
+~ THEN BEGIN 21 // from:
+  SAY #22707 /* ~Well, you're back at last. I'll cancel the order to kill you then. You have a few skills we might find useful after all. Now, let's have a look at that amulet.~ */
+  IF ~~ THEN DO ~AddexperienceParty(29500)
+SetGlobal("MaeVarWork","GLOBAL",4)
+TakePartyItem("MISC4Y")
+DestroyItem("MISC4Y")~ GOTO 23
+END
+
+IF ~~ THEN BEGIN 22 // from: 20.0
+  SAY #22708 /* ~Ehh, kind of gaudy, isn't it? Can't see what's so compelling about it. I'll toss it in with the garbage going to Waterdeep. Lot's of dainty collectors up there.~ */
+  IF ~~ THEN GOTO 24
+END
+
+IF ~~ THEN BEGIN 23 // from: 21.0
+  SAY #22709 /* ~It's a mystery how they walk with a dinner plate around their necks. I'll file it with the other garbage sent to Calimshan. They like jewelry big, I hear.~ */
+  IF ~~ THEN GOTO 24
+END
+
+IF ~~ THEN BEGIN 24 // from: 23.0 22.0
+  SAY #22739 /* ~Now, let's put you to some real work. I haven't the time to piddle around with you, so my right hand man will keep you busy until you can work for me personally.~ */
+  IF ~~ THEN GOTO 25
+END
+
+IF ~~ THEN BEGIN 25 // from: 24.0
+  SAY #22740 /* ~His name is Edwin. Bloody good spellcaster, but he likes his luxuries. Usually happens to adventurers that hate the road. He's on the third floor above us. Get going.~ */
+  IF ~~ THEN DO ~SetGlobal("GoSeeEdwin","GLOBAL",2)
+~ UNSOLVED_JOURNAL #34207 /* ~Find proof of Mae'Var's treachery.
+
+I have completed Mae'Var's task and he seems content with me, for the moment.  He has sent me to see his assistant, Edwin, who is on the third floor of the guildhouse.~ */ EXIT
+END
+
+IF WEIGHT #9 /* Triggers after states #: 38 39 42 46 even though they appear after this state */
+~Global("MaeVarWork","GLOBAL",4)
+!Global("EdwinJob","GLOBAL",4)~ THEN BEGIN 26 // from:
+  SAY #22741 /* ~Get on with you, I have nothing to say yet. Edwin will tell you when to come back, so go see him on the third floor. I've some special duties once you're proven.~ [MAEVAR08] */
+  IF ~~ THEN EXIT
+END
+
+IF WEIGHT #10 /* Triggers after states #: 38 39 42 46 even though they appear after this state */
+~Global("EdwinJob","GLOBAL",4)
+Global("TalkedToEdwin","GLOBAL",0)
+~ THEN BEGIN 27 // from:
+  SAY #22742 /* ~Edwin has been telling me you are, at the very least, competent. Fairly good at the sneaksman's trade, but a little ham-fisted when you fight. Exactly what I'm looking for.~ [MAEVAR09] */
+  IF ~~ THEN DO ~SetGlobal("TalkedToEdwin","GLOBAL",1)
+~ GOTO 28
+END
+
+IF ~~ THEN BEGIN 28 // from: 27.0
+  SAY #22743 /* ~I've a special task for you. You do this for me and you'll be set within the guild for whatever you need. Don't think it will be easy though. ~ */
+  IF ~~ THEN GOTO 29
+END
+
+IF ~~ THEN BEGIN 29 // from: 28.0
+  SAY #22744 /* ~There is a...SHHHHHH!! There is a TRAITOR amongst us! Yes, one who has abused the trust we have given him! He must be dealt with in a permanent fashion.~ */
+  IF ~~ THEN GOTO 30
+END
+
+IF ~~ THEN BEGIN 30 // from: 29.0
+  SAY #22747 /* ~Embarl is his name, and you are to kill him with prejudice. He's at the Sea's Bounty northwest of the guildhouse. Bring me his dagger to show you have done the deed.~ */
+  IF ~~ THEN REPLY #22748 /* ~He will not outlive the day! Of this I swear!~ */ GOTO 31
+  IF ~~ THEN REPLY #22749 /* ~What are his crimes? I do not wish to make a mistake in this matter.~ */ GOTO 32
+  IF ~~ THEN REPLY #22750 /* ~What will be my reward? Petty thievery is one thing, but this is murder.~ */ GOTO 35
+  IF ~~ THEN REPLY #22751 /* ~Is there no other means to resolve this? Does this man have to die?~ */ GOTO 37
+END
+
+IF ~~ THEN BEGIN 31 // from: 37.0 35.0 32.0 30.0
+  SAY #22752 /* ~Good! That's the spirit I like to see! Show him what it means to be a Shadow Thief, and I'll have your reward here for you when you get back. Off with you!~ */
+  IF ~!IsValidForPartyDialog("Jaheira")
+!IsValidForPartyDialog("Viconia")
+!IsValidForPartyDialog("Aerie")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",5)~ UNSOLVED_JOURNAL #34220 /* ~Find proof of Mae'Var's treachery.
+
+I am to track down a traitorous thief by the name of Embarl, whom Mae'Var informs me can be found at the Sea's Bounty on the second floor.  I am to bring back the man's dagger as proof that he is dead.  Perhaps this is my chance to obtain proof of Mae'Var's guilt!~ */ EXIT
+  IF ~IsValidForPartyDialog("Jaheira")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",5)~ UNSOLVED_JOURNAL #34220 /* ~Find proof of Mae'Var's treachery.
+
+I am to track down a traitorous thief by the name of Embarl, whom Mae'Var informs me can be found at the Sea's Bounty on the second floor.  I am to bring back the man's dagger as proof that he is dead.  Perhaps this is my chance to obtain proof of Mae'Var's guilt!~ */ EXTERN ~JAHEIRAJ~ 391
+  IF ~!IsValidForPartyDialog("Jaheira")
+IsValidForPartyDialog("Viconia")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",5)~ UNSOLVED_JOURNAL #34220 /* ~Find proof of Mae'Var's treachery.
+
+I am to track down a traitorous thief by the name of Embarl, whom Mae'Var informs me can be found at the Sea's Bounty on the second floor.  I am to bring back the man's dagger as proof that he is dead.  Perhaps this is my chance to obtain proof of Mae'Var's guilt!~ */ EXTERN ~VICONIJ~ 56
+  IF ~!IsValidForPartyDialog("Jaheira")
+!IsValidForPartyDialog("Viconia")
+IsValidForPartyDialog("Aerie")~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",5)~ JOURNAL #34220 /* ~Find proof of Mae'Var's treachery.
+
+I am to track down a traitorous thief by the name of Embarl, whom Mae'Var informs me can be found at the Sea's Bounty on the second floor.  I am to bring back the man's dagger as proof that he is dead.  Perhaps this is my chance to obtain proof of Mae'Var's guilt!~ */ FLAGS 128 EXTERN ~AERIEJ~ 83
+END
+
+IF ~~ THEN BEGIN 32 // from: 37.1 30.1
+  SAY #22753 /* ~His crimes are heinous, vicious, and also none of your business! If I told you what was done you would have to suffer the same fate! Do you understand?!~ */
+  IF ~~ THEN REPLY #22754 /* ~Yes sir! Consider the fool dead!~ */ GOTO 31
+  IF ~~ THEN REPLY #22755 /* ~I cannot do this. I must decline.~ */ GOTO 33
+  IF ~~ THEN REPLY #22756 /* ~I don't take orders from the likes of you! You are considered a traitor yourself!~ */ GOTO 34
+  IF ~~ THEN REPLY #22804 /* ~I understand. What will be my reward for this task?~ */ GOTO 35
+  IF ~~ THEN REPLY #22805 /* ~Is there no other way to deal with this man?~ */ GOTO 37
+END
+
+IF ~~ THEN BEGIN 33 // from: 35.2 32.1
+  SAY #22757 /* ~If you cannot follow instruction then you are of no use! You are out of the guild and, as there is no such thing as an ex-Shadow Thief, you are dead as well!~ */
+  IF ~~ THEN DO ~CreateCreatureObject("STDEATH",Player1,0,0,0)
+~ EXIT
+END
+
+IF ~~ THEN BEGIN 34 // from: 37.3 32.2
+  SAY #22758 /* ~There is no evidence and you have exposed yourself! Consider yourself a dead <MANWOMAN>! Come to me, shadows! Kill this traitor!~ */
+  IF ~~ THEN DO ~CreateCreatureObject("STDEATH",Player1,0,0,0)
+~ EXIT
+END
+
+IF ~~ THEN BEGIN 35 // from: 37.2 32.3 30.2
+  SAY #22759 /* ~Your reward? It should be an honor just to be asked. However, since the task is dangerous, I will have something waiting for you when you return.~ */
+  IF ~~ THEN REPLY #22760 /* ~That will more than suffice. Consider the fool dead!~ */ GOTO 31
+  IF ~~ THEN REPLY #22761 /* ~Not sufficient. I demand more!~ */ GOTO 36
+  IF ~~ THEN REPLY #22762 /* ~I must refuse. I will not stoop to murder.~ */ GOTO 33
+  IF ~~ THEN REPLY #22806 /* ~Is there no other way to deal with his supposed treachery?~ */ GOTO 37
+END
+
+IF ~~ THEN BEGIN 36 // from: 35.1
+  SAY #22774 /* ~You demand? Who do you think you are? I will not suffer such insolence from a common gutter thief! Consider yourself an exile, a castaway, a dead <MANWOMAN>!~ */
+  IF ~~ THEN DO ~CreateCreatureObject("STDEATH",Player1,0,0,0)~ EXIT
+END
+
+IF ~~ THEN BEGIN 37 // from: 35.3 32.4 30.3
+  SAY #22795 /* ~There is no other way. Treachery must command the harshest penalty. You will suffer the same fate if you refuse. Anything short of obedience is treachery!~ */
+  IF ~~ THEN REPLY #22798 /* ~Consider the man dead! He will not outlive the day!~ */ GOTO 31
+  IF ~~ THEN REPLY #22799 /* ~What if he is innocent? What are the charges against him?~ */ GOTO 32
+  IF ~~ THEN REPLY #22800 /* ~I will obey, but I want to know what my reward shall be.~ */ GOTO 35
+  IF ~~ THEN REPLY #22807 /* ~Such arrogance! You yourself are accused of such behavior!~ */ GOTO 34
+END
+
+IF WEIGHT #2 /* Triggers after states #: 42 46 even though they appear after this state */
+~Global("MaeVarWork","GLOBAL",5)
+!PartyHasItem("MISC4U")
+Global("MaeVarExposed","GLOBAL",0)
+~ THEN BEGIN 38 // from:
+  SAY #22808 /* ~Get on with you! I set you a task and you'd best be sure to do it! Kill that traiterous Embarl at the Sea's Bounty by the docks and do it quickly!~ [MAEVAR10] */
+  IF ~~ THEN EXIT
+END
+
+IF WEIGHT #3 /* Triggers after states #: 42 46 even though they appear after this state */
+~Global("MaeVarWork","GLOBAL",5)
+PartyHasItem("MISC4U")
+Global("MaeVarExposed","GLOBAL",0)
+~ THEN BEGIN 39 // from:
+  SAY #22817 /* ~The traitor is dead, I trust? Yes, you have his dagger. Despite your useless appearance you have done well. Now go. I have matters to attend to that are above you.~ [MAEVAR11] */
+  IF ~Global("TalkedToEmbarl","GLOBAL",1)~ THEN REPLY #22826 /* ~This Embarl, he had some interesting things to say about you.~ */ DO ~AddexperienceParty(28750)
+TakePartyItem("misc4u")
+DestroyItem("misc4u")~ GOTO 40
+  IF ~~ THEN REPLY #22827 /* ~I have killed the man, as you asked. I eagerly await my reward.~ */ DO ~AddexperienceParty(18750)
+TakePartyItem("misc4u")
+DestroyItem("misc4u")~ GOTO 40
+  IF ~~ THEN REPLY #22828 /* ~Above me? But I have done your bidding to the letter. Am I not favored? ~ */ DO ~AddexperienceParty(18750)
+TakePartyItem("misc4u")
+DestroyItem("misc4u")~ GOTO 40
+  IF ~~ THEN REPLY #22855 /* ~He was hardly a danger. He could have been talked to.~ */ DO ~AddexperienceParty(18750)
+TakePartyItem("misc4u")
+DestroyItem("misc4u")~ GOTO 40
+END
+
+IF ~~ THEN BEGIN 40 // from: 39.3 39.2 39.1 39.0
+  SAY #22857 /* ~Yes, yes, yes.  Truth be known, I'm not listening to you. Embarl was a thorn to be removed and now I can move on to other things. Now the way is clear to me.~ [MAEVAR12] */
+  IF ~~ THEN DO ~SetGlobal("MaeVarWork","GLOBAL",6)
+~ GOTO 41
+END
+
+IF ~~ THEN BEGIN 41 // from: 40.0
+  SAY #22859 /* ~You have been a useful tool, and you may be one again. Don't think you are more than that; I will have a thousand thieves, all doing my bidding just as you are.~ */
+  IF ~~ THEN GOTO 43
+END
+
+IF WEIGHT #0 ~Global("MaeVarExposed","GLOBAL",1)
+~ THEN BEGIN 42 // from:
+  SAY #22867 /* ~Come for me, have you? I know, I've still those loyal to me and they have warned me. We'll not lay down for you! Do as you must! ~ [MAEVAR13] */
+  IF ~~ THEN DO ~Shout(89)
+Enemy()
+~ UNSOLVED_JOURNAL #34243 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var has been exposed and his execution ordered...once he is dead I must return to Renal and tell him that the deed is done.~ */ EXIT
+END
+
+IF ~~ THEN BEGIN 43 // from: 41.0
+  SAY #29658 /* ~Go now, tool, and leave the thinkers to their thinking. Talk to Edwin, he might have something for you to do.~ */
+  IF ~~ THEN UNSOLVED_JOURNAL #34235 /* ~Find proof of Mae'Var's treachery.
+
+Mae'Var trusts me well enough, and has accepted me into the guild.  Perhaps now I have time to look around and see if there is any evidence to be had.  Edwin might know something, but only if it is in his best interests, I am sure. ~ */ EXIT
+END
+
+IF ~~ THEN BEGIN 44 // from:
+  SAY #51353 /* ~Quiet, you! <CHARNAME>, leave my prisoner alone. It is not your affair.~ */
+  IF ~~ THEN EXTERN ~MAEGUY01~ 1
+END
+
+IF ~~ THEN BEGIN 45 // from:
+  SAY #51357 /* ~Silence Kamuzu! Do you wish to visit the table again?~ */
+  IF ~~ THEN EXTERN ~MAEGUY01~ 2
+END
+
+IF WEIGHT #1 ~Dead("Edwin")
+!GlobalGT("MaeVarWork","GLOBAL",5)~ THEN BEGIN 46 // from:
+  SAY #61965 /* ~Kill members of my guild, will you?!  I don't care what you're here for... now you die!!~ */
+  IF ~~ THEN DO ~Shout(89)
+Enemy()~ EXIT
+END

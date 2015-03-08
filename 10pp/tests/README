@@ -41,6 +41,7 @@ tests for PlayerX:
 35: dialog (action append with line noise: after)
 36: dialog (action append with line noise: both)
 37: dialog (action append with line noise: both) + TOKEN?
+38: dialog (trivial trigger append)
 
 TODO:
 NumInParty*(6) is only used in 3 scripts in bg2:
