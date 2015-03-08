@@ -333,7 +333,72 @@ sub extendDLG {
     my $dialog_string = shift;
     my $party_num = shift;
 
-    say $output_handle $dialog_string;
+    my @dlg_states = split(/^IF((?:(?!^END).)*)^END/ms, $dialog_string) or die "Couldn't split dialog: $!";
+
+    # write out the header (BEGIN and any other noise)
+    print $output_handle $dlg_states[0];
+    shift @dlg_states;
+
+    foreach my $state (@dlg_states) {
+        if ($state =~ /^\s*$/) {
+            say $output_handle "";
+        } else {
+            # main logic switch
+            if ($state =~ /^.*~[^~\n]*Player6[^~\n]*$/m) {
+                # noise before
+                my $prevPC = "Player6";
+                for (my $i = 7; $i <= $party_num; $i++) {
+                    my $nextPC = "Player" . $i;
+                    $state = $state =~ s/^(\s*)(.*)~([^~\n]*)($prevPC)(.*)$/$&\n$3$nextPC$5/gmr;
+                }
+
+                say $output_handle "IF" . $state . "END";
+            } elsif ($state =~ /^[^~\n]*Player6[^~\n]*~.*$/m) {
+                # noise after
+                my $prevPC = "Player6";
+                for (my $i = 7; $i <= $party_num; $i++) {
+                    my $nextPC = "Player" . $i;
+                    $state = $state =~ s/^(\s*)(.*)([^~\n]*)($prevPC)([^~\n]*)~.*$/$1$2$3$nextPC$5\n$&/gmr;
+                }
+
+                say $output_handle "IF" . $state . "END";
+            } elsif ($state =~ /^.*~[^~\n]*Player6[^~\n]*~.*$/m) {
+                # noise on both sides
+                # practically the same as without noise, but there could be multiple mentions on the same line
+                my @lines = split /\n/, $state;
+                my $new_state;
+                for my $line (@lines) {
+                    if ($line =~ /Player6/) {
+                        my $prevPC = "Player6";
+                        $new_state .= $line . "\n";
+                        for (my $i = 7; $i <= $party_num; $i++) {
+                            my $nextPC = "Player" . $i;
+                            my $new_line = $line =~ s/$prevPC/$nextPC/gr;
+                            # also tick off tokens or bugs?
+                            $new_line = $new_line =~ s/\U$prevPC\E/\U$nextPC\E/gr;
+                            $new_state .= $new_line . "\n";
+                        }
+                    } else {
+                        $new_state .= $line . "\n";
+                    }
+                }
+                say $output_handle "IF" . $new_state . "END";
+            } elsif ($state =~ /Player6/) {
+                # none, but Player6 is still there
+                my $prevPC = "Player6";
+                for (my $i = 7; $i <= $party_num; $i++) {
+                    my $nextPC = "Player" . $i;
+                    $state = $state =~ s/^(\s*)(.*)($prevPC)(.*)$/$&\n$1$2$nextPC$4/gmr;
+                    $prevPC = $nextPC;
+                }
+
+                say $output_handle "IF" . $state . "END";
+            } else {
+                # none, boring state
+                say $output_handle "IF" . $state . "END";
+            }
+        }
+    }
 }
 
 #exit 0;
