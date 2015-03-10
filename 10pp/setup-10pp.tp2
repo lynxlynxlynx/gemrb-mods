@@ -63,16 +63,16 @@ COPY_EXISTING_REGEXP ~^.+\.bcs$~ ~10pp/temp/baf~
 
 // the regex below is part of the compiled form of the "Player6" object
 PRINT ~Decompiling affected scripts...~
-ACTION_BASH_FOR ~10pp/temp/baf/.*\.bcs$~ BEGIN
-  ACTION_IF FILE_CONTAINS ~%BASH_FOR_FILE%~ ' 26 .*"OB' THEN BEGIN
-    # FIXME: why this wierd rename?
+ACTION_BASH_FOR ~10pp/temp/baf/~ ~.*\.bcs$~ BEGIN
+  ACTION_IF FILE_CONTAINS ~%BASH_FOR_FILE%~ ~ 26 .*"OB~ THEN BEGIN
+    // FIXME: why this wierd rename?
     MOVE ~%BASH_FOR_FILE%~ ~ORIG_BAF_FILE_%BASH_FOR_RES%.baf~
       DECOMPILE_BCS_TO_BAF
   END
 END
 
 PRINT ~Fixing affected scripts...~
-ACTION_BASH_FOR ~10pp/temp/baf/.*\.baf$~ BEGIN
+ACTION_BASH_FOR ~10pp/temp/baf/~ ~.*\.baf$~ BEGIN
   AT_NOW ~perl wrapper.pl "%BASH_FOR_FILE%" %newmax% "%BASH_FOR_RES%.baf2"~
   MOVE ~%BASH_FOR_RES%.baf2~ ~%BASH_FOR_FILE%~
 END
@@ -85,7 +85,7 @@ COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
 PRINT ~Fixing dialogs~
 COPY_EXISTING_REGEXP GLOB ~.*\.dlg$~ ~override~
   # hopefully this will work with binary files (dlg is not plaintext)
-  ACTION_IF FILE_CONTAINS ~%SOURCE_FILE%~ 'Player6' THEN BEGIN
+  ACTION_IF FILE_CONTAINS ~%SOURCE_FILE%~ ~Player6~ THEN BEGIN
     DECOMPILE_AND_PATCH BEGIN
       AT_NOW ~perl wrapper.pl "%SOURCE_FILE%" %newmax% "%SOURCE_RES%.2"~
       MOVE ~%SOURCE_RES%.2~ ~%SOURCE_FILE%~
