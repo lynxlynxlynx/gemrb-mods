@@ -1,4 +1,6 @@
 - write an extender for dialogs
 
-- debug weidu script, mostly for syntax errors
+- debug weidu script
+  - especially, find a way to read from a file reliably, or switch to the old method
+
 - consider bundling perl or packaging everything with an executable
