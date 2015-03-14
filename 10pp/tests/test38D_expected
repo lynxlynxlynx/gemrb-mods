@@ -70,7 +70,7 @@ IF ~~ THEN BEGIN 8 // from: 6.1
 !Kit(Player7,GODLATHANDER)
 !Kit(Player8,GODLATHANDER)
 ~ THEN GOTO 11
-  IF ~OR(7)
+  IF ~OR(9)
 ReputationGT(Player1,9)
 Kit(Player1,GODLATHANDER)
 Kit(Player2,GODLATHANDER)
