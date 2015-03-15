@@ -33,7 +33,7 @@ my $successes = 0;
 my $failures = 0;
 foreach my $test (sort @tests) {
 	my $expected_file = $test . "_expected";
-	open(my $expected_handle, "<", $expected_file);
+	open(my $expected_handle, "<", $expected_file) or die "$expected_file does not exist or not readable!";
 
 	my $rc = extend($test, $temp_result, 8); # tests are written with 8pp in mind
 	if ($rc eq 0) {
