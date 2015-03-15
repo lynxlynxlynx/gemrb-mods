@@ -119,25 +119,8 @@ sub extend {
             }
         } elsif ($trigger_mention == 1) {
             # likely only triggers need to be changed
-            # if (everyone) is mentioned append trigger (test2)
-            if ($trigger_half =~ /Player5/) {
-                # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
-                $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
-            } else {
-                # else copy the whole block (test17)
-                # write the current one
-                writeBlock ($output_handle, $trigger_half, $response_half);
-
-                # add copies for each extra party member
-                my $prevPC = "Player6";
-                for (my $i = 7; $i <= $party_num; $i++) {
-                    my $nextPC = "Player" . $i;
-                    $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
-                    $prevPC = $nextPC;
-                    writeBlock ($output_handle, $trigger_half, $response_half)
-                }
-                $no_write = 1;
-            }
+            $trigger_half = fixTriggers($trigger_half, $response_half, $output_handle, $party_num, @trigger_list);
+            $no_write = 1;
         } else {
             # likely only response blocks need to be changed
             # if (everyone) is mentioned append action(s) (tests: 4, 6, 7)
@@ -272,6 +255,36 @@ sub fixResponsesOnly {
         $new_response_half .= $block;# . "\n";
     }
     return $new_response_half;
+}
+
+# only triggers need to be changed
+sub fixTriggers {
+    my $trigger_half = shift;
+    my $response_half = shift;
+    my $output_handle = shift;
+    my $party_num = shift;
+    my @trigger_list = @_;
+
+    # if (everyone) is mentioned append trigger (test2)
+    if ($trigger_half =~ /Player5/) {
+        # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
+        $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
+        writeBlock ($output_handle, $trigger_half, $response_half);
+    } else {
+        # else copy the whole block (test17)
+        # write the current one
+        writeBlock ($output_handle, $trigger_half, $response_half);
+
+        # add copies for each extra party member
+        my $prevPC = "Player6";
+        for (my $i = 7; $i <= $party_num; $i++) {
+            my $nextPC = "Player" . $i;
+            $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
+            $prevPC = $nextPC;
+            writeBlock ($output_handle, $trigger_half, $response_half)
+        }
+    }
+    return $trigger_half;
 }
 
 # NOTE: for now we don't care about ordering (567 vs 765)
