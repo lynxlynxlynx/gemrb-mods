@@ -1,0 +1,13 @@
+BEGIN ~test39D~
+
+IF ~Global("Criminal","GLOBAL",1)
+~ THEN BEGIN 0 // from:
+  SAY #15195 
+  IF ~~ THEN REPLY #15196  DO ~ForceSpell(Player1,SAREVOK_STRIKE)
+Wait(3)
+Kill(Player6)
+Kill(Player7)
+Kill(Player8)
+~ EXIT
+END
+

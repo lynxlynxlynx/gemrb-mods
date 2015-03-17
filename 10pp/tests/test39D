@@ -1,0 +1,10 @@
+BEGIN ~test39D~
+
+IF ~Global("Criminal","GLOBAL",1)
+~ THEN BEGIN 0 // from:
+  SAY #15195 /* ~Stop and surrender yourself.  You are accused of murdering the men Brunos Costak and Rieltar Anchev.  If you give yourself up now, you will be assured of a fair trial.~ */
+  IF ~~ THEN REPLY #15196 /* ~Surrender?  No way!  We won't go without a fight.  Come on!~ */ DO ~ForceSpell(Player1,SAREVOK_STRIKE)
+Wait(3)
+Kill(Player6)
+~ EXIT
+END

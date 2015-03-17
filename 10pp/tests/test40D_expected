@@ -1,0 +1,34 @@
+// creator  : ../../weidu.asm.exe (version 21012)
+// argument : MAEVAR.DLG
+// game		 : /home/fuzzie/src/gemrb/bg2
+// source	 : /home/fuzzie/src/gemrb/bg2/override/MAEVAR.DLG
+// dialog	 : /home/fuzzie/src/gemrb/bg2/dialog.tlk
+// dialogF  : (none)
+
+BEGIN ~MAEVAR~
+
+IF ~~ THEN BEGIN 8 // from: 6.1
+  SAY #22581 
+  IF ~ReputationLT(Player1,10)
+!Kit(Player1,GODLATHANDER)
+!Kit(Player2,GODLATHANDER)
+!Kit(Player3,GODLATHANDER)
+!Kit(Player4,GODLATHANDER)
+!Kit(Player5,GODLATHANDER)
+!Kit(Player6,GODLATHANDER)
+!Kit(Player7,GODLATHANDER)
+!Kit(Player8,GODLATHANDER)
+~ THEN GOTO 11
+  IF ~OR(9)
+ReputationGT(Player1,9)
+Kit(Player1,GODLATHANDER)
+Kit(Player2,GODLATHANDER)
+Kit(Player3,GODLATHANDER)
+Kit(Player4,GODLATHANDER)
+Kit(Player5,GODLATHANDER)
+Kit(Player6,GODLATHANDER)
+Kit(Player7,GODLATHANDER)
+Kit(Player8,GODLATHANDER)
+~ THEN GOTO 12
+END
+
