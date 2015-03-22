@@ -57,48 +57,33 @@ MKDIR ~10pp/temp~
 MKDIR ~10pp/temp/baf~
 MKDIR ~10pp/temp/d~
 
-<<<<<<<< 10pp.inlined.null
->>>>>>>>
-
 PRINT ~Fixing scripts...~
 
-COPY_EXISTING_REGEXP GLOB ~^.*\.bcs$~ override
+COPY_EXISTING_REGEXP GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
   COUNT_REGEXP_INSTANCES ~ 26 .*"OB~ has_player_6
   PATCH_IF has_player_6 BEGIN
-    DECOMPILE_AND_PATCH BEGIN
-      SET uncompiled_size = BUFFER_LENGTH - SOURCE_SIZE
-      READ_ASCII 0 file_cont (uncompiled_size) // FIXME: go back to other method or make this stop error'ing.
-      INNER_ACTION BEGIN
-        COPY 10pp.inlined.null ~10pp/tmp/%SOURCE_RES%.baf2~
-          INSERT_BYTES 0 uncompiled_size
-          WRITE_ASCIIE 0 ~%file_cont%~ (uncompiled_size)
-
-        AT_NOW ~perl wrapper.pl "%SOURCE_RES%.baf2" %newmax% "%SOURCE_RES%.baf"~
-      END
-      READ_ASCII 0 file_cont (1) // clear the variable's value... sort of
-    END
+    DECOMPILE_BCS_TO_BAF
   END
 BUT_ONLY
+
+ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*\.bcs$~ BEGIN
+  AT_NOW ~perl wrapper.pl "%BASH_FOR_RES%.bcs" %newmax% "%BASH_FOR_RES%.baf"~
+END
 
 COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
 /*
 // fix all dialogs
 PRINT ~Fixing dialogs...~
-// TODO/FIXME: update .dlg files block as needed
-COPY_EXISTING_REGEXP GLOB ~^.*\.dlg$~ override
+COPY_EXISTING_REGEXP GLOB ~^.*\.dlg$~ ~10pp/temp/baf~
   COUNT_REGEXP_INSTANCES ~Player6~ has_player_6
   PATCH_IF has_player_6 BEGIN
-    DECOMPILE_AND_PATCH BEGIN
-      READ_ASCII 0 file_cont (SOURCE_SIZE)
-      INNER_ACTION BEGIN
-        COPY 10pp.inlined.null ~10pp/tmp/%SOURCE_RES%.d2~
-        WRITE_ASCIIE 0 ~%file_cont%~ (SOURCE_SIZE)
-        AT_NOW ~perl wrapper.pl "%SOURCE_RES%.d2" %newmax% "%SOURCE_RES%.d"~
-      END
-      READ_ASCII 0 file_cont (1) // clear the variable's value... sort of
-    END
+    DECOMPILE_DLG_TO_D
   END
 BUT_ONLY
+
+ACTION_BASH_FOR ~10pp/temp/d~ ~^.*\.dlg$~ BEGIN
+  AT_NOW ~perl wrapper.pl "%BASH_FOR_RES%.dlg" %newmax% "%BASH_FOR_RES%.d"~
+END
 
 COMPILE ~10pp/temp/d~ // this will create backup files... hope so at least...
 */
