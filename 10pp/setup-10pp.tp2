@@ -1,6 +1,6 @@
 BACKUP ~10pp/backup~
 AUTHOR ~lynx, CrevsDaak~
-VERSION "10 player parties 0.5"
+VERSION "10 player parties 0.8"
 
 BEGIN ~Maximum party size extender for IEScript (usable with GemRB only)~
 
@@ -44,13 +44,6 @@ APPEND ~object.ids~ ~90 Player7
 95 Player8Fill
 96 Player9Fill
 97 Player10Fill~
-//APPEND ~object.ids~ ~91 Player8~
-//APPEND ~object.ids~ ~92 Player9~
-//APPEND ~object.ids~ ~93 Player10~
-//APPEND ~object.ids~ ~94 Player7Fill~
-//APPEND ~object.ids~ ~95 Player8Fill~
-//APPEND ~object.ids~ ~96 Player9Fill~
-//APPEND ~object.ids~ ~97 Player10Fill~
 
 // decompile all to-be affected scripts
 MKDIR ~10pp/temp~
@@ -71,10 +64,10 @@ ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*\.bcs$~ BEGIN
 END
 
 COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
-/*
+
 // fix all dialogs
 PRINT ~Fixing dialogs...~
-COPY_EXISTING_REGEXP GLOB ~^.*\.dlg$~ ~10pp/temp/baf~
+COPY_EXISTING_REGEXP GLOB ~^.*\.dlg$~ ~10pp/temp/d~
   COUNT_REGEXP_INSTANCES ~Player6~ has_player_6
   PATCH_IF has_player_6 BEGIN
     DECOMPILE_DLG_TO_D
@@ -86,7 +79,8 @@ ACTION_BASH_FOR ~10pp/temp/d~ ~^.*\.dlg$~ BEGIN
 END
 
 COMPILE ~10pp/temp/d~ // this will create backup files... hope so at least...
-*/
+
+// final instructions
 PRINT ~DONE!
 
 REMEMBER to:
