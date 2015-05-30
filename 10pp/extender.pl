@@ -69,7 +69,7 @@ sub extend {
         $response_mention++ if ($response_half =~ /Player6/);
         if ($trigger_mention == $response_mention && $trigger_mention == 0) {
             print $trigger_half . "||||\n" . $response_half . "\n\n";
-            print "FATAL PARSING ERROR: player mention mismatch! Dumped problematic block above.";
+            print "FATAL PARSING ERROR: player mention mismatch! Dumped problematic block above.\nAre you sure this is a script file?\n";
             exit;
         }
 
