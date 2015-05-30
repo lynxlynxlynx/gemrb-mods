@@ -50,6 +50,14 @@ MKDIR ~10pp/temp~
 MKDIR ~10pp/temp/baf~
 MKDIR ~10pp/temp/d~
 
+/* for some reason this chokes
+ACTION_BASH_FOR ~10pp/temp/baf~ ~.*bcs~ BEGIN
+  DELETE + ~%BASH_FOR_FILESPEC%~
+END
+ACTION_BASH_FOR ~10pp/temp/d~ ~.*~ BEGIN
+  DELETE + ~%BASH_FOR_FILESPEC%~
+END */
+
 PRINT ~Fixing scripts...~
 
 COPY_EXISTING_REGEXP GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
