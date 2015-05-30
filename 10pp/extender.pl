@@ -366,7 +366,7 @@ sub extendDLG {
             say $output_handle "";
             next;
         }
-        if ($state !~ /Player6/) {
+        if ($state !~ /\bPlayer6\b/) {
             $state = $state =~ s{/\*(?:(?!\*/).)*\*/}{}gsr; # see below
             say $output_handle "IF" . $state . "END";
             next;
@@ -386,10 +386,10 @@ sub extendDLG {
 
             # track player5 here for full transition copying
             # NOTE: assumes well-ordered dialog scripting
-            if ($trans !~ /Player6/) {
+            if ($trans !~ /\bPlayer6\b/) {
                 $state2 .= $trans;
                 #$seenP5 = ($trans !~ /Player5/);
-                if ($trans =~ /Player5/) {
+                if ($trans =~ /\bPlayer5\b/) {
                     $seenP5 = 1;
                 } elsif ($trans =~ /\S/) {
                     $seenP5 = 0;
@@ -431,7 +431,7 @@ sub extendDLG {
             # now we're either at the triggers or actions
             if ($lastBoringField == 3) {
                 # fix triggers + shift 4
-                if ($blocks[0] =~ /Player6/) {
+                if ($blocks[0] =~ /\bPlayer6\b/) {
                     # preprocess block, so it looks similar to script blocks
                     if ($blocks[0] =~ /OR\(/) {
                         $blocks[0] = $blocks[0] =~ s/OR\(/  OR(/gr;
@@ -455,7 +455,7 @@ sub extendDLG {
 
             # fix the actions
 # print "|$blocks[0]|\n";
-            if ($blocks[0] =~ /Player6/) {
+            if ($blocks[0] =~ /\bPlayer6\b/) {
                 $blocks[0] = fixTriggers($blocks[0], $blocks[2], $output_handle, $party_num, 0, split(/\n/, $blocks[0]));
             }
 #             print $blocks[0];
