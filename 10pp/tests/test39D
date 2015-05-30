@@ -1,10 +1,63 @@
-BEGIN ~test39D~
+// creator  : ../../weidu.asm.exe (version 21012)
+// argument : ORPHAN1.DLG
+// game		 : /home/fuzzie/src/gemrb/bg2
+// source	 : /home/fuzzie/src/gemrb/bg2/DATA/25DIALOG.BIF
+// dialog	 : /home/fuzzie/src/gemrb/bg2/dialog.tlk
+// dialogF  : (none)
 
-IF ~Global("Criminal","GLOBAL",1)
-~ THEN BEGIN 0 // from:
-  SAY #15195 /* ~Stop and surrender yourself.  You are accused of murdering the men Brunos Costak and Rieltar Anchev.  If you give yourself up now, you will be assured of a fair trial.~ */
-  IF ~~ THEN REPLY #15196 /* ~Surrender?  No way!  We won't go without a fight.  Come on!~ */ DO ~ForceSpell(Player1,SAREVOK_STRIKE)
-Wait(3)
-Kill(Player6)
-~ EXIT
+BEGIN ~ORPHAN1~
+
+IF ~Global("FRaise","GLOBAL",0)
+~ THEN BEGIN 3 // from: 2.0
+  SAY #73321 /* ~Daddy got hit by the fire and fell down.  I can't wake him up, no matter what.  Please help my daddy.~ */
+  IF ~~ THEN REPLY #73334 /* ~Your daddy's dead.  There's nothing I can do.~ */ GOTO 4
+  IF ~OR(3)
+Class(LastTalkedToBy,CLERIC_ALL)
+Class(LastTalkedToBy,DRUID_ALL)
+Class(LastTalkedToBy,PALADIN_ALL)
+OR(4)
+Name("Jaheira",LastTalkedToBy)
+PartyHasItem("scrl63")
+HaveSpellParty(CLERIC_RAISE_DEAD)
+HaveSpellParty(CLERIC_RESURRECTION)
+!Name("Keldorn",LastTalkedToBy)
+~ THEN REPLY #73335 /* ~I... might... be able to help you with a spell, let's see...~ */ DO ~ClearAllActions()
+StartCutSceneMode()
+FadeToColor([20.0],0)
+Wait(2)
+MoveViewPoint([2402.1482],0)
+ActionOverride(LastTalkedToBy,JumpToPoint([2386.1386]))
+ActionOverride(LastTalkedToBy,Face(0))
+FadeFromColor([20.0],0)
+Wait(1)
+ActionOverride(LastTalkedToBy,ForceSpellRES("jworphan","orphan2"))
+Wait(5)
+EndCutSceneMode()~ EXIT
+  IF ~PartyHasItem("rods03")~ THEN REPLY #73989 /* ~Perhaps the rod of resurrection might be able to restore him.  Let's see...~ */ DO ~ClearAllActions()
+StartCutSceneMode()
+FadeToColor([20.0],0)
+Wait(2)
+MoveViewPoint([2402.1482],0)
+ActionOverride(LastTalkedToBy,JumpToPoint([2386.1386]))
+ActionOverride(LastTalkedToBy,Face(0))
+FadeFromColor([20.0],0)
+Wait(2)
+ActionOverride(LastTalkedToBy,ReallyForceSpellRES("jworphan","orphan2"))
+Wait(2)
+EndCutSceneMode()~ EXIT
+  IF ~!Class(LastTalkedToBy,CLERIC_ALL)
+OR(12)
+Class(Player1,CLERIC_ALL)
+Class(Player2,CLERIC_ALL)
+Class(Player3,CLERIC_ALL)
+Class(Player4,CLERIC_ALL)
+Class(Player5,CLERIC_ALL)
+Class(Player6,CLERIC_ALL)
+Class(Player1,DRUID_ALL)
+Class(Player2,DRUID_ALL)
+Class(Player3,DRUID_ALL)
+Class(Player4,DRUID_ALL)
+Class(Player5,DRUID_ALL)
+Class(Player6,DRUID_ALL)~ THEN REPLY #73990 /* ~I can't help you...but perhaps a cleric in my party could.~ */ GOTO 6
+  IF ~~ THEN REPLY #73339 /* ~Get used to it, child.  Life's tough, now get lost.~ */ GOTO 1
 END

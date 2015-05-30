@@ -1,13 +1,68 @@
-BEGIN ~test39D~
+// creator  : ../../weidu.asm.exe (version 21012)
+// argument : ORPHAN1.DLG
+// game		 : /home/fuzzie/src/gemrb/bg2
+// source	 : /home/fuzzie/src/gemrb/bg2/DATA/25DIALOG.BIF
+// dialog	 : /home/fuzzie/src/gemrb/bg2/dialog.tlk
+// dialogF  : (none)
 
-IF ~Global("Criminal","GLOBAL",1)
-~ THEN BEGIN 0 // from:
-  SAY #15195 
-  IF ~~ THEN REPLY #15196  DO ~ForceSpell(Player1,SAREVOK_STRIKE)
-Wait(3)
-Kill(Player6)
-Kill(Player7)
-Kill(Player8)
-~ EXIT
+BEGIN ~ORPHAN1~
+
+IF ~Global("FRaise","GLOBAL",0)
+~ THEN BEGIN 3 // from: 2.0
+  SAY #73321 
+  IF ~~ THEN REPLY #73334  GOTO 4
+  IF ~OR(3)
+Class(LastTalkedToBy,CLERIC_ALL)
+Class(LastTalkedToBy,DRUID_ALL)
+Class(LastTalkedToBy,PALADIN_ALL)
+OR(4)
+Name("Jaheira",LastTalkedToBy)
+PartyHasItem("scrl63")
+HaveSpellParty(CLERIC_RAISE_DEAD)
+HaveSpellParty(CLERIC_RESURRECTION)
+!Name("Keldorn",LastTalkedToBy)
+~ THEN REPLY #73335  DO ~ClearAllActions()
+StartCutSceneMode()
+FadeToColor([20.0],0)
+Wait(2)
+MoveViewPoint([2402.1482],0)
+ActionOverride(LastTalkedToBy,JumpToPoint([2386.1386]))
+ActionOverride(LastTalkedToBy,Face(0))
+FadeFromColor([20.0],0)
+Wait(1)
+ActionOverride(LastTalkedToBy,ForceSpellRES("jworphan","orphan2"))
+Wait(5)
+EndCutSceneMode()~ EXIT
+  IF ~PartyHasItem("rods03")~ THEN REPLY #73989  DO ~ClearAllActions()
+StartCutSceneMode()
+FadeToColor([20.0],0)
+Wait(2)
+MoveViewPoint([2402.1482],0)
+ActionOverride(LastTalkedToBy,JumpToPoint([2386.1386]))
+ActionOverride(LastTalkedToBy,Face(0))
+FadeFromColor([20.0],0)
+Wait(2)
+ActionOverride(LastTalkedToBy,ReallyForceSpellRES("jworphan","orphan2"))
+Wait(2)
+EndCutSceneMode()~ EXIT
+  IF ~!Class(LastTalkedToBy,CLERIC_ALL)
+OR(16)
+Class(Player1,CLERIC_ALL)
+Class(Player2,CLERIC_ALL)
+Class(Player3,CLERIC_ALL)
+Class(Player4,CLERIC_ALL)
+Class(Player5,CLERIC_ALL)
+Class(Player6,CLERIC_ALL)
+Class(Player7,CLERIC_ALL)
+Class(Player8,CLERIC_ALL)
+Class(Player1,DRUID_ALL)
+Class(Player2,DRUID_ALL)
+Class(Player3,DRUID_ALL)
+Class(Player4,DRUID_ALL)
+Class(Player5,DRUID_ALL)
+Class(Player6,DRUID_ALL)
+Class(Player7,DRUID_ALL)
+Class(Player8,DRUID_ALL)~ THEN REPLY #73990  GOTO 6
+  IF ~~ THEN REPLY #73339  GOTO 1
 END
 
