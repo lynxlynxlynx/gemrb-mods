@@ -7,7 +7,7 @@ use warnings;
 use File::Basename;
 
 # files not to touch
-my $exceptions = "cut35h.baf test31";
+my $exceptions = "cut35h.baf test31 uddrow16.d udlesa.d";
 
 # reads passed BAF and extends it to request max party count if needed
 sub extend {
