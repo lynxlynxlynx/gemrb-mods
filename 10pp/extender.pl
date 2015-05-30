@@ -119,7 +119,7 @@ sub extend {
             }
         } elsif ($trigger_mention == 1) {
             # likely only triggers need to be changed
-            $trigger_half = fixTriggers($trigger_half, $response_half, $output_handle, $party_num, @trigger_list);
+            $trigger_half = fixTriggers($trigger_half, $response_half, $output_handle, $party_num, 1, @trigger_list);
             $no_write = 1;
         } else {
             # likely only response blocks need to be changed
@@ -263,13 +263,16 @@ sub fixTriggers {
     my $response_half = shift;
     my $output_handle = shift;
     my $party_num = shift;
+    my $write = shift;
     my @trigger_list = @_;
 
     # if (everyone) is mentioned append trigger (test2)
     if ($trigger_half =~ /Player5/) {
         # NOTE: for now assuming this is enough and that scripts work either on the whole party or individuals
         $trigger_half = fixTriggersOnly($trigger_half, $party_num, @trigger_list);
-        writeBlock ($output_handle, $trigger_half, $response_half);
+        if ($write) {
+            writeBlock ($output_handle, $trigger_half, $response_half);
+        }
     } else {
         # else copy the whole block (test17)
         # write the current one
@@ -297,7 +300,7 @@ sub fixTriggersOnly {
     my $new_trigger_half = "";
     my $in_or = 0;
     for my $line (@trigger_list) {
-        if ($line =~ /^  OR\(/) {
+        if ($line =~ /  OR\(/) {
             $in_or = 1;
             $new_trigger_half .= $line . "\n";
             next;
@@ -348,71 +351,124 @@ sub extendDLG {
     my $dialog_string = shift;
     my $party_num = shift;
 
+    # NOTE: weidu supports some extra forms, but hopefully all get replaced with this when compiling and decompiling or just affect the action part
     my @dlg_states = split(/^IF((?:(?!^END).)*)^END/ms, $dialog_string) or die "Couldn't split dialog: $!";
 
     # write out the header (BEGIN and any other noise)
     print $output_handle $dlg_states[0];
     shift @dlg_states;
 
+#     require 'print_r.pl';
+#     print_r(@dlg_states);
+
     foreach my $state (@dlg_states) {
         if ($state =~ /^\s*$/) {
             say $output_handle "";
-        } else {
-            # main logic switch
-            if ($state =~ /^.*~[^~\n]*Player6[^~\n]*$/m) {
-                # noise before
-                my $prevPC = "Player6";
-                for (my $i = 7; $i <= $party_num; $i++) {
-                    my $nextPC = "Player" . $i;
-                    $state = $state =~ s/^(\s*)(.*)~([^~\n]*)($prevPC)(.*)$/$&\n$3$nextPC$5/gmr;
-                }
-
-                say $output_handle "IF" . $state . "END";
-            } elsif ($state =~ /^[^~\n]*Player6[^~\n]*~.*$/m) {
-                # noise after
-                my $prevPC = "Player6";
-                for (my $i = 7; $i <= $party_num; $i++) {
-                    my $nextPC = "Player" . $i;
-                    $state = $state =~ s/^(\s*)(.*)([^~\n]*)($prevPC)([^~\n]*)~.*$/$1$2$3$nextPC$5\n$&/gmr;
-                }
-
-                say $output_handle "IF" . $state . "END";
-            } elsif ($state =~ /^.*~[^~\n]*Player6[^~\n]*~.*$/m) {
-                # noise on both sides
-                # practically the same as without noise, but there could be multiple mentions on the same line
-                my @lines = split /\n/, $state;
-                my $new_state;
-                for my $line (@lines) {
-                    if ($line =~ /Player6/) {
-                        my $prevPC = "Player6";
-                        $new_state .= $line . "\n";
-                        for (my $i = 7; $i <= $party_num; $i++) {
-                            my $nextPC = "Player" . $i;
-                            my $new_line = $line =~ s/$prevPC/$nextPC/gr;
-                            # also tick off tokens or bugs?
-                            $new_line = $new_line =~ s/\U$prevPC\E/\U$nextPC\E/gr;
-                            $new_state .= $new_line . "\n";
-                        }
-                    } else {
-                        $new_state .= $line . "\n";
-                    }
-                }
-                say $output_handle "IF" . $new_state . "END";
-            } elsif ($state =~ /Player6/) {
-                # none, but Player6 is still there
-                my $prevPC = "Player6";
-                for (my $i = 7; $i <= $party_num; $i++) {
-                    my $nextPC = "Player" . $i;
-                    $state = $state =~ s/^(\s*)(.*)($prevPC)(.*)$/$&\n$1$2$nextPC$4/gmr;
-                    $prevPC = $nextPC;
-                }
-
-                say $output_handle "IF" . $state . "END";
-            } else {
-                # none, boring state
-                say $output_handle "IF" . $state . "END";
-            }
+            next;
         }
+        if ($state !~ /Player6/) {
+            $state = $state =~ s{/\*(?:(?!\*/).)*\*/}{}gsr; # see below
+            say $output_handle "IF" . $state . "END";
+            next;
+        }
+
+        # strip out /* */ comments (delimited by more ~) then split on ~
+        # IF( [^~]*)? ~.*~ THEN .* (GOTO|EXIT|EXTERN).*$?
+        $state = $state =~ s{/\*(?:(?!\*/).)*\*/}{}gsr;
+        my $state2;
+        my @transitions = split /(^\s*IF(?:(?:(?!(?:GOTO|EXIT|EXTERN)).)*)(?:GOTO|EXIT|EXTERN) *\w*\n?)/ms, $state;
+        my $seenP5 = 0;
+        # print_r(@transitions);
+        foreach my $trans (@transitions) {
+#             if ($trans =~ /^\s*$/) {
+#                 next;
+#             }
+
+            # track player5 here for full transition copying
+            # NOTE: assumes well-ordered dialog scripting
+            if ($trans !~ /Player6/) {
+                $state2 .= $trans;
+                #$seenP5 = ($trans !~ /Player5/);
+                if ($trans =~ /Player5/) {
+                    $seenP5 = 1;
+                } elsif ($trans =~ /\S/) {
+                    $seenP5 = 0;
+                }
+                next;
+            }
+
+            if ($seenP5) {
+                $state2 .= $trans;
+                my $new_state = "";
+                my $prevPC = "Player6";
+                for (my $i = 7; $i <= $party_num; $i++) {
+                    my $nextPC = "Player" . $i;
+                    my $new_line = $trans =~ s/$prevPC/$nextPC/gr;
+                    # also tick off tokens or bugs?
+                    $new_line = $new_line =~ s/\U$prevPC\E/\U$nextPC\E/gr;
+                    $new_state .= $new_line;
+                }
+                $state2 .= $new_state;
+                next;
+            }
+
+            my @blocks = split /(~|IF)/, $trans;
+#             print_r(@blocks);
+
+            $trans = $blocks[0]; # intro WEIGHT or nothing
+            shift @blocks;
+            #while ($blocks[0] =~ /^(~|IF||\s*THEN DO)\s*$/) {
+            my $lastBoringField = 3;
+            if ($blocks[3] =~ /^\s*$/) {
+                $lastBoringField = 7;
+            }
+            for (my $z=1; $z <= $lastBoringField; $z++) {
+                $trans .= $blocks[0];
+                shift @blocks;
+            }
+#print "|$blocks[0]|\n";
+
+            # now we're either at the triggers or actions
+            if ($lastBoringField == 3) {
+                # fix triggers + shift 4
+                if ($blocks[0] =~ /Player6/) {
+                    # preprocess block, so it looks similar to script blocks
+                    if ($blocks[0] =~ /OR\(/) {
+                        $blocks[0] = $blocks[0] =~ s/OR\(/  OR(/gr;
+                    }
+                    $blocks[0] = fixTriggers($blocks[0], $blocks[2], $output_handle, $party_num, 0, split(/\n/, $blocks[0]));
+                    # restore whitespace used for OR detection
+                    $blocks[0] = $blocks[0] =~ s/  //gr;
+                }
+                for (my $z=1; $z <= 4; $z++) {
+                     if ($#blocks >= 0) {
+                        $trans .= $blocks[0];
+                        shift @blocks;
+                     }
+                }
+            }
+
+            if ($#blocks < 1) {
+                $state2 .= $trans;
+                next;
+            }
+
+            # fix the actions
+# print "|$blocks[0]|\n";
+            if ($blocks[0] =~ /Player6/) {
+                $blocks[0] = fixTriggers($blocks[0], $blocks[2], $output_handle, $party_num, 0, split(/\n/, $blocks[0]));
+            }
+#             print $blocks[0];
+            for (my $z=0; $z < 3; $z++) {
+                    if ($#blocks >= 0) {
+                        $trans .= $blocks[0];
+                        shift @blocks;
+                    }
+            }
+            $state2 .= $trans ;
+        }
+        say $output_handle "IF" . $state2 . "END";
+        $state2 = "";
     }
     return 1;
 }
