@@ -25,7 +25,8 @@ if ($rc > 0) {
 	my $run_dir = abs_path();
 	mkdir "$run_dir/diffs";
 	chdir $dirname;
-	system("perl cdiff.pl -u $run_dir/$file $run_dir/$temp_result > $run_dir/diffs/$file.diff") or die;
+	my $basename = basename($file);
+	system("perl cdiff.pl -u $run_dir/$file $run_dir/$temp_result > $run_dir/diffs/$basename.diff") or die;
 	chdir $run_dir;
 }
 if (not $preserve) {
