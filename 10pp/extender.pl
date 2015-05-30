@@ -35,7 +35,7 @@ sub extend {
     }
 
     # treat dialogs separately, since the format is different
-    if ($input_file =~ /d$/ or $input_file =~ /D$/) {
+    if ($input_file =~ /\.d$/ or $input_file =~ /\.D$/ or $input_file =~ /\.dlg$/) {
         my $rc = extendDLG($output_handle, $input_text, $party_num);
         close($output_handle);
         return $rc;
