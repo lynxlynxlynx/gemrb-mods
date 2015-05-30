@@ -60,7 +60,7 @@ COPY_EXISTING_REGEXP GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
 BUT_ONLY
 
 ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*\.bcs$~ BEGIN
-  AT_NOW ~perl wrapper.pl "%BASH_FOR_RES%.bcs" %newmax% "%BASH_FOR_RES%.baf"~
+  AT_NOW ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.baf"~
 END
 
 COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
@@ -75,7 +75,7 @@ COPY_EXISTING_REGEXP GLOB ~^.*\.dlg$~ ~10pp/temp/d~
 BUT_ONLY
 
 ACTION_BASH_FOR ~10pp/temp/d~ ~^.*\.dlg$~ BEGIN
-  AT_NOW ~perl wrapper.pl "%BASH_FOR_RES%.dlg" %newmax% "%BASH_FOR_RES%.d"~
+  AT_NOW ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.d"~
 END
 
 COMPILE ~10pp/temp/d~ // this will create backup files... hope so at least...
