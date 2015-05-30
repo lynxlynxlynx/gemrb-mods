@@ -2,12 +2,12 @@ BEGIN ~test33D~
 
 IF ~Global("Criminal","GLOBAL",1)
 ~ THEN BEGIN 0 // from:
-  SAY #15195 /* ~Stop and surrender yourself.  You are accused of murdering the men Brunos Costak and Rieltar Anchev.  If you give yourself up now, you will be assured of a fair trial.~ */
-  IF ~~ THEN REPLY #15196 /* ~Surrender?  No way!  We won't go without a fight.  Come on!~ */ DO ~ForceSpell(Player1,SAREVOK_STRIKE)
+  SAY #15195 
+  IF ~~ THEN REPLY #15196  DO ~ForceSpell(Player1,SAREVOK_STRIKE)
 Wait(3)
 Kill(Player1)
 ~ EXIT
-  IF ~~ THEN REPLY #15197 /* ~We're innocent, so we have nothing to fear.  Take us to your prison.~ */ DO ~SetGlobal("Arrested","GLOBAL",1)
+  IF ~~ THEN REPLY #15197  DO ~SetGlobal("Arrested","GLOBAL",1)
 ActionOverride(Player1,LeaveAreaLUAPanic("AR2631","",[351.184],12))
 ActionOverride(Player1,LeaveAreaLUA("AR2631","",[351.184],12))
 ActionOverride(Player1,SetMasterArea("AR2626"))
@@ -20,7 +20,7 @@ ActionOverride(Player7,LeaveAreaLUA("AR2631","",[493.241],12))
 ActionOverride(Player8,LeaveAreaLUA("AR2631","",[493.241],12))
 ~ EXIT
   IF ~Dead("RIELTAR")
-~ THEN REPLY #11846 /* ~Yes I killed them, but they attacked me.  They're the leaders of the Iron Throne, the people behind the iron shortage and everything else that's been wrong with the Sword Coast!  We did everyone a favor by killing them.  We'll come with you, a trial will vindicate us quickly.~ */ DO ~SetGlobal("Arrested","GLOBAL",1)
+~ THEN REPLY #11846  DO ~SetGlobal("Arrested","GLOBAL",1)
 ActionOverride(Player1,LeaveAreaLUAPanic("AR2631","",[351.184],12))
 ActionOverride(Player1,LeaveAreaLUA("AR2631","",[351.184],12))
 ActionOverride(Player1,SetMasterArea("AR2626"))
@@ -36,31 +36,31 @@ END
 
 IF ~RandomNum(5,1)
 ~ THEN BEGIN 1 // from:
-  SAY #15198 /* ~Hey there kid, nothing to see here.~ */
+  SAY #15198 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,2)
 ~ THEN BEGIN 2 // from:
-  SAY #15926 /* ~Thankfully quiet here today, as usual.  I hear there are problems outside, though; something about an iron shortage.~ */
+  SAY #15926 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,3)
 ~ THEN BEGIN 3 // from:
-  SAY #15927 /* ~Winthrop has kept his prices as low as he could, but I expect that to change soon.  It's been weeks since a trading caravan has made it here.  ~ */
+  SAY #15927 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,4)
 ~ THEN BEGIN 4 // from:
-  SAY #15928 /* ~It is a good thing we are not called upon to defend Candlekeep more often.  I've a cousin in Nashkel that sent word of an iron shortage that is beginning to cripple their local guards.~ */
+  SAY #15928 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,5)
 ~ THEN BEGIN 5 // from:
-  SAY #15953 /* ~I was in one of the great spires of the keep last night, and saw the strangest sight.  The horizon was aglow for a time, as though many a man carried torches in the distance.  Usually there are only merchants on that path, though never at night.  Bandits perhaps, but so many?~ */
+  SAY #15953 
   IF ~~ THEN DO ~~ EXIT
 END
 

@@ -2,126 +2,123 @@ BEGIN ~test35D~
 
 IF ~Global("DruidStronghold","GLOBAL",1)
 Global("DruidQuest1","GLOBAL",0)~ THEN BEGIN 0 // from:
-  SAY #48923 /* ~Child of the Woods, I welcome you. The land and the grove both have suffered and have been soothed by your actions.~ */
-  IF ~~ THEN REPLY #48931 /* ~Who are you? What are you?~ */ GOTO 1
-  IF ~~ THEN REPLY #48932 /* ~I am happy to be of service. You would be the Spirit of the Grove?~ */ GOTO 1
-  IF ~~ THEN REPLY #48933 /* ~I seek to bring balance to all that I find.~ */ GOTO 2
+  SAY #48923 
+  IF ~~ THEN REPLY #48931  GOTO 1
+  IF ~~ THEN REPLY #48932  GOTO 1
+  IF ~~ THEN REPLY #48933  GOTO 2
 END
 
 IF ~~ THEN BEGIN 1 // from: 0.1 0.0
-  SAY #48934 /* ~I am the Spirit of the Grove, child.  I am the water, the earth, the trees and the sun.  I am life and death: the eternal cycle.~ */
-  IF ~~ THEN REPLY #48935 /* ~How is it that you can speak?~ */ GOTO 4
-  IF ~~ THEN REPLY #48936 /* ~What would you have of me?~ */ GOTO 2
+  SAY #48934 
+  IF ~~ THEN REPLY #48935  GOTO 4
+  IF ~~ THEN REPLY #48936  GOTO 2
 END
 
 IF ~~ THEN BEGIN 2 // from: 4.0 1.1 0.2
-  SAY #48940 /* ~The call of the Druid is never easy and your tasks are but beginning. The Grove will extend its blessing to you if you will take up the mantle of leadership. ~ */
+  SAY #48940 
   IF ~~ THEN GOTO 3
 END
 
 IF ~~ THEN BEGIN 3 // from: 2.0
-  SAY #48941 /* ~A <PRO_MANWOMAN> who serves the cause of balance is needed.  The Grove requires leadership, a gentle hand.  Will you serve the Grove as such?~ */
-  IF ~~ THEN REPLY #48943 /* ~I am honored to be chosen, spirit. How is it that I can serve Nature?~ */ GOTO 5
-  IF ~~ THEN REPLY #48945 /* ~There is much that I need to accomplish outside of the Grove. I am not sure that I can spare the time to be effective for you.~ */ GOTO 7
-  IF ~~ THEN REPLY #48948 /* ~My thanks for the offer but I cannot accept it.~ */ GOTO 6
+  SAY #48941 
+  IF ~~ THEN REPLY #48943  GOTO 5
+  IF ~~ THEN REPLY #48945  GOTO 7
+  IF ~~ THEN REPLY #48948  GOTO 6
 END
 
 IF ~~ THEN BEGIN 4 // from: 1.0
-  SAY #48989 /* ~Always do I speak.  But I do not always allow myself to be heard.  Listen to my words, then, child of nature.~ */
+  SAY #48989 
   IF ~~ THEN GOTO 2
 END
 
 IF ~~ THEN BEGIN 5 // from: 7.0 3.0
-  SAY #48990 /* ~Bless you, child! Nature does truly smile upon you. There is much work to be done. Listen and learn the path of balance, the path of the Eternal Cycle.~ */
+  SAY #48990 
   IF ~~ THEN GOTO 8
 END
 
 IF ~~ THEN BEGIN 6 // from: 38.0 27.1 26.1 17.0 7.1 3.2
-  SAY #48991 /* ~If such is your wish, the Grove shall not hold you. Return to the road and follow what paths you must. You are always welcome here, even if it is not to be your home. Farewell.~ */
+  SAY #48991 
   IF ~~ THEN DO ~EraseJournalEntry(5697)
 EraseJournalEntry(5698)
 EraseJournalEntry(5699)
 SetGlobal("DruidStronghold","GLOBAL",0)
 CreateVisualEffectObject("SPENTAXI",Myself)
-DestroySelf()~ SOLVED_JOURNAL #5696 /* ~Heeding the Spirit of the Grove
-
-I have decided that the leadership of the grove is not my place, despite what the spirit of the grove describes as my 'destiny'.  I will seek my balance elsewhere and the spirit does not oppose my decision.~ */ EXIT
+DestroySelf()~ SOLVED_JOURNAL #5696  EXIT
 END
 
 IF ~~ THEN BEGIN 7 // from: 3.1
-  SAY #48992 /* ~The cycles of Nature move slowly, child. You shall have what time you need to fulfill your purpose outside of the Grove.~ */
-  IF ~~ THEN REPLY #48993 /* ~In that case I am honored that the Grove finds me worthy.~ */ GOTO 5
-  IF ~~ THEN REPLY #48994 /* ~Still, I haven't the time to spare.~ */ GOTO 6
+  SAY #48992 
+  IF ~~ THEN REPLY #48993  GOTO 5
+  IF ~~ THEN REPLY #48994  GOTO 6
 END
 
 IF ~~ THEN BEGIN 8 // from: 5.0
-  SAY #49007 /* ~Life is sacred and this sacredness is rooted in balance: predator and prey, rain and sun, birth and death. A time of unbalance has gone with the passing of Faldorn but a new break in the cycle arises.~ */
+  SAY #49007 
   IF ~~ THEN GOTO 9
 END
 
 IF ~~ THEN BEGIN 9 // from: 8.0
-  SAY #49008 /* ~Long have the Trolls of the mound lived beneath the protection of the Grove. But a new leader has arisen.~ */
+  SAY #49008 
   IF ~~ THEN GOTO 10
 END
 
 IF ~~ THEN BEGIN 10 // from: 9.0
-  SAY #49018 /* ~Nilthiri the Shamaness leads the trolls to chaos. She urges them to expand their territory and she brings more trolls to the mound without thought to the consequences.~ */
+  SAY #49018 
   IF ~~ THEN GOTO 11
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.0
-  SAY #49019 /* ~If this continues, the trolls will overrun the Grove and Nature will suffer. A servant of Nature must bring the life cycle of Nilthiri to a close for the good of all.~ */
+  SAY #49019 
   IF ~~ THEN GOTO 12
 END
 
 IF ~~ THEN BEGIN 12 // from: 11.0
-  SAY #49020 /* ~Will you do this for the Grove, child <CHARNAME>?~ */
-  IF ~~ THEN REPLY #49029 /* ~I am honored to be chosen, Sprit. I shall bring about Nilthiri's death and balance will be restored.~ */ GOTO 13
-  IF ~~ THEN REPLY #49031 /* ~Trolls are evil creatures! Why should they all not die?~ */ GOTO 16
-  IF ~~ THEN REPLY #49032 /* ~I cannot do this.~ */ GOTO 17
+  SAY #49020 
+  IF ~~ THEN REPLY #49029  GOTO 13
+  IF ~~ THEN REPLY #49031  GOTO 16
+  IF ~~ THEN REPLY #49032  GOTO 17
 END
 
 IF ~~ THEN BEGIN 13 // from: 17.1 16.0 12.0
-  SAY #49025 /* ~It is well. This club was left by Marek the founder of the Grove when his life ended, as all must. It may help you in the battle.~ */
+  SAY #49025 
   IF ~~ THEN DO ~GiveItemCreate("Blun10",LastTalkedToBy,0,0,0)~ GOTO 14
 END
 
 IF ~~ THEN BEGIN 14 // from: 13.0
-  SAY #49026 /* ~Nilthiri even now performs ceremonies of summoning. She must be stopped. You will find her along the path to the east of the Troll Mound. ~ */
+  SAY #49026 
   IF ~~ THEN GOTO 15
 END
 
 IF ~~ THEN BEGIN 15 // from: 14.0
-  SAY #49027 /* ~When the deed is done, I shall come to you. Until then, the blessing of the Grove is with you. Go and do what you must.~ */
+  SAY #49027 
   IF ~~ THEN DO ~SetGlobal("DruidQuest1","GLOBAL",1)
 CreateVisualEffectObject("SPENTAXI",Myself)
-DestroySelf()~ UNSOLVED_JOURNAL #5697 /* ~Heeding the Spirit of the Grove
-
-There is a troll mound within the boundaries of the grove, and the spirit informs me that a shamaness amongst them, Nilthiri, has begun to call great numbers of the creatures to the mound and threatens to disrupt the balance of nature.  I am to go to the mound nearby and end the shamaness' life before too much damage is done.~ */ EXIT
+DestroySelf()~ UNSOLVED_JOURNAL #5697  EXIT
 END
 
 IF ~~ THEN BEGIN 16 // from: 12.1
-  SAY #49033 /* ~Trolls, too, are the sons and daughters of Nature. They have their place within this realm as long as balance remains.~ */
-  IF ~~ THEN REPLY #49034 /* ~Very well. I shall bring about Nilthiri's death and balance will be restored.~ */ GOTO 13
-  IF ~~ THEN REPLY #49036 /* ~I refuse to perform this task.~ */ GOTO 17
+  SAY #49033 
+  IF ~~ THEN REPLY #49034  GOTO 13
+  IF ~~ THEN REPLY #49036  GOTO 17
 END
 
 IF ~~ THEN BEGIN 17 // from: 16.1 12.2
-  SAY #49037 /* ~The Grove has need of you, druid. Do you truly wish to let such a problem fester?~ */
-  IF ~~ THEN REPLY #49038 /* ~That may be but still I haven't the time to help.~ */ GOTO 6
-  IF ~~ THEN REPLY #49039 /* ~If it is as urgent as you say I will help.~ */ GOTO 13
+  SAY #49037 
+  IF ~~ THEN REPLY #49038  GOTO 6
+  IF ~~ THEN REPLY #49039  GOTO 13
 END
 
 IF ~Dead("Drshnl02")
 Global("DruidQuest1","GLOBAL",1)~ THEN BEGIN 18 // from:
-  SAY #49042 /* ~The deed is done and the delicate scales of Balance have shifted for the time being. You have done well, child of Nature.~ */
+  SAY #49042 
   IF ~~ THEN DO ~AddXPObject(Player1,18500)
 AddXPObject(Player2,18500)
 AddXPObject(Player3,18500)
 AddXPObject(Player4,18500)
 AddXPObject(Player5,18500)
+AddXPObject(Player6,18500)
 AddXPObject(Player7,18500)
 AddXPObject(Player8,18500)
-AddXPObject(Player6,18500)~ GOTO 19
+~ GOTO 19
 END
 
