@@ -1,4 +1,1 @@
-- debug weidu script
-  - debug for syntax errors. everything else should work
-
 - consider bundling perl or packaging everything with an executable

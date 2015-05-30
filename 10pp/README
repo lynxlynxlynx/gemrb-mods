@@ -14,13 +14,21 @@ For bg2, the G3 Fixpack is required (Core fixes): www.gibberlings3.net/bg2fixpac
 
 Since it also extends embedded dialog scripts, it is best to just install it last.
 
-The conversion process can easily take half an hour depending on the size of your install!
+The conversion process can take several minutes depending on the size of your install!
 Please be patient and DO NOT INTERRUPT execution lest you want to start from zero.
 There is only one query and then you can go plant some coffee.
 
+Clone the gemrb-mods repository to you computer and copy 10pp to the game dir.
+
 Run WeiDU in the game directory, eg.:
 
-    WeiDU setup-10pp.tp2
+    WeiDU 10pp/setup-10pp.tp2
+
+If it breaks, remove the backup directory and add the offending file to the
+exception list in extend.pl. Rerun.
+
+If you are a modder, you can check the files in the diffs/ directory, which
+will contain all the differences for the changed files.
 
 Exceptions
 ----------
@@ -30,6 +38,9 @@ ship manual overrides either.
 
 Some difficulty scripts that check for party size are not scalable. Eg. the
 final hell fight does not spawn any extra demons for larger parties.
+
+Similar caveats hold for dialogs, just more often. From vanilla bg2, this
+includes the drow pit fights and mod added stuff (pe. haldamir).
 
 For mod authors
 ---------------
