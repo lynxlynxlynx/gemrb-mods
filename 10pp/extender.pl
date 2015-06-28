@@ -17,7 +17,7 @@ sub extend {
     my $party_num = shift;
 
     # skip false positives like Faldorn's pit fight teleporter
-    if (index($exceptions, basename $input_file) != -1) {
+    if (index(lc $exceptions, lc basename $input_file) != -1) {
         return 0;
     }
 
