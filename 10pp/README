@@ -9,9 +9,13 @@ https://www.perl.org/get.html (ActiveState or Strawberry)
 
 Check the screenshots folder for some action shots.
 
+Mods known not to cause problems (let me know!):
+* NPC: Haldamir, Tashia, Saradas2, Kivan
+* Misc: Dungeon be gone
+
 Installation
 ------------
-This mod should be installed after all other script altering/adding mods!
+This mod should be installed after all other script&dialog altering/adding mods!
 For bg2, the G3 Fixpack is required (Core fixes): www.gibberlings3.net/bg2fixpack/
 
 Since it also extends embedded dialog scripts, it is best to just install it last.
@@ -42,7 +46,8 @@ Some difficulty scripts that check for party size are not scalable. Eg. the
 final hell fight does not spawn any extra demons for larger parties.
 
 Similar caveats hold for dialogs, just more often. From vanilla bg2, this
-includes the drow pit fights and mod added stuff (pe. haldamir).
+includes the drow pit fights and challenging for the druid grove. If there
+are any problems with mod added stuff, let me know.
 
 For mod authors
 ---------------

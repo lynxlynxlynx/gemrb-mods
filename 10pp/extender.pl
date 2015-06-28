@@ -8,7 +8,7 @@ use File::Basename;
 
 # files not to touch
 #my $exceptions = "cut35h.baf test31 uddrow16.d udlesa.d player1.dlg";
-my $exceptions = "cut35h.baf cut35.bcs test31 uddrow16.d udlesa.d udlesa.dlg uddrow16.dlg b!halj.d b!halj.dlg";
+my $exceptions = "cut35h.baf cut35.bcs test31 uddrow16.d udlesa.d udlesa.dlg uddrow16.dlg";
 
 # reads passed BAF and extends it to request max party count if needed
 sub extend {
