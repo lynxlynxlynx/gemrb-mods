@@ -1,8 +1,8 @@
 BACKUP ~sorcmonk\backup~
 AUTHOR ~lynxlynxlynx~
 
-VERSION ~2~
-LANGUAGE ~English~ ~english~ ~tra/english.tra~
+VERSION @0
+LANGUAGE ~English~ ~english~ ~sorcerer-monk/tra/english.tra~
 
 BEGIN ~Sorcerer/monk multiclass for gemrb~
 

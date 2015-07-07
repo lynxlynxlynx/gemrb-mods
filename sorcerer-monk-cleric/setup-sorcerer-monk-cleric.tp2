@@ -1,10 +1,11 @@
 BACKUP ~sorcmoncl\backup~
 AUTHOR ~lynxlynxlynx~
-BEGIN ~Sorcerer/monk/cleric multiclass for gemrb~
-
-LANGUAGE ~English~ ~english~ ~tra/english.tra~
 
 VERSION @0
+
+LANGUAGE ~English~ ~english~ ~sorcerer-monk-cleric/tra/english.tra~
+
+BEGIN ~Sorcerer/monk/cleric multiclass for gemrb~
 
 // ******************************************
 // first all the game table changes

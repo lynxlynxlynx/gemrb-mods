@@ -16,7 +16,7 @@ Check where you installed GemRB (data) too and copy these files from unhardcoded
   - fistweap.2da
   - qslots.2da
   - skills.2da
-Where? Copy them to the "data" dir in the game dir.
+Where? Copy them to the "override" dir in the game dir.
 
 Run WeiDU in the game directory, eg.:
 
