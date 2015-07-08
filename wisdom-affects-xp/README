@@ -5,8 +5,11 @@ http://www.gemrb.org/wiki/doku.php?id=mods:wisdom_xp_bonus
 Installation
 ============
 
-1. add HasWisdomBonusTable = 1 to the gemrb.ini in the gemrb unhardcoded path (eg. gemrb/unhardcoded/bg2/gemrb.ini) or copy that file to the game override and change the value there.
+Check where you installed GemRB (data) and mark it down.
 
-2. add a override/wisxpbon.2da with the wanted modifiers (in absolute percent).
+Run WeiDU as (substituting with the real path; USE THE CORRECT dir for your GAME):
 
-There is an example wisxpbon.2da included in this directory, with a cummulative 2% bonus/malus for offsets from wisdom of 10.
+   weidu --search /path/to/gemrbs/datadir/unhardcoded/bg2/ wisdom-xp-mod/setup-wisbon.tp2
+
+If you want a different modifier table, manually edit override/wisxpbon.2da and then send it over for inclusion in the mod
+

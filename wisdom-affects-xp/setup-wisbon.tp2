@@ -1,0 +1,32 @@
+BACKUP ~wisdom-affects-xp/backup~
+AUTHOR ~lynxlynxlynx~
+
+VERSION ~2~
+//LANGUAGE ~English~ ~english~ ~sorcerer-monk/tra/english.tra~
+
+BEGIN ~Wisdom-based experience modifier for GemRB~
+
+ACTION_IF (GAME_IS ~pst~) THEN BEGIN
+  PRINT ~NOTE: overriding default wisdom modifier table!~
+END
+
+COPY ~gemrb.ini~ ~override~
+  REPLACE ~HasWisdomBonusTable = 0~ ~HasWisdomBonusTable = 1~
+  BUT_ONLY_IF_IT_CHANGES
+
+BEGIN ~1% bonus/malus per point above or below 10 WIS~
+FORCED_SUBCOMPONENT ~Wisdom xp mod table~
+COPY ~wisdom-affects-xp/wisxpbon1.2da~ ~override/wisxpbon.2da~
+
+BEGIN ~2% bonus/malus per point above or below 10 WIS~
+SUBCOMPONENT ~Wisdom xp mod table~
+COPY ~wisdom-affects-xp/wisxpbon2.2da~ ~override/wisxpbon.2da~
+
+BEGIN ~3% bonus/malus per point above or below 10 WIS~
+SUBCOMPONENT ~Wisdom xp mod table~
+COPY ~wisdom-affects-xp/wisxpbon3.2da~ ~override/wisxpbon.2da~
+
+BEGIN ~4% bonus/malus per point above or below 10 WIS~
+SUBCOMPONENT ~Wisdom xp mod table~
+COPY ~wisdom-affects-xp/wisxpbon4.2da~ ~override/wisxpbon.2da~
+
