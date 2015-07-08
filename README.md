@@ -21,8 +21,6 @@ Runtime:
 TODO
 ====
 * port the scripted hacks to weidu
-* make them runnable from anywhere, completely path agnostic&safe
-  * fix weidu --search or add a new option
 * create a common format regardless of the payload
 * figure out a better backup mechanism if complete WeiDUfication is not possible
 * docs, wiki crossover

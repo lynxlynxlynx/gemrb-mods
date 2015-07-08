@@ -13,16 +13,20 @@ Only the english strings are currently supported, but that's easily changed - ju
 
 Installation
 ------------
-Check where you installed GemRB (data) too and copy these files from unhardcoded/bg2:
+Check where you installed GemRB (data) and mark it down.
+
+Run WeiDU as (substituting with the real path; USE THE CORRECT dir for your GAME):
+
+   weidu --search /path/to/gemrbs/datadir/unhardcoded/bg2/ sorcerer-monk/setup-sorcerer-monk.tp2
+
+Alternatively, manually copy these files from unhardcoded/bg2:
   - avprefc.2da
   - classes.2da
   - clskills.2da
   - fistweap.2da
   - qslots.2da
   - skills.2da
-Where? Copy them to the "override" dir in the game dir.
-
-Run WeiDU in the game directory, eg.:
+... to the "override" dir in the game dir and run WeiDU in the game directory, eg.:
 
     WeiDU setup-sorcerer-monk.tp2
 
