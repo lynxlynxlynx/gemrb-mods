@@ -18,4 +18,6 @@ Runtime:
 
 TODO
 ====
-* create a common format regardless of the payload
+* create a multicomponent gemrb-tweakpack for all the trivial tweaks and toggles
+* consider traifying the remaining mods
+
