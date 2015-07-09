@@ -1,6 +1,9 @@
 This mod gives everyone a bonus or malus to the experience gained depending on their wisdom (a feature only known in PST). 
 
-http://www.gemrb.org/wiki/doku.php?id=mods:wisdom_xp_bonus
+For example, choosing the 2% table means that a character with 5 wisdom will receive 10% less xp,
+while a sage with 18 will receive 16% more.
+
+NOTE: the displayed string for xp gained will not change, since it is party based (same for quest xp).
 
 Installation
 ============
