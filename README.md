@@ -1,9 +1,10 @@
 gemrb-mods
 ==========
 
-Repository of my GemRB mods and tools not included with GemRB itself. Available under GPLv2, see COPYING for details.
+Repository of GemRB mods and tools not included with GemRB itself. Available under GPLv2, see COPYING for details.
 
-Some come in form of shell scripts, but could easily be adapted to work elsewhere.
+Some simple mods require only setting tweaks. For those, check this list on the main website:
+http://www.gemrb.org/wiki/doku.php?id=developers:mods
 
 Prerequisites
 =============
@@ -18,4 +19,3 @@ Runtime:
 TODO
 ====
 * create a common format regardless of the payload
-* docs, wiki crossover
