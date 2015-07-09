@@ -1,19 +1,51 @@
 Maximum party size extender
 ===========================
-This Weidu/perl mod will extend scripts to also refer to player objects beyond
-player 6. It can start anywhere, BUT IS ONLY USABLE with GemRB, since the
+This Weidu/perl mod will extend scripts and dialogs to also refer to player objects
+beyond player 6. It can start anywhere, BUT IS ONLY USABLE with GemRB, since the
 other engines do not support more objects.
 
 PERL IS REQUIRED and not bundled at this point. If you're on windows, look at
 https://www.perl.org/get.html (ActiveState or Strawberry)
 
-Check the screenshots folder for some action shots. Or this forum thread for
-gameplay details and discussions:
+Works on GemRB **v0.8.3** or newer.
+
+Check the screenshots folder for some action shots. Or this brief video of a certain boss fight:
+https://youtu.be/0W0w_i6vNjs
+
+Forum discussion thread:
 http://gibberlings3.net/forums/index.php?showtopic=27138
 
-Mods known not to cause problems (let me know!):
-* NPC: Haldamir, Tashia, Saradas2, Kivan
-* Misc: Dungeon be gone
+Caveats:
+- scripting wise, up to 10 member parties are supported (Player10/Player10Fill objects)
+  - easily extended in gemrb, if there's enough interest
+- there are no numerical keyboard shortcuts for the new portraits
+- inventory and other views are more constrained, so only 6 pcs are still displayed there
+  - hotkeys or right-clicking on the portraits still works though
+  - moving items requires dumping to the ground or reordering of portraits (ctrl-e reverses party order)
+- max party size is set through your gemrb.cfg (MaxPartySize)
+  - this means you can also put a lower than 6 hard limit on party size
+
+
+Compatibility
+-------------
+Every mod should work, but since the core of the mod is a dumb robot, there
+are bound to be Exceptions (see section below).
+
+Mods confirmed not to cause problems:
+* bg2
+  * NPC: Haldamir, Tashia, Saradas2, Kivan
+  * Misc: Dungeon be gone
+
+Testing with other mods and/or finding appropriate overrides is very welcome!
+
+Currently does nothing in PST and IWD2 due to the way their windows are set up.
+
+The party window in iwd still has only 6 slots, so you'd need to use a hack:
+- create all the characters, but export the ones above 6
+- start the game, ctrl+space to open the console
+- cc("filename") (for each .cre exported earlier)
+- ctrl+q to have them join your party
+
 
 Installation
 ------------
