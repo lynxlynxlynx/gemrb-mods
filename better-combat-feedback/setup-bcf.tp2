@@ -5,10 +5,7 @@ VERSION ~1.5~
 MODDER
 
 BEGIN ~IWD2/HOW style detailed combat feedback for other games in GemRB~
-
-ACTION_IF (GAME_IS ~how totlm iwd2~) THEN BEGIN
-  FAIL ~ABORTING: installing this mod on HoW or IWD2 makes no sense!~
-END
+REQUIRE_PREDICATE !GAME_IS ~how totlm iwd2~  ~Installing this mod on HoW or IWD2 makes no sense!~
 
 // prepare the new feedback text
 // eh, weidu can only handle strings in this construct
