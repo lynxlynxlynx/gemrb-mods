@@ -17,11 +17,11 @@ http://gibberlings3.net/forums/index.php?showtopic=27138
 
 Caveats:
 - scripting wise, up to 10 member parties are supported (Player10/Player10Fill objects)
-  - easily extended in gemrb, if there's enough interest
+  - easily extended, if there's enough interest
 - there are no numerical keyboard shortcuts for the new portraits
-- inventory and other views are more constrained, so only 6 pcs are still displayed there
-  - hotkeys or right-clicking on the portraits still works though
-  - moving items requires dumping to the ground or reordering of portraits (ctrl-e reverses party order)
+  - but you can reverse the portrait order with ctrl-e
+  - other hotkeys or right-clicking on the portraits still works though
+- inventory and other views are more constrained, so we scale down the portraits to fit
 - max party size is set through your gemrb.cfg (MaxPartySize)
   - this means you can also put a lower than 6 hard limit on party size
 
