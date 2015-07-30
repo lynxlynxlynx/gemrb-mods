@@ -18,6 +18,7 @@ if (not $temp_result) {
 	$temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
 	$preserve = 0;
 }
+my $temp_result2 = $temp_result . "commentless";
 
 my $rc = extend($file, $temp_result, $party_size);
 if ($rc > 0) {
@@ -26,7 +27,23 @@ if ($rc > 0) {
 	mkdir "$run_dir/diffs";
 	chdir $dirname;
 	my $basename = basename($file);
-	system("perl cdiff.pl -u $run_dir/$file $run_dir/$temp_result > $run_dir/diffs/$basename.diff") or die;
+
+	if ($file =~ /[dD]$/) {
+		# make a copy of the original and strip comments from it, so the diff is more readable for dialogs
+		open(my $dlg_handle, "<:utf8", $run_dir . "/" . $file);
+		my $input_text = do { local $/; <$dlg_handle> };
+		close($dlg_handle);
+
+		$input_text = $input_text =~ s{/\*(?:(?!\*/).)*\*/}{}gsr;
+		open(my $dlg_handle2, ">:utf8", $run_dir . "/" . $temp_result2);
+		say $dlg_handle2 $input_text;
+		close($dlg_handle2);
+	} else {
+		$temp_result2 = $file;
+	}
+
+	system("perl cdiff.pl -u $run_dir/$temp_result2 $run_dir/$temp_result > $run_dir/diffs/$basename.diff") or die;
+	unlink $temp_result2 if ($temp_result2 ne $file);
 	chdir $run_dir;
 }
 if (not $preserve) {
