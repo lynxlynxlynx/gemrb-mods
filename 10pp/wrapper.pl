@@ -46,8 +46,8 @@ if ($rc > 0) {
 	}
 
 	system("perl cdiff.pl -u $run_dir/$temp_result2 $run_dir/$temp_result > $run_dir/diffs/$basename.diff") or die;
-	unlink $temp_result2 if ($temp_result2 ne $file);
 	chdir $run_dir;
+	unlink $temp_result2 if ($temp_result2 ne $file);
 }
 if (not $preserve) {
 	unlink $temp_result or warn "Could not unlink temporary file: $!";
