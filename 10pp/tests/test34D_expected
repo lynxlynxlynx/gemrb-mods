@@ -1,7 +1,7 @@
 BEGIN ~test34D~
 
 IF ~True()
-~ THEN BEGIN 0 // from:
+~ THEN BEGIN 0 
   SAY #71218 
   IF ~~ THEN REPLY #71551  GOTO 4
   IF ~~ THEN REPLY #71224  GOTO 3
@@ -10,7 +10,7 @@ IF ~True()
   IF ~~ THEN REPLY #71229  GOTO 1
 END
 
-IF ~~ THEN BEGIN 1 // from: 0.4
+IF ~~ THEN BEGIN 1 
   SAY #71221 
   IF ~~ THEN DO ~Kill(Player6)
 Kill(Player7)
@@ -23,19 +23,19 @@ Kill(Player1)
 ~ EXIT
 END
 
-IF ~~ THEN BEGIN 2 // from: 0.3
+IF ~~ THEN BEGIN 2 
   SAY #71230 
   IF ~~ THEN EXIT
 END
 
-IF ~~ THEN BEGIN 3 // from: 0.2 0.1
+IF ~~ THEN BEGIN 3 
   SAY #71231 
   IF ~~ THEN DO ~Shout(151)
 Enemy()
 ~ EXIT
 END
 
-IF ~~ THEN BEGIN 4 // from: 0.0
+IF ~~ THEN BEGIN 4 
   SAY #71552 
   IF ~~ THEN DO ~Shout(151)
 Enemy()~ EXIT

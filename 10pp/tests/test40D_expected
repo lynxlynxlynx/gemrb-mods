@@ -1,13 +1,7 @@
-// creator  : ../../weidu.asm.exe (version 21012)
-// argument : MAEVAR.DLG
-// game		 : /home/fuzzie/src/gemrb/bg2
-// source	 : /home/fuzzie/src/gemrb/bg2/override/MAEVAR.DLG
-// dialog	 : /home/fuzzie/src/gemrb/bg2/dialog.tlk
-// dialogF  : (none)
 
 BEGIN ~MAEVAR~
 
-IF ~~ THEN BEGIN 8 // from: 6.1
+IF ~~ THEN BEGIN 8 
   SAY #22581 
   IF ~ReputationLT(Player1,10)
 !Kit(Player1,GODLATHANDER)

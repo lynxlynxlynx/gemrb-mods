@@ -352,6 +352,8 @@ sub extendDLG {
     my $dialog_string = shift;
     my $party_num = shift;
 
+    $dialog_string = $dialog_string =~ s{^//.*\n}{}gmr;
+    $dialog_string = $dialog_string =~ s{//.*}{}gr;
     # NOTE: weidu supports some extra forms, but hopefully all get replaced with this when compiling and decompiling or just affect the action part
     my @dlg_states = split(/^IF((?:(?!^END).)*)^END/ms, $dialog_string) or die "Couldn't split dialog: $!";
 

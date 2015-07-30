@@ -1,17 +1,14 @@
 BEGIN ~test36D~
-//////////////////////////////////////////////////
-// WARNING: this file contains non-trivial WEIGHTs
-//////////////////////////////////////////////////
 
 IF WEIGHT #9 
-~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
+~NumTimesTalkedTo(0)~ THEN BEGIN 0 
   SAY #30330 
   IF ~~ THEN REPLY #30331  GOTO 1
   IF ~~ THEN REPLY #30332  DO ~SetGlobal("SH_Know_Vese","GLOBAL",1)~ GOTO 2
   IF ~~ THEN REPLY #30333  EXIT
 END
 
-IF ~~ THEN BEGIN 16 // from: 15.0
+IF ~~ THEN BEGIN 16 
   SAY #30374 
   IF ~Global("SH_Cedrin_Dead","GLOBAL",1)~ THEN REPLY #30375  JOURNAL #30324  GOTO 23
   IF ~!Global("SH_Cedrin_Dead","GLOBAL",1)~ THEN REPLY #30376  DO ~SetGlobal("SH_Cedrin_Dead","GLOBAL",1)
@@ -25,7 +22,7 @@ StartCutscene("63cVNkCZ")
 END
 
 IF WEIGHT #5 
-~Global("SH_Steal_Orrick_Stuff","GLOBAL",3)~ THEN BEGIN 36 // from:
+~Global("SH_Steal_Orrick_Stuff","GLOBAL",3)~ THEN BEGIN 36 
   SAY #30418 
   IF ~~ THEN REPLY #30396  EXIT
   IF ~PartyHasItem("63BookOG")
@@ -36,7 +33,7 @@ PartyHasItem("63GenLB")~ THEN REPLY #30419  DO ~SetGlobal("SH_Steal_Orrick_Stuff
 ~ THEN REPLY #34392  GOTO 46
 END
 
-IF ~~ THEN BEGIN 50 // from: 49.0
+IF ~~ THEN BEGIN 50 
   SAY #38180 
   IF ~!Dead(Player1)~ THEN REPLY #38181  DO ~AddFeat(Player1, IRON_WILL)~ GOTO 54
   IF ~!Dead(Player2)~ THEN REPLY #38182  DO ~AddFeat(Player2, IRON_WILL)~ GOTO 54
@@ -49,7 +46,7 @@ IF ~~ THEN BEGIN 50 // from: 49.0
   IF ~~ THEN REPLY #38179  GOTO 53
 END
 
-IF ~~ THEN BEGIN 54 // from: 52.5 52.4 52.3 52.2 52.1 52.0 51.5 51.4 51.3 51.2 51.1 51.0 50.5 50.4 50.3 50.2 50.1 50.0
+IF ~~ THEN BEGIN 54 
   SAY #38206 
   IF ~~ THEN REPLY #2188  DO ~SetGlobal("SH_Accept_Tattoo","GLOBAL", 3)
 SetGlobal("SH_Vese_Done","GLOBAL", 1)

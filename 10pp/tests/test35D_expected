@@ -1,42 +1,42 @@
 BEGIN ~test35D~
 
 IF ~Global("DruidStronghold","GLOBAL",1)
-Global("DruidQuest1","GLOBAL",0)~ THEN BEGIN 0 // from:
+Global("DruidQuest1","GLOBAL",0)~ THEN BEGIN 0 
   SAY #48923 
   IF ~~ THEN REPLY #48931  GOTO 1
   IF ~~ THEN REPLY #48932  GOTO 1
   IF ~~ THEN REPLY #48933  GOTO 2
 END
 
-IF ~~ THEN BEGIN 1 // from: 0.1 0.0
+IF ~~ THEN BEGIN 1 
   SAY #48934 
   IF ~~ THEN REPLY #48935  GOTO 4
   IF ~~ THEN REPLY #48936  GOTO 2
 END
 
-IF ~~ THEN BEGIN 2 // from: 4.0 1.1 0.2
+IF ~~ THEN BEGIN 2 
   SAY #48940 
   IF ~~ THEN GOTO 3
 END
 
-IF ~~ THEN BEGIN 3 // from: 2.0
+IF ~~ THEN BEGIN 3 
   SAY #48941 
   IF ~~ THEN REPLY #48943  GOTO 5
   IF ~~ THEN REPLY #48945  GOTO 7
   IF ~~ THEN REPLY #48948  GOTO 6
 END
 
-IF ~~ THEN BEGIN 4 // from: 1.0
+IF ~~ THEN BEGIN 4 
   SAY #48989 
   IF ~~ THEN GOTO 2
 END
 
-IF ~~ THEN BEGIN 5 // from: 7.0 3.0
+IF ~~ THEN BEGIN 5 
   SAY #48990 
   IF ~~ THEN GOTO 8
 END
 
-IF ~~ THEN BEGIN 6 // from: 38.0 27.1 26.1 17.0 7.1 3.2
+IF ~~ THEN BEGIN 6 
   SAY #48991 
   IF ~~ THEN DO ~EraseJournalEntry(5697)
 EraseJournalEntry(5698)
@@ -46,70 +46,70 @@ CreateVisualEffectObject("SPENTAXI",Myself)
 DestroySelf()~ SOLVED_JOURNAL #5696  EXIT
 END
 
-IF ~~ THEN BEGIN 7 // from: 3.1
+IF ~~ THEN BEGIN 7 
   SAY #48992 
   IF ~~ THEN REPLY #48993  GOTO 5
   IF ~~ THEN REPLY #48994  GOTO 6
 END
 
-IF ~~ THEN BEGIN 8 // from: 5.0
+IF ~~ THEN BEGIN 8 
   SAY #49007 
   IF ~~ THEN GOTO 9
 END
 
-IF ~~ THEN BEGIN 9 // from: 8.0
+IF ~~ THEN BEGIN 9 
   SAY #49008 
   IF ~~ THEN GOTO 10
 END
 
-IF ~~ THEN BEGIN 10 // from: 9.0
+IF ~~ THEN BEGIN 10 
   SAY #49018 
   IF ~~ THEN GOTO 11
 END
 
-IF ~~ THEN BEGIN 11 // from: 10.0
+IF ~~ THEN BEGIN 11 
   SAY #49019 
   IF ~~ THEN GOTO 12
 END
 
-IF ~~ THEN BEGIN 12 // from: 11.0
+IF ~~ THEN BEGIN 12 
   SAY #49020 
   IF ~~ THEN REPLY #49029  GOTO 13
   IF ~~ THEN REPLY #49031  GOTO 16
   IF ~~ THEN REPLY #49032  GOTO 17
 END
 
-IF ~~ THEN BEGIN 13 // from: 17.1 16.0 12.0
+IF ~~ THEN BEGIN 13 
   SAY #49025 
   IF ~~ THEN DO ~GiveItemCreate("Blun10",LastTalkedToBy,0,0,0)~ GOTO 14
 END
 
-IF ~~ THEN BEGIN 14 // from: 13.0
+IF ~~ THEN BEGIN 14 
   SAY #49026 
   IF ~~ THEN GOTO 15
 END
 
-IF ~~ THEN BEGIN 15 // from: 14.0
+IF ~~ THEN BEGIN 15 
   SAY #49027 
   IF ~~ THEN DO ~SetGlobal("DruidQuest1","GLOBAL",1)
 CreateVisualEffectObject("SPENTAXI",Myself)
 DestroySelf()~ UNSOLVED_JOURNAL #5697  EXIT
 END
 
-IF ~~ THEN BEGIN 16 // from: 12.1
+IF ~~ THEN BEGIN 16 
   SAY #49033 
   IF ~~ THEN REPLY #49034  GOTO 13
   IF ~~ THEN REPLY #49036  GOTO 17
 END
 
-IF ~~ THEN BEGIN 17 // from: 16.1 12.2
+IF ~~ THEN BEGIN 17 
   SAY #49037 
   IF ~~ THEN REPLY #49038  GOTO 6
   IF ~~ THEN REPLY #49039  GOTO 13
 END
 
 IF ~Dead("Drshnl02")
-Global("DruidQuest1","GLOBAL",1)~ THEN BEGIN 18 // from:
+Global("DruidQuest1","GLOBAL",1)~ THEN BEGIN 18 
   SAY #49042 
   IF ~~ THEN DO ~AddXPObject(Player1,18500)
 AddXPObject(Player2,18500)

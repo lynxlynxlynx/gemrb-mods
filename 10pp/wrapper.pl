@@ -35,6 +35,9 @@ if ($rc > 0) {
 		close($dlg_handle);
 
 		$input_text = $input_text =~ s{/\*(?:(?!\*/).)*\*/}{}gsr;
+		$input_text = $input_text =~ s{^//.*\n}{}gmr;
+		$input_text = $input_text =~ s{//.*}{}gr;
+
 		open(my $dlg_handle2, ">:utf8", $run_dir . "/" . $temp_result2);
 		say $dlg_handle2 $input_text;
 		close($dlg_handle2);

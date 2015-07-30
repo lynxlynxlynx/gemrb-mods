@@ -1,7 +1,7 @@
 BEGIN ~test33D~
 
 IF ~Global("Criminal","GLOBAL",1)
-~ THEN BEGIN 0 // from:
+~ THEN BEGIN 0 
   SAY #15195 
   IF ~~ THEN REPLY #15196  DO ~ForceSpell(Player1,SAREVOK_STRIKE)
 Wait(3)
@@ -35,31 +35,31 @@ ActionOverride(Player8,LeaveAreaLUA("AR2631","",[493.241],12))
 END
 
 IF ~RandomNum(5,1)
-~ THEN BEGIN 1 // from:
+~ THEN BEGIN 1 
   SAY #15198 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,2)
-~ THEN BEGIN 2 // from:
+~ THEN BEGIN 2 
   SAY #15926 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,3)
-~ THEN BEGIN 3 // from:
+~ THEN BEGIN 3 
   SAY #15927 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,4)
-~ THEN BEGIN 4 // from:
+~ THEN BEGIN 4 
   SAY #15928 
   IF ~~ THEN DO ~~ EXIT
 END
 
 IF ~RandomNum(5,5)
-~ THEN BEGIN 5 // from:
+~ THEN BEGIN 5 
   SAY #15953 
   IF ~~ THEN DO ~~ EXIT
 END

@@ -1,14 +1,8 @@
-// creator  : ../../weidu.asm.exe (version 21012)
-// argument : ORPHAN1.DLG
-// game		 : /home/fuzzie/src/gemrb/bg2
-// source	 : /home/fuzzie/src/gemrb/bg2/DATA/25DIALOG.BIF
-// dialog	 : /home/fuzzie/src/gemrb/bg2/dialog.tlk
-// dialogF  : (none)
 
 BEGIN ~ORPHAN1~
 
 IF ~Global("FRaise","GLOBAL",0)
-~ THEN BEGIN 3 // from: 2.0
+~ THEN BEGIN 3 
   SAY #73321 
   IF ~~ THEN REPLY #73334  GOTO 4
   IF ~OR(3)
