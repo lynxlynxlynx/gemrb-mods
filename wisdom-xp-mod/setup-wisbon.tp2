@@ -9,6 +9,7 @@ ACTION_IF (GAME_IS ~pst~) THEN BEGIN
   PRINT ~NOTE: overriding default wisdom modifier table!~
 END
 
+// not needed for gemrb 0.8.3-git or later, but kept for compatibility
 COPY_EXISTING ~gemrb.ini~ ~override~
   REPLACE ~HasWisdomBonusTable = 0~ ~HasWisdomBonusTable = 1~
   BUT_ONLY_IF_IT_CHANGES
