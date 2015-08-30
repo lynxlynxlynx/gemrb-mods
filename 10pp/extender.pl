@@ -8,7 +8,7 @@ use File::Basename;
 
 # files not to touch
 #my $exceptions = "cut35h.baf test31 uddrow16.d udlesa.d player1.dlg";
-my $exceptions = "cut35h.baf cut35.bcs test31 uddrow16.d udlesa.d udlesa.dlg uddrow16.dlg";
+my $exceptions = " cut35h.baf cut35.bcs test08 test31 uddrow16.d udlesa.d udlesa.dlg uddrow16.dlg fguard.bcs fguard.baf _fguard.bcs _fguard.baf ";
 
 # reads passed BAF and extends it to request max party count if needed
 sub extend {
@@ -315,6 +315,9 @@ sub fixTriggersOnly {
                 # FIXME: UGLY, perhaps just split on OR(.) and work on that?
                 my $cur_pos = index $new_trigger_half, my $grr = $line =~ s/Player6/Player5/r;
                 my $or_pos = rindex $new_trigger_half, " OR(", $cur_pos;
+				if (index $new_trigger_half, " OR(", ($or_pos) > 0) {
+				    $or_pos = index $new_trigger_half, " OR(", ($or_pos);
+				}
 #               print $new_trigger_half, "|\n" , $line, "\n";
 #               print ((substr $new_trigger_half, $or_pos, 6), "||", $cur_pos, "||", $or_pos, "||\n");
                 # we have to set the new count carefully in case there are other actions inside the Or: just add to existing
