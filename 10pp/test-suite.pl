@@ -32,6 +32,7 @@ my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
 my $successes = 0;
 my $failures = 0;
 foreach my $test (sort @tests) {
+    next if ($test =~ /expected$/);
 	my $expected_file = $test . "_expected";
 	open(my $expected_handle, "<", $expected_file) or die "$expected_file does not exist or not readable!";
 

@@ -44,6 +44,7 @@ tests for PlayerX:
 38: dialog (trivial trigger append)
 39: dialog (OR in a late transition)
 40: dialog (simpler version of 33, OR)
+41: chained OR blocks, each of those regarding a single PlayerX
 
 uddrow16.d: requires manual intervention
 
