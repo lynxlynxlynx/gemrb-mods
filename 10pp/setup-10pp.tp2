@@ -50,17 +50,17 @@ MKDIR ~10pp/temp~
 MKDIR ~10pp/temp/baf~
 MKDIR ~10pp/temp/d~
 
-/* for some reason this chokes
-ACTION_BASH_FOR ~10pp/temp/baf~ ~.*bcs~ BEGIN
+ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*$~ BEGIN
+  PRINT ~%BASH_FOR_FILESPEC%~
   DELETE + ~%BASH_FOR_FILESPEC%~
 END
-ACTION_BASH_FOR ~10pp/temp/d~ ~.*~ BEGIN
+ACTION_BASH_FOR ~10pp/temp/d~ ~^.*$~ BEGIN
   DELETE + ~%BASH_FOR_FILESPEC%~
-END */
+END
 
 PRINT ~Fixing scripts...~
 
-COPY_EXISTING_REGEXP GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
+COPY_EXISTING_REGEXP + GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
   COUNT_REGEXP_INSTANCES ~ 26 .*"OB~ has_player_6
   PATCH_IF has_player_6 BEGIN
     DECOMPILE_BCS_TO_BAF
@@ -75,7 +75,7 @@ COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
 
 // fix all dialogs
 PRINT ~Fixing dialogs...~
-COPY_EXISTING_REGEXP GLOB ~^.*\.dlg$~ ~10pp/temp/d~
+COPY_EXISTING_REGEXP + GLOB ~^.*\.dlg$~ ~10pp/temp/d~
   COUNT_REGEXP_INSTANCES ~Player6~ has_player_6
   PATCH_IF has_player_6 BEGIN
     DECOMPILE_DLG_TO_D
