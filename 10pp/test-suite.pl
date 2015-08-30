@@ -48,7 +48,7 @@ foreach my $test (sort @tests) {
 	open(my $result_handle, "<", $temp_result);
 	my $result = do { local $/; <$result_handle> };
 	my $expected = do { local $/; <$expected_handle> };
-	if ($result eq $expected) {
+	if (($result =~ s/\R//g) eq ($expected =~ s/\R//g)) {
 		print "$test: ", GREEN, "SUCCESS!", RESET, "\n";
 		$successes++;
 	} else {
