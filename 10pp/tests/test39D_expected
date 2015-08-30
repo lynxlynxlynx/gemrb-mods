@@ -56,7 +56,8 @@ Class(Player4,DRUID_ALL)
 Class(Player5,DRUID_ALL)
 Class(Player6,DRUID_ALL)
 Class(Player7,DRUID_ALL)
-Class(Player8,DRUID_ALL)~ THEN REPLY #73990  GOTO 6
+Class(Player8,DRUID_ALL)
+~ THEN REPLY #73990  GOTO 6
   IF ~~ THEN REPLY #73339  GOTO 1
 END
 
