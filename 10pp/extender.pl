@@ -277,7 +277,9 @@ sub fixTriggers {
     } else {
         # else copy the whole block (test17)
         # write the current one
-        writeBlock ($output_handle, $trigger_half, $response_half);
+        if ($write) {
+            writeBlock ($output_handle, $trigger_half, $response_half);
+		}
 
         # add copies for each extra party member
         my $prevPC = "Player6";
@@ -285,7 +287,9 @@ sub fixTriggers {
             my $nextPC = "Player" . $i;
             $trigger_half = $trigger_half =~ s/^(\s*)(.*)($prevPC)(.*)$/$1$2$nextPC$4/gmr;
             $prevPC = $nextPC;
-            writeBlock ($output_handle, $trigger_half, $response_half)
+            if ($write) {
+                writeBlock ($output_handle, $trigger_half, $response_half)
+			}
         }
     }
     return $trigger_half;
