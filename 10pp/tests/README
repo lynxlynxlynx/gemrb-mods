@@ -45,6 +45,7 @@ tests for PlayerX:
 39: dialog (OR in a late transition)
 40: dialog (simpler version of 33, OR)
 41: chained OR blocks, each of those regarding a single PlayerX
+42: dialog (state contains Player6 but not Player5 - do not attempt to duplicate the state)
 
 uddrow16.d: requires manual intervention
 

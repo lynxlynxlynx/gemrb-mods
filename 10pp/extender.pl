@@ -372,7 +372,7 @@ sub extendDLG {
             say $output_handle "";
             next;
         }
-        if ($state !~ /\bPlayer6\b/) {
+        if ($state !~ /\bPlayer6\b/ or $state !~ /\bPlayer5\b/) {
             $state = $state =~ s{/\*(?:(?!\*/).)*\*/}{}gsr; # see below
             say $output_handle "IF" . $state . "END";
             next;
