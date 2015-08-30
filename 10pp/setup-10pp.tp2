@@ -51,7 +51,6 @@ MKDIR ~10pp/temp/baf~
 MKDIR ~10pp/temp/d~
 
 ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*$~ BEGIN
-  PRINT ~%BASH_FOR_FILESPEC%~
   DELETE + ~%BASH_FOR_FILESPEC%~
 END
 ACTION_BASH_FOR ~10pp/temp/d~ ~^.*$~ BEGIN
