@@ -1,0 +1,73 @@
+
+IF ~~ THEN BEGIN 110
+  SAY #176744
+  IF ~  !Class(Player1,DRUID_ALL)
+IfValidForPartyDialogue("Cernd")
+!Dead("Cernd")
+!StateCheck("Cernd",STATE_SLEEPING)
+~ THEN REPLY #9619 EXTERN ~CERNDJ~ 69
+  IF ~  !Class(Player1,DRUID_ALL)
+IfValidForPartyDialogue("Jaheira")
+!Dead("Jaheira")
+!StateCheck("Jaheira",STATE_SLEEPING)
+~ THEN REPLY #9620 EXTERN ~JAHEIRAJ~ 94
+  IF ~  Class(Player1,DRUID_ALL)
+See(Player1)
+!StateCheck(Player1,STATE_SLEEPING)
+~ THEN REPLY #9621 EXTERN ~CEFALDOR~ 13
+  IF ~  !Class(Player1,DRUID_ALL)
+See(Player1)
+!StateCheck(Player1,STATE_SLEEPING)
+~ THEN REPLY #9622 EXTERN ~CEFALDOR~ 3
+  IF ~  Global("CerndFightObserve","GLOBAL",0)
+~ THEN REPLY #9623 EXTERN ~CEFALDOR~ 5
+  IF ~  Class(Player2,DRUID_ALL)
+!Name("Jaheira",Player2)
+!Name("Cernd",Player2)
+See(Player2)
+!StateCheck(Player2,STATE_SLEEPING)
+~ THEN REPLY #9948 EXTERN ~CEFALDOR~ 22
+  IF ~  Class(Player3,DRUID_ALL)
+!Name("Jaheira",Player3)
+!Name("Cernd",Player3)
+See(Player3)
+!StateCheck(Player3,STATE_SLEEPING)
+~ THEN REPLY #9952 EXTERN ~CEFALDOR~ 23
+  IF ~  Class(Player4,DRUID_ALL)
+!Name("Jaheira",Player4)
+!Name("Cernd",Player4)
+See(Player4)
+!StateCheck(Player4,STATE_SLEEPING)
+~ THEN REPLY #9953 EXTERN ~CEFALDOR~ 24
+  IF ~  Class(Player5,DRUID_ALL)
+!Name("Jaheira",Player5)
+!Name("Cernd",Player5)
+See(Player5)
+!StateCheck(Player5,STATE_SLEEPING)
+~ THEN REPLY #9954 EXTERN ~CEFALDOR~ 25
+  IF ~Class(Player6,DRUID_ALL)
+!Name("Jaheira",Player6)
+!Name("Cernd",Player6)
+See(Player6)
+!StateCheck(Player6,STATE_SLEEPING)
+~ THEN REPLY #9955 EXTERN ~CEFALDOR~ 26
+  IF ~Class(Player7,DRUID_ALL)
+!Name("Jaheira",Player7)
+!Name("Cernd",Player7)
+See(Player7)
+!StateCheck(Player7,STATE_SLEEPING)
+~ THEN REPLY #9955 EXTERN ~CEFALDOR~ 26
+  IF ~Class(Player8,DRUID_ALL)
+!Name("Jaheira",Player8)
+!Name("Cernd",Player8)
+See(Player8)
+!StateCheck(Player8,STATE_SLEEPING)
+~ THEN REPLY #9955 EXTERN ~CEFALDOR~ 26
+  IF ~  !Class(Player1,DRUID_ALL)
+!IfValidForPartyDialogue("Cernd")
+!Dead("Cernd")
+!StateCheck("Cernd",STATE_SLEEPING)
+See("Cernd")
+~ THEN REPLY #38457 EXTERN ~CERND~ 60
+END
+
