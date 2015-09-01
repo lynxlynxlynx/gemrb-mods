@@ -85,8 +85,9 @@ are any problems with mod added stuff, let me know.
 
 For mod authors
 ---------------
-TODO: figure out if they can pre-extend their scripts without the other engines
-breaking apart.
+Check out this WeiDU extension functions to see how you can make your mod work
+flawlessly with any party size:
+http://gibberlings3.net/forums/index.php?showtopic=27535
 
 Development
 -----------
