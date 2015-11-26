@@ -45,7 +45,7 @@ if ($rc > 0) {
 		$temp_result2 = $file;
 	}
 
-	system("perl cdiff.pl -u $run_dir/$temp_result2 $run_dir/$temp_result > $run_dir/diffs/$basename.diff") or die;
+	system("perl cdiff.pl -u '$run_dir/$temp_result2' '$run_dir/$temp_result' > '$run_dir/diffs/$basename.diff'") or die;
 	chdir $run_dir;
 	unlink $temp_result2 if ($temp_result2 ne $file);
 }
