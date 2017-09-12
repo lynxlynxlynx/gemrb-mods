@@ -93,4 +93,5 @@ PRINT ~DONE!
 REMEMBER to:
 * use a big enough resolution (extra space for portraits)
 * and to set MaxPartySize to %newmax% in your GemRB config file
+* more details are avaiable in the README: https://github.com/lynxlynxlynx/gemrb-mods/tree/master/10pp
 ~
