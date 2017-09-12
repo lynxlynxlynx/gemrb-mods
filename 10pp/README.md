@@ -38,7 +38,7 @@ Mods confirmed not to cause problems:
 
 Testing with other mods and/or finding appropriate overrides is very welcome!
 
-Currently does nothing in PST and IWD2 due to the way their windows are set up.
+GemRB currently does no GUI extending for PST and IWD2 due to the way their windows are set up. You won't be able to see new portraits, but party joining and all the rest will work. Use ctrl-e to temporary reverse the party order if you want to click on portraits (eg. in shops).
 
 The party window in iwd still has only 6 slots, so you'd need to use a hack:
 - create all the characters, but export the ones above 6
