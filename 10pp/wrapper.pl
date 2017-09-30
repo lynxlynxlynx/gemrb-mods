@@ -7,7 +7,9 @@ use warnings;
 use open qw< :encoding(UTF-8) >;
 
 use File::Basename;
+use File::Spec;
 my $dirname = dirname(__FILE__);
+$dirname = File::Spec->rel2abs("$dirname");
 require "$dirname/extender.pl" or die "Could not load extender functions: $!";
 
 my $file = $ARGV[0];
