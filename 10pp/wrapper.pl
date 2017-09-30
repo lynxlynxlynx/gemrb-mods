@@ -14,6 +14,11 @@ my $file = $ARGV[0];
 my $party_size = $ARGV[1];
 my $temp_result = $ARGV[2];
 my $preserve = 1;
+
+if (not $file) {
+	print "Missing arguments!\n";
+	exit 1;
+}
 if (not $temp_result) {
 	$temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
 	$preserve = 0;
