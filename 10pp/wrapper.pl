@@ -57,7 +57,7 @@ if ($rc > 0) {
 	chdir $run_dir;
 	unlink $temp_result2 if ($temp_result2 ne $file);
 }
-if (not $preserve) {
+if (not $preserve and -e $temp_result) {
 	unlink $temp_result or warn "Could not unlink temporary file: $!";
 }
 
