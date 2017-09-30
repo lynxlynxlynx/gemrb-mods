@@ -32,7 +32,7 @@ if ($rc > 0) {
 	use Cwd 'abs_path';
 	my $run_dir = abs_path();
 	mkdir "$run_dir/diffs";
-	chdir $dirname;
+	chdir "$dirname";
 	my $basename = basename($file);
 
 	if ($file =~ /[dD]$/) {
@@ -52,7 +52,8 @@ if ($rc > 0) {
 		$temp_result2 = $file;
 	}
 
-	system("perl cdiff.pl -u '$run_dir/$temp_result2' '$run_dir/$temp_result' > '$run_dir/diffs/$basename.diff'") or die;
+	my $cmd = "perl cdiff.pl -u " . quotemeta("$run_dir/$temp_result2") . " " . quotemeta("$run_dir/$temp_result") . " > " . quotemeta("$run_dir/diffs/$basename.diff");
+	system($cmd) or die;
 	chdir $run_dir;
 	unlink $temp_result2 if ($temp_result2 ne $file);
 }
