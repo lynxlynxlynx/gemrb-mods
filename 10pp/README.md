@@ -33,8 +33,8 @@ are bound to be Exceptions (see section below).
 
 Mods confirmed not to cause problems:
 * bg2
-  * NPC: Haldamir, Tashia, Saradas2, Kivan
-  * Misc: Dungeon be gone
+  * NPC: Haldamir, Tashia, Saradas2, Kivan, Sarah, Auren Aseph, Angelo, Fade
+  * Misc: Dungeon be gone, Alternatives, Divine Remix, Item upgrade
 
 Testing with other mods and/or finding appropriate overrides is very welcome!
 
