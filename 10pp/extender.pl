@@ -17,12 +17,12 @@ sub extend {
     my $party_num = shift;
 
     # skip false positives like Faldorn's pit fight teleporter
-    if (index(lc $exceptions, lc basename $input_file) != -1) {
+    if (index(lc $exceptions, lc basename "$input_file") != -1) {
         return 0;
     }
 
-    open(my $output_handle, "+>", $output_file);
-    open(my $baf_handle, "<:utf8", $input_file);
+    open(my $output_handle, "+>", "$output_file");
+    open(my $baf_handle, "<:utf8", "$input_file");
     my $input_text = do { local $/; <$baf_handle> };
     my @baf_blocks = split(m{\n\n}x, $input_text) or die "Couldn't split $input_file (empty?): $!";
     # read data, close file
