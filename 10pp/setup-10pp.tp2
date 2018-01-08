@@ -1,6 +1,6 @@
 BACKUP ~10pp/backup~
 AUTHOR ~lynx, CrevsDaak~
-VERSION "10 player parties 0.8"
+VERSION "10 player parties 0.9"
 
 BEGIN ~Maximum party size extender for IEScript (usable with GemRB only)~
 
@@ -66,8 +66,12 @@ COPY_EXISTING_REGEXP + GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
   END
 BUT_ONLY
 
+OUTER_SET RC = 0
 ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*\.bcs$~ BEGIN
-  AT_NOW ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.baf"~
+  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.baf"~
+  ACTION_IF (%RC% > 0) THEN BEGIN
+    FAIL ~Oops, better check that script!~
+  END
 END
 
 COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
@@ -82,7 +86,10 @@ COPY_EXISTING_REGEXP + GLOB ~^.*\.dlg$~ ~10pp/temp/d~
 BUT_ONLY
 
 ACTION_BASH_FOR ~10pp/temp/d~ ~^.*\.dlg$~ BEGIN
-  AT_NOW ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.d"~
+  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.d"~
+  ACTION_IF (%RC% > 0) THEN BEGIN
+    FAIL ~Oops, better check that dialog!~
+  END
 END
 
 COMPILE ~10pp/temp/d~ // this will create backup files... hope so at least...
