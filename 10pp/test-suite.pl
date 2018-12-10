@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+use Cwd 'abs_path';
+use File::Basename;
 use Term::ANSIColor qw(:constants);
 
 # FIXME: check what weidu uses; for the miscompiled cases the comments may be useful
@@ -9,6 +11,7 @@ use Term::ANSIColor qw(:constants);
 use open qw< :encoding(UTF-8) >;
 
 my $dir = 'tests';
+use lib dirname(abs_path $0);
 require 'extender.pl' or die "Could not load extender functions: $!";
 
 my $QUIET = 0;
