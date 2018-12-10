@@ -35,6 +35,8 @@ Mods confirmed not to cause problems:
 * bg2
   * NPC: Haldamir, Tashia, Saradas2, Kivan, Sarah, Auren Aseph, Angelo, Fade
   * Misc: Dungeon be gone, Alternatives, Divine Remix, Item upgrade
+* Salk's gameover mod will fail, but test44 shows how to edit the file
+  * you can get most of the work by just changing one value: http://www.gemrb.org/wiki/doku.php?id=developers:mods
 
 Testing with other mods and/or finding appropriate overrides is very welcome!
 

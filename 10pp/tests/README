@@ -47,6 +47,7 @@ tests for PlayerX:
 41: chained OR blocks, each of those regarding a single PlayerX (NOT OPTIMAL!)
 42: dialog (state contains Player6 but not Player5 - do not attempt to duplicate the state)
 43: dialog (response duplication breaks the file)
+44: nasty NumInPartyLT & OR test
 
 uddrow16.d: requires manual intervention
 
