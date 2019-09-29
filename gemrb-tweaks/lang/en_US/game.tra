@@ -1,0 +1,14 @@
+@100100 = ~<DAMAGEE> was immune to my <TYPE> damage~
+@100101 = ~Takes <AMOUNT> <TYPE> damage from <DAMAGER>~
+@100102 = ~Takes <AMOUNT> <TYPE> damage from <DAMAGER> (<RESISTED> damage resisted)~
+@100103 = ~Takes <AMOUNT> <TYPE> damage from <DAMAGER> (<RESISTED> damage bonus)~
+@100104 = ~poison~
+@100105 = ~magic~
+@100106 = ~missile~
+@100107 = ~slashing~
+@100108 = ~piercing~
+@100109 = ~crushing~
+@100110 = ~fire~
+@100111 = ~electric~
+@100112 = ~cold~
+@100113 = ~acid~

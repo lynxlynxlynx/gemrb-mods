@@ -1,0 +1,38 @@
+/* taken directly from better-combat-feedback v1.5 */
+
+// prepare the new feedback text
+// eh, weidu can only handle strings in this construct
+ACTION_DEFINE_ARRAY feedback BEGIN
+  /* empty */
+END
+
+OUTER_SET $feedback(0)  = RESOLVE_STR_REF (@100100)
+OUTER_SET $feedback(1)  = RESOLVE_STR_REF (@100101)
+OUTER_SET $feedback(2)  = RESOLVE_STR_REF (@100102)
+OUTER_SET $feedback(3)  = RESOLVE_STR_REF (@100103)
+OUTER_SET $feedback(4)  = RESOLVE_STR_REF (@100104)
+OUTER_SET $feedback(5)  = RESOLVE_STR_REF (@100105)
+OUTER_SET $feedback(6)  = RESOLVE_STR_REF (@100106)
+OUTER_SET $feedback(7)  = RESOLVE_STR_REF (@100107)
+OUTER_SET $feedback(8)  = RESOLVE_STR_REF (@100108)
+OUTER_SET $feedback(9)  = RESOLVE_STR_REF (@100109)
+OUTER_SET $feedback(10) = RESOLVE_STR_REF (@100110)
+OUTER_SET $feedback(11) = RESOLVE_STR_REF (@100111)
+OUTER_SET $feedback(12) = RESOLVE_STR_REF (@100112)
+OUTER_SET $feedback(13) = RESOLVE_STR_REF (@100113)
+
+    // save the strings.2da row names
+ACTION_DEFINE_ARRAY strmarks BEGIN
+  ~DAMAGE_IMMUNITY~ ~DAMAGE_STR1~ ~DAMAGE_STR2~ ~DAMAGE_STR3~
+  ~DMG_POISON~ ~DMG_MAGIC~ ~DMG_MISSILE~
+  ~DMG_SLASHING~ ~DMG_PIERCING~ ~DMG_CRUSHING~
+  ~DMG_FIRE~ ~DMG_ELECTRIC~ ~DMG_COLD~ ~DMG_ACID~
+END
+
+COPY_EXISTING strings.2da override
+  FOR (i=0; i<14; i+=1) BEGIN
+    SET ref = $feedback("%i%")
+    SPRINT mark $strmarks("%i%")
+    REPLACE_TEXTUALLY ~%mark% .*~ ~%mark% %ref%~
+  END
+BUT_ONLY

@@ -1,0 +1,52 @@
+BACKUP "weidu_external/backup/gemrb-tweaks"
+SUPPORT "www.github.com/lynxlynxlynx/gemrb-mods/issues/new"
+VERSION v0.1.0
+
+LANGUAGE
+  English
+  en_US
+  "gemrb-tweaks/lang/en_US/setup.tra"
+
+/* better combat feedback */
+BEGIN @100 DESIGNATED 100
+
+LOAD_TRA "gemrb-tweaks/lang/%LANGUAGE%/game.tra"
+INCLUDE "gemrb-tweaks/lib/100_dmg_feedback.tpa"
+
+/* taken directly from wisdom-xp-mod v2 */
+BEGIN @201 DESIGNATED 201 //~1% bonus/malus per point above or below 10 WIS~
+SUBCOMPONENT @200
+COPY ~gemrb-tweaks/2da/wisxpbon1.2da~ ~override/wisxpbon.2da~
+
+BEGIN @202 DESIGNATED 202 //~2% bonus/malus per point above or below 10 WIS~
+SUBCOMPONENT @200
+COPY ~gemrb-tweaks/2da/wisxpbon2.2da~ ~override/wisxpbon.2da~
+
+BEGIN @203 DESIGNATED 203 //~3% bonus/malus per point above or below 10 WIS~
+SUBCOMPONENT @200
+COPY ~gemrb-tweaks/2da/wisxpbon3.2da~ ~override/wisxpbon.2da~
+
+BEGIN @204 DESIGNATED 204 //~4% bonus/malus per point above or below 10 WIS~
+SUBCOMPONENT @200
+COPY ~gemrb-tweaks/2da/wisxpbon4.2da~ ~override/wisxpbon.2da~
+
+BEGIN @300 DESIGNATED 300 // maximum HP/level for BG1
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc~ @301
+
+COPY gem-baldur.ini "."
+  REPLACE_TEXTUALLY "Maximum HP = 0" "Maximum HP = 1"
+BUT_ONLY
+/*
+BEGIN @400 DESIGNATED 400 // TobEx concentration
+
+GET_FILE_ARRAY array "." "^gem.*\.ini$"
+
+ACTION_FOR_EACH ini IN array BEGIN
+  ACTION_IF FILE_EXISTS "%ini%" BEGIN
+    COPY gem-baldur.ini "."
+      // replacing won't work if the entry isn't already there
+      REPLACE_TEXTUALLY "" ""
+    BUT_ONLY
+  END
+END
+*/

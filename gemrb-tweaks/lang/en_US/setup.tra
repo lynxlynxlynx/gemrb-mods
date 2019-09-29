@@ -1,0 +1,9 @@
+@100 = ~IwD2/HoW style detailed damage feedback~
+@200 = ~Wisdom-based experience modifier~
+@201 = ~1% bonus/malus per point above or below 10 WIS~
+@202 = ~2% bonus/malus per point above or below 10 WIS~
+@203 = ~3% bonus/malus per point above or below 10 WIS~
+@204 = ~4% bonus/malus per point above or below 10 WIS~
+@300 = ~Maximum hitpoints per level~
+@301 = ~This component is not relevant for games other than BG1~
+@400 = ~TobEx-like concetration checks~
