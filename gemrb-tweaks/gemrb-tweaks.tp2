@@ -9,6 +9,7 @@ LANGUAGE
 
 /* better combat feedback */
 BEGIN @100 DESIGNATED 100
+REQUIRE_PREDICATE !GAME_IS ~how totlm iwd2~ @101
 
 LOAD_TRA "gemrb-tweaks/lang/%LANGUAGE%/game.tra"
 INCLUDE "gemrb-tweaks/lib/100_dmg_feedback.tpa"
