@@ -8,7 +8,10 @@ Current components:
 - Wisdom-based experience modifier
 - Maximum HP on level up for BG1
 
-TODO: add more tweaks from http://www.gemrb.org/wiki/doku.php?id=developers:mods
+TODO: 
+- add more tweaks from http://www.gemrb.org/wiki/doku.php?id=developers:mods
+- add strings and mod modal.2da for iwd1 and bg1: https://github.com/gemrb/gemrb/issues/261
+
 
 ## Components
 
