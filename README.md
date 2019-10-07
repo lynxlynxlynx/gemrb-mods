@@ -15,9 +15,3 @@ Runtime:
 * Any of the Infinity Engine games
 
 **Copy each mod you want to your game dir individually!** Weidu doesn't handle nesting well.
-
-TODO
-====
-* create a multicomponent gemrb-tweakpack for all the trivial tweaks and toggles
-* consider traifying the remaining mods
-

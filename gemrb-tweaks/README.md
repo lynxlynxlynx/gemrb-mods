@@ -7,6 +7,7 @@ Current components:
 - IWD2/HOW-style detailed combat feedback for other games
 - Wisdom-based experience modifier
 - Maximum HP on level up for BG1
+- All mage schools available to gnomes
 
 TODO: 
 - add more tweaks from http://www.gemrb.org/wiki/doku.php?id=developers:mods
@@ -34,6 +35,10 @@ NOTE: the displayed string for xp gained will not change, since it is party base
 
 ### Maximum HP on level up for BG1
 It was the only game without this setting or at least not nicely exposed.
+
+### All mage schools available to gnomes
+In the originals, they were restricted to illusionists.
+
 
 ## Installation
 
