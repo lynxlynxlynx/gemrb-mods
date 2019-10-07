@@ -8,3 +8,5 @@
 @300 = ~Maximum hitpoints per level~
 @301 = ~This component is not relevant for games other than BG1~
 @400 = ~TobEx-like concetration checks~
+@500 = ~Do not restrict Gnome mages to the Illusionist school~
+@501 = ~This component is only relevant for IWD1, BG1 and BG2~
