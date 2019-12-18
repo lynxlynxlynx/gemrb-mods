@@ -5,6 +5,7 @@
 @202 = ~2% bonus/malus per point above or below 10 WIS~
 @203 = ~3% bonus/malus per point above or below 10 WIS~
 @204 = ~4% bonus/malus per point above or below 10 WIS~
+@205 = ~10% bonus as per bg2, regardless of wisdom~
 @300 = ~Maximum hitpoints per level~
 @301 = ~This component is not relevant for games other than BG1~
 @400 = ~TobEx-like concentration checks~

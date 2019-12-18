@@ -31,6 +31,10 @@ BEGIN @204 DESIGNATED 204 //~4% bonus/malus per point above or below 10 WIS~
 SUBCOMPONENT @200
 COPY ~gemrb-tweaks/2da/wisxpbon4.2da~ ~override/wisxpbon.2da~
 
+BEGIN @205 DESIGNATED 205 //~10% bonus as per bg2, regardless of wisdom~
+SUBCOMPONENT @200
+COPY ~gemrb-tweaks/2da/wisxpbond.2da~ ~override/wisxpbon.2da~
+
 BEGIN @300 DESIGNATED 300 // maximum HP/level for BG1
 REQUIRE_PREDICATE GAME_IS ~bg1 totsc~ @301
 
