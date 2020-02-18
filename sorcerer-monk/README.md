@@ -17,7 +17,7 @@ Check where you installed GemRB (data) and mark it down.
 
 Run WeiDU as (substituting with the real path; USE THE CORRECT dir for your GAME):
 
-   weidu --search /path/to/gemrbs/datadir/unhardcoded/bg2/ sorcerer-monk/setup-sorcerer-monk.tp2
+   weidu --search /path/to/gemrbs/datadir/unhardcoded/bg2/  --search /path/to/gemrbs/datadir/unhardcoded/shared/ sorcerer-monk/setup-sorcerer-monk.tp2
 
 Alternatively, manually copy these files from unhardcoded/bg2:
   - avprefc.2da
