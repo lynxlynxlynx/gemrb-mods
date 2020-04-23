@@ -6,6 +6,7 @@ gameplay richer, different or both.
 Current components:
 - IWD2/HOW-style detailed combat feedback for other games
 - Wisdom-based experience modifier
+- 10% bonus experience as per BG2, regardless of wisdom
 - Maximum HP on level up for BG1
 - All mage schools available to gnomes
 
@@ -32,6 +33,10 @@ For example, choosing the 2% table means that a character with 5 wisdom will rec
 while a sage with 18 will receive 16% more.
 
 NOTE: the displayed string for xp gained will not change, since it is party based (same for quest xp).
+
+#### 10% bonus experience as per BG2, regardless of wisdom
+Just reinstates the player-favouring cheat the original BG2 implemented. Can
+be applied to any game.
 
 ### Maximum HP on level up for BG1
 It was the only game without this setting or at least not nicely exposed.
