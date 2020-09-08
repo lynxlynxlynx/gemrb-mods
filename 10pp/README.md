@@ -1,19 +1,17 @@
 Maximum party size extender
 ===========================
 This Weidu/perl mod will extend scripts and dialogs to also refer to player objects
-beyond player 6. It can start anywhere, BUT IS ONLY USABLE with GemRB, since the
+beyond player 6. It can start anywhere, BUT IS **ONLY USABLE with GemRB**, since the
 other engines do not support more objects.
 
 PERL IS REQUIRED and not bundled at this point. If you're on windows, look at
 https://www.perl.org/get.html (ActiveState or Strawberry)
 
-Works on GemRB **v0.8.3** or newer.
-
 Check the screenshots folder for some action shots. Or this brief video of a certain boss fight:
 https://youtu.be/0W0w_i6vNjs
 
 Forum discussion thread:
-http://gibberlings3.net/forums/index.php?showtopic=27138
+https://www.gibberlings3.net/forums/topic/27138-heard-you-like-parties/
 
 Caveats:
 - scripting wise, up to 10 member parties are supported (Player10/Player10Fill objects)
@@ -29,14 +27,14 @@ Caveats:
 Compatibility
 -------------
 Every mod should work, but since the core of the mod is a dumb robot, there
-are bound to be Exceptions (see section below).
+are bound to be [exceptions](#exceptions) (see below).
 
 Mods confirmed not to cause problems:
 * bg2
   * NPC: Haldamir, Tashia, Saradas2, Kivan, Sarah, Auren Aseph, Angelo, Fade
   * Misc: Dungeon be gone, Alternatives, Divine Remix, Item upgrade
 * Salk's gameover mod will fail, but test44 shows how to edit the file
-  * you can get most of the work by just changing one value: http://www.gemrb.org/wiki/doku.php?id=developers:mods
+  * you can get most of the work by just changing one value: https://gemrb.org/Modding.html#trivial
 
 Testing with other mods and/or finding appropriate overrides is very welcome!
 
@@ -89,7 +87,7 @@ For mod authors
 ---------------
 Check out this WeiDU extension functions to see how you can make your mod work
 flawlessly with any party size:
-http://gibberlings3.net/forums/index.php?showtopic=27535
+https://www.gibberlings3.net/forums/topic/27535-making-mods-10-party-members-aware-draft/
 
 Development
 -----------
