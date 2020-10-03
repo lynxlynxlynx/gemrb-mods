@@ -13,24 +13,16 @@ Only the english strings are currently supported, but that's easily changed - ju
 
 Installation
 ------------
-Check where you installed GemRB (data) and mark it down.
 
-Run WeiDU as (substituting with the real path; USE THE CORRECT dir for your GAME):
+**As of WeiDU version 247, you can install this mod like any other.**
+Make sure to run GemRB at least once on this install, so WeiDU will know
+where to look for files.
 
-   weidu --search /path/to/gemrbs/datadir/unhardcoded/bg2/  --search /path/to/gemrbs/datadir/unhardcoded/shared/ sorcerer-monk/setup-sorcerer-monk.tp2
+Run WeiDU from the game dir:
+```
+   weidu sorcerer-monk/setup-sorcerer-monk.tp2
 
-Alternatively, manually copy these files from unhardcoded/bg2:
-  - avprefc.2da
-  - classes.2da
-  - clskills.2da
-  - fistweap.2da
-  - qslots.2da
-  - skills.2da
-... to the "override" dir in the game dir and run WeiDU in the game directory, eg.:
-
-    WeiDU setup-sorcerer-monk.tp2
-
-TODO: in the end, package weidu, so setup-sorcerer-monk.exe can be used
+```
 
 Uninstallation
 --------------

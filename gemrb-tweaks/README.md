@@ -47,13 +47,11 @@ In the originals, they were restricted to illusionists.
 
 ## Installation
 
-**As of WeiDU version newer than 246, you can install this mod like any other.**
+**As of WeiDU version 247, you can install this mod like any other.**
 Make sure to run GemRB at least once on this install, so WeiDU will know
 where to look for files.
 
-Otherwise, check where you installed GemRB (data) and mark it down.
-
-Run WeiDU as (substituting with the real path; USE THE CORRECT dir for your GAME):
+Run WeiDU from the game dir:
 ```
-   weidu --search /path/to/gemrbs/datadir/unhardcoded/bg2/ gemrb-tweaks/gemrb-tweaks.tp2
+   weidu gemrb-tweaks/gemrb-tweaks.tp2
 ```
