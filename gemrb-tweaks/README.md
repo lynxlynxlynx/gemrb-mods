@@ -11,7 +11,7 @@ Current components:
 - All mage schools available to gnomes
 
 TODO: 
-- add more tweaks from http://www.gemrb.org/wiki/doku.php?id=developers:mods
+- add more tweaks from https://gemrb.org/Modding.html#mod-ideas
 - add strings and mod modal.2da for iwd1 and bg1: https://github.com/gemrb/gemrb/issues/261
 
 
