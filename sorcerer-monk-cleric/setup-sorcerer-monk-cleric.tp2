@@ -1,7 +1,6 @@
-BACKUP ~sorcmoncl\backup~
+BACKUP ~sorcerer-monk-cleric/backup~
 AUTHOR ~lynxlynxlynx~
-
-VERSION @0
+VERSION ~1.8~
 
 LANGUAGE ~English~ ~english~ ~sorcerer-monk-cleric/tra/english.tra~
 

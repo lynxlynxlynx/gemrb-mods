@@ -1,4 +1,4 @@
-BACKUP "weidu_external/backup/gemrb-tweaks"
+BACKUP "gemrb-tweaks/backup/gemrb-tweaks"
 SUPPORT "www.github.com/lynxlynxlynx/gemrb-mods/issues/new"
 VERSION v0.1.0
 
