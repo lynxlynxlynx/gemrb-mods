@@ -1,6 +1,6 @@
 BACKUP ~10pp/backup~
 AUTHOR ~lynx, CrevsDaak~
-VERSION "10 player parties 0.9"
+VERSION "10 player parties 0.9.1"
 
 BEGIN ~Maximum party size extender for IEScript (usable with GemRB only)~
 
