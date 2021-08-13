@@ -1,0 +1,38 @@
+BEGIN ~JAN~
+
+IF ~~ THEN BEGIN 35
+  SAY #639
+  IF ~~ THEN REPLY #42191 DO ~SetGlobalTimer("JanJoined","GLOBAL",FIFTEEN_DAYS)
+AddXPObject(Player1,1916)
+AddXPObject(Player2,1916)
+AddXPObject(Player3,1916)
+AddXPObject(Player4,1916)
+AddXPObject(Player5,1916)
+AddXPObject(Player6,1916)
+AddXPObject(Player7,1916)
+AddXPObject(Player8,1916)
+JoinParty()
+~ EXIT
+END
+
+IF ~~ THEN BEGIN 36
+  SAY #42189
+  IF ~  Global("C#IM_ImoenStays","GLOBAL",0)
+GlobalLT("chapter","GLOBAL",4)
+~ THEN REPLY #42193 DO ~SetGlobalTimer("JanJoined","GLOBAL",FIFTEEN_DAYS)
+~ GOTO 37
+  IF ~  GlobalLT("chapter","GLOBAL",4)
+~ THEN REPLY #58652 DO ~SetGlobalTimer("JanJoined","GLOBAL",FIFTEEN_DAYS)
+~ GOTO 38
+  IF ~~ THEN REPLY #42194 DO ~AddXPObject(Player1,1916)
+AddXPObject(Player2,1916)
+AddXPObject(Player3,1916)
+AddXPObject(Player4,1916)
+AddXPObject(Player5,1916)
+AddXPObject(Player6,1916)
+AddXPObject(Player7,1916)
+AddXPObject(Player8,1916)
+JoinParty()
+~ EXIT
+END
+
