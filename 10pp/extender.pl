@@ -422,8 +422,9 @@ sub extendDLG {
                 next;
             }
 
-            my @blocks = split /(~|IF)/, $trans;
+            my @blocks = split /(~|\bIF\b)/, $trans;
 #             print_r(@blocks);
+#print "|@blocks|\n";
 
             $trans = $blocks[0]; # intro WEIGHT or nothing
             shift @blocks;
