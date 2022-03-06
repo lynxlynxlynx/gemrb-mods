@@ -21,6 +21,11 @@ if (not $file) {
 	print "Missing arguments!\n";
 	exit 1;
 }
+if (-z $file) {
+	print "Skipping empty file: $file!\n";
+	exit 2;
+}
+
 if (not $temp_result) {
 	$temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
 	$preserve = 0;
