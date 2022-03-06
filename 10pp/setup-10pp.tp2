@@ -61,7 +61,7 @@ PRINT ~Fixing scripts...~
 
 COPY_EXISTING_REGEXP + GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
   COUNT_REGEXP_INSTANCES ~ 26 .*"OB~ has_player_6
-  PATCH_IF has_player_6 BEGIN
+  PATCH_IF (has_player_6 AND %SOURCE_SIZE% > 10) BEGIN
     DECOMPILE_BCS_TO_BAF
   END
 BUT_ONLY
@@ -80,7 +80,7 @@ COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
 PRINT ~Fixing dialogs...~
 COPY_EXISTING_REGEXP + GLOB ~^.*\.dlg$~ ~10pp/temp/d~
   COUNT_REGEXP_INSTANCES ~Player6~ has_player_6
-  PATCH_IF has_player_6 BEGIN
+  PATCH_IF (has_player_6 AND %SOURCE_SIZE% > 10) BEGIN
     DECOMPILE_DLG_TO_D
   END
 BUT_ONLY
