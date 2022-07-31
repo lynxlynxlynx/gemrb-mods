@@ -13,6 +13,7 @@ Current components:
 TODO: 
 - add more tweaks from https://gemrb.org/Modding.html#mod-ideas
 - add strings and mod modal.2da for iwd1 and bg1: https://github.com/gemrb/gemrb/issues/261
+- add uninjured/.../near death strings for bg1 and set them in strings.2da
 
 
 ## Components
