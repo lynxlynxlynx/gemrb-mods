@@ -1,0 +1,43 @@
+// an APPEND_COL-like function that can insert the column at any position
+DEFINE_PATCH_FUNCTION insert_column
+INT_VAR
+  firstCol = 9 // after which real column to append
+  maxCols = 10
+  prettify = 0
+STR_VAR
+  newColName = ""
+  data = ""
+  disabledVal = "0"
+BEGIN
+  // pad values by column title length
+  TEXT_SPRINT padding1 ~REPLACEME~
+  TEXT_SPRINT padding2 ~~
+  FOR (i = 0; i < STRING_LENGTH ~%newColName%~; ++i) BEGIN
+    TEXT_SPRINT padding2 ~%padding2%%padding1%~
+  END
+
+  // copy an existing column and reset it
+  COUNT_2DA_ROWS %firstCol% rows
+  FOR (row = 0; row < rows; ++row) BEGIN
+    PATCH_IF (row == 0) BEGIN
+      prevCol = firstCol - 1
+      READ_2DA_ENTRY %row% %prevCol% %maxCols% cell
+      SET_2DA_ENTRY %row% %firstCol% %maxCols% ~%cell%%padding1%%newColName%~
+    END ELSE BEGIN
+      READ_2DA_ENTRY %row% %firstCol% %maxCols% cell
+      SET_2DA_ENTRY %row% %firstCol% %maxCols% ~%cell%%padding2%%disabledVal%~
+    END
+  END
+  REPLACE_TEXTUALLY ~REPLACEME~ ~ ~
+
+  // apply changes
+  firstCol += 1
+  maxCols += 1
+  PATCH_PHP_EACH EVAL ~%data%~ AS row => level BEGIN
+    row += 1
+    SET_2DA_ENTRY %row% %firstCol% %maxCols% %level%
+  END
+  PATCH_IF (prettify != 0) BEGIN
+    PRETTY_PRINT_2DA
+  END
+END

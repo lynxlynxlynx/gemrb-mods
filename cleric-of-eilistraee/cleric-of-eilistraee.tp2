@@ -1,0 +1,72 @@
+BACKUP ~cleric-of-eilistraee/backup~
+AUTHOR ~lynxlynxlynx~
+VERSION ~1.0~
+
+LANGUAGE ~English~ ~english~ ~cleric-of-eilistraee/tra/english.tra~
+
+BEGIN ~Sword Dancer of Eilistraee kit for IWD2 under GemRB~
+
+// ******************************************
+// first all the game table changes
+
+// looking at table mentions of tempus:
+// skip abclsmod, clssrsmd, feats, skilcost since the defaults are fine
+// clasweap and thac0 are unused
+
+APPEND ~lore.2da~ ~CLERIC_EILISTRAEE 0 1~ 
+UNLESS ~CLERIC_EILISTRAEE~
+
+APPEND ~profs.2da~ ~CLERIC_EILISTRAEE 2 4~ 
+UNLESS ~CLERIC_EILISTRAEE~
+
+APPEND ~profsmax.2da~ ~CLERIC_EILISTRAEE 1~ 
+UNLESS ~CLERIC_EILISTRAEE~
+
+APPEND ~alignmnt.2da~ ~CLERIC_EILISTRAEE 1 1 0   1 1 0   1 1 0~ 
+UNLESS ~CLERIC_EILISTRAEE~
+
+APPEND ~help03.2da~ ~16 @1 @2~
+
+// add a separate clab file
+COPY ~cleric-of-eilistraee/clabcl10.2da~ ~override~
+
+// add domain spells; the map below maps rows to spell level at which to grant them
+// we need to add the column near the others, the code relies on it
+INCLUDE ~cleric-of-eilistraee/functions.tpa~
+ACTION_DEFINE_ASSOCIATIVE_ARRAY domainSpells
+BEGIN
+  1 => 9
+  3 => 2
+  8 => 8
+  10 => 7
+  22 => 5
+  23 => 1
+  31 => 5
+  37 => 3
+  47 => 3
+  49 => 6
+  59 => 1
+  65 => 7
+  74 => 8
+  94 => 2
+  101 => 6
+  110 => 4
+  119 => 4
+  143 => 9
+END
+COPY_EXISTING ~listdomn.2da~ ~override~
+  LAUNCH_PATCH_FUNCTION insert_column STR_VAR newColName = ~COE~ data = ~domainSpells~ END
+
+// TODOs: do we need to modify kitlist.2da?
+// we could add a usability bit to items for this kit, but then we'd have to edit them as well
+// completionists would fix spell descriptions to mention domain access
+
+
+// ******************************************
+// GemRB unhardcoded table changes
+
+// kit details
+APPEND ~classes.2da~ ~CLERIC_EILISTRAEE PLACEHOLDER_1 PLACEHOLDER_2 0x1000000 3 CLABCL10 SAVEPRS HPPRS 0x1000000 0 1 0 0 0 0 0 BAATNFG~
+COPY_EXISTING ~classes.2da~ ~override~
+  REPLACE ~PLACEHOLDER_1~ @1
+  REPLACE ~PLACEHOLDER_2~ @2
