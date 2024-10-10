@@ -1,11 +1,11 @@
 Maximum party size extender
 ===========================
 This Weidu/perl mod will extend scripts and dialogs to also refer to player objects
-beyond player 6. It can start anywhere, BUT IS **ONLY USABLE with GemRB**, since the
+beyond player 6. It can be installed anywhere, BUT IS **ONLY USABLE with GemRB**, since the
 other engines do not support more objects.
 
 PERL IS REQUIRED and not bundled at this point. If you're on windows, look at
-https://www.perl.org/get.html (ActiveState or Strawberry)
+https://www.perl.org/get.html (Strawberry or ActiveState)
 
 Check the screenshots folder for some action shots. Or this brief video of a certain boss fight:
 https://youtu.be/0W0w_i6vNjs
