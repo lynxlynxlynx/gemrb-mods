@@ -10,7 +10,7 @@ THEN BEGIN
 END
 
 // ensure perl is available first
-AT_NOW RC ~perl -e 'exit 29'~
+AT_NOW RC ~perl -e "exit 29"~
 ACTION_IF (%RC% != 29) THEN BEGIN
   FAIL ~Come on, read the docs, you don't have perl installed!~
 END
