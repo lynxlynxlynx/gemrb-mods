@@ -40,3 +40,4 @@ THEN
     		LoseGame() // ToBEx only
 		SetInterrupt(TRUE)
 END
+

@@ -350,7 +350,7 @@ sub writeBlock {
     my $response_half = shift;
 
     # HACK: NumInParty(6)
-    $trigger_half = $trigger_half =~ s/(NumInParty[^(]*)\(6\)/$1GT(5)/gmr;
+    $trigger_half = $trigger_half =~ s/(NumInParty)\(6\)/$1GT(5)/gmr;
     say $output_handle "IF\n" . $trigger_half . "THEN\n" . $response_half . "END\n";
 }
 
