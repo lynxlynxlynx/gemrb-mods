@@ -1,7 +1,7 @@
 Sword dancer of Eilistraee
 ==========================
 
-This mods adds a new iwd2 cleric kit (or domain) dedicated to The Dark Maiden.
+This mod adds a new iwd2 cleric kit (or domain) dedicated to The Dark Maiden.
 
 
 Installation
