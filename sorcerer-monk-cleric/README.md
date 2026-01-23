@@ -1,7 +1,7 @@
 What does this mod do?
 ======================
 
-This mods adds a new multiclass choice, sorcerer/monk/cleric. Currently dualclassing is **not** possible (see notes in the tp2 file).
+This mod adds a new multiclass choice, sorcerer/monk/cleric. Currently dualclassing is **not** possible (see notes in the tp2 file).
 
 Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps or turn undead (custom actionbar).
 
