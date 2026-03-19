@@ -10,7 +10,7 @@ THEN BEGIN
 END
 
 // ensure perl is available first
-AT_NOW RC ~perl -e "exit 29"~
+AT_NOW RC ~perl -e "exit 29"~ EXACT
 ACTION_IF (%RC% != 29) THEN BEGIN
   FAIL ~Come on, read the docs, you don't have perl installed!~
 END
@@ -74,7 +74,7 @@ BUT_ONLY
 
 OUTER_SET RC = 0
 ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*\.bcs$~ BEGIN
-  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.baf"~
+  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.baf"~ EXACT
   ACTION_IF (%RC% > 0) THEN BEGIN
     FAIL ~Oops, better check that script!~
   END
@@ -92,7 +92,7 @@ COPY_EXISTING_REGEXP + GLOB ~^.*\.dlg$~ ~10pp/temp/d~
 BUT_ONLY
 
 ACTION_BASH_FOR ~10pp/temp/d~ ~^.*\.dlg$~ BEGIN
-  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.d"~
+  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.d"~ EXACT
   ACTION_IF (%RC% > 0) THEN BEGIN
     FAIL ~Oops, better check that dialog!~
   END
