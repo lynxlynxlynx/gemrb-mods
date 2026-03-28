@@ -59,5 +59,10 @@ APPEND ~fistweap.2da~ ~21       MFIST1     MFIST1     MFIST2     MFIST2     MFIS
 // action bar setup
 APPEND ~qslots.2da~ ~SORCERER_MONK       0          3          4          2          8          9          11         12        13~
 
-// monk "thieving" skills
-APPEND_COL ~skills.2da~ ~$ $ SORCERER_MONK 10 5 -1 -1 -1 1 1 -1 -1~
+ACTION_IF FILE_EXISTS ~thiefscl.2da~ BEGIN
+  // gemrb since 0.9.5-git
+  APPEND_COL ~thiefscl.2da~ ~$ $ SORCERER_MONK 0 0 1 1 1 0 0~
+  APPEND ~thiefskl.2da~ ~SORCERER_MONK 10 5~
+ELSE
+  APPEND_COL ~skills.2da~ ~$ $ SORCERER_MONK 10 5 -1 -1 -1 1 1 -1 -1~
+END
