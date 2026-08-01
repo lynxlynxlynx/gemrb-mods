@@ -3,4 +3,5 @@
 @2 = ~SORCERER/MONK/CLERIC:
 This is a multiclass-only combination, no dualclassing possible. Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps or turn undead (custom actionbar) ...~
 @3 = ~SORCERER/MONK/CLERIC~
+@4 = ~Sorcerer/Monk/Cleric cannot be installed while Sorcerer/Monk is installed. The two legacy mods share a WeiDU backup namespace and can corrupt each other's uninstall state. Uninstall Sorcerer/Monk first.~
 

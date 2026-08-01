@@ -6,6 +6,10 @@ LANGUAGE ~English~ ~english~ ~sorcerer-monk-cleric/tra/english.tra~
 
 BEGIN ~Sorcerer/monk/cleric multiclass for gemrb~
 
+// Sorcerer/Monk uses the same historical WeiDU backup directory and component
+// number. Installing both components would make uninstall restoration unsafe.
+REQUIRE_PREDICATE !MOD_IS_INSTALLED ~sorcerer-monk/setup-sorcerer-monk.tp2~ 0 @4
+
 // ******************************************
 // first all the game table changes
 APPEND ~alignmnt.2da~ ~SORCERER_MONK_CLERIC  1       1       1       0       0       0       0       0       0~ 

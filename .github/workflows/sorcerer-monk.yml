@@ -1,0 +1,53 @@
+name: Sorcerer Monk
+
+on:
+  push:
+    paths:
+      - sorcerer-monk/**
+      - sorcerer-monk-cleric/**
+      - .github/workflows/sorcerer-monk.yml
+  pull_request:
+    paths:
+      - sorcerer-monk/**
+      - sorcerer-monk-cleric/**
+      - .github/workflows/sorcerer-monk.yml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m unittest discover -s sorcerer-monk/tests -p "test_*.py"
+      - name: Install WeiDU 251
+        run: |
+          asset_url="$(curl -fsSL https://api.github.com/repos/WeiDUorg/weidu/releases/tags/v251.00 | python -c 'import json, sys; assets = json.load(sys.stdin)["assets"]; print(next(asset["browser_download_url"] for asset in assets if "linux" in asset["name"].lower()))')"
+          curl -fsSL "$asset_url" -o /tmp/weidu.zip
+          mkdir -p /tmp/weidu
+          unzip -q /tmp/weidu.zip -d /tmp/weidu
+          weidu_bin="$(find /tmp/weidu -type f -iname weidu | head -n 1)"
+          test -n "$weidu_bin"
+          chmod +x "$weidu_bin"
+          sudo install "$weidu_bin" /usr/local/bin/weidu
+      - name: Parse TP2 files with WeiDU
+        run: |
+          for tp2 in sorcerer-monk/setup-sorcerer-monk.tp2 sorcerer-monk-cleric/setup-sorcerer-monk-cleric.tp2; do
+            set +e
+            output="$(weidu --nogame --parse-check TP2 "$tp2" 2>&1)"
+            status=$?
+            set -e
+            printf '%s\n' "$output"
+            if [ "$status" -ne 0 ] || grep -Eiq 'PARSE ERROR|FATAL ERROR|ERROR: parsing' <<<"$output"; then
+              exit 1
+            fi
+          done
+      - name: Real WeiDU install, reinstall and uninstall smoke test
+        run: python sorcerer-monk/tests/weidu_smoke.py weidu
+      - name: Real WeiDU released and split layout smoke tests
+        run: python sorcerer-monk/tests/weidu_layout_smoke.py weidu
+      - name: Real WeiDU native EE CLASSTEXT smoke tests
+        run: python sorcerer-monk/tests/weidu_native_clastext_smoke.py weidu
+      - name: Real WeiDU sibling exclusion smoke tests
+        run: python sorcerer-monk/tests/weidu_sibling_exclusion_smoke.py weidu

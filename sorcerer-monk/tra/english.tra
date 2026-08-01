@@ -1,6 +1,21 @@
-@0 = ~Sorcerer/Monk multiclass mod 1.7~
+@0 = ~Sorcerer/Monk multiclass for GemRB~
 @1 = ~sorcerer/monk~
 @2 = ~SORCERER/MONK:
-This is a multiclass-only combination, no dualclassing possible. Mage race and item restrictions, monk avatar, combined starting gear in tob, no detecting traps (custom actionbar) ...~
-@3 = ~SORCERER/MONK~
 
+A lawful multiclass combining spontaneous arcane spellcasting with a monk's unarmed combat, movement, defenses and class abilities.
+
+The class uses split multiclass progression, Sorcerer spell selection, Monk fists and Monk class abilities. It is restricted to humans and lawful alignments. Item restrictions from both Sorcerer/Mage and Monk are applied.
+
+Dual-classing is not supported.~
+@3 = ~Sorcerer/Monk~
+@4 = ~Run this game with GemRB at least once before installing. WeiDU could not find gemrb_path.txt.~
+@5 = ~This mod supports Tutu, Tutu_TotSC, BGEE, Classic Adventures, BG2, ToB, BGT, BG2EE and EET installations running through GemRB.~
+@7 = ~No compatible GemRB class slot is available. Playable class IDs must match CLSKILLS.2DA row indices and remain below 32.~
+@8 = ~A lawful spontaneous arcane caster trained in unarmed combat and monastic disciplines.~
+@9 = ~Could not determine the existing numeric class identifiers from the GemRB class tables.~
+@10 = ~Unsupported CLSKILLS.2DA layout. Expected the released or development GemRB format.~
+@12 = ~Unsupported CLASSTEXT.2DA layout. Expected the normalized GemRB or native Enhanced Edition format.~
+@13 = ~The GemRB class tables and CLSKILLS.2DA disagree about the numeric class identifier required for Sorcerer/Monk. Remove or reorder conflicting custom-class mods before installing.~
+@14 = ~Could not determine a valid Sorcerer/Monk experience cap from XPCAP.2DA.~
+@15 = ~Unsupported CLASSES.2DA layout. Expected the released combined or current split GemRB format.~
+@16 = ~Sorcerer/Monk cannot be installed while Sorcerer/Monk/Cleric is installed. The two legacy mods share a WeiDU backup namespace and can corrupt each other's uninstall state. Uninstall Sorcerer/Monk/Cleric first.~
