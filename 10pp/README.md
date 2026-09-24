@@ -1,125 +1,110 @@
-Maximum party size extender
-===========================
-This Weidu/perl mod will extend scripts and dialogs to also refer to player objects
-beyond player 6. It can be installed anywhere, BUT IS **ONLY USABLE with GemRB**, since the
-other engines do not support more objects.
+# Maximum party size extender
 
-PERL IS REQUIRED and not bundled at this point. If you're on windows, look at
-https://www.perl.org/get.html (Strawberry or ActiveState)
+This WeiDU and Perl mod extends Infinity Engine scripts and dialogs so they can address party members beyond `Player6`.
 
-Check the screenshots folder for some action shots. Or this brief video of a certain boss fight:
-https://youtu.be/0W0w_i6vNjs
+It is usable only with GemRB. The original Infinity Engine executables do not support parties larger than six members.
 
-Forum discussion thread:
-https://www.gibberlings3.net/forums/topic/27138-heard-you-like-parties/
+## Requirements
 
-Caveats:
-- scripting wise, up to 10 member parties are supported (Player10/Player10Fill objects)
-  - easily extended, if there's enough interest
-- there are no numerical keyboard shortcuts for the new portraits
-  - but you can reverse the portrait order with ctrl-e
-  - other hotkeys or right-clicking on the portraits still works though
-- inventory and other views are more constrained, so we scale down the portraits to fit
-- max party size is set through your gemrb.cfg (MaxPartySize)
-  - this means you can also put a lower than 6 hard limit on party size
+- A current GemRB build
+- Perl available through the `perl` command
+- WeiDU 252 or newer
+- For classic BG2 or ToB: the G3 BG2 Fixpack Core Fixes component
 
+On Windows, Strawberry Perl is the simplest supported option. Perl is not bundled with the mod.
 
-Compatibility
--------------
-Every mod should work, but since the core of the mod is a dumb robot, there
-are bound to be [exceptions](#exceptions) (see below).
+GemRB accepts `MaxPartySize` values from 1 through 10. Values from 1 through 6 require only a GemRB configuration change. Values from 7 through 10 also require this mod to convert game scripts and dialogs.
 
-Mods confirmed not to cause problems:
-* bg2
-  * NPC: Haldamir, Tashia, Saradas2, Kivan, Sarah, Auren Aseph, Angelo, Fade
-  * Misc: Dungeon be gone, Alternatives, Divine Remix, Item upgrade
-* Salk's gameover mod will fail, but test44 shows how to edit the file
-  * you can get most of the work by just changing one value: https://gemrb.org/Modding.html#trivial
+## Installation
 
-Testing with other mods and/or finding appropriate overrides is very welcome!
+Install this component after every other mod that adds or changes scripts or dialogs. Embedded dialog scripts are converted as well, so installing 10pp last is important.
 
-GemRB currently does no GUI extending for PST and IWD2 due to the way their windows are set up. You won't be able to see new portraits, but party joining and all the rest will work. Use ctrl-e to temporary reverse the party order if you want to click on portraits (eg. in shops).
+1. Copy the `10pp` directory into the game directory.
+2. Run WeiDU from the game directory:
 
-The party window in iwd still has only 6 slots, so you'd need to use a hack:
-- create all the characters, but export the ones above 6
-- start the game, ctrl+space to open the console
-- cc("filename") (for each .cre exported earlier)
-- ctrl+q to have them join your party
+   ```text
+   weidu 10pp/setup-10pp.tp2
+   ```
 
+3. Enter the desired maximum party size.
+4. Set the same value in the GemRB configuration:
 
-Installation
-------------
-This mod should be installed after all other script&dialog altering/adding mods!
-For bg2, the G3 Fixpack is required (Core fixes): www.gibberlings3.net/bg2fixpack/
+   ```text
+   MaxPartySize = 8
+   ```
 
-Since it also extends embedded dialog scripts, it is best to just install it last.
+The conversion can take several minutes on a large installation. Do not interrupt WeiDU while it is processing resources.
 
-The conversion process can take several minutes depending on the size of your install!
-Please be patient and DO NOT INTERRUPT execution lest you want to start from zero.
-There is only one query and then you can go plant some coffee.
+Generated unified diffs are written to the game directory's `diffs` folder. They identify every script and dialog change and should be included when reporting conversion problems.
 
-Clone the gemrb-mods repository to you computer and copy 10pp to the game dir.
+## Caveats
 
-Run WeiDU in the game directory, eg.:
+- Script objects are supported through `Player10` and `Player10Fill`.
+- The extra portraits have no numerical keyboard shortcuts.
+- `Ctrl+E` reverses portrait order and can make otherwise hidden party members accessible.
+- Some game GUIs still expose only six visible portrait slots.
+- Inventory and other portrait-heavy views have less available space with large parties.
+- Difficulty scripts based on a fixed six-person party are not automatically rebalanced.
+- Some unusual scripts and dialogs cannot be transformed safely and are intentionally skipped.
 
-    WeiDU 10pp/setup-10pp.tp2
+Known skipped resources include the Faldorn pit-fight teleporter scripts and `fguard` variants. Salk's game-over mod also needs a manual compatibility adjustment; `tests/test44` documents the expected transformation.
 
-If it breaks, remove the backup directory and add the offending file to the
-exception list in extend.pl. Rerun.
+## Compatibility
 
-If you are a modder, you can check the files in the diffs/ directory, which
-will contain all the differences for the changed files.
+The converter handles ordinary mod-added scripts and dialogs, but it is heuristic rather than a full IEScript semantic analyser. Test the resulting installation before committing to a long playthrough.
 
-Exceptions
-----------
-Some funky scripts are not handled. Presently this includes fguard.baf from
-bg2 (extra globals setting), but that file is not that important, so we don't
-ship manual overrides either.
+Historically tested BG2 NPC mods include Haldamir, Tashia, Saradas2, Kivan, Sarah, Auren Aseph, Angelo, and Fade. Historically tested miscellaneous mods include Dungeon Be Gone, Alternatives, Divine Remix, and Item Upgrade.
 
-Some difficulty scripts that check for party size are not scalable. Eg. the
-final hell fight does not spawn any extra demons for larger parties.
+Discussion and compatibility reports:
 
-Similar caveats hold for dialogs, just more often. From vanilla bg2, this
-includes the drow pit fights and challenging for the druid grove. If there
-are any problems with mod added stuff, let me know.
+- https://www.gibberlings3.net/forums/topic/27138-heard-you-like-parties/
+- https://www.gibberlings3.net/forums/topic/27535-making-mods-10-party-members-aware-draft/
 
-For mod authors
----------------
-Check out this WeiDU extension functions to see how you can make your mod work
-flawlessly with any party size:
-https://www.gibberlings3.net/forums/topic/27535-making-mods-10-party-members-aware-draft/
+## Wrapper usage
 
-Development
------------
-If you'll be extending the extender logic, use test-suite.pl and write tests
-under tests/* liberally. All other paths lead to madness and peril.
+`wrapper.pl` is the supported command-line entry point for converting one decompiled script or dialog:
 
-To add tests, just add a file and then make a copy with the desired changes,
-naming it file_expected. Dialog tests need a D after their id.
+```text
+perl 10pp/wrapper.pl INPUT_FILE PARTY_SIZE [OUTPUT_FILE]
+```
 
-Example invocations:
-  * ./test-suite.pl       # runs all tests, prints diffs for failures
-  * ./test-suite.pl -q    # runs all tests without printing diffs for failures
-  * ./test-suite.pl "someglob"   # runs specified tests
+Example:
 
-cdiff.pl is a perl version of diff used by wrapper.pl for portability. The
-wrapper is the main entry point for external use. The parameters are input baf,
-max party size and an optional output baf. Without it just the diff will be
-generated for changed files. Example:
+```text
+perl 10pp/wrapper.pl rerak06.baf 8
+```
 
-    ./wrapper.pl rerak06.baf 8
+Without an output path, the converted temporary file is removed after a unified diff is generated. Input and output paths must be different.
 
-... would extend rerak06.baf for up to 8 PCs, save the diff under
-diffs/rerak06.baf.diff and delete the temporary file.
-NOTE: do not use the same input and output file!
+## Development
 
-Special thanks
---------------
-Perl diff implementation is from Algorithm::Diff:
-http://search.cpan.org/~tyemq/Algorithm-Diff-1.1903/lib/Algorithm/Diff.pm
+Run the complete regression suite from any directory:
 
-CrevsDaak for motivation and weidu stuff.
+```text
+perl 10pp/test-suite.pl
+```
 
-Uninstallation
---------------
-Rerun weidu and choose uninstall.
+Quiet mode suppresses failure diffs:
+
+```text
+perl 10pp/test-suite.pl -q
+```
+
+Specific tests or globs can be supplied:
+
+```text
+perl 10pp/test-suite.pl test02 test4*
+```
+
+Every test input has a matching `_expected` file. Dialog tests use a `D` suffix. For transformed cases, the runner compares exact content after normalizing line endings. Known exception cases are reported as skipped. The runner exits nonzero when any executed comparison fails.
+
+`cdiff.pl` and the bundled `Algorithm::Diff` module provide portable unified diffs.
+
+## Uninstallation
+
+Rerun WeiDU and uninstall the component. Do not continue using saves with more than six party members through the original Infinity Engine executable.
+
+## Media
+
+- Screenshots are available in `10pp/screenshots`.
+- Example boss fight: https://youtu.be/0W0w_i6vNjs

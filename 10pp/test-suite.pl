@@ -1,78 +1,104 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use open qw(:encoding(UTF-8));
 
-use Cwd 'abs_path';
-use File::Basename;
+use File::Basename qw(basename);
+use File::Spec;
+use File::Temp qw(tempfile);
+use FindBin qw($Bin);
 use Term::ANSIColor qw(:constants);
 
-# FIXME: check what weidu uses; for the miscompiled cases the comments may be useful
-# but that also means that strrefs could bring in wierd chars
-use open qw< :encoding(UTF-8) >;
-
-my $dir = 'tests';
-use lib dirname(abs_path $0);
-require 'extender.pl' or die "Could not load extender functions: $!";
-
-my $QUIET = 0;
-my $TESTS_GLOB;
-foreach (@ARGV) {
-	if ($_ eq "-q") {
-		$QUIET = 1;
-		next;
-	}
-	$TESTS_GLOB .= $_;
-}
-if (not $TESTS_GLOB) {
-	$TESTS_GLOB = "$dir/*[0-9D]";
+{
+    local @INC = ($Bin, @INC);
+    my $loaded = eval q{
+        use feature qw(say);
+        require "extender.pl";
+        1;
+    };
+    die "Could not load extender functions: $@" unless $loaded;
 }
 
+my $quiet = 0;
+my @patterns;
+for my $argument (@ARGV) {
+    if ($argument eq '-q') {
+        $quiet = 1;
+        next;
+    }
+    push @patterns, $argument;
+}
 
-my @tests = glob($TESTS_GLOB);
+my $tests_dir = File::Spec->catdir($Bin, 'tests');
+@patterns = (File::Spec->catfile($tests_dir, '*[0-9D]')) unless @patterns;
 
-# run fixer over all tests and compare results
-my $temp_result = 'jkgbnmbnmhjh23gas_-_-_-_dabbnm45_67rd___-fmdsfghhg_87bhg6';
+my %seen;
+my @tests;
+for my $pattern (@patterns) {
+    my $resolved = File::Spec->file_name_is_absolute($pattern)
+        || $pattern =~ m{[\\/]}
+        ? $pattern
+        : File::Spec->catfile($tests_dir, $pattern);
+    push @tests, grep { !$seen{$_}++ } glob($resolved);
+}
+@tests = sort grep { $_ !~ /_expected$/ } @tests;
+die "No tests matched the supplied patterns\n" unless @tests;
+
+sub read_text {
+    my ($path) = @_;
+    open(my $handle, '<:encoding(UTF-8)', $path)
+        or die "Could not read $path: $!";
+    my $text = do { local $/; <$handle> };
+    close($handle) or die "Could not close $path: $!";
+    return $text;
+}
+
+sub normalize_newlines {
+    my ($text) = @_;
+    $text =~ s/\r\n?/\n/g;
+    return $text;
+}
+
 my $successes = 0;
 my $failures = 0;
-foreach my $test (sort @tests) {
-    next if ($test =~ /expected$/);
-	my $expected_file = $test . "_expected";
-	open(my $expected_handle, "<", $expected_file) or die "$expected_file does not exist or not readable!";
+for my $test (@tests) {
+    my $expected_file = $test . '_expected';
+    die "$expected_file does not exist or is not readable\n"
+        unless -f $expected_file && -r $expected_file;
 
-	my $rc = extend($test, $temp_result, 8); # tests are written with 8pp in mind
-	if ($rc eq 0) {
-		# this test needed no work
-		print "$test: ", GREEN, "SUCCESS", RESET, " (skipped)!\n";
-		$successes++;
-		next;
-	}
+    my ($result_handle, $result_file) = tempfile('10pp-test-XXXXXX', DIR => $Bin, UNLINK => 0);
+    close($result_handle) or die "Could not close $result_file: $!";
 
-	# compare contents of $result_handle and $expected_handle
-	open(my $result_handle, "<", $temp_result);
-	my $result = do { local $/; <$result_handle> };
-	my $expected = do { local $/; <$expected_handle> };
-	if (($result =~ s/\R//g) eq ($expected =~ s/\R//g)) {
-		print "$test: ", GREEN, "SUCCESS!", RESET, "\n";
-		$successes++;
-	} else {
-		print "$test: ", RED, "FAILURE!", RESET, "\n";
-		$failures++;
-		#print $result . "\n\n\n\n" . $expected;
-		if (!$QUIET) {
-			system("diff -su " . $expected_file . " " . $temp_result);
-		}
-	}
+    my $rc = extend($test, $result_file, 8);
+    if (!$rc) {
+        print basename($test), ': ', GREEN, 'SUCCESS', RESET, " (skipped)\n";
+        $successes++;
+        unlink $result_file if -e $result_file;
+        next;
+    }
 
-	close($expected_handle);
-	close($result_handle);
+    my $result = read_text($result_file);
+    my $expected = read_text($expected_file);
+
+    if (normalize_newlines($result) eq normalize_newlines($expected)) {
+        print basename($test), ': ', GREEN, 'SUCCESS', RESET, "\n";
+        $successes++;
+    } else {
+        print basename($test), ': ', RED, 'FAILURE', RESET, "\n";
+        $failures++;
+        unless ($quiet) {
+            system($^X, "-I$Bin", File::Spec->catfile($Bin, 'cdiff.pl'), '-u', $expected_file, $result_file);
+        }
+    }
+
+    unlink $result_file if -e $result_file;
 }
-unlink $temp_result or warn "Could not unlink temporary file: $!";
 
-# print summary
-if ($failures == 0) {
-	print GREEN, "ALL $successes TESTS PASSED!", RESET, "\n";
-} else {
-	$successes += $failures;
-	print RED, "SOME ($failures/$successes) TESTS FAILED!", RESET, "\n";
+my $total = $successes + $failures;
+if ($failures) {
+    print RED, "SOME TESTS FAILED ($failures/$total)", RESET, "\n";
+    exit 1;
 }
+
+print GREEN, "ALL $successes TESTS PASSED", RESET, "\n";
 exit 0;

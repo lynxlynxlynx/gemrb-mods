@@ -1,110 +1,108 @@
 BACKUP ~10pp/backup~
 AUTHOR ~lynx, CrevsDaak~
-VERSION "10 player parties 0.9.3"
+VERSION "10 player parties 0.9.4"
 
 BEGIN ~Maximum party size extender for IEScript (usable with GemRB only)~
 
 ACTION_IF (ENGINE_IS ~bg2 tob~ AND (NOT MOD_IS_INSTALLED ~setup-bg2fixpack.tp2~ ~0~))
 THEN BEGIN
-  FAIL ~For bg2, the G3 Fixpack is needed (Core fixes): www.gibberlings3.net/bg2fixpack/~
+  FAIL ~For BG2, the G3 Fixpack Core Fixes component must be installed first: https://www.gibberlings3.net/mods/fixes/bg2fixpack/~
 END
 
-// ensure perl is available first
 AT_NOW RC ~perl -e "exit 29"~ EXACT
 ACTION_IF (%RC% != 29) THEN BEGIN
-  FAIL ~Come on, read the docs, you don't have perl installed!~
+  FAIL ~Perl was not found or could not be executed. Install Perl and ensure the perl command is available in PATH.~
 END
 
-// some warnings and input
 PRINT ~
-This mod should be installed after all other script altering/adding mods!
+This mod should be installed after all other mods that add or alter scripts and dialogs.
 
-The conversion process can easily take several minutes depending on the size of your install!
-Please be patient and DO NOT INTERRUPT execution lest you want to start from zero.
-There is only one query and then you can go plant some coffee.
+The conversion process can take several minutes depending on the size of the installation.
+Do not interrupt WeiDU while scripts and dialogs are being converted.
 
 What should the new maximum party size be? [1-10]~
 ACTION_READLN ~newmax~
 OUTER_WHILE NOT(IS_AN_INT %newmax% && %newmax% > 0 && %newmax% <= 10) BEGIN
-  PRINT ~Enter a whole number between 1 and 10 silly.
+  PRINT ~Enter a whole number between 1 and 10.
 What should the new maximum party size be? [1-10]~
   ACTION_READLN ~newmax~
 END
 
-// if it is <6 then they only have to change the variable in GemRB config
 ACTION_IF (%newmax% < 7) THEN BEGIN
-  PRINT ~Good news, smaller parties require only configuration changes!
+  PRINT ~A maximum party size of %newmax% requires no script or dialog conversion.
 
-Just set MaxPartySize to %newmax% in your GemRB config file and you'll be ready to play.
-~
-  FAIL ~Nothing to change, exiting...~
-END
+Set MaxPartySize to %newmax% in the GemRB configuration file.~
+END ELSE BEGIN
+  APPEND ~object.ids~ ~90 Player7~ UNLESS ~Player7~
+  APPEND ~object.ids~ ~91 Player8~ UNLESS ~Player8~
+  APPEND ~object.ids~ ~92 Player9~ UNLESS ~Player9~
+  APPEND ~object.ids~ ~93 Player10~ UNLESS ~Player10~
+  APPEND ~object.ids~ ~94 Player7Fill~ UNLESS ~Player7Fill~
+  APPEND ~object.ids~ ~95 Player8Fill~ UNLESS ~Player8Fill~
+  APPEND ~object.ids~ ~96 Player9Fill~ UNLESS ~Player9Fill~
+  APPEND ~object.ids~ ~97 Player10Fill~ UNLESS ~Player10Fill~
 
-// extend object.ids with new scripting objects
-// NOTE: gemrb supports only up to 10 objects (an arbitrary limit until someone shows a need for more)
-APPEND ~object.ids~ ~90 Player7
-91 Player8
-92 Player9
-93 Player10
-94 Player7Fill
-95 Player8Fill
-96 Player9Fill
-97 Player10Fill~
+  MKDIR ~10pp/temp~
+  MKDIR ~10pp/temp/baf~
+  MKDIR ~10pp/temp/d~
 
-// decompile all to-be affected scripts
-MKDIR ~10pp/temp~
-MKDIR ~10pp/temp/baf~
-MKDIR ~10pp/temp/d~
-
-ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*$~ BEGIN
-  DELETE + ~%BASH_FOR_FILESPEC%~
-END
-ACTION_BASH_FOR ~10pp/temp/d~ ~^.*$~ BEGIN
-  DELETE + ~%BASH_FOR_FILESPEC%~
-END
-
-PRINT ~Fixing scripts...~
-
-COPY_EXISTING_REGEXP + GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
-  COUNT_REGEXP_INSTANCES ~ 26 .*"OB~ has_player_6
-  PATCH_IF (has_player_6 AND %SOURCE_SIZE% > 10) BEGIN
-    DECOMPILE_BCS_TO_BAF
+  ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*$~ BEGIN
+    DELETE + ~%BASH_FOR_FILESPEC%~
   END
-BUT_ONLY
-
-OUTER_SET RC = 0
-ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*\.bcs$~ BEGIN
-  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.baf"~ EXACT
-  ACTION_IF (%RC% > 0) THEN BEGIN
-    FAIL ~Oops, better check that script!~
+  ACTION_BASH_FOR ~10pp/temp/d~ ~^.*$~ BEGIN
+    DELETE + ~%BASH_FOR_FILESPEC%~
   END
+
+  PRINT ~Fixing scripts...~
+
+  COPY_EXISTING_REGEXP + GLOB ~^.*\.bcs$~ ~10pp/temp/baf~
+    COUNT_REGEXP_INSTANCES ~ 26 .*"OB~ has_player_6
+    PATCH_IF (has_player_6 AND %SOURCE_SIZE% > 10) BEGIN
+      DECOMPILE_BCS_TO_BAF
+    END
+  BUT_ONLY
+
+  OUTER_SET RC = 0
+  ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*\.bcs$~ BEGIN
+    AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.baf"~ EXACT
+    ACTION_IF (%RC% != 0) THEN BEGIN
+      FAIL ~Failed to convert script: %BASH_FOR_FILESPEC%~
+    END
+  END
+
+  COMPILE ~10pp/temp/baf~
+
+  PRINT ~Fixing dialogs...~
+
+  COPY_EXISTING_REGEXP + GLOB ~^.*\.dlg$~ ~10pp/temp/d~
+    COUNT_REGEXP_INSTANCES ~Player6~ has_player_6
+    PATCH_IF (has_player_6 AND %SOURCE_SIZE% > 10) BEGIN
+      DECOMPILE_DLG_TO_D
+    END
+  BUT_ONLY
+
+  OUTER_SET RC = 0
+  ACTION_BASH_FOR ~10pp/temp/d~ ~^.*\.dlg$~ BEGIN
+    AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.d"~ EXACT
+    ACTION_IF (%RC% != 0) THEN BEGIN
+      FAIL ~Failed to convert dialog: %BASH_FOR_FILESPEC%~
+    END
+  END
+
+  COMPILE ~10pp/temp/d~
+
+  ACTION_BASH_FOR ~10pp/temp/baf~ ~^.*$~ BEGIN
+    DELETE + ~%BASH_FOR_FILESPEC%~
+  END
+  ACTION_BASH_FOR ~10pp/temp/d~ ~^.*$~ BEGIN
+    DELETE + ~%BASH_FOR_FILESPEC%~
+  END
+
+  PRINT ~DONE!
+
+Remember to:
+* use a resolution with enough vertical space for the additional portraits
+* set MaxPartySize to %newmax% in the GemRB configuration file
+* review generated changes in the diffs directory when troubleshooting
+* see https://github.com/lynxlynxlynx/gemrb-mods/tree/master/10pp for details~
 END
-
-COMPILE ~10pp/temp/baf~ // this will create backup files... hope so at least...
-
-// fix all dialogs
-PRINT ~Fixing dialogs...~
-COPY_EXISTING_REGEXP + GLOB ~^.*\.dlg$~ ~10pp/temp/d~
-  COUNT_REGEXP_INSTANCES ~Player6~ has_player_6
-  PATCH_IF (has_player_6 AND %SOURCE_SIZE% > 10) BEGIN
-    DECOMPILE_DLG_TO_D
-  END
-BUT_ONLY
-
-ACTION_BASH_FOR ~10pp/temp/d~ ~^.*\.dlg$~ BEGIN
-  AT_NOW RC ~perl 10pp/wrapper.pl "%BASH_FOR_FILESPEC%" %newmax% "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.d"~ EXACT
-  ACTION_IF (%RC% > 0) THEN BEGIN
-    FAIL ~Oops, better check that dialog!~
-  END
-END
-
-COMPILE ~10pp/temp/d~ // this will create backup files... hope so at least...
-
-// final instructions
-PRINT ~DONE!
-
-REMEMBER to:
-* use a big enough resolution (extra space for portraits)
-* and to set MaxPartySize to %newmax% in your GemRB config file
-* more details are avaiable in the README: https://github.com/lynxlynxlynx/gemrb-mods/tree/master/10pp
-~

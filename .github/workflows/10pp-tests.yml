@@ -1,0 +1,26 @@
+name: 10pp Perl tests
+
+on:
+  push:
+    paths:
+      - '10pp/**'
+      - '.github/workflows/10pp-tests.yml'
+  pull_request:
+    paths:
+      - '10pp/**'
+      - '.github/workflows/10pp-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check wrapper syntax
+        run: perl -c 10pp/wrapper.pl
+      - name: Check test runner syntax
+        run: perl -c 10pp/test-suite.pl
+      - name: Run regression suite
+        run: perl 10pp/test-suite.pl -q
